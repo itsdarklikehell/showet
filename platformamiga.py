@@ -25,15 +25,19 @@ class PlatformAmiga(PlatformCommon):
         # Support only one for now..
         if len(dmss) > 0:
             drives = self.sort_disks(dmss)
+            emulator = emulator + [dmss[0]]
         elif len(adfs) > 0:
             drives = self.sort_disks(adfs)
+            emulator = emulator + [adfs[0]]
         elif len(adzs) > 0:
             drives = self.sort_disks(adzs)
+            emulator = emulator + [dadzs64s[0]]
         elif len(exes) > 0:
             if emulator[0] == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
-            # if emulator[0] == 'retroarch':
+            if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
+                emulator = emulator + [exes[0]]
 
             if not os.path.exists(self.datadir + "/s"):
                 os.makedirs(self.datadir + "/s")
