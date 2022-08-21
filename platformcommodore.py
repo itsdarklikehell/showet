@@ -17,13 +17,17 @@ class PlatformCommodore(PlatformCommon):
         if len(prgs) == 0:
             prgs = self.find_prg_files()
 
-        if len(d64s) == 0 and len(prgs) == 0:
-            print("Didn't find any d64 or prg files.")
+        if len(d64s) == 0 and len(t64s) == 0 and len(prgs) == 0:
+            print("Didn't find any executable files.")
             exit(-1)
 
         #emulator = ['x64']
-        emulator = ['x64']
-        emulator.append('-fullscreen')
+        # emulator = ['x64']
+        # emulator.append('-fullscreen')
+
+        emulator = ['retroarch']
+        emulator.append('-L')
+        emulator.append('vice_x64_libretro')
 
         flipfile = self.datadir + "/fliplist.vfl"
         with open(flipfile, "w") as f:
@@ -35,11 +39,17 @@ class PlatformCommodore(PlatformCommon):
 
         if len(d64s) > 0:
             d64s = self.sort_disks(d64s)
-            emulator = emulator + ['-flipname', flipfile, d64s[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d64s[0]]
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [d64s[0]]
 
         if len(t64s) > 0:
             t64s = self.sort_tapes(t64s)
-            emulator = emulator + ['-flipname', flipfile, t64s[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, t64s[0]]
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [t64s[0]]
 
         if len(prgs) > 0:
             emulator.append(prgs[0])
@@ -57,8 +67,8 @@ class PlatformCommodore(PlatformCommon):
             if size == 174848:  # All d64:s seem to be this size..
                 d64_files.append(file)
         return d64_files
-# Tries to identify t64 files by any magic necessary
 
+# Tries to identify t64 files by any magic necessary
     def find_t64_files(self):
         t64_files = []
         for file in self.prod_files:
@@ -66,3 +76,12 @@ class PlatformCommodore(PlatformCommon):
             if size == 174848:  # All t64:s seem to be this size..
                 t64_files.append(file)
         return t64_files
+
+# Tries to identify prg files by any magic necessary
+    def find_prg_files(self):
+        prg_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:  # All prg:s seem to be this size..
+                prg_files.append(file)
+        return prg_files
