@@ -16,20 +16,20 @@ class PlatformCommodore(PlatformCommon):
         if len(d64s) == 0:
             d64s = self.find_d64_files()
 
-        if len(d71s) == 0:
-            d71s = self.find_d71_files()
+        # if len(d71s) == 0:
+        #     d71s = self.find_d71_files()
 
-        if len(d80s) == 0:
-            d80s = self.find_d80_files()
+        # if len(d80s) == 0:
+        #     d80s = self.find_d80_files()
 
-        if len(d81s) == 0:
-            d81s = self.find_d81_files()
+        # if len(d81s) == 0:
+        #     d81s = self.find_d81_files()
 
-        if len(d82s) == 0:
-            d82s = self.find_d82_files()
+        # if len(d82s) == 0:
+        #     d82s = self.find_d82_files()
 
-        if len(g64s) == 0:
-            g64s = self.find_g64_files()
+        # if len(g64s) == 0:
+        #     g64s = self.find_g64_files()
 
         if len(prgs) == 0:
             prgs = self.find_prg_files()
