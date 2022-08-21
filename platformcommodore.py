@@ -21,14 +21,10 @@ class PlatformCommodore(PlatformCommon):
             print("Didn't find any executable files.")
             exit(-1)
 
-        #emulator = ['x64']
-        # emulator = ['x64']
-        # emulator.append('-fullscreen')
-
         emulator = ['retroarch']
         emulator.append('-L')
         emulator.append('vice_x64_libretro')
-        emulator.append('--fullscreen')
+        # emulator.append('--fullscreen')
 
         flipfile = self.datadir + "/fliplist.vfl"
         with open(flipfile, "w") as f:
