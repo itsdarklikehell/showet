@@ -100,7 +100,7 @@ class PlatformCommodore(PlatformCommon):
             d4ms = self.find_d4m_files()
 
         if len(d64s) == 0 and len(d71s) == 0 and len(d80s) == 0 and len(d81s) == 0 and len(d82s) == 0 and len(g64s) == 0 and len(g41s) == 0 and len(x64s) == 0 and len(taps) == 0 and len(prgs) == 0 and len(p00s) == 0 and len(crts) == 0 and len(cmds) == 0 and len(m3us) == 0 and len(vfls) == 0 and len(vsfs) == 0 and len(nibs) == 0 and len(nbzs) == 0 and len(d2ms) == 0 and len(d4ms) == 0 and len(zips) == 0 and len(gzs) == 0 and len(d6zs) == 0 and len(d7zs) == 0 and len(d8zs) == 0 and len(g4zs) == 0 and len(g6zs) == 0 and len(x6zs) == 0:
-            print("Didn't find any executable files.")
+            print("Didn't find any runable files.")
             exit(-1)
 
         emulator = ['retroarch']

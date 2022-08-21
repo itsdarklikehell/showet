@@ -7,12 +7,34 @@ class PlatformAmiga(PlatformCommon):
         adfs = self.find_files_with_extension('adf')
         adzs = self.find_files_with_extension('adz')
         dmss = self.find_files_with_extension('dms')
+        fdis = self.find_files_with_extension('fdi')
+        ipfs = self.find_files_with_extension('ipf')
+        hdfs = self.find_files_with_extension('hdf')
+        hdzs = self.find_files_with_extension('hdz')
+        lhas = self.find_files_with_extension('lha')
+        slaves = self.find_files_with_extension('slave')
+        infos = self.find_files_with_extension('info')
+        cues = self.find_files_with_extension('cue')
+        ccds = self.find_files_with_extension('ccd')
+        nrgs = self.find_files_with_extension('nrg')
+        mdss = self.find_files_with_extension('mds')
+        isos = self.find_files_with_extension('iso')
+        chds = self.find_files_with_extension('chd')
+        uaes = self.find_files_with_extension('uae')
+        m3us = self.find_files_with_extension('m3u')
+        zips = self.find_files_with_extension('zip')
+        zs = self.find_files_with_extension('7z')
+        rp9s = self.find_files_with_extension('rp9')
         exes = self.find_files_with_extension('exe')
+
         if len(exes) == 0:
             exes = self.find_magic_cookies()
 
-        if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(exes) == 0:
-            print("Didn't find any dms, adf or executable files.")
+        if len(adfs) == 0:
+            adfs = self.find_adf_files()
+
+        if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0:
+            print("Didn't find any runable files.")
             exit(-1)
 
         #emulator = ['fs-uae', '--fullscreen', '--keep_aspect']
