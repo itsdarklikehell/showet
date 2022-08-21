@@ -33,44 +33,44 @@ class PlatformAmiga(PlatformCommon):
             adfs = self.find_adf_files()
         if len(adzs) == 0:
             adzs = self.find_adz_files()
-        # if len(dmss) == 0:
-        #     dmss = self.find_dms_files()
-        # if len(fdis) == 0:
-        #     fdis = self.find_fdi_files()
-        # if len(ipfs) == 0:
-        #     ipfs = self.find_ipf_files()
-        # if len(hdfs) == 0:
-        #     hdfs = self.find_hdf_files()
-        # if len(hdzs) == 0:
-        #     hdzs = self.find_hdz_files()
-        # if len(lhas) == 0:
-        #     lhas = self.find_lha_files()
-        # if len(slaves) == 0:
-        #     slaves = self.find_slave_files()
-        # if len(infos) == 0:
-        #     infos = self.find_info_files()
-        # if len(cues) == 0:
-        #     cues = self.find_cue_files()
-        # if len(ccds) == 0:
-        #     ccds = self.find_ccd_files()
-        # if len(nrgs) == 0:
-        #     nrgs = self.find_nrg_files()
-        # if len(mdss) == 0:
-        #     mdss = self.find_mds_files()
-        # if len(isos) == 0:
-        #     isos = self.find_iso_files()
-        # if len(chds) == 0:
-        #     chds = self.find_chd_files()
-        # if len(uaes) == 0:
-        #     uaes = self.find_uae_files()
-        # if len(m3us) == 0:
-        #     m3us = self.find_m3u_files()
-        # if len(zips) == 0:
-        #     zips = self.find_zip_files()
-        # if len(zs) == 0:
-        #     zs = self.find_7z_files()
-        # if len(rp9s) == 0:
-        #     rp9s = self.find_rp9_files()
+        if len(dmss) == 0:
+            dmss = self.find_dms_files()
+        if len(fdis) == 0:
+            fdis = self.find_fdi_files()
+        if len(ipfs) == 0:
+            ipfs = self.find_ipf_files()
+        if len(hdfs) == 0:
+            hdfs = self.find_hdf_files()
+        if len(hdzs) == 0:
+            hdzs = self.find_hdz_files()
+        if len(lhas) == 0:
+            lhas = self.find_lha_files()
+        if len(slaves) == 0:
+            slaves = self.find_slave_files()
+        if len(infos) == 0:
+            infos = self.find_info_files()
+        if len(cues) == 0:
+            cues = self.find_cue_files()
+        if len(ccds) == 0:
+            ccds = self.find_ccd_files()
+        if len(nrgs) == 0:
+            nrgs = self.find_nrg_files()
+        if len(mdss) == 0:
+            mdss = self.find_mds_files()
+        if len(isos) == 0:
+            isos = self.find_iso_files()
+        if len(chds) == 0:
+            chds = self.find_chd_files()
+        if len(uaes) == 0:
+            uaes = self.find_uae_files()
+        if len(m3us) == 0:
+            m3us = self.find_m3u_files()
+        if len(zips) == 0:
+            zips = self.find_zip_files()
+        if len(zs) == 0:
+            zs = self.find_7z_files()
+        if len(rp9s) == 0:
+            rp9s = self.find_rp9_files()
         if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0:
             print("Didn't find any runable files.")
             exit(-1)
@@ -213,8 +213,8 @@ class PlatformAmiga(PlatformCommon):
                     if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
                         cookie_files.append(file)
         return cookie_files
+# Tries to identify files by any magic necessary
 
-# Tries to identify adf files by any magic necessary
     def find_adf_files(self):
         adf_files = []
         for file in self.prod_files:
@@ -223,7 +223,6 @@ class PlatformAmiga(PlatformCommon):
                 adf_files.append(file)
         return adf_files
 
-# Tries to identify adz files by any magic necessary
     def find_adz_files(self):
         adz_files = []
         for file in self.prod_files:
@@ -231,3 +230,147 @@ class PlatformAmiga(PlatformCommon):
             if size == 174848:
                 adz_files.append(file)
         return adz_files
+
+    def find_fdi_files(self):
+        fdi_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                fdi_files.append(file)
+        return fdi_files
+
+    def find_ipf_files(self):
+        ipf_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                ipf_files.append(file)
+        return ipf_files
+
+    def find_hdf_files(self):
+        hdf_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                hdf_files.append(file)
+        return hdf_files
+
+    def find_hdz_files(self):
+        hdz_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                hdz_files.append(file)
+        return hdz_files
+
+    def find_lha_files(self):
+        lha_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                lha_files.append(file)
+        return lha_files
+
+    def find_slave_files(self):
+        slave_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                slave_files.append(file)
+        return slave_files
+
+    def find_info_files(self):
+        info_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                info_files.append(file)
+        return info_files
+
+    def find_cue_files(self):
+        cue_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                cue_files.append(file)
+        return cue_files
+
+    def find_ccd_files(self):
+        ccd_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                ccd_files.append(file)
+        return ccd_files
+
+    def find_nrg_files(self):
+        nrg_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                nrg_files.append(file)
+        return nrg_files
+
+    def find_mdss_files(self):
+        mdss_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                mdss_files.append(file)
+        return mdss_files
+
+    def find_iso_files(self):
+        iso_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                iso_files.append(file)
+        return iso_files
+
+    def find_chd_files(self):
+        chd_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                chd_files.append(file)
+        return chd_files
+
+    def find_uae_files(self):
+        uae_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                uae_files.append(file)
+        return uae_files
+
+    def find_m3u_files(self):
+        m3u_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                m3u_files.append(file)
+        return m3u_files
+
+    def find_zip_files(self):
+        zip_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                zip_files.append(file)
+        return zip_files
+
+    def find_zs_files(self):
+        zs_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                zs_files.append(file)
+        return zs_files
+
+    def find_rp9s_files(self):
+        rp9s_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                rp9s_files.append(file)
+        return rp9s_files
