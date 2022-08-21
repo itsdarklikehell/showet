@@ -5,10 +5,11 @@ import os
 class PlatformCommodore(PlatformCommon):
     def run(self):
         d64s = self.find_files_with_extension('d64')
-        d64s = self.find_files_with_extension('d71')
-        d64s = self.find_files_with_extension('d80')
-        d64s = self.find_files_with_extension('d81')
-        d64s = self.find_files_with_extension('d82')
+        d71s = self.find_files_with_extension('d71')
+        d80s = self.find_files_with_extension('d80')
+        d81s = self.find_files_with_extension('d81')
+        d82s = self.find_files_with_extension('d82')
+        g64s = self.find_files_with_extension('g64')
         t64s = self.find_files_with_extension('t64')
         prgs = self.find_files_with_extension('prg')
 
