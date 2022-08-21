@@ -28,6 +28,7 @@ class PlatformCommodore(PlatformCommon):
         emulator = ['retroarch']
         emulator.append('-L')
         emulator.append('vice_x64_libretro')
+        emulator.append('--fullscreen')
 
         flipfile = self.datadir + "/fliplist.vfl"
         with open(flipfile, "w") as f:
