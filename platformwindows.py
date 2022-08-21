@@ -9,8 +9,8 @@ class PlatformWindows(PlatformCommon):
 
         exefiles = self.find_files_with_extension('exe')
 
-        if len(exefiles) == 0 and len(batfiles) == 0:
-            print("Didn't find any bat or exe files.")
+        if len(exefiles) == 0:
+            print("Didn't find any exe files.")
             exit(-1)
 
         exefile = exefiles[0]
@@ -26,7 +26,7 @@ class PlatformWindows(PlatformCommon):
         if not os.path.exists(wineprefix):
             os.makedirs(wineprefix)
             print("Creating wine prefix: " + str(wineprefix))
-            os.system('WINEARCH="win32" winecfg')
+            os.system('WINEARCH="win64" winecfg')
 
         self.run_process(['wine', exefile])
 
