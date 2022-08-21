@@ -30,8 +30,8 @@ class PlatformAmiga(PlatformCommon):
         if len(exes) == 0:
             exes = self.find_magic_cookies()
 
-        if len(adfs) == 0:
-            adfs = self.find_adf_files()
+        # if len(adfs) == 0:
+        #     adfs = self.find_adf_files()
 
         if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0:
             print("Didn't find any runable files.")
