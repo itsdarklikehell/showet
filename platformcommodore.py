@@ -14,6 +14,9 @@ class PlatformCommodore(PlatformCommon):
         if len(t64s) == 0:
             t64s = self.find_t64_files()
 
+        if len(prgs) == 0:
+            prgs = self.find_prg_files()
+
         if len(d64s) == 0 and len(prgs) == 0:
             print("Didn't find any d64 or prg files.")
             exit(-1)
