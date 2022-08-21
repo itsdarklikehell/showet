@@ -31,8 +31,8 @@ class PlatformAmiga(PlatformCommon):
             exes = self.find_magic_cookies()
         if len(adfs) == 0:
             adfs = self.find_adf_files()
-        # if len(adzs) == 0:
-        #     adzs = self.find_adz_files()
+        if len(adzs) == 0:
+            adzs = self.find_adz_files()
         # if len(dmss) == 0:
         #     dmss = self.find_dms_files()
         # if len(fdis) == 0:
@@ -120,7 +120,48 @@ class PlatformAmiga(PlatformCommon):
         if len(hdzs) > 0:
             drives = self.sort_disks(hdzs)
             emulator = emulator + [hdzs[0]]
-
+        if len(lhas) > 0:
+            drives = self.sort_disks(lhas)
+            emulator = emulator + [lhas[0]]
+        if len(slaves) > 0:
+            drives = self.sort_disks(slaves)
+            emulator = emulator + [slaves[0]]
+        if len(infos) > 0:
+            drives = self.sort_disks(infos)
+            emulator = emulator + [infos[0]]
+        if len(cues) > 0:
+            drives = self.sort_disks(cues)
+            emulator = emulator + [cues[0]]
+        if len(ccds) > 0:
+            drives = self.sort_disks(ccds)
+            emulator = emulator + [ccds[0]]
+        if len(nrgs) > 0:
+            drives = self.sort_disks(nrgs)
+            emulator = emulator + [nrgs[0]]
+        if len(mdss) > 0:
+            drives = self.sort_disks(mdss)
+            emulator = emulator + [mdss[0]]
+        if len(isos) > 0:
+            drives = self.sort_disks(isos)
+            emulator = emulator + [isos[0]]
+        if len(chds) > 0:
+            drives = self.sort_disks(chds)
+            emulator = emulator + [chds[0]]
+        if len(uaes) > 0:
+            drives = self.sort_disks(uaes)
+            emulator = emulator + [uaes[0]]
+        if len(m3us) > 0:
+            drives = self.sort_disks(m3us)
+            emulator = emulator + [m3us[0]]
+        if len(zips) > 0:
+            drives = self.sort_disks(zips)
+            emulator = emulator + [zips[0]]
+        if len(zs) > 0:
+            drives = self.sort_disks(zs)
+            emulator = emulator + [zs[0]]
+        if len(rp9s) > 0:
+            drives = self.sort_disks(rp9s)
+            emulator = emulator + [rp9s[0]]
         if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
@@ -181,3 +222,12 @@ class PlatformAmiga(PlatformCommon):
             if size == 174848:  # All adf:s seem to be this size..
                 adf_files.append(file)
         return adf_files
+
+# Tries to identify adz files by any magic necessary
+    def find_adz_files(self):
+        adz_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                adz_files.append(file)
+        return adz_files
