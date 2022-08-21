@@ -64,23 +64,8 @@ class PlatformCommodore(PlatformCommon):
             p00s = self.find_p00_files()
         if len(crts) == 0:
             crts = self.find_crt_files()
-        if len(cmds) == 0:
-
-            cmds = self.find_cmd_files()
-        if len(m3us) == 0:
-            m3us = self.find_m3u_files()
-        if len(vfls) == 0:
-            vfls = self.find_vfl_files()
-        if len(vsfs) == 0:
-            vsfs = self.find_vsf_files()
-        if len(nibs) == 0:
-            nibs = self.find_nib_files()
-        if len(nbzs) == 0:
-            nbzs = self.find_nbz_files()
-        if len(d2ms) == 0:
-            d2ms = self.find_d2m_files()
-        if len(d4ms) == 0:
-            d4ms = self.find_d4m_files()
+        if len(bins) == 0:
+            bins = self.find_bin_files()
         if len(zips) == 0:
             zips = self.find_zip_files()
         if len(gzs) == 0:
@@ -97,6 +82,23 @@ class PlatformCommodore(PlatformCommon):
             g6zs = self.find_g6z_files()
         if len(x6zs) == 0:
             x6zs = self.find_x6z_files()
+        if len(cmds) == 0:
+            cmds = self.find_cmd_files()
+        if len(m3us) == 0:
+            m3us = self.find_m3u_files()
+        if len(vfls) == 0:
+            vfls = self.find_vfl_files()
+        if len(vsfs) == 0:
+            vsfs = self.find_vsf_files()
+        if len(nibs) == 0:
+            nibs = self.find_nib_files()
+        if len(nbzs) == 0:
+            nbzs = self.find_nbz_files()
+        if len(d2ms) == 0:
+            d2ms = self.find_d2m_files()
+        if len(d4ms) == 0:
+            d4ms = self.find_d4m_files()
+
         if len(d64s) == 0 and len(d71s) == 0 and len(d80s) == 0 and len(d81s) == 0 and len(d82s) == 0 and len(g64s) == 0 and len(g41s) == 0 and len(x64s) == 0 and len(taps) == 0 and len(prgs) == 0 and len(p00s) == 0 and len(crts) == 0 and len(cmds) == 0 and len(m3us) == 0 and len(vfls) == 0 and len(vsfs) == 0 and len(nibs) == 0 and len(nbzs) == 0 and len(d2ms) == 0 and len(d4ms) == 0 and len(zips) == 0 and len(gzs) == 0 and len(d6zs) == 0 and len(d7zs) == 0 and len(d8zs) == 0 and len(g4zs) == 0 and len(g6zs) == 0 and len(x6zs) == 0:
             print("Didn't find any executable files.")
             exit(-1)
@@ -123,9 +125,35 @@ class PlatformCommodore(PlatformCommon):
                 f.write(disk + "\n")
             for disk in g41s:
                 f.write(disk + "\n")
+            for disk in x64s:
+                f.write(disk + "\n")
             for disk in t64s:
                 f.write(disk + "\n")
+            for disk in taps:
+                f.write(disk + "\n")
             for disk in prgs:
+                f.write(disk + "\n")
+            for disk in p00s:
+                f.write(disk + "\n")
+            for disk in crts:
+                f.write(disk + "\n")
+            for disk in bins:
+                f.write(disk + "\n")
+            for disk in zips:
+                f.write(disk + "\n")
+            for disk in gzs:
+                f.write(disk + "\n")
+            for disk in d6zs:
+                f.write(disk + "\n")
+            for disk in d7zs:
+                f.write(disk + "\n")
+            for disk in d8zs:
+                f.write(disk + "\n")
+            for disk in g4zs:
+                f.write(disk + "\n")
+            for disk in g6zs:
+                f.write(disk + "\n")
+            for disk in x6zs:
                 f.write(disk + "\n")
 
         if len(d64s) > 0:
@@ -184,13 +212,6 @@ class PlatformCommodore(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [x64s[0]]
 
-        if len(taps) > 0:
-            taps = self.sort_disks(taps)
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, taps[0]]
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [taps[0]]
-
         if len(t64s) > 0:
             t64s = self.sort_disks(t64s)
             if emulator[0] == 'x64':
@@ -198,9 +219,69 @@ class PlatformCommodore(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [t64s[0]]
 
+        if len(taps) > 0:
+            taps = self.sort_disks(taps)
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, taps[0]]
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [taps[0]]
+
         if len(prgs) > 0:
             emulator.append(prgs[0])
 
+        if len(p00s) > 0:
+            emulator.append(p00s[0])
+
+        if len(crts) > 0:
+            emulator.append(crts[0])
+
+        if len(bins) > 0:
+            emulator.append(bins[0])
+
+        if len(zips) > 0:
+            emulator.append(zips[0])
+
+        if len(gzs) > 0:
+            emulator.append(gzs[0])
+
+        if len(d6zs) > 0:
+            emulator.append(d6zs[0])
+
+        if len(d7zs) > 0:
+            emulator.append(d7zs[0])
+
+        if len(d8zs) > 0:
+            emulator.append(d8zs[0])
+
+        if len(g4zs) > 0:
+            emulator.append(g4zs[0])
+
+        if len(g6zs) > 0:
+            emulator.append(g6zs[0])
+
+        if len(x6zs) > 0:
+            emulator.append(x6zs[0])
+
+        if len(m3us) > 0:
+            emulator.append(m3us[0])
+
+        if len(vfls) > 0:
+            emulator.append(vfls[0])
+
+        if len(vsfs) > 0:
+            emulator.append(vsfs[0])
+
+        if len(nibs) > 0:
+            emulator.append(nibs[0])
+
+        if len(nbzs) > 0:
+            emulator.append(nbzs[0])
+
+        if len(d2ms) > 0:
+            emulator.append(d2ms[0])
+
+        if len(d4ms) > 0:
+            emulator.append(d4ms[0])
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -325,6 +406,16 @@ class PlatformCommodore(PlatformCommon):
             if size == 174848:  # All crt:s seem to be this size..
                 crt_files.append(file)
         return crt_files
+
+# Tries to identify bin files by any magic necessary
+    def find_bin_files(self):
+
+        bin_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:  # All bin:s seem to be this size..
+                bin_files.append(file)
+        return bin_files
 
 # Tries to identify cmd files by any magic necessary
     def find_cmd_files(self):
