@@ -10,6 +10,7 @@ class PlatformCommodore(PlatformCommon):
         d81s = self.find_files_with_extension('d81')
         d82s = self.find_files_with_extension('d82')
         g64s = self.find_files_with_extension('g64')
+        g41s = self.find_files_with_extension('g41')
         t64s = self.find_files_with_extension('t64')
         prgs = self.find_files_with_extension('prg')
 
@@ -30,6 +31,9 @@ class PlatformCommodore(PlatformCommon):
 
         if len(g64s) == 0:
             g64s = self.find_g64_files()
+
+        if len(g41s) == 0:
+            g41s = self.find_g41_files()
 
         if len(t64s) == 0:
             g64s = self.find_t64_files()
@@ -61,6 +65,8 @@ class PlatformCommodore(PlatformCommon):
                 f.write(disk + "\n")
             for disk in g64s:
                 f.write(disk + "\n")
+            for disk in g41s:
+                f.write(disk + "\n")
             for disk in t64s:
                 f.write(disk + "\n")
             for disk in prgs:
@@ -72,6 +78,48 @@ class PlatformCommodore(PlatformCommon):
                 emulator = emulator + ['-flipname', flipfile, d64s[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [d64s[0]]
+
+        if len(d71s) > 0:
+            d71s = self.sort_disks(d71s)
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d71s[0]]
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [d71s[0]]
+
+        if len(d80s) > 0:
+            d80s = self.sort_disks(d80s)
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d80s[0]]
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [d80s[0]]
+
+        if len(d81s) > 0:
+            d81s = self.sort_disks(d81s)
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d81s[0]]
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [d81s[0]]
+
+        if len(d82s) > 0:
+            d82s = self.sort_disks(d82s)
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d82s[0]]
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [d82s[0]]
+
+        if len(g64s) > 0:
+            g64s = self.sort_disks(g64s)
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, g64s[0]]
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [g64s[0]]
+
+        if len(g41s) > 0:
+            g41s = self.sort_disks(g41s)
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, g41s[0]]
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [g41s[0]]
 
         if len(t64s) > 0:
             t64s = self.sort_disks(t64s)
@@ -87,15 +135,6 @@ class PlatformCommodore(PlatformCommon):
 
     def supported_platforms(self):
         return ['commodore64']
-
-# # Tries to identify files by any magic necessary
-#     def find_files(self):
-#         files = []
-#         for file in self.prod_files:
-#             size = os.path.getsize(file)
-#             if size == 174848:  # All d64:s seem to be this size..
-#                 files.append(file)
-#         return files
 
 # Tries to identify d64 files by any magic necessary
     def find_d64_files(self):
@@ -150,6 +189,15 @@ class PlatformCommodore(PlatformCommon):
             if size == 174848:  # All g64:s seem to be this size..
                 g64_files.append(file)
         return g64_files
+
+# Tries to identify g41 files by any magic necessary
+    def find_g41_files(self):
+        g41_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:  # All g41:s seem to be this size..
+                g41_files.append(file)
+        return g41_files
 
 # Tries to identify t64 files by any magic necessary
     def find_t64_files(self):
