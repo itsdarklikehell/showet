@@ -31,7 +31,7 @@ class PlatformAmiga(PlatformCommon):
             emulator = emulator + [adfs[0]]
         elif len(adzs) > 0:
             drives = self.sort_disks(adzs)
-            emulator = emulator + [dadzs64s[0]]
+            emulator = emulator + [adzs[0]]
         elif len(exes) > 0:
             if emulator[0] == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
