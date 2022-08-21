@@ -4,7 +4,7 @@ import os
 
 class PlatformCommodore(PlatformCommon):
     def run(self):
-        # executables:
+        # executable file types:
         d64s = self.find_files_with_extension('d64')
         d71s = self.find_files_with_extension('d71')
         d80s = self.find_files_with_extension('d80')
@@ -18,15 +18,8 @@ class PlatformCommodore(PlatformCommon):
         prgs = self.find_files_with_extension('prg')
         p00s = self.find_files_with_extension('p00')
         crts = self.find_files_with_extension('crt')
-        cmds = self.find_files_with_extension('cmd')
-        m3us = self.find_files_with_extension('m3u')
-        vfls = self.find_files_with_extension('vfl')
-        vsfs = self.find_files_with_extension('vsf')
-        nibs = self.find_files_with_extension('nib')
-        nbzs = self.find_files_with_extension('nbz')
-        d2ms = self.find_files_with_extension('d2m')
-        d4ms = self.find_files_with_extension('d4m')
-# compressed file types:
+        # compressed file types:
+        bins = self.find_files_with_extension('bin')
         zips = self.find_files_with_extension('zip')
         gzs = self.find_files_with_extension('gz')
         d6zs = self.find_files_with_extension('d6z')
@@ -35,6 +28,15 @@ class PlatformCommodore(PlatformCommon):
         g4zs = self.find_files_with_extension('g4z')
         g6zs = self.find_files_with_extension('g6z')
         x6zs = self.find_files_with_extension('x6z')
+        # playlist file types:
+        cmds = self.find_files_with_extension('cmd')
+        m3us = self.find_files_with_extension('m3u')
+        vfls = self.find_files_with_extension('vfl')
+        vsfs = self.find_files_with_extension('vsf')
+        nibs = self.find_files_with_extension('nib')
+        nbzs = self.find_files_with_extension('nbz')
+        d2ms = self.find_files_with_extension('d2m')
+        d4ms = self.find_files_with_extension('d4m')
 
         if len(d64s) == 0:
             d64s = self.find_d64_files()
@@ -52,10 +54,10 @@ class PlatformCommodore(PlatformCommon):
             g41s = self.find_g41_files()
         if len(x64s) == 0:
             x64s = self.find_x64_files()
-        if len(taps) == 0:
-            taps = self.find_tap_files()
         if len(t64s) == 0:
             t64s = self.find_t64_files()
+        if len(taps) == 0:
+            taps = self.find_tap_files()
         if len(prgs) == 0:
             prgs = self.find_prg_files()
         if len(p00s) == 0:
@@ -63,6 +65,7 @@ class PlatformCommodore(PlatformCommon):
         if len(crts) == 0:
             crts = self.find_crt_files()
         if len(cmds) == 0:
+
             cmds = self.find_cmd_files()
         if len(m3us) == 0:
             m3us = self.find_m3u_files()
