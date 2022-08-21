@@ -19,7 +19,7 @@ class PlatformAmiga(PlatformCommon):
         emulator = ['retroarch']
         emulator.append('-L')
         emulator.append('puae_libretro')
-        emulator.append('--fullscreen')
+        # emulator.append('--fullscreen')
 
         drives = []
         # Support only one for now..
