@@ -38,91 +38,62 @@ class PlatformCommodore(PlatformCommon):
 
         if len(d64s) == 0:
             d64s = self.find_d64_files()
-
         if len(d71s) == 0:
             d71s = self.find_d71_files()
-
         if len(d80s) == 0:
             d80s = self.find_d80_files()
-
         if len(d81s) == 0:
             d81s = self.find_d81_files()
-
         if len(d82s) == 0:
             d82s = self.find_d82_files()
-
         if len(g64s) == 0:
             g64s = self.find_g64_files()
-
         if len(g41s) == 0:
             g41s = self.find_g41_files()
-
         if len(x64s) == 0:
             x64s = self.find_x64_files()
-
         if len(taps) == 0:
             taps = self.find_tap_files()
-
         if len(t64s) == 0:
             t64s = self.find_t64_files()
-
         if len(prgs) == 0:
             prgs = self.find_prg_files()
-
         if len(p00s) == 0:
             p00s = self.find_p00_files()
-
         if len(crts) == 0:
             crts = self.find_crt_files()
-
         if len(cmds) == 0:
             cmds = self.find_cmd_files()
-
         if len(m3us) == 0:
             m3us = self.find_m3u_files()
-
         if len(vfls) == 0:
             vfls = self.find_vfl_files()
-
         if len(vsfs) == 0:
             vsfs = self.find_vsf_files()
-
         if len(nibs) == 0:
             nibs = self.find_nib_files()
-
         if len(nbzs) == 0:
             nbzs = self.find_nbz_files()
-
         if len(d2ms) == 0:
             d2ms = self.find_d2m_files()
-
         if len(d4ms) == 0:
             d4ms = self.find_d4m_files()
-
         if len(zips) == 0:
             zips = self.find_zip_files()
-
         if len(gzs) == 0:
             gzs = self.find_gz_files()
-
         if len(d6zs) == 0:
             d6zs = self.find_d6z_files()
-
         if len(d7zs) == 0:
             d7zs = self.find_d7z_files()
-
         if len(d8zs) == 0:
             d8zs = self.find_d8z_files()
-
         if len(g4zs) == 0:
             g4zs = self.find_g4z_files()
-
         if len(g6zs) == 0:
             g6zs = self.find_g6z_files()
-
         if len(x6zs) == 0:
             x6zs = self.find_x6z_files()
-
         if len(d64s) == 0 and len(d71s) == 0 and len(d80s) == 0 and len(d81s) == 0 and len(d82s) == 0 and len(g64s) == 0 and len(g41s) == 0 and len(x64s) == 0 and len(taps) == 0 and len(prgs) == 0 and len(p00s) == 0 and len(crts) == 0 and len(cmds) == 0 and len(m3us) == 0 and len(vfls) == 0 and len(vsfs) == 0 and len(nibs) == 0 and len(nbzs) == 0 and len(d2ms) == 0 and len(d4ms) == 0 and len(zips) == 0 and len(gzs) == 0 and len(d6zs) == 0 and len(d7zs) == 0 and len(d8zs) == 0 and len(g4zs) == 0 and len(g6zs) == 0 and len(x6zs) == 0:
             print("Didn't find any executable files.")
             exit(-1)
