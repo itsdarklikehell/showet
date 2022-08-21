@@ -1,6 +1,7 @@
 from platformcommon import PlatformCommon
 import os
 
+
 class PlatformAmiga(PlatformCommon):
     def run(self):
         adfs = self.find_files_with_extension('adf')
@@ -13,7 +14,8 @@ class PlatformAmiga(PlatformCommon):
             print("Didn't find any dms, adf or executable files.")
             exit(-1)
 
-        fsuae_opts = ['fs-uae', '--fullscreen', '--keep_aspect']
+        #emulator = ['fs-uae', '--fullscreen', '--keep_aspect']
+        emulator = ['fs-uae', '--keep_aspect']
         drives = []
         # Support only one for now..
         if len(dmss) > 0:
@@ -21,7 +23,7 @@ class PlatformAmiga(PlatformCommon):
         elif len(adfs) > 0:
             drives = self.sort_disks(adfs)
         elif len(exes) > 0:
-            fsuae_opts.append('--hard_drive_0=.')
+            emulator.append('--hard_drive_0=.')
             if not os.path.exists(self.datadir + "/s"):
                 os.makedirs(self.datadir + "/s")
 # TODO: when find_files_with_extension works with paths relative to datadir, we can simplify this
@@ -36,19 +38,19 @@ class PlatformAmiga(PlatformCommon):
             amiga_model = 'A500'
 
         if self.prod_platform == 'amigaaga':
-            fsuae_opts.append('--fast_memory=8192')
+            emulator.append('--fast_memory=8192')
 # --chip_memory=2048
         if len(drives) > 0:
-            fsuae_opts.append('--floppy_drive_0=' + drives[0])
+            emulator.append('--floppy_drive_0=' + drives[0])
         if len(drives) > 1:
-            fsuae_opts.append('--floppy_drive_1=' + drives[1])
+            emulator.append('--floppy_drive_1=' + drives[1])
         if len(drives) > 2:
-            fsuae_opts.append('--floppy_drive_2=' + drives[2])
+            emulator.append('--floppy_drive_2=' + drives[2])
         if len(drives) > 3:
-            fsuae_opts.append('--floppy_drive_3=' + drives[3])
+            emulator.append('--floppy_drive_3=' + drives[3])
 
-        fsuae_opts.append('--amiga_model=' + amiga_model)
-        self.run_process(fsuae_opts)
+        emulator.append('--amiga_model=' + amiga_model)
+        self.run_process(emulator)
 
     def supported_platforms(self):
         return ['amigaocsecs', 'amigaaga']

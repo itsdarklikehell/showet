@@ -1,0 +1,11 @@
+be02535aca9457b4040af14e13e14e1a  usr/bin/showet
+82adb3817b304e567c86d066e07a4d62  usr/bin/showet-gui
+7c0793fbf63805e44ed80566957be418  usr/lib/python3/dist-packages/showet/platformamiga.py
+34526bde14dff4e085b5c955177822a6  usr/lib/python3/dist-packages/showet/platformcommodore.py
+cc8ddd06dd01f5927391686effa45cf8  usr/lib/python3/dist-packages/showet/platformcommon.py
+0a7d0ee7ebebcaea2254e8492ebcb17a  usr/lib/python3/dist-packages/showet/platformlinux.py
+a1651e1a87513f6b333a87c3ee08bf44  usr/lib/python3/dist-packages/showet/platformwindows.py
+e38b4d349e52074494e2a19dab375bcf  usr/lib/python3/dist-packages/showet/showet.py
+61732c3159a57f57c006c7fb4a92947a  usr/share/applications/showet-gui.desktop
+fdee84133e8e9ffa2966e17e688ba20f  usr/share/doc/showet/changelog.Debian.gz
+05520c70018cb3af0d1728da575bcb8e  usr/share/pixmaps/showet.svg

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-import urllib.request, json
+import urllib.request
+import json
 import os
 import sys
 from os.path import basename
@@ -10,13 +11,16 @@ from platformlinux import PlatformLinux
 import argparse
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
-parser.add_argument('pouetid', type=int, nargs='?', help='Pouet ID of the production to show')
-parser.add_argument('--platforms', action="store_true", help='List supported platforms and exit')
+parser.add_argument('pouetid', type=int, nargs='?',
+                    help='Pouet ID of the production to show')
+parser.add_argument('--platforms', action="store_true",
+                    help='List supported platforms and exit')
 
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformLinux(), PlatformAmiga(), PlatformCommodore(), PlatformWindows()]
+platform_runners = [PlatformLinux(), PlatformAmiga(),
+                    PlatformCommodore(), PlatformWindows()]
 
 if args.platforms:
     for r in platform_runners:
@@ -79,7 +83,8 @@ if not runner:
     exit(-1)
 
 if len(platforms) > 1:
-    print("Demo supports platform platforms ", platforms, "of which", prod_platform, "rules the most.")
+    print("Demo supports platform platforms ", platforms,
+          "of which", prod_platform, "rules the most.")
 
 print("\tName: " + data['prod']['name'])
 try:
@@ -95,7 +100,8 @@ print("\n")
 # Get necessary fields from the data
 
 prod_download_url = data['prod']['download']
-prod_download_url = prod_download_url.replace("https://files.scene.org/view", "https://files.scene.org/get")
+prod_download_url = prod_download_url.replace(
+    "https://files.scene.org/view", "https://files.scene.org/get")
 
 if os.path.exists(datadir + "/_FILES_DOWNLOADED"):
     print("File already downloaded")
@@ -118,12 +124,23 @@ else:
     # Decompress the file if needed
     if prod_download_filename.endswith(".zip"):
         print("Unzipping", prod_download_filename)
-        ret = os.system("unzip -u -d " + datadir + " " + prod_download_filename)
+        ret = os.system("unzip -u -d " + datadir +
+                        " " + prod_download_filename)
         if ret == 0:
             # Delete the original file
             os.remove(prod_download_filename)
         else:
             print("Unzipping file failed!")
+
+    if prod_download_filename.endswith(".rar"):
+        print("Unraring", prod_download_filename)
+        ret = os.system("unrar -u -d " + datadir +
+                        " " + prod_download_filename)
+        if ret == 0:
+            # Delete the original file
+            os.remove(prod_download_filename)
+        else:
+            print("Unraring file failed!")
 
     if prod_download_filename.endswith(".lha"):
         print("Extracting lha ", prod_download_filename)
@@ -137,8 +154,7 @@ else:
     if prod_download_filename.endswith(".tar.xz") \
             or prod_download_filename.endswith(".tar.gz") \
             or prod_download_filename.endswith(".tgz") \
-            or prod_download_filename.endswith(".tar_gz") \
-            :
+            or prod_download_filename.endswith(".tar_gz"):
         print("Extracting tarball ", prod_download_filename)
         ret = os.system("tar xvf " + prod_download_filename + " -C " + datadir)
         if ret == 0:
