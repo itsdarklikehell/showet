@@ -2,6 +2,7 @@ import os
 import os.path
 import subprocess
 
+
 class PlatformCommon:
     prod_files = []
 
@@ -13,9 +14,9 @@ class PlatformCommon:
 
 # TODO: Change this to be relative to datadir
     def find_files_recursively(self, path):
-        entries = [os.path.join(path,i) for i in os.listdir(path)]
+        entries = [os.path.join(path, i) for i in os.listdir(path)]
         if len(entries) == 0:
-                return
+            return
 
         for e in entries:
             if os.path.isfile(e):
@@ -33,7 +34,8 @@ class PlatformCommon:
         return None
 
     def find_files_with_extension(self, extension):
-        foundfiles = [f for f in self.prod_files if (f.lower().endswith(extension) or f.lower().endswith(extension))]
+        foundfiles = [f for f in self.prod_files if (
+            f.lower().endswith(extension) or f.lower().endswith(extension))]
         return foundfiles
 
 # Input: list of disk images, output: same list sorted by some
@@ -45,9 +47,17 @@ class PlatformCommon:
             print(sorted_list)
         return sorted_list
 
+    def sort_tapes(self, files):
+        sorted_list = sorted(files, key=lambda s: s.lower())
+        if len(sorted_list) > 1:
+            print("Guessing tape order should be:")
+            print(sorted_list)
+        return sorted_list
+
     def run_process(self, arguments):
         print("Running command: ", arguments)
-        process = subprocess.Popen(arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        process = subprocess.Popen(
+            arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         process.wait()
         retcode = process.returncode
         for line in process.stdout:
