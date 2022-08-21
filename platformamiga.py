@@ -29,70 +29,48 @@ class PlatformAmiga(PlatformCommon):
 
         if len(exes) == 0:
             exes = self.find_magic_cookies()
-
-        # if len(adfs) == 0:
-        #     adfs = self.find_adf_files()
-
+        if len(adfs) == 0:
+            adfs = self.find_adf_files()
         if len(adzs) == 0:
             adzs = self.find_adz_files()
-
         if len(dmss) == 0:
             dmss = self.find_dms_files()
-
         if len(fdis) == 0:
             fdis = self.find_fdi_files()
-
         if len(ipfs) == 0:
             ipfs = self.find_ipf_files()
-
         if len(hdfs) == 0:
             hdfs = self.find_hdf_files()
-
         if len(hdzs) == 0:
             hdzs = self.find_hdz_files()
-
         if len(lhas) == 0:
             lhas = self.find_lha_files()
-
         if len(slaves) == 0:
             slaves = self.find_slave_files()
-
         if len(infos) == 0:
             infos = self.find_info_files()
-
         if len(cues) == 0:
             cues = self.find_cue_files()
-
         if len(ccds) == 0:
             ccds = self.find_ccd_files()
-
         if len(nrgs) == 0:
             nrgs = self.find_nrg_files()
-
         if len(mdss) == 0:
             mdss = self.find_mds_files()
-
         if len(isos) == 0:
             isos = self.find_iso_files()
-
         if len(chds) == 0:
             chds = self.find_chd_files()
-
         if len(uaes) == 0:
             uaes = self.find_uae_files()
-
         if len(m3us) == 0:
             m3us = self.find_m3u_files()
-
         if len(zips) == 0:
             zips = self.find_zip_files()
-
         if len(zs) == 0:
             zs = self.find_7z_files()
-
         if len(rp9s) == 0:
             rp9s = self.find_rp9_files()
-
         if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0:
             print("Didn't find any runable files.")
             exit(-1)
@@ -105,15 +83,6 @@ class PlatformAmiga(PlatformCommon):
 
         drives = []
         # Support only one for now..
-        if len(dmss) > 0:
-            drives = self.sort_disks(dmss)
-            emulator = emulator + [dmss[0]]
-        if len(adfs) > 0:
-            drives = self.sort_disks(adfs)
-            emulator = emulator + [adfs[0]]
-        if len(adzs) > 0:
-            drives = self.sort_disks(adzs)
-            emulator = emulator + [adzs[0]]
         if len(exes) > 0:
             emulator = ['fs-uae']
             if emulator[0] == 'fs-uae':
@@ -130,6 +99,28 @@ class PlatformAmiga(PlatformCommon):
                     exename = exename[len(exename)-1]
                     f.write(exename + "\n")
                     f.close()
+        if len(dmss) > 0:
+            drives = self.sort_disks(dmss)
+            emulator = emulator + [dmss[0]]
+        if len(adfs) > 0:
+            drives = self.sort_disks(adfs)
+            emulator = emulator + [adfs[0]]
+        if len(adzs) > 0:
+            drives = self.sort_disks(adzs)
+            emulator = emulator + [adzs[0]]
+        if len(fdis) > 0:
+            drives = self.sort_disks(fdis)
+            emulator = emulator + [fdis[0]]
+        if len(ipfs) > 0:
+            drives = self.sort_disks(ipfs)
+            emulator = emulator + [ipfs[0]]
+        if len(hdfs) > 0:
+            drives = self.sort_disks(hdfs)
+            emulator = emulator + [hdfs[0]]
+        if len(hdzs) > 0:
+            drives = self.sort_disks(hdzs)
+            emulator = emulator + [hdzs[0]]
+
         if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
@@ -181,3 +172,12 @@ class PlatformAmiga(PlatformCommon):
                     if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
                         cookie_files.append(file)
         return cookie_files
+
+# Tries to identify adf files by any magic necessary
+    def find_adf_files(self):
+        adf_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:  # All adf:s seem to be this size..
+                adf_files.append(file)
+        return adf_files
