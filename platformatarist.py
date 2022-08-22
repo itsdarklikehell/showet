@@ -13,7 +13,7 @@ class PlatformAtarist(PlatformCommon):
         # playlist file types:
         ipfs = self.find_files_with_extension('ipf')
         m3us = self.find_files_with_extension('m3u')
-        vfls = self.find_files_with_extension('vfl')
+        #vfls = self.find_files_with_extension('vfl')
         vsfs = self.find_files_with_extension('vsf')
 
         if len(sts) == 0:
@@ -104,12 +104,12 @@ class PlatformAtarist(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [m3us[0]]
 
-        if len(vfls) > 0:
-            vfls = self.sort_disks(vfls)
-            if emulator[0] == 'vsf':
-                emulator = emulator + ['-flipname', flipfile, vfls[0]]
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [vfls[0]]
+        # if len(vfls) > 0:
+        #     vfls = self.sort_disks(vfls)
+        #     if emulator[0] == 'vsf':
+        #         emulator = emulator + ['-flipname', flipfile, vfls[0]]
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [vfls[0]]
 
         if len(vsfs) > 0:
             vsfs = self.sort_disks(vsfs)
@@ -160,11 +160,11 @@ class PlatformAtarist(PlatformCommon):
             m3u_files.append(file)
         return m3u_files
 
-    def find_vfl_files(self):
-        vfl_files = []
-        for file in self.prod_files:
-            vfl_files.append(file)
-        return vfl_files
+    # def find_vfl_files(self):
+    #     vfl_files = []
+    #     for file in self.prod_files:
+    #         vfl_files.append(file)
+    #     return vfl_files
 
     def find_vsf_files(self):
         vsf_files = []
