@@ -6,6 +6,7 @@ import sys
 from os.path import basename
 from platformwindows import PlatformWindows
 from platformmsdos import PlatformMsdos
+from platformmsdosgus import PlatformMsdosgus
 from platformamiga import PlatformAmiga
 from platformcommodore import PlatformCommodore
 from platformlinux import PlatformLinux
@@ -21,7 +22,7 @@ args = parser.parse_args()
 
 # In priority order
 platform_runners = [PlatformLinux(), PlatformAmiga(),
-                    PlatformCommodore(), PlatformWindows(), PlatformMsdos()]
+                    PlatformCommodore(), PlatformWindows(), PlatformMsdos(), PlatformMsdosgus()]
 
 if args.platforms:
     for r in platform_runners:
