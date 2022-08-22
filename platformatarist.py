@@ -13,7 +13,7 @@ class PlatformAtarist(PlatformCommon):
         # playlist file types:
         ipfs = self.find_files_with_extension('ipf')
         m3us = self.find_files_with_extension('m3u')
-        #vfls = self.find_files_with_extension('vfl')
+        # vfls = self.find_files_with_extension('vfl')
         vsfs = self.find_files_with_extension('vsf')
 
         if len(sts) == 0:
@@ -28,8 +28,8 @@ class PlatformAtarist(PlatformCommon):
             ipfs = self.find_ipf_files()
         if len(m3us) == 0:
             m3us = self.find_m3u_files()
-        if len(vfls) == 0:
-            vfls = self.find_vfl_files()
+        # if len(vfls) == 0:
+        #     vfls = self.find_vfl_files()
         if len(vsfs) == 0:
             vsfs = self.find_vsf_files()
 
