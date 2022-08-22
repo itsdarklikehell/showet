@@ -134,6 +134,7 @@ else:
         ret = os.system("unzip -u -d " + datadir +
                         " " + prod_download_filename)
         if ret == 0:
+            print("Removing origional file")
             # Delete the original file
             os.remove(prod_download_filename)
         else:
@@ -144,6 +145,7 @@ else:
         ret = os.system("unrar x " + datadir +
                         " " + prod_download_filename)
         if ret == 0:
+            print("Removing origional file")
             # Delete the original file
             os.remove(prod_download_filename)
         else:
@@ -153,6 +155,7 @@ else:
         print("Extracting lha ", prod_download_filename)
         ret = os.system("lha xw=" + datadir + " " + prod_download_filename)
         if ret == 0:
+            print("Removing origional file")
             # Delete the original file
             os.remove(prod_download_filename)
         else:
@@ -165,6 +168,7 @@ else:
         print("Extracting tarball ", prod_download_filename)
         ret = os.system("tar xvf " + prod_download_filename + " -C " + datadir)
         if ret == 0:
+            print("Removing origional file")
             # Delete the original file
             os.remove(prod_download_filename)
         else:
