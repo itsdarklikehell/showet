@@ -9,7 +9,7 @@ class PlatformAtarist(PlatformCommon):
         msas = self.find_files_with_extension('msa')
         # compressed file types:
         stxs = self.find_files_with_extension('stx')
-        zips = self.find_files_with_extension('zip')
+        # zips = self.find_files_with_extension('zip')
         # playlist file types:
         ipfs = self.find_files_with_extension('ipf')
         m3us = self.find_files_with_extension('m3u')
@@ -22,8 +22,8 @@ class PlatformAtarist(PlatformCommon):
             msas = self.find_msa_files()
         if len(stxs) == 0:
             stxs = self.find_stx_files()
-        if len(zips) == 0:
-            zips = self.find_zip_files()
+        # if len(zips) == 0:
+        #     zips = self.find_zip_files()
         if len(ipfs) == 0:
             ipfs = self.find_ipf_files()
         if len(m3us) == 0:
@@ -51,8 +51,8 @@ class PlatformAtarist(PlatformCommon):
                 f.write(disk + "\n")
             for disk in stxs:
                 f.write(disk + "\n")
-            for disk in zips:
-                f.write(disk + "\n")
+            # for disk in zips:
+            #     f.write(disk + "\n")
             for disk in ipfs:
                 f.write(disk + "\n")
             for disk in m3us:
@@ -83,12 +83,12 @@ class PlatformAtarist(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [stxs[0]]
 
-        if len(zips) > 0:
-            zips = self.sort_disks(zips)
-            if emulator[0] == 'vsf':
-                emulator = emulator + ['-flipname', flipfile, zips[0]]
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [zips[0]]
+        # if len(zips) > 0:
+        #     zips = self.sort_disks(zips)
+        #     if emulator[0] == 'vsf':
+        #         emulator = emulator + ['-flipname', flipfile, zips[0]]
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [zips[0]]
 
         if len(ipfs) > 0:
             ipfs = self.sort_disks(ipfs)
@@ -142,11 +142,11 @@ class PlatformAtarist(PlatformCommon):
             stx_files.append(file)
         return stx_files
 
-    def find_zip_files(self):
-        zip_files = []
-        for file in self.prod_files:
-            zip_files.append(file)
-        return zip_files
+    # def find_zip_files(self):
+    #     zip_files = []
+    #     for file in self.prod_files:
+    #         zip_files.append(file)
+    #     return zip_files
 
     def find_ipf_files(self):
         ipf_files = []
