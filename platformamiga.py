@@ -75,7 +75,7 @@ class PlatformAmiga(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        #emulator = ['fs-uae', '--fullscreen', '--keep_aspect']
+        # emulator = ['fs-uae', '--fullscreen', '--keep_aspect']
         emulator = ['retroarch']
         emulator.append('-L')
         emulator.append('puae_libretro')
@@ -214,6 +214,22 @@ class PlatformAmiga(PlatformCommon):
                         cookie_files.append(file)
         return cookie_files
 # Tries to identify files by any magic necessary
+
+    def find_exe_files(self):
+        exe_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:  # All exe:s seem to be this size..
+                exe_files.append(file)
+        return exe_files
+
+    def find_dms_files(self):
+        dms_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:  # All dms:s seem to be this size..
+                dms_files.append(file)
+        return dms_files
 
     def find_adf_files(self):
         adf_files = []
