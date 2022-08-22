@@ -4,9 +4,13 @@ import json
 import os
 import sys
 from os.path import basename
+
 from platformwindows import PlatformWindows
+# wine works fine with exes if wine has all the dlls and stuff, could use proton instead.
+
 from platformmsdos import PlatformMsdos
-from platformmsdosgus import PlatformMsdosgus
+# libretro_dosbox works with: .exe .com, .bat .conf .cue .iso .zip
+
 from platformamiga import PlatformAmiga
 # from platformnintendo import PlatformFamicom
 # from platformnintendo import PlatformSuperFamicom
@@ -27,7 +31,7 @@ args = parser.parse_args()
 
 # In priority order
 platform_runners = [PlatformAmiga(), PlatformAtarist(), PlatformCommodore(
-), PlatformWindows(), PlatformMsdosgus(), PlatformMsdos(), PlatformLinux()]
+), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:
     for r in platform_runners:

@@ -11,6 +11,7 @@ class PlatformMsdos(PlatformCommon):
         confs = self.find_files_with_extension('conf')
         cues = self.find_files_with_extension('cue')
         isos = self.find_files_with_extension('iso')
+        zips = self.find_files_with_extension('zip')
 
         if len(exes) == 0:
             exes = self.find_exe_files()
@@ -30,7 +31,10 @@ class PlatformMsdos(PlatformCommon):
         if len(isos) == 0:
             isos = self.find_iso_files()
 
-        if len(exes) == 0 and len(coms) == 0 and len(bats) == 0 and len(confs) == 0 and len(cues) == 0 and len(isos) == 0:
+        if len(zips) == 0:
+            zips = self.find_zip_files()
+
+        if len(exes) == 0 and len(coms) == 0 and len(bats) == 0 and len(confs) == 0 and len(cues) == 0 and len(isos) == 0 and len(zips) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -54,6 +58,8 @@ class PlatformMsdos(PlatformCommon):
                 f.write(disk + "\n")
             for disk in isos:
                 f.write(disk + "\n")
+            for disk in zips:
+                f.write(disk + "\n")
 
         if len(exes) > 0:
             exes = self.sort_disks(exes)
@@ -73,35 +79,32 @@ class PlatformMsdos(PlatformCommon):
         if len(isos) > 0:
             isos = self.sort_disks(isos)
             emulator = emulator + [isos[0]]
+        if len(zips) > 0:
+            zips = self.sort_disks(zips)
+            emulator = emulator + [zips[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['msdos']
+        return ['msdos', 'msdosgus']
 
 # Tries to identify files by any magic necessary
     def find_exe_files(self):
         exe_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All exe:s seem to be this size..
-                exe_files.append(file)
+            exe_files.append(file)
         return exe_files
 
     def find_com_files(self):
         com_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:
-                com_files.append(file)
+            com_files.append(file)
         return com_files
 
     def find_bat_files(self):
         bat_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:
-                bat_files.append(file)
+            bat_files.append(file)
         return bat_files
 
     def find_conf_files(self):
@@ -115,15 +118,17 @@ class PlatformMsdos(PlatformCommon):
     def find_cue_files(self):
         cue_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:
-                cue_files.append(file)
+            cue_files.append(file)
         return cue_files
 
     def find_iso_files(self):
         iso_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:
-                iso_files.append(file)
+            iso_files.append(file)
         return iso_files
+
+    def find_zip_files(self):
+        zip_files = []
+        for file in self.prod_files:
+            zip_files.append(file)
+        return zip_files
