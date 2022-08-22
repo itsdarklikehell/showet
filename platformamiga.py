@@ -110,7 +110,6 @@ class PlatformAmiga(PlatformCommon):
             emulator.append('-L')
             emulator.append('puae_libretro')
             # emulator.append('--fullscreen')
-
             drives = self.sort_disks(dmss)
             emulator = emulator + [dmss[0]]
         if len(adfs) > 0:
