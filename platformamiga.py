@@ -68,7 +68,7 @@ class PlatformAmiga(PlatformCommon):
         if len(zips) == 0:
             zips = self.find_zip_files()
         if len(zs) == 0:
-            zs = self.find_7z_files()
+            zs = self.find_zs_files()
         if len(rp9s) == 0:
             rp9s = self.find_rp9_files()
         if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0:
@@ -311,13 +311,13 @@ class PlatformAmiga(PlatformCommon):
                 nrg_files.append(file)
         return nrg_files
 
-    def find_mdss_files(self):
-        mdss_files = []
+    def find_mds_files(self):
+        mds_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size == 174848:
-                mdss_files.append(file)
-        return mdss_files
+                mds_files.append(file)
+        return mds_files
 
     def find_iso_files(self):
         iso_files = []
@@ -367,10 +367,10 @@ class PlatformAmiga(PlatformCommon):
                 zs_files.append(file)
         return zs_files
 
-    def find_rp9s_files(self):
-        rp9s_files = []
+    def find_rp9_files(self):
+        rp9_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size == 174848:
-                rp9s_files.append(file)
-        return rp9s_files
+                rp9_files.append(file)
+        return rp9_files
