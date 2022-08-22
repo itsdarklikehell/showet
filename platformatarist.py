@@ -57,8 +57,8 @@ class PlatformAtarist(PlatformCommon):
                 f.write(disk + "\n")
             for disk in m3us:
                 f.write(disk + "\n")
-            for disk in vfls:
-                f.write(disk + "\n")
+            # for disk in vfls:
+            #     f.write(disk + "\n")
             for disk in vsfs:
                 f.write(disk + "\n")
 
