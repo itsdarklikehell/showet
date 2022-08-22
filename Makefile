@@ -267,6 +267,8 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platformcommodore.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommodore.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	$(QINSTALL) /home/rizzo/showet/platformlinux.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformlinux.py
+	$(QINSTALL) /home/rizzo/showet/platformmsdos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdos.py
+	$(QINSTALL) /home/rizzo/showet/platformmsdosgus.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdosgus.py
 	$(QINSTALL) /home/rizzo/showet/platformwindows.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwindows.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
@@ -274,6 +276,8 @@ install_pymodules: FORCE
 uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwindows.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdos.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdosgus.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformlinux.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommodore.py
