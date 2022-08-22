@@ -65,7 +65,6 @@ class PlatformMsdos(PlatformCommon):
 
         if len(exes) > 0:
             exes = self.sort_disks(exes)
-            print("Found exes in %d")
             emulator = emulator + [exes[0]]
         if len(coms) > 0:
             coms = self.sort_disks(coms)
@@ -100,42 +99,47 @@ class PlatformMsdos(PlatformCommon):
         exe_files = []
         for file in self.prod_files:
             exe_files.append(file)
+            print(file)
         return exe_files
 
     def find_com_files(self):
         com_files = []
         for file in self.prod_files:
             com_files.append(file)
+            print(file)
         return com_files
 
     def find_bat_files(self):
         bat_files = []
         for file in self.prod_files:
             bat_files.append(file)
+            print(file)
         return bat_files
 
     def find_conf_files(self):
         conf_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:
-                conf_files.append(file)
+            conf_files.append(file)
+            print(file)
         return conf_files
 
     def find_cue_files(self):
         cue_files = []
         for file in self.prod_files:
             cue_files.append(file)
+            print(file)
         return cue_files
 
     def find_iso_files(self):
         iso_files = []
         for file in self.prod_files:
             iso_files.append(file)
+            print(file)
         return iso_files
 
     # def find_zip_files(self):
     #     zip_files = []
     #     for file in self.prod_files:
     #         zip_files.append(file)
+    #         print(file)
     #     return zip_files
