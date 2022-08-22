@@ -39,25 +39,25 @@ class PlatformSpectrum(PlatformCommon):
         emulator.append('fuse_libretro')
         # emulator.append('--fullscreen')
 
-        flipfile = self.datadir + "/fliplitrd.vfl"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in tzxs:
-                f.write(disk + "\n")
-            for disk in taps:
-                f.write(disk + "\n")
-            for disk in z80s:
-                f.write(disk + "\n")
-            for disk in rzxs:
-                f.write(disk + "\n")
-            for disk in scls:
-                f.write(disk + "\n")
-            for disk in trds:
-                f.write(disk + "\n")
-            for disk in dsks:
-                f.write(disk + "\n")
-            # for disk in zips:
-            #     f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplitrd.vfl"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in tzxs:
+        #         f.write(disk + "\n")
+        #     for disk in taps:
+        #         f.write(disk + "\n")
+        #     for disk in z80s:
+        #         f.write(disk + "\n")
+        #     for disk in rzxs:
+        #         f.write(disk + "\n")
+        #     for disk in scls:
+        #         f.write(disk + "\n")
+        #     for disk in trds:
+        #         f.write(disk + "\n")
+        #     for disk in dsks:
+        #         f.write(disk + "\n")
+        #     # for disk in zips:
+        #     #     f.write(disk + "\n")
 
         if len(tzxs) > 0:
             tzxs = self.sort_disks(tzxs)
