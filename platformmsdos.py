@@ -11,7 +11,7 @@ class PlatformMsdos(PlatformCommon):
         confs = self.find_files_with_extension('conf')
         cues = self.find_files_with_extension('cue')
         isos = self.find_files_with_extension('iso')
-        zips = self.find_files_with_extension('zip')
+        # zips = self.find_files_with_extension('zip')
 
         if len(exes) == 0:
             exes = self.find_exe_files()
@@ -31,8 +31,8 @@ class PlatformMsdos(PlatformCommon):
         if len(isos) == 0:
             isos = self.find_iso_files()
 
-        if len(zips) == 0:
-            zips = self.find_zip_files()
+        # if len(zips) == 0:
+        #     zips = self.find_zip_files()
 
         if len(exes) == 0 and len(coms) == 0 and len(bats) == 0 and len(confs) == 0 and len(cues) == 0 and len(isos) == 0 and len(zips) == 0:
             print("Didn't find any runable files.")
@@ -43,23 +43,23 @@ class PlatformMsdos(PlatformCommon):
         emulator.append('dosbox_core_libretro')
         # emulator.append('--fullscreen')
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in exes:
-                f.write(disk + "\n")
-            for disk in coms:
-                f.write(disk + "\n")
-            for disk in bats:
-                f.write(disk + "\n")
-            for disk in confs:
-                f.write(disk + "\n")
-            for disk in cues:
-                f.write(disk + "\n")
-            for disk in isos:
-                f.write(disk + "\n")
-            for disk in zips:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in exes:
+        #         f.write(disk + "\n")
+        #     for disk in coms:
+        #         f.write(disk + "\n")
+        #     for disk in bats:
+        #         f.write(disk + "\n")
+        #     for disk in confs:
+        #         f.write(disk + "\n")
+        #     for disk in cues:
+        #         f.write(disk + "\n")
+        #     for disk in isos:
+        #         f.write(disk + "\n")
+        #     for disk in zips:
+        #         f.write(disk + "\n")
 
         if len(exes) > 0:
             exes = self.sort_disks(exes)
@@ -79,9 +79,9 @@ class PlatformMsdos(PlatformCommon):
         if len(isos) > 0:
             isos = self.sort_disks(isos)
             emulator = emulator + [isos[0]]
-        if len(zips) > 0:
-            zips = self.sort_disks(zips)
-            emulator = emulator + [zips[0]]
+        # if len(zips) > 0:
+        #     zips = self.sort_disks(zips)
+        #     emulator = emulator + [zips[0]]
 
         self.run_process(emulator)
 
@@ -127,8 +127,8 @@ class PlatformMsdos(PlatformCommon):
             iso_files.append(file)
         return iso_files
 
-    def find_zip_files(self):
-        zip_files = []
-        for file in self.prod_files:
-            zip_files.append(file)
-        return zip_files
+    # def find_zip_files(self):
+    #     zip_files = []
+    #     for file in self.prod_files:
+    #         zip_files.append(file)
+    #     return zip_files
