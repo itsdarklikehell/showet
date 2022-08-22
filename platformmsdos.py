@@ -1,3 +1,4 @@
+from sys import exec_prefix
 from platformcommon import PlatformCommon
 import os
 
@@ -63,21 +64,27 @@ class PlatformMsdos(PlatformCommon):
 
         if len(exes) > 0:
             exes = self.sort_disks(exes)
+            print("Found 'exe' files")
             emulator = emulator + [exes[0]]
         if len(coms) > 0:
             coms = self.sort_disks(coms)
+            print("Found 'com' files")
             emulator = emulator + [coms[0]]
         if len(bats) > 0:
             bats = self.sort_disks(bats)
+            print("Found 'bat' files")
             emulator = emulator + [bats[0]]
         if len(confs) > 0:
             confs = self.sort_disks(confs)
+            print("Found 'conf' files")
             emulator = emulator + [confs[0]]
         if len(cues) > 0:
             cues = self.sort_disks(cues)
+            print("Found 'cue' files")
             emulator = emulator + [cues[0]]
         if len(isos) > 0:
             isos = self.sort_disks(isos)
+            print("Found 'iso' files")
             emulator = emulator + [isos[0]]
         # if len(zips) > 0:
         #     zips = self.sort_disks(zips)
