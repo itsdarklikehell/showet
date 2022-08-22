@@ -1,3 +1,4 @@
+from calendar import c
 from sys import exec_prefix
 from platformcommon import PlatformCommon
 import os
@@ -68,7 +69,7 @@ class PlatformMsdos(PlatformCommon):
             emulator = emulator + [exes[0]]
         if len(coms) > 0:
             coms = self.sort_disks(coms)
-            print("Found 'com' files")
+            print("Found 'com' files:" + coms)
             emulator = emulator + [coms[0]]
         if len(bats) > 0:
             bats = self.sort_disks(bats)
