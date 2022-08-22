@@ -114,7 +114,7 @@ prod_download_url = data['prod']['download']
 prod_download_url = prod_download_url.replace(
     "https://files.scene.org/view", "https://files.scene.org/get")
 
-if os.path.exists(datadir + "/"):
+if os.path.exists(datadir + "/_FILES_DOWNLOADED"):
     print("File already downloaded")
 else:
     print("Downloading prod file from " + prod_download_url + "...")
@@ -176,7 +176,7 @@ else:
         else:
             print("Extracting file failed!")
 
-    open(datadir + "/", 'a').close()
+    open(datadir + "/_FILES_DOWNLOADED", 'a').close()
 
 runner.setup(showetdir, datadir, prod_platform)
 runner.run()
