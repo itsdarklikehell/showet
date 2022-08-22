@@ -299,7 +299,7 @@ class PlatformAmiga(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['amigaocsecs', 'amigaaga']
+        return ['amigaocsecs', 'amigaaga', 'amigappcrtg']
 
 # Search demo files for amiga magic cookie (executable file)
     def find_magic_cookies(self):
