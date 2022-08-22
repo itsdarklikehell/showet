@@ -136,7 +136,7 @@ else:
 
     if prod_download_filename.endswith(".rar"):
         print("Unraring", prod_download_filename)
-        ret = os.system("unrar -u -d " + datadir +
+        ret = os.system("unrar x " + datadir +
                         " " + prod_download_filename)
         if ret == 0:
             # Delete the original file
