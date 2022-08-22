@@ -24,7 +24,7 @@ class PlatformFamicom(PlatformCommon):
 
         emulator = ['retroarch']
         emulator.append('-L')
-        emulator.append('fuse_libretro')
+        emulator.append('fceum_libretro')
         # emulator.append('--fullscreen')
 
         if len(ness) > 0:
