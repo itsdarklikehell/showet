@@ -17,22 +17,16 @@ class PlatformMsdos(PlatformCommon):
 
         if len(exes) == 0:
             exes = self.find_exe_files()
-
         if len(coms) == 0:
             coms = self.find_com_files()
-
         if len(bats) == 0:
             bats = self.find_bat_files()
-
         if len(confs) == 0:
             confs = self.find_conf_files()
-
         if len(cues) == 0:
             cues = self.find_cue_files()
-
         if len(isos) == 0:
             isos = self.find_iso_files()
-
         # if len(zips) == 0:
         #     zips = self.find_zip_files()
 
@@ -71,19 +65,15 @@ class PlatformMsdos(PlatformCommon):
             emulator = emulator + [coms[0]]
         if len(bats) > 0:
             bats = self.sort_disks(bats)
-            print("Found 'bat' files")
             emulator = emulator + [bats[0]]
         if len(confs) > 0:
             confs = self.sort_disks(confs)
-            print("Found 'conf' files")
             emulator = emulator + [confs[0]]
         if len(cues) > 0:
             cues = self.sort_disks(cues)
-            print("Found 'cue' files")
             emulator = emulator + [cues[0]]
         if len(isos) > 0:
             isos = self.sort_disks(isos)
-            print("Found 'iso' files")
             emulator = emulator + [isos[0]]
         # if len(zips) > 0:
         #     zips = self.sort_disks(zips)
@@ -99,47 +89,47 @@ class PlatformMsdos(PlatformCommon):
         exe_files = []
         for file in self.prod_files:
             exe_files.append(file)
-            print(file)
+            print(exe_files)
         return exe_files
 
     def find_com_files(self):
         com_files = []
         for file in self.prod_files:
             com_files.append(file)
-            print(file)
+            print(com_files)
         return com_files
 
     def find_bat_files(self):
         bat_files = []
         for file in self.prod_files:
             bat_files.append(file)
-            print(file)
+            print(bat_files)
         return bat_files
 
     def find_conf_files(self):
         conf_files = []
         for file in self.prod_files:
             conf_files.append(file)
-            print(file)
+            print(conf_files)
         return conf_files
 
     def find_cue_files(self):
         cue_files = []
         for file in self.prod_files:
             cue_files.append(file)
-            print(file)
+            print(cue_files)
         return cue_files
 
     def find_iso_files(self):
         iso_files = []
         for file in self.prod_files:
             iso_files.append(file)
-            print(file)
+            print(iso_files)
         return iso_files
 
     # def find_zip_files(self):
     #     zip_files = []
     #     for file in self.prod_files:
     #         zip_files.append(file)
-    #         print(file)
+    #         print(zip_files)
     #     return zip_files
