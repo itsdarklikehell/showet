@@ -121,7 +121,7 @@ class PlatformAtarist(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['atarist']
+        return ['atarist', 'atariste']
 
 # Tries to identify files by any magic necessary
     def find_st_files(self):
