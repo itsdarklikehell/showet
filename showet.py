@@ -136,31 +136,19 @@ else:
     if prod_download_filename.endswith(".zip"):
         print("Unzipping", prod_download_filename)
         ret = os.system("unzip -u -d" + datadir + " " + prod_download_filename)
-        if ret == 0:
-            print("Removing origional file")
-            # Delete the original file
-            # os.remove(prod_download_filename)
-        else:
+        if ret == 1:
             print("Unzipping file failed!")
 
     if prod_download_filename.endswith(".rar"):
         print("Unraring", prod_download_filename)
         ret = os.system("unrar x" + datadir + " " + prod_download_filename)
-        if ret == 0:
-            print("Removing origional file")
-            # Delete the original file
-            # os.remove(prod_download_filename)
-        else:
+        if ret == 1:
             print("Unraring file failed!")
 
     if prod_download_filename.endswith(".lha"):
         print("Extracting lha ", prod_download_filename)
         ret = os.system("lha xw=" + datadir + " " + prod_download_filename)
-        if ret == 0:
-            print("Removing origional file")
-            # Delete the original file
-            # os.remove(prod_download_filename)
-        else:
+        if ret == 1:
             print("Unzipping file failed!")
 
     if prod_download_filename.endswith(".tar.xz") \
@@ -169,11 +157,7 @@ else:
             or prod_download_filename.endswith(".tar_gz"):
         print("Extracting tarball ", prod_download_filename)
         ret = os.system("tar xvf " + prod_download_filename + " -C " + datadir)
-        if ret == 0:
-            print("Removing origional file")
-            # Delete the original file
-            # os.remove(prod_download_filename)
-        else:
+        if ret == 1:
             print("Extracting file failed!")
 
     open(datadir + "/_FILES_DOWNLOADED", 'a').close()
