@@ -99,7 +99,7 @@ class PlatformCommodore(PlatformCommon):
         if len(d4ms) == 0:
             d4ms = self.find_d4m_files()
 
-        if len(d64s) == 0 and len(d71s) == 0 and len(d80s) == 0 and len(d81s) == 0 and len(d82s) == 0 and len(g64s) == 0 and len(g41s) == 0 and len(x64s) == 0 and len(taps) == 0 and len(prgs) == 0 and len(p00s) == 0 and len(crts) == 0 and len(cmds) == 0 and len(m3us) == 0 and len(vfls) == 0 and len(vsfs) == 0 and len(nibs) == 0 and len(nbzs) == 0 and len(d2ms) == 0 and len(d4ms) == 0 and len(zips) == 0 and len(gzs) == 0 and len(d6zs) == 0 and len(d7zs) == 0 and len(d8zs) == 0 and len(g4zs) == 0 and len(g6zs) == 0 and len(x6zs) == 0:
+        if len(d64s) == 0 and len(d71s) == 0 and len(d80s) == 0 and len(d81s) == 0 and len(d82s) == 0 and len(g64s) == 0 and len(g41s) == 0 and len(x64s) == 0 and len(t64s) == 0 and len(taps) == 0 and len(prgs) == 0 and len(p00s) == 0 and len(crts) == 0 and len(bins) == 0 and len(zips) == 0 and len(gzs) == 0 and len(d6zs) == 0 and len(d7zs) == 0 and len(d8zs) == 0 and len(g4zs) == 0 and len(g6zs) == 0 and len(x6zs) == 0 and len(cmds) == 0 and len(m3us) == 0 and len(vfls) == 0 and len(vsfs) == 0 and len(nibs) == 0 and len(nbzs) == 0 and len(d2ms) == 0 and len(d4ms) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -158,52 +158,52 @@ class PlatformCommodore(PlatformCommon):
 
         if len(d64s) > 0:
             d64s = self.sort_disks(d64s)
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, d64s[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [d64s[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d64s[0]]
 
         if len(d71s) > 0:
             d71s = self.sort_disks(d71s)
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, d71s[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [d71s[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d71s[0]]
 
         if len(d80s) > 0:
             d80s = self.sort_disks(d80s)
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, d80s[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [d80s[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d80s[0]]
 
         if len(d81s) > 0:
             d81s = self.sort_disks(d81s)
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, d81s[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [d81s[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d81s[0]]
 
         if len(d82s) > 0:
             d82s = self.sort_disks(d82s)
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, d82s[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [d82s[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d82s[0]]
 
         if len(g64s) > 0:
             g64s = self.sort_disks(g64s)
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, g64s[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [g64s[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, g64s[0]]
 
         if len(g41s) > 0:
             g41s = self.sort_disks(g41s)
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, g41s[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [g41s[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, g41s[0]]
 
         if len(x64s) > 0:
             x64s = self.sort_disks(x64s)
@@ -221,67 +221,144 @@ class PlatformCommodore(PlatformCommon):
 
         if len(taps) > 0:
             taps = self.sort_disks(taps)
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, taps[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [taps[0]]
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, taps[0]]
 
         if len(prgs) > 0:
-            emulator.append(prgs[0])
+            prgs = self.sort_disks(prgs)
+            if emulator[0] == 'retroarch':
+                emulator.append(prgs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, prgs[0]]
 
         if len(p00s) > 0:
-            emulator.append(p00s[0])
+            p00s = self.sort_disks(p00s)
+            if emulator[0] == 'retroarch':
+                emulator.append(p00s[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, p00s[0]]
 
         if len(crts) > 0:
-            emulator.append(crts[0])
+            crts = self.sort_disks(crts)
+            if emulator[0] == 'retroarch':
+                emulator.append(crts[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, crts[0]]
 
         if len(bins) > 0:
-            emulator.append(bins[0])
+            bins = self.sort_disks(bins)
+            if emulator[0] == 'retroarch':
+                emulator.append(bins[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, bins[0]]
 
         if len(zips) > 0:
-            emulator.append(zips[0])
+            zips = self.sort_disks(zips)
+            if emulator[0] == 'retroarch':
+                emulator.append(zips[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, zips[0]]
 
         if len(gzs) > 0:
-            emulator.append(gzs[0])
+            gzs = self.sort_disks(gzs)
+            if emulator[0] == 'retroarch':
+                emulator.append(gzs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, gzs[0]]
 
         if len(d6zs) > 0:
-            emulator.append(d6zs[0])
+            d6zs = self.sort_disks(d6zs)
+            if emulator[0] == 'retroarch':
+                emulator.append(d6zs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d6zs[0]]
 
         if len(d7zs) > 0:
-            emulator.append(d7zs[0])
+            d7zs = self.sort_disks(d7zs)
+            if emulator[0] == 'retroarch':
+                emulator.append(d7zs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d7zs[0]]
 
         if len(d8zs) > 0:
-            emulator.append(d8zs[0])
+            d8zs = self.sort_disks(d8zs)
+            if emulator[0] == 'retroarch':
+                emulator.append(d8zs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d8zs[0]]
 
         if len(g4zs) > 0:
-            emulator.append(g4zs[0])
+            g4zs = self.sort_disks(g4zs)
+            if emulator[0] == 'retroarch':
+                emulator.append(g4zs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, g4zs[0]]
 
         if len(g6zs) > 0:
-            emulator.append(g6zs[0])
+            g6zs = self.sort_disks(g6zs)
+            if emulator[0] == 'retroarch':
+                emulator.append(g6zs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, g6zs[0]]
 
         if len(x6zs) > 0:
-            emulator.append(x6zs[0])
+            x6zs = self.sort_disks(x6zs)
+            if emulator[0] == 'retroarch':
+                emulator.append(x6zs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, x6zs[0]]
 
         if len(m3us) > 0:
-            emulator.append(m3us[0])
+            m3us = self.sort_disks(m3us)
+            if emulator[0] == 'retroarch':
+                emulator.append(m3us[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, m3us[0]]
 
         if len(vfls) > 0:
-            emulator.append(vfls[0])
+            vfls = self.sort_disks(vfls)
+            if emulator[0] == 'retroarch':
+                emulator.append(vfls[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, vfls[0]]
 
         if len(vsfs) > 0:
-            emulator.append(vsfs[0])
+            vsfs = self.sort_disks(vsfs)
+            if emulator[0] == 'retroarch':
+                emulator.append(vsfs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, vsfs[0]]
 
         if len(nibs) > 0:
-            emulator.append(nibs[0])
+            nibs = self.sort_disks(nibs)
+            if emulator[0] == 'retroarch':
+                emulator.append(nibs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, nibs[0]]
 
         if len(nbzs) > 0:
-            emulator.append(nbzs[0])
+            nbzs = self.sort_disks(nbzs)
+            if emulator[0] == 'retroarch':
+                emulator.append(nbzs[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, nbzs[0]]
 
         if len(d2ms) > 0:
-            emulator.append(d2ms[0])
+            d2ms = self.sort_disks(d2ms)
+            if emulator[0] == 'retroarch':
+                emulator.append(d2ms[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d2ms[0]]
 
         if len(d4ms) > 0:
-            emulator.append(d4ms[0])
+            d4ms = self.sort_disks(d4ms)
+            if emulator[0] == 'retroarch':
+                emulator.append(d4ms[0])
+            if emulator[0] == 'x64':
+                emulator = emulator + ['-flipname', flipfile, d4ms[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -291,253 +368,179 @@ class PlatformCommodore(PlatformCommon):
     def find_d64_files(self):
         d64_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All d64:s seem to be this size..
-                d64_files.append(file)
+            d64_files.append(file)
         return d64_files
 
     def find_d71_files(self):
         d71_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All 71:s seem to be this size..
-                d71_files.append(file)
+            d71_files.append(file)
         return d71_files
 
     def find_d80_files(self):
         d80_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All d80:s seem to be this size..
-                d80_files.append(file)
+            d80_files.append(file)
         return d80_files
 
     def find_d81_files(self):
         d81_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All d81:s seem to be this size..
-                d81_files.append(file)
+            d81_files.append(file)
         return d81_files
 
     def find_d82_files(self):
         d82_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All d82:s seem to be this size..
-                d82_files.append(file)
+            d82_files.append(file)
         return d82_files
 
     def find_g64_files(self):
         g64_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All g64:s seem to be this size..
-                g64_files.append(file)
+            g64_files.append(file)
         return g64_files
 
     def find_g41_files(self):
         g41_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All g41:s seem to be this size..
-                g41_files.append(file)
+            g41_files.append(file)
         return g41_files
 
     def find_x64_files(self):
         x64_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All x64:s seem to be this size..
-                x64_files.append(file)
+            x64_files.append(file)
         return x64_files
 
     def find_tap_files(self):
         tap_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All tap:s seem to be this size..
-                tap_files.append(file)
+            tap_files.append(file)
         return tap_files
 
     def find_t64_files(self):
         t64_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All t64:s seem to be this size..
-                t64_files.append(file)
+            t64_files.append(file)
         return t64_files
 
     def find_prg_files(self):
-
         prg_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All prg:s seem to be this size..
-                prg_files.append(file)
+            prg_files.append(file)
         return prg_files
 
     def find_p00_files(self):
-
         p00_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All p00:s seem to be this size..
-                p00_files.append(file)
+            p00_files.append(file)
         return p00_files
 
     def find_crt_files(self):
-
         crt_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All crt:s seem to be this size..
-                crt_files.append(file)
+            crt_files.append(file)
         return crt_files
 
     def find_bin_files(self):
-
         bin_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All bin:s seem to be this size..
-                bin_files.append(file)
+            bin_files.append(file)
         return bin_files
 
     def find_cmd_files(self):
-
         cmd_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All cmd:s seem to be this size..
-                cmd_files.append(file)
+            cmd_files.append(file)
         return cmd_files
 
     def find_m3u_files(self):
-
         m3u_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All m3u:s seem to be this size..
-                m3u_files.append(file)
+            m3u_files.append(file)
         return m3u_files
 
     def find_vfl_files(self):
-
         vfl_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All vfl:s seem to be this size..
-                vfl_files.append(file)
+            vfl_files.append(file)
         return vfl_files
 
     def find_vsf_files(self):
-
         vsf_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All vsf:s seem to be this size..
-                vsf_files.append(file)
+            vsf_files.append(file)
         return vsf_files
 
     def find_nib_files(self):
-
         nib_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All nib:s seem to be this size..
-                nib_files.append(file)
+            nib_files.append(file)
         return nib_files
 
     def find_nbz_files(self):
-
         nbz_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All nbz:s seem to be this size..
-                nbz_files.append(file)
+            nbz_files.append(file)
         return nbz_files
 
     def find_d2m_files(self):
-
         d2m_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All d2m:s seem to be this size..
-                d2m_files.append(file)
+            d2m_files.append(file)
         return d2m_files
 
     def find_d4m_files(self):
-
         d4m_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All d4m:s seem to be this size..
-                d4m_files.append(file)
+            d4m_files.append(file)
         return d4m_files
 
     def find_zip_files(self):
-
         zip_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All zip:s seem to be this size..
-                zip_files.append(file)
+            zip_files.append(file)
         return zip_files
 
     def find_gz_files(self):
-
         gz_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All gz:s seem to be this size..
-                gz_files.append(file)
+            gz_files.append(file)
         return gz_files
 
     def find_d6z_files(self):
         d6z_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All d6z:s seem to be this size..
-                d6z_files.append(file)
+            d6z_files.append(file)
         return d6z_files
 
     def find_d7z_files(self):
         d7z_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All d7z:s seem to be this size..
-                d7z_files.append(file)
+            d7z_files.append(file)
         return d7z_files
 
     def find_d8z_files(self):
         d8z_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All d8z:s seem to be this size..
-                d8z_files.append(file)
+            d8z_files.append(file)
         return d8z_files
 
     def find_g4z_files(self):
         g4z_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All g4z:s seem to be this size..
-                g4z_files.append(file)
+            g4z_files.append(file)
         return g4z_files
 
     def find_g6z_files(self):
         g6z_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All g6z:s seem to be this size..
-                g6z_files.append(file)
+            g6z_files.append(file)
         return g6z_files
 
     def find_x6z_files(self):
         x6z_files = []
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size == 174848:  # All x6z:s seem to be this size..
-                x6z_files.append(file)
+            x6z_files.append(file)
         return x6z_files

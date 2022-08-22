@@ -8,6 +8,8 @@ from platformwindows import PlatformWindows
 from platformmsdos import PlatformMsdos
 from platformmsdosgus import PlatformMsdosgus
 from platformamiga import PlatformAmiga
+from platformatarist import PlatformAtarist
+
 from platformcommodore import PlatformCommodore
 from platformlinux import PlatformLinux
 import argparse
@@ -21,7 +23,7 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmiga(),
+platform_runners = [PlatformAmiga(), PlatformAtarist(),
                     PlatformCommodore(), PlatformWindows(), PlatformMsdosgus(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:
