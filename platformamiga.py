@@ -1,3 +1,4 @@
+from cProfile import run
 from platformcommon import PlatformCommon
 import os
 
@@ -26,6 +27,7 @@ class PlatformAmiga(PlatformCommon):
         zs = self.find_files_with_extension('7z')
         rp9s = self.find_files_with_extension('rp9')
         exes = self.find_files_with_extension('exe')
+        runs = self.find_files_with_extension('run')
 
         if len(exes) == 0:
             exes = self.find_magic_cookies()
@@ -71,7 +73,11 @@ class PlatformAmiga(PlatformCommon):
             zs = self.find_zs_files()
         if len(rp9s) == 0:
             rp9s = self.find_rp9_files()
-        if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0:
+
+        if len(runs) == 0:
+            runs = self.find_run_files()
+
+        if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0 and len(runs) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -247,6 +253,14 @@ class PlatformAmiga(PlatformCommon):
             # emulator.append('--fullscreen')
             drives = self.sort_disks(rp9s)
             emulator = emulator + [rp9s[0]]
+        if len(runs) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
+            drives = self.sort_disks(runs)
+            emulator = emulator + [runs[0]]
+
         if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
@@ -475,3 +489,11 @@ class PlatformAmiga(PlatformCommon):
             if size == 174848:
                 rp9_files.append(file)
         return rp9_files
+
+    def find_run_files(self):
+        run_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size == 174848:
+                run_files.append(file)
+        return run_files
