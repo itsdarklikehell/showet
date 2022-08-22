@@ -12,7 +12,7 @@ from platformnintendo import PlatformFamicom
 from platformnintendo import PlatformSuperFamicom
 from platformnintendo import PlatformN64
 from platformatarist import PlatformAtarist
-#from platformspectrum import PlatformSpectrum
+# from platformspectrum import PlatformSpectrum (not implemented yet)
 from platformcommodore import PlatformCommodore
 from platformlinux import PlatformLinux
 import argparse
