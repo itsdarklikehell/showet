@@ -21,8 +21,8 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformLinux(), PlatformAmiga(),
-                    PlatformCommodore(), PlatformWindows(), PlatformMsdos(), PlatformMsdosgus()]
+platform_runners = [PlatformAmiga(),
+                    PlatformCommodore(), PlatformWindows(), PlatformMsdosgus(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:
     for r in platform_runners:
