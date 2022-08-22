@@ -131,23 +131,21 @@ else:
     # Decompress the file if needed
     if prod_download_filename.endswith(".zip"):
         print("Unzipping", prod_download_filename)
-        ret = os.system("unzip -u -d " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("unzip -u -d" + datadir + " " + prod_download_filename)
         if ret == 0:
             print("Removing origional file")
             # Delete the original file
-            os.remove(prod_download_filename)
+            # os.remove(prod_download_filename)
         else:
             print("Unzipping file failed!")
 
     if prod_download_filename.endswith(".rar"):
         print("Unraring", prod_download_filename)
-        ret = os.system("unrar x " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("unrar x" + datadir + " " + prod_download_filename)
         if ret == 0:
             print("Removing origional file")
             # Delete the original file
-            os.remove(prod_download_filename)
+            # os.remove(prod_download_filename)
         else:
             print("Unraring file failed!")
 
@@ -157,7 +155,7 @@ else:
         if ret == 0:
             print("Removing origional file")
             # Delete the original file
-            os.remove(prod_download_filename)
+            # os.remove(prod_download_filename)
         else:
             print("Unzipping file failed!")
 
@@ -170,7 +168,7 @@ else:
         if ret == 0:
             print("Removing origional file")
             # Delete the original file
-            os.remove(prod_download_filename)
+            # os.remove(prod_download_filename)
         else:
             print("Extracting file failed!")
 
