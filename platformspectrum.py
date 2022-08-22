@@ -39,8 +39,8 @@ class PlatformSpectrum(PlatformCommon):
         emulator.append('fuse_libretro')
         # emulator.append('--fullscreen')
 
-        flz80ile = self.datadir + "/fliplitrd.vfl"
-        with open(flz80ile, "w") as f:
+        flipfile = self.datadir + "/fliplitrd.vfl"
+        with open(flipfile, "w") as f:
             f.write("UNIT 8\n")
             for disk in tzxs:
                 f.write(disk + "\n")
