@@ -9,11 +9,9 @@ class PlatformAtarist(PlatformCommon):
         msas = self.find_files_with_extension('msa')
         # compressed file types:
         stxs = self.find_files_with_extension('stx')
-        # zips = self.find_files_with_extension('zip')
         # playlist file types:
         ipfs = self.find_files_with_extension('ipf')
         m3us = self.find_files_with_extension('m3u')
-        # vfls = self.find_files_with_extension('vfl')
         vsfs = self.find_files_with_extension('vsf')
 
         if len(sts) == 0:
@@ -22,18 +20,14 @@ class PlatformAtarist(PlatformCommon):
             msas = self.find_msa_files()
         if len(stxs) == 0:
             stxs = self.find_stx_files()
-        # if len(zips) == 0:
-        #     zips = self.find_zip_files()
         if len(ipfs) == 0:
             ipfs = self.find_ipf_files()
         if len(m3us) == 0:
             m3us = self.find_m3u_files()
-        # if len(vfls) == 0:
-        #     vfls = self.find_vfl_files()
         if len(vsfs) == 0:
             vsfs = self.find_vsf_files()
 
-        if len(sts) == 0 and len(msas) == 0 and len(stxs) == 0 and len(zips) == 0 and len(ipfs) == 0 and len(m3us) == 0 and len(vfls) == 0:
+        if len(sts) == 0 and len(msas) == 0 and len(stxs) == 0 and len(ipfs) == 0 and len(m3us) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -51,14 +45,10 @@ class PlatformAtarist(PlatformCommon):
                 f.write(disk + "\n")
             for disk in stxs:
                 f.write(disk + "\n")
-            # for disk in zips:
-            #     f.write(disk + "\n")
             for disk in ipfs:
                 f.write(disk + "\n")
             for disk in m3us:
                 f.write(disk + "\n")
-            # for disk in vfls:
-            #     f.write(disk + "\n")
             for disk in vsfs:
                 f.write(disk + "\n")
 
@@ -83,13 +73,6 @@ class PlatformAtarist(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [stxs[0]]
 
-        # if len(zips) > 0:
-        #     zips = self.sort_disks(zips)
-        #     if emulator[0] == 'vsf':
-        #         emulator = emulator + ['-flipname', flipfile, zips[0]]
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [zips[0]]
-
         if len(ipfs) > 0:
             ipfs = self.sort_disks(ipfs)
             if emulator[0] == 'vsf':
@@ -103,13 +86,6 @@ class PlatformAtarist(PlatformCommon):
                 emulator = emulator + ['-flipname', flipfile, m3us[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [m3us[0]]
-
-        # if len(vfls) > 0:
-        #     vfls = self.sort_disks(vfls)
-        #     if emulator[0] == 'vsf':
-        #         emulator = emulator + ['-flipname', flipfile, vfls[0]]
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [vfls[0]]
 
         if len(vsfs) > 0:
             vsfs = self.sort_disks(vsfs)
@@ -142,12 +118,6 @@ class PlatformAtarist(PlatformCommon):
             stx_files.append(file)
         return stx_files
 
-    # def find_zip_files(self):
-    #     zip_files = []
-    #     for file in self.prod_files:
-    #         zip_files.append(file)
-    #     return zip_files
-
     def find_ipf_files(self):
         ipf_files = []
         for file in self.prod_files:
@@ -159,12 +129,6 @@ class PlatformAtarist(PlatformCommon):
         for file in self.prod_files:
             m3u_files.append(file)
         return m3u_files
-
-    # def find_vfl_files(self):
-    #     vfl_files = []
-    #     for file in self.prod_files:
-    #         vfl_files.append(file)
-    #     return vfl_files
 
     def find_vsf_files(self):
         vsf_files = []
