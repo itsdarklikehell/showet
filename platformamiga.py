@@ -100,66 +100,151 @@ class PlatformAmiga(PlatformCommon):
                     f.write(exename + "\n")
                     f.close()
         if len(dmss) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
+
             drives = self.sort_disks(dmss)
             emulator = emulator + [dmss[0]]
         if len(adfs) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(adfs)
             emulator = emulator + [adfs[0]]
         if len(adzs) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(adzs)
             emulator = emulator + [adzs[0]]
         if len(fdis) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(fdis)
             emulator = emulator + [fdis[0]]
         if len(ipfs) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(ipfs)
             emulator = emulator + [ipfs[0]]
         if len(hdfs) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(hdfs)
             emulator = emulator + [hdfs[0]]
         if len(hdzs) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(hdzs)
             emulator = emulator + [hdzs[0]]
         if len(lhas) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(lhas)
             emulator = emulator + [lhas[0]]
         if len(slaves) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(slaves)
             emulator = emulator + [slaves[0]]
         if len(infos) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(infos)
             emulator = emulator + [infos[0]]
         if len(cues) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(cues)
             emulator = emulator + [cues[0]]
         if len(ccds) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(ccds)
             emulator = emulator + [ccds[0]]
         if len(nrgs) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(nrgs)
             emulator = emulator + [nrgs[0]]
         if len(mdss) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(mdss)
             emulator = emulator + [mdss[0]]
         if len(isos) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(isos)
             emulator = emulator + [isos[0]]
         if len(chds) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(chds)
             emulator = emulator + [chds[0]]
         if len(uaes) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(uaes)
             emulator = emulator + [uaes[0]]
         if len(m3us) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(m3us)
             emulator = emulator + [m3us[0]]
         if len(zips) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(zips)
             emulator = emulator + [zips[0]]
         if len(zs) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(zs)
             emulator = emulator + [zs[0]]
         if len(rp9s) > 0:
+            emulator = ['retroarch']
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            # emulator.append('--fullscreen')
             drives = self.sort_disks(rp9s)
             emulator = emulator + [rp9s[0]]
         if emulator[0] == 'fs-uae':
