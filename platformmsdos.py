@@ -64,7 +64,7 @@ class PlatformMsdos(PlatformCommon):
 
         if len(exes) > 0:
             exes = self.sort_disks(exes)
-            print("Found 'exe' files")
+            print("Found 'exe' files:" + exes)
             emulator = emulator + [exes[0]]
         if len(coms) > 0:
             coms = self.sort_disks(coms)
