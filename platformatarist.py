@@ -38,70 +38,70 @@ class PlatformAtarist(PlatformCommon):
         emulator.append('hatari_libretro')
         # emulator.append('--fullscreen')
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in sts:
-                f.write(disk + "\n")
-            for disk in msas:
-                f.write(disk + "\n")
-            for disk in stxs:
-                f.write(disk + "\n")
-            for disk in ipfs:
-                f.write(disk + "\n")
-            for disk in m3us:
-                f.write(disk + "\n")
-            for disk in vsfs:
-                f.write(disk + "\n")
-            for disk in zips:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in sts:
+        #         f.write(disk + "\n")
+        #     for disk in msas:
+        #         f.write(disk + "\n")
+        #     for disk in stxs:
+        #         f.write(disk + "\n")
+        #     for disk in ipfs:
+        #         f.write(disk + "\n")
+        #     for disk in m3us:
+        #         f.write(disk + "\n")
+        #     for disk in vsfs:
+        #         f.write(disk + "\n")
+        #     for disk in zips:
+        #         f.write(disk + "\n")
 
         if len(sts) > 0:
             sts = self.sort_disks(sts)
-            if emulator[0] == 'vsf':
-                emulator = emulator + ['-flipname', flipfile, sts[0]]
+            # if emulator[0] == 'vsf':
+            #     emulator = emulator + ['-flipname', flipfile, sts[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [sts[0]]
 
         if len(msas) > 0:
             msas = self.sort_disks(msas)
-            if emulator[0] == 'vsf':
-                emulator = emulator + ['-flipname', flipfile, msas[0]]
+            # if emulator[0] == 'vsf':
+            #     emulator = emulator + ['-flipname', flipfile, msas[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [msas[0]]
 
         if len(stxs) > 0:
             stxs = self.sort_disks(stxs)
-            if emulator[0] == 'vsf':
-                emulator = emulator + ['-flipname', flipfile, stxs[0]]
+            # if emulator[0] == 'vsf':
+            #     emulator = emulator + ['-flipname', flipfile, stxs[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [stxs[0]]
 
         if len(ipfs) > 0:
             ipfs = self.sort_disks(ipfs)
-            if emulator[0] == 'vsf':
-                emulator = emulator + ['-flipname', flipfile, ipfs[0]]
+            # if emulator[0] == 'vsf':
+            #     emulator = emulator + ['-flipname', flipfile, ipfs[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [ipfs[0]]
 
         if len(m3us) > 0:
             m3us = self.sort_disks(m3us)
-            if emulator[0] == 'vsf':
-                emulator = emulator + ['-flipname', flipfile, m3us[0]]
+            # if emulator[0] == 'vsf':
+            #     emulator = emulator + ['-flipname', flipfile, m3us[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [m3us[0]]
 
         if len(vsfs) > 0:
             vsfs = self.sort_disks(vsfs)
-            if emulator[0] == 'vsf':
-                emulator = emulator + ['-flipname', flipfile, vsfs[0]]
+            # if emulator[0] == 'vsf':
+            #     emulator = emulator + ['-flipname', flipfile, vsfs[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [vsfs[0]]
 
         if len(zips) > 0:
             zips = self.sort_disks(zips)
-            if emulator[0] == 'vsf':
-                emulator = emulator + ['-flipname', flipfile, zips[0]]
+            # if emulator[0] == 'vsf':
+            #     emulator = emulator + ['-flipname', flipfile, zips[0]]
             if emulator[0] == 'retroarch':
                 emulator = emulator + [zips[0]]
 
