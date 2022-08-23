@@ -158,14 +158,14 @@ class PlatformSuperFamicom(PlatformCommon):
         emulator = ['retroarch']
         emulator.append('-L')
         # emulator.append('mesen-s_libretro')
-        emulator.append('snes9x_libretro')
+        # emulator.append('snes9x_libretro')
         # emulator.append('snes9x2010_libretro')
         # emulator.append('bsnes_hd_beta_libretro)
         # emulator.append('bsnes_cplusplus98_libretro')
         # emulator.append('bsnes2014_balanced_libretro')
         # emulator.append('bsnes_libretro')
         # emulator.append('bsnes_mercury_balanced_libretro')
-        # emulator.append('quicknes_libretro')
+        emulator.append('quicknes_libretro')
         # emulator.append('mednafen_snes_libretro')
         # emulator.append('--fullscreen')
 

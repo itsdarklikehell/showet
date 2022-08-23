@@ -36,7 +36,7 @@ play_demo(){
     # if random is enabled, then play a random demo
     if [ $random = "true" ]; then
         echo "Random selection..."
-        pouet_id=$(shuf -i0-99999 -n1)
+        pouet_id=$(shuf -i0-88429 -n1)
     fi
     
     echo "loop is $loop"
