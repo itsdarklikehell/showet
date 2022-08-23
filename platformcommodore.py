@@ -392,161 +392,215 @@ class PlatformCommodore(PlatformCommon):
     def find_d81_files(self):
         d81_files = []
         for file in self.prod_files:
-            d81_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d81_files.append(file)
         return d81_files
 
     def find_d82_files(self):
         d82_files = []
         for file in self.prod_files:
-            d82_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d82_files.append(file)
         return d82_files
 
     def find_g64_files(self):
         g64_files = []
         for file in self.prod_files:
-            g64_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                g64_files.append(file)
         return g64_files
 
     def find_g41_files(self):
         g41_files = []
         for file in self.prod_files:
-            g41_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                g41_files.append(file)
         return g41_files
 
     def find_x64_files(self):
         x64_files = []
         for file in self.prod_files:
-            x64_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                x64_files.append(file)
         return x64_files
 
     def find_tap_files(self):
         tap_files = []
         for file in self.prod_files:
-            tap_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                tap_files.append(file)
         return tap_files
 
     def find_t64_files(self):
         t64_files = []
         for file in self.prod_files:
-            t64_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                t64_files.append(file)
         return t64_files
 
     def find_prg_files(self):
         prg_files = []
         for file in self.prod_files:
-            prg_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                prg_files.append(file)
         return prg_files
 
     def find_p00_files(self):
         p00_files = []
         for file in self.prod_files:
-            p00_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                p00_files.append(file)
         return p00_files
 
     def find_crt_files(self):
         crt_files = []
         for file in self.prod_files:
-            crt_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                crt_files.append(file)
         return crt_files
 
     def find_bin_files(self):
         bin_files = []
         for file in self.prod_files:
-            bin_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                bin_files.append(file)
         return bin_files
 
     def find_cmd_files(self):
         cmd_files = []
         for file in self.prod_files:
-            cmd_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                cmd_files.append(file)
         return cmd_files
 
     def find_m3u_files(self):
         m3u_files = []
         for file in self.prod_files:
-            m3u_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                m3u_files.append(file)
         return m3u_files
 
     def find_vfl_files(self):
         vfl_files = []
         for file in self.prod_files:
-            vfl_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                vfl_files.append(file)
         return vfl_files
 
     def find_vsf_files(self):
         vsf_files = []
         for file in self.prod_files:
-            vsf_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                vsf_files.append(file)
         return vsf_files
 
     def find_nib_files(self):
         nib_files = []
         for file in self.prod_files:
-            nib_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                nib_files.append(file)
         return nib_files
 
     def find_nbz_files(self):
         nbz_files = []
         for file in self.prod_files:
-            nbz_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                nbz_files.append(file)
         return nbz_files
 
     def find_d2m_files(self):
         d2m_files = []
         for file in self.prod_files:
-            d2m_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d2m_files.append(file)
         return d2m_files
 
     def find_d4m_files(self):
         d4m_files = []
         for file in self.prod_files:
-            d4m_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d4m_files.append(file)
         return d4m_files
 
     def find_zip_files(self):
         zip_files = []
         for file in self.prod_files:
-            zip_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                zip_files.append(file)
         return zip_files
 
     def find_gz_files(self):
         gz_files = []
         for file in self.prod_files:
-            gz_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                gz_files.append(file)
         return gz_files
 
     def find_d6z_files(self):
         d6z_files = []
         for file in self.prod_files:
-            d6z_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d6z_files.append(file)
         return d6z_files
 
     def find_d7z_files(self):
         d7z_files = []
         for file in self.prod_files:
-            d7z_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d7z_files.append(file)
         return d7z_files
 
     def find_d8z_files(self):
         d8z_files = []
         for file in self.prod_files:
-            d8z_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d8z_files.append(file)
         return d8z_files
 
     def find_g4z_files(self):
         g4z_files = []
         for file in self.prod_files:
-            g4z_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                g4z_files.append(file)
         return g4z_files
 
     def find_g6z_files(self):
         g6z_files = []
         for file in self.prod_files:
-            g6z_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                g6z_files.append(file)
         return g6z_files
 
     def find_x6z_files(self):
         x6z_files = []
         for file in self.prod_files:
-            x6z_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                x6z_files.append(file)
         return x6z_files
