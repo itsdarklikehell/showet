@@ -531,7 +531,7 @@ class PlatformGameboyColor(PlatformCommon):
 
 class PlatformGameboyAdvance(PlatformCommon):
     def run(self):
-        extensions = ['gb', 'gbc', 'gba', 'dmg', 'agb', 'bin']
+        extensions = ['gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
         print("Supported extensions:", extensions)
 
         gbs = self.find_files_with_extension('gb')
@@ -540,6 +540,8 @@ class PlatformGameboyAdvance(PlatformCommon):
         dmgs = self.find_files_with_extension('dmg')
         agbs = self.find_files_with_extension('agb')
         bins = self.find_files_with_extension('bin')
+        cgbs = self.find_files_with_extension('cgb')
+        sgbs = self.find_files_with_extension('sgb')
 
         if len(gbs) == 0:
             gbs = self.find_gb_files()
@@ -553,13 +555,19 @@ class PlatformGameboyAdvance(PlatformCommon):
             agbs = self.find_agb_files()
         if len(bins) == 0:
             bins = self.find_bin_files()
-        if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(dmgs) == 0 and len(agbs) == 0 and len(bins) == 0:
+        if len(cgbs) == 0:
+            cgbs = self.find_cgb_files()
+        if len(sgbs) == 0:
+            sgbs = self.find_sgb_files()
+        if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(gbas) == 0 and len(dmgs) == 0 and len(agbs) == 0 and len(bins) == 0 and len(cgbs) == 0 and len(sgbs) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
         emulator = ['retroarch']
         emulator.append('-L')
-        emulator.append('meteor_libretro')
+        # emulator.append('meteor_libretro')
+        emulator.append('vbam_libretro')
+        # emulator.append('gpsp_libretro')
         # emulator.append('tempgba_libretro')
         # emulator.append('mgba_libretro')
         # emulator.append('mednafen_gba_libretro')
@@ -577,6 +585,11 @@ class PlatformGameboyAdvance(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [gbcs[0]]
 
+        if len(gbas) > 0:
+            gbas = self.sort_disks(gbas)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [gbas[0]]
+
         if len(dmgs) > 0:
             dmgs = self.sort_disks(dmgs)
             if emulator[0] == 'retroarch':
@@ -591,6 +604,16 @@ class PlatformGameboyAdvance(PlatformCommon):
             bins = self.sort_disks(bins)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [bins[0]]
+
+        if len(cgbs) > 0:
+            cgbs = self.sort_disks(cgbs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [cgbs[0]]
+
+        if len(sgbs) > 0:
+            sgbs = self.sort_disks(sgbs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [sgbs[0]]
 
         self.run_process(emulator)
 
@@ -613,6 +636,14 @@ class PlatformGameboyAdvance(PlatformCommon):
             if size > 0:
                 gb_files.append(file)
         return gb_files
+
+    def find_gba_files(self):
+        gba_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                gba_files.append(file)
+        return gba_files
 
     def find_dmg_files(self):
         dmg_files = []
@@ -637,3 +668,19 @@ class PlatformGameboyAdvance(PlatformCommon):
             if size > 0:
                 bin_files.append(file)
         return bin_files
+
+    def find_cgb_files(self):
+        cgb_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                cgb_files.append(file)
+        return cgb_files
+
+    def find_sgb_files(self):
+        sgb_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                sgb_files.append(file)
+        return sgb_files
