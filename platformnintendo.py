@@ -4,13 +4,15 @@ import os
 
 class PlatformFamicom(PlatformCommon):
     def run(self):
-        extensions = ['nes', 'fds', 'unf', 'unif']
+        extensions = ['nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
         print("Supported extensions:", extensions)
 
         ness = self.find_files_with_extension('nes')
         fdss = self.find_files_with_extension('fds')
         unfs = self.find_files_with_extension('unf')
         unifs = self.find_files_with_extension('unif')
+        qds = self.find_files_with_extension('qd')
+        nsfs = self.find_files_with_extension('nsf')
 
         if len(ness) == 0:
             ness = self.find_nes_files()
@@ -20,13 +22,17 @@ class PlatformFamicom(PlatformCommon):
             unfs = self.find_unf_files()
         if len(unifs) == 0:
             unifs = self.find_unif_files()
-        if len(ness) == 0 and len(fdss) == 0 and len(ness) == 0 and len(unfs) == 0 and len(unifs) == 0:
+        if len(qds) == 0:
+            qds = self.find_qd_files()
+        if len(nsfs) == 0:
+            snfs = self.find_nsf_files()
+        if len(ness) == 0 and len(fdss) == 0 and len(ness) == 0 and len(unfs) == 0 and len(unifs) == 0 and len(qds) == 0 and len(nsfs) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
         emulator = ['retroarch']
         emulator.append('-L')
-        emulator.append('fceum_libretro')
+        emulator.append('fixnes_libretro')
         # emulator.append('--fullscreen')
 
         if len(ness) > 0:
@@ -48,6 +54,16 @@ class PlatformFamicom(PlatformCommon):
             unifs = self.sort_disks(unifs)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [unifs[0]]
+
+        if len(qds) > 0:
+            qds = self.sort_disks(qds)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [qds[0]]
+
+        if len(nsfs) > 0:
+            nsfs = self.sort_disks(nsfs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [nsfs[0]]
 
         self.run_process(emulator)
 
@@ -79,6 +95,14 @@ class PlatformFamicom(PlatformCommon):
                 unf_files.append(file)
         return unf_files
 
+    def find_qd_files(self):
+        qd_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                qd_files.append(file)
+        return qd_files
+
     def find_unif_files(self):
         unif_files = []
         for file in self.prod_files:
@@ -86,6 +110,14 @@ class PlatformFamicom(PlatformCommon):
             if size > 0:
                 unif_files.append(file)
         return unif_files
+
+    def find_nsf_files(self):
+        nsf_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                nsf_files.append(file)
+        return nsf_files
 
 
 class PlatformSuperFamicom(PlatformCommon):
