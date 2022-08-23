@@ -334,16 +334,6 @@ class PlatformN64(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [ndds[0]]
 
-        if len(gbs) > 0:
-            gbs = self.sort_disks(gbs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [gbs[0]]
-
-        if len(gbcs) > 0:
-            gbcs = self.sort_disks(gbcs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [gbcs[0]]
-
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -395,19 +385,3 @@ class PlatformN64(PlatformCommon):
             if size > 0:
                 ndd_files.append(file)
         return ndd_files
-
-    def find_gb_files(self):
-        gb_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                gb_files.append(file)
-        return gb_files
-
-    def find_gbc_files(self):
-        gbc_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                gbc_files.append(file)
-        return gbc_files
