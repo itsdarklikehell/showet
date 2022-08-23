@@ -5,15 +5,16 @@ import os
 class PlatformSpectrum(PlatformCommon):
     def run(self):
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
-        # executable file types:
-        tzxs = self.find_files_with_extension(extensions[0])
-        taps = self.find_files_with_extension(extensions[1])
-        z80s = self.find_files_with_extension(extensions[2])
-        rzxs = self.find_files_with_extension(extensions[3])
-        scls = self.find_files_with_extension(extensions[4])
-        trds = self.find_files_with_extension(extensions[5])
-        dsks = self.find_files_with_extension(extensions[6])
-        zips = self.find_files_with_extension(extensions[7])
+        print("Supported extensions:", extensions)
+
+        tzxs = self.find_files_with_extension('tzx')
+        taps = self.find_files_with_extension('tap')
+        z80s = self.find_files_with_extension('z80')
+        rzxs = self.find_files_with_extension('rzx')
+        scls = self.find_files_with_extension('scl')
+        trds = self.find_files_with_extension('trd')
+        dsks = self.find_files_with_extension('dsk')
+        zips = self.find_files_with_extension('zip')
 
         if len(tzxs) == 0:
             tzxs = self.find_tzx_files()

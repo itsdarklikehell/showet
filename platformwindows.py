@@ -7,9 +7,11 @@ import os.path
 class PlatformWindows(PlatformCommon):
     def run(self):
         extensions = ['exe']
+        print("Supported extensions:", extensions)
+
         wineprefix = self.showetdir + '/wineprefix'
 
-        exes = self.find_files_with_extension(extensions[0])
+        exes = self.find_files_with_extension('exe')
 
         if len(exes) == 0:
             print("Didn't find any exe files.")

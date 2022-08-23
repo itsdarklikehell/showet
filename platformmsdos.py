@@ -8,14 +8,14 @@ class PlatformMsdos(PlatformCommon):
     def run(self):
         extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso', 'zip']
         print("Supported extensions:", extensions)
-        # executable file types:
-        # exes = self.find_files_with_extension(extensions[0])
-        # coms = self.find_files_with_extension(extensions[1])
-        # bats = self.find_files_with_extension(extensions[2])
-        # confs = self.find_files_with_extension(extensions[3])
-        # cues = self.find_files_with_extension(extensions[4])
-        # isos = self.find_files_with_extension(extensions[5])
-        zips = self.find_files_with_extension(extensions[6])
+
+        exes = self.find_files_with_extension('exe')
+        coms = self.find_files_with_extension('com')
+        bats = self.find_files_with_extension('bat')
+        confs = self.find_files_with_extension('conf')
+        cues = self.find_files_with_extension('cue')
+        isos = self.find_files_with_extension('iso')
+        zips = self.find_files_with_extension('zip')
 
         # if len(exes) == 0:
         #     exes = self.find_exe_files()

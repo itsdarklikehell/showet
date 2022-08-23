@@ -6,6 +6,8 @@ import stat
 class PlatformLinux(PlatformCommon):
     def run(self):
         extensions = ['exe', 'elf']
+        print("Supported extensions:", extensions)
+
         exes = self.find_exe_files()
         elfs = self.find_elf_files()
 

@@ -5,13 +5,15 @@ import os
 class PlatformAtarist(PlatformCommon):
     def run(self):
         extensions = ['st', 'msa', 'stx', 'ipf', 'm3u', 'vsf', 'zip']
-        sts = self.find_files_with_extension(extensions[0])
-        msas = self.find_files_with_extension(extensions[1])
-        stxs = self.find_files_with_extension(extensions[2])
-        ipfs = self.find_files_with_extension(extensions[3])
-        m3us = self.find_files_with_extension(extensions[4])
-        vsfs = self.find_files_with_extension(extensions[5])
-        zips = self.find_files_with_extension(extensions[6])
+        print("Supported extensions:", extensions)
+
+        sts = self.find_files_with_extension('st')
+        msas = self.find_files_with_extension('msa')
+        stxs = self.find_files_with_extension('stx')
+        ipfs = self.find_files_with_extension('ipf')
+        m3us = self.find_files_with_extension('m3u')
+        vsfs = self.find_files_with_extension('vsf')
+        zips = self.find_files_with_extension('zip')
 
         if len(sts) == 0:
             sts = self.find_st_files()

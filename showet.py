@@ -12,11 +12,11 @@ from platformmsdos import PlatformMsdos
 # libretro_dosbox works with: .exe .com, .bat .conf .cue .iso .zip
 
 from platformamiga import PlatformAmiga
-# from platformnintendo import PlatformFamicom
-# from platformnintendo import PlatformSuperFamicom
-# from platformnintendo import PlatformN64
-# from platformatarist import PlatformAtarist
-# from platformspectrum import PlatformSpectrum (not implemented yet)
+from platformnintendo import PlatformFamicom
+from platformnintendo import PlatformSuperFamicom
+from platformnintendo import PlatformN64
+from platformatarist import PlatformAtarist
+from platformspectrum import PlatformSpectrum
 from platformcommodore import PlatformCommodore
 from platformlinux import PlatformLinux
 import argparse
@@ -30,7 +30,7 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmiga(), PlatformCommodore(
+platform_runners = [PlatformAmiga(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformAtarist(), PlatformSpectrum(), PlatformCommodore(
 ), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:
