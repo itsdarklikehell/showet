@@ -395,6 +395,9 @@ class PlatformGameboy(PlatformCommon):
         gbs = self.find_files_with_extension('gb')
         gbcs = self.find_files_with_extension('gbc')
         dmgs = self.find_files_with_extension('dmg')
+        bins = self.find_files_with_extension('bin')
+        u1s = self.find_files_with_extension('u1')
+        ndds = self.find_files_with_extension('ndd')
 
         if len(gbs) == 0:
             gbs = self.find_gb_files()
@@ -402,7 +405,13 @@ class PlatformGameboy(PlatformCommon):
             gbcs = self.find_gbc_files()
         if len(dmgs) == 0:
             dmgs = self.find_dmg_files()
-        if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(dmgs) == 0:
+        if len(bins) == 0:
+            bins = self.find_bin_files()
+        if len(u1s) == 0:
+            u1s = self.find_u1s_files()
+        if len(ndds) == 0:
+            ndds = self.find_ndd_files()
+        if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(dmgs) == 0 and len(bins) == 0 and len(u1s) == 0 and len(ndds) == 0 and len(gbs) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -426,6 +435,21 @@ class PlatformGameboy(PlatformCommon):
             dmgs = self.sort_disks(dmgs)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [dmgs[0]]
+
+        if len(bins) > 0:
+            bins = self.sort_disks(bins)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [bins[0]]
+
+        if len(u1s) > 0:
+            u1s = self.sort_disks(u1s)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [u1s[0]]
+
+        if len(ndds) > 0:
+            ndds = self.sort_disks(ndds)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [ndds[0]]
 
         self.run_process(emulator)
 
@@ -456,6 +480,30 @@ class PlatformGameboy(PlatformCommon):
             if size > 0:
                 dmg_files.append(file)
         return dmg_files
+
+    def find_bin_files(bins):
+        bin_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                bin_files.append(file)
+        return bin_files
+
+    def find_u1_files(self):
+        u1_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                u1_files.append(file)
+        return u1_files
+
+    def find_ndd_files(self):
+        ndd_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                ndd_files.append(file)
+        return ndd_files
 
 
 class PlatformGameboyColor(PlatformCommon):
