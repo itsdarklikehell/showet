@@ -15,7 +15,7 @@ from platformamiga import PlatformAmiga
 # from platformnintendo import PlatformFamicom
 # from platformnintendo import PlatformSuperFamicom
 # from platformnintendo import PlatformN64
-from platformatarist import PlatformAtarist
+# from platformatarist import PlatformAtarist
 # from platformspectrum import PlatformSpectrum (not implemented yet)
 from platformcommodore import PlatformCommodore
 from platformlinux import PlatformLinux
@@ -30,7 +30,7 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmiga(), PlatformAtarist(), PlatformCommodore(
+platform_runners = [PlatformAmiga(), PlatformCommodore(
 ), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:
