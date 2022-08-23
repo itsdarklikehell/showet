@@ -347,7 +347,7 @@ class PlatformN64(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['nintendo-n64', 'gameboy']
+        return ['nintendo64']
 
 # Tries to identify files by any magic necessary
     def find_v64_files(self):
