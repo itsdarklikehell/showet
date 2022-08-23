@@ -207,7 +207,7 @@ class PlatformSuperFamicom(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['nesfamicom', 'gameboy']
+        return ['snessuperfamicom', 'gameboy']
 
 # Tries to identify files by any magic necessary
     def find_smc_files(self):
@@ -298,9 +298,9 @@ class PlatformN64(PlatformCommon):
         emulator.append('-L')
         # emulator.append('mupen64plus_next_libretro')
         # emulator.append('mupen64plus_next_gles2_libretro')
-        # emulator.append('mupen64plus_next_gles3_libretro')
+        emulator.append('mupen64plus_next_gles3_libretro')
         # emulator.append('mupen64plus_next_develop_libretro')
-        emulator.append('parrallel_n64_libretro')
+        # emulator.append('parrallel_n64_libretro')
         # emulator.append('parrallel_n64_debug_libretro')
         # emulator.append('--fullscreen')
 

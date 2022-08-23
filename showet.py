@@ -8,8 +8,8 @@ from os.path import basename
 from platformwindows import PlatformWindows  # works
 from platformmsdos import PlatformMsdos  # works
 # from platformamiga import PlatformAmiga # does not work too well yet..
-from platformnintendo import PlatformFamicom
-from platformnintendo import PlatformSuperFamicom
+from platformnintendo import PlatformFamicom # works
+from platformnintendo import PlatformSuperFamicom 
 from platformnintendo import PlatformN64
 from platformatari import PlatformAtarist  # does not work too well yet..
 from platformatari import PlatformAtarixlxe  # does not work too well yet..
