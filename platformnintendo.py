@@ -32,7 +32,9 @@ class PlatformFamicom(PlatformCommon):
 
         emulator = ['retroarch']
         emulator.append('-L')
+        # emulator.append('bnes_libretro')
         emulator.append('fixnes_libretro')
+        # emulator.append('emux_nes_libretro')
         # emulator.append('nestopia_libretro')
         # emulator.append('--fullscreen')
 
@@ -155,7 +157,16 @@ class PlatformSuperFamicom(PlatformCommon):
 
         emulator = ['retroarch']
         emulator.append('-L')
-        emulator.append('mesen-s_libretro')
+        # emulator.append('mesen-s_libretro')
+        emulator.append('snes9x_libretro')
+        # emulator.append('snes9x2010_libretro')
+        # emulator.append('bsnes_hd_beta_libretro)
+        # emulator.append('bsnes_cplusplus98_libretro')
+        # emulator.append('bsnes2014_balanced_libretro')
+        # emulator.append('bsnes_libretro')
+        # emulator.append('bsnes_mercury_balanced_libretro')
+        # emulator.append('quicknes_libretro')
+        # emulator.append('mednafen_snes_libretro')
         # emulator.append('--fullscreen')
 
         if len(sfcs) > 0:
@@ -256,7 +267,7 @@ class PlatformSuperFamicom(PlatformCommon):
 
 class PlatformN64(PlatformCommon):
     def run(self):
-        extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd', 'gb', 'gbc']
+        extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         print("Supported extensions:", extensions)
 
         n64s = self.find_files_with_extension('n64')
@@ -265,8 +276,6 @@ class PlatformN64(PlatformCommon):
         bins = self.find_files_with_extension('bin')
         u1s = self.find_files_with_extension('u1')
         ndds = self.find_files_with_extension('ndd')
-        gbs = self.find_files_with_extension('gb')
-        gbcs = self.find_files_with_extension('gbc')
 
         if len(n64s) == 0:
             n64s = self.find_n64_files()
@@ -280,18 +289,19 @@ class PlatformN64(PlatformCommon):
             u1s = self.find_u1s_files()
         if len(ndds) == 0:
             ndds = self.find_ndd_files()
-        if len(gbs) == 0:
-            gbs = self.find_gb_files()
-        if len(gbcs) == 0:
-            gbcs = self.find_gbc_files()
 
-        if len(n64s) == 0 and len(v64s) == 0 and len(n64s) == 0 and len(z64s) == 0 and len(bins) == 0 and len(u1s) == 0 and len(ndds) == 0 and len(gbs) == 0 and len(gbcs) == 0:
+        if len(n64s) == 0 and len(v64s) == 0 and len(n64s) == 0 and len(z64s) == 0 and len(bins) == 0 and len(u1s) == 0 and len(ndds) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
         emulator = ['retroarch']
         emulator.append('-L')
-        emulator.append('mesen-s_libretro')
+        emulator.append('mupen64plus_next_libretro')
+        # emulator.append('mupen64plus_next_gles2_libretro')
+        # emulator.append('mupen64plus_next_gles3_libretro')
+        # emulator.append('mupen64plus_next_develop_libretro')
+        # emulator.append('parrallel_n64_libretro')
+        # emulator.append('parrallel_n64_debug_libretro')
         # emulator.append('--fullscreen')
 
         if len(n64s) > 0:
