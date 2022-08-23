@@ -296,11 +296,11 @@ class PlatformN64(PlatformCommon):
 
         emulator = ['retroarch']
         emulator.append('-L')
-        emulator.append('mupen64plus_next_libretro')
+        # emulator.append('mupen64plus_next_libretro')
         # emulator.append('mupen64plus_next_gles2_libretro')
         # emulator.append('mupen64plus_next_gles3_libretro')
         # emulator.append('mupen64plus_next_develop_libretro')
-        # emulator.append('parrallel_n64_libretro')
+        emulator.append('parrallel_n64_libretro')
         # emulator.append('parrallel_n64_debug_libretro')
         # emulator.append('--fullscreen')
 
