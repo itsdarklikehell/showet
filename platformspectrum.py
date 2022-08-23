@@ -4,7 +4,7 @@ import os
 
 class PlatformSpectrum(PlatformCommon):
     def run(self):
-        extension = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+        extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         # executable file types:
         tzxs = self.find_files_with_extension(extensions[0])
         taps = self.find_files_with_extension(extensions[1])
