@@ -7,7 +7,7 @@ from os.path import basename
 
 from platformwindows import PlatformWindows  # works
 from platformmsdos import PlatformMsdos  # works
-# from platformamiga import PlatformAmiga
+# from platformamiga import PlatformAmiga # does not work too well yet..
 from platformnintendo import PlatformFamicom
 from platformnintendo import PlatformSuperFamicom
 from platformnintendo import PlatformN64
