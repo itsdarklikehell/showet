@@ -5,19 +5,16 @@ import os
 import sys
 from os.path import basename
 
-from platformwindows import PlatformWindows
-# wine works fine with exes if wine has all the dlls and stuff, could use proton instead.
-
-from platformmsdos import PlatformMsdos
-# libretro_dosbox works with: .exe .com, .bat .conf .cue .iso .zip
-
+from platformwindows import PlatformWindows  # works
+from platformmsdos import PlatformMsdos  # works
 from platformamiga import PlatformAmiga
 from platformnintendo import PlatformFamicom
 from platformnintendo import PlatformSuperFamicom
 from platformnintendo import PlatformN64
-from platformatarist import PlatformAtarist
+from platformatari import PlatformAtarist  # does not work too well yet..
+from platformatari import PlatformAtarixlxe  # does not work too well yet..
 from platformspectrum import PlatformSpectrum
-from platformcommodore import PlatformCommodore
+from platformcommodore import PlatformCommodore  # works
 from platformlinux import PlatformLinux
 import argparse
 
@@ -30,7 +27,7 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmiga(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformAtarist(), PlatformSpectrum(), PlatformCommodore(
+platform_runners = [PlatformAmiga(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformAtarist(), PlatformAtarixlxe(), PlatformSpectrum(), PlatformCommodore(
 ), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:
