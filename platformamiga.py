@@ -327,7 +327,7 @@ class PlatformAmiga(PlatformCommon):
         dms_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0:  # All dms:s seem to be this size..
+            if size > 0:
                 dms_files.append(file)
         return dms_files
 
@@ -335,7 +335,7 @@ class PlatformAmiga(PlatformCommon):
         adf_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0:  # All adf:s seem to be this size..
+            if size > 0:
                 adf_files.append(file)
         return adf_files
 

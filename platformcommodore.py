@@ -368,19 +368,25 @@ class PlatformCommodore(PlatformCommon):
     def find_d64_files(self):
         d64_files = []
         for file in self.prod_files:
-            d64_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d64_files.append(file)
         return d64_files
 
     def find_d71_files(self):
         d71_files = []
         for file in self.prod_files:
-            d71_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d71_files.append(file)
         return d71_files
 
     def find_d80_files(self):
         d80_files = []
         for file in self.prod_files:
-            d80_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                d80_files.append(file)
         return d80_files
 
     def find_d81_files(self):

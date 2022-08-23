@@ -109,47 +109,63 @@ class PlatformSpectrum(PlatformCommon):
     def find_tap_files(self):
         tap_files = []
         for file in self.prod_files:
-            tap_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                tap_files.append(file)
         return tap_files
 
     def find_tzx_files(self):
         tzx_files = []
         for file in self.prod_files:
-            tzx_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                tzx_files.append(file)
         return tzx_files
 
     def find_z80_files(self):
         z80_files = []
         for file in self.prod_files:
-            z80_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                z80_files.append(file)
         return z80_files
 
     def find_rzx_files(self):
         rzx_files = []
         for file in self.prod_files:
-            rzx_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                rzx_files.append(file)
         return rzx_files
 
     def find_scl_files(self):
         scl_files = []
         for file in self.prod_files:
-            scl_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                scl_files.append(file)
         return scl_files
 
     def find_trd_files(self):
         trd_files = []
         for file in self.prod_files:
-            trd_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                trd_files.append(file)
         return trd_files
 
     def find_dsk_files(self):
         dsk_files = []
         for file in self.prod_files:
-            dsk_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                dsk_files.append(file)
         return dsk_files
 
     def find_zip_files(self):
         zip_files = []
         for file in self.prod_files:
-            zip_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                zip_files.append(file)
         return zip_files

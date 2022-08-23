@@ -57,25 +57,33 @@ class PlatformFamicom(PlatformCommon):
     def find_fds_files(self):
         fds_files = []
         for file in self.prod_files:
-            fds_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                fds_files.append(file)
         return fds_files
 
     def find_nes_files(self):
         nes_files = []
         for file in self.prod_files:
-            nes_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                nes_files.append(file)
         return nes_files
 
     def find_unf_files(self):
         unf_files = []
         for file in self.prod_files:
-            unf_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                unf_files.append(file)
         return unf_files
 
     def find_unif_files(self):
         unif_files = []
         for file in self.prod_files:
-            unif_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                unif_files.append(file)
         return unif_files
 
 
@@ -159,13 +167,17 @@ class PlatformSuperFamicom(PlatformCommon):
     def find_smc_files(self):
         smc_files = []
         for file in self.prod_files:
-            smc_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                smc_files.append(file)
         return smc_files
 
     def find_sfc_files(self):
         sfc_files = []
         for file in self.prod_files:
-            sfc_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                sfc_files.append(file)
         return sfc_files
 
     def find_fig_files(self):
@@ -177,25 +189,33 @@ class PlatformSuperFamicom(PlatformCommon):
     def find_swc_files(self):
         swc_files = []
         for file in self.prod_files:
-            swc_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                swc_files.append(file)
         return swc_files
 
     def find_bs_files(self):
         bs_files = []
         for file in self.prod_files:
-            bs_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                bs_files.append(file)
         return bs_files
 
     def find_gb_files(self):
         gb_files = []
         for file in self.prod_files:
-            gb_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                gb_files.append(file)
         return gb_files
 
     def find_gbc_files(self):
         gbc_files = []
         for file in self.prod_files:
-            gbc_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                gbc_files.append(file)
         return gbc_files
 
 
@@ -287,25 +307,33 @@ class PlatformN64(PlatformCommon):
     def find_v64_files(self):
         v64_files = []
         for file in self.prod_files:
-            v64_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                v64_files.append(file)
         return v64_files
 
     def find_n64_files(self):
         n64_files = []
         for file in self.prod_files:
-            n64_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                n64_files.append(file)
         return n64_files
 
     def find_z64_files(self):
         z64_files = []
         for file in self.prod_files:
-            z64_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                z64_files.append(file)
         return z64_files
 
     def find_bin_files(self):
         bin_files = []
         for file in self.prod_files:
-            bin_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                bin_files.append(file)
         return bin_files
 
     def find_u1s_files(self):
@@ -317,17 +345,23 @@ class PlatformN64(PlatformCommon):
     def find_ndd_files(self):
         ndd_files = []
         for file in self.prod_files:
-            ndd_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                ndd_files.append(file)
         return ndd_files
 
     def find_gb_files(self):
         gb_files = []
         for file in self.prod_files:
-            gb_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                gb_files.append(file)
         return gb_files
 
     def find_gbc_files(self):
         gbc_files = []
         for file in self.prod_files:
-            gbc_files.append(file)
+            size = os.path.getsize(file)
+            if size > 0:
+                gbc_files.append(file)
         return gbc_files
