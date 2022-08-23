@@ -8,9 +8,13 @@ from os.path import basename
 from platformwindows import PlatformWindows  # works
 from platformmsdos import PlatformMsdos  # works
 # from platformamiga import PlatformAmiga # does not work too well yet..
-from platformnintendo import PlatformFamicom # works
-from platformnintendo import PlatformSuperFamicom 
+from platformnintendo import PlatformFamicom  # works
+# snes works, supergameboy is not fully tested
+from platformnintendo import PlatformSuperFamicom
 from platformnintendo import PlatformN64
+from platformnintendo import PlatformGameboy
+from platformnintendo import PlatformGameboyColor
+from platformnintendo import PlatformGameboyAdvance
 from platformatari import PlatformAtarist  # does not work too well yet..
 from platformatari import PlatformAtarixlxe  # does not work too well yet..
 from platformspectrum import PlatformSpectrum
@@ -27,7 +31,7 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformAtarist(), PlatformAtarixlxe(), PlatformSpectrum(), PlatformCommodore(
+platform_runners = [PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformSpectrum(), PlatformCommodore(
 ), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:

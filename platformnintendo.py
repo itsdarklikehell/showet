@@ -385,3 +385,255 @@ class PlatformN64(PlatformCommon):
             if size > 0:
                 ndd_files.append(file)
         return ndd_files
+
+
+class PlatformGameboy(PlatformCommon):
+    def run(self):
+        extensions = ['gb', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
+        print("Supported extensions:", extensions)
+
+        gbs = self.find_files_with_extension('gb')
+        gbcs = self.find_files_with_extension('gbc')
+        dmgs = self.find_files_with_extension('dmg')
+
+        if len(gbs) == 0:
+            gbs = self.find_gb_files()
+        if len(gbcs) == 0:
+            gbcs = self.find_gbc_files()
+        if len(dmgs) == 0:
+            dmgs = self.find_dmg_files()
+        if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(dmgs) == 0:
+            print("Didn't find any runable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        emulator.append('-L')
+        emulator.append('gambatte_libretro')
+        # emulator.append('sameboy_libretro')
+        # emulator.append('--fullscreen')
+
+        if len(gbs) > 0:
+            gbs = self.sort_disks(gbs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [gbs[0]]
+
+        if len(gbcs) > 0:
+            gbcs = self.sort_disks(gbcs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [gbcs[0]]
+
+        if len(dmgs) > 0:
+            dmgs = self.sort_disks(dmgs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [dmgs[0]]
+
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['gameboy', 'gameboycolor']
+
+# Tries to identify files by any magic necessary
+    def find_gbc_files(self):
+        gbc_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                gbc_files.append(file)
+        return gbc_files
+
+    def find_gb_files(self):
+        gb_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                gb_files.append(file)
+        return gb_files
+
+    def find_dmg_files(self):
+        dmg_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                dmg_files.append(file)
+        return dmg_files
+
+
+class PlatformGameboyColor(PlatformCommon):
+    def run(self):
+        extensions = ['gb', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
+        print("Supported extensions:", extensions)
+
+        gbs = self.find_files_with_extension('gb')
+        gbcs = self.find_files_with_extension('gbc')
+        dmgs = self.find_files_with_extension('dmg')
+
+        if len(gbs) == 0:
+            gbs = self.find_gb_files()
+        if len(gbcs) == 0:
+            gbcs = self.find_gbc_files()
+        if len(dmgs) == 0:
+            dmgs = self.find_dmg_files()
+        if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(dmgs) == 0:
+            print("Didn't find any runable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        emulator.append('-L')
+        emulator.append('gambatte_libretro')
+        # emulator.append('sameboy_libretro')
+        # emulator.append('--fullscreen')
+
+        if len(gbs) > 0:
+            gbs = self.sort_disks(gbs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [gbs[0]]
+
+        if len(gbcs) > 0:
+            gbcs = self.sort_disks(gbcs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [gbcs[0]]
+
+        if len(dmgs) > 0:
+            dmgs = self.sort_disks(dmgs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [dmgs[0]]
+
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['gameboy', 'gameboycolor']
+
+# Tries to identify files by any magic necessary
+    def find_gbc_files(self):
+        gbc_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                gbc_files.append(file)
+        return gbc_files
+
+    def find_gb_files(self):
+        gb_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                gb_files.append(file)
+        return gb_files
+
+    def find_dmg_files(self):
+        dmg_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                dmg_files.append(file)
+        return dmg_files
+
+
+class PlatformGameboyAdvance(PlatformCommon):
+    def run(self):
+        extensions = ['gb', 'gbc', 'gba', 'dmg', 'agb', 'bin']
+        print("Supported extensions:", extensions)
+
+        gbs = self.find_files_with_extension('gb')
+        gbcs = self.find_files_with_extension('gbc')
+        gbcs = self.find_files_with_extension('gba')
+        dmgs = self.find_files_with_extension('dmg')
+        agbs = self.find_files_with_extension('agb')
+        bins = self.find_files_with_extension('bin')
+
+        if len(gbs) == 0:
+            gbs = self.find_gb_files()
+        if len(gbcs) == 0:
+            gbcs = self.find_gbc_files()
+        if len(gbas) == 0:
+            gbas = self.find_gba_files()
+        if len(dmgs) == 0:
+            dmgs = self.find_dmg_files()
+        if len(agbs) == 0:
+            agbs = self.find_agb_files()
+        if len(bins) == 0:
+            bins = self.find_bin_files()
+        if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(dmgs) == 0 and len(agbs) == 0 and len(bins) == 0:
+            print("Didn't find any runable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        emulator.append('-L')
+        emulator.append('meteor_libretro')
+        # emulator.append('tempgba_libretro')
+        # emulator.append('mgba_libretro')
+        # emulator.append('mednafen_gba_libretro')
+        # emulator.append('sameboy_libretro')
+
+        # emulator.append('--fullscreen')
+
+        if len(gbs) > 0:
+            gbs = self.sort_disks(gbs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [gbs[0]]
+
+        if len(gbcs) > 0:
+            gbcs = self.sort_disks(gbcs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [gbcs[0]]
+
+        if len(dmgs) > 0:
+            dmgs = self.sort_disks(dmgs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [dmgs[0]]
+
+        if len(agbs) > 0:
+            agbs = self.sort_disks(agbs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [agbs[0]]
+
+        if len(bins) > 0:
+            bins = self.sort_disks(bins)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [bins[0]]
+
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['gameboy', 'gameboycolor']
+
+# Tries to identify files by any magic necessary
+    def find_gbc_files(self):
+        gbc_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                gbc_files.append(file)
+        return gbc_files
+
+    def find_gb_files(self):
+        gb_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                gb_files.append(file)
+        return gb_files
+
+    def find_dmg_files(self):
+        dmg_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                dmg_files.append(file)
+        return dmg_files
+
+    def find_agb_files(self):
+        agb_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                agb_files.append(file)
+        return agb_files
+
+    def find_bin_files(self):
+        bin_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                bin_files.append(file)
+        return bin_files
