@@ -5,6 +5,7 @@ import stat
 
 class PlatformLinux(PlatformCommon):
     def run(self):
+        extensions = ['exe', 'elf']
         exes = self.find_exe_files()
         elfs = self.find_elf_files()
 
@@ -14,14 +15,16 @@ class PlatformLinux(PlatformCommon):
 
         os.chdir(self.datadir)
         if len(exes) > 1:
-            print("Found executables: ", exes, " - not sure which one to run!")
+            print("Found multiple executables: ", exes,
+                  " - not sure which one to run!")
             exit(-1)
         else:
             print("Running ", exes[0])
             self.run_process([exes[0]])
 
         if len(elfs) > 1:
-            print("Found ELFs: ", elfs, " - not sure which one to run!")
+            print("Found multiple ELFs: ", elfs,
+                  " - not sure which one to run!")
             exit(-1)
         else:
             print("Running ", elfs[0])
@@ -30,7 +33,7 @@ class PlatformLinux(PlatformCommon):
     def supported_platforms(self):
         return ['linux']
 
-# Tries to identify d64 files by any magic necessary
+# Tries to identify files by any magic necessary
     def find_exe_files(self):
         exe_files = []
         for exe_files in self.prod_files:

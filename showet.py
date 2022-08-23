@@ -114,7 +114,7 @@ prod_download_url = data['prod']['download']
 prod_download_url = prod_download_url.replace(
     "https://files.scene.org/view", "https://files.scene.org/get")
 
-if os.path.exists(datadir + "/_FILES_DOWNLOADED"):
+if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
     print("File already downloaded")
 else:
     print("Downloading prod file from " + prod_download_url + "...")
@@ -130,12 +130,14 @@ else:
     with open(prod_download_filename, 'wb') as f:
         f.write(datatowrite)
 
-    print("Downloaded ", prod_download_filename)
+    print("Downloaded: ", prod_download_filename,
+          "\nFilesize: ", os.path.getsize(prod_download_filename))
 
     # Decompress the file if needed
     if prod_download_filename.endswith(".zip"):
         print("Unzipping", prod_download_filename)
-        ret = os.system("unzip -u -d" + datadir + " " + prod_download_filename)
+        ret = os.system("unzip -qq -u -d" + datadir +
+                        " " + prod_download_filename)
         if ret == 1:
             print("Unzipping file failed!")
 
@@ -160,7 +162,7 @@ else:
         if ret == 1:
             print("Extracting file failed!")
 
-    open(datadir + "/_FILES_DOWNLOADED", 'a').close()
+    open(datadir + "/.FILES_DOWNLOADED", 'a').close()
 
 runner.setup(showetdir, datadir, prod_platform)
 runner.run()

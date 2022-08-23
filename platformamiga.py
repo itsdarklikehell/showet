@@ -5,29 +5,31 @@ import os
 
 class PlatformAmiga(PlatformCommon):
     def run(self):
-        adfs = self.find_files_with_extension('adf')
-        adzs = self.find_files_with_extension('adz')
-        dmss = self.find_files_with_extension('dms')
-        fdis = self.find_files_with_extension('fdi')
-        ipfs = self.find_files_with_extension('ipf')
-        hdfs = self.find_files_with_extension('hdf')
-        hdzs = self.find_files_with_extension('hdz')
-        lhas = self.find_files_with_extension('lha')
-        slaves = self.find_files_with_extension('slave')
-        infos = self.find_files_with_extension('info')
-        cues = self.find_files_with_extension('cue')
-        ccds = self.find_files_with_extension('ccd')
-        nrgs = self.find_files_with_extension('nrg')
-        mdss = self.find_files_with_extension('mds')
-        isos = self.find_files_with_extension('iso')
-        chds = self.find_files_with_extension('chd')
-        uaes = self.find_files_with_extension('uae')
-        m3us = self.find_files_with_extension('m3u')
-        zips = self.find_files_with_extension('zip')
-        zs = self.find_files_with_extension('7z')
-        rp9s = self.find_files_with_extension('rp9')
-        exes = self.find_files_with_extension('exe')
-        runs = self.find_files_with_extension('run')
+        extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info',
+                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9', 'exe', 'run']
+        adfs = self.find_files_with_extension(extensions[0])
+        adzs = self.find_files_with_extension(extensions[1])
+        dmss = self.find_files_with_extension(extensions[2])
+        fdis = self.find_files_with_extension(extensions[3])
+        ipfs = self.find_files_with_extension(extensions[4])
+        hdfs = self.find_files_with_extension(extensions[5])
+        hdzs = self.find_files_with_extension(extensions[6])
+        lhas = self.find_files_with_extension(extensions[7])
+        slaves = self.find_files_with_extension(extensions[8])
+        infos = self.find_files_with_extension(extensions[9])
+        cues = self.find_files_with_extension(extensions[10])
+        ccds = self.find_files_with_extension(extensions[11])
+        nrgs = self.find_files_with_extension(extensions[12])
+        mdss = self.find_files_with_extension(extensions[13])
+        isos = self.find_files_with_extension(extensions[14])
+        chds = self.find_files_with_extension(extensions[15])
+        uaes = self.find_files_with_extension(extensions[16])
+        m3us = self.find_files_with_extension(extensions[17])
+        zips = self.find_files_with_extension(extensions[18])
+        zs = self.find_files_with_extension(extensions[20])
+        rp9s = self.find_files_with_extension(extensions[21])
+        exes = self.find_files_with_extension(extensions[22])
+        runs = self.find_files_with_extension(extensions[23])
 
         if len(exes) == 0:
             exes = self.find_magic_cookies()
@@ -317,7 +319,7 @@ class PlatformAmiga(PlatformCommon):
         exe_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:  # All exe:s seem to be this size..
+            if size > 0:
                 exe_files.append(file)
         return exe_files
 
@@ -325,7 +327,7 @@ class PlatformAmiga(PlatformCommon):
         dms_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:  # All dms:s seem to be this size..
+            if size > 0:  # All dms:s seem to be this size..
                 dms_files.append(file)
         return dms_files
 
@@ -333,7 +335,7 @@ class PlatformAmiga(PlatformCommon):
         adf_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:  # All adf:s seem to be this size..
+            if size > 0:  # All adf:s seem to be this size..
                 adf_files.append(file)
         return adf_files
 
@@ -341,7 +343,7 @@ class PlatformAmiga(PlatformCommon):
         adz_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 adz_files.append(file)
         return adz_files
 
@@ -349,7 +351,7 @@ class PlatformAmiga(PlatformCommon):
         fdi_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 fdi_files.append(file)
         return fdi_files
 
@@ -357,7 +359,7 @@ class PlatformAmiga(PlatformCommon):
         ipf_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 ipf_files.append(file)
         return ipf_files
 
@@ -365,7 +367,7 @@ class PlatformAmiga(PlatformCommon):
         hdf_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 hdf_files.append(file)
         return hdf_files
 
@@ -373,7 +375,7 @@ class PlatformAmiga(PlatformCommon):
         hdz_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 hdz_files.append(file)
         return hdz_files
 
@@ -381,7 +383,7 @@ class PlatformAmiga(PlatformCommon):
         lha_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 lha_files.append(file)
         return lha_files
 
@@ -389,7 +391,7 @@ class PlatformAmiga(PlatformCommon):
         slave_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 slave_files.append(file)
         return slave_files
 
@@ -397,7 +399,7 @@ class PlatformAmiga(PlatformCommon):
         info_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 info_files.append(file)
         return info_files
 
@@ -405,7 +407,7 @@ class PlatformAmiga(PlatformCommon):
         cue_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 cue_files.append(file)
         return cue_files
 
@@ -413,7 +415,7 @@ class PlatformAmiga(PlatformCommon):
         ccd_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 ccd_files.append(file)
         return ccd_files
 
@@ -421,7 +423,7 @@ class PlatformAmiga(PlatformCommon):
         nrg_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 nrg_files.append(file)
         return nrg_files
 
@@ -429,7 +431,7 @@ class PlatformAmiga(PlatformCommon):
         mds_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 mds_files.append(file)
         return mds_files
 
@@ -437,7 +439,7 @@ class PlatformAmiga(PlatformCommon):
         iso_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 iso_files.append(file)
         return iso_files
 
@@ -445,7 +447,7 @@ class PlatformAmiga(PlatformCommon):
         chd_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 chd_files.append(file)
         return chd_files
 
@@ -453,7 +455,7 @@ class PlatformAmiga(PlatformCommon):
         uae_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 uae_files.append(file)
         return uae_files
 
@@ -461,7 +463,7 @@ class PlatformAmiga(PlatformCommon):
         m3u_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 m3u_files.append(file)
         return m3u_files
 
@@ -469,7 +471,7 @@ class PlatformAmiga(PlatformCommon):
         zip_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 zip_files.append(file)
         return zip_files
 
@@ -477,7 +479,7 @@ class PlatformAmiga(PlatformCommon):
         zs_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 zs_files.append(file)
         return zs_files
 
@@ -485,7 +487,7 @@ class PlatformAmiga(PlatformCommon):
         rp9_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 rp9_files.append(file)
         return rp9_files
 
@@ -493,6 +495,6 @@ class PlatformAmiga(PlatformCommon):
         run_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size == 174848:
+            if size > 0:
                 run_files.append(file)
         return run_files

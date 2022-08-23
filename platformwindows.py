@@ -1,3 +1,4 @@
+from distutils import extension
 from platformcommon import PlatformCommon
 from os import listdir
 import os.path
@@ -5,15 +6,16 @@ import os.path
 
 class PlatformWindows(PlatformCommon):
     def run(self):
+        extensions = ['exe']
         wineprefix = self.showetdir + '/wineprefix'
 
-        exefiles = self.find_files_with_extension('exe')
+        exes = self.find_files_with_extension(extensions[0])
 
-        if len(exefiles) == 0:
+        if len(exes) == 0:
             print("Didn't find any exe files.")
             exit(-1)
 
-        exefile = exefiles[0]
+        exefile = exes[0]
 
         print("Guessed executable file: " + exefile)
 

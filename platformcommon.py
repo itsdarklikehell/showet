@@ -47,13 +47,6 @@ class PlatformCommon:
             print(sorted_list)
         return sorted_list
 
-    def sort_tapes(self, files):
-        sorted_list = sorted(files, key=lambda s: s.lower())
-        if len(sorted_list) > 1:
-            print("Guessing tape order should be:")
-            print(sorted_list)
-        return sorted_list
-
     def run_process(self, arguments):
         print("Running command: ", arguments)
         process = subprocess.Popen(

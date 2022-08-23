@@ -4,15 +4,16 @@ import os
 
 class PlatformSpectrum(PlatformCommon):
     def run(self):
+        extension = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         # executable file types:
-        tzxs = self.find_files_with_extension('tzx')
-        taps = self.find_files_with_extension('tap')
-        z80s = self.find_files_with_extension('z80')
-        rzxs = self.find_files_with_extension('rzx')
-        scls = self.find_files_with_extension('scl')
-        trds = self.find_files_with_extension('trd')
-        dsks = self.find_files_with_extension('dsk')
-        #zips = self.find_files_with_extension('zip')
+        tzxs = self.find_files_with_extension(extensions[0])
+        taps = self.find_files_with_extension(extensions[1])
+        z80s = self.find_files_with_extension(extensions[2])
+        rzxs = self.find_files_with_extension(extensions[3])
+        scls = self.find_files_with_extension(extensions[4])
+        trds = self.find_files_with_extension(extensions[5])
+        dsks = self.find_files_with_extension(extensions[6])
+        zips = self.find_files_with_extension(extensions[7])
 
         if len(tzxs) == 0:
             tzxs = self.find_tzx_files()
@@ -28,8 +29,8 @@ class PlatformSpectrum(PlatformCommon):
             trds = self.find_trd_files()
         if len(dsks) == 0:
             dsks = self.find_dsk_files()
-        # if len(zips) == 0:
-        #     zips = self.find_zip_files()
+        if len(zips) == 0:
+            zips = self.find_zip_files()
         if len(trds) == 0 and len(taps) == 0 and len(tzxs) == 0 and len(z80s) == 0 and len(rzxs) == 0:
             print("Didn't find any runable files.")
             exit(-1)
@@ -39,25 +40,25 @@ class PlatformSpectrum(PlatformCommon):
         emulator.append('fuse_libretro')
         # emulator.append('--fullscreen')
 
-        # flipfile = self.datadir + "/fliplitrd.vfl"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in tzxs:
-        #         f.write(disk + "\n")
-        #     for disk in taps:
-        #         f.write(disk + "\n")
-        #     for disk in z80s:
-        #         f.write(disk + "\n")
-        #     for disk in rzxs:
-        #         f.write(disk + "\n")
-        #     for disk in scls:
-        #         f.write(disk + "\n")
-        #     for disk in trds:
-        #         f.write(disk + "\n")
-        #     for disk in dsks:
-        #         f.write(disk + "\n")
-        #     # for disk in zips:
-        #     #     f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplitrd.vfl"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in tzxs:
+                f.write(disk + "\n")
+            for disk in taps:
+                f.write(disk + "\n")
+            for disk in z80s:
+                f.write(disk + "\n")
+            for disk in rzxs:
+                f.write(disk + "\n")
+            for disk in scls:
+                f.write(disk + "\n")
+            for disk in trds:
+                f.write(disk + "\n")
+            for disk in dsks:
+                f.write(disk + "\n")
+            for disk in zips:
+                f.write(disk + "\n")
 
         if len(tzxs) > 0:
             tzxs = self.sort_disks(tzxs)
@@ -94,10 +95,10 @@ class PlatformSpectrum(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [dsks[0]]
 
-        # if len(zips) > 0:
-        #     zips = self.sort_disks(zips)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [zips[0]]
+        if len(zips) > 0:
+            zips = self.sort_disks(zips)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [zips[0]]
 
         self.run_process(emulator)
 
@@ -147,8 +148,8 @@ class PlatformSpectrum(PlatformCommon):
             dsk_files.append(file)
         return dsk_files
 
-    # def find_zip_files(self):
-    #     zip_files = []
-    #     for file in self.prod_files:
-    #         zip_files.append(file)
-    #     return zip_files
+    def find_zip_files(self):
+        zip_files = []
+        for file in self.prod_files:
+            zip_files.append(file)
+        return zip_files

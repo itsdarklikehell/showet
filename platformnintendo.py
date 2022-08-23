@@ -4,11 +4,12 @@ import os
 
 class PlatformFamicom(PlatformCommon):
     def run(self):
+        extensions = ['nes', 'fds', 'unf', 'unif']
         # executable file types:
-        ness = self.find_files_with_extension('nes')
-        fdss = self.find_files_with_extension('fds')
-        unfs = self.find_files_with_extension('unf')
-        unifs = self.find_files_with_extension('unif')
+        ness = self.find_files_with_extension(extentions[0])
+        fdss = self.find_files_with_extension(extentions[1])
+        unfs = self.find_files_with_extension(extentions[2])
+        unifs = self.find_files_with_extension(extentions[3])
 
         if len(ness) == 0:
             ness = self.find_nes_files()
@@ -80,14 +81,15 @@ class PlatformFamicom(PlatformCommon):
 
 class PlatformSuperFamicom(PlatformCommon):
     def run(self):
+        extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
         # executable file types:
-        sfcs = self.find_files_with_extension('sfc')
-        smcs = self.find_files_with_extension('smc')
-        figs = self.find_files_with_extension('fig')
-        gbcs = self.find_files_with_extension('swc')
-        bss = self.find_files_with_extension('bs')
-        gbs = self.find_files_with_extension('gb')
-        gbcs = self.find_files_with_extension('gbc')
+        sfcs = self.find_files_with_extension(extentions[0])
+        smcs = self.find_files_with_extension(extentions[1])
+        figs = self.find_files_with_extension(extentions[2])
+        gbcs = self.find_files_with_extension(extentions[3])
+        bss = self.find_files_with_extension(extentions[4])
+        gbs = self.find_files_with_extension(extentions[5])
+        gbcs = self.find_files_with_extension(extentions[6])
 
         if len(sfcs) == 0:
             sfcs = self.find_sfc_files()
@@ -199,15 +201,16 @@ class PlatformSuperFamicom(PlatformCommon):
 
 class PlatformN64(PlatformCommon):
     def run(self):
+        extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd', 'gb', 'gbc']
         # executable file types:
-        n64s = self.find_files_with_extension('n64')
-        v64s = self.find_files_with_extension('v64')
-        z64s = self.find_files_with_extension('z64')
-        bins = self.find_files_with_extension('bin')
-        u1s = self.find_files_with_extension('u1')
-        ndds = self.find_files_with_extension('ndd')
-        gbs = self.find_files_with_extension('gb')
-        gbcs = self.find_files_with_extension('gbc')
+        n64s = self.find_files_with_extension(extensions[0])
+        v64s = self.find_files_with_extension(extensions[1])
+        z64s = self.find_files_with_extension(extensions[2])
+        bins = self.find_files_with_extension(extensions[3])
+        u1s = self.find_files_with_extension(extensions[4])
+        ndds = self.find_files_with_extension(extensions[5])
+        gbs = self.find_files_with_extension(extensions[6])
+        gbcs = self.find_files_with_extension(extensions[7])
 
         if len(n64s) == 0:
             n64s = self.find_n64_files()

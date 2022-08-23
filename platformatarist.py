@@ -4,16 +4,14 @@ import os
 
 class PlatformAtarist(PlatformCommon):
     def run(self):
-        # executable file types:
-        sts = self.find_files_with_extension('st')
-        msas = self.find_files_with_extension('msa')
-        # compressed file types:
-        stxs = self.find_files_with_extension('stx')
-        # playlist file types:
-        ipfs = self.find_files_with_extension('ipf')
-        m3us = self.find_files_with_extension('m3u')
-        vsfs = self.find_files_with_extension('vsf')
-        zips = self.find_files_with_extension('zip')
+        extensions = ['st', 'msa', 'stx', 'ipf', 'm3u', 'vsf', 'zip']
+        sts = self.find_files_with_extension(extensions[0])
+        msas = self.find_files_with_extension(extensions[1])
+        stxs = self.find_files_with_extension(extensions[2])
+        ipfs = self.find_files_with_extension(extensions[3])
+        m3us = self.find_files_with_extension(extensions[4])
+        vsfs = self.find_files_with_extension(extensions[5])
+        zips = self.find_files_with_extension(extensions[6])
 
         if len(sts) == 0:
             sts = self.find_st_files()
@@ -29,7 +27,7 @@ class PlatformAtarist(PlatformCommon):
             vsfs = self.find_vsf_files()
         if len(zips) == 0:
             vsfs = self.find_zip_files()
-        if len(sts) == 0 and len(msas) == 0 and len(stxs) == 0 and len(ipfs) == 0 and len(m3us) == 0:
+        if len(sts) == 0 and len(msas) == 0 and len(stxs) == 0 and len(ipfs) == 0 and len(m3us) == 0 and len(vsfs) == 0 and len(zips) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
