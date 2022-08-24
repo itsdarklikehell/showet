@@ -7,15 +7,17 @@ from os.path import basename
 
 from platformwindows import PlatformWindows  # works
 from platformmsdos import PlatformMsdos  # works
-from platformamiga import PlatformAmiga  # does not work too well yet..
+from platformamiga import PlatformAmiga  # works
 from platformnintendo import PlatformFamicom  # works
 from platformnintendo import PlatformSuperFamicom
 from platformnintendo import PlatformN64
 from platformnintendo import PlatformGameboy
 from platformnintendo import PlatformGameboyColor
 from platformnintendo import PlatformGameboyAdvance
-from platformatari import PlatformAtarist  # does not work too well yet..
-from platformatari import PlatformAtarixlxe  # does not work too well yet..
+from platformnintendo import PlatformGamecube
+from platformnintendo import PlatformWii
+from platformatari import PlatformAtarist
+from platformatari import PlatformAtarixlxe
 from platformspectrum import PlatformSpectrum
 from platformcommodore import PlatformCommodore  # works
 from platformlinux import PlatformLinux
@@ -31,7 +33,7 @@ args = parser.parse_args()
 
 # In priority order
 platform_runners = [PlatformAmiga(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformSpectrum(), PlatformCommodore(
-), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
+), PlatformGamecube(), PlatformWii(), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:
     for r in platform_runners:

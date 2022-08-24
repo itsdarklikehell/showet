@@ -33,7 +33,8 @@ class PlatformFamicom(PlatformCommon):
         emulator = ['retroarch']
         emulator.append('-L')
         # emulator.append('bnes_libretro')
-        emulator.append('fixnes_libretro')
+        # emulator.append('fixnes_libretro')
+        emulator.append('quicknes_libretro')
         # emulator.append('emux_nes_libretro')
         # emulator.append('nestopia_libretro')
         # emulator.append('--fullscreen')
@@ -125,16 +126,14 @@ class PlatformFamicom(PlatformCommon):
 
 class PlatformSuperFamicom(PlatformCommon):
     def run(self):
-        extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
+        extensions = ['sfc', 'smc', 'fig', 'swc', 'bs']
         print("Supported extensions:", extensions)
 
         sfcs = self.find_files_with_extension('sfc')
         smcs = self.find_files_with_extension('smc')
         figs = self.find_files_with_extension('fig')
-        gbcs = self.find_files_with_extension('swc')
+        swcs = self.find_files_with_extension('swc')
         bss = self.find_files_with_extension('bs')
-        gbs = self.find_files_with_extension('gb')
-        gbcs = self.find_files_with_extension('gbc')
 
         if len(sfcs) == 0:
             sfcs = self.find_sfc_files()
@@ -146,26 +145,22 @@ class PlatformSuperFamicom(PlatformCommon):
             gbcs = self.find_swc_files()
         if len(bss) == 0:
             bss = self.find_bs_files()
-        if len(gbs) == 0:
-            gbs = self.find_gb_files()
-        if len(gbcs) == 0:
-            gbcs = self.find_gbc_files()
 
-        if len(sfcs) == 0 and len(smcs) == 0 and len(sfcs) == 0 and len(figs) == 0 and len(gbcs) == 0 and len(bss) == 0 and len(gbs) == 0 and len(gbcs) == 0:
+        if len(sfcs) == 0 and len(smcs) == 0 and len(figs) == 0 and len(swcs) == 0 and len(bss) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
         emulator = ['retroarch']
         emulator.append('-L')
         # emulator.append('mesen-s_libretro')
-        # emulator.append('snes9x_libretro')
+        emulator.append('snes9x_libretro')
         # emulator.append('snes9x2010_libretro')
         # emulator.append('bsnes_hd_beta_libretro)
         # emulator.append('bsnes_cplusplus98_libretro')
         # emulator.append('bsnes2014_balanced_libretro')
         # emulator.append('bsnes_libretro')
         # emulator.append('bsnes_mercury_balanced_libretro')
-        emulator.append('quicknes_libretro')
+        # emulator.append('quicknes_libretro')
         # emulator.append('mednafen_snes_libretro')
         # emulator.append('--fullscreen')
 
@@ -184,30 +179,20 @@ class PlatformSuperFamicom(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [figs[0]]
 
-        if len(gbcs) > 0:
-            gbcs = self.sort_disks(gbcs)
+        if len(swcs) > 0:
+            swcs = self.sort_disks(swcs)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [gbcs[0]]
+                emulator = emulator + [swcs[0]]
 
         if len(bss) > 0:
             bss = self.sort_disks(bss)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [bss[0]]
 
-        if len(gbs) > 0:
-            gbs = self.sort_disks(gbs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [gbs[0]]
-
-        if len(gbcs) > 0:
-            gbcs = self.sort_disks(gbcs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [gbcs[0]]
-
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['snessuperfamicom', 'gameboy']
+        return ['snessuperfamicom']
 
 # Tries to identify files by any magic necessary
     def find_smc_files(self):
@@ -298,9 +283,9 @@ class PlatformN64(PlatformCommon):
         emulator.append('-L')
         # emulator.append('mupen64plus_next_libretro')
         # emulator.append('mupen64plus_next_gles2_libretro')
-        emulator.append('mupen64plus_next_gles3_libretro')
+        # emulator.append('mupen64plus_next_gles3_libretro')
         # emulator.append('mupen64plus_next_develop_libretro')
-        # emulator.append('parrallel_n64_libretro')
+        emulator.append('parrallel_n64_libretro')
         # emulator.append('parrallel_n64_debug_libretro')
         # emulator.append('--fullscreen')
 
@@ -389,7 +374,7 @@ class PlatformN64(PlatformCommon):
 
 class PlatformGameboy(PlatformCommon):
     def run(self):
-        extensions = ['gb', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
+        extensions = ['gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
         print("Supported extensions:", extensions)
 
         gbs = self.find_files_with_extension('gb')
@@ -398,6 +383,7 @@ class PlatformGameboy(PlatformCommon):
         bins = self.find_files_with_extension('bin')
         u1s = self.find_files_with_extension('u1')
         ndds = self.find_files_with_extension('ndd')
+        # zips = self.find_files_with_extension('zip')
 
         if len(gbs) == 0:
             gbs = self.find_gb_files()
@@ -454,7 +440,7 @@ class PlatformGameboy(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['gameboy', 'gameboycolor']
+        return ['gameboy']
 
 # Tries to identify files by any magic necessary
     def find_gbc_files(self):
@@ -481,7 +467,7 @@ class PlatformGameboy(PlatformCommon):
                 dmg_files.append(file)
         return dmg_files
 
-    def find_bin_files(bins):
+    def find_bin_files(self):
         bin_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -508,7 +494,7 @@ class PlatformGameboy(PlatformCommon):
 
 class PlatformGameboyColor(PlatformCommon):
     def run(self):
-        extensions = ['gb', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
+        extensions = ['gbc', 'dmg', 'bin', 'u1', 'ndd']
         print("Supported extensions:", extensions)
 
         gbs = self.find_files_with_extension('gb')
@@ -582,39 +568,40 @@ class PlatformGameboyAdvance(PlatformCommon):
         extensions = ['gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
         print("Supported extensions:", extensions)
 
-        gbs = self.find_files_with_extension('gb')
-        gbcs = self.find_files_with_extension('gbc')
-        gbcs = self.find_files_with_extension('gba')
-        dmgs = self.find_files_with_extension('dmg')
-        agbs = self.find_files_with_extension('agb')
-        bins = self.find_files_with_extension('bin')
-        cgbs = self.find_files_with_extension('cgb')
-        sgbs = self.find_files_with_extension('sgb')
+        # gbs = self.find_files_with_extension('gb')
+        # gbcs = self.find_files_with_extension('gbc')
+        gbas = self.find_files_with_extension('gba')
+        # dmgs = self.find_files_with_extension('dmg')
+        # agbs = self.find_files_with_extension('agb')
+        # bins = self.find_files_with_extension('bin')
+        # cgbs = self.find_files_with_extension('cgb')
+        # sgbs = self.find_files_with_extension('sgb')
 
-        if len(gbs) == 0:
-            gbs = self.find_gb_files()
-        if len(gbcs) == 0:
-            gbcs = self.find_gbc_files()
+        # if len(gbs) == 0:
+        #     gbs = self.find_gb_files()
+        # if len(gbcs) == 0:
+        #     gbcs = self.find_gbc_files()
         if len(gbas) == 0:
             gbas = self.find_gba_files()
-        if len(dmgs) == 0:
-            dmgs = self.find_dmg_files()
-        if len(agbs) == 0:
-            agbs = self.find_agb_files()
-        if len(bins) == 0:
-            bins = self.find_bin_files()
-        if len(cgbs) == 0:
-            cgbs = self.find_cgb_files()
-        if len(sgbs) == 0:
-            sgbs = self.find_sgb_files()
-        if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(gbas) == 0 and len(dmgs) == 0 and len(agbs) == 0 and len(bins) == 0 and len(cgbs) == 0 and len(sgbs) == 0:
+        # if len(dmgs) == 0:
+        #     dmgs = self.find_dmg_files()
+        # if len(agbs) == 0:
+        #     agbs = self.find_agb_files()
+        # if len(bins) == 0:
+        #     bins = self.find_bin_files()
+        # if len(cgbs) == 0:
+        #     cgbs = self.find_cgb_files()
+        # if len(sgbs) == 0:
+        #     sgbs = self.find_sgb_files()
+        if len(gbas) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
         emulator = ['retroarch']
         emulator.append('-L')
         # emulator.append('meteor_libretro')
-        emulator.append('vbam_libretro')
+        # emulator.append('vbam_libretro')
+        emulator.append('vba_next_libretro')
         # emulator.append('gpsp_libretro')
         # emulator.append('tempgba_libretro')
         # emulator.append('mgba_libretro')
@@ -623,67 +610,67 @@ class PlatformGameboyAdvance(PlatformCommon):
 
         # emulator.append('--fullscreen')
 
-        if len(gbs) > 0:
-            gbs = self.sort_disks(gbs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [gbs[0]]
+        # if len(gbs) > 0:
+        #     gbs = self.sort_disks(gbs)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [gbs[0]]
 
-        if len(gbcs) > 0:
-            gbcs = self.sort_disks(gbcs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [gbcs[0]]
+        # if len(gbcs) > 0:
+        #     gbcs = self.sort_disks(gbcs)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [gbcs[0]]
 
         if len(gbas) > 0:
             gbas = self.sort_disks(gbas)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [gbas[0]]
 
-        if len(dmgs) > 0:
-            dmgs = self.sort_disks(dmgs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [dmgs[0]]
+        # if len(dmgs) > 0:
+        #     dmgs = self.sort_disks(dmgs)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [dmgs[0]]
 
-        if len(agbs) > 0:
-            agbs = self.sort_disks(agbs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [agbs[0]]
+        # if len(agbs) > 0:
+        #     agbs = self.sort_disks(agbs)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [agbs[0]]
 
-        if len(bins) > 0:
-            bins = self.sort_disks(bins)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [bins[0]]
+        # if len(bins) > 0:
+        #     bins = self.sort_disks(bins)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [bins[0]]
 
-        if len(cgbs) > 0:
-            cgbs = self.sort_disks(cgbs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [cgbs[0]]
+        # if len(cgbs) > 0:
+        #     cgbs = self.sort_disks(cgbs)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [cgbs[0]]
 
-        if len(sgbs) > 0:
-            sgbs = self.sort_disks(sgbs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [sgbs[0]]
+        # if len(sgbs) > 0:
+        #     sgbs = self.sort_disks(sgbs)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [sgbs[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['gameboy', 'gameboycolor']
+        return ['gameboyadvance', 'gameboycolor', 'gameboy']
 
 # Tries to identify files by any magic necessary
-    def find_gbc_files(self):
-        gbc_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                gbc_files.append(file)
-        return gbc_files
+    # def find_gbc_files(self):
+    #     gbc_files = []
+    #     for file in self.prod_files:
+    #         size = os.path.getsize(file)
+    #         if size > 0:
+    #             gbc_files.append(file)
+    #     return gbc_files
 
-    def find_gb_files(self):
-        gb_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                gb_files.append(file)
-        return gb_files
+    # def find_gb_files(self):
+    #     gb_files = []
+    #     for file in self.prod_files:
+    #         size = os.path.getsize(file)
+    #         if size > 0:
+    #             gb_files.append(file)
+    #     return gb_files
 
     def find_gba_files(self):
         gba_files = []
@@ -693,42 +680,122 @@ class PlatformGameboyAdvance(PlatformCommon):
                 gba_files.append(file)
         return gba_files
 
-    def find_dmg_files(self):
-        dmg_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                dmg_files.append(file)
-        return dmg_files
+    # def find_dmg_files(self):
+    #     dmg_files = []
+    #     for file in self.prod_files:
+    #         size = os.path.getsize(file)
+    #         if size > 0:
+    #             dmg_files.append(file)
+    #     return dmg_files
 
-    def find_agb_files(self):
-        agb_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                agb_files.append(file)
-        return agb_files
+    # def find_agb_files(self):
+    #     agb_files = []
+    #     for file in self.prod_files:
+    #         size = os.path.getsize(file)
+    #         if size > 0:
+    #             agb_files.append(file)
+    #     return agb_files
 
-    def find_bin_files(self):
-        bin_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                bin_files.append(file)
-        return bin_files
+    # def find_bin_files(self):
+    #     bin_files = []
+    #     for file in self.prod_files:
+    #         size = os.path.getsize(file)
+    #         if size > 0:
+    #             bin_files.append(file)
+    #     return bin_files
 
-    def find_cgb_files(self):
-        cgb_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                cgb_files.append(file)
-        return cgb_files
+    # def find_cgb_files(self):
+    #     cgb_files = []
+    #     for file in self.prod_files:
+    #         size = os.path.getsize(file)
+    #         if size > 0:
+    #             cgb_files.append(file)
+    #     return cgb_files
 
-    def find_sgb_files(self):
-        sgb_files = []
+    # def find_sgb_files(self):
+    #     sgb_files = []
+    #     for file in self.prod_files:
+    #         size = os.path.getsize(file)
+    #         if size > 0:
+    #             sgb_files.append(file)
+    #     return sgb_files
+
+
+class PlatformGamecube(PlatformCommon):
+    def run(self):
+        extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
+                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        print("Supported extensions:", extensions)
+
+        gcms = self.find_files_with_extension('gcm')
+
+        if len(gcms) == 0:
+            gcms = self.find_gcm_files()
+        if len(gcms) == 0:
+            print("Didn't find any runable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        emulator.append('-L')
+
+        emulator.append('dolphin_libretro')
+
+        # emulator.append('--fullscreen')
+
+        if len(gcms) > 0:
+            gcms = self.sort_disks(gcms)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [gcms[0]]
+
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['gamecube']
+
+    def find_gcm_files(self):
+        gcm_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                sgb_files.append(file)
-        return sgb_files
+                gcm_files.append(file)
+        return gcm_files
+
+
+class PlatformWii(PlatformCommon):
+    def run(self):
+        extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
+                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        print("Supported extensions:", extensions)
+
+        gcms = self.find_files_with_extension('gcm')
+
+        if len(gcms) == 0:
+            gcms = self.find_gcm_files()
+        if len(gcms) == 0:
+            print("Didn't find any runable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        emulator.append('-L')
+
+        emulator.append('dolphin_libretro')
+
+        # emulator.append('--fullscreen')
+
+        if len(gcms) > 0:
+            gcms = self.sort_disks(gcms)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [gcms[0]]
+
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['wii', 'wiiu']
+
+    def find_gcm_files(self):
+        gcm_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                gcm_files.append(file)
+        return gcm_files

@@ -58,17 +58,27 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 ## Todo
 
 - [x] Proof of concept
-- [x] Windows support
-- [x] Amiga support
-- [x] C64 support
-- [ ] DOS support (almost working)
-- [ ] Linux support (almost working)
+- [x] Windows Supported by: wine
+- [x] Amiga Supported by: retroarch core(s): hatari_libretro
+- [x] C64 Supported by: retroarch core(s): vice_x64_libretro
+- [x] Nintendo NES/Famicom Supported by: retroarch core(s): quicknes_libretro
+- [x] Nintendo SNES/SuperFamicom Supported by: retroarch core(s): snes9x_libretro
+- [ ] Nintendo N64 Supported by: retroarch core(s): mupen64plus_next_libretro, parrallel_n64_libretro
+- [x] Nintendo GB Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
+- [x] Nintendo GBC Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
+- [x] Nintendo GBA Supported by: retroarch core(s): vbam_libretro, gpsp_libretro
+- [ ] Nintendo GameCube Supported by: retroarch core(s): dolphin_libretro
+- [ ] Nintendo WII/WIIu Supported by: retroarch core(s): dolphin_libretro
+- [x] DOS support: Supported by: retroarch core(s): dosbox_core_libretro
+- [ ] Linux support (almost working) Supported by: OS
 - [x] GUI
-- [x] unzip decompress
-- [x] unrar decompress
-- [x] tar/gz/lhA decompress
+- [ ] Option to set/select the emulator (core) to run if more than one is supported.
+- [ ] Option for setting custom commandline options to pass to chosen emulator (core).
+- [x] unzip decompress (This is really not needed for retroarch but more for those that run in dosbox or wine.)
+- [x] unrar decompress (Same as above.)
+- [x] tar/gz/lhA decompress (Same as above.)
 - [ ] Design metadata format to fix non-working demos
-- [x] Disk change support (C64/Amiga)
+- [x] Disk change support (C64/Amiga) (retroarch has playlist support for pls, m3u, vfl etc.)
 - [x] debian packaging
 - [ ] Whitelist & blacklist of known working & broken demos
 
@@ -82,6 +92,31 @@ Windows: MFX's Deities (http://www.pouet.net/prod.php?which=24487)
 
 ```
 ./showet.py 24487
+```
+
+NES/nes: Matrix(http://www.pouet.net/prod.php?which=90520)
+
+```
+./showet.py 90520
+```
+
+SNES/sfc: Bad Apple (http://www.pouet.net/prod.php?which=91610)
+
+```
+
+./showet.py 91610
+```
+
+GB/gb: Turbocharged(http://www.pouet.net/prod.php?which=91987)
+
+```
+./showet.py 91987
+```
+
+GBC/gb: Titan - To The Lighthouse!(http://www.pouet.net/prod.php?which=91968)
+
+```
+./showet.py 91968
 ```
 
 Amiga/dms Origin by Complex (http://www.pouet.net/prod.php?which=3741)
