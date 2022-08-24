@@ -195,8 +195,8 @@ class PlatformAtarixlxe(PlatformCommon):
         emulator.append('hatari_libretro')
         # emulator.append('--fullscreen')
 
-        flcdmile = self.datadir + "/fliplixfd.vfl"
-        with open(flcdmile, "w") as f:
+        flipfile = self.datadir + "/flipfile.vfl"
+        with open(flipfile, "w") as f:
             f.write("UNIT 8\n")
             for disk in xfds:
                 f.write(disk + "\n")

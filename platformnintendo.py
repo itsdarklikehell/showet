@@ -43,30 +43,30 @@ class PlatformFamicom(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [ness[0]]
 
-        if len(fdss) > 0:
-            fdss = self.sort_disks(fdss)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [fdss[0]]
+        # if len(fdss) > 0:
+        #     fdss = self.sort_disks(fdss)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [fdss[0]]
 
-        if len(unfs) > 0:
-            unfs = self.sort_disks(unfs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [unfs[0]]
+        # if len(unfs) > 0:
+        #     unfs = self.sort_disks(unfs)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [unfs[0]]
 
-        if len(unifs) > 0:
-            unifs = self.sort_disks(unifs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [unifs[0]]
+        # if len(unifs) > 0:
+        #     unifs = self.sort_disks(unifs)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [unifs[0]]
 
-        if len(qds) > 0:
-            qds = self.sort_disks(qds)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [qds[0]]
+        # if len(qds) > 0:
+        #     qds = self.sort_disks(qds)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [qds[0]]
 
-        if len(nsfs) > 0:
-            nsfs = self.sort_disks(nsfs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [nsfs[0]]
+        # if len(nsfs) > 0:
+        #     nsfs = self.sort_disks(nsfs)
+        #     if emulator[0] == 'retroarch':
+        #         emulator = emulator + [nsfs[0]]
 
         self.run_process(emulator)
 
@@ -408,7 +408,7 @@ class PlatformGameboy(PlatformCommon):
         if len(bins) == 0:
             bins = self.find_bin_files()
         if len(u1s) == 0:
-            u1s = self.find_u1s_files()
+            u1s = self.find_u1_files()
         if len(ndds) == 0:
             ndds = self.find_ndd_files()
         if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(dmgs) == 0 and len(bins) == 0 and len(u1s) == 0 and len(ndds) == 0 and len(gbs) == 0:
