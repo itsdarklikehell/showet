@@ -230,7 +230,7 @@ class PlatformAtarixlxe(PlatformCommon):
         if len(atxs) > 0:
             atxs = self.sort_disks(atxs)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [atx[0]]
+                emulator = emulator + [atxs[0]]
 
         if len(cdms) > 0:
             cdms = self.sort_disks(cdms)
