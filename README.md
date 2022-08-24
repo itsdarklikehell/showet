@@ -59,16 +59,40 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 
 - [x] Proof of concept
 - [x] Windows Supported by: wine
-- [x] Amiga Supported by: retroarch core(s): hatari_libretro
-- [x] C64 Supported by: retroarch core(s): vice_x64_libretro
-- [x] Nintendo NES/Famicom Supported by: retroarch core(s): quicknes_libretro
-- [x] Nintendo SNES/SuperFamicom Supported by: retroarch core(s): snes9x_libretro
+- [ ] General Video/Animation Stuff... (could use VLC here.)
+- [x] Amiga Supported by: retroarch core(s):
+- [ ] Atari (Falcon/Jaguar/Lynx/ST(e)/TT/VCS/XL/XE) Supported by: retroarch cores: hatari_libretro
+- [x] Commodore (C16/116/plus4/C64/CDTV/C128) Supported by: retroarch core(s): vice_x64_libretro
+- [x] Nintendo NES (Famicom) Supported by: retroarch core(s): quicknes_libretro
+- [x] Nintendo SNES (Super Famicom) Supported by: retroarch core(s): snes9x_libretro
 - [ ] Nintendo N64 Supported by: retroarch core(s): mupen64plus_next_libretro, parrallel_n64_libretro
-- [x] Nintendo GB Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
-- [x] Nintendo GBC Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
-- [x] Nintendo GBA Supported by: retroarch core(s): vbam_libretro, gpsp_libretro
-- [ ] Nintendo GameCube Supported by: retroarch core(s): dolphin_libretro
+- [x] Nintendo GB (Gameboy) Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
+- [x] Nintendo GBC (Gameboy Color) Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
+- [x] Nintendo GBA (Gameboy Advance) Supported by: retroarch core(s): vbam_libretro, gpsp_libretro
+- [ ] Nintendo GC (GameCube) Supported by: retroarch core(s): dolphin_libretro
+- [ ] Nintendo DS (NDS/3DS/3DSi) Stuff...
+- [ ] Nintendo VB (VirtuaBoy) Stuff...
 - [ ] Nintendo WII/WIIu Supported by: retroarch core(s): dolphin_libretro
+- [ ] Nintendo Switch Stuff...
+- [ ] PokeMini Stuff...
+- [ ] WonderSwan Stuff...
+- [ ] Amstrad (CPC/PLUS) Stuff... (see cap32_libretro.info)
+- [ ] Sega (GameGear/Megadrive/Genesis/mastersystem) Stuff...
+- [ ] Pico8 Stuff...
+- [ ] TIC80 Stuff...
+- [ ] TRS80/CoCo/Dragon32 Stuff...
+- [ ] Vectrex Stuff...
+- [ ] Sony (PSX/PS2/PS3/PSP) Stuff... (see duckstation_libretro.info and ppsppp_libretro.)
+- [ ] Apple Stuff...
+- [ ] GamePark (GP2x/GP32) Stuff...
+- [ ] Microsoft (MSX/MSX2/MSX2+/MSX Turbo-r) Stuff...
+- [ ] Microsoft (XBOX/XBOX360) Stuff...
+- [ ] NEC TurboGrafx/PC Engine Stuff...
+- [ ] NeoGeo (pocket/pocket color) Stuff...
+- [ ] Intellivison Stuff... (see: FreeIntv)
+- [ ] Java Stuff... (see: freej2me_libretro.info)
+- [ ] Flash Stuff... (see: Flashpoint)
+- [ ] ZX (ZX Enhanced/ZX Spectrum/ZX 81) Stuff...
 - [x] DOS support: Supported by: retroarch core(s): dosbox_core_libretro
 - [ ] Linux support (almost working) Supported by: OS
 - [x] GUI
@@ -78,7 +102,7 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 - [x] unrar decompress (Same as above.)
 - [x] tar/gz/lhA decompress (Same as above.)
 - [ ] Design metadata format to fix non-working demos
-- [x] Disk change support (C64/Amiga) (retroarch has playlist support for pls, m3u, vfl etc.)
+- [x] Disk change support (C64/Amiga) (PSX) (retroarch has playlist support for pls, m3u, vfl etc.)
 - [x] debian packaging
 - [ ] Whitelist & blacklist of known working & broken demos
 
