@@ -7,9 +7,8 @@ from os.path import basename
 
 from platformwindows import PlatformWindows  # works
 from platformmsdos import PlatformMsdos  # works
-# from platformamiga import PlatformAmiga # does not work too well yet..
+from platformamiga import PlatformAmiga  # does not work too well yet..
 from platformnintendo import PlatformFamicom  # works
-# snes works, supergameboy is not fully tested
 from platformnintendo import PlatformSuperFamicom
 from platformnintendo import PlatformN64
 from platformnintendo import PlatformGameboy

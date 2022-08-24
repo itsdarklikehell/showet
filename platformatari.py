@@ -183,10 +183,10 @@ class PlatformAtarixlxe(PlatformCommon):
         if len(a52s) == 0:
             a52s = self.find_a52_files()
         if len(xexs) == 0:
-            xexs = self.find_xexs_files()
+            xexs = self.find_xex_files()
         if len(zips) == 0:
             zips = self.find_zip_files()
-        if len(xfds) == 0 and len(atrs) == 0 and len(atx) == 0 and len(cdms) == 0 and len(cass) == 0 and len(bins) == 0 and len(zips) == 0:
+        if len(xfds) == 0 and len(atrs) == 0 and len(atxs) == 0 and len(cdms) == 0 and len(cass) == 0 and len(bins) == 0 and len(a52s) == 0 and len(xexs) == 0 and len(zips) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -202,7 +202,7 @@ class PlatformAtarixlxe(PlatformCommon):
                 f.write(disk + "\n")
             for disk in atrs:
                 f.write(disk + "\n")
-            for disk in atx:
+            for disk in atxs:
                 f.write(disk + "\n")
             for disk in cdms:
                 f.write(disk + "\n")
@@ -227,8 +227,8 @@ class PlatformAtarixlxe(PlatformCommon):
             if emulator[0] == 'retroarch':
                 emulator = emulator + [atrs[0]]
 
-        if len(atx) > 0:
-            atx = self.sort_disks(atx)
+        if len(atxs) > 0:
+            atxs = self.sort_disks(atxs)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [atx[0]]
 
