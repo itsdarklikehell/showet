@@ -30,7 +30,7 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformSpectrum(), PlatformCommodore(
+platform_runners = [PlatformAmiga(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformSpectrum(), PlatformCommodore(
 ), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:
