@@ -102,7 +102,7 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 - [x] unrar decompress (Same as above.)
 - [x] tar/gz/lhA decompress (Same as above.)
 - [ ] Design metadata format to fix non-working demos
-- [x] Disk change support (C64/Amiga) (PSX) (retroarch has playlist support for pls, m3u, vfl etc.)
+- [ ] Disk change support (C64/Amiga) (PSX) (retroarch has playlist support for pls, m3u, vfl etc.)
 - [x] debian packaging
 - [ ] Whitelist & blacklist of known working & broken demos
 

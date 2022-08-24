@@ -5,6 +5,10 @@ import subprocess
 
 class PlatformCommon:
     prod_files = []
+    steam = ['false']
+    fullscreen = ['true']
+    native = ['false']
+    audio = ['true']
 
     def __init__(self):
         self.showetdir = None

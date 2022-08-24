@@ -1,6 +1,7 @@
 from platformcommon import PlatformCommon
 import os
 
+fullscreen = ['false']
 
 class PlatformAtarist(PlatformCommon):
     def run(self):
@@ -193,7 +194,8 @@ class PlatformAtarixlxe(PlatformCommon):
         emulator = ['retroarch']
         emulator.append('-L')
         emulator.append('hatari_libretro')
-        # emulator.append('--fullscreen')
+        if fullscreen[0] == 'true':
+            emulator.append('--fullscreen')
 
         flipfile = self.datadir + "/flipfile.vfl"
         with open(flipfile, "w") as f:

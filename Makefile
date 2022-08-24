@@ -264,11 +264,13 @@ uninstall_executable: FORCE
 install_pymodules: FORCE
 	@test -d $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet || mkdir -p $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet
 	$(QINSTALL) /home/rizzo/showet/platformamiga.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformamiga.py
+	$(QINSTALL) /home/rizzo/showet/platformatari.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformatari.py
 	$(QINSTALL) /home/rizzo/showet/platformcommodore.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommodore.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	$(QINSTALL) /home/rizzo/showet/platformlinux.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformlinux.py
 	$(QINSTALL) /home/rizzo/showet/platformmsdos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdos.py
-	$(QINSTALL) /home/rizzo/showet/platformmsdosgus.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdosgus.py
+	$(QINSTALL) /home/rizzo/showet/platformnintendo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnintendo.py
+	$(QINSTALL) /home/rizzo/showet/platformspectrum.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformspectrum.py
 	$(QINSTALL) /home/rizzo/showet/platformwindows.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwindows.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
@@ -276,11 +278,13 @@ install_pymodules: FORCE
 uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwindows.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformspectrum.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnintendo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdos.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdosgus.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformlinux.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommodore.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformatari.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformamiga.py
 	-$(DEL_DIR) $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/ 
 

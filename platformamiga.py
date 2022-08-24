@@ -2,13 +2,15 @@ from cProfile import run
 from platformcommon import PlatformCommon
 import os
 
+fullscreen = ['false']
+
 
 class PlatformAmiga(PlatformCommon):
     def run(self):
         extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info',
                       'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9', 'exe', 'run']
         print("Supported extensions:", extensions)
-        
+
         adfs = self.find_files_with_extension('adf')
         adzs = self.find_files_with_extension('adz')
         dmss = self.find_files_with_extension('dms')
@@ -89,7 +91,8 @@ class PlatformAmiga(PlatformCommon):
         emulator = ['retroarch']
         emulator.append('-L')
         emulator.append('puae_libretro')
-        # emulator.append('--fullscreen')
+        if fullscreen[0] == 'true':
+            emulator.append('--fullscreen')
 
         drives = []
         # Support only one for now..
