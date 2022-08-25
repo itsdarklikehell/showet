@@ -168,205 +168,205 @@ class PlatformCommodore(PlatformCommon):
 
         if len(d64s) > 0:
             d64s = self.sort_disks(d64s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [d64s[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d64s[0]]
 
         if len(d71s) > 0:
             d71s = self.sort_disks(d71s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [d71s[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d71s[0]]
 
         if len(d80s) > 0:
             d80s = self.sort_disks(d80s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [d80s[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d80s[0]]
 
         if len(d81s) > 0:
             d81s = self.sort_disks(d81s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [d81s[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d81s[0]]
 
         if len(d82s) > 0:
             d82s = self.sort_disks(d82s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [d82s[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d82s[0]]
 
         if len(g64s) > 0:
             g64s = self.sort_disks(g64s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [g64s[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, g64s[0]]
 
         if len(g41s) > 0:
             g41s = self.sort_disks(g41s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [g41s[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, g41s[0]]
 
         if len(x64s) > 0:
             x64s = self.sort_disks(x64s)
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, x64s[0]]
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [x64s[0]]
 
         if len(t64s) > 0:
             t64s = self.sort_disks(t64s)
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, t64s[0]]
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [t64s[0]]
 
         if len(taps) > 0:
             taps = self.sort_disks(taps)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [taps[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, taps[0]]
 
         if len(prgs) > 0:
             prgs = self.sort_disks(prgs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(prgs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, prgs[0]]
 
         if len(p00s) > 0:
             p00s = self.sort_disks(p00s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(p00s[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, p00s[0]]
 
         if len(crts) > 0:
             crts = self.sort_disks(crts)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(crts[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, crts[0]]
 
         if len(bins) > 0:
             bins = self.sort_disks(bins)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(bins[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, bins[0]]
 
         if len(zips) > 0:
             zips = self.sort_disks(zips)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(zips[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, zips[0]]
 
         if len(gzs) > 0:
             gzs = self.sort_disks(gzs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(gzs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, gzs[0]]
 
         if len(d6zs) > 0:
             d6zs = self.sort_disks(d6zs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(d6zs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d6zs[0]]
 
         if len(d7zs) > 0:
             d7zs = self.sort_disks(d7zs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(d7zs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d7zs[0]]
 
         if len(d8zs) > 0:
             d8zs = self.sort_disks(d8zs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(d8zs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d8zs[0]]
 
         if len(g4zs) > 0:
             g4zs = self.sort_disks(g4zs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(g4zs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, g4zs[0]]
 
         if len(g6zs) > 0:
             g6zs = self.sort_disks(g6zs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(g6zs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, g6zs[0]]
 
         if len(x6zs) > 0:
             x6zs = self.sort_disks(x6zs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(x6zs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, x6zs[0]]
 
         if len(m3us) > 0:
             m3us = self.sort_disks(m3us)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(m3us[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, m3us[0]]
 
         if len(vfls) > 0:
             vfls = self.sort_disks(vfls)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(vfls[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, vfls[0]]
 
         if len(vsfs) > 0:
             vsfs = self.sort_disks(vsfs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(vsfs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, vsfs[0]]
 
         if len(nibs) > 0:
             nibs = self.sort_disks(nibs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(nibs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, nibs[0]]
 
         if len(nbzs) > 0:
             nbzs = self.sort_disks(nbzs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(nbzs[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, nbzs[0]]
 
         if len(d2ms) > 0:
             d2ms = self.sort_disks(d2ms)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(d2ms[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d2ms[0]]
 
         if len(d4ms) > 0:
             d4ms = self.sort_disks(d4ms)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator.append(d4ms[0])
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, d4ms[0]]
 
         self.run_process(emulator)
