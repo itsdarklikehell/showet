@@ -19,27 +19,26 @@ class PlatformMsdos(PlatformCommon):
         isos = self.find_files_with_extension('iso')
         zips = self.find_files_with_extension('zip')
 
-        # if len(exes) == 0:
-        #     exes = self.find_exe_files()
-        # if len(coms) == 0:
-        #     coms = self.find_com_files()
-        # if len(bats) == 0:
-        #     bats = self.find_bat_files()
-        # if len(confs) == 0:
-        #     confs = self.find_conf_files()
-        # if len(cues) == 0:
-        #     cues = self.find_cue_files()
-        # if len(isos) == 0:
-        #     isos = self.find_iso_files()
+        if len(exes) == 0:
+            exes = self.find_exe_files()
+        if len(coms) == 0:
+            coms = self.find_com_files()
+        if len(bats) == 0:
+            bats = self.find_bat_files()
+        if len(confs) == 0:
+            confs = self.find_conf_files()
+        if len(cues) == 0:
+            cues = self.find_cue_files()
+        if len(isos) == 0:
+            isos = self.find_iso_files()
         if len(zips) == 0:
             zips = self.find_zip_files()
 
-        # if len(exes) == 0 and len(coms) == 0 and len(bats) == 0 and len(confs) == 0 and len(cues) == 0 and len(isos) == 0 and len(zips) == 0:
-        if len(zips) == 0:
+        if len(exes) == 0 and len(coms) == 0 and len(bats) == 0 and len(confs) == 0 and len(cues) == 0 and len(isos) == 0 and len(zips) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
-        emulator = ['dosbox']
+        emulator = ['retroarch']
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
