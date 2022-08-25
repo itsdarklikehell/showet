@@ -1,7 +1,7 @@
 from platformcommon import PlatformCommon
 import os
 
-# emulator = ['fs-uae', '--fullscreen', '--keep_aspect']
+# emulator = ['fs-uae']
 emulator = ['retroarch']
 fullscreen = ['false']
 
