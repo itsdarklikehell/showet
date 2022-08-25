@@ -730,3 +730,171 @@ class PlatformWii(PlatformCommon):
             if size > 0:
                 gcm_files.append(file)
         return gcm_files
+
+
+class PlatformPokemini(PlatformCommon):
+    def run(self):
+        extensions = ['min']
+        print("Supported extensions:", extensions)
+
+        mins = self.find_files_with_extension('min')
+
+        if len(mins) == 0:
+            mins = self.find_min_files()
+        if len(mins) == 0:
+            print("Didn't find any runable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('pokemini_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
+
+        if len(mins) > 0:
+            mins = self.sort_disks(mins)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [mins[0]]
+
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['pokemini']
+
+    def find_min_files(self):
+        min_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                min_files.append(file)
+        return min_files
+
+
+class PlatformDS(PlatformCommon):
+    def run(self):
+        extensions = ['nds', 'dsi']
+        print("Supported extensions:", extensions)
+
+        ndss = self.find_files_with_extension('nds')
+        dsis = self.find_files_with_extension('dsi')
+
+        if len(ndss) == 0:
+            ndss = self.find_nds_files()
+        if len(dsis) == 0:
+            ndss = self.find_dsi_files()
+        if len(ndss) == 0 and len(dsis) == 0:
+            print("Didn't find any runable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('menlonds_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
+
+        if len(ndss) > 0:
+            ndss = self.sort_disks(ndss)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [ndss[0]]
+
+        if len(dsis) > 0:
+            dsis = self.sort_disks(dsis)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [dsis[0]]
+
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['nintendods']
+
+    def find_nds_files(self):
+        nds_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                nds_files.append(file)
+        return nds_files
+
+    def find_dsi_files(self):
+        dsi_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                dsi_files.append(file)
+        return dsi_files
+
+
+class PlatformVirtualboy(PlatformCommon):
+    def run(self):
+        extensions = ['vb', 'vboy', 'bin']
+        print("Supported extensions:", extensions)
+
+        vbs = self.find_files_with_extension('vb')
+        vboys = self.find_files_with_extension('vboy')
+        bins = self.find_files_with_extension('bin')
+
+        if len(vbs) == 0:
+            vbs = self.find_vb_files()
+        if len(vboys) == 0:
+            vboys = self.find_vboy_files()
+        if len(bins) == 0:
+            bin = self.find_bin_files()
+        if len(vbs) == 0 and len(vboys) == 0 and len(bins) == 0:
+            print("Didn't find any runable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('menlovb_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
+
+        if len(vbs) > 0:
+            vbs = self.sort_disks(vbs)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [vbs[0]]
+
+        if len(vboys) > 0:
+            vboys = self.sort_disks(vboys)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [vboys[0]]
+
+        if len(bins) > 0:
+            bins = self.sort_disks(bins)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [bins[0]]
+
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['virtualboy']
+
+    def find_vb_files(self):
+        vb_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                vb_files.append(file)
+        return vb_files
+
+    def find_vboy_files(self):
+        vboy_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                vboy_files.append(file)
+        return vboy_files
+
+    def find_bin_files(self):
+        bin_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                bin_files.append(file)
+        return bin_files

@@ -2,24 +2,15 @@
 import urllib.request
 import json
 import os
-import sys
 from os.path import basename
 
-from platformwindows import PlatformWindows  # works
-from platformmsdos import PlatformMsdos  # works
-from platformamiga import PlatformAmiga  # works
-from platformnintendo import PlatformFamicom  # works
-from platformnintendo import PlatformSuperFamicom
-from platformnintendo import PlatformN64
-from platformnintendo import PlatformGameboy
-from platformnintendo import PlatformGameboyColor
-from platformnintendo import PlatformGameboyAdvance
-from platformnintendo import PlatformGamecube
-from platformnintendo import PlatformWii
-from platformatari import PlatformAtarist
-from platformatari import PlatformAtarixlxe
+from platformwindows import PlatformWindows
+from platformmsdos import PlatformMsdos
+from platformamiga import PlatformAmiga
+from platformnintendo import PlatformGameboy, PlatformGameboyColor, PlatformGameboyAdvance, PlatformFamicom, PlatformSuperFamicom, PlatformVirtualboy, PlatformN64, PlatformGamecube, PlatformWii, PlatformPokemini, PlatformDS
+from platformatari import PlatformAtarist, PlatformAtarixlxe
 from platformspectrum import PlatformSpectrum
-from platformcommodore import PlatformCommodore  # works
+from platformcommodore import PlatformCommodore
 from platformlinux import PlatformLinux
 import argparse
 
@@ -33,7 +24,7 @@ args = parser.parse_args()
 
 # In priority order
 platform_runners = [PlatformAmiga(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformSpectrum(), PlatformCommodore(
-), PlatformGamecube(), PlatformWii(), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
+), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux()]
 
 if args.platforms:
     for r in platform_runners:

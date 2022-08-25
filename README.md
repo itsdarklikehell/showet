@@ -65,16 +65,16 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 - [x] Commodore (C16/116/plus4/C64/CDTV/C128) Supported by: retroarch core(s): vice_x64_libretro
 - [x] Nintendo NES (Famicom) Supported by: retroarch core(s): quicknes_libretro
 - [x] Nintendo SNES (Super Famicom) Supported by: retroarch core(s): snes9x_libretro
-- [ ] Nintendo N64 Supported by: retroarch core(s): mupen64plus_next_libretro, parrallel_n64_libretro
+- [x] Nintendo N64 Supported by: retroarch core(s): mupen64plus_next_libretro, parrallel_n64_libretro
 - [x] Nintendo GB (Gameboy) Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
 - [x] Nintendo GBC (Gameboy Color) Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
 - [x] Nintendo GBA (Gameboy Advance) Supported by: retroarch core(s): vbam_libretro, gpsp_libretro
-- [ ] Nintendo GC (GameCube) Supported by: retroarch core(s): dolphin_libretro
-- [ ] Nintendo DS (NDS/3DS/3DSi) Stuff...
-- [ ] Nintendo VB (VirtuaBoy) Stuff...
-- [ ] Nintendo WII/WIIu Supported by: retroarch core(s): dolphin_libretro
+- [x] Nintendo GC (GameCube) Supported by: retroarch core(s): dolphin_libretro
+- [x] Nintendo DS (NDS/3DS/3DSi) Supported by: retroarch core(s): menlonds_libretro
+- [x] Nintendo VB (VirtuaBoy) Stuff...
+- [x] Nintendo WII/WIIu Supported by: retroarch core(s): dolphin_libretro
 - [ ] Nintendo Switch Stuff...
-- [ ] PokeMini Stuff... (see pokemini_libretro.info implementing this should be easy, there are only 3 scenes for this system so obviously not a priority..)
+- [x] PokeMini Stuff... (see pokemini_libretro.info implementing this should be easy, there are only 3 scenes for this system so obviously not a priority..)
 - [ ] WonderSwan Stuff...
 - [ ] Amstrad (CPC/PLUS) Stuff... (see cap32_libretro.info)
 - [ ] Sega (GameGear/Megadrive/Genesis/mastersystem) Stuff...
