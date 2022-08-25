@@ -320,6 +320,14 @@ class PlatformAmiga(PlatformCommon):
                 lha_files.append(file)
         return lha_files
 
+    def find_tga_files(self):
+        tga_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                tga_files.append(file)
+        return tga_files
+
     def find_slave_files(self):
         slave_files = []
         for file in self.prod_files:
