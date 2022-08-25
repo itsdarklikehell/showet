@@ -20,6 +20,7 @@ class PlatformAmiga(PlatformCommon):
         hdfs = self.find_files_with_extension('hdf')
         hdzs = self.find_files_with_extension('hdz')
         lhas = self.find_files_with_extension('lha')
+        tgas = self.find_files_with_extension('tga')
         slaves = self.find_files_with_extension('slave')
         infos = self.find_files_with_extension('info')
         cues = self.find_files_with_extension('cue')
@@ -36,10 +37,10 @@ class PlatformAmiga(PlatformCommon):
         exes = self.find_files_with_extension('exe')
         runs = self.find_files_with_extension('run')
 
-        # if len(exes) == 0:
-        #     exes = self.find_magic_cookies()
         if len(exes) == 0:
-            exes = self.find_exe_files()
+            exes = self.find_magic_cookies()
+        # if len(exes) == 0:
+        #     exes = self.find_exe_files()
         if len(adfs) == 0:
             adfs = self.find_adf_files()
         if len(adzs) == 0:
@@ -56,6 +57,8 @@ class PlatformAmiga(PlatformCommon):
             hdzs = self.find_hdz_files()
         if len(lhas) == 0:
             lhas = self.find_lha_files()
+        if len(tgas) == 0:
+            tgas = self.find_tga_files()
         if len(slaves) == 0:
             slaves = self.find_slave_files()
         if len(infos) == 0:
@@ -86,7 +89,7 @@ class PlatformAmiga(PlatformCommon):
         if len(runs) == 0:
             runs = self.find_run_files()
 
-        if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0 and len(runs) == 0:
+        if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(tgas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0 and len(runs) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -121,157 +124,72 @@ class PlatformAmiga(PlatformCommon):
                     f.write(exename + "\n")
                     f.close()
         if len(dmss) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(dmss)
             emulator = emulator + [dmss[0]]
         if len(adfs) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(adfs)
             emulator = emulator + [adfs[0]]
         if len(adzs) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(adzs)
             emulator = emulator + [adzs[0]]
         if len(fdis) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(fdis)
             emulator = emulator + [fdis[0]]
         if len(ipfs) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(ipfs)
             emulator = emulator + [ipfs[0]]
         if len(hdfs) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(hdfs)
             emulator = emulator + [hdfs[0]]
         if len(hdzs) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(hdzs)
             emulator = emulator + [hdzs[0]]
         if len(lhas) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(lhas)
             emulator = emulator + [lhas[0]]
+        if len(tgas) > 0:
+            drives = self.sort_disks(tgas)
+            emulator = emulator + [tgas[0]]
         if len(slaves) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(slaves)
             emulator = emulator + [slaves[0]]
         if len(infos) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(infos)
             emulator = emulator + [infos[0]]
         if len(cues) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(cues)
             emulator = emulator + [cues[0]]
         if len(ccds) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(ccds)
             emulator = emulator + [ccds[0]]
         if len(nrgs) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(nrgs)
             emulator = emulator + [nrgs[0]]
         if len(mdss) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(mdss)
             emulator = emulator + [mdss[0]]
         if len(isos) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(isos)
             emulator = emulator + [isos[0]]
         if len(chds) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(chds)
             emulator = emulator + [chds[0]]
         if len(uaes) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(uaes)
             emulator = emulator + [uaes[0]]
         if len(m3us) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(m3us)
             emulator = emulator + [m3us[0]]
         if len(zips) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(zips)
             emulator = emulator + [zips[0]]
         if len(zs) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(zs)
             emulator = emulator + [zs[0]]
         if len(rp9s) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(rp9s)
             emulator = emulator + [rp9s[0]]
         if len(runs) > 0:
-            emulator = ['retroarch']
-            emulator.append('-L')
-            emulator.append('puae_libretro')
-            # emulator.append('--fullscreen')
             drives = self.sort_disks(runs)
             emulator = emulator + [runs[0]]
 
@@ -316,19 +234,21 @@ class PlatformAmiga(PlatformCommon):
         return ['amigaocsecs', 'amigaaga', 'amigappcrtg']
 
 # Search demo files for amiga magic cookie (executable file)
-    # def find_magic_cookies(self):
-    #     cookie_files = []
-    #     for file in self.prod_files:
-    #         with open(file, "rb") as fin:
-    #             header = fin.read(4)
-    #             if len(header) == 4:
-    #                 # Signature for Amiga magic cookie
-    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-    #                     cookie_files.append(file)
-    #     return cookie_files
-# Tries to identify files by any magic necessary
+    def find_magic_cookies(self):
+        cookie_files = []
+        for file in self.prod_files:
+            with open(file, "rb") as fin:
+                header = fin.read(4)
+                if len(header) == 4:
+                    # Signature for Amiga magic cookie
+                    if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+                        cookie_files.append(file)
+        return cookie_files
 
-    def find_exe_files(self):
+
+Tries to identify files by any magic necessary
+
+   def find_exe_files(self):
         exe_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
