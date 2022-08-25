@@ -71,7 +71,7 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 - [x] Nintendo GBA (Gameboy Advance) Supported by: retroarch core(s): vbam_libretro, gpsp_libretro
 - [x] Nintendo GC (GameCube) Supported by: retroarch core(s): dolphin_libretro
 - [x] Nintendo DS (NDS/3DS/3DSi) Supported by: retroarch core(s): menlonds_libretro
-- [x] Nintendo VB (VirtuaBoy) Stuff...
+- [x] Nintendo VB (VirtuaBoy) Supported by: retroarch core(s): mednafen_vb_libretro
 - [x] Nintendo WII/WIIu Supported by: retroarch core(s): dolphin_libretro
 - [ ] Nintendo Switch Stuff...
 - [x] PokeMini Stuff... (see pokemini_libretro.info implementing this should be easy, there are only 3 scenes for this system so obviously not a priority..)

@@ -851,7 +851,7 @@ class PlatformVirtualboy(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('menlovb_libretro')
+            emulator.append('mednafen_vb_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
