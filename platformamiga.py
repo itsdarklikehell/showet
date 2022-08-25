@@ -8,7 +8,7 @@ fullscreen = ['false']
 
 class PlatformAmiga(PlatformCommon):
     def run(self):
-        extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info',
+        extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
                       'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9', 'exe', 'run']
         print("Supported extensions:", extensions)
 
