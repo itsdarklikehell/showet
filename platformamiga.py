@@ -38,10 +38,10 @@ class PlatformAmiga(PlatformCommon):
         # slaves = self.find_files_with_extension('slave')
         # infos = self.find_files_with_extension('info')
 
-        if len(exes) == 0:
-            exes = self.find_magic_cookies()
         # if len(exes) == 0:
-        #     exes = self.find_exe_files()
+        #     exes = self.find_magic_cookies()
+        if len(exes) == 0:
+            exes = self.find_exe_files()
         # if len(adfs) == 0:
         #     adfs = self.find_adf_files()
         # if len(adzs) == 0:
@@ -234,16 +234,16 @@ class PlatformAmiga(PlatformCommon):
         return ['amigaocsecs', 'amigaaga', 'amigappcrtg']
 
 # Search demo files for amiga magic cookie (executable file)
-    def find_magic_cookies(self):
-        cookie_files = []
-        for file in self.prod_files:
-            with open(file, "rb") as fin:
-                header = fin.read(4)
-                if len(header) == 4:
-                    # Signature for Amiga magic cookie
-                    if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-                        cookie_files.append(file)
-        return cookie_files
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
 
 # Tries to identify files by any magic necessary
