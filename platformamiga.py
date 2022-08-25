@@ -33,7 +33,7 @@ class PlatformAmiga(PlatformCommon):
         # ipfs = self.find_files_with_extension('ipf')
         # hdfs = self.find_files_with_extension('hdf')
         # hdzs = self.find_files_with_extension('hdz')
-        # lhas = self.find_files_with_extension('lha')
+        lhas = self.find_files_with_extension('lha')
         # tgas = self.find_files_with_extension('tga')
         # slaves = self.find_files_with_extension('slave')
         # infos = self.find_files_with_extension('info')
@@ -56,8 +56,8 @@ class PlatformAmiga(PlatformCommon):
         #     hdfs = self.find_hdf_files()
         # if len(hdzs) == 0:
         #     hdzs = self.find_hdz_files()
-        # if len(lhas) == 0:
-        #     lhas = self.find_lha_files()
+        if len(lhas) == 0:
+            lhas = self.find_lha_files()
         # if len(tgas) == 0:
         #     tgas = self.find_tga_files()
         # if len(slaves) == 0:
@@ -144,9 +144,9 @@ class PlatformAmiga(PlatformCommon):
         # if len(hdzs) > 0:
         #     drives = self.sort_disks(hdzs)
         #     emulator = emulator + [hdzs[0]]
-        # if len(lhas) > 0:
-        #     drives = self.sort_disks(lhas)
-        #     emulator = emulator + [lhas[0]]
+        if len(lhas) > 0:
+            drives = self.sort_disks(lhas)
+            emulator = emulator + [lhas[0]]
         # if len(tgas) > 0:
         #     drives = self.sort_disks(tgas)
         #     emulator = emulator + [tgas[0]]
@@ -312,13 +312,13 @@ class PlatformAmiga(PlatformCommon):
     #             hdz_files.append(file)
     #     return hdz_files
 
-    # def find_lha_files(self):
-    #     lha_files = []
-    #     for file in self.prod_files:
-    #         size = os.path.getsize(file)
-    #         if size > 0:
-    #             lha_files.append(file)
-    #     return lha_files
+    def find_lha_files(self):
+        lha_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                lha_files.append(file)
+        return lha_files
 
     # def find_tga_files(self):
     #     tga_files = []
