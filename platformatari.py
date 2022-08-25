@@ -1,6 +1,7 @@
 from platformcommon import PlatformCommon
 import os
 
+emulator = ['retroarch']
 fullscreen = ['false']
 
 
@@ -35,7 +36,6 @@ class PlatformAtarist(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        emulator = ['retroarch']
         if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append('hatari_libretro')
@@ -62,37 +62,37 @@ class PlatformAtarist(PlatformCommon):
 
         if len(sts) > 0:
             sts = self.sort_disks(sts)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [sts[0]]
 
         if len(msas) > 0:
             msas = self.sort_disks(msas)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [msas[0]]
 
         if len(stxs) > 0:
             stxs = self.sort_disks(stxs)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [stxs[0]]
 
         if len(ipfs) > 0:
             ipfs = self.sort_disks(ipfs)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [ipfs[0]]
 
         if len(m3us) > 0:
             m3us = self.sort_disks(m3us)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [m3us[0]]
 
         if len(vsfs) > 0:
             vsfs = self.sort_disks(vsfs)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [vsfs[0]]
 
         if len(zips) > 0:
             zips = self.sort_disks(zips)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [zips[0]]
 
         self.run_process(emulator)
@@ -194,7 +194,6 @@ class PlatformAtarixlxe(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        emulator = ['retroarch']
         if emulator == ['retroarch']:
             emulator.append('-L')
             emulator.append('hatari_libretro')
@@ -225,47 +224,47 @@ class PlatformAtarixlxe(PlatformCommon):
 
         if len(xfds) > 0:
             xfds = self.sort_disks(xfds)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [xfds[0]]
 
         if len(atrs) > 0:
             atrs = self.sort_disks(atrs)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [atrs[0]]
 
         if len(atxs) > 0:
             atxs = self.sort_disks(atxs)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [atxs[0]]
 
         if len(cdms) > 0:
             cdms = self.sort_disks(cdms)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [cdms[0]]
 
         if len(cass) > 0:
             cass = self.sort_disks(cass)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [cass[0]]
 
         if len(bins) > 0:
             bins = self.sort_disks(bins)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [bins[0]]
 
         if len(a52s) > 0:
             a52s = self.sort_disks(a52s)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [a52s[0]]
 
         if len(xexs) > 0:
             xexs = self.sort_disks(xexs)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [xexs[0]]
 
         if len(zips) > 0:
             zips = self.sort_disks(zips)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [zips[0]]
 
         self.run_process(emulator)

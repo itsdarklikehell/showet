@@ -1,6 +1,7 @@
 from platformcommon import PlatformCommon
 import os
 
+emulator = ['retroarch']
 fullscreen = ['false']
 
 
@@ -37,8 +38,7 @@ class PlatformMsdos(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append('dosbox_core_libretro')
             if fullscreen == ['true']:

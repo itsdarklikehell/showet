@@ -1,6 +1,8 @@
 from platformcommon import PlatformCommon
 import os
 
+# emulator = ['fs-uae', '--fullscreen', '--keep_aspect']
+emulator = ['retroarch']
 fullscreen = ['false']
 
 
@@ -86,21 +88,23 @@ class PlatformAmiga(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        # emulator = ['fs-uae', '--fullscreen', '--keep_aspect']
-        emulator = ['retroarch']
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append('puae_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+        if emulator == 'fs-uae':
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
+                emulator.append('--keep_aspect')
 
         drives = []
         # Support only one for now..
         if len(exes) > 0:
             emulator = ['fs-uae']
-            if emulator[0] == 'fs-uae':
+            if emulator == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [exes[0]]
 
@@ -285,7 +289,7 @@ class PlatformAmiga(PlatformCommon):
                 emulator.append('--floppy_drive_3=' + drives[3])
 
             emulator.append('--model=' + amiga_model)
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             amiga_model = 'A1200'
 
             if self.prod_platform == 'amigaocsecs':
