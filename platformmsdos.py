@@ -70,6 +70,24 @@ class PlatformMsdos(PlatformCommon):
         #     for disk in zips:
         #         f.write(disk + "\n")
 
+        # m3ufile = self.datadir + "/m3ulist.m3u"
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in exes:
+        #         f.write(disk + "\n")
+        #     for disk in coms:
+        #         f.write(disk + "\n")
+        #     for disk in bats:
+        #         f.write(disk + "\n")
+        #     for disk in confs:
+        #         f.write(disk + "\n")
+        #     for disk in cues:
+        #         f.write(disk + "\n")
+        #     for disk in isos:
+        #         f.write(disk + "\n")
+        #     for disk in zips:
+        #         f.write(disk + "\n")
+
         # if len(exes) > 0:
         #     exes = self.sort_disks(exes)
         #     emulator = emulator + [exes[0]]
