@@ -12,17 +12,6 @@ class PlatformAmiga(PlatformCommon):
                       'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9', 'exe', 'run']
         print("Supported extensions:", extensions)
 
-        adfs = self.find_files_with_extension('adf')
-        adzs = self.find_files_with_extension('adz')
-        dmss = self.find_files_with_extension('dms')
-        fdis = self.find_files_with_extension('fdi')
-        ipfs = self.find_files_with_extension('ipf')
-        hdfs = self.find_files_with_extension('hdf')
-        hdzs = self.find_files_with_extension('hdz')
-        lhas = self.find_files_with_extension('lha')
-        tgas = self.find_files_with_extension('tga')
-        slaves = self.find_files_with_extension('slave')
-        infos = self.find_files_with_extension('info')
         cues = self.find_files_with_extension('cue')
         ccds = self.find_files_with_extension('ccd')
         nrgs = self.find_files_with_extension('nrg')
@@ -37,10 +26,23 @@ class PlatformAmiga(PlatformCommon):
         exes = self.find_files_with_extension('exe')
         runs = self.find_files_with_extension('run')
 
+
+        adfs = self.find_files_with_extension('adf')
+        adzs = self.find_files_with_extension('adz')
+        dmss = self.find_files_with_extension('dms')
+        fdis = self.find_files_with_extension('fdi')
+        ipfs = self.find_files_with_extension('ipf')
+        hdfs = self.find_files_with_extension('hdf')
+        hdzs = self.find_files_with_extension('hdz')
+        lhas = self.find_files_with_extension('lha')
+        tgas = self.find_files_with_extension('tga')
+        slaves = self.find_files_with_extension('slave')
+        infos = self.find_files_with_extension('info')
+
         if len(exes) == 0:
             exes = self.find_magic_cookies()
-        if len(exes) == 0:
-            exes = self.find_exe_files()
+        # if len(exes) == 0:
+        #     exes = self.find_exe_files()
         if len(adfs) == 0:
             adfs = self.find_adf_files()
         if len(adzs) == 0:
@@ -116,7 +118,7 @@ class PlatformAmiga(PlatformCommon):
 
             if not os.path.exists(self.datadir + "/s"):
                 os.makedirs(self.datadir + "/s")
-# TODO: when find_files_with_extension works with paths relative to datadir, we can simplify this
+                # TODO: when find_files_with_extension works with paths relative to datadir, we can simplify this
                 with open(self.datadir + "/s/startup-sequence", 'w') as f:
                     exename = exes[0].split('/')
                     exename = exename[len(exename)-1]
