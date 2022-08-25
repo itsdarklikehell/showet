@@ -20,7 +20,7 @@ class PlatformCommon:
 # TODO: Change this to be relative to datadir
     def find_files_recursively(self, path):
         entries = [os.path.join(path, i) for i in os.listdir(path)]
-        if len(entries) == 0:
+        if len(entries) == 0 and not f.lower().endswith('.json'):
             return
 
         for e in entries:
@@ -40,7 +40,7 @@ class PlatformCommon:
 
     def find_files_with_extension(self, extension):
         foundfiles = [f for f in self.prod_files if (f.lower().endswith(
-            extension) or f.lower().endswith(extension) and not f.lower().endswith('json'))]
+            extension) or f.lower().endswith(extension) and not f.lower().endswith('.json'))]
         return foundfiles
 
 # Input: list of disk images, output: same list sorted by some
