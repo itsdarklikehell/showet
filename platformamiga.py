@@ -26,7 +26,6 @@ class PlatformAmiga(PlatformCommon):
         exes = self.find_files_with_extension('exe')
         runs = self.find_files_with_extension('run')
 
-
         adfs = self.find_files_with_extension('adf')
         adzs = self.find_files_with_extension('adz')
         dmss = self.find_files_with_extension('dms')
@@ -113,7 +112,7 @@ class PlatformAmiga(PlatformCommon):
             if emulator[0] == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
             if emulator[0] == 'retroarch':
-                # emulator.append('--hard_drive_0=.')
+                emulator.append('.')
                 emulator = emulator + [exes[0]]
 
             if not os.path.exists(self.datadir + "/s"):
@@ -248,6 +247,7 @@ class PlatformAmiga(PlatformCommon):
 
 
 # Tries to identify files by any magic necessary
+
 
     def find_exe_files(self):
         exe_files = []
