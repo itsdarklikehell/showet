@@ -110,7 +110,7 @@ class PlatformCommodore(PlatformCommon):
 
         emulator = ['retroarch']
 
-        fullscreen = 'false'
+        fullscreen = ['false']
 
         if emulator == 'retroarch':
             emulator.append('-L')
