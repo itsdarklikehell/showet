@@ -118,52 +118,52 @@ class PlatformCommodore(PlatformCommon):
                 emulator.append('--fullscreen')
 
         flipfile = self.datadir + "/fliplist.vfl"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in d64s:
-        #         f.write(disk + "\n")
-        #     for disk in d71s:
-        #         f.write(disk + "\n")
-        #     for disk in d80s:
-        #         f.write(disk + "\n")
-        #     for disk in d81s:
-        #         f.write(disk + "\n")
-        #     for disk in d82s:
-        #         f.write(disk + "\n")
-        #     for disk in g64s:
-        #         f.write(disk + "\n")
-        #     for disk in g41s:
-        #         f.write(disk + "\n")
-        #     for disk in x64s:
-        #         f.write(disk + "\n")
-        #     for disk in t64s:
-        #         f.write(disk + "\n")
-        #     for disk in taps:
-        #         f.write(disk + "\n")
-        #     for disk in prgs:
-        #         f.write(disk + "\n")
-        #     for disk in p00s:
-        #         f.write(disk + "\n")
-        #     for disk in crts:
-        #         f.write(disk + "\n")
-        #     for disk in bins:
-        #         f.write(disk + "\n")
-        #     for disk in zips:
-        #         f.write(disk + "\n")
-        #     for disk in gzs:
-        #         f.write(disk + "\n")
-        #     for disk in d6zs:
-        #         f.write(disk + "\n")
-        #     for disk in d7zs:
-        #         f.write(disk + "\n")
-        #     for disk in d8zs:
-        #         f.write(disk + "\n")
-        #     for disk in g4zs:
-        #         f.write(disk + "\n")
-        #     for disk in g6zs:
-        #         f.write(disk + "\n")
-        #     for disk in x6zs:
-        #         f.write(disk + "\n")
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in d64s:
+                f.write(disk + "\n")
+            for disk in d71s:
+                f.write(disk + "\n")
+            for disk in d80s:
+                f.write(disk + "\n")
+            for disk in d81s:
+                f.write(disk + "\n")
+            for disk in d82s:
+                f.write(disk + "\n")
+            for disk in g64s:
+                f.write(disk + "\n")
+            for disk in g41s:
+                f.write(disk + "\n")
+            for disk in x64s:
+                f.write(disk + "\n")
+            for disk in t64s:
+                f.write(disk + "\n")
+            for disk in taps:
+                f.write(disk + "\n")
+            for disk in prgs:
+                f.write(disk + "\n")
+            for disk in p00s:
+                f.write(disk + "\n")
+            for disk in crts:
+                f.write(disk + "\n")
+            for disk in bins:
+                f.write(disk + "\n")
+            for disk in zips:
+                f.write(disk + "\n")
+            for disk in gzs:
+                f.write(disk + "\n")
+            for disk in d6zs:
+                f.write(disk + "\n")
+            for disk in d7zs:
+                f.write(disk + "\n")
+            for disk in d8zs:
+                f.write(disk + "\n")
+            for disk in g4zs:
+                f.write(disk + "\n")
+            for disk in g6zs:
+                f.write(disk + "\n")
+            for disk in x6zs:
+                f.write(disk + "\n")
 
         if len(d64s) > 0:
             d64s = self.sort_disks(d64s)
