@@ -3,8 +3,6 @@ import os
 
 
 class PlatformCommodore(PlatformCommon):
-    emulator = ['retroarch']
-    fullscreen = ['false']
 
     def run(self):
         extensions = ['d64', 'd71', 'd80', 'd81', 'd82',
@@ -110,6 +108,8 @@ class PlatformCommodore(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vice_x64_libretro')
