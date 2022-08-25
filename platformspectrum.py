@@ -39,7 +39,7 @@ class PlatformSpectrum(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('fuse_libretro')
             if fullscreen == ['true']:
@@ -67,42 +67,42 @@ class PlatformSpectrum(PlatformCommon):
 
         if len(tzxs) > 0:
             tzxs = self.sort_disks(tzxs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [tzxs[0]]
 
         if len(taps) > 0:
             taps = self.sort_disks(taps)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [taps[0]]
 
         if len(z80s) > 0:
             z80s = self.sort_disks(z80s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [z80s[0]]
 
         if len(rzxs) > 0:
             rzxs = self.sort_disks(rzxs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [rzxs[0]]
 
         if len(scls) > 0:
             scls = self.sort_disks(scls)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [scls[0]]
 
         if len(trds) > 0:
             trds = self.sort_disks(trds)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [trds[0]]
 
         if len(dsks) > 0:
             dsks = self.sort_disks(dsks)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [dsks[0]]
 
         if len(zips) > 0:
             zips = self.sort_disks(zips)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [zips[0]]
 
         self.run_process(emulator)

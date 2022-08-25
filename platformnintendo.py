@@ -33,7 +33,7 @@ class PlatformFamicom(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             # emulator.append('bnes_libretro')
             # emulator.append('fixnes_libretro')
@@ -45,32 +45,32 @@ class PlatformFamicom(PlatformCommon):
 
         if len(ness) > 0:
             ness = self.sort_disks(ness)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [ness[0]]
 
         # if len(fdss) > 0:
         #     fdss = self.sort_disks(fdss)
-        #     if emulator == 'retroarch':
+        #     if emulator[0] == 'retroarch':
         #         emulator = emulator + [fdss[0]]
 
         # if len(unfs) > 0:
         #     unfs = self.sort_disks(unfs)
-        #     if emulator == 'retroarch':
+        #     if emulator[0] == 'retroarch':
         #         emulator = emulator + [unfs[0]]
 
         # if len(unifs) > 0:
         #     unifs = self.sort_disks(unifs)
-        #     if emulator == 'retroarch':
+        #     if emulator[0] == 'retroarch':
         #         emulator = emulator + [unifs[0]]
 
         # if len(qds) > 0:
         #     qds = self.sort_disks(qds)
-        #     if emulator == 'retroarch':
+        #     if emulator[0] == 'retroarch':
         #         emulator = emulator + [qds[0]]
 
         # if len(nsfs) > 0:
         #     nsfs = self.sort_disks(nsfs)
-        #     if emulator == 'retroarch':
+        #     if emulator[0] == 'retroarch':
         #         emulator = emulator + [nsfs[0]]
 
         self.run_process(emulator)
@@ -154,7 +154,7 @@ class PlatformSuperFamicom(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             # emulator.append('mesen-s_libretro')
             emulator.append('snes9x_libretro')
@@ -171,27 +171,27 @@ class PlatformSuperFamicom(PlatformCommon):
 
         if len(sfcs) > 0:
             sfcs = self.sort_disks(sfcs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [sfcs[0]]
 
         if len(smcs) > 0:
             smcs = self.sort_disks(smcs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [smcs[0]]
 
         if len(figs) > 0:
             figs = self.sort_disks(figs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [figs[0]]
 
         if len(swcs) > 0:
             swcs = self.sort_disks(swcs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [swcs[0]]
 
         if len(bss) > 0:
             bss = self.sort_disks(bss)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [bss[0]]
 
         self.run_process(emulator)
@@ -284,7 +284,7 @@ class PlatformN64(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             # emulator.append('mupen64plus_next_libretro')
             # emulator.append('mupen64plus_next_gles2_libretro')
@@ -297,32 +297,32 @@ class PlatformN64(PlatformCommon):
 
         if len(n64s) > 0:
             n64s = self.sort_disks(n64s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [n64s[0]]
 
         if len(v64s) > 0:
             v64s = self.sort_disks(v64s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [v64s[0]]
 
         if len(z64s) > 0:
             z64s = self.sort_disks(z64s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [z64s[0]]
 
         if len(bins) > 0:
             bins = self.sort_disks(bins)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [bins[0]]
 
         if len(u1s) > 0:
             u1s = self.sort_disks(u1s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [u1s[0]]
 
         if len(ndds) > 0:
             ndds = self.sort_disks(ndds)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [ndds[0]]
 
         self.run_process(emulator)
@@ -407,7 +407,7 @@ class PlatformGameboy(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
             # emulator.append('sameboy_libretro')
@@ -416,32 +416,32 @@ class PlatformGameboy(PlatformCommon):
 
         if len(gbs) > 0:
             gbs = self.sort_disks(gbs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [gbs[0]]
 
         if len(gbcs) > 0:
             gbcs = self.sort_disks(gbcs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [gbcs[0]]
 
         if len(dmgs) > 0:
             dmgs = self.sort_disks(dmgs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [dmgs[0]]
 
         if len(bins) > 0:
             bins = self.sort_disks(bins)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [bins[0]]
 
         if len(u1s) > 0:
             u1s = self.sort_disks(u1s)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [u1s[0]]
 
         if len(ndds) > 0:
             ndds = self.sort_disks(ndds)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [ndds[0]]
 
         self.run_process(emulator)
@@ -518,7 +518,7 @@ class PlatformGameboyColor(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
             # emulator.append('sameboy_libretro')
@@ -527,17 +527,17 @@ class PlatformGameboyColor(PlatformCommon):
 
         if len(gbs) > 0:
             gbs = self.sort_disks(gbs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [gbs[0]]
 
         if len(gbcs) > 0:
             gbcs = self.sort_disks(gbcs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [gbcs[0]]
 
         if len(dmgs) > 0:
             dmgs = self.sort_disks(dmgs)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [dmgs[0]]
 
         self.run_process(emulator)
@@ -605,7 +605,7 @@ class PlatformGameboyAdvance(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             # emulator.append('meteor_libretro')
             # emulator.append('vbam_libretro')
@@ -620,7 +620,7 @@ class PlatformGameboyAdvance(PlatformCommon):
 
         if len(gbas) > 0:
             gbas = self.sort_disks(gbas)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [gbas[0]]
 
         self.run_process(emulator)
@@ -652,7 +652,7 @@ class PlatformGamecube(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
             if fullscreen == 'true':
@@ -660,7 +660,7 @@ class PlatformGamecube(PlatformCommon):
 
         if len(gcms) > 0:
             gcms = self.sort_disks(gcms)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [gcms[0]]
 
         self.run_process(emulator)
@@ -691,7 +691,7 @@ class PlatformWii(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
             if fullscreen == 'true':
@@ -699,7 +699,7 @@ class PlatformWii(PlatformCommon):
 
         if len(gcms) > 0:
             gcms = self.sort_disks(gcms)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [gcms[0]]
 
         self.run_process(emulator)
