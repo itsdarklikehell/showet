@@ -108,9 +108,11 @@ class PlatformCommodore(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        if emulator[0] == 'retroarch':
+        emulator = 'retroarch'
+
+        fullscreen = 'false'
+
+        if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append('vice_x64_libretro')
             if fullscreen == ['true']:
