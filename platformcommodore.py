@@ -109,7 +109,6 @@ class PlatformCommodore(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-
         fullscreen = ['false']
 
         if emulator == 'retroarch':
