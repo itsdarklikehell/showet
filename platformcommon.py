@@ -39,14 +39,14 @@ class PlatformCommon:
         return None
 
     def find_files_with_extension(self, extension):
-        foundfiles = [f for f in self.prod_files if (
-            f.lower().endswith(extension) or f.lower().endswith(extension) and not f.lower().endswith('.json')]
+        foundfiles = [f for f in self.prod_files if (f.lower().endswith(
+            extension) or f.lower().endswith(extension) and not f.lower().endswith('.json'))]
         return foundfiles
 
 # Input: list of disk images, output: same list sorted by some
 # logic so that first image is first, second disk then etc..
     def sort_disks(self, files):
-        sorted_list=sorted(files, key=lambda s: s.lower())
+        sorted_list = sorted(files, key=lambda s: s.lower())
         if len(sorted_list) > 1:
             print("Guessing disk order should be:")
             print(sorted_list)
@@ -54,10 +54,10 @@ class PlatformCommon:
 
     def run_process(self, arguments):
         print("Running command: ", arguments)
-        process=subprocess.Popen(
+        process = subprocess.Popen(
             arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         process.wait()
-        retcode=process.returncode
+        retcode = process.returncode
         for line in process.stdout:
             print(line.decode('utf-8'))
         if retcode:
