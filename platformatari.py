@@ -35,7 +35,9 @@ class PlatformAtarist(PlatformCommon):
         if len(sts) == 0 and len(msas) == 0 and len(stxs) == 0 and len(ipfs) == 0 and len(m3us) == 0 and len(vsfs) == 0 and len(zips) == 0:
             print("Didn't find any runable files.")
             exit(-1)
-
+        
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('hatari_libretro')

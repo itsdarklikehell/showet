@@ -39,6 +39,7 @@ class PlatformSpectrum(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('fuse_libretro')
