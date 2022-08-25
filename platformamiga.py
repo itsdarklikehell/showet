@@ -23,7 +23,7 @@ class PlatformAmiga(PlatformCommon):
         zips = self.find_files_with_extension('zip')
         # zs = self.find_files_with_extension('7z')
         # rp9s = self.find_files_with_extension('rp9')
-        exes = self.find_files_with_extension('exe')
+        # exes = self.find_files_with_extension('exe')
         # runs = self.find_files_with_extension('run')
 
         # adfs = self.find_files_with_extension('adf')
@@ -40,8 +40,8 @@ class PlatformAmiga(PlatformCommon):
 
         # if len(exes) == 0:
         #     exes = self.find_magic_cookies()
-        if len(exes) == 0:
-            exes = self.find_exe_files()
+        # if len(exes) == 0:
+        #     exes = self.find_exe_files()
         # if len(adfs) == 0:
         #     adfs = self.find_adf_files()
         # if len(adzs) == 0:
@@ -108,21 +108,21 @@ class PlatformAmiga(PlatformCommon):
 
         drives = []
         # Support only one for now..
-        if len(exes) > 0:
-            if emulator[0] == 'fs-uae':
-                emulator.append('--hard_drive_0=.')
-            if emulator[0] == 'retroarch':
-                # emulator.append('--hard_drive_0=.')
-                emulator = emulator + [exes[0]]
+        # if len(exes) > 0:
+        #     if emulator[0] == 'fs-uae':
+        #         emulator.append('--hard_drive_0=.')
+        #     if emulator[0] == 'retroarch':
+        #         # emulator.append('--hard_drive_0=.')
+        #         emulator = emulator + [exes[0]]
 
-            if not os.path.exists(self.datadir + "/s"):
-                os.makedirs(self.datadir + "/s")
-                # TODO: when find_files_with_extension works with paths relative to datadir, we can simplify this
-                with open(self.datadir + "/s/startup-sequence", 'w') as f:
-                    exename = exes[0].split('/')
-                    exename = exename[len(exename)-1]
-                    f.write(exename + "\n")
-                    f.close()
+        #     if not os.path.exists(self.datadir + "/s"):
+        #         os.makedirs(self.datadir + "/s")
+        #         # TODO: when find_files_with_extension works with paths relative to datadir, we can simplify this
+        #         with open(self.datadir + "/s/startup-sequence", 'w') as f:
+        #             exename = exes[0].split('/')
+        #             exename = exename[len(exename)-1]
+        #             f.write(exename + "\n")
+        #             f.close()
         # if len(dmss) > 0:
         #     drives = self.sort_disks(dmss)
         #     emulator = emulator + [dmss[0]]
@@ -248,13 +248,13 @@ class PlatformAmiga(PlatformCommon):
 
 # Tries to identify files by any magic necessary
 
-    def find_exe_files(self):
-        exe_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                exe_files.append(file)
-        return exe_files
+    # def find_exe_files(self):
+    #     exe_files = []
+    #     for file in self.prod_files:
+    #         size = os.path.getsize(file)
+    #         if size > 0:
+    #             exe_files.append(file)
+    #     return exe_files
 
     # def find_dms_files(self):
     #     dms_files = []
