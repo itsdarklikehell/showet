@@ -36,8 +36,10 @@ class PlatformAmiga(PlatformCommon):
         exes = self.find_files_with_extension('exe')
         runs = self.find_files_with_extension('run')
 
+        # if len(exes) == 0:
+        #     exes = self.find_magic_cookies()
         if len(exes) == 0:
-            exes = self.find_magic_cookies()
+            exes = self.find_exe_files()
         if len(adfs) == 0:
             adfs = self.find_adf_files()
         if len(adzs) == 0:
@@ -87,7 +89,7 @@ class PlatformAmiga(PlatformCommon):
         if len(adfs) == 0 and len(adzs) == 0 and len(dmss) == 0 and len(fdis) == 0 and len(ipfs) == 0 and len(hdfs) == 0 and len(hdzs) == 0 and len(lhas) == 0 and len(slaves) == 0 and len(infos) == 0 and len(cues) == 0 and len(ccds) == 0 and len(nrgs) == 0 and len(mdss) == 0 and len(isos) == 0 and len(chds) == 0 and len(uaes) == 0 and len(m3us) == 0 and len(zips) == 0 and len(zs) == 0 and len(rp9s) == 0 and len(runs) == 0:
             print("Didn't find any runable files.")
             exit(-1)
-        
+
         emulator = ['retroarch']
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
@@ -314,16 +316,16 @@ class PlatformAmiga(PlatformCommon):
         return ['amigaocsecs', 'amigaaga', 'amigappcrtg']
 
 # Search demo files for amiga magic cookie (executable file)
-    def find_magic_cookies(self):
-        cookie_files = []
-        for file in self.prod_files:
-            with open(file, "rb") as fin:
-                header = fin.read(4)
-                if len(header) == 4:
-                    # Signature for Amiga magic cookie
-                    if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-                        cookie_files.append(file)
-        return cookie_files
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 # Tries to identify files by any magic necessary
 
     def find_exe_files(self):
