@@ -1,8 +1,8 @@
 from platformcommon import PlatformCommon
 import os
 
-emulator = ['dosbox']
-# emulator = ['retroarch']
+# emulator = ['dosbox']
+emulator = ['retroarch']
 fullscreen = ['false']
 
 
