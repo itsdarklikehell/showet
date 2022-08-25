@@ -108,7 +108,6 @@ class PlatformAmiga(PlatformCommon):
         drives = []
         # Support only one for now..
         if len(exes) > 0:
-            emulator = ['fs-uae']
             if emulator[0] == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
             if emulator[0] == 'retroarch':
