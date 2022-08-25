@@ -246,9 +246,9 @@ class PlatformAmiga(PlatformCommon):
         return cookie_files
 
 
-Tries to identify files by any magic necessary
+# Tries to identify files by any magic necessary
 
-   def find_exe_files(self):
+    def find_exe_files(self):
         exe_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
