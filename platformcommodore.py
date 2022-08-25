@@ -1,11 +1,11 @@
 from platformcommon import PlatformCommon
 import os
 
-emulator = ['retroarch']
-fullscreen = ['false']
-
 
 class PlatformCommodore(PlatformCommon):
+    emulator = ['retroarch']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['d64', 'd71', 'd80', 'd81', 'd82',
                       'g64', 'g41', 't64', 'tap', 'prg',
