@@ -1,6 +1,8 @@
 from platformcommon import PlatformCommon
 import os
 
+fullscreen = ['false']
+
 
 class PlatformCommodore(PlatformCommon):
     def run(self):
@@ -108,9 +110,11 @@ class PlatformCommodore(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        emulator.append('vice_x64_libretro')
-        # emulator.append('--fullscreen')
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            emulator.append('vice_x64_libretro')
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
 
         flipfile = self.datadir + "/fliplist.vfl"
         with open(flipfile, "w") as f:

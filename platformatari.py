@@ -3,6 +3,7 @@ import os
 
 fullscreen = ['false']
 
+
 class PlatformAtarist(PlatformCommon):
     def run(self):
         extensions = ['st', 'msa', 'stx', 'ipf', 'm3u', 'vsf', 'zip']
@@ -35,9 +36,11 @@ class PlatformAtarist(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        emulator.append('hatari_libretro')
-        # emulator.append('--fullscreen')
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            emulator.append('hatari_libretro')
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
 
         flipfile = self.datadir + "/fliplist.vfl"
         with open(flipfile, "w") as f:
@@ -192,10 +195,11 @@ class PlatformAtarixlxe(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        emulator.append('hatari_libretro')
-        if fullscreen[0] == 'true':
-            emulator.append('--fullscreen')
+        if emulator == ['retroarch']:
+            emulator.append('-L')
+            emulator.append('hatari_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
 
         flipfile = self.datadir + "/flipfile.vfl"
         with open(flipfile, "w") as f:

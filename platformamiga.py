@@ -1,4 +1,3 @@
-from cProfile import run
 from platformcommon import PlatformCommon
 import os
 
@@ -89,10 +88,11 @@ class PlatformAmiga(PlatformCommon):
 
         # emulator = ['fs-uae', '--fullscreen', '--keep_aspect']
         emulator = ['retroarch']
-        emulator.append('-L')
-        emulator.append('puae_libretro')
-        if fullscreen[0] == 'true':
-            emulator.append('--fullscreen')
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('puae_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
 
         drives = []
         # Support only one for now..

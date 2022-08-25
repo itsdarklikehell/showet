@@ -1,7 +1,7 @@
-from distutils import extension
 from platformcommon import PlatformCommon
-from os import listdir
 import os.path
+
+fullscreen = ['false']
 
 
 class PlatformWindows(PlatformCommon):

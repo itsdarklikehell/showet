@@ -15,6 +15,7 @@ class PlatformCommon:
         self.datadir = None
         self.prod_platform = None
         self.prod_files = []
+        steam = ['false']
 
 # TODO: Change this to be relative to datadir
     def find_files_recursively(self, path):

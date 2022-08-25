@@ -2,6 +2,7 @@ from platformcommon import PlatformCommon
 import os
 import stat
 
+fullscreen = ['true']
 
 class PlatformLinux(PlatformCommon):
     def run(self):

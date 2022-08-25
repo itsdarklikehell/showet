@@ -96,7 +96,9 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 - [x] DOS support: Supported by: retroarch core(s): dosbox_core_libretro
 - [ ] Linux support (almost working) Supported by: OS
 - [x] GUI
-- [ ] Option to set/select the emulator (core) to run if more than one is supported.
+- [ ] Option to set/select the emulator (retroarch core or native emulation) to run if more than one is supported.
+- [ ] Option to set fullscreen on/off. (retroarch --fullscreen)
+- [ ] Option to set audio on/off.
 - [ ] Option for setting custom commandline options to pass to chosen emulator (core).
 - [x] unzip decompress (This is really not needed for retroarch but more for those that run in dosbox or wine.)
 - [x] unrar decompress (Same as above.)

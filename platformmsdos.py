@@ -1,7 +1,7 @@
-from calendar import c
-from sys import exec_prefix
 from platformcommon import PlatformCommon
 import os
+
+fullscreen = ['false']
 
 
 class PlatformMsdos(PlatformCommon):
@@ -38,9 +38,11 @@ class PlatformMsdos(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        emulator.append('dosbox_core_libretro')
-        # emulator.append('--fullscreen')
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('dosbox_core_libretro')
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
 
         flipfile = self.datadir + "/fliplist.vfl"
         with open(flipfile, "w") as f:

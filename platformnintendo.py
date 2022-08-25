@@ -1,6 +1,8 @@
 from platformcommon import PlatformCommon
 import os
 
+fullscreen = ['false']
+
 
 class PlatformFamicom(PlatformCommon):
     def run(self):
@@ -31,13 +33,15 @@ class PlatformFamicom(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        # emulator.append('bnes_libretro')
-        # emulator.append('fixnes_libretro')
-        emulator.append('quicknes_libretro')
-        # emulator.append('emux_nes_libretro')
-        # emulator.append('nestopia_libretro')
-        # emulator.append('--fullscreen')
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            # emulator.append('bnes_libretro')
+            # emulator.append('fixnes_libretro')
+            emulator.append('quicknes_libretro')
+            # emulator.append('emux_nes_libretro')
+            # emulator.append('nestopia_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
 
         if len(ness) > 0:
             ness = self.sort_disks(ness)
@@ -151,18 +155,20 @@ class PlatformSuperFamicom(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        # emulator.append('mesen-s_libretro')
-        emulator.append('snes9x_libretro')
-        # emulator.append('snes9x2010_libretro')
-        # emulator.append('bsnes_hd_beta_libretro)
-        # emulator.append('bsnes_cplusplus98_libretro')
-        # emulator.append('bsnes2014_balanced_libretro')
-        # emulator.append('bsnes_libretro')
-        # emulator.append('bsnes_mercury_balanced_libretro')
-        # emulator.append('quicknes_libretro')
-        # emulator.append('mednafen_snes_libretro')
-        # emulator.append('--fullscreen')
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            # emulator.append('mesen-s_libretro')
+            emulator.append('snes9x_libretro')
+            # emulator.append('snes9x2010_libretro')
+            # emulator.append('bsnes_hd_beta_libretro)
+            # emulator.append('bsnes_cplusplus98_libretro')
+            # emulator.append('bsnes2014_balanced_libretro')
+            # emulator.append('bsnes_libretro')
+            # emulator.append('bsnes_mercury_balanced_libretro')
+            # emulator.append('quicknes_libretro')
+            # emulator.append('mednafen_snes_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
 
         if len(sfcs) > 0:
             sfcs = self.sort_disks(sfcs)
@@ -280,14 +286,16 @@ class PlatformN64(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        # emulator.append('mupen64plus_next_libretro')
-        # emulator.append('mupen64plus_next_gles2_libretro')
-        # emulator.append('mupen64plus_next_gles3_libretro')
-        # emulator.append('mupen64plus_next_develop_libretro')
-        emulator.append('parrallel_n64_libretro')
-        # emulator.append('parrallel_n64_debug_libretro')
-        # emulator.append('--fullscreen')
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            # emulator.append('mupen64plus_next_libretro')
+            # emulator.append('mupen64plus_next_gles2_libretro')
+            # emulator.append('mupen64plus_next_gles3_libretro')
+            # emulator.append('mupen64plus_next_develop_libretro')
+            emulator.append('parrallel_n64_libretro')
+            # emulator.append('parrallel_n64_debug_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
 
         if len(n64s) > 0:
             n64s = self.sort_disks(n64s)
@@ -402,10 +410,12 @@ class PlatformGameboy(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        emulator.append('gambatte_libretro')
-        # emulator.append('sameboy_libretro')
-        # emulator.append('--fullscreen')
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            emulator.append('gambatte_libretro')
+            # emulator.append('sameboy_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
 
         if len(gbs) > 0:
             gbs = self.sort_disks(gbs)
@@ -512,10 +522,12 @@ class PlatformGameboyColor(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        emulator.append('gambatte_libretro')
-        # emulator.append('sameboy_libretro')
-        # emulator.append('--fullscreen')
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            emulator.append('gambatte_libretro')
+            # emulator.append('sameboy_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
 
         if len(gbs) > 0:
             gbs = self.sort_disks(gbs)
@@ -598,57 +610,23 @@ class PlatformGameboyAdvance(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        # emulator.append('meteor_libretro')
-        # emulator.append('vbam_libretro')
-        emulator.append('vba_next_libretro')
-        # emulator.append('gpsp_libretro')
-        # emulator.append('tempgba_libretro')
-        # emulator.append('mgba_libretro')
-        # emulator.append('mednafen_gba_libretro')
-        # emulator.append('sameboy_libretro')
-
-        # emulator.append('--fullscreen')
-
-        # if len(gbs) > 0:
-        #     gbs = self.sort_disks(gbs)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [gbs[0]]
-
-        # if len(gbcs) > 0:
-        #     gbcs = self.sort_disks(gbcs)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [gbcs[0]]
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            # emulator.append('meteor_libretro')
+            # emulator.append('vbam_libretro')
+            emulator.append('vba_next_libretro')
+            # emulator.append('gpsp_libretro')
+            # emulator.append('tempgba_libretro')
+            # emulator.append('mgba_libretro')
+            # emulator.append('mednafen_gba_libretro')
+            # emulator.append('sameboy_libretro')
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
 
         if len(gbas) > 0:
             gbas = self.sort_disks(gbas)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [gbas[0]]
-
-        # if len(dmgs) > 0:
-        #     dmgs = self.sort_disks(dmgs)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [dmgs[0]]
-
-        # if len(agbs) > 0:
-        #     agbs = self.sort_disks(agbs)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [agbs[0]]
-
-        # if len(bins) > 0:
-        #     bins = self.sort_disks(bins)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [bins[0]]
-
-        # if len(cgbs) > 0:
-        #     cgbs = self.sort_disks(cgbs)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [cgbs[0]]
-
-        # if len(sgbs) > 0:
-        #     sgbs = self.sort_disks(sgbs)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [sgbs[0]]
 
         self.run_process(emulator)
 
@@ -656,22 +634,6 @@ class PlatformGameboyAdvance(PlatformCommon):
         return ['gameboyadvance', 'gameboycolor', 'gameboy']
 
 # Tries to identify files by any magic necessary
-    # def find_gbc_files(self):
-    #     gbc_files = []
-    #     for file in self.prod_files:
-    #         size = os.path.getsize(file)
-    #         if size > 0:
-    #             gbc_files.append(file)
-    #     return gbc_files
-
-    # def find_gb_files(self):
-    #     gb_files = []
-    #     for file in self.prod_files:
-    #         size = os.path.getsize(file)
-    #         if size > 0:
-    #             gb_files.append(file)
-    #     return gb_files
-
     def find_gba_files(self):
         gba_files = []
         for file in self.prod_files:
@@ -679,46 +641,6 @@ class PlatformGameboyAdvance(PlatformCommon):
             if size > 0:
                 gba_files.append(file)
         return gba_files
-
-    # def find_dmg_files(self):
-    #     dmg_files = []
-    #     for file in self.prod_files:
-    #         size = os.path.getsize(file)
-    #         if size > 0:
-    #             dmg_files.append(file)
-    #     return dmg_files
-
-    # def find_agb_files(self):
-    #     agb_files = []
-    #     for file in self.prod_files:
-    #         size = os.path.getsize(file)
-    #         if size > 0:
-    #             agb_files.append(file)
-    #     return agb_files
-
-    # def find_bin_files(self):
-    #     bin_files = []
-    #     for file in self.prod_files:
-    #         size = os.path.getsize(file)
-    #         if size > 0:
-    #             bin_files.append(file)
-    #     return bin_files
-
-    # def find_cgb_files(self):
-    #     cgb_files = []
-    #     for file in self.prod_files:
-    #         size = os.path.getsize(file)
-    #         if size > 0:
-    #             cgb_files.append(file)
-    #     return cgb_files
-
-    # def find_sgb_files(self):
-    #     sgb_files = []
-    #     for file in self.prod_files:
-    #         size = os.path.getsize(file)
-    #         if size > 0:
-    #             sgb_files.append(file)
-    #     return sgb_files
 
 
 class PlatformGamecube(PlatformCommon):
@@ -736,15 +658,15 @@ class PlatformGamecube(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-
-        emulator.append('dolphin_libretro')
-
-        # emulator.append('--fullscreen')
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            emulator.append('dolphin_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
 
         if len(gcms) > 0:
             gcms = self.sort_disks(gcms)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [gcms[0]]
 
         self.run_process(emulator)
@@ -776,11 +698,11 @@ class PlatformWii(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-
-        emulator.append('dolphin_libretro')
-
-        # emulator.append('--fullscreen')
+        if emulator == 'retroarch':
+            emulator.append('-L')
+            emulator.append('dolphin_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
 
         if len(gcms) > 0:
             gcms = self.sort_disks(gcms)

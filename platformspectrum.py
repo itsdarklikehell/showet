@@ -1,6 +1,8 @@
 from platformcommon import PlatformCommon
 import os
 
+fullscreen = ['false']
+
 
 class PlatformSpectrum(PlatformCommon):
     def run(self):
@@ -37,9 +39,11 @@ class PlatformSpectrum(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        emulator.append('-L')
-        emulator.append('fuse_libretro')
-        # emulator.append('--fullscreen')
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('fuse_libretro')
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
 
         flipfile = self.datadir + "/fliplitrd.vfl"
         with open(flipfile, "w") as f:
