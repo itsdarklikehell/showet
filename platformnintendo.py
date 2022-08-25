@@ -33,7 +33,6 @@ class PlatformFamicom(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-
         emulator = ['retroarch']
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
@@ -157,6 +156,8 @@ class PlatformSuperFamicom(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             # emulator.append('mesen-s_libretro')
@@ -287,6 +288,8 @@ class PlatformN64(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             # emulator.append('mupen64plus_next_libretro')
@@ -410,6 +413,8 @@ class PlatformGameboy(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
@@ -521,6 +526,8 @@ class PlatformGameboyColor(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
@@ -608,6 +615,8 @@ class PlatformGameboyAdvance(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             # emulator.append('meteor_libretro')
@@ -655,6 +664,8 @@ class PlatformGamecube(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
@@ -694,6 +705,8 @@ class PlatformWii(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
