@@ -39,8 +39,8 @@ class PlatformAmiga(PlatformCommon):
 
         if len(exes) == 0:
             exes = self.find_magic_cookies()
-        # if len(exes) == 0:
-        #     exes = self.find_exe_files()
+        if len(exes) == 0:
+            exes = self.find_exe_files()
         if len(adfs) == 0:
             adfs = self.find_adf_files()
         if len(adzs) == 0:
