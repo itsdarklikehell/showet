@@ -108,7 +108,7 @@ class PlatformCommodore(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        emulator = 'retroarch'
+        emulator = ['retroarch']
 
         fullscreen = 'false'
 
