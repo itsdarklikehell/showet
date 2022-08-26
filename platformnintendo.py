@@ -8,28 +8,14 @@ fullscreen = ['false']
 class PlatformFamicom(PlatformCommon):
     def run(self):
         extensions = ['nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
-        print("Supported extensions:", extensions)
+        for ext in extensions:
+            print("looking for files ending with: " + ext)
+            files = self.find_files_with_extension(ext)
 
-        ness = self.find_files_with_extension('nes')
-        fdss = self.find_files_with_extension('fds')
-        unfs = self.find_files_with_extension('unf')
-        unifs = self.find_files_with_extension('unif')
-        qds = self.find_files_with_extension('qd')
-        nsfs = self.find_files_with_extension('nsf')
+        if len(files) == 0:
+            files = self.find_ext_files()
 
-        if len(ness) == 0:
-            ness = self.find_nes_files()
-        if len(fdss) == 0:
-            fdss = self.find_fds_files()
-        if len(unfs) == 0:
-            unfs = self.find_unf_files()
-        if len(unifs) == 0:
-            unifs = self.find_unif_files()
-        if len(qds) == 0:
-            qds = self.find_qd_files()
-        if len(nsfs) == 0:
-            snfs = self.find_nsf_files()
-        if len(ness) == 0 and len(fdss) == 0 and len(ness) == 0 and len(unfs) == 0 and len(unifs) == 0 and len(qds) == 0 and len(nsfs) == 0:
+        if len(files) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -37,43 +23,25 @@ class PlatformFamicom(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            # emulator.append('bnes_libretro')
-            # emulator.append('fixnes_libretro')
             emulator.append('quicknes_libretro')
-            # emulator.append('emux_nes_libretro')
-            # emulator.append('nestopia_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        if len(ness) > 0:
-            ness = self.sort_disks(ness)
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+
+        if len(files) > 0:
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [ness[0]]
-
-        # if len(fdss) > 0:
-        #     fdss = self.sort_disks(fdss)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [fdss[0]]
-
-        # if len(unfs) > 0:
-        #     unfs = self.sort_disks(unfs)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [unfs[0]]
-
-        # if len(unifs) > 0:
-        #     unifs = self.sort_disks(unifs)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [unifs[0]]
-
-        # if len(qds) > 0:
-        #     qds = self.sort_disks(qds)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [qds[0]]
-
-        # if len(nsfs) > 0:
-        #     nsfs = self.sort_disks(nsfs)
-        #     if emulator[0] == 'retroarch':
-        #         emulator = emulator + [nsfs[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
@@ -81,78 +49,28 @@ class PlatformFamicom(PlatformCommon):
         return ['nesfamicom']
 
 # Tries to identify files by any magic necessary
-    def find_fds_files(self):
-        fds_files = []
+    def find_ext_files(self):
+        ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                fds_files.append(file)
-        return fds_files
-
-    def find_nes_files(self):
-        nes_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                nes_files.append(file)
-        return nes_files
-
-    def find_unf_files(self):
-        unf_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                unf_files.append(file)
-        return unf_files
-
-    def find_qd_files(self):
-        qd_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                qd_files.append(file)
-        return qd_files
-
-    def find_unif_files(self):
-        unif_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                unif_files.append(file)
-        return unif_files
-
-    def find_nsf_files(self):
-        nsf_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                nsf_files.append(file)
-        return nsf_files
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("Found file: " + file)
+        return ext_files
 
 
 class PlatformSuperFamicom(PlatformCommon):
     def run(self):
         extensions = ['sfc', 'smc', 'fig', 'swc', 'bs']
-        print("Supported extensions:", extensions)
+        for ext in extensions:
+            print("looking for files ending with: " + ext)
+            files = self.find_files_with_extension(ext)
 
-        sfcs = self.find_files_with_extension('sfc')
-        smcs = self.find_files_with_extension('smc')
-        figs = self.find_files_with_extension('fig')
-        swcs = self.find_files_with_extension('swc')
-        bss = self.find_files_with_extension('bs')
+        if len(files) == 0:
+            files = self.find_ext_files()
 
-        if len(sfcs) == 0:
-            sfcs = self.find_sfc_files()
-        if len(smcs) == 0:
-            smcs = self.find_smc_files()
-        if len(figs) == 0:
-            figs = self.find_fig_files()
-        if len(gbcs) == 0:
-            gbcs = self.find_swc_files()
-        if len(bss) == 0:
-            bss = self.find_bs_files()
-
-        if len(sfcs) == 0 and len(smcs) == 0 and len(figs) == 0 and len(swcs) == 0 and len(bss) == 0:
+        if len(files) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -160,43 +78,25 @@ class PlatformSuperFamicom(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            # emulator.append('mesen-s_libretro')
             emulator.append('snes9x_libretro')
-            # emulator.append('snes9x2010_libretro')
-            # emulator.append('bsnes_hd_beta_libretro)
-            # emulator.append('bsnes_cplusplus98_libretro')
-            # emulator.append('bsnes2014_balanced_libretro')
-            # emulator.append('bsnes_libretro')
-            # emulator.append('bsnes_mercury_balanced_libretro')
-            # emulator.append('quicknes_libretro')
-            # emulator.append('mednafen_snes_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        if len(sfcs) > 0:
-            sfcs = self.sort_disks(sfcs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [sfcs[0]]
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
-        if len(smcs) > 0:
-            smcs = self.sort_disks(smcs)
+        if len(files) > 0:
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [smcs[0]]
-
-        if len(figs) > 0:
-            figs = self.sort_disks(figs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [figs[0]]
-
-        if len(swcs) > 0:
-            swcs = self.sort_disks(swcs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [swcs[0]]
-
-        if len(bss) > 0:
-            bss = self.sort_disks(bss)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [bss[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
@@ -204,87 +104,28 @@ class PlatformSuperFamicom(PlatformCommon):
         return ['snessuperfamicom']
 
 # Tries to identify files by any magic necessary
-    def find_smc_files(self):
-        smc_files = []
+    def find_ext_files(self):
+        ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                smc_files.append(file)
-        return smc_files
-
-    def find_sfc_files(self):
-        sfc_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                sfc_files.append(file)
-        return sfc_files
-
-    def find_fig_files(self):
-        fig_files = []
-        for file in self.prod_files:
-            fig_files.append(file)
-        return fig_files
-
-    def find_swc_files(self):
-        swc_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                swc_files.append(file)
-        return swc_files
-
-    def find_bs_files(self):
-        bs_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                bs_files.append(file)
-        return bs_files
-
-    def find_gb_files(self):
-        gb_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                gb_files.append(file)
-        return gb_files
-
-    def find_gbc_files(self):
-        gbc_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                gbc_files.append(file)
-        return gbc_files
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("Found file: " + file)
+        return ext_files
 
 
 class PlatformN64(PlatformCommon):
     def run(self):
         extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
-        print("Supported extensions:", extensions)
+        for ext in extensions:
+            print("looking for files ending with: " + ext)
+            files = self.find_files_with_extension(ext)
 
-        n64s = self.find_files_with_extension('n64')
-        v64s = self.find_files_with_extension('v64')
-        z64s = self.find_files_with_extension('z64')
-        bins = self.find_files_with_extension('bin')
-        u1s = self.find_files_with_extension('u1')
-        ndds = self.find_files_with_extension('ndd')
+        if len(files) == 0:
+            files = self.find_ext_files()
 
-        if len(n64s) == 0:
-            n64s = self.find_n64_files()
-        if len(v64s) == 0:
-            v64s = self.find_v64_files()
-        if len(z64s) == 0:
-            z64s = self.find_z64_files()
-        if len(bins) == 0:
-            bins = self.find_bin_files()
-        if len(u1s) == 0:
-            u1s = self.find_u1s_files()
-        if len(ndds) == 0:
-            ndds = self.find_ndd_files()
-
-        if len(n64s) == 0 and len(v64s) == 0 and len(n64s) == 0 and len(z64s) == 0 and len(bins) == 0 and len(u1s) == 0 and len(ndds) == 0:
+        if len(files) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -292,44 +133,25 @@ class PlatformN64(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            # emulator.append('mupen64plus_next_libretro')
-            # emulator.append('mupen64plus_next_gles2_libretro')
-            # emulator.append('mupen64plus_next_gles3_libretro')
-            # emulator.append('mupen64plus_next_develop_libretro')
             emulator.append('parrallel_n64_libretro')
-            # emulator.append('parrallel_n64_debug_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        if len(n64s) > 0:
-            n64s = self.sort_disks(n64s)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [n64s[0]]
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
-        if len(v64s) > 0:
-            v64s = self.sort_disks(v64s)
+        if len(files) > 0:
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [v64s[0]]
-
-        if len(z64s) > 0:
-            z64s = self.sort_disks(z64s)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [z64s[0]]
-
-        if len(bins) > 0:
-            bins = self.sort_disks(bins)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [bins[0]]
-
-        if len(u1s) > 0:
-            u1s = self.sort_disks(u1s)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [u1s[0]]
-
-        if len(ndds) > 0:
-            ndds = self.sort_disks(ndds)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [ndds[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
@@ -337,79 +159,28 @@ class PlatformN64(PlatformCommon):
         return ['nintendo64']
 
 # Tries to identify files by any magic necessary
-    def find_v64_files(self):
-        v64_files = []
+    def find_ext_files(self):
+        ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                v64_files.append(file)
-        return v64_files
-
-    def find_n64_files(self):
-        n64_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                n64_files.append(file)
-        return n64_files
-
-    def find_z64_files(self):
-        z64_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                z64_files.append(file)
-        return z64_files
-
-    def find_bin_files(self):
-        bin_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                bin_files.append(file)
-        return bin_files
-
-    def find_u1s_files(self):
-        u1_files = []
-        for file in self.prod_files:
-            u1_files.append(file)
-        return u1_files
-
-    def find_ndd_files(self):
-        ndd_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                ndd_files.append(file)
-        return ndd_files
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("Found file: " + file)
+        return ext_files
 
 
 class PlatformGameboy(PlatformCommon):
     def run(self):
         extensions = ['gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
-        print("Supported extensions:", extensions)
+        for ext in extensions:
+            print("looking for files ending with: " + ext)
+            files = self.find_files_with_extension(ext)
 
-        gbs = self.find_files_with_extension('gb')
-        gbcs = self.find_files_with_extension('gbc')
-        dmgs = self.find_files_with_extension('dmg')
-        bins = self.find_files_with_extension('bin')
-        u1s = self.find_files_with_extension('u1')
-        ndds = self.find_files_with_extension('ndd')
-        # zips = self.find_files_with_extension('zip')
+        if len(files) == 0:
+            files = self.find_ext_files()
 
-        if len(gbs) == 0:
-            gbs = self.find_gb_files()
-        if len(gbcs) == 0:
-            gbcs = self.find_gbc_files()
-        if len(dmgs) == 0:
-            dmgs = self.find_dmg_files()
-        if len(bins) == 0:
-            bins = self.find_bin_files()
-        if len(u1s) == 0:
-            u1s = self.find_u1_files()
-        if len(ndds) == 0:
-            ndds = self.find_ndd_files()
-        if len(gbs) == 0 and len(gbcs) == 0 and len(gbs) == 0 and len(dmgs) == 0 and len(bins) == 0 and len(u1s) == 0 and len(ndds) == 0 and len(gbs) == 0:
+        if len(files) == 0:
             print("Didn't find any runable files.")
             exit(-1)
 
@@ -422,35 +193,21 @@ class PlatformGameboy(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        if len(gbs) > 0:
-            gbs = self.sort_disks(gbs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [gbs[0]]
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
-        if len(gbcs) > 0:
-            gbcs = self.sort_disks(gbcs)
+        if len(files) > 0:
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [gbcs[0]]
-
-        if len(dmgs) > 0:
-            dmgs = self.sort_disks(dmgs)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [dmgs[0]]
-
-        if len(bins) > 0:
-            bins = self.sort_disks(bins)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [bins[0]]
-
-        if len(u1s) > 0:
-            u1s = self.sort_disks(u1s)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [u1s[0]]
-
-        if len(ndds) > 0:
-            ndds = self.sort_disks(ndds)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [ndds[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
@@ -458,53 +215,15 @@ class PlatformGameboy(PlatformCommon):
         return ['gameboy']
 
 # Tries to identify files by any magic necessary
-    def find_gbc_files(self):
-        gbc_files = []
+    def find_ext_files(self):
+        ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                gbc_files.append(file)
-        return gbc_files
-
-    def find_gb_files(self):
-        gb_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                gb_files.append(file)
-        return gb_files
-
-    def find_dmg_files(self):
-        dmg_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                dmg_files.append(file)
-        return dmg_files
-
-    def find_bin_files(self):
-        bin_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                bin_files.append(file)
-        return bin_files
-
-    def find_u1_files(self):
-        u1_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                u1_files.append(file)
-        return u1_files
-
-    def find_ndd_files(self):
-        ndd_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                ndd_files.append(file)
-        return ndd_files
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("Found file: " + file)
+        return ext_files
 
 
 class PlatformGameboyColor(PlatformCommon):
