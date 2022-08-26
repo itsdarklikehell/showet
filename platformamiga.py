@@ -111,12 +111,10 @@ class PlatformAmiga(PlatformCommon):
 # Tries to identify files by any magic necessary
 
     def find_ext_files(self):
-        exclusions = ['.json', '.DIZ']
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0:
-                if not file.endswith(exclusions):
-                    ext_files.append(file)
-                    print("Found file: " + file)
+            if size > 0 and not file.endswith('.json'):
+                ext_files.append(file)
+                print("Found file: " + file)
         return ext_files
