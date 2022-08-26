@@ -55,8 +55,8 @@ if os.path.exists(prod_json_filename):
     with open(prod_json_filename, 'r') as f:
         prod_json = f.read()
 else:
-    if not os.path.exists(datadir):
-        os.makedirs(datadir)
+    if not os.path.exists(datadir + '/json'):
+        os.makedirs(datadir + '/json')
     with urllib.request.urlopen(prod_url) as url:
         prod_json = url.read().decode()
     with open(prod_json_filename, 'w') as f:
