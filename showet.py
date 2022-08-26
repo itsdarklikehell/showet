@@ -140,11 +140,17 @@ else:
         if ret == 1:
             print("Unraring file failed!")
 
-    # if prod_download_filename.endswith(".lha"):
-    #     print("Extracting lha ", prod_download_filename)
-    #     ret = os.system("lha xw=" + datadir + " " + prod_download_filename)
-    #     if ret == 1:
-    #         print("Unzipping file failed!")
+    if prod_download_filename.endswith(".lha"):
+        print("Extracting lha ", prod_download_filename)
+        ret = os.system("lha xw=" + datadir + " " + prod_download_filename)
+        if ret == 1:
+            print("Unzipping file failed!")
+
+    if prod_download_filename.endswith(".7z"):
+        print("Extracting lha ", prod_download_filename)
+        ret = os.system("7z x" + datadir + " " + prod_download_filename)
+        if ret == 1:
+            print("Un7zing file failed!")
 
     if prod_download_filename.endswith(".tar.xz") \
             or prod_download_filename.endswith(".tar.gz") \
