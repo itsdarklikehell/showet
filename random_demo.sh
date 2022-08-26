@@ -57,6 +57,8 @@ play_demo(){
     if [[ $REPLY = "q" ]]; then
         echo "Quitting..."
         loop="false"
+        # Cleanup after script
+        rm -rf ~/.showet/data/* >/dev/null 2>&1
         exit 0
     fi
 }
