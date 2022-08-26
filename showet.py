@@ -47,7 +47,7 @@ datadir = showetdir + "/data/"+str(prod_id)
 prod_download_url = None
 prod_download_filename = None
 prod_json = None
-prod_json_filename = datadir + "/pouet.json"
+prod_json_filename = datadir + "/json/pouet.json"
 
 # Get the json data:
 if os.path.exists(prod_json_filename):
