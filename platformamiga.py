@@ -10,6 +10,7 @@ class PlatformAmiga(PlatformCommon):
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
                       'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
+
         ext = []
         for ext in extensions:
             print("looking for files ending with: " + ext)
@@ -110,11 +111,12 @@ class PlatformAmiga(PlatformCommon):
 # Tries to identify files by any magic necessary
 
     def find_ext_files(self):
+        exclusions = ['.json', '.DIZ']
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json'):
+                if not file.endswith(exclusions):
                     ext_files.append(file)
                     print("Found file: " + file)
         return ext_files

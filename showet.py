@@ -3,8 +3,9 @@ import urllib.request
 import json
 import os
 from os.path import basename
+from platformnec import PlatformSupergrafx
 
-from platformwindows import PlatformWindows
+from platformmicrosoft import PlatformWindows, PlatformMsx
 from platformmsdos import PlatformMsdos
 from platformamiga import PlatformAmiga
 from platformvideo import PlatformVideo
@@ -15,6 +16,9 @@ from platformatari import PlatformAtarist, PlatformAtarixlxe, PlatformFalcon, Pl
 from platformspectrum import PlatformSpectrum
 from platformcommodore import PlatformCommodore64, PlatformCommodorePet, PlatformCommodore128, PlatformCommodorePlus4, PlatformCommodoreVIC20, PlatformCommodoreCBM
 from platformlinux import PlatformLinux
+from platformtic80 import PlatformTic80
+from platformneogeo import PlatformNeopocket
+from platformnec import PlatformSupergrafx
 import argparse
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
@@ -27,7 +31,7 @@ args = parser.parse_args()
 
 # In priority order
 platform_runners = [PlatformAmiga(), PlatformAmstrad(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(
-), PlatformSpectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple()]
+), PlatformSpectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple(), PlatformTic80(), PlatformNeopocket(), PlatformSupergrafx(), PlatformMsx()]
 
 if args.platforms:
     for r in platform_runners:

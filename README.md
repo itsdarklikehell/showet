@@ -57,62 +57,158 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 
 ## Todo
 
-- [x] Proof of concept
-- [x] Windows Supported by: wine
-- [ ] General Video/Animation Stuff... (could use VLC here.)
-- [x] Amiga Supported by: retroarch core(s):
-- [ ] Atari (Falcon/Jaguar/Lynx/ST(e)/TT/VCS/XL/XE) Supported by: retroarch cores: hatari_libretro
-- [x] Commodore (C16/116/plus4/C64/CDTV/C128) Supported by: retroarch core(s): vice_x64_libretro
-- [x] Nintendo NES (Famicom) Supported by: retroarch core(s): quicknes_libretro
-- [x] Nintendo SNES (Super Famicom) Supported by: retroarch core(s): snes9x_libretro
-- [x] Nintendo N64 Supported by: retroarch core(s): mupen64plus_next_libretro, parrallel_n64_libretro
-- [x] Nintendo GB (Gameboy) Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
-- [x] Nintendo GBC (Gameboy Color) Supported by: retroarch core(s): gambatte_libretro, sameboy_libretro
-- [x] Nintendo GBA (Gameboy Advance) Supported by: retroarch core(s): vbam_libretro, gpsp_libretro
-- [x] Nintendo GC (GameCube) Supported by: retroarch core(s): dolphin_libretro
-- [x] Nintendo DS (NDS/3DS/3DSi) Supported by: retroarch core(s): menlonds_libretro
-- [x] Nintendo VB (VirtuaBoy) Supported by: retroarch core(s): mednafen_vb_libretro
-- [x] Nintendo WII/WIIu Supported by: retroarch core(s): dolphin_libretro
+(for now only retroarch is supported, have not yet implemented any other emulator support.)
+
+- [ ] Alambik (Have yet to find out whatever that is and how to run them...)
+- [x] Amiga Stuff...
+      AGA/OCS/ECS/PPC/RTG is Supported by:
+      retroarch core(s): `puae_libretro.so`
+      see `puae_libretro.info`
+      (for now only retroarch is supported, have not yet implemented any other emulator support.)
+- [x] Amstrad Stuff...
+      CPC/PLUS is Supported by:
+      retroarch core(s): `cap32_libretro.so`
+      see `cap32_libretro.info`
+      (for now only retroarch is supported, have not yet implemented any other emulator support.)
+- [ ] Apple Stuff...
+      (https://github.com/audetto/AppleWin)
+- [x] Atari Stuff...
+      Falcon/Lynx/ST(e)/TT/VCS/XL/XE is Supported by:
+      retroarch cores: `hatari_libretro.so`
+      see `hatari_libretro.info`
+      Jaguar is Supported by:
+      retroarch cores: `virtualjaguar_libretro.so`
+      see `virtualjaguar_libretro.info`
+      Lynx is Supported by:
+      retroarch cores: `handy_libretro.so`
+      see `handy_libretro.info`
+      VCS is Supported by:
+      retroarch cores: `stella_libretro.so`
+      see `stella_libretro.info`
+      (for now only retroarch is supported, have not yet implemented any other emulator support.)
+- [ ] BBC Acorn Stuff...
+- [ ] BBC Micro Stuff...
+- [x] Commodore Stuff...
+      C16/116/plus4/C64/CDTV/C128 is Supported by:
+      retroarch core(s): `vice_x64_libretro.so`
+      see `vice_x64_libretro.info`
+      (for now only retroarch is supported, have not yet implemented any other emulator support.)
+- [x] Decompress archives:
+      (Currently implemented: .zip .tar .gz .lha)
+      (But this is really not needed for retroarch bacause it can manage (decompress/run) many compressed fileformats.)
+      (This is more for those scenes that run in dosbox, wine or proton or if using a native emulator that cant manage compressed files.)
+- [ ] Design metadata format to fix non-working demos
+- [x] Disk change support.
+      (retroarch does support the use of many playlist fileformats. for intance pls, m3u, vfl etc.)
+      (As mentioned above, it can allso run and decompress many compressed fileformats. for instance .zip .tz .7z .gz .chd and retroarch can automatically generates playlist files after decompressing files if it detects multiple roms/disks.)
+- [ ] Debian packaging.
+      (Currently not yet fully finished this, but retroarch has its own repos.)
+- [ ] (Optional/BONUS QUEST! for 100 points.)
+      Make it run/install/update on retropie/batocera/recallbox or plain retroarch on a RaspberryPi.
+      Allot of retropie/emulationstation uses retroarch cores to run games, it should not be hard to intergrate installation, configuring and running of the scripts of showet into the menus of it it, through the `install.sh` and `update.sh` scripts of this repo.
+      (Or if we are really in luck maybe eventually even the retropie team notices/adopts us.)
+- [x] DOS Stuff...
+      EXE/COM etc. is Supported by:
+      retroarch core(s): `dosbox_core_libretro.so`
+      see `dosbox_core_libretro.info`
+      (for now only retroarch is supported, have not yet implemented any other emulator support.)
+- [ ] Flash Stuff... (look into: Flashpoint)
+- [x] GUI...
+- [ ] GamePark Stuff...
+      (GP2x/GP32)
+- [ ] General Video/Animation Stuff...
+      (could use libretro_ffmpeg or VLC here.)
+- [ ] Intellivison Stuff...
+      (see: FreeIntv)
+- [ ] Java Stuff...
+      (see: freej2me_libretro.info)
+- [ ] Linux Stuff...
+      (almost working)
+- [x] Microsoft Stuff...
+      MSX/MSX2/MSX2+/MSX Turbo-r is Supported by:
+      retroarch core(s): `bluemsx_libretro.so` `fmsx_libretro.so`
+      see `bluemsx_libretro.info` `fmsx_libretro.info`
+      WIN (windows) Supported by:
+      wine (or proton)
+      see wine/proton-tricks for installation of dlls.
+- [ ] Microsoft XBOX Stuff...
+      (XBOX/XBOX360)
+- [x] NeoGeo Stuff...
+      pocket/pocket color is Supported by:
+      retroarch core(s): `mednafen_ngb_libretro.so`
+      see `mednafen_ngb_libretro.info`
+- [x] NEC Stuff...
+      (TurboGrafx/PC Engine)
+- [x] Nintendo Stuff...
+      (for now only retroarch is supported, have not yet implemented any other emulator support.)
+      NES (Famicom) is Supported by:
+      retroarch core(s): `quicknes_libretro.so`
+      see `quicknes_libretro.info`
+      SNES (Super Famicom) is Supported by:
+      retroarch core(s): `snes9x_libretro.so`
+      see `snes9x_libretro.info`
+      N64 (Reality) is Supported by:
+      retroarch core(s): `mupen64plus_next_libretro` `parrallel_n64_libretro.so`
+      see `mupen64plus_next_libretro.info` `parrallel_n64_libretro.info`
+      GB (Gameboy) GBC (Gameboy Color) is Supported by:
+      retroarch core(s): `gambatte_libretro.so` `sameboy_libretro.so`
+      see `gambatte_libretro.info` `sameboy_libretro.info`
+      GBA (Gameboy Advance) is Supported by:
+      retroarch core(s): `vbam_libretro.so` `gpsp_libretro.so`
+      see `vbam_libretro.info` `gpsp_libretro.info`
+      GC (GameCube) is Supported by:
+      retroarch core(s): `dolphin_libretro.so`
+      see `dolphin_libretro.info`
+      DS (NDS/3DS/3DSi) is Supported by:
+      retroarch core(s): `melonds_libretro.so`
+      see `melonds_libretro.info`
+      VB (VirtuaBoy) is Supported by:
+      retroarch core(s):`mednafen_vb_libretro.so`
+      see `mednafen_vb_libretro.info`
+      WII/WIIu is Supported by:
+      retroarch core(s): `dolphin_libretro.so`
+      see `dolphin_libretro.info`
+      (for now only retroarch is supported, have not yet implemented any other emulator support.)
 - [ ] Nintendo Switch Stuff...
-- [x] PokeMini Stuff... (see pokemini_libretro.info implementing this should be easy, there are only 3 scenes for this system so obviously not a priority..)
-- [ ] WonderSwan Stuff...
-- [ ] Amstrad (CPC/PLUS) Stuff... (see cap32_libretro.info)
-- [ ] Sega (GameGear/Megadrive/Genesis/mastersystem) Stuff...
+- [ ] Option to set/select the emulator
+      i.e to select retroarch core if multiple possible cores are available or to use native emulation.
+- [ ] Option to set fullscreen on/off.
+      (retroarch --fullscreen)
+- [ ] Option to set audio on/off.
+- [ ] Option for setting custom commandline options.
+      to pass to chosen emulator (ie retroarch core options or natvie emualtor options).
 - [ ] Pico8 Stuff...
-- [ ] TIC80 Stuff...
+- [x] PokeMini Stuff...
+      Pokemini is Supported by:
+      retroarch core(s): `pokemini_libretro.so`
+      see `pokemini_libretro.info`
+- [x] Proof of concept...
+- [ ] Sega (GameGear/Megadrive/Genesis/mastersystem) Stuff...
+- [ ] Sony (PSX/PS2/PS3/PSP) Stuff... (see duckstation_libretro.info and ppsppp_libretro.)
+- [ ] Steam intergration
+      (for the option of using the steam version of retroach and its cores...)
+      (for setting up/using proton...)
+- [x] TIC80 Stuff...
+      TIC80 is Supported by:
+      retroarch core(s): `tic80_libretro.so`
+      see `tic80_libretro.info`
 - [ ] TRS80/CoCo/Dragon32 Stuff...
 - [ ] Vectrex Stuff...
-- [ ] Sony (PSX/PS2/PS3/PSP) Stuff... (see duckstation_libretro.info and ppsppp_libretro.)
-- [ ] Apple Stuff...
-- [ ] GamePark (GP2x/GP32) Stuff...
-- [ ] Microsoft (MSX/MSX2/MSX2+/MSX Turbo-r) Stuff...
-- [ ] Microsoft (XBOX/XBOX360) Stuff...
-- [ ] NEC TurboGrafx/PC Engine Stuff...
-- [ ] NeoGeo (pocket/pocket color) Stuff...
-- [ ] Intellivison Stuff... (see: FreeIntv)
-- [ ] Java Stuff... (see: freej2me_libretro.info)
-- [ ] Flash Stuff... (see: Flashpoint)
+- [ ] Whitelist & blacklist of known working & broken demos.
+- [ ] WonderSwan Stuff...
 - [ ] ZX (ZX Enhanced/ZX Spectrum/ZX 81) Stuff...
-- [x] DOS support: Supported by: retroarch core(s): dosbox_core_libretro
-- [ ] Linux support (almost working) Supported by: OS
-- [x] GUI
-- [ ] Option to set/select the emulator (retroarch core or native emulation) to run if more than one is supported.
-- [ ] Option to set fullscreen on/off. (retroarch --fullscreen)
-- [ ] Option to set audio on/off.
-- [ ] Option for setting custom commandline options to pass to chosen emulator (core).
-- [x] unzip decompress (This is really not needed for retroarch but more for those that run in dosbox or wine.)
-- [x] unrar decompress (Same as above.)
-- [x] tar/gz/lhA decompress (Same as above.)
-- [ ] Design metadata format to fix non-working demos
-- [ ] Disk change support (C64/Amiga) (PSX) (retroarch has playlist support for pls, m3u, vfl etc.)
-- [x] debian packaging
-- [ ] Whitelist & blacklist of known working & broken demos
 
 Pull requests welcome.
 
 ## Command line examples
 
 You can use the command line tool to quickly test running any demos.
+
+Amstrad CPC: Debris by Pulpo Corrosivo (http://www.pouet.net/prod.php?which=92044)
+
+```
+./showet.py 92044
+```
 
 Windows: MFX's Deities (http://www.pouet.net/prod.php?which=24487)
 
@@ -175,5 +271,6 @@ Install the package to get dependencies.
 
 ## Authors:
 
-Code: 2004: Ville Ranki 2022: Bauke Molenaar.
+Code: Ville Ranki. (Origional Author 2004)
+Code: Bauke Molenaar. (Since: 2022)
 Logo & Icon: Manu / Fit
