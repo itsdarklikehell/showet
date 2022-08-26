@@ -195,16 +195,16 @@ class PlatformJaguar(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # m3ufile = self.datadir + "/fliplist.m3u"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
 
         if len(files) > 0:
             files = self.sort_disks(files)
