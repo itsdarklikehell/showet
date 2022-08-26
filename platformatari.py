@@ -175,7 +175,7 @@ class PlatformAtarixlxe(PlatformCommon):
 class PlatformJaguar(PlatformCommon):
     def run(self):
         extensions = ['j64', 'jag', 'rom', 'abs',
-                      'cof', 'bin', 'prg', 'm3u', 'zip']
+                      'cof', 'bin', 'prg']
         for ext in extensions:
             print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
