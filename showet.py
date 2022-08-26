@@ -13,7 +13,7 @@ from platformamstrad import PlatformAmstrad
 from platformnintendo import PlatformGameboy, PlatformGameboyColor, PlatformGameboyAdvance, PlatformFamicom, PlatformSuperFamicom, PlatformVirtualboy, PlatformN64, PlatformGamecube, PlatformWii, PlatformPokemini, PlatformDS
 from platformatari import PlatformAtarist, PlatformAtarixlxe, PlatformFalcon, PlatformJaguar, PlatformLynx, PlatformVcs
 from platformspectrum import PlatformSpectrum
-from platformcommodore import PlatformCommodore
+from platformcommodore import PlatformCommodore64, PlatformCommodorePet, PlatformCommodore128, PlatformCommodorePlus4, PlatformCommodoreVIC20, PlatformCommodoreCBM
 from platformlinux import PlatformLinux
 import argparse
 
@@ -26,8 +26,8 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmiga(), PlatformAmstrad(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(), PlatformSpectrum(), PlatformCommodore(
-), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple()]
+platform_runners = [PlatformAmiga(), PlatformAmstrad(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(
+), PlatformSpectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple()]
 
 if args.platforms:
     for r in platform_runners:
