@@ -114,7 +114,7 @@ class PlatformAmiga(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json'):
+            if size > 0 and not file.endswith('.json', '.DIZ'):
                 ext_files.append(file)
                 print("Found file: " + file)
         return ext_files
