@@ -119,10 +119,9 @@ class PlatformMsx(PlatformCommon):
         return ext_files
 
 
-class PlatformMsx(PlatformCommon):
+class PlatformJava(PlatformCommon):
     def run(self):
-        extensions = ['rom', 'ri', 'mx1', 'mx2', 'col',
-                      'dsk', 'fdi', 'cas', 'sg', 'sc', 'm3u']
+        extensions = ['jar']
         for ext in extensions:
             print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
