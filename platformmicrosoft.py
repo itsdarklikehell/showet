@@ -138,7 +138,6 @@ class PlatformJava(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('freej2me_libretro')
-            # emulator.append('fmsx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 

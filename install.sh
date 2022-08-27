@@ -1,5 +1,8 @@
 #!/bin/bash
+# Showet install helper script
+# author: Bauke Molenaar.
 
+cd ~
 inst_emulators(){
     echo "Installing retroarch Reposetories."
     sudo add-apt-repository ppa:libretro/stable
@@ -20,11 +23,46 @@ inst_deps(){
     done
 }
 inst_showet(){
-    debuild -us -uc -b
-    make
-    sudo make install
+    sudo apt update
+    sudo apt upgrade
+    if [ -d ~/showet ]; then
+        echo "Old Showet installation Found. moving it to ~/showet.old"
+        mv ~/showet ~/showet.old
+    fi
+    if [ !-d ~/showet ]; then
+        echo "Installing Showet..."
+        git clone https://github.com/itsdarklikehell/showet
+        cd showet
+        debuild -us -uc -b
+        make
+        sudo make install
+    fi
 }
-inst_emulators
-inst_deps
-inst_showet
+updt_showet(){
+    if [ !-d ~/showet ]; then
+        echo "Directory ~/Showet was not found, please install it first"
+    else
+        echo "Updating..."
+        sudo apt update
+        sudo apt upgrade
+        cd ~/showet
+        git pull
+        debuild -us -uc -b
+        make
+        sudo make install
+    fi
+}
+if [ $1 = "--update" ]; then
+    updt_showet
+    inst_emulators
+fi
+if [ $1 = "--install-emulators" ]; then
+    inst_emulators
+fi
+if [ $1 = "--install-showet" ]; then
+    inst_deps
+    inst_showet
+    inst_emulators
+fi
+
 echo "Done!"

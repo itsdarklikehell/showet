@@ -18,7 +18,7 @@ class PlatformApple(PlatformCommon):
             print("Didn't find any runable files.")
             exit(-1)
 
-        emulator = ['linapple']
+        emulator = ['retroarch']
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')

@@ -1,4 +1,6 @@
 #!/bin/bash
+# Showet random demo picker script
+# author: Bauke Molenaar.
 
 TIMEOUT=3 # seconds
 
