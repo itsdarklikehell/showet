@@ -13,7 +13,7 @@ inst_emulators(){
 }
 inst_deps(){
     echo "Installing dependencies..."
-    deps=( "debhelper" "qt5-qmake" "qtbase5-dev" "qtdeclarative5-dev" "python3" "python3-urllib3" "unzip" "wine" "fs-uae" "lhasa" "vice" "qml-module-qtquick-controls" "qml-module-qtgraphicaleffects" "qml-module-qtquick-layouts" "qml-module-qtwebengine" )
+    deps=( "debhelper" "qt5-qmake" "qtbase5-dev" "qtdeclarative5-dev" "python3" "python3-urllib3" "unrar" "p7zip-full" "p7zip-rar" "gzip" "unzip" "wine" "fs-uae" "lhasa" "vice" "qml-module-qtquick-controls" "qml-module-qtgraphicaleffects" "qml-module-qtquick-layouts" "qml-module-qtwebengine" )
     for dep in "${deps[@]}"
     do
         if ! dpkg -s $dep >/dev/null 2>&1; then
