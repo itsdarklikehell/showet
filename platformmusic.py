@@ -4,7 +4,7 @@ import os
 fullscreen = ['false']
 
 
-class PlatformgGamemusic(PlatformCommon):
+class PlatformGamemusic(PlatformCommon):
     def run(self):
         extensions = ['ay', 'gbs', 'gym', 'hes', 'kss',
                       'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz', 'zip']
