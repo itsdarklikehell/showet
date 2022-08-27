@@ -2,8 +2,6 @@ from platformcommon import PlatformCommon
 import os
 
 fullscreen = ['false']
-
-
 class PlatformGamemusic(PlatformCommon):
     def run(self):
         extensions = ['ay', 'gbs', 'gym', 'hes', 'kss',
@@ -46,7 +44,7 @@ class PlatformGamemusic(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['music']
+        return ['music', 'wild']
 
  # Tries to identify files by any magic necessary
 
