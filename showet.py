@@ -5,20 +5,25 @@ import os
 from os.path import basename
 from platformnec import PlatformSupergrafx
 
-from platformmicrosoft import PlatformWindows, PlatformMsx
+from platformmicrosoft import PlatformWindows, PlatformMsx, PlatformXbox, PlatformJava
 from platformmsdos import PlatformMsdos
 from platformamiga import PlatformAmiga
 from platformvideo import PlatformVideo
 from platformapple import PlatformApple
-from platformamstrad import PlatformAmstrad
+from platformamstrad import PlatformCaprice, PlatformCrocods
 from platformnintendo import PlatformGameboy, PlatformGameboyColor, PlatformGameboyAdvance, PlatformFamicom, PlatformSuperFamicom, PlatformVirtualboy, PlatformN64, PlatformGamecube, PlatformWii, PlatformPokemini, PlatformDS
 from platformatari import PlatformAtarist, PlatformAtarixlxe, PlatformFalcon, PlatformJaguar, PlatformLynx, PlatformVcs
 from platformspectrum import PlatformSpectrum
 from platformcommodore import PlatformCommodore64, PlatformCommodorePet, PlatformCommodore128, PlatformCommodorePlus4, PlatformCommodoreVIC20, PlatformCommodoreCBM
 from platformlinux import PlatformLinux
 from platformtic80 import PlatformTic80
+from platformsega import PlatformGamegear, PlatformGenesis, PlatformBlastem
 from platformneogeo import PlatformNeopocket
 from platformnec import PlatformSupergrafx
+from platformsony import PlatformDuckstation
+from platformmattel import PlatformIntellivision
+from platformenterprise import PlatformEnterprise
+from platformmusic import PlatformGamemusic
 import argparse
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
@@ -30,8 +35,8 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmiga(), PlatformAmstrad(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(
-), PlatformSpectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple(), PlatformTic80(), PlatformNeopocket(), PlatformSupergrafx(), PlatformMsx()]
+platform_runners = [PlatformAmiga(), PlatformCaprice(), PlatformCrocods(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(), PlatformSpectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(
+), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple(), PlatformTic80(), PlatformNeopocket(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(), PlatformGamegear(), PlatformGenesis(), PlatformBlastem(), PlatformEnterprise(), PlatformDuckstation(), PlatformIntellivision(), PlatformJava(), PlatformGamemusic()]
 
 if args.platforms:
     for r in platform_runners:
