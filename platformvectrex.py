@@ -4,9 +4,9 @@ import os
 fullscreen = ['false']
 
 
-class PlatformSpectrum(PlatformCommon):
+class PlatformVectrex(PlatformCommon):
     def run(self):
-        extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+        extensions = ['bin', 'vec']
         for ext in extensions:
             print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
@@ -22,7 +22,7 @@ class PlatformSpectrum(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('fuse_libretro')
+            emulator.append('vecx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -45,7 +45,7 @@ class PlatformSpectrum(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['zxspectrum', 'spectrum']
+        return ['vectrex']
 
  # Tries to identify files by any magic necessary
     def find_ext_files(self):

@@ -42,7 +42,7 @@ base for launching amiga demos.
 
 supported_extensions = "d64|d71|d80|d81|d82|g64|g41|x64|t64|tap|prg|p00|crt|bin|zip|gz|d6z|d7z|d8z|g6z|g4z|x6z|cmd|m3u|vfl|vsf|nib|nbz|d2m|d4m"
 
-Vice shipped with Ubuntu doesn't contain kernal files due to
+Vice shipped with Ubuntu doesn't contain kernel files due to
 copyright reasons.
 
 - Go to <http://vice-emu.sourceforge.net/index.html#download> and download
@@ -59,6 +59,7 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 
 (for now only retroarch is supported, have not yet implemented any other emulator support.)
 
+- [ ] Clean up this README.md file and make a proper documentation/wiki...
 - [x] Archimedes/Acorn Stuff...
       Acorn is Supported by:
       retroarch core(s): `mame_libretro.so` or `mess2015_libretro`
@@ -287,6 +288,6 @@ Install the package to get dependencies.
 
 ## Authors
 
-Code: Ville Ranki. (Origional Author 2004)
+Code: Ville Ranki. (Original Author 2004)
 Code: Bauke Molenaar. (Since: 2022)
 Logo & Icon: Manu / Fit

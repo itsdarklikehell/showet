@@ -44,4 +44,4 @@ class PlatformPico8(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['palmos']
+        return ['pico8']
