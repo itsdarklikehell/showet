@@ -177,6 +177,7 @@ Use Alt-N to cycle disk sides for multi-disk demos.
       see `dolphin_libretro.info`
       (for now only retroarch is supported, have not yet implemented any other emulator support.)
 - [ ] Nintendo Switch Stuff...
+- [ ] Oric Stuff... (see oricutron)
 - [ ] Option to set/select the emulator
       i.e to select retroarch core if multiple possible cores are available or to use native emulation.
 - [ ] Option to set fullscreen on/off.

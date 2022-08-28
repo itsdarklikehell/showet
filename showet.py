@@ -3,7 +3,7 @@ import urllib.request
 import json
 import os
 from platformnec import PlatformSupergrafx
-from platformmicrosoft import PlatformWindows, PlatformMsx, PlatformXbox, PlatformJava
+from platformmicrosoft import PlatformWindows, PlatformMsx, PlatformXbox
 from platformmsdos import PlatformMsdos
 from platformamiga import PlatformAmiga
 from platformvideo import PlatformVideo
@@ -23,6 +23,8 @@ from platformmattel import PlatformIntellivision
 from platformarchimedes import PlatformAcorn
 from platformenterprise import PlatformEnterprise
 from platformmusic import PlatformGamemusic
+from platformjava import PlatformJava
+from platformpalm import PlatformPalm
 import argparse
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
@@ -35,7 +37,7 @@ args = parser.parse_args()
 
 # In priority order
 platform_runners = [PlatformAmiga(), PlatformCaprice(), PlatformCrocods(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(), PlatformSpectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(
-), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple(), PlatformTic80(), PlatformNeopocket(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(), PlatformGamegear(), PlatformGenesis(), PlatformBlastem(), PlatformEnterprise(), PlatformDuckstation(), PlatformIntellivision(), PlatformJava(), PlatformGamemusic(), PlatformAcorn()]
+), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple(), PlatformTic80(), PlatformNeopocket(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(), PlatformGamegear(), PlatformGenesis(), PlatformBlastem(), PlatformEnterprise(), PlatformDuckstation(), PlatformIntellivision(), PlatformJava(), PlatformGamemusic(), PlatformAcorn(), PlatformPalm()]
 
 if args.platforms:
     for r in platform_runners:
