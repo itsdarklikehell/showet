@@ -4,10 +4,9 @@ import os
 fullscreen = ['false']
 
 
-class PlatformVideo(PlatformCommon):
+class PlatformAcorn(PlatformCommon):
     def run(self):
-        extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm' '3g2',
-                      'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
+        extensions = ['zip', 'chd', '7z', 'cmd']
         for ext in extensions:
             print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
@@ -23,7 +22,7 @@ class PlatformVideo(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('ffmpeg_libretro')
+            emulator.append('mame_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -46,7 +45,7 @@ class PlatformVideo(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['animationvideo', 'linux', 'wild']
+        return ['acorn']
 
  # Tries to identify files by any magic necessary
     def find_ext_files(self):

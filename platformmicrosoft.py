@@ -204,4 +204,4 @@ class PlatformWindows(PlatformCommon):
         self.run_process(['wine', exefile])
 
     def supported_platforms(self):
-        return ['windows']
+        return ['windows', 'java']

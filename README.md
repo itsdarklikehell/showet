@@ -59,7 +59,12 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 
 (for now only retroarch is supported, have not yet implemented any other emulator support.)
 
-- [ ] Alambik (Have yet to find out whatever that is and how to run them...)
+- [x] Archimedes/Acorn Stuff...
+      Acorn is Supported by:
+      retroarch core(s): `mame_libretro.so` or `mess2015_libretro`
+      see `mame_libretro.info` or `mess2015_libretro.info`
+- [ ] Alambik Stuff...
+      (Have yet to find out whatever that is and how to run them...)
 - [x] Amiga Stuff...
       AGA/OCS/ECS/PPC/RTG is Supported by:
       retroarch core(s): `puae_libretro.so`
@@ -112,7 +117,7 @@ Use Alt-N to cycle disk sides for multi-disk demos.
       retroarch core(s): `dosbox_core_libretro.so`
       see `dosbox_core_libretro.info`
       (for now only retroarch is supported, have not yet implemented any other emulator support.)
-- [ ] Flash Stuff... (look into: Flashpoint)
+- [ ] Flash Stuff... (look into: Flashpoint, lightspark or ruffle)
 - [x] GUI...
 - [ ] GamePark Stuff...
       (GP2x/GP32)

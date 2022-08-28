@@ -8,48 +8,39 @@ fullscreen = ['true']
 class PlatformLinux(PlatformCommon):
     def run(self):
         extensions = ['exe', 'elf']
-        print("Supported extensions:", extensions)
+        ext = []
+        for ext in extensions:
+            print("looking for files ending with: " + ext)
+            files = self.find_files_with_extension(ext)
 
-        exes = self.find_exe_files()
-        elfs = self.find_elf_files()
+        if len(files) == 0:
+            files = self.find_ext_files()
 
-        if len(exes) == 0 and len(elfs) == 0:
-            print("Didn't find any runnable binaries.")
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
             exit(-1)
 
         os.chdir(self.datadir)
-        if len(exes) > 1:
-            print("Found multiple executables: ", exes,
+        if len(files) > 1:
+            print("Found multiple executables: ", files,
                   " - not sure which one to run!")
             exit(-1)
         else:
-            print("Running ", exes[0])
-            self.run_process([exes[0]])
-
-        if len(elfs) > 1:
-            print("Found multiple ELFs: ", elfs,
-                  " - not sure which one to run!")
-            exit(-1)
-        else:
-            print("Running ", elfs[0])
-            self.run_process([elfs[0]])
+            print("Running ", files[0])
+            self.run_process([files[0]])
 
     def supported_platforms(self):
-        return ['linux']
+        return ['linux', 'freebsd']
+
 
 # Tries to identify files by any magic necessary
-    def find_exe_files(self):
-        exe_files = []
-        for exe_files in self.prod_files:
-            mode = os.stat(exe_files).st_mode
-            if stat.S_IXUSR & mode:
-                exe_files.append(exe_files)
-        return exe_files
 
-    def find_elf_files(self):
-        elf_files = []
-        for elf_files in self.prod_files:
-            mode = os.stat(elf_files).st_mode
-            if stat.S_IXUSR & mode:
-                elf_files.append(elf_files)
-        return elf_files
+
+    def find_ext_files(self):
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0 and not file.endswith('.json'):
+                ext_files.append(file)
+                print("Found file: " + file)
+        return ext_files
