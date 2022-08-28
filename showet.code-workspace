@@ -5,6 +5,27 @@
 		}
 	],
 	"settings": {
-		"makefile.extensionOutputFolder": "./.vscode"
+		"makefile.extensionOutputFolder": "./.vscode",
+		"cSpell.words": [
+			"appleii",
+			"appleiigs",
+			"datadir",
+			"exefile",
+			"exepath",
+			"flipfile",
+			"fliplist",
+			"foundfiles",
+			"fullscreen",
+			"Gamemusic",
+			"libretro",
+			"platformcommon",
+			"putenv",
+			"retcode",
+			"retroarch",
+			"showetdir",
+			"WINEARCH",
+			"winecfg",
+			"wineprefix"
+		]
 	}
 }

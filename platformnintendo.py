@@ -16,7 +16,7 @@ class PlatformFamicom(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -71,7 +71,7 @@ class PlatformSuperFamicom(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -126,7 +126,7 @@ class PlatformN64(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -181,7 +181,7 @@ class PlatformGameboy(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -236,7 +236,7 @@ class PlatformGameboyColor(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -291,7 +291,7 @@ class PlatformGameboyAdvance(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -347,7 +347,7 @@ class PlatformGamecube(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -406,7 +406,7 @@ class PlatformWii(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -461,7 +461,7 @@ class PlatformPokemini(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -517,7 +517,7 @@ class PlatformDS(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -573,7 +573,7 @@ class PlatformVirtualboy(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']

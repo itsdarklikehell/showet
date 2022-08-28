@@ -4,6 +4,7 @@ import stat
 
 fullscreen = ['true']
 
+
 class PlatformLinux(PlatformCommon):
     def run(self):
         extensions = ['exe', 'elf']

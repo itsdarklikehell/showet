@@ -17,7 +17,7 @@ class PlatformFalcon(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -72,7 +72,7 @@ class PlatformAtarist(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -128,7 +128,7 @@ class PlatformAtarixlxe(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -184,7 +184,7 @@ class PlatformJaguar(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -239,7 +239,7 @@ class PlatformLynx(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -294,7 +294,7 @@ class PlatformVcs(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']

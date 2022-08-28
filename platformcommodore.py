@@ -19,7 +19,7 @@ class PlatformCommodore64(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -82,7 +82,7 @@ class PlatformCommodorePet(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -145,7 +145,7 @@ class PlatformCommodore128(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -208,7 +208,7 @@ class PlatformCommodorePlus4(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -271,7 +271,7 @@ class PlatformCommodoreCBM(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -334,7 +334,7 @@ class PlatformCommodoreVIC20(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']

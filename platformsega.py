@@ -15,7 +15,7 @@ class PlatformBlastem(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -60,7 +60,7 @@ class PlatformGenesis(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -116,7 +116,7 @@ class PlatformGamegear(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -173,7 +173,7 @@ class PlatformFlycast(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
@@ -230,7 +230,7 @@ class PlatformFlycastGLES2(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']

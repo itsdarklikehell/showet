@@ -15,7 +15,7 @@ class PlatformApple(PlatformCommon):
             files = self.find_ext_files()
 
         if len(files) == 0:
-            print("Didn't find any runable files.")
+            print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
