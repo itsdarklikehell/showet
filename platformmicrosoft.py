@@ -23,7 +23,6 @@ class PlatformXbox(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('directxbox_libretro')
-            # emulator.append('fmsx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -81,7 +80,6 @@ class PlatformMsx(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('bluemsx_libretro')
-            # emulator.append('fmsx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 

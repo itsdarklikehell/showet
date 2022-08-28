@@ -52,14 +52,14 @@ updt_showet(){
         sudo make install
     fi
 }
-if [ $1 = "--update" ]; then
+if [[ $1 = "--update" ]]; then
     updt_showet
     inst_emulators
 fi
-if [ $1 = "--install-emulators" ]; then
+if [[ $1 = "--install-emulators" ]]; then
     inst_emulators
 fi
-if [ $1 = "--install-showet" ]; then
+if [[ $1 = "--install-showet" ]]; then
     inst_deps
     inst_showet
     inst_emulators

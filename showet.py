@@ -2,9 +2,7 @@
 import urllib.request
 import json
 import os
-from os.path import basename
 from platformnec import PlatformSupergrafx
-
 from platformmicrosoft import PlatformWindows, PlatformMsx, PlatformXbox, PlatformJava
 from platformmsdos import PlatformMsdos
 from platformamiga import PlatformAmiga

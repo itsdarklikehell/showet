@@ -33,7 +33,7 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 ### Amiga Notes
 
 For Amiga demos you'll need kickstart rom files. See
-http://fs-uae.net/docs/kickstarts on how to obtain and install those.
+<http://fs-uae.net/docs/kickstarts> on how to obtain and install those.
 
 Setup fs-uae default settings to your liking - it'll be used as
 base for launching amiga demos.
@@ -45,7 +45,7 @@ supported_extensions = "d64|d71|d80|d81|d82|g64|g41|x64|t64|tap|prg|p00|crt|bin|
 Vice shipped with Ubuntu doesn't contain kernal files due to
 copyright reasons.
 
-- Go to http://vice-emu.sourceforge.net/index.html#download and download
+- Go to <http://vice-emu.sourceforge.net/index.html#download> and download
   the source tarball.
 - Create directory ~/.vice
 - Copy everything from tarball's data/ directory to ~/.vice
@@ -71,7 +71,7 @@ Use Alt-N to cycle disk sides for multi-disk demos.
       see `cap32_libretro.info`
       (for now only retroarch is supported, have not yet implemented any other emulator support.)
 - [ ] Apple Stuff...
-      (https://github.com/audetto/AppleWin)
+      (<https://github.com/audetto/AppleWin>)
 - [x] Atari Stuff...
       Falcon/Lynx/ST(e)/TT/VCS/XL/XE is Supported by:
       retroarch cores: `hatari_libretro.so`
@@ -95,17 +95,17 @@ Use Alt-N to cycle disk sides for multi-disk demos.
       (for now only retroarch is supported, have not yet implemented any other emulator support.)
 - [x] Decompress archives:
       (Currently implemented: .zip .tar .gz .lha)
-      (But this is really not needed for retroarch bacause it can manage (decompress/run) many compressed fileformats.)
+      (But this is really not needed for retroarch because it can manage (decompress/run) many compressed fileformats.)
       (This is more for those scenes that run in dosbox, wine or proton or if using a native emulator that cant manage compressed files.)
 - [ ] Design metadata format to fix non-working demos
 - [x] Disk change support.
-      (retroarch does support the use of many playlist fileformats. for intance pls, m3u, vfl etc.)
-      (As mentioned above, it can allso run and decompress many compressed fileformats. for instance .zip .tz .7z .gz .chd and retroarch can automatically generates playlist files after decompressing files if it detects multiple roms/disks.)
+      (retroarch does support the use of many playlist fileformats. for instance pls, m3u, vfl etc.)
+      (As mentioned above, it can also run and decompress many compressed fileformats. for instance .zip .tz .7z .gz .chd and retroarch can automatically generates playlist files after decompressing files if it detects multiple roms/disks.)
 - [ ] Debian packaging.
       (Currently not yet fully finished this, but retroarch has its own repos.)
 - [ ] (Optional/BONUS QUEST! for 100 points.)
       Make it run/install/update on retropie/batocera/recallbox or plain retroarch on a RaspberryPi.
-      Allot of retropie/emulationstation uses retroarch cores to run games, it should not be hard to intergrate installation, configuring and running of the scripts of showet into the menus of it it, through the `install.sh` and `update.sh` scripts of this repo.
+      Allot of retropie/emulationstation uses retroarch cores to run games, it should not be hard to integrate installation, configuring and running of the scripts of showet into the menus of it it, through the `install.sh` and `update.sh` scripts of this repo.
       (Or if we are really in luck maybe eventually even the retropie team notices/adopts us.)
 - [x] DOS Stuff...
       EXE/COM etc. is Supported by:
@@ -177,8 +177,8 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 - [ ] Option to set fullscreen on/off.
       (retroarch --fullscreen)
 - [ ] Option to set audio on/off.
-- [ ] Option for setting custom commandline options.
-      to pass to chosen emulator (ie retroarch core options or natvie emualtor options).
+- [ ] Option for setting custom command line options.
+      to pass to chosen emulator (ie retroarch core options or native emulator options).
 - [ ] Pico8 Stuff...
 - [x] PokeMini Stuff...
       Pokemini is Supported by:
@@ -189,10 +189,10 @@ Use Alt-N to cycle disk sides for multi-disk demos.
 - [ ] Sgi IRIX Stuff...
 - [ ] Sharp Stuff...
 - [ ] Sony (PSX/PS2/PS3/PSP) Stuff... (see duckstation_libretro.info and ppsppp_libretro.)
-- [ ] Specrtavideo Stuff...
+- [ ] Spectravideo Stuff...
       See bluemsx_libretro.info
 - [ ] Steam intergration
-      (for the option of using the steam version of retroach and its cores...)
+      (for the option of using the steam version of retroarch and its cores...)
       (for setting up/using proton...)
 - [ ] Thomson Stuff...
       MO/TO
@@ -215,64 +215,63 @@ Pull requests welcome.
 
 You can use the command line tool to quickly test running any demos.
 
-Amstrad CPC: Debris by Pulpo Corrosivo (http://www.pouet.net/prod.php?which=92044)
+Amstrad CPC: Debris by Pulpo Corrosivo (<http://www.pouet.net/prod.php?which=92044>)
 
-```
+```bash
 ./showet.py 92044
 ```
 
-Windows: MFX's Deities (http://www.pouet.net/prod.php?which=24487)
+Windows: MFX's Deities (<http://www.pouet.net/prod.php?which=24487>)
 
-```
+```bash
 ./showet.py 24487
 ```
 
-NES/nes: Matrix(http://www.pouet.net/prod.php?which=90520)
+NES/nes: Matrix(<http://www.pouet.net/prod.php?which=90520>)
 
-```
+```bash
 ./showet.py 90520
 ```
 
-SNES/sfc: Bad Apple (http://www.pouet.net/prod.php?which=91610)
+SNES/sfc: Bad Apple (<http://www.pouet.net/prod.php?which=91610>)
 
-```
-
+```bash
 ./showet.py 91610
 ```
 
-GB/gb: Turbocharged(http://www.pouet.net/prod.php?which=91987)
+GB/gb: Turbocharged(<http://www.pouet.net/prod.php?which=91987>)
 
-```
+```bash
 ./showet.py 91987
 ```
 
-GBC/gb: Titan - To The Lighthouse!(http://www.pouet.net/prod.php?which=91968)
+GBC/gb: Titan - To The Lighthouse!(<http://www.pouet.net/prod.php?which=91968>)
 
-```
+```bash
 ./showet.py 91968
 ```
 
-Amiga/dms Origin by Complex (http://www.pouet.net/prod.php?which=3741)
+Amiga/dms Origin by Complex (<http://www.pouet.net/prod.php?which=3741>)
 
-```
+```bash
 ./showet.py 3741
 ```
 
-Amiga/lha Tint by TBL (http://www.pouet.net/prod.php?which=701)
+Amiga/lha Tint by TBL (<http://www.pouet.net/prod.php?which=701>)
 
-```
+```bash
 ./showet.py 701
 ```
 
-C64/.d64 Comaland by Censor Design & Oxyron (http://www.pouet.net/prod.php?which=64283)
+C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?which=64283>)
 
-```
+```bash
 ./showet.py 64283
 ```
 
 To build debian package, run:
 
-```
+```bash
 debuild -us -uc -b
 ```
 
@@ -280,7 +279,7 @@ debuild -us -uc -b
 
 Install the package to get dependencies.
 
-## Authors:
+## Authors
 
 Code: Ville Ranki. (Origional Author 2004)
 Code: Bauke Molenaar. (Since: 2022)
