@@ -87,5 +87,12 @@ if [[ $1 = "--install-showet" ]]; then
     inst_showet
     inst_emulators
 fi
-
+if [[ $# -eq 0 ]] ; then
+    echo "Usage:    ./install.sh [OPTION]"
+    echo "Options:"
+    echo "          --install-showet"
+    echo "          --install-emulators"
+    echo "          --update"
+    exit 0
+fi
 echo "Done!"
