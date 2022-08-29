@@ -84,16 +84,16 @@ updt_showet(){
     fi
 }
 if [[ $1 = "--update" ]]; then
-    updt_showet
     inst_emulators
+    updt_showet
 fi
 if [[ $1 = "--install-emulators" ]]; then
     inst_emulators
 fi
 if [[ $1 = "--install-showet" ]]; then
     inst_deps
-    inst_showet
     inst_emulators
+    inst_showet
 fi
 if [[ $# -eq 0 ]] ; then
     echo "Usage:    ./install.sh [OPTION]"
