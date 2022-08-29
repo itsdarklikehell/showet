@@ -48,11 +48,11 @@ inst_deps(){
 inst_showet(){
     sudo apt update
     sudo apt upgrade
-    if [[ -d ~/showet ]]; then
+    if [ -d ~/showet ]; then
         echo "Old Showet installation Found. moving it to ~/showet.old"
         mv ~/showet ~/showet.old
     fi
-    if [[ !-d ~/showet ]]; then
+    if [ !-d ~/showet ]; then
         echo "Installing Showet..."
         git clone https://github.com/itsdarklikehell/showet
         cd showet
