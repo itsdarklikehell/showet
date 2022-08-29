@@ -31,18 +31,17 @@ Depends: ${misc:Depends}, ${python:Depends},
          qml-module-qtquick-layouts,
          qml-module-qtwebengine,
          debhelper,
-         qtbase5-dev,
-         qt5-default,
          qt5-qmake,
-         cdbs,
-         devscripts,
+         qtbase5-dev,
          qtdeclarative5-dev,
-         retroarch*,
-         libretro-*,
+         python3,
+         python3-urllib3,
          unrar,
-         7zip-full,
+         p7zip-full,
          p7zip-rar,
-         gzip
+         gzip,
+         unzip,
+         wine
 
 Description: pouet.net demo jukebox
  Play demos from pouet.net easily.
