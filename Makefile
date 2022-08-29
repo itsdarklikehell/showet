@@ -264,21 +264,37 @@ uninstall_executable: FORCE
 install_pymodules: FORCE
 	@test -d $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet || mkdir -p $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet
 	$(QINSTALL) /home/rizzo/showet/platformamiga.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformamiga.py
+	$(QINSTALL) /home/rizzo/showet/platformamstrad.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformamstrad.py
+	$(QINSTALL) /home/rizzo/showet/platformapple.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformapple.py
+	$(QINSTALL) /home/rizzo/showet/platformarchimedes.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformarchimedes.py
 	$(QINSTALL) /home/rizzo/showet/platformatari.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformatari.py
 	$(QINSTALL) /home/rizzo/showet/platformcommodore.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommodore.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
+	$(QINSTALL) /home/rizzo/showet/platformenterprise.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformenterprise.py
+	$(QINSTALL) /home/rizzo/showet/platformjava.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformjava.py
 	$(QINSTALL) /home/rizzo/showet/platformlinux.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformlinux.py
+	$(QINSTALL) /home/rizzo/showet/platformmattel.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmattel.py
+	$(QINSTALL) /home/rizzo/showet/platformmicrosoft.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmicrosoft.py
 	$(QINSTALL) /home/rizzo/showet/platformmsdos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdos.py
+	$(QINSTALL) /home/rizzo/showet/platformmusic.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmusic.py
+	$(QINSTALL) /home/rizzo/showet/platformnec.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnec.py
+	$(QINSTALL) /home/rizzo/showet/platformneogeo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformneogeo.py
 	$(QINSTALL) /home/rizzo/showet/platformnintendo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnintendo.py
-	$(QINSTALL) /home/rizzo/showet/platformspectrum.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformspectrum.py
-	$(QINSTALL) /home/rizzo/showet/platformwindows.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwindows.py
+	$(QINSTALL) /home/rizzo/showet/platformpalm.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformpalm.py
+	$(QINSTALL) /home/rizzo/showet/platformpico8.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformpico8.py
+	$(QINSTALL) /home/rizzo/showet/platformsega.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformsega.py
+	$(QINSTALL) /home/rizzo/showet/platformsinclair.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformsinclair.py
+	$(QINSTALL) /home/rizzo/showet/platformsony.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformsony.py
+	$(QINSTALL) /home/rizzo/showet/platformtic80.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformtic80.py
+	$(QINSTALL) /home/rizzo/showet/platformvectrex.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvectrex.py
+	$(QINSTALL) /home/rizzo/showet/platformvideo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvideo.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 
 uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwindows.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformspectrum.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmicrosoft.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformsinclair.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnintendo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdos.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformlinux.py
@@ -286,6 +302,22 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommodore.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformatari.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformamiga.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformamstrad.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformapple.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformarchimedes.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformenterprise.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformjava.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmusic.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnec.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformneogeo.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformpalm.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformpico8.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformsega.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformsony.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformtic80.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvectrex.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvideo.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmattel.py
 	-$(DEL_DIR) $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/ 
 
 

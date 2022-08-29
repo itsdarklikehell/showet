@@ -29,6 +29,20 @@ Depends: ${misc:Depends}, ${python:Depends},
          qml-module-qtquick-controls,
          qml-module-qtgraphicaleffects,
          qml-module-qtquick-layouts,
-         qml-module-qtwebengine
+         qml-module-qtwebengine,
+         debhelper,
+         qtbase5-dev,
+         qt5-default,
+         qt5-qmake,
+         cdbs,
+         devscripts,
+         qtdeclarative5-dev,
+         retroarch*,
+         libretro-*,
+         unrar,
+         7zip-full,
+         p7zip-rar,
+         gzip
+
 Description: pouet.net demo jukebox
  Play demos from pouet.net easily.
