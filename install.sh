@@ -20,6 +20,14 @@ inst_deps(){
         "fs-uae" \
         "lhasa" \
         "vice" \
+        "libqt5gui5-gles" \
+        "libqt5quick5-gles" \
+        "libqt5quickparticles5" \
+        "libqt5quickshapes5" \
+        "libqt5quicktest5" \
+        "qt5-qmltooling-plugins" \
+        "qtbase5-gles-dev" \
+        "qtdeclarative5-dev-tools" \
         "qml-module-qtquick-controls" \
         "qml-module-qtgraphicaleffects" \
         "qml-module-qtquick-layouts" \
