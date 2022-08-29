@@ -7,7 +7,7 @@ fullscreen = ['true']
 
 class PlatformLinux(PlatformCommon):
     def run(self):
-        extensions = ['.exe', '.elf']
+        extensions = ['exe', 'elf']
         ext = []
         for ext in extensions:
             print("looking for files ending with: " + ext)
