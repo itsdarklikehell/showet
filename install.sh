@@ -4,7 +4,7 @@
 
 cd ~
 inst_emulators(){
-    echo "Installing retroarch Reposetories."
+    echo "Installing retroarch Repositories."
     sudo add-apt-repository ppa:libretro/stable
     sudo add-apt-repository ppa:libretro/extra
     sudo add-apt-repository ppa:libretro/testing
