@@ -58,7 +58,7 @@ inst_showet(){
     sudo apt upgrade
     if [ -d ~/showet ]; then
         echo "Old Showet installation Found. moving it to ~/showet.old"
-        mv ~/showet ~/showet.old
+        mv -f ~/showet ~/showet.old
     fi
     if [ ! -d ~/showet ]; then
         echo "Installing Showet..."
