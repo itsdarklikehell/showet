@@ -42,6 +42,5 @@ Depends: ${misc:Depends}, ${python:Depends},
          gzip,
          unzip,
          wine
-
 Description: pouet.net demo jukebox
  Play demos from pouet.net easily.
