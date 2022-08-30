@@ -4,7 +4,9 @@ Priority: optional
 Maintainer: Bauke Molenaar <bauke.molenaar@gmail.com>
 Uploaders: Bauke Molenaar <bauke.molenaar@gmail.com>
 Build-Depends: debhelper (>= 9),
-               qt5-qmake
+               qt5-qmake,
+               qtbase5-dev,
+               qtdeclarative5-dev
 Standards-Version: 3.9.8
 Homepage: https://github.com/itsdarklikehell/showet
 Vcs-Git: https://github.com/itsdarklikehell/showet.git
