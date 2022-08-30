@@ -43,7 +43,7 @@ inst_deps(){
         "p7zip-rar" \
         "gzip" \
         "unzip" \
-        "wine" \
+        "wine"
     )
     for dep in "${deps[@]}"
     do
