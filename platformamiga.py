@@ -28,18 +28,21 @@ class PlatformAmiga(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('puae_libretro')
+            print("Using retroarch puae_libretro")
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
-            if fullscreen == 'true':
+            if not fullscreen == 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
         drives = []
         # Support only one for now..
         if len(files) > 0:
             if emulator[0] == 'fs-uae':
+                print("Using fs-uae")
                 emulator.append('--hard_drive_0=.')
             if emulator[0] == 'retroarch':
+                print("Using retroarch puae_libretro")
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
 
@@ -64,12 +67,16 @@ class PlatformAmiga(PlatformCommon):
                 emulator.append('--fast_memory=8192')
     # --chip_memory=2048
             if len(drives) > 0:
+                print("Using drive 0: ", drives[0])
                 emulator.append('--floppy_drive_0=' + drives[0])
             if len(drives) > 1:
+                print("Using drive 1: ", drives[1])
                 emulator.append('--floppy_drive_1=' + drives[1])
             if len(drives) > 2:
+                print("Using drive 2: ", drives[2])
                 emulator.append('--floppy_drive_2=' + drives[2])
             if len(drives) > 3:
+                print("Using drive 3: ", drives[3])
                 emulator.append('--floppy_drive_3=' + drives[3])
 
             emulator.append('--model=' + amiga_model)
@@ -82,12 +89,16 @@ class PlatformAmiga(PlatformCommon):
     # --chip_memory=2048
 
             if len(drives) > 0:
+                print("Using drive 0: ", drives[0])
                 emulator.append(drives[0])
             if len(drives) > 1:
+                print("Using drive 1: ", drives[1])
                 emulator.append(drives[1])
             if len(drives) > 2:
+                print("Using drive 2: ", drives[2])
                 emulator.append(drives[2])
             if len(drives) > 3:
+                print("Using drive 3: ", drives[3])
                 emulator.append(drives[3])
 
         self.run_process(emulator)
@@ -110,11 +121,14 @@ class PlatformAmiga(PlatformCommon):
 
 # Tries to identify files by any magic necessary
 
+
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.FILES_DOWNLOADED'):
                 ext_files.append(file)
                 print("Found file: " + file)
+                if file.endswith(''):
+                    emulator = ['fs-uae']
         return ext_files
