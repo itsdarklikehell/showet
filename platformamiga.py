@@ -82,13 +82,13 @@ class PlatformAmiga(PlatformCommon):
     # --chip_memory=2048
 
             if len(drives) > 0:
-                emulator.append('drives[0]')
+                emulator.append(drives[0])
             if len(drives) > 1:
-                emulator.append('drives[1]')
+                emulator.append(drives[1])
             if len(drives) > 2:
-                emulator.append('drives[2]')
+                emulator.append(drives[2])
             if len(drives) > 3:
-                emulator.append('drives[3]')
+                emulator.append(drives[3])
 
         self.run_process(emulator)
 
