@@ -13,7 +13,7 @@ class PlatformAmiga(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            print("looking for files ending with: " + ext)
+            # print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
