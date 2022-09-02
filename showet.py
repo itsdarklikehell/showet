@@ -111,7 +111,7 @@ try:
 except IndexError:
     pass
 print("\tType: " + data['prod']['type'])
-print("\tReleased: " + data['prod']['releaseDate'])
+#print("\tReleased: " + data['prod']['releaseDate'])
 print("\tPlatform: " + prod_platform)
 print("\n")
 
