@@ -123,7 +123,7 @@ prod_download_url = prod_download_url.replace(
 if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
     print("\tFile already downloaded")
 else:
-    print("\nDownloading prod file from " + prod_download_url + "...")
+    print("\n\tDownloading prod file from " + prod_download_url + "...")
     filedata = urllib.request.urlopen(prod_download_url)
     filename = os.path.basename(filedata.url)
     if len(filename) == 0:
