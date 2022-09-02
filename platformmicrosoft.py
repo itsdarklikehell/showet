@@ -165,7 +165,7 @@ class PlatformWindows(PlatformCommon):
         self.run_process([emulator[0], exefile])
 
     def supported_platforms(self):
-        return ['windows', 'java']
+        return ['windows', 'java', 'javascript']
 
     # Tries to identify files by any magic necessary
     # def find_ext_files(self):
