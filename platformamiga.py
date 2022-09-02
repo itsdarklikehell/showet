@@ -34,7 +34,7 @@ class PlatformAmiga(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
         drives = []
         # Support only one for now..
         if len(files) > 0:
@@ -65,16 +65,16 @@ class PlatformAmiga(PlatformCommon):
                 emulator.append('--fast_memory=8192')
     # --chip_memory=2048
             if len(drives) > 0:
-                print("Using drive 0: ", drives[0])
+                print("\tUsing drive 0: ", drives[0])
                 emulator.append('--floppy_drive_0=' + drives[0])
             if len(drives) > 1:
-                print("Using drive 1: ", drives[1])
+                print("\tUsing drive 1: ", drives[1])
                 emulator.append('--floppy_drive_1=' + drives[1])
             if len(drives) > 2:
-                print("Using drive 2: ", drives[2])
+                print("\tUsing drive 2: ", drives[2])
                 emulator.append('--floppy_drive_2=' + drives[2])
             if len(drives) > 3:
-                print("Using drive 3: ", drives[3])
+                print("\tUsing drive 3: ", drives[3])
                 emulator.append('--floppy_drive_3=' + drives[3])
 
             emulator.append('--model=' + amiga_model)
@@ -87,16 +87,16 @@ class PlatformAmiga(PlatformCommon):
     # --chip_memory=2048
 
             if len(drives) > 0:
-                print("Using drive 0: ", drives[0])
+                print("\tUsing drive 0: ", drives[0])
                 emulator.append(drives[0])
             if len(drives) > 1:
-                print("Using drive 1: ", drives[1])
+                print("\tUsing drive 1: ", drives[1])
                 emulator.append(drives[1])
             if len(drives) > 2:
-                print("Using drive 2: ", drives[2])
+                print("\tUsing drive 2: ", drives[2])
                 emulator.append(drives[2])
             if len(drives) > 3:
-                print("Using drive 3: ", drives[3])
+                print("\tUsing drive 3: ", drives[3])
                 emulator.append(drives[3])
 
         self.run_process(emulator)
@@ -125,7 +125,7 @@ class PlatformAmiga(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0 and not file.endswith('.json') and not file.endswith('.FILES_DOWNLOADED'):
                 ext_files.append(file)
-                print("Found file: " + file)
+                print("\tFound file: " + file)
                 if file.endswith(''):
                     emulator = ['fs-uae']
         return ext_files

@@ -27,7 +27,7 @@ class PlatformZxspectrum(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -58,7 +58,7 @@ class PlatformZxspectrum(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
 
         return ext_files
 
@@ -86,7 +86,7 @@ class PlatformZx81(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -117,6 +117,6 @@ class PlatformZx81(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
 
         return ext_files

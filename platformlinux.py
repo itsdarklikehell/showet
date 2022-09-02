@@ -40,5 +40,5 @@ class PlatformLinux(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0 and not file.endswith('.json'):
                 ext_files.append(file)
-                print("Found file: " + file)
+                print("\tFound file: " + file)
         return ext_files

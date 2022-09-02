@@ -26,7 +26,7 @@ class PlatformFamicom(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -57,7 +57,7 @@ class PlatformFamicom(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -82,7 +82,7 @@ class PlatformSuperFamicom(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -113,7 +113,7 @@ class PlatformSuperFamicom(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -138,7 +138,7 @@ class PlatformN64(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -169,7 +169,7 @@ class PlatformN64(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -194,7 +194,7 @@ class PlatformGameboy(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -225,7 +225,7 @@ class PlatformGameboy(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -250,7 +250,7 @@ class PlatformGameboyColor(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -281,7 +281,7 @@ class PlatformGameboyColor(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -306,7 +306,7 @@ class PlatformGameboyAdvance(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -337,7 +337,7 @@ class PlatformGameboyAdvance(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -363,7 +363,7 @@ class PlatformGamecube(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -397,7 +397,7 @@ class PlatformGamecube(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -423,7 +423,7 @@ class PlatformWii(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -454,7 +454,7 @@ class PlatformWii(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -508,7 +508,7 @@ class PlatformPokemini(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
 
         return ext_files
 
@@ -563,7 +563,7 @@ class PlatformDS(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
 
         return ext_files
 
@@ -589,7 +589,7 @@ class PlatformVirtualboy(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -620,6 +620,6 @@ class PlatformVirtualboy(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
 
         return ext_files

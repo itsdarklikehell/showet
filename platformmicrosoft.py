@@ -25,7 +25,7 @@ class PlatformXbox(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -56,7 +56,7 @@ class PlatformXbox(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
 
         return ext_files
 
@@ -83,7 +83,7 @@ class PlatformMsx(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -114,7 +114,7 @@ class PlatformMsx(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
 
         return ext_files
 
@@ -127,7 +127,7 @@ class PlatformMsx(PlatformCommon):
             if size > 0:
                 if not file.endswith('.json'):
                     ext_files.append(file)
-                    print("Found file: " + file)
+                    print("\tFound file: " + file)
 
         return ext_files
 
@@ -145,7 +145,7 @@ class PlatformWindows(PlatformCommon):
             print("Didn't find any exe files.")
             exit(-1)
 
-        print("Using: " + emulator[0])
+        print("\tUsing: " + emulator[0])
 
         exefile = exes[0]
 
@@ -175,6 +175,6 @@ class PlatformWindows(PlatformCommon):
     #         if size > 0:
     #             if not file.endswith('.json'):
     #                 ext_files.append(file)
-    #                 print("Found file: " + file)
+    #                 print("\tFound file: " + file)
 
     #     return ext_files
