@@ -129,7 +129,7 @@ else:
     if len(filename) == 0:
         print("Error downloading file at ", prod_download_url)
         exit(-1)
-    print("\tFilename: ", filename)
+    print("\n\tFilename: ", filename)
     prod_download_filename = datadir + "/" + filename
     datatowrite = filedata.read()
 
