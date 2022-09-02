@@ -10,7 +10,6 @@ class PlatformMsdos(PlatformCommon):
     def run(self):
         extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso', 'm3u', 'zip']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -32,6 +31,8 @@ class PlatformMsdos(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('-fullscreen')
             emulator.append('-c')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

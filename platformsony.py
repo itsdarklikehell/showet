@@ -9,7 +9,6 @@ class PlatformPsx(PlatformCommon):
         extensions = ['exe', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -28,6 +27,8 @@ class PlatformPsx(PlatformCommon):
             # emulator.append('pcsx1_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -69,7 +70,6 @@ class PlatformPs2(PlatformCommon):
         extensions = ['exe', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -86,7 +86,9 @@ class PlatformPs2(PlatformCommon):
             emulator.append('pcsx2_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
-
+                
+        print("Using: " + emulator)
+        
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
@@ -126,7 +128,6 @@ class PlatformPsp(PlatformCommon):
     def run(self):
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -143,6 +144,8 @@ class PlatformPsp(PlatformCommon):
             emulator.append('ppsspp_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

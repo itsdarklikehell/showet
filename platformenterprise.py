@@ -9,7 +9,6 @@ class PlatformEnterprise(PlatformCommon):
         extensions = ['img', 'dsk', 'tap', 'dtf', 'com',
                       'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -26,6 +25,8 @@ class PlatformEnterprise(PlatformCommon):
             emulator.append('ep128emu_core_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

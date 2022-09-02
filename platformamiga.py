@@ -13,7 +13,6 @@ class PlatformAmiga(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            # print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -26,23 +25,24 @@ class PlatformAmiga(PlatformCommon):
         emulator = ['retroarch']
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
+            print("Using: " + emulator[0])
             emulator.append('-L')
             emulator.append('puae_libretro')
-            print("Using retroarch puae_libretro")
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
+            print("Using: " + emulator[0])
             if not fullscreen == 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
+
+        print("Using: " + emulator)
         drives = []
         # Support only one for now..
         if len(files) > 0:
             if emulator[0] == 'fs-uae':
-                print("Using fs-uae")
                 emulator.append('--hard_drive_0=.')
             if emulator[0] == 'retroarch':
-                print("Using retroarch puae_libretro")
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
 
@@ -120,7 +120,6 @@ class PlatformAmiga(PlatformCommon):
 
 
 # Tries to identify files by any magic necessary
-
 
     def find_ext_files(self):
         ext_files = []

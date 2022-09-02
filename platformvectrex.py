@@ -8,7 +8,6 @@ class PlatformVectrex(PlatformCommon):
     def run(self):
         extensions = ['bin', 'vec']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -25,6 +24,8 @@ class PlatformVectrex(PlatformCommon):
             emulator.append('vecx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

@@ -9,7 +9,6 @@ class PlatformVideo(PlatformCommon):
         extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2',
                       'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -26,6 +25,8 @@ class PlatformVideo(PlatformCommon):
             emulator.append('ffmpeg_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

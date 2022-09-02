@@ -12,7 +12,6 @@ class PlatformCommodore64(PlatformCommon):
                       'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
                       'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -29,6 +28,8 @@ class PlatformCommodore64(PlatformCommon):
             emulator.append('vice_x64_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -75,7 +76,6 @@ class PlatformCommodorePet(PlatformCommon):
                       'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
                       'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -92,6 +92,8 @@ class PlatformCommodorePet(PlatformCommon):
             emulator.append('vice_xpet_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -138,7 +140,6 @@ class PlatformCommodore128(PlatformCommon):
                       'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
                       'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -155,6 +156,8 @@ class PlatformCommodore128(PlatformCommon):
             emulator.append('vice_x128_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -201,7 +204,6 @@ class PlatformCommodorePlus4(PlatformCommon):
                       'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
                       'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -218,6 +220,8 @@ class PlatformCommodorePlus4(PlatformCommon):
             emulator.append('vice_xplus4_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -264,7 +268,6 @@ class PlatformCommodoreCBM(PlatformCommon):
                       'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
                       'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -281,6 +284,8 @@ class PlatformCommodoreCBM(PlatformCommon):
             emulator.append('vice_xcbm2_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -327,7 +332,6 @@ class PlatformCommodoreVIC20(PlatformCommon):
                       'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
                       'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -344,6 +348,8 @@ class PlatformCommodoreVIC20(PlatformCommon):
             emulator.append('vice_xvic_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

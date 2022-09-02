@@ -8,7 +8,6 @@ class PlatformJava(PlatformCommon):
     def run(self):
         extensions = ['jar', 'sqc', 'jam', 'jad', 'kjx']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -25,6 +24,8 @@ class PlatformJava(PlatformCommon):
             emulator.append('squirreljme_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -46,3 +47,15 @@ class PlatformJava(PlatformCommon):
 
     def supported_platforms(self):
         return ['java']
+
+ # Tries to identify files by any magic necessary
+    def find_ext_files(self):
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("Found file: " + file)
+
+        return ext_files

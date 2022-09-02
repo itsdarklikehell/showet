@@ -8,7 +8,6 @@ class PlatformAcorn(PlatformCommon):
     def run(self):
         extensions = ['zip', 'chd', '7z', 'cmd']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -25,6 +24,8 @@ class PlatformAcorn(PlatformCommon):
             emulator.append('mame_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

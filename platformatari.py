@@ -10,7 +10,6 @@ class PlatformFalcon(PlatformCommon):
         extensions = ['st', 'dim', 'msa', 'stx',
                       'ipf', 'm3u', 'vsf', 'm3u', 'zip']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -27,6 +26,8 @@ class PlatformFalcon(PlatformCommon):
             emulator.append('hatari_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -65,7 +66,6 @@ class PlatformAtarist(PlatformCommon):
     def run(self):
         extensions = ['st', 'msa', 'stx', 'ipf', 'm3u', 'vsf', 'm3u', 'zip']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -82,6 +82,8 @@ class PlatformAtarist(PlatformCommon):
             emulator.append('hatari_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -121,7 +123,6 @@ class PlatformAtarixlxe(PlatformCommon):
         extensions = ['xfd', 'atr', 'xfdx', 'cdm',
                       'cas', 'bin', 'a52', 'xex', 'm3u', 'zip']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -138,6 +139,8 @@ class PlatformAtarixlxe(PlatformCommon):
             emulator.append('hatari_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -177,7 +180,6 @@ class PlatformJaguar(PlatformCommon):
         extensions = ['j64', 'jag', 'rom', 'abs',
                       'cof', 'bin', 'prg']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -195,16 +197,18 @@ class PlatformJaguar(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        print("Using: " + emulator)
+
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             files = self.sort_disks(files)
@@ -232,7 +236,6 @@ class PlatformLynx(PlatformCommon):
     def run(self):
         extensions = ['lnx', 'o', 'm3u', 'zip']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -249,6 +252,8 @@ class PlatformLynx(PlatformCommon):
             emulator.append('handy_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -287,7 +292,6 @@ class PlatformVcs(PlatformCommon):
     def run(self):
         extensions = ['a26', 'bin']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -304,6 +308,8 @@ class PlatformVcs(PlatformCommon):
             emulator.append('stella_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

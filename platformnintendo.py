@@ -9,7 +9,6 @@ class PlatformFamicom(PlatformCommon):
     def run(self):
         extensions = ['nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -26,6 +25,8 @@ class PlatformFamicom(PlatformCommon):
             emulator.append('quicknes_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -64,7 +65,6 @@ class PlatformSuperFamicom(PlatformCommon):
     def run(self):
         extensions = ['sfc', 'smc', 'fig', 'swc', 'bs']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -81,6 +81,8 @@ class PlatformSuperFamicom(PlatformCommon):
             emulator.append('snes9x_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -119,7 +121,6 @@ class PlatformN64(PlatformCommon):
     def run(self):
         extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -136,6 +137,8 @@ class PlatformN64(PlatformCommon):
             emulator.append('parrallel_n64_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -174,7 +177,6 @@ class PlatformGameboy(PlatformCommon):
     def run(self):
         extensions = ['gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -191,6 +193,8 @@ class PlatformGameboy(PlatformCommon):
             emulator.append('gambatte_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -229,7 +233,6 @@ class PlatformGameboyColor(PlatformCommon):
     def run(self):
         extensions = ['gbc', 'dmg', 'bin', 'u1', 'ndd']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -246,6 +249,8 @@ class PlatformGameboyColor(PlatformCommon):
             emulator.append('gambatte_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -284,7 +289,6 @@ class PlatformGameboyAdvance(PlatformCommon):
     def run(self):
         extensions = ['gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -301,6 +305,8 @@ class PlatformGameboyAdvance(PlatformCommon):
             emulator.append('vba_next_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -340,7 +346,6 @@ class PlatformGamecube(PlatformCommon):
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -357,6 +362,8 @@ class PlatformGamecube(PlatformCommon):
             emulator.append('dolphin_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -399,7 +406,6 @@ class PlatformWii(PlatformCommon):
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -416,6 +422,8 @@ class PlatformWii(PlatformCommon):
             emulator.append('dolphin_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -454,7 +462,6 @@ class PlatformPokemini(PlatformCommon):
     def run(self):
         extensions = ['min']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -510,7 +517,6 @@ class PlatformDS(PlatformCommon):
     def run(self):
         extensions = ['nds', 'dsi']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -566,7 +572,6 @@ class PlatformVirtualboy(PlatformCommon):
     def run(self):
         extensions = ['vb', 'vboy', 'bin']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -583,6 +588,8 @@ class PlatformVirtualboy(PlatformCommon):
             emulator.append('mednafen_vb_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

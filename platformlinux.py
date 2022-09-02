@@ -1,6 +1,5 @@
 from platformcommon import PlatformCommon
 import os
-import stat
 
 fullscreen = ['true']
 
@@ -10,7 +9,6 @@ class PlatformLinux(PlatformCommon):
         extensions = ['exe', 'elf']
         ext = []
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:

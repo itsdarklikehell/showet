@@ -8,7 +8,6 @@ class PlatformBlastem(PlatformCommon):
     def run(self):
         extensions = ['md', 'bin', 'smd', 'gen', '68k', 'sgd']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -25,6 +24,8 @@ class PlatformBlastem(PlatformCommon):
             emulator.append('genesis_plus_gx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -53,7 +54,6 @@ class PlatformGenesis(PlatformCommon):
         extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso',
                       'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -70,6 +70,8 @@ class PlatformGenesis(PlatformCommon):
             emulator.append('genesis_plus_gx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -109,7 +111,6 @@ class PlatformGamegear(PlatformCommon):
     def run(self):
         extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -126,6 +127,8 @@ class PlatformGamegear(PlatformCommon):
             emulator.append('gearsysytem_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -166,7 +169,6 @@ class PlatformFlycast(PlatformCommon):
         extensions = ['chd', 'cdi', 'iso', 'elf', 'bin',
                       'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -183,6 +185,8 @@ class PlatformFlycast(PlatformCommon):
             emulator.append('flycast_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -223,7 +227,6 @@ class PlatformFlycastGLES2(PlatformCommon):
         extensions = ['chd', 'cdi', 'iso', 'elf', 'bin',
                       'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -240,6 +243,8 @@ class PlatformFlycastGLES2(PlatformCommon):
             emulator.append('flycast_gles2_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

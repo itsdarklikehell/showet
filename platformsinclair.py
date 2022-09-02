@@ -9,7 +9,6 @@ class PlatformZxspectrum(PlatformCommon):
         extensions = ['tzx', 'p', 't81', 'tap',
                       'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -27,6 +26,8 @@ class PlatformZxspectrum(PlatformCommon):
             # emulator.append('81_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -67,7 +68,6 @@ class PlatformZx81(PlatformCommon):
         extensions = ['tzx', 'p', 't81', 'tap',
                       'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         for ext in extensions:
-            print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
 
         if len(files) == 0:
@@ -85,6 +85,8 @@ class PlatformZx81(PlatformCommon):
             emulator.append('81_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+
+        print("Using: " + emulator)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
