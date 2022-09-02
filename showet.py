@@ -151,8 +151,8 @@ else:
         print("\tUnraring", prod_download_filename)
         # ret = os.system("unrar x" + " " + prod_download_filename)
         # ret = os.system("extract" + " " + prod_download_filename)
-        print("7z x " + prod_download_filename + " " + datadir)
-        ret = os.system("7z x " + prod_download_filename)  # + " " + datadir)
+
+        ret = os.system("7z x " + prod_download_filename + " " + datadir + "/")
 
         if ret == 1:
             print("Unraring file failed!")
