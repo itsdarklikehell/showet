@@ -29,7 +29,7 @@ class PlatformCommodore64(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -93,7 +93,7 @@ class PlatformCommodorePet(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -157,7 +157,7 @@ class PlatformCommodore128(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -221,7 +221,7 @@ class PlatformCommodorePlus4(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -285,7 +285,7 @@ class PlatformCommodoreCBM(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -349,7 +349,7 @@ class PlatformCommodoreVIC20(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

@@ -25,7 +25,7 @@ class PlatformBlastem(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -71,7 +71,7 @@ class PlatformGenesis(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -128,7 +128,7 @@ class PlatformGamegear(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -186,7 +186,7 @@ class PlatformFlycast(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -244,7 +244,7 @@ class PlatformFlycastGLES2(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

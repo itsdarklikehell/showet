@@ -25,13 +25,11 @@ class PlatformAmiga(PlatformCommon):
         emulator = ['retroarch']
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
-            print("Using: " + emulator[0])
             emulator.append('-L')
             emulator.append('puae_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
-            print("Using: " + emulator[0])
             if not fullscreen == 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')

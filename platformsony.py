@@ -28,7 +28,7 @@ class PlatformPsx(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -86,9 +86,9 @@ class PlatformPs2(PlatformCommon):
             emulator.append('pcsx2_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
-                
-        print("Using: " + emulator)
-        
+
+        print("Using: " + emulator[0])
+
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
@@ -145,7 +145,7 @@ class PlatformPsp(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

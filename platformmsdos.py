@@ -32,7 +32,7 @@ class PlatformMsdos(PlatformCommon):
                 emulator.append('-fullscreen')
             emulator.append('-c')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
