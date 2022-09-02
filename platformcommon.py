@@ -49,7 +49,8 @@ class PlatformCommon:
         sorted_list = sorted(files, key=lambda s: s.lower())
         if len(sorted_list) > 1:
             print("\tGuessing disk order should be:")
-            print("\t" + sorted_list)
+            print("\t")
+            print(sorted_list)
         return sorted_list
 
     def run_process(self, arguments):
