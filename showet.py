@@ -16,7 +16,7 @@ from platformcommodore import PlatformCommodore64, PlatformCommodorePet, Platfor
 from platformlinux import PlatformLinux
 from platformtic80 import PlatformTic80
 from platformsega import PlatformGamegear, PlatformGenesis, PlatformBlastem
-from platformneogeo import PlatformNeopocket, PlatformNeopocket
+from platformneogeo import PlatformNeopocket, PlatformNeopocketcolor
 from platformnec import PlatformSupergrafx
 from platformsony import PlatformPsx, PlatformPsp, PlatformPs2
 from platformmattel import PlatformIntellivision
