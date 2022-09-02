@@ -1,7 +1,7 @@
 #!/bin/bash
 # Showet random demo picker script
 # author: Bauke Molenaar.
-extract () {
+function extract () {
     if [ -f $1 ] ; then
         case $1 in
             *.tar.bz2)    tar xvjf $1    ;;
