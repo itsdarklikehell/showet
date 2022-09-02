@@ -153,7 +153,7 @@ else:
         # ret = os.system("unrar e " + (prod_download_filename))
         # ret = os.system("rar x " + (prod_download_filename))
         # ret = os.system("rar e " + (prod_download_filename))
-        ret = os.system("extract " + (prod_download_filename))
+        ret = os.system("extract" + prod_download_filename)
         if ret == 1:
             print("Unraring file failed!")
 
