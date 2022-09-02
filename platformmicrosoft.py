@@ -53,10 +53,10 @@ class PlatformXbox(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0:
-                if not file.endswith('.json'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+
+                ext_files.append(file)
+                print("\tFound file: " + file)
 
         return ext_files
 
@@ -111,10 +111,10 @@ class PlatformMsx(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0:
-                if not file.endswith('.json'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+
+                ext_files.append(file)
+                print("\tFound file: " + file)
 
         return ext_files
 
@@ -124,10 +124,10 @@ class PlatformMsx(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0:
-                if not file.endswith('.json'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+
+                ext_files.append(file)
+                print("\tFound file: " + file)
 
         return ext_files
 
@@ -172,8 +172,8 @@ class PlatformWindows(PlatformCommon):
     #     ext_files = []
     #     for file in self.prod_files:
     #         size = os.path.getsize(file)
-    #         if size > 0:
-    #             if not file.endswith('.json'):
+    #         if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+    #
     #                 ext_files.append(file)
     #                 print("\tFound file: " + file)
 
