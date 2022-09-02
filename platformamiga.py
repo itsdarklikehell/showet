@@ -36,7 +36,7 @@ class PlatformAmiga(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("Using: " + emulator)
+        print("Using: " + emulator[0])
         drives = []
         # Support only one for now..
         if len(files) > 0:
