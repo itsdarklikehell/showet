@@ -123,7 +123,7 @@ prod_download_url = prod_download_url.replace(
 if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
     print("\tFile already downloaded")
 else:
-    print("Downloading prod file from " + prod_download_url + "...")
+    print("\nDownloading prod file from " + prod_download_url + "...")
     filedata = urllib.request.urlopen(prod_download_url)
     filename = os.path.basename(filedata.url)
     if len(filename) == 0:
@@ -141,7 +141,7 @@ else:
 
     # Decompress the file if needed
     if prod_download_filename.endswith(".zip"):
-        print("\tUnzipping", prod_download_filename)
+        print("\tUnzipping:", prod_download_filename)
         ret = os.system("unzip -qq -u -d" + datadir +
                         " " + prod_download_filename)
         if ret == 1:
@@ -155,14 +155,14 @@ else:
             print("Unraring file failed!")
 
     # if prod_download_filename.endswith(".lha"):
-    #     print("\tExtracting lha ", prod_download_filename)
+    #     print("\tExtracting lha:", prod_download_filename)
     #     ret = os.system("lha xw=" + datadir +
     #                     " " + prod_download_filename)
     #     if ret == 1:
     #         print("Unzipping file failed!")
 
     if prod_download_filename.endswith(".7z"):
-        print("\tExtracting lha ", prod_download_filename)
+        print("\tExtracting 7z:", prod_download_filename)
         ret = os.system("7z x" + datadir +
                         " " + prod_download_filename)
         if ret == 1:
@@ -172,7 +172,7 @@ else:
             or prod_download_filename.endswith(".tar.gz") \
             or prod_download_filename.endswith(".tgz") \
             or prod_download_filename.endswith(".tar_gz"):
-        print("\tExtracting tarball ", prod_download_filename)
+        print("\tExtracting tarball:", prod_download_filename)
         ret = os.system("tar xvf " + prod_download_filename + " -C " + datadir)
         if ret == 1:
             print("Extracting file failed!")
