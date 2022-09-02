@@ -113,8 +113,6 @@ except IndexError:
 print("\tType: " + data['prod']['type'])
 #print("\tReleased: " + data['prod']['releaseDate'])
 print("\tPlatform: " + prod_platform)
-print("\n")
-
 
 # Get necessary fields from the data
 
@@ -123,7 +121,7 @@ prod_download_url = prod_download_url.replace(
     "https://files.scene.org/view", "https://files.scene.org/get")
 
 if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
-    print("File already downloaded")
+    print("\tFile already downloaded")
 else:
     print("Downloading prod file from " + prod_download_url + "...")
     filedata = urllib.request.urlopen(prod_download_url)
@@ -131,40 +129,40 @@ else:
     if len(filename) == 0:
         print("Error downloading file at ", prod_download_url)
         exit(-1)
-    print("Filename: ", filename)
+    print("\tFilename: ", filename)
     prod_download_filename = datadir + "/" + filename
     datatowrite = filedata.read()
 
     with open(prod_download_filename, 'wb') as f:
         f.write(datatowrite)
 
-    print("Downloaded: ", prod_download_filename,
-          "\nFilesize: ", os.path.getsize(prod_download_filename))
+    print("\tDownloaded: ", prod_download_filename,
+          "\n\tFilesize: ", os.path.getsize(prod_download_filename))
 
     # Decompress the file if needed
     if prod_download_filename.endswith(".zip"):
-        print("Unzipping", prod_download_filename)
+        print("\tUnzipping", prod_download_filename)
         ret = os.system("unzip -qq -u -d" + datadir +
                         " " + prod_download_filename)
         if ret == 1:
             print("Unzipping file failed!")
 
     if prod_download_filename.endswith(".rar"):
-        print("Unraring", prod_download_filename)
+        print("\tUnraring", prod_download_filename)
         ret = os.system("rar x " + datadir +
                         " " + prod_download_filename + "-w " + datadir)
         if ret == 1:
             print("Unraring file failed!")
 
     # if prod_download_filename.endswith(".lha"):
-    #     print("Extracting lha ", prod_download_filename)
+    #     print("\tExtracting lha ", prod_download_filename)
     #     ret = os.system("lha xw=" + datadir +
     #                     " " + prod_download_filename)
     #     if ret == 1:
     #         print("Unzipping file failed!")
 
     if prod_download_filename.endswith(".7z"):
-        print("Extracting lha ", prod_download_filename)
+        print("\tExtracting lha ", prod_download_filename)
         ret = os.system("7z x" + datadir +
                         " " + prod_download_filename)
         if ret == 1:
@@ -174,7 +172,7 @@ else:
             or prod_download_filename.endswith(".tar.gz") \
             or prod_download_filename.endswith(".tgz") \
             or prod_download_filename.endswith(".tar_gz"):
-        print("Extracting tarball ", prod_download_filename)
+        print("\tExtracting tarball ", prod_download_filename)
         ret = os.system("tar xvf " + prod_download_filename + " -C " + datadir)
         if ret == 1:
             print("Extracting file failed!")

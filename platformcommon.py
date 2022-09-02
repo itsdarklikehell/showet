@@ -48,12 +48,12 @@ class PlatformCommon:
     def sort_disks(self, files):
         sorted_list = sorted(files, key=lambda s: s.lower())
         if len(sorted_list) > 1:
-            print("Guessing disk order should be:")
+            print("\tGuessing disk order should be:")
             print(sorted_list)
         return sorted_list
 
     def run_process(self, arguments):
-        print("Running command: ", arguments)
+        print("\n\tRunning command: ", arguments)
         process = subprocess.Popen(
             arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         process.wait()
@@ -61,6 +61,6 @@ class PlatformCommon:
         for line in process.stdout:
             print(line.decode('utf-8'))
         if retcode:
-            print(arguments[0], "process exited with ", retcode)
+            print(arguments[0], "\n\tprocess exited with ", retcode)
             exit(-1)
         return retcode
