@@ -162,7 +162,7 @@ class PlatformWindows(PlatformCommon):
             print("Creating wine prefix: " + str(wineprefix))
             os.system('WINEARCH="win64" winecfg')
 
-        self.run_process([emulator, exefile])
+        self.run_process([emulator[0], exefile])
 
     def supported_platforms(self):
         return ['windows', 'java']
