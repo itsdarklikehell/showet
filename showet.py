@@ -149,8 +149,10 @@ else:
 
     if prod_download_filename.endswith(".rar"):
         print("\tUnraring", prod_download_filename)
-        ret = os.system("unrar e" + prod_download_filename)
-        ret = os.system("extract" + " " + prod_download_filename)
+        # ret = os.system("unrar x" + " " + prod_download_filename)
+        # ret = os.system("extract" + " " + prod_download_filename)
+        ret = os.system("7z x" + datadir +
+                        " " + prod_download_filename)
         if ret == 1:
             print("Unraring file failed!")
 
