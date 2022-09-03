@@ -34,6 +34,6 @@ Depends: ${misc:Depends}, ${python:Depends},
          p7zip-full,
          p7zip-rar,
          gzip,
-         unzip
+         qtwebengine5-dev-tools
 Description: pouet.net demo jukebox
  Play demos from pouet.net easily.
