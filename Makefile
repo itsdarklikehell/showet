@@ -265,7 +265,7 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platformvectrex.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvectrex.py
 	$(QINSTALL) /home/rizzo/showet/platformvideo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvideo.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
-	#-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
+	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 
 uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
