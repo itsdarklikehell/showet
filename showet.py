@@ -5,7 +5,7 @@ import os
 from platformnec import PlatformSupergrafx
 from platformmicrosoft import PlatformWindows, PlatformMsx, PlatformXbox
 from platformmsdos import PlatformMsdos
-from platformamiga import PlatformAmiga
+from platformamiga import PlatformAmigaOSECS, PlatformAmigaAGA, PlatformAmigaPPCRTG
 from platformvideo import PlatformVideo
 from platformapple import PlatformApple
 from platformamstrad import PlatformCaprice, PlatformCrocods
@@ -17,7 +17,6 @@ from platformlinux import PlatformLinux
 from platformtic80 import PlatformTic80
 from platformsega import PlatformGamegear, PlatformGenesis, PlatformBlastem
 from platformneogeo import PlatformNeopocket, PlatformNeopocketcolor
-from platformnec import PlatformSupergrafx
 from platformsony import PlatformPsx, PlatformPsp, PlatformPs2
 from platformmattel import PlatformIntellivision
 from platformarchimedes import PlatformAcorn
@@ -38,7 +37,7 @@ parser.add_argument('--platforms', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmiga(), PlatformCaprice(), PlatformCrocods(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(), PlatformZx81(), PlatformZxspectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(
+platform_runners = [PlatformAmigaAGA(), PlatformAmigaPPCRTG(), PlatformCaprice(), PlatformCrocods(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(), PlatformZx81(), PlatformZxspectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(
 ), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple(), PlatformTic80(), PlatformNeopocket(), PlatformNeopocketcolor(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(), PlatformGamegear(), PlatformGenesis(), PlatformBlastem(), PlatformEnterprise(), PlatformPsx(), PlatformPs2(), PlatformPsp(), PlatformIntellivision(), PlatformJava(), PlatformGamemusic(), PlatformAcorn(), PlatformPalm(), PlatformPico8(), PlatformVectrex()]
 
 if args.platforms:
@@ -111,7 +110,7 @@ try:
 except IndexError:
     pass
 print("\tType: " + data['prod']['type'])
-#print("\tReleased: " + data['prod']['releaseDate'])
+# print("\tReleased: " + data['prod']['releaseDate'])
 print("\tPlatform: " + prod_platform)
 
 # Get necessary fields from the data
@@ -140,46 +139,54 @@ else:
           "\n\tFilesize: ", os.path.getsize(prod_download_filename))
 
     # Decompress the file if needed
-    if prod_download_filename.endswith(".zip"):
-        print("\tUnzipping:", prod_download_filename)
-        ret = os.system("unzip -qq -u -d" + datadir +
-                        " " + prod_download_filename)
+    if prod_download_filename.endswith(".lha"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("~/showet/extractor.sh " +
+                        prod_download_filename + " " + datadir + " " + datadir)
         if ret == 1:
-            print("Unzipping file failed!")
-
-    if prod_download_filename.endswith(".rar"):
-        print("\tUnraring", prod_download_filename)
-        # ret = os.system("unrar x" + " " + prod_download_filename)
-        # ret = os.system("extract" + " " + prod_download_filename)
-
-        ret = os.system("7z e " + prod_download_filename + " " + datadir + "/")
-        ret = os.system("extract " + prod_download_filename +
-                        " " + datadir + "/")
-
-        if ret == 1:
-            print("Unraring file failed!")
-
-    # if prod_download_filename.endswith(".lha"):
-    #     print("\tExtracting lha:", prod_download_filename)
-    #     ret = os.system("lha xw=" + datadir +
-    #                     " " + prod_download_filename)
-    #     if ret == 1:
-    #         print("Unzipping file failed!")
+            print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".7z"):
-        print("\tExtracting 7z:", prod_download_filename)
-        ret = os.system("7z e " + datadir + " " + prod_download_filename)
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("~/showet/extractor.sh " +
+                        prod_download_filename + " " + datadir + " " + datadir)
         if ret == 1:
-            print("Un7zing file failed!")
+            print("\tExtracting file failed!")
 
-    if prod_download_filename.endswith(".tar.xz") \
-            or prod_download_filename.endswith(".tar.gz") \
-            or prod_download_filename.endswith(".tgz") \
-            or prod_download_filename.endswith(".tar_gz"):
-        print("\tExtracting tarball:", prod_download_filename)
-        ret = os.system("tar xvf " + prod_download_filename + " -C " + datadir)
+    if prod_download_filename.endswith(".zip"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("~/showet/extractor.sh " +
+                        prod_download_filename + " " + datadir)
         if ret == 1:
-            print("Extracting file failed!")
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".tar.gz"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("~/showet/extractor.sh " + datadir +
+                        " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".tgz"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("~/showet/extractor.sh " + datadir +
+                        " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".tar_gz"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("~/showet/extractor.sh " + datadir +
+                        " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".rar"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("~/showet/extractor.sh " + datadir + " " +
+                        prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
 
     open(datadir + "/.FILES_DOWNLOADED", 'a').close()
 
