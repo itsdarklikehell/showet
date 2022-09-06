@@ -141,50 +141,84 @@ else:
     # Decompress the file if needed
     if prod_download_filename.endswith(".lha"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("~/showet/extractor.sh " +
-                        prod_download_filename + " " + datadir + " " + datadir)
+        ret = os.system("lhasa x " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".7z"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("~/showet/extractor.sh " +
-                        prod_download_filename + " " + datadir + " " + datadir)
+        ret = os.system("7z x " + datadir +
+                        " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".zip"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("~/showet/extractor.sh " +
-                        prod_download_filename + " " + datadir)
+        ret = os.system("unzip -u -d " + datadir +
+                        " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".tar.bz2"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("tar xjvf " + datadir +
+                        " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tar.gz"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("~/showet/extractor.sh " + datadir +
+        ret = os.system("tar xzvf " + datadir +
                         " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
-    if prod_download_filename.endswith(".tgz"):
+    if prod_download_filename.endswith(".bz2"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("~/showet/extractor.sh " + datadir +
-                        " " + prod_download_filename)
-        if ret == 1:
-            print("\tExtracting file failed!")
-
-    if prod_download_filename.endswith(".tar_gz"):
-        print("\tExtracting:", prod_download_filename)
-        ret = os.system("~/showet/extractor.sh " + datadir +
+        ret = os.system("bunzip2 " + datadir +
                         " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".rar"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("~/showet/extractor.sh " + datadir + " " +
-                        prod_download_filename)
+        ret = os.system("rar x " + datadir +
+                        " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".gz"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("gunzip " + datadir +
+                        " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".tar"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("tar xf " + datadir +
+                        " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".tbz2"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("tar xjvf " + datadir +
+                        " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".tgz"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("tar xzvf " + datadir +
+                        " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
+    if prod_download_filename.endswith(".Z"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("7z x " + datadir +
+                        " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
