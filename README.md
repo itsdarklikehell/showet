@@ -19,8 +19,20 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 
 ## Current implementation
 
-- Python script that can download & run demos
-- Supported platforms: windows .exe, Amiga (.adf, .dms, .lha), C64 (d64|d71|d80|d81|d82|g64|g41|x64|t64|tap|prg|p00|crt|bin|zip|gz|d6z|d7z|d8z|g6z|g4z|x6z|cmd|m3u|vfl|vsf|nib|nbz|d2m|d4m)
+- Python script that can download, extract and run demos from pouet.net with the right emulator.
+- Supported platforms / emulator / extensions are:
+  Microsoft: Windows/wine,native: `exe`
+  MS-DOS: ms-dos/dosbox_core_libretro: `exe|com|bat|conf|cue|iso|m3u|zip`
+  Amiga: OSECS,AGA,PPCRTG/puae_libretro: `zip|m3u|adf|adz|dms|fdi|ipf|hdf|hdz|lha|tga|slave|info|cue|ccd|nrg|mds|iso|chd|uae|7z|rp9|exe|run`
+  Amstrad: CrocoDS/crocods_libretro: `dsk|sna|kcr` Caprice/cap32_libretro: `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
+  Apple: `dsk|nib|zip`
+  Archimedes: Acorn/mame_libretro: `zip|chd|7z|cmd`
+  Atari: Falcon/hatari_libretro: `st|dim|msa|stx|ipf|m3u|vsf|m3u|zip` ST/hatari_libretro: `st|msa|stx|ipf|m3u|vsf|m3u|zip` XLXE/hatari_libretro: `xfd|atr|xfdx|cdm|cas|bin|a52|xex|m3u|zip` Jaguar/virtualjaguar_libretro: `j64|jag|rom|abs|cof|bin|prg` Lynx/handy_libretro `lnx|o|m3u|zip` Vcs/stella_libretro `a26|bin`
+  Commodore: C64/vice_x64_libretro,vice_xpet_libretro,vice_x128_libretro,vice_xplus4_libretro,vice_xcbm2_libretro,vice_xvic_libretro: `d64|d71|d80|d81|d82|g64|g41|t64|tap|prg|p00|crt|bin|zip|gz|d6z|d7z|d8z|g4z|g6z|x6z|cmd|m3u|vfl|vsf|nib|nbz|d2m|d4m`
+  Enterprise: Enterprise/ep128emu_core_libretro: `img|dsk|tap|dtf|com|trn|128|bas|cas|cdt|tzx|.`
+  Java: Java/squirreljme_libretro: `jar|sqc|jam|jad|kjx`
+  Linux: Linux/native: `exe|elf`
+  Mattel: Intellivison/freeintv_libretro :`int|bin|rom`
 - GUI frontend
 
 ## Usage

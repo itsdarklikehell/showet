@@ -1,5 +1,6 @@
-from platformcommon import PlatformCommon
 import os
+from platformcommon import PlatformCommon
+
 
 fullscreen = ['false']
 
@@ -18,7 +19,7 @@ class PlatformCrocods(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        fullscreen = ['false']
+        fullscreen[0] = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('crocods_libretro')
