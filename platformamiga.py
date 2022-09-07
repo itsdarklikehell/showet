@@ -21,8 +21,8 @@ class PlatformAmigaOSECS(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator[0] = ['retroarch']
-        fullscreen[0] = ['false']
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('puae_libretro')
@@ -40,7 +40,7 @@ class PlatformAmigaOSECS(PlatformCommon):
                 emulator.append('--hard_drive_0=.')
             if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
-                emulator[0] = emulator + [files[0]]
+                emulator = emulator + [files[0]]
 
             if not os.path.exists(self.datadir + "/s"):
                 os.makedirs(self.datadir + "/s")
@@ -53,7 +53,7 @@ class PlatformAmigaOSECS(PlatformCommon):
                     f.close()
         if len(files) > 0:
             drives = self.sort_disks(files)
-            emulator[0] = emulator + [files[0]]
+            emulator[0] = emulator[0] + [files[0]]
 
         if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
@@ -147,8 +147,8 @@ class PlatformAmigaAGA(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator[0] = ['retroarch']
-        fullscreen[0] = ['false']
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('puae_libretro')
@@ -166,7 +166,7 @@ class PlatformAmigaAGA(PlatformCommon):
                 emulator.append('--hard_drive_0=.')
             if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
-                emulator[0] = emulator + [files[0]]
+                emulator = emulator + [files[0]]
 
             if not os.path.exists(self.datadir + "/s"):
                 os.makedirs(self.datadir + "/s")
@@ -179,7 +179,7 @@ class PlatformAmigaAGA(PlatformCommon):
                     f.close()
         if len(files) > 0:
             drives = self.sort_disks(files)
-            emulator[0] = emulator + [files[0]]
+            emulator = emulator + [files[0]]
 
         if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
@@ -273,8 +273,8 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator[0] = ['retroarch']
-        fullscreen[0] = ['false']
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('puae_libretro')
@@ -305,7 +305,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                     f.close()
         if len(files) > 0:
             drives = self.sort_disks(files)
-            emulator[0] = emulator + [files[0]]
+            emulator = emulator + [files[0]]
 
         if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
@@ -378,6 +378,4 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             if size > 0 and not file.endswith('.json'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
-                if file.endswith(''):
-                    emulator[0] = ['fs-uae']
         return ext_files
