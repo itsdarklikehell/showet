@@ -53,7 +53,7 @@ class PlatformAmigaOSECS(PlatformCommon):
                     f.close()
         if len(files) > 0:
             drives = self.sort_disks(files)
-            emulator[0] = emulator[0] + [files[0]]
+            emulator = emulator + [files[0]]
 
         if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
