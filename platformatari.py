@@ -120,8 +120,8 @@ class PlatformAtarist(PlatformCommon):
 
 class PlatformAtarixlxe(PlatformCommon):
     def run(self):
-        extensions = ['xfd', 'atr', 'xfdx', 'cdm',
-                      'cas', 'bin', 'a52', 'xex', 'm3u', 'zip']
+        extensions = ['zip', 'xfd', 'atr', 'xfdx', 'cdm',
+                      'cas', 'bin', 'a52', 'xex', 'm3u']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
 

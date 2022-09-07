@@ -141,7 +141,8 @@ else:
     # Decompress the file if needed
     if prod_download_filename.endswith(".lha"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("lhasa x " + datadir + " " + prod_download_filename)
+        ret = os.system("lhasa x " + datadir +
+                        " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
