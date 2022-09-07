@@ -292,7 +292,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                 emulator.append('--hard_drive_0=.')
             if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
-                emulator[0] = emulator + [files[0]]
+                emulator = emulator + [files[0]]
 
             if not os.path.exists(self.datadir + "/s"):
                 os.makedirs(self.datadir + "/s")

@@ -19,8 +19,8 @@ class PlatformFalcon(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator[0] = ['retroarch']
-        fullscreen[0] = ['false']
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('hatari_libretro')
@@ -43,7 +43,7 @@ class PlatformFalcon(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator[0] = emulator[0] + [files[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
@@ -75,8 +75,8 @@ class PlatformAtarist(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator[0] = ['retroarch']
-        fullscreen[0] = ['false']
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('hatari_libretro')
@@ -99,7 +99,7 @@ class PlatformAtarist(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator[0] = emulator[0] + [files[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
@@ -132,8 +132,8 @@ class PlatformAtarixlxe(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator[0] = ['retroarch']
-        fullscreen[0] = ['false']
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == ['retroarch']:
             emulator.append('-L')
             emulator.append('hatari_libretro')
@@ -156,7 +156,7 @@ class PlatformAtarixlxe(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator[0] = emulator[0] + [files[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
@@ -189,8 +189,8 @@ class PlatformJaguar(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator[0] = ['retroarch']
-        fullscreen[0] = ['false']
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('virtualjaguar_libretro')
@@ -213,7 +213,7 @@ class PlatformJaguar(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator[0] = emulator[0] + [files[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
@@ -245,8 +245,8 @@ class PlatformLynx(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator[0] = ['retroarch']
-        fullscreen[0] = ['false']
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('handy_libretro')
@@ -269,7 +269,7 @@ class PlatformLynx(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator[0] = emulator[0] + [files[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
@@ -301,8 +301,8 @@ class PlatformVcs(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator[0] = ['retroarch']
-        fullscreen[0] = ['false']
+        emulator = ['retroarch']
+        fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('stella_libretro')
@@ -325,7 +325,7 @@ class PlatformVcs(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator[0] = emulator[0] + [files[0]]
+                emulator = emulator + [files[0]]
 
         self.run_process(emulator)
 
