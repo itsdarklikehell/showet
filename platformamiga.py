@@ -8,7 +8,7 @@ fullscreen = ['false']
 class PlatformAmigaOSECS(PlatformCommon):
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
-                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
+                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run', '*']
 
         ext = []
         for ext in extensions:
@@ -134,7 +134,7 @@ class PlatformAmigaOSECS(PlatformCommon):
 class PlatformAmigaAGA(PlatformCommon):
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
-                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
+                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run', '*']
 
         ext = []
         for ext in extensions:
@@ -260,7 +260,7 @@ class PlatformAmigaAGA(PlatformCommon):
 class PlatformAmigaPPCRTG(PlatformCommon):
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
-                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
+                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run', '*']
 
         ext = []
         for ext in extensions:
