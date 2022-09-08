@@ -20,15 +20,12 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 ## Current implementation
 
 - Python script that can download, extract and run demos from pouet.net with the right emulator.
-- Supported platforms / emulator / extensions are:
+- Supported platforms / emulator
   Microsoft: Windows/wine,native: `exe`
   MS-DOS: ms-dos/dosbox_core_libretro: `exe|com|bat|conf|cue|iso|m3u|zip`
-  Amiga: OSECS,AGA,PPCRTG/puae_libretro: `zip|m3u|adf|adz|dms|fdi|ipf|hdf|hdz|lha|tga|slave|info|cue|ccd|nrg|mds|iso|chd|uae|7z|rp9|exe|run`
-  Amstrad: CrocoDS/crocods_libretro: `dsk|sna|kcr` Caprice/cap32_libretro: `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
   Apple: `dsk|nib|zip`
   Archimedes: Acorn/mame_libretro: `zip|chd|7z|cmd`
   Atari: Falcon/hatari_libretro: `st|dim|msa|stx|ipf|m3u|vsf|m3u|zip` ST/hatari_libretro: `st|msa|stx|ipf|m3u|vsf|m3u|zip` XLXE/hatari_libretro: `xfd|atr|xfdx|cdm|cas|bin|a52|xex|m3u|zip` Jaguar/virtualjaguar_libretro: `j64|jag|rom|abs|cof|bin|prg` Lynx/handy_libretro `lnx|o|m3u|zip` Vcs/stella_libretro `a26|bin`
-  Commodore: C64/vice_x64_libretro,vice_xpet_libretro,vice_x128_libretro,vice_xplus4_libretro,vice_xcbm2_libretro,vice_xvic_libretro: `d64|d71|d80|d81|d82|g64|g41|t64|tap|prg|p00|crt|bin|zip|gz|d6z|d7z|d8z|g4z|g6z|x6z|cmd|m3u|vfl|vsf|nib|nbz|d2m|d4m`
   Enterprise: Enterprise/ep128emu_core_libretro: `img|dsk|tap|dtf|com|trn|128|bas|cas|cdt|tzx|.`
   Java: Java/squirreljme_libretro: `jar|sqc|jam|jad|kjx`
   Linux: Linux/native: `exe|elf`
@@ -44,28 +41,62 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 
 ### Amiga Notes
 
-For Amiga demos you'll need kickstart rom files. See
-<http://fs-uae.net/docs/kickstarts> on how to obtain and install those.
+- OSECS,AGA,PPCRTG: puae_libretro
+- [Libretro Library](https://docs.libretro.com/library/puae/)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/puae_libretro.info)
+- `zip|m3u|adf|adz|dms|fdi|ipf|hdf|hdz|lha|tga|slave|info|cue|ccd|nrg|mds|iso|chd|uae|7z|rp9|exe|run`
 
-Setup fs-uae default settings to your liking - it'll be used as
-base for launching amiga demos.
+### Amstrad Notes
 
-### C64 Notes
+- CrocoDS: crocods_libretro
+- [Libretro Library](https://docs.libretro.com/library/crocods/)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/crocods_libretro.info)
+- `dsk|sna|kcr`
 
-supported_extensions = "d64|d71|d80|d81|d82|g64|g41|x64|t64|tap|prg|p00|crt|bin|zip|gz|d6z|d7z|d8z|g6z|g4z|x6z|cmd|m3u|vfl|vsf|nib|nbz|d2m|d4m"
+- Caprice: cap32_libretro
+- [Libretro Library](https://docs.libretro.com/library/caprice32/)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/cap32_libretro.info)
+- `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
+  
+Amstrad CPC: Debris by Pulpo Corrosivo (<http://www.pouet.net/prod.php?which=92044>)
 
-Vice shipped with Ubuntu doesn't contain kernel files due to
-copyright reasons.
+```bash
+./showet.py 92044
+```
 
-- Go to <http://vice-emu.sourceforge.net/index.html#download> and download
-  the source tarball.
-- Create directory ~/.vice
-- Copy everything from tarball's data/ directory to ~/.vice
+### Apple(I/II/128K) Notes
 
-You can configure vice / x64 any way you want. Showet starts it
-with -fullscreen by default
+- [minivmac](https://www.gryphel.com/c/minivmac/)
+- [Libretro Library](https://docs.libretro.com/library/minivmac/)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
+- `dsk|nib|zip`
 
-Use Alt-N to cycle disk sides for multi-disk demos.
+### Archimedes Notes
+
+- [Libretro Library](https://docs.libretro.com/library/mame/)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mame_libretro.info)
+- `dsk|nib|zip`
+
+### Commodore Notes
+
+- [Libretro Library](https://docs.libretro.com/library/vice/)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x64_libretro.info)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x64sc_libretro.info)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcpu64_libretro.info)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xpet_libretro.info)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x128_libretro.info)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xplus4_libretro.info)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcbm2_libretro.info)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcbm5x0_libretro.info)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xvic_libretro.info)
+- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x128_libretro.info)
+- `d64|d71|d80|d81|d82|g64|g41|x64|t64|tap|prg|p00|crt|bin|zip|gz|d6z|d7z|d8z|g6z|g4z|x6z|cmd|m3u|vfl|vsf|nib|nbz|d2m|d4m`
+
+C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?which=64283>)
+
+```bash
+./showet.py 64283
+```
 
 ## Todo
 
@@ -234,11 +265,6 @@ Pull requests welcome.
 
 You can use the command line tool to quickly test running any demos.
 
-Amstrad CPC: Debris by Pulpo Corrosivo (<http://www.pouet.net/prod.php?which=92044>)
-
-```bash
-./showet.py 92044
-```
 
 Windows: MFX's Deities (<http://www.pouet.net/prod.php?which=24487>)
 
@@ -282,11 +308,7 @@ Amiga/lha Tint by TBL (<http://www.pouet.net/prod.php?which=701>)
 ./showet.py 701
 ```
 
-C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?which=64283>)
 
-```bash
-./showet.py 64283
-```
 
 To build debian package, run:
 
