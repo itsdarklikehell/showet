@@ -37,7 +37,14 @@ Puae: puae_libretro
 
 - [Puae Libretro Library](https://docs.libretro.com/library/puae/)
 - [Puae Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/puae_libretro.info)
-- `zip|m3u|adf|adz|dms|fdi|ipf|hdf|hdz|lha|tga|slave|info|cue|ccd|nrg|mds|iso|chd|uae|7z|rp9|exe|run`
+
+Supported filetypes:
+
+- Floppies: `adf|adz|dms|fdi|ipf`
+- Hard Drives: `hdf|hdz|directory`
+- WHDLoad: `lha|slave|info`
+- CDs: `cue|ccd|chd|nrg|mds|iso`
+- Other: `uae|m3u|zip|7z|rp9|exe`
 
 Example(s):
 
@@ -51,6 +58,9 @@ CrocoDS: crocods_libretro
 
 - [CrocoDS Libretro Library](https://docs.libretro.com/library/crocods/)
 - [CrocoDS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/crocods_libretro.info)
+
+Supported filetypes:
+
 - `dsk|sna|kcr`
 
 Example(s):
@@ -63,7 +73,10 @@ Caprice: cap32_libretro
 
 - [Caprice32 Libretro Library](https://docs.libretro.com/library/caprice32/)
 - [Cap32 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/cap32_libretro.info)
-- `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
+
+Supported filetypes:
+
+- `dsk|sna|tap|cdt|voc|m3u|cpr|zip`
 
 Example(s):
 
