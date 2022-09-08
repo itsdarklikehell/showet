@@ -75,6 +75,8 @@ Mame: mame_libretro
 - [Mame Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mame_libretro.info)
 - `dsk|nib|zip`
 
+### Atari Notes
+
 ### Commodore Notes
 
 Vice: vice_[version]_libretro
@@ -97,6 +99,41 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
 ./showet.py 64283
 ```
 
+### Enterprise Notes
+
+### Java Notes
+
+### Linux Notes
+
+### Mattel Notes
+
+### Microsoft Notes
+
+### MsDOS Notes
+
+### Music Notes
+
+### Nec Notes
+
+### NeoGeo Notes
+
+### Nintendo Notes
+
+### PalmOS Notes
+
+### Pico8 Notes
+
+### Sega Notes
+
+### Sinclair Notes
+
+### Sony Notes
+
+### Tic80 Notes
+
+### Vectrex Notes
+
+### Video Notes
 ## Todo
 
 (for now only retroarch is supported, have not yet implemented any other emulator support.)
