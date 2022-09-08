@@ -79,6 +79,12 @@ Minivmac: minivmac_libretro
 - [Minivmac Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
 - `dsk|nib|zip`
 
+Example(s):
+
+- [Apple-Vision By Bob Bishop](http://www.pouet.net/prod.php?which=54410)
+- type: zip,dsk
+- CLI: `./showet.py 54410`
+
 ### Archimedes Notes
 
 Mame: mame_libretro
