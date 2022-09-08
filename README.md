@@ -41,21 +41,21 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 
 ### Amiga Notes
 
-- OSECS,AGA,PPCRTG: puae_libretro
-- [Libretro Library](https://docs.libretro.com/library/puae/)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/puae_libretro.info)
+- Puae: puae_libretro
+- [Puae Libretro Library](https://docs.libretro.com/library/puae/)
+- [Puae Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/puae_libretro.info)
 - `zip|m3u|adf|adz|dms|fdi|ipf|hdf|hdz|lha|tga|slave|info|cue|ccd|nrg|mds|iso|chd|uae|7z|rp9|exe|run`
 
 ### Amstrad Notes
 
 - CrocoDS: crocods_libretro
-- [Libretro Library](https://docs.libretro.com/library/crocods/)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/crocods_libretro.info)
+- [CrocoDS Libretro Library](https://docs.libretro.com/library/crocods/)
+- [CrocoDS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/crocods_libretro.info)
 - `dsk|sna|kcr`
 
 - Caprice: cap32_libretro
-- [Libretro Library](https://docs.libretro.com/library/caprice32/)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/cap32_libretro.info)
+- [Caprice32 Libretro Library](https://docs.libretro.com/library/caprice32/)
+- [Cap32 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/cap32_libretro.info)
 - `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
   
 Amstrad CPC: Debris by Pulpo Corrosivo (<http://www.pouet.net/prod.php?which=92044>)
@@ -66,30 +66,31 @@ Amstrad CPC: Debris by Pulpo Corrosivo (<http://www.pouet.net/prod.php?which=920
 
 ### Apple(I/II/128K) Notes
 
-- [minivmac](https://www.gryphel.com/c/minivmac/)
-- [Libretro Library](https://docs.libretro.com/library/minivmac/)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
+- Minivmac: minivmac_libretro
+- [Minivmac Libretro Library](https://docs.libretro.com/library/minivmac/)
+- [Minivmac Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
 - `dsk|nib|zip`
 
 ### Archimedes Notes
 
-- [Libretro Library](https://docs.libretro.com/library/mame/)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mame_libretro.info)
+- Mame: mame_libretro
+- [Mame Libretro Library](https://docs.libretro.com/library/mame/)
+- [Mame Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mame_libretro.info)
 - `dsk|nib|zip`
 
 ### Commodore Notes
 
-- [Libretro Library](https://docs.libretro.com/library/vice/)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x64_libretro.info)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x64sc_libretro.info)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcpu64_libretro.info)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xpet_libretro.info)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x128_libretro.info)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xplus4_libretro.info)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcbm2_libretro.info)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcbm5x0_libretro.info)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xvic_libretro.info)
-- [Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x128_libretro.info)
+- Vice: vice_[version]_libretro
+- [Vice Libretro Library](https://docs.libretro.com/library/vice/)
+- [Vice x64 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x64_libretro.info)
+- [Vice x64sc Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x64sc_libretro.info)
+- [Vice xcpu64 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcpu64_libretro.info)
+- [Vice xpet Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xpet_libretro.info)
+- [Vice x128 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x128_libretro.info)
+- [Vice xplus4 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xplus4_libretro.info)
+- [Vice xcbm2 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcbm2_libretro.info)
+- [Vice xcbm5x0 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcbm5x0_libretro.info)
+- [Vice xvic Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xvic_libretro.info)
 - `d64|d71|d80|d81|d82|g64|g41|x64|t64|tap|prg|p00|crt|bin|zip|gz|d6z|d7z|d8z|g6z|g4z|x6z|cmd|m3u|vfl|vsf|nib|nbz|d2m|d4m`
 
 C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?which=64283>)
