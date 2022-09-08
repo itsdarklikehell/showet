@@ -41,19 +41,22 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 
 ### Amiga Notes
 
-- Puae: puae_libretro
+Puae: puae_libretro
+
 - [Puae Libretro Library](https://docs.libretro.com/library/puae/)
 - [Puae Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/puae_libretro.info)
 - `zip|m3u|adf|adz|dms|fdi|ipf|hdf|hdz|lha|tga|slave|info|cue|ccd|nrg|mds|iso|chd|uae|7z|rp9|exe|run`
 
 ### Amstrad Notes
 
-- CrocoDS: crocods_libretro
+CrocoDS: crocods_libretro
+
 - [CrocoDS Libretro Library](https://docs.libretro.com/library/crocods/)
 - [CrocoDS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/crocods_libretro.info)
 - `dsk|sna|kcr`
 
-- Caprice: cap32_libretro
+Caprice: cap32_libretro
+
 - [Caprice32 Libretro Library](https://docs.libretro.com/library/caprice32/)
 - [Cap32 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/cap32_libretro.info)
 - `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
@@ -66,21 +69,24 @@ Amstrad CPC: Debris by Pulpo Corrosivo (<http://www.pouet.net/prod.php?which=920
 
 ### Apple(I/II/128K) Notes
 
-- Minivmac: minivmac_libretro
+Minivmac: minivmac_libretro
+
 - [Minivmac Libretro Library](https://docs.libretro.com/library/minivmac/)
 - [Minivmac Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
 - `dsk|nib|zip`
 
 ### Archimedes Notes
 
-- Mame: mame_libretro
+Mame: mame_libretro
+
 - [Mame Libretro Library](https://docs.libretro.com/library/mame/)
 - [Mame Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mame_libretro.info)
 - `dsk|nib|zip`
 
 ### Commodore Notes
 
-- Vice: vice_[version]_libretro
+Vice: vice_[version]_libretro
+
 - [Vice Libretro Library](https://docs.libretro.com/library/vice/)
 - [Vice x64 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x64_libretro.info)
 - [Vice x64sc Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x64sc_libretro.info)
