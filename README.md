@@ -34,7 +34,7 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 Clone  the repo
 ```bash
 git clone https://github.com/itsdarklikehell/showet
-cd  showet
+cd showet
 ```
 
 To build debian package, run:
