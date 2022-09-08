@@ -20,16 +20,6 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 ## Current implementation
 
 - Python script that can download, extract and run demos from pouet.net with the right emulator.
-- Supported platforms / emulator
-  Microsoft: Windows/wine,native: `exe`
-  MS-DOS: ms-dos/dosbox_core_libretro: `exe|com|bat|conf|cue|iso|m3u|zip`
-  Apple: `dsk|nib|zip`
-  Archimedes: Acorn/mame_libretro: `zip|chd|7z|cmd`
-  Atari: Falcon/hatari_libretro: `st|dim|msa|stx|ipf|m3u|vsf|m3u|zip` ST/hatari_libretro: `st|msa|stx|ipf|m3u|vsf|m3u|zip` XLXE/hatari_libretro: `xfd|atr|xfdx|cdm|cas|bin|a52|xex|m3u|zip` Jaguar/virtualjaguar_libretro: `j64|jag|rom|abs|cof|bin|prg` Lynx/handy_libretro `lnx|o|m3u|zip` Vcs/stella_libretro `a26|bin`
-  Enterprise: Enterprise/ep128emu_core_libretro: `img|dsk|tap|dtf|com|trn|128|bas|cas|cdt|tzx|.`
-  Java: Java/squirreljme_libretro: `jar|sqc|jam|jad|kjx`
-  Linux: Linux/native: `exe|elf`
-  Mattel: Intellivison/freeintv_libretro :`int|bin|rom`
 - GUI frontend
 
 ## Usage
@@ -38,6 +28,8 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 - Launch showet from menu
 - Search for a production and click run to run it
 - Alt-F4 quits from emulators
+
+## Supported Platforms
 
 ### Amiga Notes
 
