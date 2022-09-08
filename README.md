@@ -196,7 +196,7 @@ Example(s):
 
 ## Todo
 
-(for now only retroarch is supported, have not yet implemented any other emulator support.)
+(for now only retroarch emulation is supported, have not yet implemented any other emulator support.)
 
 - [ ] Clean up and finish the rest of this too damn long README.md file or make some awesome ascii art filled cli help/documentation or wiki thing...
 - [ ] Alambik Stuff...
