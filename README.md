@@ -29,6 +29,16 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 - Search for a production and click run to run it
 - Alt-F4 quits from emulators
 
+## Build instructions
+
+To build debian package, run:
+
+```bash
+debuild -us -uc -b
+```
+
+Install the package to get dependencies.
+
 ## Supported Platforms
 
 ### Amiga Notes
@@ -234,15 +244,6 @@ Example(s):
       (And if we are really in luck maybe eventually even the RetroPie-Setup team will add(opt) us.. and thereby help give the DemoScene some much needed love and attention!)
 
 Pull requests and suggestions are always welcome (if they are not breaking anything).
-## Build instructions
-
-To build debian package, run:
-
-```bash
-debuild -us -uc -b
-```
-
-Install the package to get dependencies.
 
 ## Authors
 
