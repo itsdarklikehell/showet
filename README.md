@@ -175,9 +175,8 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
 - [x] Proof of concept...
 - [ ] Sgi IRIX Stuff...
 - [ ] Sharp Stuff...
-- [ ] Steam intergration
-      (for the option of using the steam version of retroarch and its cores...)
-      (for setting up/using proton...)
+- [ ] Steam version intergration...
+      (either for the option of using the steam version of retroarch and its cores and/or for setting up a proton version to rin stuff in incase needed...)
 - [ ] Thomson Stuff...
       MO/TO
       see theodore_libretro.info
@@ -193,63 +192,13 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
       (And if we are really in luck maybe eventually even the RetroPie-Setup team will add(opt) us.. and thereby help give the DemoScene some much needed love and attention!)
 
 Pull requests and suggestions are always welcome (if they are not breaking anything).
-
-## Command line examples
-
-You can use the command line tool to quickly test running any demos.
-
-
-Windows: MFX's Deities (<http://www.pouet.net/prod.php?which=24487>)
-
-```bash
-./showet.py 24487
-```
-
-NES/nes: Matrix(<http://www.pouet.net/prod.php?which=90520>)
-
-```bash
-./showet.py 90520
-```
-
-SNES/sfc: Bad Apple (<http://www.pouet.net/prod.php?which=91610>)
-
-```bash
-./showet.py 91610
-```
-
-GB/gb: Turbocharged(<http://www.pouet.net/prod.php?which=91987>)
-
-```bash
-./showet.py 91987
-```
-
-GBC/gb: Titan - To The Lighthouse!(<http://www.pouet.net/prod.php?which=91968>)
-
-```bash
-./showet.py 91968
-```
-
-Amiga/dms Origin by Complex (<http://www.pouet.net/prod.php?which=3741>)
-
-```bash
-./showet.py 3741
-```
-
-Amiga/lha Tint by TBL (<http://www.pouet.net/prod.php?which=701>)
-
-```bash
-./showet.py 701
-```
-
-
+## Build instructions
 
 To build debian package, run:
 
 ```bash
 debuild -us -uc -b
 ```
-
-[![asciicast](https://asciinema.org/a/sXH854ysSs5Ya5C9EGRQB0TzV.png)](https://asciinema.org/a/sXH854ysSs5Ya5C9EGRQB0TzV)
 
 Install the package to get dependencies.
 
