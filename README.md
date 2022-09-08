@@ -134,6 +134,7 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
 ### Vectrex Notes
 
 ### Video Notes
+
 ## Todo
 
 (for now only retroarch is supported, have not yet implemented any other emulator support.)
@@ -154,10 +155,6 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
       (As mentioned above, it can also run and decompress many compressed fileformats. for instance .zip .tz .7z .gz .chd and retroarch can automatically generates playlist files after decompressing files if it detects multiple roms/disks.)
 - [ ] Debian packaging.
       (Currently not yet fully finished this, but retroarch has its own repos.)
-- [ ] (Optional/BONUS QUEST! for 100 points.)
-      Make it run/install/update on retropie/batocera/recallbox or plain retroarch on a RaspberryPi.
-      Allot of retropie/emulationstation uses retroarch cores to run games, it should not be hard to integrate installation, configuring and running of the scripts of showet into the menus of it it, through the `install.sh` and `update.sh` scripts of this repo.
-      (Or if we are really in luck maybe eventually even the retropie team notices/adopts us.)
 - [ ] Flash Stuff... (look into: Flashpoint, lightspark or ruffle)
 - [x] GUI...
 - [ ] GamePark Stuff...
@@ -190,6 +187,10 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
 - [ ] Whitelist & blacklist of known working & broken demo extensions.
 - [ ] WonderSwan Stuff...
 - [ ] ZX (ZX Enhanced/ZX Spectrum/ZX 81) Stuff...
+- [ ] (Optional/BONUS QUEST! for 100 points.)
+      Make it run/install/update on retropie/batocera/recallbox or plain retroarch on a RaspberryPi.
+      Allot of retropie/emulationstation uses the same retroarch cores to run roms, it should not be hard to integrate installation, configuring and running of these scripts of showet into the menus of it it, either through running the `install.sh` or `update.sh` scripts of this repo and add them to the `~/RetroPie/retropiemenu/` folder.
+      (And if we are really in luck maybe eventually even the RetroPie-Setup team will add(opt) us.. and thereby help give the DemoScene some much needed love and attention!)
 
 Pull requests welcome.
 
