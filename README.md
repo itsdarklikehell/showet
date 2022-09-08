@@ -192,7 +192,7 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
       Allot of retropie/emulationstation uses the same retroarch cores to run roms, it should not be hard to integrate installation, configuring and running of these scripts of showet into the menus of it it, either through running the `install.sh` or `update.sh` scripts of this repo and add them to the `~/RetroPie/retropiemenu/` folder.
       (And if we are really in luck maybe eventually even the RetroPie-Setup team will add(opt) us.. and thereby help give the DemoScene some much needed love and attention!)
 
-Pull requests welcome.
+Pull requests and suggestions are always welcome (if they are not breaking anything).
 
 ## Command line examples
 
