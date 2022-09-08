@@ -90,6 +90,9 @@ Minivmac: minivmac_libretro
 
 - [Minivmac Libretro Library](https://docs.libretro.com/library/minivmac/)
 - [Minivmac Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
+
+Supported filetypes:
+
 - `dsk|img|zip|hvf|cmd`
 
 Example(s):
@@ -104,6 +107,9 @@ Mame: mame_libretro
 
 - [Mame Libretro Library](https://docs.libretro.com/library/mame/)
 - [Mame Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mame_libretro.info)
+
+Supported filetypes:
+
 - `dsk|nib|zip`
 
 ### Atari Notes
@@ -122,7 +128,13 @@ Vice: vice_[version]_libretro
 - [Vice xcbm2 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcbm2_libretro.info)
 - [Vice xcbm5x0 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xcbm5x0_libretro.info)
 - [Vice xvic Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xvic_libretro.info)
-- `d64|d71|d80|d81|d82|g64|g41|x64|t64|tap|prg|p00|crt|bin|zip|gz|d6z|d7z|d8z|g6z|g4z|x6z|cmd|m3u|vfl|vsf|nib|nbz|d2m|d4m`
+
+Supported filetypes:
+
+- Floppies: `d64|d6z|d71|d7z|d80|d81|d82|d8z|g64|g6z|g41|g4z|x64|x6z|nib|nbz|d2m|d4m`
+- Tapes: `t64|tap`
+- Other: `cmd|m3u|vfl|vsf|zip|7z|gz|prg|p00|crt|bin`
+- VIC20: `20|40|60|a0|b0|rom`
 
 Example(s):
 
