@@ -70,12 +70,6 @@ Example(s):
 - [Batman Forever By Batman Group](http://www.pouet.net/prod.php?which=56761)
 - type: (multidisk) zip,dsk
 - CLI: `./showet.py 56761`
-  
-Amstrad CPC: Debris by Pulpo Corrosivo (<http://www.pouet.net/prod.php?which=92044>)
-
-```bash
-./showet.py 92044
-```
 
 ### Apple(I/II/128K) Notes
 
@@ -111,11 +105,10 @@ Vice: vice_[version]_libretro
 - [Vice xvic Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_xvic_libretro.info)
 - `d64|d71|d80|d81|d82|g64|g41|x64|t64|tap|prg|p00|crt|bin|zip|gz|d6z|d7z|d8z|g6z|g4z|x6z|cmd|m3u|vfl|vsf|nib|nbz|d2m|d4m`
 
-C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?which=64283>)
+Example(s):
 
-```bash
-./showet.py 64283
-```
+- [Comaland by Censor Design & Oxyron](http://www.pouet.net/prod.php?which=64283)
+- CLI: `./showet.py 64283`
 
 ### Enterprise Notes
 
