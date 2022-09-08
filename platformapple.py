@@ -22,7 +22,7 @@ class PlatformApple(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('ffmpeg_libretro')
+            emulator.append('minivmac_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
