@@ -1,5 +1,5 @@
-from platformcommon import PlatformCommon
 import os
+from platformcommon import PlatformCommon
 
 # emulator = ['dosbox']
 emulator = ['retroarch']

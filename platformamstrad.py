@@ -1,7 +1,7 @@
 import os
 from platformcommon import PlatformCommon
 
-
+emulator = ['retroarch']
 fullscreen = ['false']
 
 

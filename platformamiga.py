@@ -118,7 +118,6 @@ class PlatformAmigaOSECS(PlatformCommon):
 
 # Tries to identify files by any magic necessary
 
-
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -244,7 +243,6 @@ class PlatformAmigaAGA(PlatformCommon):
 
 # Tries to identify files by any magic necessary
 
-
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -369,7 +367,6 @@ class PlatformAmigaPPCRTG(PlatformCommon):
 
 
 # Tries to identify files by any magic necessary
-
 
     def find_ext_files(self):
         ext_files = []

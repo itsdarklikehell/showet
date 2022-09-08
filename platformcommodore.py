@@ -1,5 +1,9 @@
-from platformcommon import PlatformCommon
 import os
+from platformcommon import PlatformCommon
+
+
+fullscreen = ['false']
+emulator = ['retroarch']
 
 
 class PlatformCommodore64(PlatformCommon):

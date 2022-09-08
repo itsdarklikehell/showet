@@ -1,8 +1,8 @@
-from platformcommon import PlatformCommon
 import os
+from platformcommon import PlatformCommon
 
-fullscreen = ['true']
-
+emulator = ['retroarch']
+fullscreen = ['false']
 
 class PlatformLinux(PlatformCommon):
     def run(self):
