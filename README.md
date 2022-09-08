@@ -110,46 +110,12 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
 (for now only retroarch is supported, have not yet implemented any other emulator support.)
 
 - [ ] Clean up this README.md file and make a proper documentation/wiki...
-- [x] Archimedes/Acorn Stuff...
-      Acorn is Supported by:
-      retroarch core(s): `mame_libretro.so` or `mess2015_libretro`
-      see `mame_libretro.info` or `mess2015_libretro.info`
 - [ ] Alambik Stuff...
       (Have yet to find out whatever that is and how to run them...)
-- [x] Amiga Stuff...
-      AGA/OCS/ECS/PPC/RTG is Supported by:
-      retroarch core(s): `puae_libretro.so`
-      see `puae_libretro.info`
-      (for now only retroarch is supported, have not yet implemented any other emulator support.)
-- [x] Amstrad Stuff...
-      CPC/PLUS is Supported by:
-      retroarch core(s): `cap32_libretro.so`
-      see `cap32_libretro.info`
-      (for now only retroarch is supported, have not yet implemented any other emulator support.)
-- [ ] Apple Stuff...
-      (<https://github.com/audetto/AppleWin>)
-- [x] Atari Stuff...
-      Falcon/Lynx/ST(e)/TT/VCS/XL/XE is Supported by:
-      retroarch cores: `hatari_libretro.so`
-      see `hatari_libretro.info`
-      Jaguar is Supported by:
-      retroarch cores: `virtualjaguar_libretro.so`
-      see `virtualjaguar_libretro.info`
-      Lynx is Supported by:
-      retroarch cores: `handy_libretro.so`
-      see `handy_libretro.info`
-      VCS is Supported by:
-      retroarch cores: `stella_libretro.so`
-      see `stella_libretro.info`
-      (for now only retroarch is supported, have not yet implemented any other emulator support.)
+- [ ] Apple Stuff... See: Minivmac Libretro
 - [ ] BBC Acorn Stuff...
 - [ ] BBC Micro Stuff...
-- [x] Commodore Stuff...
-      C16/116/plus4/C64/CDTV/C128 is Supported by:
-      retroarch core(s): `vice_x64_libretro.so`
-      see `vice_x64_libretro.info`
-      (for now only retroarch is supported, have not yet implemented any other emulator support.)
-- [x] Decompress archives:
+- [ ] Decompress archives:
       (Currently implemented: .zip .tar .gz .lha)
       (But this is really not needed for retroarch because it can manage (decompress/run) many compressed fileformats.)
       (This is more for those scenes that run in dosbox, wine or proton or if using a native emulator that cant manage compressed files.)
@@ -163,70 +129,14 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
       Make it run/install/update on retropie/batocera/recallbox or plain retroarch on a RaspberryPi.
       Allot of retropie/emulationstation uses retroarch cores to run games, it should not be hard to integrate installation, configuring and running of the scripts of showet into the menus of it it, through the `install.sh` and `update.sh` scripts of this repo.
       (Or if we are really in luck maybe eventually even the retropie team notices/adopts us.)
-- [x] DOS Stuff...
-      EXE/COM etc. is Supported by:
-      retroarch core(s): `dosbox_core_libretro.so`
-      see `dosbox_core_libretro.info`
-      (for now only retroarch is supported, have not yet implemented any other emulator support.)
 - [ ] Flash Stuff... (look into: Flashpoint, lightspark or ruffle)
 - [x] GUI...
 - [ ] GamePark Stuff...
       (GP2x/GP32)
-- [x] General Video/Animation Stuff...
-      video is Supported by:
-      retroarch core(s): `ffmpeg_libretro.so`
-      see `ffmpeg_libretro.info`
-- [ ] Intellivison Stuff...
-      (see: FreeIntv)
-- [ ] Java Stuff...
-      (see: freej2me_libretro.info)
 - [ ] Linux Stuff...
       (almost working)
-- [x] Microsoft Stuff...
-      MSX/MSX2/MSX2+/MSX Turbo-r is Supported by:
-      retroarch core(s): `bluemsx_libretro.so` `fmsx_libretro.so`
-      see `bluemsx_libretro.info` `fmsx_libretro.info`
-      WIN (windows) Supported by:
-      wine (or proton)
-      see wine/proton-tricks for installation of dlls.
 - [ ] Microsoft XBOX Stuff...
       (XBOX/XBOX360)
-- [x] NeoGeo Stuff...
-      pocket/pocket color is Supported by:
-      retroarch core(s): `mednafen_ngb_libretro.so`
-      see `mednafen_ngb_libretro.info`
-- [x] NEC Stuff...
-      (TurboGrafx/PC Engine)
-- [x] Nintendo Stuff...
-      (for now only retroarch is supported, have not yet implemented any other emulator support.)
-      NES (Famicom) is Supported by:
-      retroarch core(s): `quicknes_libretro.so`
-      see `quicknes_libretro.info`
-      SNES (Super Famicom) is Supported by:
-      retroarch core(s): `snes9x_libretro.so`
-      see `snes9x_libretro.info`
-      N64 (Reality) is Supported by:
-      retroarch core(s): `mupen64plus_next_libretro` `parrallel_n64_libretro.so`
-      see `mupen64plus_next_libretro.info` `parrallel_n64_libretro.info`
-      GB (Gameboy) GBC (Gameboy Color) is Supported by:
-      retroarch core(s): `gambatte_libretro.so` `sameboy_libretro.so`
-      see `gambatte_libretro.info` `sameboy_libretro.info`
-      GBA (Gameboy Advance) is Supported by:
-      retroarch core(s): `vbam_libretro.so` `gpsp_libretro.so`
-      see `vbam_libretro.info` `gpsp_libretro.info`
-      GC (GameCube) is Supported by:
-      retroarch core(s): `dolphin_libretro.so`
-      see `dolphin_libretro.info`
-      DS (NDS/3DS/3DSi) is Supported by:
-      retroarch core(s): `melonds_libretro.so`
-      see `melonds_libretro.info`
-      VB (VirtuaBoy) is Supported by:
-      retroarch core(s):`mednafen_vb_libretro.so`
-      see `mednafen_vb_libretro.info`
-      WII/WIIu is Supported by:
-      retroarch core(s): `dolphin_libretro.so`
-      see `dolphin_libretro.info`
-      (for now only retroarch is supported, have not yet implemented any other emulator support.)
 - [ ] Nintendo Switch Stuff...
 - [ ] Oric Stuff... (see oricutron)
 - [ ] Option to set/select the emulator
@@ -236,18 +146,9 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
 - [ ] Option to set audio on/off.
 - [ ] Option for setting custom command line options.
       to pass to chosen emulator (ie retroarch core options or native emulator options).
-- [ ] Pico8 Stuff...
-- [x] PokeMini Stuff...
-      Pokemini is Supported by:
-      retroarch core(s): `pokemini_libretro.so`
-      see `pokemini_libretro.info`
 - [x] Proof of concept...
-- [ ] Sega (GameGear/Megadrive/Genesis/mastersystem) Stuff...
 - [ ] Sgi IRIX Stuff...
 - [ ] Sharp Stuff...
-- [ ] Sony (PSX/PS2/PS3/PSP) Stuff... (see duckstation_libretro.info and ppsppp_libretro.)
-- [ ] Spectravideo Stuff...
-      See bluemsx_libretro.info
 - [ ] Steam intergration
       (for the option of using the steam version of retroarch and its cores...)
       (for setting up/using proton...)
@@ -255,11 +156,6 @@ C64/.d64 Comaland by Censor Design & Oxyron (<http://www.pouet.net/prod.php?whic
       MO/TO
       see theodore_libretro.info
 - [ ] Ti-8x (68k/Z80) Stuff...
-
-- [x] TIC80 Stuff...
-      TIC80 is Supported by:
-      retroarch core(s): `tic80_libretro.so`
-      see `tic80_libretro.info`
 - [ ] TRS80/CoCo/Dragon32 Stuff...
 - [ ] Vectrex Stuff...
 - [ ] Whitelist & blacklist of known working & broken demo extensions.
