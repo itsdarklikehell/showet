@@ -39,6 +39,12 @@ Puae: puae_libretro
 - [Puae Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/puae_libretro.info)
 - `zip|m3u|adf|adz|dms|fdi|ipf|hdf|hdz|lha|tga|slave|info|cue|ccd|nrg|mds|iso|chd|uae|7z|rp9|exe|run`
 
+Example(s):
+
+- [Startruck By Black Lotus](http://www.pouet.net/prod.php?which=25778)
+- type: zip,exe
+- CLI: `./showet.py 22778`
+
 ### Amstrad Notes
 
 CrocoDS: crocods_libretro
@@ -47,11 +53,23 @@ CrocoDS: crocods_libretro
 - [CrocoDS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/crocods_libretro.info)
 - `dsk|sna|kcr`
 
+Example(s):
+
+- [CRTC3 By Flower Corp](http://www.pouet.net/prod.php?which=248542)
+- type: (multidisk) zip,dsk
+- CLI: `./showet.py 248542`
+
 Caprice: cap32_libretro
 
 - [Caprice32 Libretro Library](https://docs.libretro.com/library/caprice32/)
 - [Cap32 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/cap32_libretro.info)
 - `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
+
+Example(s):
+
+- [Batman Forever By Batman Group](http://www.pouet.net/prod.php?which=56761)
+- type: (multidisk) zip,dsk
+- CLI: `./showet.py 56761`
   
 Amstrad CPC: Debris by Pulpo Corrosivo (<http://www.pouet.net/prod.php?which=92044>)
 
