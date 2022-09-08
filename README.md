@@ -65,7 +65,7 @@ Supported filetypes:
 
 Example(s):
 
-- [Startruck By Black Lotus](http://www.pouet.net/prod.php?which=25778)
+- [Starstruck By Black Lotus](http://www.pouet.net/prod.php?which=25778)
 - type: zip,exe
 - CLI: `./showet.py 22778`
 
