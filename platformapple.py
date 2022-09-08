@@ -7,7 +7,7 @@ fullscreen = ['false']
 
 class PlatformApple(PlatformCommon):
     def run(self):
-        extensions = ['dsk', 'nib', 'zip']
+        extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
 

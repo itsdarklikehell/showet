@@ -77,7 +77,7 @@ Minivmac: minivmac_libretro
 
 - [Minivmac Libretro Library](https://docs.libretro.com/library/minivmac/)
 - [Minivmac Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
-- `dsk|nib|zip`
+- `dsk|img|zip|hvf|cmd`
 
 Example(s):
 
