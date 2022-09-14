@@ -31,7 +31,7 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 
 ## Build instructions
 
-Clone  the repo
+Clone the repo
 
 ```bash
 git clone https://github.com/itsdarklikehell/showet
@@ -50,7 +50,7 @@ Install the package to get dependencies.
 
 ### Amiga Notes
 
-Puae: puae_libretro
+Puae: `puae_libretro`
 
 - [Puae Libretro Library](https://docs.libretro.com/library/puae/)
 - [Puae Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/puae_libretro.info)
@@ -66,12 +66,12 @@ Supported filetypes:
 Example(s):
 
 - [Starstruck By Black Lotus](http://www.pouet.net/prod.php?which=25778)
-- type: zip,exe
+- type: `zip,exe`
 - CLI: `./showet.py 22778`
 
 ### Amstrad Notes
 
-CrocoDS: crocods_libretro
+CrocoDS: `crocods_libretro`
 
 - [CrocoDS Libretro Library](https://docs.libretro.com/library/crocods/)
 - [CrocoDS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/crocods_libretro.info)
@@ -83,10 +83,10 @@ Supported filetypes:
 Example(s):
 
 - [CRTC3 By Flower Corp](http://www.pouet.net/prod.php?which=248542)
-- type: (multidisk) zip,dsk
+- type: (multidisk) `zip,dsk`
 - CLI: `./showet.py 248542`
 
-Caprice: cap32_libretro
+Caprice: `cap32_libretro`
 
 - [Caprice32 Libretro Library](https://docs.libretro.com/library/caprice32/)
 - [Cap32 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/cap32_libretro.info)
@@ -98,12 +98,12 @@ Supported filetypes:
 Example(s):
 
 - [Batman Forever By Batman Group](http://www.pouet.net/prod.php?which=56761)
-- type: (multidisk) zip,dsk
+- type: (multidisk) `zip,dsk`
 - CLI: `./showet.py 56761`
 
 ### Apple(I/II/128K) Notes
 
-Minivmac: minivmac_libretro
+Minivmac: `minivmac_libretro`
 
 - [Minivmac Libretro Library](https://docs.libretro.com/library/minivmac/)
 - [Minivmac Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
@@ -115,12 +115,12 @@ Supported filetypes:
 Example(s):
 
 - [Apple-Vision By Bob Bishop](http://www.pouet.net/prod.php?which=54410)
-- type: zip,dsk
+- type: `zip,dsk`
 - CLI: `./showet.py 54410`
 
 ### Archimedes Notes
 
-Mame: mame_libretro
+Mame: `mame_libretro`
 
 - [Mame Libretro Library](https://docs.libretro.com/library/mame/)
 - [Mame Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mame_libretro.info)
@@ -129,11 +129,57 @@ Supported filetypes:
 
 - `dsk|nib|zip`
 
+Example(s):
+
 ### Atari Notes
+
+Hatari: `hatari_libretro`
+
+- [Hatari Libretro Library](https://docs.libretro.com/library/hatari/)
+- [Hatari Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/hatari_libretro.info)
+
+Supported filetypes:
+
+- `st|msa|zip|stx|dim|ipf|m3u`
+
+Example(s):
+
+Jaguar: `virtualjaguar_libretro`
+
+- [Jaguar Libretro Library](https://docs.libretro.com/library/virtualjaguar/)
+- [Jaguar Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/virtualjaguar_libretro.info)
+
+Supported filetypes:
+
+- `j64|jag|rom|abs|cof|bin|prg`
+
+Example(s):
+
+Lynx: `handy_libretro`
+
+- [Lynx Libretro Library](https://docs.libretro.com/library/handy/)
+- [Lynx Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/handy_libretro.info)
+
+Supported filetypes:
+
+- `lnx|o`
+
+Example(s):
+
+VCS: `stella_libretro`
+
+- [VCS Libretro Library](https://docs.libretro.com/library/stella/)
+- [VCS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/stella_libretro.info)
+
+Supported filetypes:
+
+- `a26|bin`
+
+Example(s):
 
 ### Commodore Notes
 
-Vice: vice_[version]_libretro
+Vice: `vice_[version]_libretro`
 
 - [Vice Libretro Library](https://docs.libretro.com/library/vice/)
 - [Vice x64 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vice_x64_libretro.info)
