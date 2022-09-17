@@ -9,12 +9,8 @@ emulator = ['retroarch']
 class PlatformCommodore64(PlatformCommon):
 
     def run(self):
-        extensions = ['d64', 'd71', 'd80', 'd81', 'd82',
-                      'g64', 'g41', 't64', 'tap', 'prg',
-                      'p00', 'crt', 'bin', 'zip', 'gz',
-                      'd6z', 'd7z', 'd8z', 'g4z', 'g6z',
-                      'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
-                      'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin',
+                      'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
 
@@ -73,12 +69,8 @@ class PlatformCommodore64(PlatformCommon):
 class PlatformCommodorePet(PlatformCommon):
 
     def run(self):
-        extensions = ['d64', 'd71', 'd80', 'd81', 'd82',
-                      'g64', 'g41', 't64', 'tap', 'prg',
-                      'p00', 'crt', 'bin', 'zip', 'gz',
-                      'd6z', 'd7z', 'd8z', 'g4z', 'g6z',
-                      'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
-                      'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin',
+                      'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
 
@@ -137,12 +129,8 @@ class PlatformCommodorePet(PlatformCommon):
 class PlatformCommodore128(PlatformCommon):
 
     def run(self):
-        extensions = ['d64', 'd71', 'd80', 'd81', 'd82',
-                      'g64', 'g41', 't64', 'tap', 'prg',
-                      'p00', 'crt', 'bin', 'zip', 'gz',
-                      'd6z', 'd7z', 'd8z', 'g4z', 'g6z',
-                      'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
-                      'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin',
+                      'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
 
@@ -201,12 +189,8 @@ class PlatformCommodore128(PlatformCommon):
 class PlatformCommodorePlus4(PlatformCommon):
 
     def run(self):
-        extensions = ['d64', 'd71', 'd80', 'd81', 'd82',
-                      'g64', 'g41', 't64', 'tap', 'prg',
-                      'p00', 'crt', 'bin', 'zip', 'gz',
-                      'd6z', 'd7z', 'd8z', 'g4z', 'g6z',
-                      'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
-                      'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin',
+                      'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
 
@@ -265,12 +249,8 @@ class PlatformCommodorePlus4(PlatformCommon):
 class PlatformCommodoreCBM(PlatformCommon):
 
     def run(self):
-        extensions = ['d64', 'd71', 'd80', 'd81', 'd82',
-                      'g64', 'g41', 't64', 'tap', 'prg',
-                      'p00', 'crt', 'bin', 'zip', 'gz',
-                      'd6z', 'd7z', 'd8z', 'g4z', 'g6z',
-                      'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
-                      'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin',
+                      'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
 
@@ -329,12 +309,8 @@ class PlatformCommodoreCBM(PlatformCommon):
 class PlatformCommodoreVIC20(PlatformCommon):
 
     def run(self):
-        extensions = ['d64', 'd71', 'd80', 'd81', 'd82',
-                      'g64', 'g41', 't64', 'tap', 'prg',
-                      'p00', 'crt', 'bin', 'zip', 'gz',
-                      'd6z', 'd7z', 'd8z', 'g4z', 'g6z',
-                      'x6z', 'cmd', 'm3u', 'vfl', 'vsf',
-                      'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z',
+                      'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
 

@@ -8,7 +8,7 @@ fullscreen = ['false']
 
 class PlatformMsdos(PlatformCommon):
     def run(self):
-        extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso', 'm3u', 'zip']
+        extensions = ['exe', 'com', 'bat', 'conf', 'zip']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
 
