@@ -96,7 +96,7 @@ Caprice: `cap32_libretro`
 
 Supported filetypes:
 
-- `dsk|sna|tap|cdt|voc|m3u|cpr|zip`
+- `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
 
 Example(s):
 
@@ -130,7 +130,7 @@ Mame: `mame_libretro`
 
 Supported filetypes:
 
-- `dsk|nib|zip`
+- `zip|chd|7z|cmd`
 
 Example(s):
 
@@ -149,7 +149,7 @@ Example(s):
 
 Virtualjaguar: `virtualjaguar_libretro`
 
-- [Virtualjaguar Libretro Library](https://docs.libretro.com/library/virtualjaguar/)
+- [Virtualjaguar Libretro Library](https://docs.libretro.com/library/virtual_jaguar/)
 - [Virtualjaguar Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/virtualjaguar_libretro.info)
 
 Supported filetypes:
@@ -207,7 +207,7 @@ Example(s):
 - [Comaland by Censor Design & Oxyron](http://www.pouet.net/prod.php?which=64283)
 - CLI: `./showet.py 64283`
 
-### Enterprise Notes
+### Enterprise 64/128 Notes
 
 Ep128emu: `ep128emu_libretro`
 
@@ -626,9 +626,6 @@ Example(s):
 - [ ] Clean up and finish the rest of this too damn long README.md file or make some awesome ascii art filled cli help/documentation or wiki thing...
 - [ ] Alambik Stuff...
       (Have yet to find out whatever that is and how to run them...)
-- [ ] Apple Stuff... See: Minivmac Libretro
-- [ ] BBC Acorn Stuff...
-- [ ] BBC Micro Stuff...
 - [ ] Decompress archives:
       (Currently implemented: .zip .tar .gz .lha)
       (But this is really not needed for retroarch because it can manage (decompress/run) many compressed fileformats.)
@@ -664,12 +661,12 @@ Example(s):
 - [ ] Thomson Stuff...
       MO/TO
       see theodore_libretro.info
-- [ ] Ti-8x (68k/Z80) Stuff...
+- [x] Ti-8x (68k/Z80) Stuff...
 - [ ] TRS80/CoCo/Dragon32 Stuff...
-- [ ] Vectrex Stuff...
+- [x] Vectrex Stuff...
 - [ ] Whitelist & blacklist of known working & broken demo extensions.
-- [ ] WonderSwan Stuff...
-- [ ] ZX (ZX Enhanced/ZX Spectrum/ZX 81) Stuff...
+- [x] WonderSwan Stuff...
+- [x] ZX (ZX Enhanced/ZX Spectrum/ZX 81) Stuff...
 - [ ] (Optional/BONUS QUEST! for 100 points.)
       Make it run/install/update on retropie/batocera/recallbox or plain retroarch on a RaspberryPi.
       Allot of retropie/emulationstation uses the same retroarch cores to run roms, it should not be hard to integrate installation, configuring and running of these scripts of showet into the menus of it it, either through running the `install.sh` or `update.sh` scripts of this repo and add them to the `~/RetroPie/retropiemenu/` folder.
