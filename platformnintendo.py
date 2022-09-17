@@ -134,7 +134,7 @@ class PlatformN64(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('parrallel_n64_libretro')
+            emulator.append('mupen64plus_next_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -530,7 +530,7 @@ class PlatformDS(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('menlonds_libretro')
+            emulator.append('melonds_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 

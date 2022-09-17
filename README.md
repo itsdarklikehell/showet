@@ -147,10 +147,10 @@ Supported filetypes:
 
 Example(s):
 
-Jaguar: `virtualjaguar_libretro`
+Virtualjaguar: `virtualjaguar_libretro`
 
-- [Jaguar Libretro Library](https://docs.libretro.com/library/virtualjaguar/)
-- [Jaguar Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/virtualjaguar_libretro.info)
+- [Virtualjaguar Libretro Library](https://docs.libretro.com/library/virtualjaguar/)
+- [Virtualjaguar Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/virtualjaguar_libretro.info)
 
 Supported filetypes:
 
@@ -158,10 +158,10 @@ Supported filetypes:
 
 Example(s):
 
-Lynx: `handy_libretro`
+Handy: `handy_libretro`
 
-- [Lynx Libretro Library](https://docs.libretro.com/library/handy/)
-- [Lynx Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/handy_libretro.info)
+- [Handy Libretro Library](https://docs.libretro.com/library/handy/)
+- [Handy Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/handy_libretro.info)
 
 Supported filetypes:
 
@@ -169,10 +169,10 @@ Supported filetypes:
 
 Example(s):
 
-VCS: `stella_libretro`
+Stella: `stella_libretro`
 
-- [VCS Libretro Library](https://docs.libretro.com/library/stella/)
-- [VCS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/stella_libretro.info)
+- [Stella Libretro Library](https://docs.libretro.com/library/stella/)
+- [Stella Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/stella_libretro.info)
 
 Supported filetypes:
 
@@ -209,39 +209,415 @@ Example(s):
 
 ### Enterprise Notes
 
+Ep128emu: `ep128emu_libretro`
+
+- [ep128emu Libretro Library](https://docs.libretro.com/library/ep128emu/)
+- [ep128emu Libretro core info](https://github.com/libretro/ep128emu-core/blob/core/ep128emu_libretro.info)
+
+Supported filetypes:
+
+- `img|dsk|tap|dtf|com|trn|128|bas|cas|cdt|tzx|.`
+
+Example(s):
+
 ### Java Notes
+
+Squirreljme: `squirreljme_libretro`
+
+- [Squirreljme Libretro Library](https://github.com/SquirrelJME/SquirrelJME)
+- [Squirreljme Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/squirreljme_libretro.info)
+
+Supported filetypes:
+
+- `jar|sqc|jam|jad|kjx`
+
+Example(s):
 
 ### Linux Notes
 
 ### Mattel Notes
 
+Freeintv: `freeintv_libretro`
+
+- [Freeintv Libretro Library](https://docs.libretro.com/library/freeintv/)
+- [Freeintv Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/freeintv_libretro.info)
+
+Supported filetypes:
+
+- `int|bin|rom`
+
+Example(s):
+
 ### Microsoft Notes
+
+Directxbox: `directxbox_libretro`
+
+- [Directxbox Libretro Library](https://docs.libretro.com/library/directxbox/)
+- [Directxbox Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/directxbox_libretro.info)
+
+Supported filetypes:
+
+- `iso`
+
+Example(s):
+
+Bluemsx: `bluemsx_libretro`
+
+- [Bluemsx Libretro Library](https://docs.libretro.com/library/bluemsx/)
+- [Bluemsx Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/bluemsx_libretro.info)
+
+Supported filetypes:
+
+- `rom|ri|mx1|mx2|col|dsk|cas|sg|sc|m3u`
+
+Example(s):
+
+Wine: `wine`
+
+- [Wine Manual](https://linux.die.net/man/1/wine)
+
+Supported filetypes:
+
+- `bat|com|exe`
+
+Example(s):
 
 ### MsDOS Notes
 
+Dosbox: `dosbox_libretro`
+
+- [Dosbox Libretro Library](https://docs.libretro.com/library/dosbox/)
+- [Dosbox Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/dosbox_libretro.info)
+
+Supported filetypes:
+
+- `exe|com|bat|conf`
+
+Example(s):
+
 ### Music Notes
+
+GameMusicEmu: `gme_libretro`
+
+- [GameMusicEmu Libretro Library](https://docs.libretro.com/library/game_music_emu/)
+- [GameMusicEmu Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/gme_libretro.info)
+
+Supported filetypes:
+
+- `ay|gbs|gym|hes|kss|nsf|nsfe|sap|spc|vgm|vgz|zip`
+
+Example(s):
 
 ### Nec Notes
 
+Mednafen Supergrafx: `mednafen_supergrafx_libretro`
+
+- [Mednafen Supergrafx Libretro Library](https://docs.libretro.com/library/beetle_sgx/)
+- [Mednafen Supergrafx Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_supergrafx.info)
+
+Supported filetypes:
+
+- `pce|sgx|cue|ccd|chd`
+
+Example(s):
+
 ### NeoGeo Notes
+
+Mednafen Ngp: `mednafen_ngp_libretro`
+
+- [Mednafen Ngp Libretro Library](https://docs.libretro.com/library/beetle_neopop/)
+- [Mednafen Ngp Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_ngp_libretro.info)
+
+Supported filetypes:
+
+- `ngp|ngc|ngpc|npc`
+
+Example(s):
+
+Mednafen Ngpc: `mednafen_ngpc_libretro`
+
+- [Mednafen Ngpc Libretro Library](https://docs.libretro.com/library/beetle_neopop/)
+- [Mednafen Ngpc Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_ngpc_libretro.info)
+
+Supported filetypes:
+
+- `ngp|ngc|ngpc|npc`
+
+Example(s):
 
 ### Nintendo Notes
 
+Quicknes: `quicknes_libretro`
+
+- [Quicknes Libretro Library](https://docs.libretro.com/library/quicknes/)
+- [Quicknes Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/quicknes_libretro.info)
+
+Supported filetypes:
+
+- `nes`
+
+Example(s):
+
+Snes9x: `snes9x_libretro`
+
+- [Snes9x Libretro Library](https://docs.libretro.com/library/snes9x/)
+- [Snes9x Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/snes9x_libretro.info)
+
+Supported filetypes:
+
+- `smc|sfc|swc|fig|bs|st`
+
+Example(s):
+
+Mupen64plus: `mupen64plus_next_libretro`
+
+- [Mupen64plus Libretro Library](https://docs.libretro.com/library/mupen64plus/)
+- [Mupen64plus Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mupen64plus_next_libretro.info)
+
+Supported filetypes:
+
+- `n64|v64|z64|bin|u1`
+
+Example(s):
+
+Gambatte: `gambatte_libretro`
+
+- [Gambatte Libretro Library](https://docs.libretro.com/library/gambatte/)
+- [Gambatte Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/gambatte_libretro.info)
+
+Supported filetypes:
+
+- `gb|gbc|dmg`
+
+Example(s):
+
+VisualBoyAdvanced: `vba_next_libretro`
+
+- [VisualBoyAdvanced Libretro Library](https://docs.libretro.com/library/vba_next/)
+- [VisualBoyAdvanced Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vba_next_libretro.info)
+
+Supported filetypes:
+
+- `gba`
+
+Example(s):
+
+Dolphin: `dolphin_libretro`
+
+- [Dolphin Libretro Library](https://docs.libretro.com/library/dolphin/)
+- [Dolphin Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/dolphin_libretro.info)
+
+Supported filetypes:
+
+- `gcm|iso|wbfs|ciso|gcz|elf|dol|dff|tgc|wad|rvz|m3u`
+
+Example(s):
+
+Pokemini: `pokemini_libretro`
+
+- [Pokemini Libretro Library](https://docs.libretro.com/library/pokemini/)
+- [Pokemini Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/pokemini_libretro.info)
+
+Supported filetypes:
+
+- `min`
+
+Example(s):
+
+MelonDS: `melonds_libretro`
+
+- [MelonDS Libretro Library](https://docs.libretro.com/library/melonds/)
+- [MelonDS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/melonds_libretro.info)
+
+Supported filetypes:
+
+- `nds|dsi`
+
+Example(s):
+
+Mednafen: `mednafen_vb_libretro`
+
+- [MelonDS Libretro Library](https://docs.libretro.com/library/beetle_vb/)
+- [MelonDS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_vb_libretro.info)
+
+Supported filetypes:
+
+- `vb|vboy|bin`
+
+Example(s):
+
 ### PalmOS Notes
+
+Mu: `mu_libretro`
+
+- [Mu Libretro Library](https://docs.libretro.com/library/mu/)
+- [Mu Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mu_libretro.info)
+
+Supported filetypes:
+
+- `prc|pqa|img|pdb`
+
+Example(s):
 
 ### Pico8 Notes
 
+Retro8: `retro8_libretro`
+
+- [Retro8 Libretro Library](https://docs.libretro.com/library/retro8/)
+- [Retro8 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/retro8_libretro.info)
+
+Supported filetypes:
+
+- `p8|png`
+
+Example(s):
+
 ### Sega Notes
+
+Genesis plus GX: `genesis_plus_gx_libretro`
+
+- [Genesis plus GX Libretro Library](https://docs.libretro.com/library/genesis_plus_gx/)
+- [Genesis plus GX Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/genesis_plus_gx_libretro.info)
+
+Supported filetypes:
+
+- `mdx|md|smd|gen|bin|cue|iso|sms|bms|gg|sg|68k|sgd|chd|m3u`
+
+Example(s):
+
+Gearsystem: `gearsystem_libretro`
+
+- [Gearsystem Libretro Library](https://docs.libretro.com/library/gearsystem/)
+- [Gearsystem Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/gearsystem_libretro.info)
+
+Supported filetypes:
+
+- `sms|gg|sg|bin|rom`
+
+Example(s):
+
+Flycast: `flycast_libretro`
+
+- [Flycast Libretro Library](https://docs.libretro.com/library/flycast/)
+- [Flycast Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/flycast_libretro.info)
+
+Supported filetypes:
+
+- `sms|gg|sg|bin|rom`
+
+Example(s):
+
+FlycastGLES2: `flycast_gles2_libretro`
+
+- [Flycast Libretro Library](https://docs.libretro.com/library/flycast/)
+- [Flycast Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/flycast_gles2_libretro.info)
+
+Supported filetypes:
+
+- `chd|cdi|elf|bin|cue|gdi|lst|zip|dat|7z|m3u`
+
+Example(s):
 
 ### Sinclair Notes
 
+Fuse: `fuse_libretro`
+
+- [Fuse Libretro Library](https://docs.libretro.com/library/fuse/)
+- [Fuse Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/fuse_libretro.info)
+
+Supported filetypes:
+
+- `tzx|tap|z80|rzx|scl|trd|dsk|zip`
+
+Example(s):
+
+81: `81_libretro`
+
+- [81 Libretro Library](https://docs.libretro.com/library/eightyone/)
+- [81 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/81_libretro.info)
+
+Supported filetypes:
+
+- `p|tzx|t81`
+
+Example(s):
+
 ### Sony Notes
+
+Mednafen: `mednafen_psx_libretro`
+
+- [Mednafen Libretro Library](https://docs.libretro.com/library/beetle_psx/)
+- [PCSX ReARMed Libretro Library](https://docs.libretro.com/library/pcsx_rearmed/)
+- [Mednafen Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_psx_libretro.info)
+- [Rustation Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/rustation_libretro.info)
+- [Duckstation Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/ducktation_libretro.info)
+
+Supported filetypes:
+
+- `cue|toc|m3u|ccd|exe|pbp|chd`
+
+Example(s):
+
+Pcsx2: `pcsx2_libretro`
+
+- [Pcsx2 Libretro Library](https://docs.libretro.com/library/pcsx2/)
+- [Pcsx2 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/pcsx2_libretro.info)
+
+Supported filetypes:
+
+- `elf|iso|ciso|chd|cso|bin|mdf|nrg|dump|gz|img|m3u`
+
+Example(s):
+
+Ppsspp: `ppsspp_libretro`
+
+- [Ppsspp Libretro Library](https://docs.libretro.com/library/ppsspp/)
+- [Ppsspp Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/ppsspp_libretro.info)
+
+Supported filetypes:
+
+- `elf|iso|cso|prx|pbp`
+
+Example(s):
 
 ### Tic80 Notes
 
+Tic80: `tic80_libretro`
+
+- [Tic80 Libretro Library](https://docs.libretro.com/library/tic80/)
+- [Tic80 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/tic80_libretro.info)
+
+Supported filetypes:
+
+- `tic`
+
+Example(s):
+
 ### Vectrex Notes
 
+Tic80: `vecx_libretro`
+
+- [Tic80 Libretro Library](https://docs.libretro.com/library/vecx/)
+- [Tic80 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/vecx_libretro.info)
+
+Supported filetypes:
+
+- `bin|vec`
+
+Example(s):
+
 ### Video Notes
+
+FFmpeg: `ffmpeg_libretro`
+
+- [Tic80 Libretro Library](https://docs.libretro.com/library/ffmpeg/)
+- [Tic80 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/ffmpeg_libretro.info)
+
+Supported filetypes:
+
+- `mkv|avi|f4v|f4f|3gp|ogm|flv|mp4|mp3|flac|ogg|m4a|webm|3g2|mov|wmv|mpg|mpeg|vob|asf|divx|m2p|m2ts|ps|ts|mxf|wma|wav`
+
+Example(s):
 
 ## Todo
 

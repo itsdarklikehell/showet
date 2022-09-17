@@ -23,7 +23,8 @@ class PlatformPsx(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mednafen_psx_libretro')
+            # emulator.append('mednafen_psx_libretro')
+            emulator.append('duckstation_libretro')
             # emulator.append('pcsx_rearmed_libretro')
             # emulator.append('pcsx1_libretro')
             if fullscreen == ['true']:

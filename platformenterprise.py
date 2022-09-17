@@ -23,7 +23,7 @@ class PlatformEnterprise(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('ep128emu_core_libretro')
+            emulator.append('ep128emu_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 

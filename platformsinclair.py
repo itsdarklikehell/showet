@@ -24,7 +24,7 @@ class PlatformZxspectrum(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('fuse_libretro')
-            # emulator.append('81_libretro')
+            # emulator.append('80_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -82,8 +82,8 @@ class PlatformZx81(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            # emulator.append('fuse_libretro')
-            emulator.append('81_libretro')
+            emulator.append('fuse_libretro')
+            # emulator.append('81_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 

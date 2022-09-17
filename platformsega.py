@@ -125,7 +125,7 @@ class PlatformGamegear(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('gearsysytem_libretro')
+            emulator.append('gearsystem_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
