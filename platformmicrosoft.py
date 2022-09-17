@@ -4,6 +4,7 @@ from platformcommon import PlatformCommon
 emulator = ['retroarch']
 fullscreen = ['false']
 
+
 class PlatformXbox(PlatformCommon):
     def run(self):
         extensions = ['iso']

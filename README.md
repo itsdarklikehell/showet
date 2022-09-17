@@ -31,11 +31,14 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 
 ## Build instructions
 
-Clone the repo
+Clone the repo:
 
 ```bash
 git clone https://github.com/itsdarklikehell/showet
 cd showet
+./install.sh --update
+./install.sh --install-showet
+./install.sh --install-emulators
 ```
 
 To build debian package, run:
