@@ -273,7 +273,7 @@ class PlatformLynx(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['atarijlynx']
+        return ['atarilynx']
 
 # Tries to identify files by any magic necessary
     def find_ext_files(self):

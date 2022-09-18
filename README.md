@@ -53,6 +53,9 @@ Install the package to get dependencies.
 
 ### Amiga Notes
 
+Current: `puae2021_libretro`
+
+options:
 FS-UAE: `fsuae_libretro`
 UAE4ARM: `uae4arm_libretro`
 Puae: `puae_libretro`
@@ -80,9 +83,26 @@ Other: `uae|m3u|zip|7z|rp9|exe`
 
 Example(s):
 
-- [Starstruck By Black Lotus](http://www.pouet.net/prod.php?which=25778)
-- type: `zip,exe`
-- CLI: `./showet.py 22778`
+AGA:
+Name: Mare
+By: Ephidrena
+Type: demo
+Platform: amigaaga
+`./showet.py 92240`
+
+OCS/ECS:
+Name: MMXXII
+By: Cocoon
+Type: demo
+Platform: amigaocsecs
+`./showet.py 92365`
+
+PPC/RTG:
+Name: Eighteen
+By: Triad
+Type: demo,wild
+Platform: amigappcrtg
+`./showet.py 92257`
 
 ### Amstrad Notes
 
@@ -99,7 +119,6 @@ Enterprise 128: `ep128_libretro`
 - [CrocoDS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/crocods_libretro.info)
 
 - [Enterprise 128 Libretro Library](https://docs.libretro.com/library/ep128emu/)
-
 - [Enterprise Libretro core info](https://github.com/libretro/ep128emu-core/blob/core/ep128emu_libretro.info)
 
 Supported filetypes:
@@ -109,15 +128,19 @@ Enterpirse 128: `img|dsk|tap|dtf|cas|cdt|tzx|bas|com|trn|128|.`
 
 Example(s):
 
-- [CRTC3 By Flower Corp](http://www.pouet.net/prod.php?which=248542)
-- type: (multidisk) `zip,dsk`
-- CLI: `./showet.py 248542`
+CPC:
+Name: Debris
+By: Pulpo Corrosivo
+Type: 40k
+Platform: amstradcpc
+`./showet.py 92044`
 
 ### Apple(I/II/128K) Notes
 
 Minivmac: `minivmac_libretro`
 
 - [Minivmac Libretro Library](https://docs.libretro.com/library/minivmac/)
+
 - [Minivmac Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
 
 Supported filetypes:
@@ -145,6 +168,13 @@ Mame/Mess: `zip|chd|7z|cmd`
 
 Example(s):
 
+ACORN:
+Name: Relentless
+By: Phlamethrower
+Type: 4k
+Platform: acorn
+`./showet.py 90078`
+
 ### Atari Notes
 
 #### ST/STE/Falcon
@@ -152,13 +182,19 @@ Example(s):
 Hatari: `hatari_libretro`
 
 - [Hatari Libretro Library](https://docs.libretro.com/library/hatari/)
+
 - [Hatari Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/hatari_libretro.info)
 
 Supported filetypes:
-
-- `st|msa|zip|stx|dim|ipf|m3u`
+Hatari: `st|msa|zip|stx|dim|ipf|m3u`
 
 Example(s):
+
+Name: DUNE_255
+By: Dune
+Type: 256b
+Platform: atarifalcon030
+`./showet.py 90474`
 
 #### Jaguar
 
@@ -168,23 +204,34 @@ Virtualjaguar: `virtualjaguar_libretro`
 - [Virtualjaguar Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/virtualjaguar_libretro.info)
 
 Supported filetypes:
-
-- `j64|jag|rom|abs|cof|bin|prg`
+Virtualjaguar: `j64|jag|rom|abs|cof|bin|prg`
 
 Example(s):
+
+Name: bootMandel
+By: 42Bastian
+Type: 128b
+Platform: atarijaguar
+`./showet.py 91595`
 
 #### Lynx
 
 Handy: `handy_libretro`
 
 - [Handy Libretro Library](https://docs.libretro.com/library/handy/)
+
 - [Handy Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/handy_libretro.info)
 
 Supported filetypes:
-
-- `lnx|o`
+handy: `lnx|o`
 
 Example(s):
+
+Name: Planet Techno
+By: New Generation
+Type: demo
+Platform: atarilynx
+`./showet.py 90548`
 
 #### 2600
 
@@ -194,10 +241,16 @@ Stella: `stella_libretro`
 - [Stella Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/stella_libretro.info)
 
 Supported filetypes:
-
-- `a26|bin`
+Stella: `a26|bin`
 
 Example(s):
+
+XLXE:
+Name: mode9
+By: PPS
+Type: 32k,demo
+Platform: atarixlxe
+`./showet.py 92028`
 
 #### 2500
 
@@ -248,21 +301,26 @@ Supported filetypes:
 
 Example(s):
 
-- [Comaland by Censor Design & Oxyron](http://www.pouet.net/prod.php?which=64283)
-- CLI: `./showet.py 64283`
+VIC20:
 
-### Enterprise 64/128 Notes
+C16/116/plus4:
 
-Ep128emu: `ep128emu_libretro`
+C64:
+Name: Help/Poltergeist
+Type: 512b
+Platform: commodore64
+`./showet.py 92355`
 
-- [ep128emu Libretro Library](https://docs.libretro.com/library/ep128emu/)
-- [ep128emu Libretro core info](https://github.com/libretro/ep128emu-core/blob/core/ep128emu_libretro.info)
+C128:
+Name: C128 VDC Demo
+By: Onslaught
+Type: 8k
+Platform: commodore128
+`./showet.py 81542`
 
-Supported filetypes:
+CBM:
 
-- `img|dsk|tap|dtf|com|trn|128|bas|cas|cdt|tzx|.`
-
-Example(s):
+PET:
 
 ### Java Notes
 
@@ -341,7 +399,7 @@ Wine: `bat|com|exe`
 
 Example(s):
 
-### MsDOS Notes
+#### MsDOS
 
 Dosbox: `dosbox_libretro`
 Wine: `wine`
@@ -652,12 +710,15 @@ Example(s):
 - [Emux SMS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/emux_sms_libretro.info)
 - [Picodrive Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/picodrive_libretro.info)
 - [Smsplus Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/smsplus_libretro.info)
+- [Genesis plus GX Libretro Library](https://docs.libretro.com/library/genesis_plus_gx/)
+- [Genesis plus GX Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/genesis_plus_gx_libretro.info)
 
 Supported filetypes:
 Blastem: `md|bin|smd|gen|68k|sgd`
 Emux SMS: `sms|bms|bin|rom`
 Picodrive: `bin|gen|gg|smd|pco|md|32x|chd|cue|iso|sms|68k|sgd|m3u`
 Smsplus: `sms|bin|rom|col|gg|sg`
+Genesis plus: `mdx|md|smd|gen|bin|cue|iso|sms|bms|gg|sg|68k|sgd|chd|m3u`
 
 Example(s):
 
@@ -672,28 +733,22 @@ Mednafen: `ccd|chd|cue|toc|m3u`
 Kronos: `ccd|chd|cue|iso|mds|zip|m3u`
 Yabause/YabaSanshiro: `bin|ccd|chd|cue|iso|mds|zip|m3u`
 
-#### Genesis
-
-Genesis plus GX: `genesis_plus_gx_libretro`
-
-- [Genesis plus GX Libretro Library](https://docs.libretro.com/library/genesis_plus_gx/)
-- [Genesis plus GX Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/genesis_plus_gx_libretro.info)
-
-Supported filetypes:
-
-- `mdx|md|smd|gen|bin|cue|iso|sms|bms|gg|sg|68k|sgd|chd|m3u`
-
-Example(s):
-
 #### GameGear
 
 Gearsystem: `gearsystem_libretro`
 
 - [Gearsystem Libretro Library](https://docs.libretro.com/library/gearsystem/)
 - [Gearsystem Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/gearsystem_libretro.info)
+- [Smsplus Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/smsplus_libretro.info)
+- [Genesis plus GX Libretro Library](https://docs.libretro.com/library/genesis_plus_gx/)
+- [Genesis plus GX Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/genesis_plus_gx_libretro.info)
+- [FinalBurn Neo Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/fbneo_libretro.info)
 
 Supported filetypes:
 Gearsystem: `sms|gg|sg|bin|rom`
+Smsplus: `sms|bin|rom|col|gg|sg`
+Genesis plus: `mdx|md|smd|gen|bin|cue|iso|sms|bms|gg|sg|68k|sgd|chd|m3u`
+FinalBurn Neo: `zip|7z|cue|ccd`
 
 Example(s):
 
@@ -703,6 +758,8 @@ Flycast: `flycast_libretro`
 
 - [Flycast Libretro Library](https://docs.libretro.com/library/flycast/)
 - [Flycast Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/flycast_libretro.info)
+- [Redream Libretro Library](https://docs.libretro.com/library/redream/)
+- [Redream Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/redream_libretro.info)
 
 Supported filetypes:
 Flycast: `sms|gg|sg|bin|rom`
@@ -711,17 +768,38 @@ Example(s):
 
 ### Sinclair Notes
 
+#### ZXspectrum/ZX81
+
 Fuse: `fuse_libretro`
-81: `81_libretro`
 
 - [Fuse Libretro Library](https://docs.libretro.com/library/fuse/)
 - [Fuse Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/fuse_libretro.info)
-- [81 Libretro Library](https://docs.libretro.com/library/eightyone/)
-- [81 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/81_libretro.info)
 
 Supported filetypes:
 Fuse: `tzx|tap|z80|rzx|scl|trd|dsk|zip`
+
+Example(s):
+
+#### ZX81
+
+81: `81_libretro`
+
+- [81 Libretro Library](https://docs.libretro.com/library/eightyone/)
+- [81 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/81_libretro.info)
+
 81: `p|tzx|t81`
+
+Example(s):
+
+#### Enterprise 64/128
+
+Ep128emu: `ep128emu_libretro`
+
+- [ep128emu Libretro Library](https://docs.libretro.com/library/ep128emu/)
+- [ep128emu Libretro core info](https://github.com/libretro/ep128emu-core/blob/core/ep128emu_libretro.info)
+
+Supported filetypes:
+Ep128emu: `img|dsk|tap|dtf|com|trn|128|bas|cas|cdt|tzx|.`
 
 Example(s):
 
@@ -737,12 +815,17 @@ Duckstation: `ducktation_libretro`
 
 - [Mednafen Libretro Library](https://docs.libretro.com/library/beetle_psx/)
 - [PCSX ReARMed Libretro Library](https://docs.libretro.com/library/pcsx_rearmed/)
+
 - [Mednafen Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_psx_libretro.info)
 - [Rustation Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/rustation_libretro.info)
-- [Duckstation Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/ducktation_libretro.info)
+- [Duckstation Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/duckstation_libretro.info)
+- [Swanstation Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/swanstation_libretro.info)
 
 Supported filetypes:
 Mednafen: `cue|toc|m3u|ccd|exe|pbp|chd`
+Rustation: `cue|toc|m3u|ccd|exe`
+Duckstation: `exe|psexe|cue|bin|img|iso|chd|pbp|ecm|mds|psf|m3u`
+Swanstation: `exe|psexe|cue|bin|img|iso|chd|pbp|ecm|mds|psf|m3u`
 
 Example(s):
 
@@ -751,10 +834,15 @@ Example(s):
 Pcsx2: `pcsx2_libretro`
 
 - [Pcsx2 Libretro Library](https://docs.libretro.com/library/pcsx2/)
+- [Play! Libretro Library](https://docs.libretro.com/library/play/)
+
 - [Pcsx2 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/pcsx2_libretro.info)
+- [Play! Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/play_libretro.info)
 
 Supported filetypes:
+
 Pcsx2: `elf|iso|ciso|chd|cso|bin|mdf|nrg|dump|gz|img|m3u`
+Play: `chd|cso|cue|elf|iso|isz`
 
 Example(s):
 
@@ -763,6 +851,7 @@ Example(s):
 Ppsspp: `ppsspp_libretro`
 
 - [Ppsspp Libretro Library](https://docs.libretro.com/library/ppsspp/)
+
 - [Ppsspp Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/ppsspp_libretro.info)
 
 Supported filetypes:

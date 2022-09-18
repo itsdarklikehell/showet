@@ -25,7 +25,7 @@ class PlatformAmigaOSECS(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('puae_libretro')
+            emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
@@ -150,7 +150,7 @@ class PlatformAmigaAGA(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('puae_libretro')
+            emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
@@ -275,7 +275,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
         fullscreen = ['false']
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('puae_libretro')
+            emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
