@@ -53,18 +53,30 @@ Install the package to get dependencies.
 
 ### Amiga Notes
 
+FS-UAE: `fsuae_libretro`
+UAE4ARM: `uae4arm_libretro`
 Puae: `puae_libretro`
+Puae2021: `puae2021_libretro`
 
+- [FS-uae Libretro Library](https://docs.libretro.com/library/fsuae/)
 - [Puae Libretro Library](https://docs.libretro.com/library/puae/)
+- [Uae4arm Libretro Library](https://docs.libretro.com/library/uae4arm/)
+
+- [FS-UAE Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/fsuae_libretro.info)
 - [Puae Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/puae_libretro.info)
+- [Puae 2021 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/puae2021_libretro.info)
+- [UAE4ARM Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/uae4arm_libretro.info)
 
 Supported filetypes:
+FS-UAE: `adf|ipf|fs-uae`
+UAE4ARM: `adf|dms|ipf|adz|wrp|zip|uae|lha|cue|ccd|iso|hdf`
 
-- Floppies: `adf|adz|dms|fdi|ipf`
-- Hard Drives: `hdf|hdz|directory`
-- WHDLoad: `lha|slave|info`
-- CDs: `cue|ccd|chd|nrg|mds|iso`
-- Other: `uae|m3u|zip|7z|rp9|exe`
+PUA:
+Floppies: `adf|adz|dms|fdi|ipf`
+Hard Drives: `hdf|hdz|directory|.`
+WHDLoad: `lha|slave|info`
+CDs: `cue|ccd|chd|nrg|mds|iso`
+Other: `uae|m3u|zip|7z|rp9|exe`
 
 Example(s):
 
@@ -74,35 +86,32 @@ Example(s):
 
 ### Amstrad Notes
 
+#### CPC
+
+Caprice: `cap32_libretro`
 CrocoDS: `crocods_libretro`
+Enterprise 128: `ep128_libretro`
+
+- [Caprice32 Libretro Library](https://docs.libretro.com/library/caprice32/)
+- [Cap32 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/cap32_libretro.info)
 
 - [CrocoDS Libretro Library](https://docs.libretro.com/library/crocods/)
 - [CrocoDS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/crocods_libretro.info)
 
-Supported filetypes:
+- [Enterprise 128 Libretro Library](https://docs.libretro.com/library/ep128emu/)
 
-- `dsk|sna|kcr`
+- [Enterprise Libretro core info](https://github.com/libretro/ep128emu-core/blob/core/ep128emu_libretro.info)
+
+Supported filetypes:
+Crocods: `dsk|sna|kcr`
+Caprice: `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
+Enterpirse 128: `img|dsk|tap|dtf|cas|cdt|tzx|bas|com|trn|128|.`
 
 Example(s):
 
 - [CRTC3 By Flower Corp](http://www.pouet.net/prod.php?which=248542)
 - type: (multidisk) `zip,dsk`
 - CLI: `./showet.py 248542`
-
-Caprice: `cap32_libretro`
-
-- [Caprice32 Libretro Library](https://docs.libretro.com/library/caprice32/)
-- [Cap32 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/cap32_libretro.info)
-
-Supported filetypes:
-
-- `dsk|sna|zip|tap|cdt|voc|cpr|m3u`
-
-Example(s):
-
-- [Batman Forever By Batman Group](http://www.pouet.net/prod.php?which=56761)
-- type: (multidisk) `zip,dsk`
-- CLI: `./showet.py 56761`
 
 ### Apple(I/II/128K) Notes
 
@@ -112,8 +121,7 @@ Minivmac: `minivmac_libretro`
 - [Minivmac Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/minivmac_libretro.info)
 
 Supported filetypes:
-
-- `dsk|img|zip|hvf|cmd`
+Minivmac: `dsk|img|zip|hvf|cmd`
 
 Example(s):
 
@@ -124,17 +132,22 @@ Example(s):
 ### Archimedes Notes
 
 Mame: `mame_libretro`
+Mess2015: `mess_libretro`
 
 - [Mame Libretro Library](https://docs.libretro.com/library/mame/)
 - [Mame Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mame_libretro.info)
 
-Supported filetypes:
+- [Mess Libretro Library](https://docs.libretro.com/library/mess/)
+- [Mess Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mess2015_libretro.info)
 
-- `zip|chd|7z|cmd`
+Supported filetypes:
+Mame/Mess: `zip|chd|7z|cmd`
 
 Example(s):
 
 ### Atari Notes
+
+#### ST/STE/Falcon
 
 Hatari: `hatari_libretro`
 
@@ -147,6 +160,8 @@ Supported filetypes:
 
 Example(s):
 
+#### Jaguar
+
 Virtualjaguar: `virtualjaguar_libretro`
 
 - [Virtualjaguar Libretro Library](https://docs.libretro.com/library/virtual_jaguar/)
@@ -157,6 +172,8 @@ Supported filetypes:
 - `j64|jag|rom|abs|cof|bin|prg`
 
 Example(s):
+
+#### Lynx
 
 Handy: `handy_libretro`
 
@@ -169,6 +186,8 @@ Supported filetypes:
 
 Example(s):
 
+#### 2600
+
 Stella: `stella_libretro`
 
 - [Stella Libretro Library](https://docs.libretro.com/library/stella/)
@@ -177,6 +196,31 @@ Stella: `stella_libretro`
 Supported filetypes:
 
 - `a26|bin`
+
+Example(s):
+
+#### 2500
+
+Atari 800: `atari800_libretro`
+
+- [Atari 800 Libretro Library](https://docs.libretro.com/library/atari800/)
+- [Atari 800 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/atari800_libretro.info)
+
+Supported filetypes:
+atari800: `xfd|atr|cdm|cas|bin|a52|zip|atx|car|rom|com|xex`
+
+Example(s):
+
+#### 7800
+
+ProSystem: `prosystem_libretro`
+
+- [ProSystem Libretro Library](https://docs.libretro.com/library/prosystem/)
+- [ProSystem Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/prosystem_libretro.info)
+
+Supported filetypes:
+
+- `a78|bin`
 
 Example(s):
 
@@ -228,12 +272,20 @@ Squirreljme: `squirreljme_libretro`
 - [Squirreljme Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/squirreljme_libretro.info)
 
 Supported filetypes:
-
-- `jar|sqc|jam|jad|kjx`
+SquirrelJME: `jar|sqc|jam|jad|kjx`
 
 Example(s):
 
 ### Linux Notes
+
+Linux: `sh`
+
+- [sh/bash Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/placeholder_libretro.info)
+
+Supported filetypes:
+Linux: `exe|elf|sh`
+
+Example(s):
 
 ### Mattel Notes
 
@@ -243,12 +295,13 @@ Freeintv: `freeintv_libretro`
 - [Freeintv Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/freeintv_libretro.info)
 
 Supported filetypes:
-
-- `int|bin|rom`
+Freeintv: `int|bin|rom`
 
 Example(s):
 
 ### Microsoft Notes
+
+#### XBOX
 
 Directxbox: `directxbox_libretro`
 
@@ -256,42 +309,48 @@ Directxbox: `directxbox_libretro`
 - [Directxbox Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/directxbox_libretro.info)
 
 Supported filetypes:
-
-- `iso`
+Directxbox: `iso`
 
 Example(s):
 
+#### MSX
+
 Bluemsx: `bluemsx_libretro`
+Fmsx: `fmsx_libretro`
 
 - [Bluemsx Libretro Library](https://docs.libretro.com/library/bluemsx/)
 - [Bluemsx Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/bluemsx_libretro.info)
 
-Supported filetypes:
+- [Fmsx Libretro Library](https://docs.libretro.com/library/fmsx/)
+- [Fmsx Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/fmsx_libretro.info)
 
-- `rom|ri|mx1|mx2|col|dsk|cas|sg|sc|m3u`
+Supported filetypes:
+Bluemsx: `rom|ri|mx1|mx2|col|dsk|cas|sg|sc|m3u`
+Fmsx: `rom|mx1|mx2|dsk|cas|m3u`
 
 Example(s):
+
+#### Windows
 
 Wine: `wine`
 
 - [Wine Manual](https://linux.die.net/man/1/wine)
 
 Supported filetypes:
-
-- `bat|com|exe`
+Wine: `bat|com|exe`
 
 Example(s):
 
 ### MsDOS Notes
 
 Dosbox: `dosbox_libretro`
+Wine: `wine`
 
 - [Dosbox Libretro Library](https://docs.libretro.com/library/dosbox/)
 - [Dosbox Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/dosbox_libretro.info)
 
 Supported filetypes:
-
-- `exe|com|bat|conf`
+Dosbox/Wine: `exe|com|bat|conf`
 
 Example(s):
 
@@ -303,21 +362,71 @@ GameMusicEmu: `gme_libretro`
 - [GameMusicEmu Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/gme_libretro.info)
 
 Supported filetypes:
-
-- `ay|gbs|gym|hes|kss|nsf|nsfe|sap|spc|vgm|vgz|zip`
+GameMusicEmu: `ay|gbs|gym|hes|kss|nsf|nsfe|sap|spc|vgm|vgz|zip`
 
 Example(s):
 
 ### Nec Notes
 
+#### PCE
+
+Mednafen pce: `
+
+- [Mednafen pce Libretro Library](https://docs.libretro.com/library/mednafen_pce/)
+- [Mednafen pce Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_pce_libretro.info)
+
+Supported filetypes:
+Mednafen pce: `pce|sgx|cue|ccd|chd|toc|m3u`
+
+Example(s):
+
+#### PCFX
+
+Mednafen pcfx: `
+
+- [Mednafen pcfx Libretro Library](https://docs.libretro.com/library/mednafen_pcfx/)
+- [Mednafen pcfx Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_pcfx_libretro.info)
+
+Supported filetypes:
+Mednafen pcfx: `cue|ccd|toc|chd`
+
+Example(s):
+
+#### PC98
+
+NekoProject2: `
+
+- [NekoProject2 Libretro Library](https://docs.libretro.com/library/neko_project_ii/)
+- [NekoProject2kai Libretro Library](https://docs.libretro.com/library/neko_project_ii_kai/)
+- [NekoProject2 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/nekop2_libretro.info)
+- [NekoProject2kai Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/np2kai_libretro.info)
+
+Supported filetypes:
+nekop2/np2kai: `d98|zip|98d|fdi|fdd|2hd|tfd|d88|88d|hdm|xdf|dup|cmd|hdi|thd|nhd|hdd`
+
+Example(s):
+
+#### PC8000/PC8800
+
+Quasi88: `
+
+- [Quasi88 Libretro Library](https://docs.libretro.com/library/quasi88/)
+- [Quasi88 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/quasi88_libretro.info)
+
+Supported filetypes:
+Quasi88: `d88|u88|m3u`
+
+Example(s):
+
+#### SuperGrafx
+
 Mednafen Supergrafx: `mednafen_supergrafx_libretro`
 
 - [Mednafen Supergrafx Libretro Library](https://docs.libretro.com/library/beetle_sgx/)
-- [Mednafen Supergrafx Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_supergrafx.info)
+- [Mednafen Supergrafx Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_supergrafx_libretro.info)
 
 Supported filetypes:
-
-- `pce|sgx|cue|ccd|chd`
+Mednafen supergrafx: `pce|sgx|cue|ccd|chd`
 
 Example(s):
 
@@ -531,12 +640,37 @@ Retro8: `retro8_libretro`
 - [Retro8 Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/retro8_libretro.info)
 
 Supported filetypes:
-
-- `p8|png`
+Retro8: `p8|png`
 
 Example(s):
 
 ### Sega Notes
+
+#### MS/MD/32x/Genesis
+
+- [Blastem Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/blastem_libretro.info)
+- [Emux SMS Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/emux_sms_libretro.info)
+- [Picodrive Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/picodrive_libretro.info)
+- [Smsplus Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/smsplus_libretro.info)
+
+Supported filetypes:
+Blastem: `md|bin|smd|gen|68k|sgd`
+Emux SMS: `sms|bms|bin|rom`
+Picodrive: `bin|gen|gg|smd|pco|md|32x|chd|cue|iso|sms|68k|sgd|m3u`
+Smsplus: `sms|bin|rom|col|gg|sg`
+
+Example(s):
+
+#### Saturn
+
+- [Mednafen saturn Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/mednafen_saturn_libretro.info)
+- [Kronos Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/kronos_libretro.info)
+- [Yabause Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/yabause_libretro.info)
+- [YabaSanshiro Libretro core info](https://github.com/libretro/libretro-core-info/blob/master/yabasanshiro_libretro.info)
+
+Mednafen: `ccd|chd|cue|toc|m3u`
+Kronos: `ccd|chd|cue|iso|mds|zip|m3u`
+Yabause/YabaSanshiro: `bin|ccd|chd|cue|iso|mds|zip|m3u`
 
 #### Genesis
 
