@@ -13,26 +13,30 @@ class PlatformAmigaOSECS(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-
         if len(files) == 0:
             files = self.find_ext_files()
-
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
+        core = ['puae2021_libretro']
         fullscreen = ['false']
+
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('puae2021_libretro')
+            emulator.append(core[0])
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
-        # print("\tUsing: " + emulator[0])
+
+        print("\tUsing emulator: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
+
         drives = []
         # Support only one for now..
         if len(files) > 0:
@@ -138,26 +142,30 @@ class PlatformAmigaAGA(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-
         if len(files) == 0:
             files = self.find_ext_files()
-
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
+        core = ['puae2021_libretro']
         fullscreen = ['false']
+
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('puae2021_libretro')
+            emulator.append(core[0])
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
-        # print("\tUsing: " + emulator[0])
+
+        print("\tUsing emulator: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
+
         drives = []
         # Support only one for now..
         if len(files) > 0:
@@ -166,7 +174,6 @@ class PlatformAmigaAGA(PlatformCommon):
             if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
-
             if not os.path.exists(self.datadir + "/s"):
                 os.makedirs(self.datadir + "/s")
                 # when find_files_with_extension works with paths relative to datadir.
@@ -263,26 +270,30 @@ class PlatformAmigaPPCRTG(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-
         if len(files) == 0:
             files = self.find_ext_files()
-
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
         emulator = ['retroarch']
+        core = ['puae2021_libretro']
         fullscreen = ['false']
+
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('puae2021_libretro')
+            emulator.append(core[0])
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
-        # print("\tUsing: " + emulator[0])
+
+        print("\tUsing emulator: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
+
         drives = []
         # Support only one for now..
         if len(files) > 0:
@@ -291,7 +302,6 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
-
             if not os.path.exists(self.datadir + "/s"):
                 os.makedirs(self.datadir + "/s")
                 # when find_files_with_extension works with paths relative to datadir.
@@ -367,6 +377,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
 
 
 # Tries to identify files by any magic necessary
+
 
     def find_ext_files(self):
         ext_files = []

@@ -4,16 +4,15 @@ from platformcommon import PlatformCommon
 emulator = ['retroarch']
 fullscreen = ['false']
 
+
 class PlatformLinux(PlatformCommon):
     def run(self):
         extensions = ['exe', 'elf']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-
         if len(files) == 0:
             files = self.find_ext_files()
-
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -24,6 +23,9 @@ class PlatformLinux(PlatformCommon):
                   " - not sure which one to run!")
             exit(-1)
         else:
+            print("\tUsing emulator: " + emulator[0])
+            print("\tUsing core: " + core[0])
+            print("\tUsing fullscreen: " + fullscreen[0])
             print("Running ", files[0])
             self.run_process([files[0]])
 
@@ -32,7 +34,6 @@ class PlatformLinux(PlatformCommon):
 
 
 # Tries to identify files by any magic necessary
-
 
     def find_ext_files(self):
         ext_files = []

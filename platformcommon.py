@@ -1,6 +1,7 @@
 import os
 import os.path
 import subprocess
+from shutil import which
 
 
 class PlatformCommon:
@@ -17,7 +18,7 @@ class PlatformCommon:
         self.prod_files = []
         steam = ['false']
 
-# TODO: Change this to be relative to datadir
+    # TODO: Change this to be relative to datadir
     def find_files_recursively(self, path):
         entries = [os.path.join(path, i) for i in os.listdir(path)]
         if len(entries) == 0:
@@ -43,8 +44,8 @@ class PlatformCommon:
             extension) or f.lower().endswith(extension))]
         return foundfiles
 
-# Input: list of disk images, output: same list sorted by some
-# logic so that first image is first, second disk then etc..
+    # Input: list of disk images, output: same list sorted by some
+    # logic so that first image is first, second disk then etc..
     def sort_disks(self, files):
         sorted_list = sorted(files, key=lambda s: s.lower())
         if len(sorted_list) > 1:
