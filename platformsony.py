@@ -1,8 +1,9 @@
 import os
 from platformcommon import PlatformCommon
 
-emulator = ['retroarch']
-fullscreen = ['false']
+emulators = ['retroarch']
+core = ['mednafen_psx_libretro']
+fullscreens = ['false']
 
 
 class PlatformPsx(PlatformCommon):
@@ -18,18 +19,18 @@ class PlatformPsx(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['mednafen_psx_libretro']
+        fullscreen = ['false']
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append('mednafen_psx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -43,7 +44,7 @@ class PlatformPsx(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -75,18 +76,18 @@ class PlatformPs2(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['pcsx2_libretro']
+        fullscreen = ['false']
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append('pcsx2_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -100,7 +101,7 @@ class PlatformPs2(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -131,18 +132,18 @@ class PlatformPsp(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['ppsspp_libretro']
+        fullscreen = ['false']
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append('ppsspp_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -156,7 +157,7 @@ class PlatformPsp(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -164,7 +165,6 @@ class PlatformPsp(PlatformCommon):
         return ['playstationportable']
 
  # Tries to identify files by any magic necessary
-
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

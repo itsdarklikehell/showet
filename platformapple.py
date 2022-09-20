@@ -17,19 +17,19 @@ class PlatformApple(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = emulators[0]
-        core = cores[0]
-        fullscreen = fullscreens[0]
+        emulator = ['retroarch']
+        core = ['minivmac_libretro']
+        fullscreen = ['false']
 
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append('minivmac_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

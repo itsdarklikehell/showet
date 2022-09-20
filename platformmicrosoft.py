@@ -1,8 +1,9 @@
 import os.path
 from platformcommon import PlatformCommon
 
-emulator = ['retroarch']
-fullscreen = ['false']
+emulators = ['wine', 'retroarch']
+cores = ['directxbox_libretro']
+fullscreens = ['false']
 
 
 class PlatformXbox(PlatformCommon):
@@ -17,18 +18,18 @@ class PlatformXbox(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
+        core = ['directxbox_libretro']
         fullscreen = ['false']
-        core['directxbox_libretro']
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append('directxbox_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -42,7 +43,7 @@ class PlatformXbox(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -73,18 +74,18 @@ class PlatformMsx(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['bluemsx_libretro']
+        fullscreen = ['false']
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append('bleumsx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -98,7 +99,7 @@ class PlatformMsx(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -118,9 +119,10 @@ class PlatformMsx(PlatformCommon):
 
 class PlatformWindows(PlatformCommon):
     def run(self):
-        extensions = ['exe']
+        extensions = ['exe', 'bat']
         emulator = ['wine']
         core = ['wine']
+        fullscreen = ['false']
 
         wineprefix = self.showetdir + '/wineprefix'
         for ext in extensions:
@@ -130,9 +132,9 @@ class PlatformWindows(PlatformCommon):
             print("Didn't find any exe files.")
             exit(-1)
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         exefile = exes[0]
 
@@ -147,7 +149,7 @@ class PlatformWindows(PlatformCommon):
             os.makedirs(wineprefix)
             print("Creating wine prefix: " + str(wineprefix))
             os.system('WINEARCH="win64" winecfg')
-        self.run_process([emulator[0], exefile])
+        self.run_process([emulator, exefile])
 
     def supported_platforms(self):
         return ['windows', 'java', 'javascript']

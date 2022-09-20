@@ -17,20 +17,15 @@ class PlatformMsdos(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = emulators[0]
-        core = cores[0]
-        fullscreen = fullscreens[0]
+        emulator = ['retroarch']
+        core = ['dosbox_core_libretro']
+        fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulators == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append('dosbox_core_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
-        if emulator == 'dosbox':
-            emulator.append('-userconf')
-            if fullscreen == ['true']:
-                emulator.append('-fullscreen')
-            emulator.append('-c')
 
         print("\tUsing: " + emulator)
         print("\tUsing core: " + core)
@@ -46,13 +41,10 @@ class PlatformMsdos(PlatformCommon):
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
-
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'dosbox':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
     def supported_platforms(self):

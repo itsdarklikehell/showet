@@ -1,8 +1,9 @@
 import os
 from platformcommon import PlatformCommon
 
-emulator = ['retroarch']
-fullscreen = ['false']
+emulators = ['retroarch']
+cores = ['retro8_libretro']
+fullscreens = ['false']
 
 
 class PlatformPico8(PlatformCommon):
@@ -17,18 +18,18 @@ class PlatformPico8(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['retro8_libretro']
+        fullscreen = ['false']
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append('retro8_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -42,7 +43,7 @@ class PlatformPico8(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 

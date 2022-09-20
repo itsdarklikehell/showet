@@ -1,8 +1,9 @@
 import os
 from platformcommon import PlatformCommon
 
-emulator = ['retroarch']
-fullscreen = ['false']
+emulators = ['none']
+cores = ['none']
+fullscreens = ['false']
 
 
 class PlatformLinux(PlatformCommon):
@@ -23,9 +24,10 @@ class PlatformLinux(PlatformCommon):
                   " - not sure which one to run!")
             exit(-1)
         else:
-            print("\tUsing emulator: " + emulator[0])
-            print("\tUsing core: " + core[0])
-            print("\tUsing fullscreen: " + fullscreen[0])
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing fullscreen: " + str(fullscreen))
+
             print("Running ", files[0])
             self.run_process([files[0]])
 

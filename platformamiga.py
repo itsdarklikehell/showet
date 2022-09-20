@@ -21,13 +21,13 @@ class PlatformAmigaOSECS(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = emulators[0]
-        core = cores[0]
-        fullscreen = fullscreens[0]
+        emulator = ['retroarch']
+        core = ['puae2021_libretro']
+        fullscreen = ['false']
 
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator == 'fs-uae':
@@ -35,9 +35,9 @@ class PlatformAmigaOSECS(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         drives = []
         # Support only one for now..
@@ -60,6 +60,7 @@ class PlatformAmigaOSECS(PlatformCommon):
         if len(files) > 0:
             drives = self.sort_disks(files)
             emulator = emulator + [files[0]]
+
         if emulator == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
@@ -139,13 +140,13 @@ class PlatformAmigaAGA(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = emulators[0]
-        core = cores[0]
-        fullscreen = fullscreens[0]
+        emulator = ['retroarch']
+        core = ['puae2021_libretro']
+        fullscreen = ['false']
 
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator == 'fs-uae':
@@ -153,9 +154,9 @@ class PlatformAmigaAGA(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         drives = []
         # Support only one for now..
@@ -257,13 +258,13 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = emulators[0]
-        core = cores[0]
-        fullscreen = fullsceen[0]
+        emulator = ['retroarch']
+        core = ['puae2021_libretro']
+        fullscreen = ['false']
 
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator == 'fs-uae':
@@ -271,9 +272,9 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         drives = []
         # Support only one for now..

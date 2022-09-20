@@ -17,19 +17,19 @@ class PlatformCrocods(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = emulators[0]
-        core = cores[0]
-        fullscreen = fullscreens[0]
+        emulator = ['retroarch']
+        core = ['crocods_libretro']
+        fullscreen = ['false']
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append('crocods_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -73,19 +73,19 @@ class PlatformCaprice(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = emulators[0]
-        core = cores[1]
-        fullscreen = fullscreens[0]
+        emulator = ['retroarch']
+        core = ['cap32_libretro']
+        fullscreen = ['false']
 
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(str(core))
+            emulator.append('cap32_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing emulator: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -99,7 +99,7 @@ class PlatformCaprice(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
