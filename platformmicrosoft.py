@@ -123,8 +123,8 @@ class PlatformWindows(PlatformCommon):
         emulator = ['wine']
         core = ['wine']
         fullscreen = ['false']
-
         wineprefix = self.showetdir + '/wineprefix'
+
         for ext in extensions:
             exes = self.find_files_with_extension(ext)
 
@@ -132,11 +132,11 @@ class PlatformWindows(PlatformCommon):
             print("Didn't find any exe files.")
             exit(-1)
 
+        exefile = exes[0]
+
         print("\tUsing emulator: " + str(emulator))
         print("\tUsing core: " + str(core))
         print("\tUsing fullscreen: " + str(fullscreen))
-
-        exefile = exes[0]
 
         print("Guessed executable file: " + exefile)
 
