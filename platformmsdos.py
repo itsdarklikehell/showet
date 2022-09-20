@@ -27,9 +27,9 @@ class PlatformMsdos(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing: " + emulator)
-        print("\tUsing core: " + core)
-        print("\tUsing fullscreen: " + fullscreen)
+        print("\tUsing: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing fullscreen: " + str(fullscreen))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
