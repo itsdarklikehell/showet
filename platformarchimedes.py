@@ -3,7 +3,7 @@ from platformcommon import PlatformCommon
 
 emulators = ['retroarch']
 cores = ['mame_libretro']
-fullscreen = ['false']
+fullscreens = ['false']
 
 
 class PlatformAcorn(PlatformCommon):

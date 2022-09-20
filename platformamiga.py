@@ -266,7 +266,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             emulator.append(core)
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
-        if emulator[0] == 'fs-uae':
+        if emulator == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')

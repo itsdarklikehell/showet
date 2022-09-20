@@ -3,7 +3,7 @@ from platformcommon import PlatformCommon
 
 emulators = ['retroarch']
 cores = ['minivmac_libretro']
-fullscreen = ['false']
+fullscreens = ['false']
 
 
 class PlatformApple(PlatformCommon):

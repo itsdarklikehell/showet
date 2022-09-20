@@ -1,10 +1,9 @@
 import os
 from platformcommon import PlatformCommon
 
-# emulator = ['dosbox']
-emulators = ['retroarch']
+emulators = ['retroarch', 'dosbox']
 cores = ['dosbox_core_libretro']
-fullscreen = ['false']
+fullscreens = ['false']
 
 
 class PlatformMsdos(PlatformCommon):
