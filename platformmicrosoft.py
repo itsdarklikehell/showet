@@ -26,9 +26,9 @@ class PlatformXbox(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -82,9 +82,9 @@ class PlatformMsx(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -130,9 +130,9 @@ class PlatformWindows(PlatformCommon):
             print("Didn't find any exe files.")
             exit(-1)
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         exefile = exes[0]
 

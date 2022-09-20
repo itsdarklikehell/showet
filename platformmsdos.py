@@ -2,8 +2,8 @@ import os
 from platformcommon import PlatformCommon
 
 # emulator = ['dosbox']
-emulator = ['retroarch']
-core = ['dosbox_core_libretro']
+emulators = ['retroarch']
+cores = ['dosbox_core_libretro']
 fullscreen = ['false']
 
 
@@ -18,24 +18,24 @@ class PlatformMsdos(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['dosbox_core_libretro']
-        fullscreen = ['false']
+        emulator = emulators[0]
+        core = cores[0]
+        fullscreen = fullscreens[0]
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
-        if emulator[0] == 'dosbox':
+        if emulator == 'dosbox':
             emulator.append('-userconf')
             if fullscreen == ['true']:
                 emulator.append('-fullscreen')
             emulator.append('-c')
 
-        print("\tUsing: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -50,9 +50,9 @@ class PlatformMsdos(PlatformCommon):
 
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'dosbox':
+            if emulator == 'dosbox':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 

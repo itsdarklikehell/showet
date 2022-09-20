@@ -1,14 +1,16 @@
 import os
 from platformcommon import PlatformCommon
 
-emulator = ['retroarch']
-fullscreen = ['false']
+emulators = ['retroarch', 'puae', 'fs-uae']
+cores = ['puae2021_libretro', 'puae_libretro',
+         'fsuae_libretro', 'uae4arm_libretro']
+fullscreens = ['false']
 
 
 class PlatformAmigaOSECS(PlatformCommon):
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
-                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run', '*']
+                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
 
         ext = []
         for ext in extensions:
@@ -19,30 +21,30 @@ class PlatformAmigaOSECS(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['puae2021_libretro']
-        fullscreen = ['false']
+        emulator = emulators[0]
+        core = cores[0]
+        fullscreen = fullscreens[0]
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
-        if emulator[0] == 'fs-uae':
+        if emulator == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         drives = []
         # Support only one for now..
         if len(files) > 0:
-            if emulator[0] == 'fs-uae':
+            if emulator == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
 
@@ -58,15 +60,12 @@ class PlatformAmigaOSECS(PlatformCommon):
         if len(files) > 0:
             drives = self.sort_disks(files)
             emulator = emulator + [files[0]]
-
-        if emulator[0] == 'fs-uae':
+        if emulator == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
-
             if self.prod_platform == 'amigaaga':
                 emulator.append('--fast_memory=8192')
-    # --chip_memory=2048
             if len(drives) > 0:
                 print("\tUsing drive 0: ", drives[0])
                 emulator.append('--floppy_drive_0=' + drives[0])
@@ -79,16 +78,12 @@ class PlatformAmigaOSECS(PlatformCommon):
             if len(drives) > 3:
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append('--floppy_drive_3=' + drives[3])
-
             emulator.append('--model=' + amiga_model)
-        if emulator[0] == 'retroarch':
-            amiga_model = 'A1200'
 
+        if emulator == 'retroarch':
+            amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
-
-    # --chip_memory=2048
-
             if len(drives) > 0:
                 print("\tUsing drive 0: ", drives[0])
                 emulator.append(drives[0])
@@ -101,7 +96,7 @@ class PlatformAmigaOSECS(PlatformCommon):
             if len(drives) > 3:
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append(drives[3])
-
+            emulator.append('--model=' + amiga_model)
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -119,9 +114,7 @@ class PlatformAmigaOSECS(PlatformCommon):
                         cookie_files.append(file)
         return cookie_files
 
-
 # Tries to identify files by any magic necessary
-
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -129,15 +122,13 @@ class PlatformAmigaOSECS(PlatformCommon):
             if size > 0 and not file.endswith('.json'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
-                if file.endswith(''):
-                    emulator[0] = ['fs-uae']
         return ext_files
 
 
 class PlatformAmigaAGA(PlatformCommon):
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
-                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run', '*']
+                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
 
         ext = []
         for ext in extensions:
@@ -148,30 +139,30 @@ class PlatformAmigaAGA(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['puae2021_libretro']
-        fullscreen = ['false']
+        emulator = emulators[0]
+        core = cores[0]
+        fullscreen = fullscreens[0]
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
-        if emulator[0] == 'fs-uae':
+        if emulator == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         drives = []
         # Support only one for now..
         if len(files) > 0:
-            if emulator[0] == 'fs-uae':
+            if emulator == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
             if not os.path.exists(self.datadir + "/s"):
@@ -187,7 +178,7 @@ class PlatformAmigaAGA(PlatformCommon):
             drives = self.sort_disks(files)
             emulator = emulator + [files[0]]
 
-        if emulator[0] == 'fs-uae':
+        if emulator == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -207,7 +198,7 @@ class PlatformAmigaAGA(PlatformCommon):
                 emulator.append('--floppy_drive_3=' + drives[3])
             emulator.append('--model=' + amiga_model)
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -224,7 +215,6 @@ class PlatformAmigaAGA(PlatformCommon):
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append(drives[3])
             emulator.append('--model=' + amiga_model)
-
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -250,8 +240,6 @@ class PlatformAmigaAGA(PlatformCommon):
             if size > 0 and not file.endswith('.json'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
-                if file.endswith(''):
-                    emulator[0] = ['fs-uae']
         return ext_files
 
 
@@ -269,13 +257,13 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['puae2021_libretro']
-        fullscreen = ['false']
+        emulator = emulators[0]
+        core = cores[0]
+        fullscreen = fullsceen[0]
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':
@@ -283,16 +271,16 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         drives = []
         # Support only one for now..
         if len(files) > 0:
-            if emulator[0] == 'fs-uae':
+            if emulator == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
             if not os.path.exists(self.datadir + "/s"):
@@ -308,7 +296,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             drives = self.sort_disks(files)
             emulator = emulator + [files[0]]
 
-        if emulator[0] == 'fs-uae':
+        if emulator == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -328,7 +316,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                 emulator.append('--floppy_drive_3=' + drives[3])
             emulator.append('--model=' + amiga_model)
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -347,7 +335,6 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append(drives[3])
             emulator.append('--model=' + amiga_model)
-
         self.run_process(emulator)
 
     def supported_platforms(self):

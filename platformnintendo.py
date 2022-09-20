@@ -26,9 +26,9 @@ class PlatformFamicom(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -81,9 +81,9 @@ class PlatformSuperFamicom(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -136,9 +136,9 @@ class PlatformN64(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -191,9 +191,9 @@ class PlatformGameboy(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -246,9 +246,9 @@ class PlatformGameboyColor(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -301,9 +301,9 @@ class PlatformGameboyAdvance(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -357,9 +357,9 @@ class PlatformGamecube(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -413,9 +413,9 @@ class PlatformWii(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -468,9 +468,9 @@ class PlatformPokemini(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -523,9 +523,9 @@ class PlatformDS(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -578,9 +578,9 @@ class PlatformVirtualboy(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

@@ -1,8 +1,9 @@
 import os
 from platformcommon import PlatformCommon
 
-emulator = ['retroarch']
-fullscreen = ['false']
+emulators = ['retroarch', '81']
+fullscreens = ['false']
+cores = ['fuse_libretro', '81_libretro']
 
 
 class PlatformZxspectrum(PlatformCommon):
@@ -17,19 +18,19 @@ class PlatformZxspectrum(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['fuse_libretro']
+        emulator = emulators[0]
+        fullscreen = fullscreens[0]
+        core = cores[0]
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -43,7 +44,7 @@ class PlatformZxspectrum(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -73,20 +74,19 @@ class PlatformZx81(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['fuse_libretro']
+        emulator = emulators[0]
+        fullscreen = fullscreens[0]
+        core = cores[0]
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append('fuse_libretro')
-            # emulator.append('81_libretro')
+            emulator.appen(core)
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing emulator: " + emulator)
+        print("\tUsing core: " + core)
+        print("\tUsing fullscreen: " + fullscreen)
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
