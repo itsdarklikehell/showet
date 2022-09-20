@@ -21,7 +21,7 @@ class PlatformFamicom(PlatformCommon):
         core = ['quicknes_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('quicknes_libretro')
             if fullscreen == 'true':
@@ -43,7 +43,7 @@ class PlatformFamicom(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -76,7 +76,7 @@ class PlatformSuperFamicom(PlatformCommon):
         fullscreen = ['false']
         core = ['snes9x_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('snes9x_libretro')
             if fullscreen == 'true':
@@ -98,7 +98,7 @@ class PlatformSuperFamicom(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -131,7 +131,7 @@ class PlatformN64(PlatformCommon):
         fullscreen = ['false']
         core = ['mupen64plus_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mupen64plus_libretro')
             if fullscreen == 'true':
@@ -153,7 +153,7 @@ class PlatformN64(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -186,7 +186,7 @@ class PlatformGameboy(PlatformCommon):
         fullscreen = ['false']
         core = ['gambatte_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
             if fullscreen == 'true':
@@ -208,7 +208,7 @@ class PlatformGameboy(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -241,7 +241,7 @@ class PlatformGameboyColor(PlatformCommon):
         fullscreen = ['false']
         core = ['gambatte_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
             if fullscreen == 'true':
@@ -263,7 +263,7 @@ class PlatformGameboyColor(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -296,7 +296,7 @@ class PlatformGameboyAdvance(PlatformCommon):
         fullscreen = ['false']
         core = ['vba_next_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vba_next_libretro')
             if fullscreen == ['true']:
@@ -318,7 +318,7 @@ class PlatformGameboyAdvance(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -352,7 +352,7 @@ class PlatformGamecube(PlatformCommon):
         fullscreen = ['false']
         core = ['dolphin_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
             if fullscreen == 'true':
@@ -374,7 +374,7 @@ class PlatformGamecube(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -408,7 +408,7 @@ class PlatformWii(PlatformCommon):
         fullscreen = ['false']
         core = ['dolphin_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
             if fullscreen == 'true':
@@ -430,7 +430,7 @@ class PlatformWii(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -463,7 +463,7 @@ class PlatformPokemini(PlatformCommon):
         fullscreen = ['false']
         core = ['pokemini_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('pokemini_libretro')
             if fullscreen == 'true':
@@ -485,7 +485,7 @@ class PlatformPokemini(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -518,7 +518,7 @@ class PlatformDS(PlatformCommon):
         fullscreen = ['false']
         core = ['melonds_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('melnonds_libretro')
             if fullscreen == 'true':
@@ -540,7 +540,7 @@ class PlatformDS(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -573,7 +573,7 @@ class PlatformVirtualboy(PlatformCommon):
         fullscreen = ['false']
         core = ['mednafen_vb_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_vb_libretro')
             if fullscreen == 'true':
@@ -595,7 +595,7 @@ class PlatformVirtualboy(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 

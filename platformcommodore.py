@@ -2,8 +2,9 @@ import os
 from platformcommon import PlatformCommon
 
 
-fullscreen = ['false']
-emulator = ['retroarch']
+fullscreens = ['false']
+cores = ['vice_x64_libretro']
+emulators = ['retroarch']
 
 
 class PlatformCommodore64(PlatformCommon):
@@ -23,7 +24,7 @@ class PlatformCommodore64(PlatformCommon):
         fullscreen = ['false']
         core = ['vice_x64_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vice_x64_libretro')
             if fullscreen == ['true']:
@@ -45,9 +46,9 @@ class PlatformCommodore64(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
@@ -82,7 +83,7 @@ class PlatformCommodorePet(PlatformCommon):
         fullscreen = ['false']
         core = ['vice_xpet_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vice_xpet_libretro')
             if fullscreen == ['true']:
@@ -104,9 +105,9 @@ class PlatformCommodorePet(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
@@ -141,7 +142,7 @@ class PlatformCommodore128(PlatformCommon):
         fullscreen = ['false']
         core = ['vice_x128_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vice_x128_libretro')
             if fullscreen == ['true']:
@@ -163,9 +164,9 @@ class PlatformCommodore128(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
@@ -200,7 +201,7 @@ class PlatformCommodorePlus4(PlatformCommon):
         core = ['vice_xplus4_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vice_xplus4_libretro')
             if fullscreen == ['true']:
@@ -222,9 +223,9 @@ class PlatformCommodorePlus4(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
@@ -259,7 +260,7 @@ class PlatformCommodoreCBM(PlatformCommon):
         fullscreen = ['false']
         core = ['vice_xcbm2_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vice_xcbm2_libretro')
             if fullscreen == ['true']:
@@ -318,7 +319,7 @@ class PlatformCommodoreVIC20(PlatformCommon):
         fullscreen = ['false']
         core = ['vice_xvic_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vice_xvic_libretro')
             if fullscreen == ['true']:
@@ -340,9 +341,9 @@ class PlatformCommodoreVIC20(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 

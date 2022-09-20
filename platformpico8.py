@@ -21,7 +21,7 @@ class PlatformPico8(PlatformCommon):
         core = ['retro8_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('retro8_libretro')
             if fullscreen == ['true']:
@@ -43,7 +43,7 @@ class PlatformPico8(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 

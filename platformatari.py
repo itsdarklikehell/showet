@@ -21,7 +21,7 @@ class PlatformFalcon(PlatformCommon):
         core = ['hatari_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('hatari_libretro')
             if fullscreen == ['true']:
@@ -76,7 +76,7 @@ class PlatformAtarist(PlatformCommon):
         core = ['hatari_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('hatari_libretro')
             if fullscreen == ['true']:
@@ -98,7 +98,7 @@ class PlatformAtarist(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -131,7 +131,7 @@ class PlatformAtarixlxe(PlatformCommon):
         core = ['hatari_libretro']
         fullscreen = ['false']
 
-        if emulator == ['retroarch']:
+        if emulator[0] == ['retroarch']:
             emulator.append('-L')
             emulator.append('hatari_libretro')
             if fullscreen == 'true':
@@ -153,7 +153,7 @@ class PlatformAtarixlxe(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -187,7 +187,7 @@ class PlatformJaguar(PlatformCommon):
         core = ['virtualjaguar_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('virtualjaguar_libretro')
             if fullscreen == ['true']:
@@ -209,7 +209,7 @@ class PlatformJaguar(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -242,7 +242,7 @@ class PlatformLynx(PlatformCommon):
         fullscreen = ['false']
         core = ['handy_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('handy_libretro')
             if fullscreen == ['true']:
@@ -264,7 +264,7 @@ class PlatformLynx(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -297,7 +297,7 @@ class PlatformVcs(PlatformCommon):
         core = ['stella_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('stella_libretro')
             if fullscreen == ['true']:
@@ -319,7 +319,7 @@ class PlatformVcs(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 

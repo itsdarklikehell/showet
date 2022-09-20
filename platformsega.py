@@ -21,7 +21,7 @@ class PlatformBlastem(PlatformCommon):
         fullscreen = ['false']
         core = ['blastem_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('blastem_libretro')
             if fullscreen == ['true']:
@@ -43,7 +43,7 @@ class PlatformBlastem(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -77,7 +77,7 @@ class PlatformGenesis(PlatformCommon):
         fullscreen = ['false']
         core = ['genesis_plus_gx_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('genesis_plus_gx_libretro')
             if fullscreen == ['true']:
@@ -99,7 +99,7 @@ class PlatformGenesis(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -132,7 +132,7 @@ class PlatformGamegear(PlatformCommon):
         fullscreen = ['false']
         coree = ['gearsystem_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gearsystem_libretro')
             if fullscreen == ['true']:
@@ -154,7 +154,7 @@ class PlatformGamegear(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -188,7 +188,7 @@ class PlatformFlycast(PlatformCommon):
         fullscreen = ['false']
         core = ['flycast_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('flycast_libretro')
             if fullscreen == ['true']:
@@ -210,7 +210,7 @@ class PlatformFlycast(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -244,7 +244,7 @@ class PlatformFlycastGLES2(PlatformCommon):
         fullscreen = ['false']
         core = ['flycast_gles2_libretro']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('flycast_gles2_libretro')
             if fullscreen == ['true']:
@@ -266,7 +266,7 @@ class PlatformFlycastGLES2(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 

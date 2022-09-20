@@ -21,7 +21,7 @@ class PlatformXbox(PlatformCommon):
         core = ['directxbox_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('directxbox_libretro')
             if fullscreen == ['true']:
@@ -43,7 +43,7 @@ class PlatformXbox(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -77,7 +77,7 @@ class PlatformMsx(PlatformCommon):
         core = ['bluemsx_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('bleumsx_libretro')
             if fullscreen == ['true']:
@@ -99,7 +99,7 @@ class PlatformMsx(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 

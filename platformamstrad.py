@@ -21,7 +21,7 @@ class PlatformCrocods(PlatformCommon):
         core = ['crocods_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('crocods_libretro')
             if fullscreen == ['true']:
@@ -43,7 +43,7 @@ class PlatformCrocods(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -77,7 +77,7 @@ class PlatformCaprice(PlatformCommon):
         core = ['cap32_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('cap32_libretro')
             if fullscreen == ['true']:
@@ -99,7 +99,7 @@ class PlatformCaprice(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 

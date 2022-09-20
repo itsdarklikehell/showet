@@ -22,7 +22,7 @@ class PlatformEnterprise(PlatformCommon):
         core = ['ep128emu_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('ep128emu_libretro')
             if fullscreen == ['true']:
@@ -44,7 +44,7 @@ class PlatformEnterprise(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 

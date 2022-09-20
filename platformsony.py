@@ -22,7 +22,7 @@ class PlatformPsx(PlatformCommon):
         core = ['mednafen_psx_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_psx_libretro')
             if fullscreen == ['true']:
@@ -44,7 +44,7 @@ class PlatformPsx(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -79,7 +79,7 @@ class PlatformPs2(PlatformCommon):
         core = ['pcsx2_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('pcsx2_libretro')
             if fullscreen == ['true']:
@@ -101,7 +101,7 @@ class PlatformPs2(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 
@@ -135,7 +135,7 @@ class PlatformPsp(PlatformCommon):
         core = ['ppsspp_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('ppsspp_libretro')
             if fullscreen == ['true']:
@@ -157,7 +157,7 @@ class PlatformPsp(PlatformCommon):
                 f.write(disk + "\n")
         if len(files) > 0:
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
         self.run_process(emulator)
 

@@ -25,12 +25,12 @@ class PlatformAmigaOSECS(PlatformCommon):
         core = ['puae2021_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
-        if emulator == 'fs-uae':
+        if emulator[0] == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
@@ -42,9 +42,9 @@ class PlatformAmigaOSECS(PlatformCommon):
         drives = []
         # Support only one for now..
         if len(files) > 0:
-            if emulator == 'fs-uae':
+            if emulator[0] == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
 
@@ -61,7 +61,7 @@ class PlatformAmigaOSECS(PlatformCommon):
             drives = self.sort_disks(files)
             emulator = emulator + [files[0]]
 
-        if emulator == 'fs-uae':
+        if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -81,7 +81,7 @@ class PlatformAmigaOSECS(PlatformCommon):
                 emulator.append('--floppy_drive_3=' + drives[3])
             emulator.append('--model=' + amiga_model)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -144,12 +144,12 @@ class PlatformAmigaAGA(PlatformCommon):
         core = ['puae2021_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
-        if emulator == 'fs-uae':
+        if emulator[0] == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
@@ -161,9 +161,9 @@ class PlatformAmigaAGA(PlatformCommon):
         drives = []
         # Support only one for now..
         if len(files) > 0:
-            if emulator == 'fs-uae':
+            if emulator[0] == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
             if not os.path.exists(self.datadir + "/s"):
@@ -179,7 +179,7 @@ class PlatformAmigaAGA(PlatformCommon):
             drives = self.sort_disks(files)
             emulator = emulator + [files[0]]
 
-        if emulator == 'fs-uae':
+        if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -199,7 +199,7 @@ class PlatformAmigaAGA(PlatformCommon):
                 emulator.append('--floppy_drive_3=' + drives[3])
             emulator.append('--model=' + amiga_model)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -262,12 +262,12 @@ class PlatformAmigaPPCRTG(PlatformCommon):
         core = ['puae2021_libretro']
         fullscreen = ['false']
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
-        if emulator == 'fs-uae':
+        if emulator[0] == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
@@ -279,9 +279,9 @@ class PlatformAmigaPPCRTG(PlatformCommon):
         drives = []
         # Support only one for now..
         if len(files) > 0:
-            if emulator == 'fs-uae':
+            if emulator[0] == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
             if not os.path.exists(self.datadir + "/s"):
@@ -297,7 +297,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             drives = self.sort_disks(files)
             emulator = emulator + [files[0]]
 
-        if emulator == 'fs-uae':
+        if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -317,7 +317,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                 emulator.append('--floppy_drive_3=' + drives[3])
             emulator.append('--model=' + amiga_model)
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
