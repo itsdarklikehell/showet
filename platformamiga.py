@@ -191,10 +191,8 @@ class PlatformAmigaAGA(PlatformCommon):
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
-
             if self.prod_platform == 'amigaaga':
                 emulator.append('--fast_memory=8192')
-    # --chip_memory=2048
             if len(drives) > 0:
                 print("\tUsing drive 0: ", drives[0])
                 emulator.append('--floppy_drive_0=' + drives[0])
@@ -207,16 +205,12 @@ class PlatformAmigaAGA(PlatformCommon):
             if len(drives) > 3:
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append('--floppy_drive_3=' + drives[3])
-
             emulator.append('--model=' + amiga_model)
+
         if emulator[0] == 'retroarch':
             amiga_model = 'A1200'
-
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
-
-    # --chip_memory=2048
-
             if len(drives) > 0:
                 print("\tUsing drive 0: ", drives[0])
                 emulator.append(drives[0])
@@ -229,6 +223,7 @@ class PlatformAmigaAGA(PlatformCommon):
             if len(drives) > 3:
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append(drives[3])
+            emulator.append('--model=' + amiga_model)
 
         self.run_process(emulator)
 
@@ -247,9 +242,7 @@ class PlatformAmigaAGA(PlatformCommon):
                         cookie_files.append(file)
         return cookie_files
 
-
 # Tries to identify files by any magic necessary
-
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -265,7 +258,7 @@ class PlatformAmigaAGA(PlatformCommon):
 class PlatformAmigaPPCRTG(PlatformCommon):
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
-                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run', '*']
+                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
 
         ext = []
         for ext in extensions:
@@ -319,10 +312,8 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
-
             if self.prod_platform == 'amigaaga':
                 emulator.append('--fast_memory=8192')
-    # --chip_memory=2048
             if len(drives) > 0:
                 print("\tUsing drive 0: ", drives[0])
                 emulator.append('--floppy_drive_0=' + drives[0])
@@ -335,16 +326,14 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             if len(drives) > 3:
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append('--floppy_drive_3=' + drives[3])
-
             emulator.append('--model=' + amiga_model)
+
         if emulator[0] == 'retroarch':
             amiga_model = 'A1200'
-
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
-
-    # --chip_memory=2048
-
+            if self.prod_platform == 'amigaaga':
+                emulator.append('--fast_memory=8192')
             if len(drives) > 0:
                 print("\tUsing drive 0: ", drives[0])
                 emulator.append(drives[0])
@@ -357,6 +346,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
             if len(drives) > 3:
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append(drives[3])
+            emulator.append('--model=' + amiga_model)
 
         self.run_process(emulator)
 
@@ -375,10 +365,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                         cookie_files.append(file)
         return cookie_files
 
-
 # Tries to identify files by any magic necessary
-
-
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
