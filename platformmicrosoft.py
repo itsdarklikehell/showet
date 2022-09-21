@@ -131,7 +131,7 @@ class PlatformWindows(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['exe', 'bat']
+        extensions = ['exe']
         emulator = ['wine']
         core = ['wine']
         fullscreen = ['false']
