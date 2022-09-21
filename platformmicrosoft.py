@@ -126,6 +126,10 @@ class PlatformMsx(PlatformCommon):
 
 
 class PlatformWindows(PlatformCommon):
+    emulator = ['wine']
+    core = ['wine']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['exe', 'bat']
         emulator = ['wine']
@@ -134,13 +138,12 @@ class PlatformWindows(PlatformCommon):
         wineprefix = self.showetdir + '/wineprefix'
 
         for ext in extensions:
-            exes = self.find_files_with_extension(ext)
-
-        if len(exes) == 0:
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
             print("Didn't find any exe files.")
             exit(-1)
 
-        exefile = exes[0]
+        exefile = files[0]
 
         print("\tUsing: " + emulator[0])
         print("\tUsing core: " + core[0])
@@ -157,7 +160,7 @@ class PlatformWindows(PlatformCommon):
             os.makedirs(wineprefix)
             print("Creating wine prefix: " + str(wineprefix))
             os.system('WINEARCH="win64" winecfg')
-        self.run_process([emulator, exefile])
+        self.run_process([emulator[0], exefile])
 
     def supported_platforms(self):
         return ['windows', 'java', 'javascript']
