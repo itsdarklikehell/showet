@@ -12,7 +12,7 @@ class PlatformFalcon(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
+        extensions = ['zip', 'st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -59,7 +59,7 @@ class PlatformFalcon(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -71,7 +71,7 @@ class PlatformAtarist(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
+        extensions = ['zip', 'st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -118,7 +118,7 @@ class PlatformAtarist(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -130,7 +130,7 @@ class PlatformAtarixlxe(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
+        extensions = ['zip', 'st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -177,7 +177,7 @@ class PlatformAtarixlxe(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -189,7 +189,7 @@ class PlatformJaguar(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['j64', 'jag', 'rom', 'abs',
+        extensions = ['zip', 'j64', 'jag', 'rom', 'abs',
                       'cof', 'bin', 'prg']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -237,7 +237,7 @@ class PlatformJaguar(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -249,7 +249,7 @@ class PlatformLynx(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['lnx', 'o']
+        extensions = ['zip', 'lnx', 'o']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -296,7 +296,7 @@ class PlatformLynx(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -308,7 +308,7 @@ class PlatformVcs(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['a26', 'bin']
+        extensions = ['zip', 'a26', 'bin']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -355,7 +355,7 @@ class PlatformVcs(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

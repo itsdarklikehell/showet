@@ -8,7 +8,7 @@ fullscreens = ['false']
 
 class PlatformZxspectrum(PlatformCommon):
     def run(self):
-        extensions = ['tzx', 'p', 't81', 'tap',
+        extensions = ['zip', 'tzx', 'p', 't81', 'tap',
                       'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -56,7 +56,7 @@ class PlatformZxspectrum(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -64,8 +64,8 @@ class PlatformZxspectrum(PlatformCommon):
 
 class PlatformZx81(PlatformCommon):
     def run(self):
-        extensions = ['tzx', 'p', 't81', 'tap',
-                      'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+        extensions = ['zip', 'tzx', 'p', 't81', 'tap',
+                      'z80', 'rzx', 'scl', 'trd', 'dsk']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -112,7 +112,7 @@ class PlatformZx81(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

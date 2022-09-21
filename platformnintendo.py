@@ -12,7 +12,7 @@ class PlatformFamicom(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
+        extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -59,7 +59,7 @@ class PlatformFamicom(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -71,7 +71,7 @@ class PlatformSuperFamicom(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['sfc', 'smc', 'fig', 'swc', 'bs']
+        extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -118,7 +118,7 @@ class PlatformSuperFamicom(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -130,7 +130,7 @@ class PlatformN64(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+        extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -177,7 +177,7 @@ class PlatformN64(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -189,7 +189,7 @@ class PlatformGameboy(PlatformCommon):
     core = ['gambatte_libretro']
 
     def run(self):
-        extensions = ['gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
+        extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -236,7 +236,7 @@ class PlatformGameboy(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -248,7 +248,7 @@ class PlatformGameboyColor(PlatformCommon):
     core = ['gambatte_libretro']
 
     def run(self):
-        extensions = ['gbc', 'dmg', 'bin', 'u1', 'ndd']
+        extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -295,7 +295,7 @@ class PlatformGameboyColor(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -307,7 +307,8 @@ class PlatformGameboyAdvance(PlatformCommon):
     core = ['vba_next_libretro']
 
     def run(self):
-        extensions = ['gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
+        extensions = ['zip', 'gb', 'gbc', 'gba',
+                      'dmg', 'agb', 'bin', 'cgb', 'sgb']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -354,7 +355,7 @@ class PlatformGameboyAdvance(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -366,7 +367,7 @@ class PlatformGamecube(PlatformCommon):
     core = ['dolphin_libretro']
 
     def run(self):
-        extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
+        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -414,7 +415,7 @@ class PlatformGamecube(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -426,7 +427,7 @@ class PlatformWii(PlatformCommon):
     core = ['dolphin_libretro']
 
     def run(self):
-        extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
+        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -474,7 +475,7 @@ class PlatformWii(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -486,7 +487,7 @@ class PlatformPokemini(PlatformCommon):
     core = ['pokemini_libretro']
 
     def run(self):
-        extensions = ['min']
+        extensions = ['zip', 'min']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -533,7 +534,7 @@ class PlatformPokemini(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -545,7 +546,7 @@ class PlatformDS(PlatformCommon):
     core = ['melonds_libretro']
 
     def run(self):
-        extensions = ['nds', 'dsi']
+        extensions = ['zip', 'nds', 'dsi']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -592,7 +593,7 @@ class PlatformDS(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -602,9 +603,9 @@ class PlatformVirtualboy(PlatformCommon):
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['mednafen_vb_libretro']
-        
+
     def run(self):
-        extensions = ['vb', 'vboy', 'bin']
+        extensions = ['zip', 'vb', 'vboy', 'bin']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -651,7 +652,7 @@ class PlatformVirtualboy(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

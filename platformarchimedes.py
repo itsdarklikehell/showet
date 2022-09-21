@@ -5,6 +5,7 @@ emulators = ['retroarch']
 cores = ['mame_libretro']
 fullscreens = ['false']
 
+
 class PlatformAcorn(PlatformCommon):
     emulator = ['retroarch']
     core = ['mame_libretro']
@@ -58,7 +59,7 @@ class PlatformAcorn(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

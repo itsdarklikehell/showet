@@ -12,7 +12,7 @@ class PlatformLinux(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['exe', 'elf']
+        extensions = ['zip', 'exe', 'elf']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)

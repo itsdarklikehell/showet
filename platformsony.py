@@ -12,7 +12,7 @@ class PlatformPsx(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['exe', 'psexe', 'cue', 'toc', 'bin', 'img',
+        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -61,7 +61,7 @@ class PlatformPsx(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -73,7 +73,7 @@ class PlatformPs2(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['exe', 'psexe', 'cue', 'toc', 'bin', 'img',
+        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -122,7 +122,7 @@ class PlatformPs2(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -134,7 +134,7 @@ class PlatformPsp(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
+        extensions = ['zip', 'elf', 'iso', 'cso', 'prx', 'pbp']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -181,7 +181,7 @@ class PlatformPsp(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

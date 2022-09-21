@@ -12,7 +12,7 @@ class PlatformCrocods(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['dsk', 'sna', 'kcr']
+        extensions = ['zip', 'dsk', 'sna', 'kcr']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -59,7 +59,7 @@ class PlatformCrocods(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -71,7 +71,8 @@ class PlatformCaprice(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+        extensions = ['zip', 'dsk', 'sna', 'zip',
+                      'tap', 'cdt', 'voc', 'cpr', 'm3u']
         for ext in extensions:
             print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)
@@ -119,7 +120,7 @@ class PlatformCaprice(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

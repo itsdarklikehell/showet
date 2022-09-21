@@ -12,8 +12,8 @@ class PlatformGamemusic(PlatformCommon):
     core = ['gme_libretro']
 
     def run(self):
-        extensions = ['ay', 'gbs', 'gym', 'hes', 'kss',
-                      'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz', 'zip']
+        extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss',
+                      'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -60,7 +60,7 @@ class PlatformGamemusic(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
