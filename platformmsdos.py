@@ -7,6 +7,10 @@ fullscreens = ['false']
 
 
 class PlatformMsdos(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['dosbox_core_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['exe', 'com', 'bat', 'conf', 'zip']
         for ext in extensions:
@@ -21,15 +25,15 @@ class PlatformMsdos(PlatformCommon):
         core = ['dosbox_core_libretro']
         fullscreen = ['false']
 
-        if emulators == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dosbox_core_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -45,6 +49,8 @@ class PlatformMsdos(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == 'dosbox':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -55,7 +61,7 @@ class PlatformMsdos(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

@@ -7,6 +7,10 @@ fullscreens = ['false']
 
 
 class PlatformBlastem(PlatformCommon):
+    emulator = ['retroarch']
+    fullscreen = ['false']
+    core = ['blastem_libretro']
+
     def run(self):
         extensions = ['md', 'bin', 'smd', 'gen', '68k', 'sgd']
         for ext in extensions:
@@ -27,9 +31,9 @@ class PlatformBlastem(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -55,13 +59,17 @@ class PlatformBlastem(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformGenesis(PlatformCommon):
+    emulator = ['retroarch']
+    fullscreen = ['false']
+    core = ['genesis_plus_gx_libretro']
+
     def run(self):
         extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso',
                       'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
@@ -83,9 +91,9 @@ class PlatformGenesis(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -111,13 +119,17 @@ class PlatformGenesis(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformGamegear(PlatformCommon):
+    emulator = ['retroarch']
+    fullscreen = ['false']
+    core = ['gearsystem_libretro']
+
     def run(self):
         extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
         for ext in extensions:
@@ -130,7 +142,7 @@ class PlatformGamegear(PlatformCommon):
 
         emulator = ['retroarch']
         fullscreen = ['false']
-        coree = ['gearsystem_libretro']
+        core = ['gearsystem_libretro']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
@@ -138,9 +150,9 @@ class PlatformGamegear(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -166,13 +178,17 @@ class PlatformGamegear(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformFlycast(PlatformCommon):
+    emulator = ['retroarch']
+    fullscreen = ['false']
+    core = ['flycast_libretro']
+
     def run(self):
         extensions = ['chd', 'cdi', 'iso', 'elf', 'bin',
                       'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
@@ -194,9 +210,9 @@ class PlatformFlycast(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -222,13 +238,17 @@ class PlatformFlycast(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformFlycastGLES2(PlatformCommon):
+    emulator = ['retroarch']
+    fullscreen = ['false']
+    core = ['flycast_gles2_libretro']
+        
     def run(self):
         extensions = ['chd', 'cdi', 'iso', 'elf', 'bin',
                       'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
@@ -250,9 +270,9 @@ class PlatformFlycastGLES2(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -278,7 +298,7 @@ class PlatformFlycastGLES2(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

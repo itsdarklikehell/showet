@@ -8,6 +8,10 @@ fullscreens = ['false']
 
 
 class PlatformAmigaOSECS(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['puae2021_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
                       'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
@@ -35,9 +39,9 @@ class PlatformAmigaOSECS(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         drives = []
         # Support only one for now..
@@ -67,6 +71,7 @@ class PlatformAmigaOSECS(PlatformCommon):
                 amiga_model = 'A500'
             if self.prod_platform == 'amigaaga':
                 emulator.append('--fast_memory=8192')
+        # --chip_memory=2048
             if len(drives) > 0:
                 print("\tUsing drive 0: ", drives[0])
                 emulator.append('--floppy_drive_0=' + drives[0])
@@ -79,12 +84,15 @@ class PlatformAmigaOSECS(PlatformCommon):
             if len(drives) > 3:
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append('--floppy_drive_3=' + drives[3])
-            emulator.append('--model=' + amiga_model)
 
+            emulator.append('--model=' + amiga_model)
         if emulator[0] == 'retroarch':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
+
+    # --chip_memory=2048
+
             if len(drives) > 0:
                 print("\tUsing drive 0: ", drives[0])
                 emulator.append(drives[0])
@@ -97,7 +105,7 @@ class PlatformAmigaOSECS(PlatformCommon):
             if len(drives) > 3:
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append(drives[3])
-            emulator.append('--model=' + amiga_model)
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -127,6 +135,10 @@ class PlatformAmigaOSECS(PlatformCommon):
 
 
 class PlatformAmigaAGA(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['puae2021_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
                       'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
@@ -154,9 +166,9 @@ class PlatformAmigaAGA(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         drives = []
         # Support only one for now..
@@ -216,6 +228,7 @@ class PlatformAmigaAGA(PlatformCommon):
                 print("\tUsing drive 3: ", drives[3])
                 emulator.append(drives[3])
             emulator.append('--model=' + amiga_model)
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -245,6 +258,10 @@ class PlatformAmigaAGA(PlatformCommon):
 
 
 class PlatformAmigaPPCRTG(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['puae2021_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
                       'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
@@ -272,9 +289,9 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         drives = []
         # Support only one for now..

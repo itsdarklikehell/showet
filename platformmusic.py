@@ -2,11 +2,15 @@ import os
 from platformcommon import PlatformCommon
 
 emulators = ['retroarch']
-fullscreens = ['false']
 cores = ['gme_libretro']
+fullscreens = ['false']
 
 
 class PlatformGamemusic(PlatformCommon):
+    emulator = ['retroarch']
+    fullscreen = ['false']
+    core = ['gme_libretro']
+
     def run(self):
         extensions = ['ay', 'gbs', 'gym', 'hes', 'kss',
                       'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz', 'zip']
@@ -28,9 +32,9 @@ class PlatformGamemusic(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -56,7 +60,7 @@ class PlatformGamemusic(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

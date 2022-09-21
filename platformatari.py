@@ -7,6 +7,10 @@ fullscreens = ['false']
 
 
 class PlatformFalcon(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['hatari_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
         for ext in extensions:
@@ -27,9 +31,9 @@ class PlatformFalcon(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -55,13 +59,17 @@ class PlatformFalcon(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformAtarist(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['hatari_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
         for ext in extensions:
@@ -82,9 +90,9 @@ class PlatformAtarist(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -110,13 +118,17 @@ class PlatformAtarist(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformAtarixlxe(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['hatari_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
         for ext in extensions:
@@ -137,9 +149,9 @@ class PlatformAtarixlxe(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -165,13 +177,17 @@ class PlatformAtarixlxe(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformJaguar(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['virtualjaguar_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['j64', 'jag', 'rom', 'abs',
                       'cof', 'bin', 'prg']
@@ -193,9 +209,9 @@ class PlatformJaguar(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -221,13 +237,17 @@ class PlatformJaguar(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformLynx(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['handy_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['lnx', 'o']
         for ext in extensions:
@@ -248,9 +268,9 @@ class PlatformLynx(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -276,13 +296,17 @@ class PlatformLynx(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformVcs(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['stella_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['a26', 'bin']
         for ext in extensions:
@@ -303,9 +327,9 @@ class PlatformVcs(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -331,7 +355,7 @@ class PlatformVcs(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

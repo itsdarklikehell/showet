@@ -7,6 +7,10 @@ fullscreens = ['false']
 
 
 class PlatformTic80(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['tic80_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['tic']
         for ext in extensions:
@@ -27,9 +31,9 @@ class PlatformTic80(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -55,7 +59,7 @@ class PlatformTic80(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

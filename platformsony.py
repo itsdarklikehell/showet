@@ -2,11 +2,15 @@ import os
 from platformcommon import PlatformCommon
 
 emulators = ['retroarch']
-core = ['mednafen_psx_libretro']
+cores = ['mednafen_psx_libretro']
 fullscreens = ['false']
 
 
 class PlatformPsx(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['mednafen_psx_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['exe', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
@@ -28,9 +32,9 @@ class PlatformPsx(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -57,13 +61,17 @@ class PlatformPsx(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformPs2(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['pcsx2_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['exe', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
@@ -85,9 +93,9 @@ class PlatformPs2(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -114,13 +122,17 @@ class PlatformPs2(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformPsp(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['ppsspp_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         for ext in extensions:
@@ -141,9 +153,9 @@ class PlatformPsp(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -169,7 +181,7 @@ class PlatformPsp(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files

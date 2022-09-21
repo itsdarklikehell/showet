@@ -7,6 +7,10 @@ fullscreens = ['false']
 
 
 class PlatformXbox(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['directxbox_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['iso']
         for ext in extensions:
@@ -27,9 +31,9 @@ class PlatformXbox(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -55,13 +59,17 @@ class PlatformXbox(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformMsx(PlatformCommon):
+    emulator = ['retroarch']
+    core = ['bluemsx_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col',
                       'dsk', 'fdi', 'cas', 'sg', 'sc', 'm3u']
@@ -79,13 +87,13 @@ class PlatformMsx(PlatformCommon):
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('bleumsx_libretro')
+            emulator.append('bluemsx_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -111,7 +119,7 @@ class PlatformMsx(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
@@ -134,9 +142,9 @@ class PlatformWindows(PlatformCommon):
 
         exefile = exes[0]
 
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing: " + emulator[0])
+        print("\tUsing core: " + core[0])
+        print("\tUsing fullscreen: " + fullscreen[0])
 
         print("Guessed executable file: " + exefile)
 
@@ -159,7 +167,7 @@ class PlatformWindows(PlatformCommon):
     #     ext_files = []
     #     for file in self.prod_files:
     #         size = os.path.getsize(file)
-    #         if size > 0 and not file.endswith('.json') and not file.endswith('.txt'):
+    #         if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz'):
     #                 ext_files.append(file)
     #                 print("\tFound file: " + file)
     #     return ext_files

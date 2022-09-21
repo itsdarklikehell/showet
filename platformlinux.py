@@ -7,6 +7,10 @@ fullscreens = ['false']
 
 
 class PlatformLinux(PlatformCommon):
+    emulator = ['none']
+    core = ['none']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['exe', 'elf']
         ext = []
