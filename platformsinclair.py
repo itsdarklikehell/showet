@@ -80,7 +80,7 @@ class PlatformZx81(PlatformCommon):
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.appen(core)
+            emulator.append(core)
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
