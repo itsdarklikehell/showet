@@ -31,9 +31,9 @@ class PlatformBlastem(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -91,9 +91,9 @@ class PlatformGenesis(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -150,9 +150,9 @@ class PlatformGamegear(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -210,9 +210,9 @@ class PlatformFlycast(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -270,9 +270,9 @@ class PlatformFlycastGLES2(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        print("\tUsing: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"

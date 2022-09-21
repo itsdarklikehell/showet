@@ -39,9 +39,9 @@ class PlatformAmigaOSECS(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
 
         drives = []
         # Support only one for now..
@@ -166,9 +166,9 @@ class PlatformAmigaAGA(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
 
         drives = []
         # Support only one for now..
@@ -289,9 +289,9 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing: " + emulator[0])
-        print("\tUsing core: " + core[0])
-        print("\tUsing fullscreen: " + fullscreen[0])
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
 
         drives = []
         # Support only one for now..
