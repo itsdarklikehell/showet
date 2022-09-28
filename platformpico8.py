@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['retro8_libretro']
-fullscreens = ['false']
-
-
 class PlatformPico8(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['retro8_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['retro8_libretro']
     fullscreen = ['false']

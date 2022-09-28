@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['squirreljme_libretro']
-fullscreens = ['false']
-
-
 class PlatformJava(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['squirreljme_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['squirreljme_libretro']
     fullscreen = ['false']

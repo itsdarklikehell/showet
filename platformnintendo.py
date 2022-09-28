@@ -1,14 +1,12 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['quicknes_libretro']
-fullscreens = ['false']
-
-
 class PlatformFamicom(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
-    core = ['quicknes_libretro']
+    core = ['fceumm_libretro']
     fullscreen = ['false']
 
     def run(self):
@@ -63,9 +61,11 @@ class PlatformFamicom(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformSuperFamicom(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['snes9x_libretro']
+    fullscreens = ['false']
+    
     emulator = ['retroarch']
     core = ['snes9x_libretro']
     fullscreen = ['false']
@@ -122,13 +122,15 @@ class PlatformSuperFamicom(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformN64(PlatformCommon):
+    emulators = ['retroarch', 'mupen64plus-glide64', 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
+    cores = ['mupen64plus_libretro', 'mupen64plus_next_libretro', 'parallel_n46_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['mupen64plus_libretro']
     fullscreen = ['false']
-
+    
     def run(self):
         extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         for ext in extensions:
@@ -181,9 +183,11 @@ class PlatformN64(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformGameboy(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['gambatte_libretro', 'mess2016_libretro', 'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['gambatte_libretro']
@@ -240,13 +244,14 @@ class PlatformGameboy(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformGameboyColor(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['gambatte_libretro']
-
     def run(self):
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
         for ext in extensions:
@@ -299,9 +304,11 @@ class PlatformGameboyColor(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformGameboyAdvance(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['vba_next_libretro', 'mgba_libretro']
+    
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['vba_next_libretro']
@@ -359,13 +366,14 @@ class PlatformGameboyAdvance(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformGamecube(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['dolphin_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['dolphin_libretro']
-
     def run(self):
         extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
@@ -419,13 +427,15 @@ class PlatformGamecube(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformWii(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['dolphin_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['dolphin_libretro']
-
+    
     def run(self):
         extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
@@ -479,13 +489,14 @@ class PlatformWii(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformPokemini(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['pokemini_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['pokemini_libretro']
-
     def run(self):
         extensions = ['zip', 'min']
         for ext in extensions:
@@ -538,13 +549,15 @@ class PlatformPokemini(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformDS(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['melonds_libretro']
-
+    
     def run(self):
         extensions = ['zip', 'nds', 'dsi']
         for ext in extensions:
@@ -597,9 +610,11 @@ class PlatformDS(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformVirtualboy(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['mednafen_vb_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['mednafen_vb_libretro']

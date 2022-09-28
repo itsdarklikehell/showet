@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['mu_libretro']
-fullscreens = ['false']
-
-
 class PlatformPalm(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['mu_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['mu_libretro']
     fullscreen = ['false']

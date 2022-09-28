@@ -15,8 +15,8 @@ from platformsinclair import PlatformZx81, PlatformZxspectrum
 from platformcommodore import PlatformCommodore64, PlatformCommodorePet, PlatformCommodore128, PlatformCommodorePlus4, PlatformCommodoreVIC20, PlatformCommodoreCBM
 from platformlinux import PlatformLinux
 from platformtic80 import PlatformTic80
-from platformsega import PlatformGamegear, PlatformGenesis, PlatformBlastem, PlatformFlycast
-from platformneogeo import PlatformNeopocket, PlatformNeopocketcolor
+from platformsega import PlatformMegadrive, PlatformGamegear, PlatformMastersystem, PlatformGenesis, PlatformFlycast, PlatformSaturn
+from platformneogeo import PlatformNeogeo, PlatformNeopocket, PlatformNeopocketcolor
 from platformsony import PlatformPsx, PlatformPsp, PlatformPs2
 from platformmattel import PlatformIntellivision
 from platformarchimedes import PlatformAcorn
@@ -33,14 +33,14 @@ parser.add_argument('pouetid', type=int, nargs='?',
                     help='Pouet ID of the production to show')
 parser.add_argument('--platforms', action="store_true",
                     help='List supported platforms and exit')
+parser.add_argument('--random', action="store_true",
+                    help='Play random productions')
 
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmigaOSECS(), PlatformAmigaAGA(), PlatformAmigaPPCRTG(), PlatformCaprice(), PlatformCrocods(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(), PlatformZx81(), PlatformZxspectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(
-), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple(), PlatformTic80(), PlatformNeopocket(), PlatformNeopocketcolor(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(), PlatformGamegear(), PlatformGenesis(), PlatformBlastem(), PlatformEnterprise(), PlatformPsx(), PlatformPs2(), PlatformPsp(), PlatformIntellivision(), PlatformJava(), PlatformGamemusic(), PlatformAcorn(), PlatformPalm(), PlatformPico8(), PlatformVectrex(), PlatformFlycast()]
+platform_runners = [PlatformAmigaOSECS(), PlatformAmigaAGA(), PlatformAmigaPPCRTG(), PlatformCaprice(), PlatformCrocods(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(), PlatformZx81(), PlatformZxspectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformVideo(), PlatformApple(), PlatformTic80(), PlatformNeogeo(), PlatformNeopocket(), PlatformNeopocketcolor(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(), PlatformGamegear(), PlatformMastersystem(), PlatformMegadrive(), PlatformGenesis(), PlatformSaturn(), PlatformEnterprise(), PlatformPsx(), PlatformPs2(), PlatformPsp(), PlatformIntellivision(), PlatformJava(), PlatformGamemusic(), PlatformAcorn(), PlatformPalm(), PlatformPico8(), PlatformVectrex(), PlatformFlycast()]
 
-# platform_runners = [PlatformAmigaOSECS(), PlatformAmigaAGA(), PlatformAmigaPPCRTG()]
 
 
 if args.platforms:

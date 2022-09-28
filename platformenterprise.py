@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['ep128emu_libretro']
-fullscreens = ['false']
-
-
 class PlatformEnterprise(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['ep128emu_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['ep128emu_libretro']
     fullscreen = ['false']

@@ -1,16 +1,14 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['hatari_libretro']
-fullscreens = ['false']
-
-
 class PlatformFalcon(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['hatari_libretro']
+    fullscreens = ['false']
+    
     emulator = ['retroarch']
     core = ['hatari_libretro']
     fullscreen = ['false']
-
+    
     def run(self):
         extensions = ['zip', 'st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
         for ext in extensions:
@@ -63,9 +61,11 @@ class PlatformFalcon(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformAtarist(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['hatari_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['hatari_libretro']
     fullscreen = ['false']
@@ -122,9 +122,11 @@ class PlatformAtarist(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformAtarixlxe(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['hatari_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['hatari_libretro']
     fullscreen = ['false']
@@ -181,9 +183,11 @@ class PlatformAtarixlxe(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformJaguar(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['virtualjaguar_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['virtualjaguar_libretro']
     fullscreen = ['false']
@@ -241,9 +245,11 @@ class PlatformJaguar(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformLynx(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['handy_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['handy_libretro']
     fullscreen = ['false']
@@ -300,11 +306,13 @@ class PlatformLynx(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformVcs(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['stella2014_libretro', 'stella_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
-    core = ['stella_libretro']
+    core = ['stella2014_libretro', 'stella_libretro']
     fullscreen = ['false']
 
     def run(self):
@@ -318,12 +326,12 @@ class PlatformVcs(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['stella_libretro']
+        core = ['stella2014_libretro', 'stella_libretro']
         fullscreen = ['false']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('stella_libretro')
+            emulator.append('stella2014_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 

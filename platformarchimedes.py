@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['mame_libretro']
-fullscreens = ['false']
-
-
 class PlatformAcorn(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['mame_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['mame_libretro']
     fullscreen = ['false']

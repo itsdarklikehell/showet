@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['gme_libretro']
-fullscreens = ['false']
-
-
 class PlatformGamemusic(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['gme_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['gme_libretro']

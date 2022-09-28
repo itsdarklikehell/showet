@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['mednafen_supergrafx_libretro']
-fullscreens = ['false']
-
-
 class PlatformSupergrafx(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['mednafen_supergrafx_libretro']
     fullscreen = ['false']

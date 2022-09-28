@@ -1,12 +1,10 @@
 import os.path
 from platformcommon import PlatformCommon
-
-emulators = ['wine', 'retroarch']
-cores = ['directxbox_libretro']
-fullscreens = ['false']
-
-
 class PlatformXbox(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['directxbox_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['directxbox_libretro']
     fullscreen = ['false']
@@ -63,13 +61,14 @@ class PlatformXbox(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformMsx(PlatformCommon):
+    emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
+    cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
+    fullscreens = ['false']
+    
     emulator = ['retroarch']
     core = ['bluemsx_libretro']
     fullscreen = ['false']
-
     def run(self):
         extensions = ['zip', 'rom', 'ri', 'mx1', 'mx2', 'col',
                       'dsk', 'fdi', 'cas', 'sg', 'sc', 'm3u']
@@ -123,9 +122,11 @@ class PlatformMsx(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformWindows(PlatformCommon):
+    emulators = ['wine']
+    cores = ['wine']
+    fullscreens = ['false']
+
     emulator = ['wine']
     core = ['wine']
     fullscreen = ['false']
@@ -166,11 +167,11 @@ class PlatformWindows(PlatformCommon):
         return ['windows']
 
     # Tries to identify files by any magic necessary
-    # def find_ext_files(self):
-    #     ext_files = []
-    #     for file in self.prod_files:
-    #         size = os.path.getsize(file)
-    #         if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-    #                 ext_files.append(file)
-    #                 print("\tFound file: " + file)
-    #     return ext_files
+    def find_ext_files(self):
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
+        return ext_files

@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['tic80_libretro']
-fullscreens = ['false']
-
-
 class PlatformTic80(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['tic80_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['tic80_libretro']
     fullscreen = ['false']

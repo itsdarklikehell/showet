@@ -1,13 +1,12 @@
 import os
 from platformcommon import PlatformCommon
 
-emulators = ['retroarch', 'puae', 'fs-uae']
-cores = ['puae2021_libretro', 'puae_libretro',
-         'fsuae_libretro', 'uae4arm_libretro']
-fullscreens = ['false']
-
-
 class PlatformAmigaOSECS(PlatformCommon):
+    emulators = ['retroarch', 'puae', 'fs-uae']
+    cores = ['puae2021_libretro', 'puae_libretro',
+         'fsuae_libretro', 'uae4arm_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['puae2021_libretro']
     fullscreen = ['false']
@@ -132,9 +131,12 @@ class PlatformAmigaOSECS(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformAmigaAGA(PlatformCommon):
+    emulators = ['retroarch', 'puae', 'fs-uae']
+    cores = ['puae2021_libretro', 'puae_libretro',
+         'fsuae_libretro', 'uae4arm_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['puae2021_libretro']
     fullscreen = ['false']
@@ -255,9 +257,12 @@ class PlatformAmigaAGA(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformAmigaPPCRTG(PlatformCommon):
+    emulators = ['retroarch', 'puae', 'fs-uae']
+    cores = ['puae2021_libretro', 'puae_libretro',
+         'fsuae_libretro', 'uae4arm_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['puae2021_libretro']
     fullscreen = ['false']

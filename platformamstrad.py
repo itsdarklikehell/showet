@@ -1,12 +1,11 @@
 import os
 from platformcommon import PlatformCommon
 
-emulators = ['retroarch']
-cores = ['crocods_libretro', 'cap32_libretro']
-fullscreens = ['false']
-
-
 class PlatformCrocods(PlatformCommon):
+    emulators = ['retroarch', 'zesarux']
+    cores = ['crocods_libretro', 'cap32_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['crocods_libretro']
     fullscreen = ['false']
@@ -63,9 +62,11 @@ class PlatformCrocods(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformCaprice(PlatformCommon):
+    emulators = ['retroarch', 'zesarux']
+    cores = ['crocods_libretro', 'cap32_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['cap32_libretro']
     fullscreen = ['false']

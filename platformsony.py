@@ -1,11 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-emulators = ['retroarch']
-cores = ['mednafen_psx_libretro']
-fullscreens = ['false']
-
-
 class PlatformPsx(PlatformCommon):
     emulator = ['retroarch']
     core = ['mednafen_psx_libretro']
@@ -65,8 +60,6 @@ class PlatformPsx(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformPs2(PlatformCommon):
     emulator = ['retroarch']
     core = ['pcsx2_libretro']
@@ -126,13 +119,14 @@ class PlatformPs2(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformPsp(PlatformCommon):
+    emulators = ['retroarch', 'ppsspp']
+    cores = ['ppsspp_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['ppsspp_libretro']
     fullscreen = ['false']
-
     def run(self):
         extensions = ['zip', 'elf', 'iso', 'cso', 'prx', 'pbp']
         for ext in extensions:

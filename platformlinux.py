@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
+class PlatformLinux(PlatformCommon):    
+    emulators = ['none']
+    cores = ['none']
+    fullscreens = ['false']
 
-emulators = ['none']
-cores = ['none']
-fullscreens = ['false']
-
-
-class PlatformLinux(PlatformCommon):
     emulator = ['none']
     core = ['none']
     fullscreen = ['false']

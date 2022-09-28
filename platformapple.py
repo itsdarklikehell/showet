@@ -1,13 +1,11 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['minivmac_libretro']
-fullscreens = ['false']
-
-
 class PlatformApple(PlatformCommon):
-    emulator = ['retroarch']
+    emulators = ['retroarch', 'linapple', 'basilisk']
+    cores = ['minivmac_libretro']
+    fullscreens = ['false']
+
+    emulator = ['retroarch', 'linapple']
     core = ['minivmac_libretro']
     fullscreen = ['false']
 

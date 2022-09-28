@@ -1,12 +1,14 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch', '81']
-cores = ['fuse_libretro', '81_libretro']
-fullscreens = ['false']
-
-
 class PlatformZxspectrum(PlatformCommon):
+    emulators = ['retroarch', '81']
+    cores = ['fuse_libretro', '81_libretro']
+    fullscreens = ['false']
+
+    emulator = ['retroarch']
+    core = ['fuse_libretro']
+    fullscreen = ['false']
+
     def run(self):
         extensions = ['zip', 'tzx', 'p', 't81', 'tap',
                       'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
@@ -60,9 +62,15 @@ class PlatformZxspectrum(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
-
-
 class PlatformZx81(PlatformCommon):
+    emulators = ['retroarch', '81']
+    cores = ['fuse_libretro', '81_libretro']
+    fullscreens = ['false']
+
+    emulator = ['retroarch']
+    core = ['81_libretro']
+    fullscreen = ['false']
+    
     def run(self):
         extensions = ['zip', 'tzx', 'p', 't81', 'tap',
                       'z80', 'rzx', 'scl', 'trd', 'dsk']
@@ -76,7 +84,7 @@ class PlatformZx81(PlatformCommon):
 
         emulator = ['retroarch']
         fullscreen = ['false']
-        core = ['fuse_libretro']
+        core = ['81_libretro']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')

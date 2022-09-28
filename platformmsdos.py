@@ -1,17 +1,15 @@
 import os
 from platformcommon import PlatformCommon
-
-# emulators = ['retroarch', 'dosbox']
-# cores = ['dosbox_core_libretro']
-# fullscreens = ['false']
-
-
 class PlatformMsdos(PlatformCommon):
-
+    emulators = ['retroarch', 'dosbox']
+    cores = ['dosbox_core_libretro']
+    fullscreens = ['false']
+    
+    emulator = ['retroarch']
+    core = ['dosbox_core_libretro']
+    fullscreen = ['false']
+        
     def run(self):
-        emulators = ['retroarch', 'dosbox']
-        cores = ['dosbox_core_libretro']
-        fullscreens = ['false']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
 
         for ext in extensions:

@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['ffmpeg_libretro']
-fullscreens = ['false']
-
-
 class PlatformVideo(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['ffmpeg_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['ffmpeg_libretro']
     fullscreen = ['false']

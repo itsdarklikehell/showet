@@ -1,12 +1,10 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['vecx_libretro']
-fullscreens = ['false']
-
-
 class PlatformVectrex(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['vecx_libretro']
+    fullscreens = ['false']
+    
     emulator = ['retroarch']
     core = ['vecx_libretro']
     fullscreen = ['false']
