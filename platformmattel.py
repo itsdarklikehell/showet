@@ -1,13 +1,11 @@
 import os
 from platformcommon import PlatformCommon
-
-emulators = ['retroarch']
-cores = ['freeintv_libretro']
-fullscreens = ['false']
-
-
 class PlatformIntellivision(PlatformCommon):
-    emulator = ['retroarch']
+    emulators = ['retroarch']
+    cores = ['freeintv_libretro']
+    fullscreens = ['false']
+
+    emulator = ['retroarch', 'jzintv', 'jzintv-ecs']
     core = ['freeintv_libretro']
     fullscreen = ['false']
 
