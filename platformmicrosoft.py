@@ -77,8 +77,9 @@ class PlatformMsx(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'rom', 'ri', 'mx1', 'mx2',
-                      'col', 'dsk', 'fdi', 'cas', 'sg', 'sc', 'm3u']
+        extensions = ['zip', 'rom', 'ri', 'mx1',
+                      'mx2', 'col', 'dsk', 'fdi',
+                      'cas', 'sg', 'sc', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -142,12 +143,13 @@ class PlatformWindows(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['exe']
+        extensions = ['exe', 'bat']
         emulator = ['wine']
         core = ['wine']
         fullscreen = ['false']
         wineprefix = self.showetdir + '/wineprefix'
-
+        
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:

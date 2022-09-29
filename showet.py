@@ -39,8 +39,24 @@ parser.add_argument('--random', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmigaOSECS(), PlatformAmigaAGA(), PlatformAmigaPPCRTG(), PlatformCaprice(), PlatformCrocods(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(), PlatformZx81(), PlatformZxspectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(
-), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformApple(), PlatformTic80(), PlatformNeogeo(), PlatformNeopocket(), PlatformNeopocketcolor(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(), PlatformGamegear(), PlatformMastersystem(), PlatformMegadrive(), PlatformGenesis(), PlatformSaturn(), PlatformEnterprise(), PlatformPsx(), PlatformPs2(), PlatformPsp(), PlatformIntellivision(), PlatformJava(), PlatformAcorn(), PlatformPalm(), PlatformPico8(), PlatformVectrex(), PlatformFlycast(), PlatformPdp11(), PlatformGamemusic(), PlatformVideoMPV(), PlatformVideoFFMPEG()]
+platform_runners = [PlatformAmigaOSECS(), PlatformAmigaAGA(), PlatformAmigaPPCRTG(),
+                    PlatformCaprice(), PlatformCrocods(), PlatformFamicom(),
+                    PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(),
+                    PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(),
+                    PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(),
+                    PlatformLynx(), PlatformVcs(), PlatformZx81(), PlatformZxspectrum(),
+                    PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(),
+                    PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(),
+                    PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(),
+                    PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(),
+                    PlatformApple(), PlatformTic80(), PlatformNeogeo(), PlatformNeopocket(),
+                    PlatformNeopocketcolor(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(),
+                    PlatformGamegear(), PlatformMastersystem(), PlatformMegadrive(),
+                    PlatformGenesis(), PlatformSaturn(), PlatformEnterprise(), PlatformPsx(),
+                    PlatformPs2(), PlatformPsp(), PlatformIntellivision(), PlatformJava(),
+                    PlatformAcorn(), PlatformPalm(), PlatformPico8(), PlatformVectrex(),
+                    PlatformFlycast(), PlatformPdp11(), PlatformGamemusic(), PlatformVideoMPV(),
+                    PlatformVideoFFMPEG()]
 
 if args.platforms:
     for r in platform_runners:
@@ -142,85 +158,73 @@ else:
     # Decompress the file if needed
     if prod_download_filename.endswith(".lha"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("lhasa x " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("lhasa x " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".7z"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("7z x " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("7z x " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".zip"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("unzip -u -d " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("unzip -u -d " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tar.bz2"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("tar xjvf " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("tar xjvf " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tar.gz"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("tar xzvf " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("tar xzvf " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".bz2"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("bunzip2 " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("bunzip2 " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".rar"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("7z x " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("7z x " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".gz"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("gunzip " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("gunzip " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tar"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("tar xf " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("tar xf " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tbz2"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("tar xjvf " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("tar xjvf " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tgz"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("tar xzvf " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("tar xzvf " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".7z"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("7z x " + datadir +
-                        " " + prod_download_filename)
+        ret = os.system("7z x " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 

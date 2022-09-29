@@ -13,8 +13,12 @@ class PlatformAmigaOSECS(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga',
-                      'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
+        extensions = ['zip', 'm3u', 'adf', 'adz',
+                      'dms', 'fdi', 'ipf', 'hdf',
+                      'hdz', 'lha', 'tga', 'slave',
+                      'info', 'cue', 'ccd', 'nrg',
+                      'mds', 'iso', 'chd', 'uae',
+                      '7z', 'rp9', 'exe', 'run']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -144,8 +148,12 @@ class PlatformAmigaAGA(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga',
-                      'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
+        extensions = ['zip', 'm3u', 'adf', 'adz',
+                      'dms', 'fdi', 'ipf', 'hdf',
+                      'hdz', 'lha', 'tga', 'slave',
+                      'info', 'cue', 'ccd', 'nrg',
+                      'mds', 'iso', 'chd', 'uae',
+                      '7z', 'rp9', 'exe', 'run']
 
         ext = []
         for ext in extensions:
@@ -272,8 +280,12 @@ class PlatformAmigaPPCRTG(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga',
-                      'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
+        extensions = ['zip', 'm3u', 'adf', 'adz',
+                      'dms', 'fdi', 'ipf', 'hdf',
+                      'hdz', 'lha', 'tga', 'slave',
+                      'info', 'cue', 'ccd', 'nrg',
+                      'mds', 'iso', 'chd', 'uae',
+                      '7z', 'rp9', 'exe', 'run']
 
         ext = []
         for ext in extensions:

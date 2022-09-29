@@ -12,7 +12,8 @@ class PlatformJava(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'jar', 'sqc', 'jam', 'jad', 'kjx']
+        extensions = ['zip', 'jar', 'sqc', 'jam',
+                      'jad', 'kjx']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)

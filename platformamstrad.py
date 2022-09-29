@@ -77,7 +77,8 @@ class PlatformCaprice(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'dsk', 'sna', 'zip',
-                      'tap', 'cdt', 'voc', 'cpr', 'm3u']
+                      'tap', 'cdt', 'voc', 'cpr',
+                      'm3u']
         ext = []
         for ext in extensions:
             print("looking for files ending with: " + ext)
