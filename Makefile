@@ -284,7 +284,6 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platformsony.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformsony.py
 	$(QINSTALL) /home/rizzo/showet/platformtic80.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformtic80.py
 	$(QINSTALL) /home/rizzo/showet/platformvectrex.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvectrex.py
-	$(QINSTALL) /home/rizzo/showet/platformvideo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvideo.py
 	$(QINSTALL) /home/rizzo/showet/platformwild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwild.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
@@ -292,7 +291,6 @@ install_pymodules: FORCE
 uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwild.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvideo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvectrex.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformtic80.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformsony.py

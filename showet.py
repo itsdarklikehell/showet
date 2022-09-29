@@ -2,6 +2,7 @@
 import urllib.request
 import json
 import os
+import argparse
 from platformnec import PlatformSupergrafx
 from platformmicrosoft import PlatformWindows, PlatformMsx, PlatformXbox
 from platformmsdos import PlatformMsdos
@@ -26,7 +27,6 @@ from platformjava import PlatformJava
 from platformpalm import PlatformPalm
 from platformpico8 import PlatformPico8
 from platformvectrex import PlatformVectrex
-import argparse
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
 parser.add_argument('pouetid', type=int, nargs='?',
@@ -40,7 +40,7 @@ args = parser.parse_args()
 
 # In priority order
 platform_runners = [PlatformAmigaOSECS(), PlatformAmigaAGA(), PlatformAmigaPPCRTG(), PlatformCaprice(), PlatformCrocods(), PlatformFamicom(), PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(), PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(), PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(), PlatformLynx(), PlatformVcs(), PlatformZx81(), PlatformZxspectrum(), PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(), PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(), PlatformGamecube(), PlatformWii(), PlatformPokemini(
-), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformGamemusic(), PlatformVideoMPV(), PlatformVideoFFMPEG(), PlatformApple(), PlatformTic80(), PlatformNeogeo(), PlatformNeopocket(), PlatformNeopocketcolor(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(), PlatformGamegear(), PlatformMastersystem(), PlatformMegadrive(), PlatformGenesis(), PlatformSaturn(), PlatformEnterprise(), PlatformPsx(), PlatformPs2(), PlatformPsp(), PlatformIntellivision(), PlatformJava(), PlatformAcorn(), PlatformPalm(), PlatformPico8(), PlatformVectrex(), PlatformFlycast(), PlatformPdp11()]
+), PlatformDS(), PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(), PlatformApple(), PlatformTic80(), PlatformNeogeo(), PlatformNeopocket(), PlatformNeopocketcolor(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(), PlatformGamegear(), PlatformMastersystem(), PlatformMegadrive(), PlatformGenesis(), PlatformSaturn(), PlatformEnterprise(), PlatformPsx(), PlatformPs2(), PlatformPsp(), PlatformIntellivision(), PlatformJava(), PlatformAcorn(), PlatformPalm(), PlatformPico8(), PlatformVectrex(), PlatformFlycast(), PlatformPdp11(), PlatformGamemusic(), PlatformVideoMPV(), PlatformVideoFFMPEG()]
 
 if args.platforms:
     for r in platform_runners:
@@ -184,7 +184,7 @@ else:
 
     if prod_download_filename.endswith(".rar"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("rar x " + datadir +
+        ret = os.system("7z x " + datadir +
                         " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
@@ -217,7 +217,7 @@ else:
         if ret == 1:
             print("\tExtracting file failed!")
 
-    if prod_download_filename.endswith(".Z"):
+    if prod_download_filename.endswith(".7z"):
         print("\tExtracting:", prod_download_filename)
         ret = os.system("7z x " + datadir +
                         " " + prod_download_filename)
