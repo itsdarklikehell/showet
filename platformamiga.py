@@ -3,8 +3,7 @@ from platformcommon import PlatformCommon
 
 class PlatformAmigaOSECS(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
-    cores = ['puae2021_libretro', 'puae_libretro',
-         'fsuae_libretro', 'uae4arm_libretro']
+    cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
@@ -12,9 +11,7 @@ class PlatformAmigaOSECS(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
-                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
-
+        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -133,8 +130,7 @@ class PlatformAmigaOSECS(PlatformCommon):
         return ext_files
 class PlatformAmigaAGA(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
-    cores = ['puae2021_libretro', 'puae_libretro',
-         'fsuae_libretro', 'uae4arm_libretro']
+    cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
@@ -142,8 +138,7 @@ class PlatformAmigaAGA(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
-                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
+        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
 
         ext = []
         for ext in extensions:
@@ -259,8 +254,7 @@ class PlatformAmigaAGA(PlatformCommon):
         return ext_files
 class PlatformAmigaPPCRTG(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
-    cores = ['puae2021_libretro', 'puae_libretro',
-         'fsuae_libretro', 'uae4arm_libretro']
+    cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
@@ -268,8 +262,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info',
-                      'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
+        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
 
         ext = []
         for ext in extensions:

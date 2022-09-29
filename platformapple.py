@@ -5,12 +5,13 @@ class PlatformApple(PlatformCommon):
     cores = ['minivmac_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch', 'linapple']
+    emulator = ['retroarch']
     core = ['minivmac_libretro']
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'dsk', 'img', 'zip', 'hvf', 'cmd']
+        extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -26,6 +27,10 @@ class PlatformApple(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('minivmac_libretro')
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        if emulator[0] == 'linapple':
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 

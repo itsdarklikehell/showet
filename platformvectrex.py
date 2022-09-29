@@ -4,13 +4,14 @@ class PlatformVectrex(PlatformCommon):
     emulators = ['retroarch']
     cores = ['vecx_libretro']
     fullscreens = ['false']
-    
+
     emulator = ['retroarch']
     core = ['vecx_libretro']
     fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'bin', 'vec']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -52,7 +53,7 @@ class PlatformVectrex(PlatformCommon):
     def supported_platforms(self):
         return ['vectrex']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

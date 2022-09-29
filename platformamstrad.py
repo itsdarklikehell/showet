@@ -12,6 +12,7 @@ class PlatformCrocods(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'dsk', 'sna', 'kcr']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -72,8 +73,8 @@ class PlatformCaprice(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'dsk', 'sna', 'zip',
-                      'tap', 'cdt', 'voc', 'cpr', 'm3u']
+        extensions = ['zip', 'dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+        ext = []
         for ext in extensions:
             print("looking for files ending with: " + ext)
             files = self.find_files_with_extension(ext)

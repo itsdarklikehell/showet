@@ -10,8 +10,8 @@ class PlatformZxspectrum(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'tzx', 'p', 't81', 'tap',
-                      'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+        extensions = ['zip', 'tzx', 'p', 't81', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -53,7 +53,7 @@ class PlatformZxspectrum(PlatformCommon):
     def supported_platforms(self):
         return ['zxspectrum', 'zxenhanced', 'spectrum']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -70,10 +70,10 @@ class PlatformZx81(PlatformCommon):
     emulator = ['retroarch']
     core = ['81_libretro']
     fullscreen = ['false']
-    
+
     def run(self):
-        extensions = ['zip', 'tzx', 'p', 't81', 'tap',
-                      'z80', 'rzx', 'scl', 'trd', 'dsk']
+        extensions = ['zip', 'tzx', 'p', 't81', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -115,7 +115,7 @@ class PlatformZx81(PlatformCommon):
     def supported_platforms(self):
         return ['zx81']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

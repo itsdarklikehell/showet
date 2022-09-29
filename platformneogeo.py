@@ -11,6 +11,7 @@ class PlatformNeogeo(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -72,6 +73,7 @@ class PlatformNeopocket(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -133,6 +135,7 @@ class PlatformNeopocketcolor(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:

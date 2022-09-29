@@ -11,6 +11,7 @@ class PlatformFalcon(PlatformCommon):
     
     def run(self):
         extensions = ['zip', 'st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -72,6 +73,7 @@ class PlatformAtarist(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -133,6 +135,7 @@ class PlatformAtarixlxe(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -193,8 +196,8 @@ class PlatformJaguar(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'j64', 'jag', 'rom', 'abs',
-                      'cof', 'bin', 'prg']
+        extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
+        ext = []        
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -256,6 +259,7 @@ class PlatformLynx(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'lnx', 'o']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -317,6 +321,7 @@ class PlatformVcs(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'a26', 'bin']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:

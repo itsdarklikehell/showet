@@ -11,6 +11,7 @@ class PlatformTic80(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'tic']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -52,7 +53,7 @@ class PlatformTic80(PlatformCommon):
     def supported_platforms(self):
         return ['tic80']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

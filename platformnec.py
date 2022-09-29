@@ -11,6 +11,7 @@ class PlatformSupergrafx(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:

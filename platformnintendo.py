@@ -11,6 +11,7 @@ class PlatformFamicom(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -65,13 +66,14 @@ class PlatformSuperFamicom(PlatformCommon):
     emulators = ['retroarch']
     cores = ['snes9x_libretro']
     fullscreens = ['false']
-    
+
     emulator = ['retroarch']
     core = ['snes9x_libretro']
     fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -130,9 +132,10 @@ class PlatformN64(PlatformCommon):
     emulator = ['retroarch']
     core = ['mupen64plus_libretro']
     fullscreen = ['false']
-    
+
     def run(self):
         extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -194,6 +197,7 @@ class PlatformGameboy(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -252,8 +256,10 @@ class PlatformGameboyColor(PlatformCommon):
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['gambatte_libretro']
+
     def run(self):
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -308,14 +314,14 @@ class PlatformGameboyAdvance(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['vba_next_libretro', 'mgba_libretro']
-    
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['vba_next_libretro']
 
     def run(self):
-        extensions = ['zip', 'gb', 'gbc', 'gba',
-                      'dmg', 'agb', 'bin', 'cgb', 'sgb']
+        extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -375,8 +381,8 @@ class PlatformGamecube(PlatformCommon):
     fullscreen = ['false']
     core = ['dolphin_libretro']
     def run(self):
-        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -435,10 +441,10 @@ class PlatformWii(PlatformCommon):
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['dolphin_libretro']
-    
+
     def run(self):
-        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -497,8 +503,10 @@ class PlatformPokemini(PlatformCommon):
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['pokemini_libretro']
+
     def run(self):
         extensions = ['zip', 'min']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -557,9 +565,10 @@ class PlatformDS(PlatformCommon):
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['melonds_libretro']
-    
+
     def run(self):
         extensions = ['zip', 'nds', 'dsi']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -621,6 +630,7 @@ class PlatformVirtualboy(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'vb', 'vboy', 'bin']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:

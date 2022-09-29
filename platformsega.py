@@ -9,9 +9,10 @@ class PlatformMastersystem(PlatformCommon):
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['genesis_plus_gx_libretro']
+
     def run(self):
-        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso',
-                      'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -63,12 +64,17 @@ class PlatformMastersystem(PlatformCommon):
                 print("\tFound file: " + file)
         return ext_files
 class PlatformGenesis(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['blastem_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['blastem_libretro']
 
     def run(self):
         extensions = ['zip', 'md', 'bin', 'smd', 'gen', '68k', 'sgd']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -127,9 +133,10 @@ class PlatformMegadrive(PlatformCommon):
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['genesis_plus_gx_libretro']
+
     def run(self):
-        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso',
-                      'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -184,12 +191,14 @@ class PlatformGamegear(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
     cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
-    
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['gearsystem_libretro']
+
     def run(self):
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -241,13 +250,17 @@ class PlatformGamegear(PlatformCommon):
                 print("\tFound file: " + file)
         return ext_files
 class PlatformFlycast(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['flycast_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['flycast_libretro']
 
     def run(self):
-        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin',
-                      'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -299,13 +312,17 @@ class PlatformFlycast(PlatformCommon):
                 print("\tFound file: " + file)
         return ext_files
 class PlatformFlycastGLES2(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['flycast_gles2_libretro']
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['flycast_gles2_libretro']
 
     def run(self):
-        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin',
-                      'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -360,12 +377,14 @@ class PlatformSaturn(PlatformCommon):
     emulators = ['retroarch', 'yabause', 'kronos']
     fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
-    
+
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['mednafen_saturn_libretro']
+
     def run(self):
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:

@@ -4,14 +4,14 @@ class PlatformMsdos(PlatformCommon):
     emulators = ['retroarch', 'dosbox']
     cores = ['dosbox_core_libretro']
     fullscreens = ['false']
-    
+
     emulator = ['retroarch']
     core = ['dosbox_core_libretro']
     fullscreen = ['false']
-        
+
     def run(self):
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
-
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -27,6 +27,9 @@ class PlatformMsdos(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dosbox_core_libretro')
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+        if emulator[0] == 'dosbox':
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 

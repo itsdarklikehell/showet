@@ -2,13 +2,17 @@ import os
 from platformcommon import PlatformCommon
 
 class PlatformPsx(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['mednafen_psx_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['mednafen_psx_libretro']
     fullscreen = ['false']
-
+    
     def run(self):
-        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
-                      'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -50,8 +54,7 @@ class PlatformPsx(PlatformCommon):
     def supported_platforms(self):
         return ['playstation']
 
- # Tries to identify files by any magic necessary
-
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -61,13 +64,17 @@ class PlatformPsx(PlatformCommon):
                 print("\tFound file: " + file)
         return ext_files
 class PlatformPs2(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['pcsx2_libretro']
+    fullscreens = ['false']
+
     emulator = ['retroarch']
     core = ['pcsx2_libretro']
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
-                      'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -109,8 +116,7 @@ class PlatformPs2(PlatformCommon):
     def supported_platforms(self):
         return ['playstation2']
 
- # Tries to identify files by any magic necessary
-
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -127,8 +133,10 @@ class PlatformPsp(PlatformCommon):
     emulator = ['retroarch']
     core = ['ppsspp_libretro']
     fullscreen = ['false']
+
     def run(self):
         extensions = ['zip', 'elf', 'iso', 'cso', 'prx', 'pbp']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -170,7 +178,7 @@ class PlatformPsp(PlatformCommon):
     def supported_platforms(self):
         return ['playstationportable']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

@@ -11,6 +11,7 @@ class PlatformPalm(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'prc', 'pqa', 'img', 'pdb']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:

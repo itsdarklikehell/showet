@@ -10,8 +10,8 @@ class PlatformEnterprise(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com',
-                      'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
+        extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -53,8 +53,7 @@ class PlatformEnterprise(PlatformCommon):
     def supported_platforms(self):
         return ['enterprise']
 
- # Tries to identify files by any magic necessary
-
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

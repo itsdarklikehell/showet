@@ -11,6 +11,7 @@ class PlatformXbox(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'iso']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -65,13 +66,14 @@ class PlatformMsx(PlatformCommon):
     emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
     cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
     fullscreens = ['false']
-    
+
     emulator = ['retroarch']
     core = ['bluemsx_libretro']
     fullscreen = ['false']
+
     def run(self):
-        extensions = ['zip', 'rom', 'ri', 'mx1', 'mx2', 'col',
-                      'dsk', 'fdi', 'cas', 'sg', 'sc', 'm3u']
+        extensions = ['zip', 'rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'fdi', 'cas', 'sg', 'sc', 'm3u']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:

@@ -11,6 +11,7 @@ class PlatformIntellivision(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'int', 'bin', 'rom']
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
