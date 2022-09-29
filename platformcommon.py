@@ -1,8 +1,6 @@
 import os
 import os.path
 import subprocess
-from shutil import which
-
 
 class PlatformCommon:
     prod_files = []

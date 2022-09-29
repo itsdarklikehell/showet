@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformJava(PlatformCommon):
     emulators = ['retroarch']
     cores = ['squirreljme_libretro']
@@ -53,7 +55,7 @@ class PlatformJava(PlatformCommon):
     def supported_platforms(self):
         return ['java', 'javascript']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

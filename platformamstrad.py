@@ -1,6 +1,7 @@
 import os
 from platformcommon import PlatformCommon
 
+
 class PlatformCrocods(PlatformCommon):
     emulators = ['retroarch', 'zesarux']
     cores = ['crocods_libretro', 'cap32_libretro']
@@ -54,7 +55,7 @@ class PlatformCrocods(PlatformCommon):
     def supported_platforms(self):
         return ['amstradcpc']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -63,6 +64,8 @@ class PlatformCrocods(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformCaprice(PlatformCommon):
     emulators = ['retroarch', 'zesarux']
     cores = ['crocods_libretro', 'cap32_libretro']
@@ -73,7 +76,8 @@ class PlatformCaprice(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+        extensions = ['zip', 'dsk', 'sna', 'zip',
+                      'tap', 'cdt', 'voc', 'cpr', 'm3u']
         ext = []
         for ext in extensions:
             print("looking for files ending with: " + ext)

@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformVectrex(PlatformCommon):
     emulators = ['retroarch']
     cores = ['vecx_libretro']

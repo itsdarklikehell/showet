@@ -1,6 +1,7 @@
 import os
 from platformcommon import PlatformCommon
 
+
 class PlatformPsx(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_psx_libretro']
@@ -9,9 +10,10 @@ class PlatformPsx(PlatformCommon):
     emulator = ['retroarch']
     core = ['mednafen_psx_libretro']
     fullscreen = ['false']
-    
+
     def run(self):
-        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
+                      'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -63,6 +65,8 @@ class PlatformPsx(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformPs2(PlatformCommon):
     emulators = ['retroarch']
     cores = ['pcsx2_libretro']
@@ -73,7 +77,8 @@ class PlatformPs2(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
+                      'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -125,6 +130,8 @@ class PlatformPs2(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformPsp(PlatformCommon):
     emulators = ['retroarch', 'ppsspp']
     cores = ['ppsspp_libretro']

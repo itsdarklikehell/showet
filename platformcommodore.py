@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformCommodore64(PlatformCommon):
     emulators = ['retroarch']
     cores = ['vice_x64_libretro']
@@ -10,7 +12,8 @@ class PlatformCommodore64(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt',
+                      'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -64,6 +67,8 @@ class PlatformCommodore64(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformCommodorePet(PlatformCommon):
     emulators = ['retroarch']
     cores = ['vice_xpet_libretro']
@@ -74,7 +79,8 @@ class PlatformCommodorePet(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt',
+                      'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -128,6 +134,8 @@ class PlatformCommodorePet(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformCommodore128(PlatformCommon):
     emulators = ['retroarch']
     cores = ['vice_x128_libretro']
@@ -138,7 +146,8 @@ class PlatformCommodore128(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt',
+                      'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -192,6 +201,8 @@ class PlatformCommodore128(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformCommodorePlus4(PlatformCommon):
     emulators = ['retroarch']
     cores = ['vice_xplus4_libretro']
@@ -202,7 +213,8 @@ class PlatformCommodorePlus4(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt',
+                      'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -256,6 +268,8 @@ class PlatformCommodorePlus4(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformCommodoreCBM(PlatformCommon):
     emulators = ['retroarch']
     cores = ['vice_xcbm2_libretro']
@@ -266,7 +280,8 @@ class PlatformCommodoreCBM(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
+        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt',
+                      'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -320,6 +335,8 @@ class PlatformCommodoreCBM(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformCommodoreVIC20(PlatformCommon):
     emulators = ['retroarch']
     cores = ['vice_xvic_libretro']
@@ -330,7 +347,8 @@ class PlatformCommodoreVIC20(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
+        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z',
+                      'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)

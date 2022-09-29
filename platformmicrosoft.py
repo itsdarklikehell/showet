@@ -1,5 +1,7 @@
 import os.path
 from platformcommon import PlatformCommon
+
+
 class PlatformXbox(PlatformCommon):
     emulators = ['retroarch']
     cores = ['directxbox_libretro']
@@ -53,7 +55,7 @@ class PlatformXbox(PlatformCommon):
     def supported_platforms(self):
         return ['xbox']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -62,8 +64,11 @@ class PlatformXbox(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformMsx(PlatformCommon):
-    emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
+    emulators = ['retroarch', 'openmsx', 'openmsx-msx2',
+                 'openmsx-msx2-plus', 'openmsx-msx-turbo']
     cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
     fullscreens = ['false']
 
@@ -72,7 +77,8 @@ class PlatformMsx(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'fdi', 'cas', 'sg', 'sc', 'm3u']
+        extensions = ['zip', 'rom', 'ri', 'mx1', 'mx2',
+                      'col', 'dsk', 'fdi', 'cas', 'sg', 'sc', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -124,6 +130,8 @@ class PlatformMsx(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformWindows(PlatformCommon):
     emulators = ['wine']
     cores = ['wine']

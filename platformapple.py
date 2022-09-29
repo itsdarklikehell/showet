@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformApple(PlatformCommon):
     emulators = ['retroarch', 'linapple', 'basilisk']
     cores = ['minivmac_libretro']
@@ -57,7 +59,7 @@ class PlatformApple(PlatformCommon):
     def supported_platforms(self):
         return ['appleii', 'appleiigs']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

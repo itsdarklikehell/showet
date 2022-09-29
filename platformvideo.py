@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformVideo(PlatformCommon):
     emulators = ['retroarch']
     cores = ['ffmpeg_libretro']
@@ -10,7 +12,8 @@ class PlatformVideo(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
+        extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',
+                      '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)

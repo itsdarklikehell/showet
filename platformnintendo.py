@@ -1,8 +1,11 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformFamicom(PlatformCommon):
     emulators = ['retroarch']
-    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
+    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
+             'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
@@ -62,6 +65,8 @@ class PlatformFamicom(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformSuperFamicom(PlatformCommon):
     emulators = ['retroarch']
     cores = ['snes9x_libretro']
@@ -124,9 +129,13 @@ class PlatformSuperFamicom(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformN64(PlatformCommon):
-    emulators = ['retroarch', 'mupen64plus-glide64', 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
-    cores = ['mupen64plus_libretro', 'mupen64plus_next_libretro', 'parallel_n46_libretro']
+    emulators = ['retroarch', 'mupen64plus-glide64',
+                 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
+    cores = ['mupen64plus_libretro',
+             'mupen64plus_next_libretro', 'parallel_n46_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
@@ -186,10 +195,13 @@ class PlatformN64(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformGameboy(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
-    cores = ['gambatte_libretro', 'mess2016_libretro', 'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
+    cores = ['gambatte_libretro', 'mess2016_libretro',
+             'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
 
     emulator = ['retroarch']
     fullscreen = ['false']
@@ -248,6 +260,8 @@ class PlatformGameboy(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformGameboyColor(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -310,6 +324,8 @@ class PlatformGameboyColor(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformGameboyAdvance(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -320,7 +336,8 @@ class PlatformGameboyAdvance(PlatformCommon):
     core = ['vba_next_libretro']
 
     def run(self):
-        extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
+        extensions = ['zip', 'gb', 'gbc', 'gba',
+                      'dmg', 'agb', 'bin', 'cgb', 'sgb']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -372,6 +389,8 @@ class PlatformGameboyAdvance(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformGamecube(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -380,8 +399,10 @@ class PlatformGamecube(PlatformCommon):
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['dolphin_libretro']
+
     def run(self):
-        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
+                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -433,6 +454,8 @@ class PlatformGamecube(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformWii(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -443,7 +466,8 @@ class PlatformWii(PlatformCommon):
     core = ['dolphin_libretro']
 
     def run(self):
-        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
+                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -495,6 +519,8 @@ class PlatformWii(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformPokemini(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -557,6 +583,8 @@ class PlatformPokemini(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformDS(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -610,7 +638,7 @@ class PlatformDS(PlatformCommon):
     def supported_platforms(self):
         return ['nintendods']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -619,6 +647,8 @@ class PlatformDS(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformVirtualboy(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -672,7 +702,7 @@ class PlatformVirtualboy(PlatformCommon):
     def supported_platforms(self):
         return ['virtualboy']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

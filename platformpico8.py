@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformPico8(PlatformCommon):
     emulators = ['retroarch']
     cores = ['retro8_libretro']
@@ -53,7 +55,7 @@ class PlatformPico8(PlatformCommon):
     def supported_platforms(self):
         return ['pico8']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

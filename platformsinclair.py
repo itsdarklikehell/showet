@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformZxspectrum(PlatformCommon):
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro', '81_libretro']
@@ -10,7 +12,8 @@ class PlatformZxspectrum(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'tzx', 'p', 't81', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+        extensions = ['zip', 'tzx', 'p', 't81', 'tap',
+                      'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -62,6 +65,8 @@ class PlatformZxspectrum(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformZx81(PlatformCommon):
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro', '81_libretro']
@@ -72,7 +77,8 @@ class PlatformZx81(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'tzx', 'p', 't81', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
+        extensions = ['zip', 'tzx', 'p', 't81',
+                      'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)

@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformNeogeo(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -62,6 +64,8 @@ class PlatformNeogeo(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformNeopocket(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -124,6 +128,8 @@ class PlatformNeopocket(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformNeopocketcolor(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']

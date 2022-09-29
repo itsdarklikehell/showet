@@ -1,6 +1,8 @@
 import os
 from platformcommon import PlatformCommon
-class PlatformLinux(PlatformCommon):    
+
+
+class PlatformLinux(PlatformCommon):
     emulators = ['none']
     cores = ['none']
     fullscreens = ['false']
@@ -19,6 +21,10 @@ class PlatformLinux(PlatformCommon):
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
+
+        emulator = ['none']
+        core = ['none']
+        fullscreen = ['false']
 
         os.chdir(self.datadir)
         if len(files) > 1:

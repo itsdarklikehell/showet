@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformTic80(PlatformCommon):
     emulators = ['retroarch']
     cores = ['tic80_libretro']

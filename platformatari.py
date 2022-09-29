@@ -1,14 +1,16 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformFalcon(PlatformCommon):
     emulators = ['retroarch']
     cores = ['hatari_libretro']
     fullscreens = ['false']
-    
+
     emulator = ['retroarch']
     core = ['hatari_libretro']
     fullscreen = ['false']
-    
+
     def run(self):
         extensions = ['zip', 'st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u']
         ext = []
@@ -62,6 +64,8 @@ class PlatformFalcon(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformAtarist(PlatformCommon):
     emulators = ['retroarch']
     cores = ['hatari_libretro']
@@ -124,6 +128,8 @@ class PlatformAtarist(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformAtarixlxe(PlatformCommon):
     emulators = ['retroarch']
     cores = ['hatari_libretro']
@@ -186,6 +192,8 @@ class PlatformAtarixlxe(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformJaguar(PlatformCommon):
     emulators = ['retroarch']
     cores = ['virtualjaguar_libretro']
@@ -197,7 +205,7 @@ class PlatformJaguar(PlatformCommon):
 
     def run(self):
         extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
-        ext = []        
+        ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
@@ -248,6 +256,8 @@ class PlatformJaguar(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformLynx(PlatformCommon):
     emulators = ['retroarch']
     cores = ['handy_libretro']
@@ -310,6 +320,8 @@ class PlatformLynx(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformVcs(PlatformCommon):
     emulators = ['retroarch']
     cores = ['stella2014_libretro', 'stella_libretro']

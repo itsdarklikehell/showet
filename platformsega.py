@@ -1,17 +1,20 @@
 import os
 from platformcommon import PlatformCommon
 
+
 class PlatformMastersystem(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
-    cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
+    cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro',
+             'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
 
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['genesis_plus_gx_libretro']
 
     def run(self):
-        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',
+                      'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -54,7 +57,7 @@ class PlatformMastersystem(PlatformCommon):
     def supported_platforms(self):
         return ['segamastersystem']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -63,6 +66,8 @@ class PlatformMastersystem(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformGenesis(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -116,7 +121,7 @@ class PlatformGenesis(PlatformCommon):
     def supported_platforms(self):
         return ['segagenesismegadrive']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -125,17 +130,21 @@ class PlatformGenesis(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformMegadrive(PlatformCommon):
     emulators = ['retroarch', 'dgen']
     fullscreens = ['false']
-    cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
+    cores = ['genesis_plus_gx_libretro',
+             'fbneo_md_libretro', 'picodrive_libretro']
 
     emulator = ['retroarch']
     fullscreen = ['false']
     core = ['genesis_plus_gx_libretro']
 
     def run(self):
-        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',
+                      'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -178,7 +187,7 @@ class PlatformMegadrive(PlatformCommon):
     def supported_platforms(self):
         return ['segagenesismegadrive']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -187,10 +196,13 @@ class PlatformMegadrive(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformGamegear(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
-    cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
+    cores = ['gearsystem_libretro',
+             'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
 
     emulator = ['retroarch']
     fullscreen = ['false']
@@ -240,7 +252,7 @@ class PlatformGamegear(PlatformCommon):
     def supported_platforms(self):
         return ['segagamegear']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -249,6 +261,8 @@ class PlatformGamegear(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformFlycast(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -259,7 +273,8 @@ class PlatformFlycast(PlatformCommon):
     core = ['flycast_libretro']
 
     def run(self):
-        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf',
+                      'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -302,7 +317,7 @@ class PlatformFlycast(PlatformCommon):
     def supported_platforms(self):
         return ['dreamcast']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -311,6 +326,8 @@ class PlatformFlycast(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformFlycastGLES2(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -321,7 +338,8 @@ class PlatformFlycastGLES2(PlatformCommon):
     core = ['flycast_gles2_libretro']
 
     def run(self):
-        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf',
+                      'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -364,7 +382,7 @@ class PlatformFlycastGLES2(PlatformCommon):
     def supported_platforms(self):
         return ['dreamcast']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:
@@ -373,6 +391,8 @@ class PlatformFlycastGLES2(PlatformCommon):
                 ext_files.append(file)
                 print("\tFound file: " + file)
         return ext_files
+
+
 class PlatformSaturn(PlatformCommon):
     emulators = ['retroarch', 'yabause', 'kronos']
     fullscreens = ['false']
@@ -426,7 +446,7 @@ class PlatformSaturn(PlatformCommon):
     def supported_platforms(self):
         return ['segasaturn']
 
- # Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
         for file in self.prod_files:

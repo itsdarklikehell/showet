@@ -1,5 +1,7 @@
 import os
 from platformcommon import PlatformCommon
+
+
 class PlatformEnterprise(PlatformCommon):
     emulators = ['retroarch']
     cores = ['ep128emu_libretro']
@@ -10,7 +12,8 @@ class PlatformEnterprise(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
+        extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com',
+                      'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
