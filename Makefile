@@ -266,6 +266,7 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platformatari.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformatari.py
 	$(QINSTALL) /home/rizzo/showet/platformcommodore.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommodore.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
+	$(QINSTALL) /home/rizzo/showet/platformelektronika.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformelektronika.py
 	$(QINSTALL) /home/rizzo/showet/platformenterprise.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformenterprise.py
 	$(QINSTALL) /home/rizzo/showet/platformjava.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformjava.py
 	$(QINSTALL) /home/rizzo/showet/platformlinux.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformlinux.py
@@ -284,11 +285,13 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platformtic80.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformtic80.py
 	$(QINSTALL) /home/rizzo/showet/platformvectrex.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvectrex.py
 	$(QINSTALL) /home/rizzo/showet/platformvideo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvideo.py
+	$(QINSTALL) /home/rizzo/showet/platformwild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwild.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 
 uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformwild.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvideo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformvectrex.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformtic80.py
@@ -307,6 +310,7 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformlinux.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformjava.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformenterprise.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformelektronika.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommodore.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformatari.py
