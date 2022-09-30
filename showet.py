@@ -10,13 +10,20 @@ from platformelektronika import PlatformPdp11
 from platformamiga import PlatformAmigaOSECS, PlatformAmigaAGA, PlatformAmigaPPCRTG
 from platformapple import PlatformApple
 from platformamstrad import PlatformCaprice, PlatformCrocods
-from platformnintendo import PlatformGameboy, PlatformGameboyColor, PlatformGameboyAdvance, PlatformFamicom, PlatformSuperFamicom, PlatformVirtualboy, PlatformN64, PlatformGamecube, PlatformWii, PlatformPokemini, PlatformDS
-from platformatari import PlatformAtarist, PlatformAtarixlxe, PlatformFalcon, PlatformJaguar, PlatformLynx, PlatformVcs
+from platformnintendo import PlatformGameboy, PlatformGameboyColor, PlatformGameboyAdvance
+from platformnintendo import PlatformFamicom, PlatformSuperFamicom, PlatformVirtualboy
+from platformnintendo import PlatformN64, PlatformGamecube, PlatformWii, PlatformPokemini
+from platformnintendo import PlatformDS
+from platformatari import PlatformAtarist, PlatformAtarixlxe, PlatformFalcon, PlatformJaguar
+from platformatari import PlatformLynx, PlatformVcs
 from platformsinclair import PlatformZx81, PlatformZxspectrum
-from platformcommodore import PlatformCommodore64, PlatformCommodorePet, PlatformCommodore128, PlatformCommodorePlus4, PlatformCommodoreVIC20, PlatformCommodoreCBM
+from platformcommodore import PlatformCommodore64, PlatformCommodorePet
+from platformcommodore import PlatformCommodore128, PlatformCommodorePlus4
+from platformcommodore import PlatformCommodoreVIC20, PlatformCommodoreCBM
 from platformlinux import PlatformLinux
 from platformtic80 import PlatformTic80
-from platformsega import PlatformMegadrive, PlatformGamegear, PlatformMastersystem, PlatformGenesis, PlatformFlycast, PlatformSaturn
+from platformsega import PlatformMegadrive, PlatformGamegear, PlatformMastersystem
+from platformsega import PlatformGenesis, PlatformFlycast, PlatformSaturn
 from platformneogeo import PlatformNeogeo, PlatformNeopocket, PlatformNeopocketcolor
 from platformsony import PlatformPsx, PlatformPsp, PlatformPs2
 from platformmattel import PlatformIntellivision
@@ -170,7 +177,8 @@ else:
 
     if prod_download_filename.endswith(".zip"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("unzip -u -d " + datadir + " " + prod_download_filename)
+        ret = os.system("unzip -u -d " + datadir +
+                        " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 

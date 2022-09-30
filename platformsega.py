@@ -60,11 +60,13 @@ class PlatformMastersystem(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -124,11 +126,13 @@ class PlatformGenesis(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -190,11 +194,13 @@ class PlatformMegadrive(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -255,11 +261,13 @@ class PlatformGamegear(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -320,11 +328,13 @@ class PlatformFlycast(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -385,11 +395,13 @@ class PlatformFlycastGLES2(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -449,9 +461,11 @@ class PlatformSaturn(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files

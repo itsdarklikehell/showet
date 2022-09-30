@@ -56,14 +56,16 @@ class PlatformFalcon(PlatformCommon):
     def supported_platforms(self):
         return ['atarifalcon030']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -77,8 +79,8 @@ class PlatformAtarist(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'st', 'msa',
-                      'zip', 'stx', 'dim', 'ipf', 'm3u']
+        extensions = ['st', 'msa', 'zip', 'stx',
+                      'dim', 'ipf', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -121,14 +123,16 @@ class PlatformAtarist(PlatformCommon):
     def supported_platforms(self):
         return ['atarist', 'atariste']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -186,14 +190,16 @@ class PlatformAtarixlxe(PlatformCommon):
     def supported_platforms(self):
         return ['atarixlxe']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -254,11 +260,13 @@ class PlatformJaguar(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -315,14 +323,16 @@ class PlatformLynx(PlatformCommon):
     def supported_platforms(self):
         return ['atarilynx']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -379,12 +389,14 @@ class PlatformVcs(PlatformCommon):
     def supported_platforms(self):
         return ['atarivcs']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files

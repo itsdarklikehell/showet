@@ -64,14 +64,16 @@ class PlatformCommodore64(PlatformCommon):
     def supported_platforms(self):
         return ['commodore64']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -137,14 +139,16 @@ class PlatformCommodorePet(PlatformCommon):
     def supported_platforms(self):
         return ['commodorepet']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -210,14 +214,16 @@ class PlatformCommodore128(PlatformCommon):
     def supported_platforms(self):
         return ['commodore128']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -283,14 +289,16 @@ class PlatformCommodorePlus4(PlatformCommon):
     def supported_platforms(self):
         return ['commodoreplus4', 'c16116plus4']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -356,14 +364,16 @@ class PlatformCommodoreCBM(PlatformCommon):
     def supported_platforms(self):
         return ['commodorecbm']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -430,12 +440,14 @@ class PlatformCommodoreVIC20(PlatformCommon):
     def supported_platforms(self):
         return ['vic20']
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:  # and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files

@@ -13,12 +13,9 @@ class PlatformAmigaOSECS(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'm3u', 'adf', 'adz',
-                      'dms', 'fdi', 'ipf', 'hdf',
-                      'hdz', 'lha', 'tga', 'slave',
-                      'info', 'cue', 'ccd', 'nrg',
-                      'mds', 'iso', 'chd', 'uae',
-                      '7z', 'rp9', 'exe', 'run']
+        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga',
+                      'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z',
+                      'rp9', 'exe', 'run']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -114,7 +111,7 @@ class PlatformAmigaOSECS(PlatformCommon):
     def supported_platforms(self):
         return ['amigaocsecs', 'amigaaga']
 
-# Search demo files for amiga magic cookie (executable file)
+    # Search demo files for amiga magic cookie (executable file)
     def find_magic_cookies(self):
         cookie_files = []
         for file in self.prod_files:
@@ -126,14 +123,16 @@ class PlatformAmigaOSECS(PlatformCommon):
                         cookie_files.append(file)
         return cookie_files
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -246,7 +245,7 @@ class PlatformAmigaAGA(PlatformCommon):
     def supported_platforms(self):
         return ['amigaaga', 'amigaosecs', 'amigappcrtg']
 
-# Search demo files for amiga magic cookie (executable file)
+    # Search demo files for amiga magic cookie (executable file)
     def find_magic_cookies(self):
         cookie_files = []
         for file in self.prod_files:
@@ -258,14 +257,16 @@ class PlatformAmigaAGA(PlatformCommon):
                         cookie_files.append(file)
         return cookie_files
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -379,7 +380,7 @@ class PlatformAmigaPPCRTG(PlatformCommon):
     def supported_platforms(self):
         return ['amigappcrtg']
 
-# Search demo files for amiga magic cookie (executable file)
+    # Search demo files for amiga magic cookie (executable file)
     def find_magic_cookies(self):
         cookie_files = []
         for file in self.prod_files:
@@ -391,12 +392,14 @@ class PlatformAmigaPPCRTG(PlatformCommon):
                         cookie_files.append(file)
         return cookie_files
 
-# Tries to identify files by any magic necessary
+    # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if not file.endswith(str(excl_files)):
+                size = os.path.getsize(file)
+                if size > 0:
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
