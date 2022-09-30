@@ -2,6 +2,7 @@ import os
 import os.path
 import subprocess
 
+
 class PlatformCommon:
     prod_files = []
     steam = ['false']
@@ -38,8 +39,9 @@ class PlatformCommon:
         return None
 
     def find_files_with_extension(self, extension):
-        foundfiles = [f for f in self.prod_files if (f.lower().endswith(
-            extension) or f.lower().endswith(extension))]
+        excl = ['.json', '.txt', '.diz']
+        foundfiles = [f for f in self.prod_files if (
+            f.lower().endswith(extension) or f.upper().endswith(extension))]
         return foundfiles
 
     # Input: list of disk images, output: same list sorted by some

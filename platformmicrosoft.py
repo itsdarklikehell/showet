@@ -58,13 +58,11 @@ class PlatformXbox(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            if not file.endswith(str(excl_files)):
-                size = os.path.getsize(file)
-                if size > 0:
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+            size = os.path.getsize(file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -127,13 +125,11 @@ class PlatformMsx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            if not file.endswith(str(excl_files)):
-                size = os.path.getsize(file)
-                if size > 0:
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+            size = os.path.getsize(file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -152,7 +148,7 @@ class PlatformWindows(PlatformCommon):
         core = ['wine']
         fullscreen = ['false']
         wineprefix = self.showetdir + '/wineprefix'
-        
+
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -187,11 +183,10 @@ class PlatformWindows(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            if not file.endswith(str(excl_files)):
-                size = os.path.getsize(file)
-                if size > 0:
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+            size = os.path.getsize(file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
+

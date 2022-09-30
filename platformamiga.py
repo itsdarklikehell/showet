@@ -114,25 +114,25 @@ class PlatformAmigaOSECS(PlatformCommon):
     # Search demo files for amiga magic cookie (executable file)
     def find_magic_cookies(self):
         cookie_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            with open(file, "rb") as fin:
-                header = fin.read(4)
-                if len(header) == 4:
-                    # Signature for Amiga magic cookie
-                    if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-                        cookie_files.append(file)
+            if not file.endswith(str(excl_files)):
+                with open(file, "rb") as fin:
+                    header = fin.read(4)
+                    if len(header) == 4:
+                        # Signature for Amiga magic cookie
+                        if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+                            cookie_files.append(file)
         return cookie_files
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            if not file.endswith(str(excl_files)):
-                size = os.path.getsize(file)
-                if size > 0:
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+            size = os.path.getsize(file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -248,25 +248,25 @@ class PlatformAmigaAGA(PlatformCommon):
     # Search demo files for amiga magic cookie (executable file)
     def find_magic_cookies(self):
         cookie_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            with open(file, "rb") as fin:
-                header = fin.read(4)
-                if len(header) == 4:
-                    # Signature for Amiga magic cookie
-                    if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-                        cookie_files.append(file)
+            if not file.endswith(str(excl_files)):
+                with open(file, "rb") as fin:
+                    header = fin.read(4)
+                    if len(header) == 4:
+                        # Signature for Amiga magic cookie
+                        if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+                            cookie_files.append(file)
         return cookie_files
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            if not file.endswith(str(excl_files)):
-                size = os.path.getsize(file)
-                if size > 0:
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+            size = os.path.getsize(file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -383,23 +383,24 @@ class PlatformAmigaPPCRTG(PlatformCommon):
     # Search demo files for amiga magic cookie (executable file)
     def find_magic_cookies(self):
         cookie_files = []
+        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            with open(file, "rb") as fin:
-                header = fin.read(4)
-                if len(header) == 4:
-                    # Signature for Amiga magic cookie
-                    if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-                        cookie_files.append(file)
+            if not file.endswith(str(excl_files)):
+                with open(file, "rb") as fin:
+                    header = fin.read(4)
+                    if len(header) == 4:
+                        # Signature for Amiga magic cookie
+                        if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+                            cookie_files.append(file)
         return cookie_files
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        excl_files = ['.json', '.txt', '.diz']
         for file in self.prod_files:
-            if not file.endswith(str(excl_files)):
-                size = os.path.getsize(file)
-                if size > 0:
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+            size = os.path.getsize(file)
+            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
+
