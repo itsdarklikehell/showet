@@ -273,7 +273,6 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platformmattel.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmattel.py
 	$(QINSTALL) /home/rizzo/showet/platformmicrosoft.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmicrosoft.py
 	$(QINSTALL) /home/rizzo/showet/platformmsdos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdos.py
-	$(QINSTALL) /home/rizzo/showet/platformmusic.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmusic.py
 	$(QINSTALL) /home/rizzo/showet/platformnec.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnec.py
 	$(QINSTALL) /home/rizzo/showet/platformneogeo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformneogeo.py
 	$(QINSTALL) /home/rizzo/showet/platformnintendo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnintendo.py
@@ -301,7 +300,6 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnintendo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformneogeo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformnec.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmusic.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmsdos.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmicrosoft.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformmattel.py
