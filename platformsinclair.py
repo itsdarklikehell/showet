@@ -12,7 +12,7 @@ class PlatformZxspectrum(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'tzx', 'p', 't81',
+        extensions = ['tzx', 'p', 't81',
                       'tap', 'z80', 'rzx', 'scl',
                       'trd', 'dsk', 'zip']
         ext = []
@@ -78,9 +78,9 @@ class PlatformZx81(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'tzx', 'p', 't81',
+        extensions = ['tzx', 'p', 't81',
                       'tap', 'z80', 'rzx', 'scl',
-                      'trd', 'dsk']
+                      'trd', 'dsk', 'zip']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)

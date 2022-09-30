@@ -39,9 +39,9 @@ class PlatformCommon:
         return None
 
     def find_files_with_extension(self, extension):
-        excl_files = ['json', 'txt', 'diz', 'nfo',
-                      '.json', '.txt', '.diz', '.nfo']
-        foundfiles = [f for f in self.prod_files if (f.lower().endswith(extension) or f.upper().endswith(extension)) and not (f.lower().endswith(str(excl_files)) or f.upper().endswith(str(excl_files)))]
+        # excl_files = ['json', 'txt', 'diz', 'nfo',
+        #               '.json', '.txt', '.diz', '.nfo']
+        foundfiles = [f for f in self.prod_files if (f.lower().endswith(extension) or f.upper().endswith(extension))]
         return foundfiles
 
     # Input: list of disk images, output: same list sorted by some
