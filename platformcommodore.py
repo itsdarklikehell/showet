@@ -23,8 +23,10 @@ class PlatformCommodore64(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+            
         if len(files) == 0:
             files = self.find_ext_files()
+            
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -45,18 +47,23 @@ class PlatformCommodore64(PlatformCommon):
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
+        
         with open(flipfile, "w") as f:
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+                
         with open(m3ufile, "w") as f:
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+                
         if len(files) > 0:
             files = self.sort_disks(files)
+            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
             if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
@@ -69,11 +76,11 @@ class PlatformCommodore64(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
-
 
 class PlatformCommodorePet(PlatformCommon):
     emulators = ['retroarch']
@@ -142,9 +149,10 @@ class PlatformCommodorePet(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -215,9 +223,10 @@ class PlatformCommodore128(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -288,9 +297,10 @@ class PlatformCommodorePlus4(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -361,9 +371,10 @@ class PlatformCommodoreCBM(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -435,8 +446,9 @@ class PlatformCommodoreVIC20(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 

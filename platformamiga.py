@@ -4,8 +4,7 @@ from platformcommon import PlatformCommon
 
 class PlatformAmigaOSECS(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
-    cores = ['puae2021_libretro', 'puae_libretro',
-             'fsuae_libretro', 'uae4arm_libretro']
+    cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
@@ -13,9 +12,12 @@ class PlatformAmigaOSECS(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga',
-                      'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z',
-                      'rp9', 'exe', 'run']
+        extensions = ['zip', 'm3u', 'adf', 'adz',
+                      'dms', 'fdi', 'ipf', 'hdf',
+                      'hdz', 'lha', 'tga', 'slave',
+                      'info', 'cue', 'ccd', 'nrg',
+                      'mds', 'iso', 'chd', 'uae',
+                      '7z', 'rp9', 'exe', 'run']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -34,6 +36,7 @@ class PlatformAmigaOSECS(PlatformCommon):
             emulator.append('puae2021_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+                
         if emulator[0] == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
@@ -48,6 +51,7 @@ class PlatformAmigaOSECS(PlatformCommon):
         if len(files) > 0:
             if emulator[0] == 'fs-uae':
                 emulator.append('--hard_drive_0=.')
+                
             if emulator[0] == 'retroarch':
                 # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
@@ -67,10 +71,13 @@ class PlatformAmigaOSECS(PlatformCommon):
 
         if emulator[0] == 'fs-uae':
             amiga_model = 'A1200'
+            
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
+
             if self.prod_platform == 'amigaaga':
                 emulator.append('--fast_memory=8192')
+
         # --chip_memory=2048
             if len(drives) > 0:
                 print("\tUsing drive 0: ", drives[0])
@@ -128,16 +135,16 @@ class PlatformAmigaOSECS(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformAmigaAGA(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
-    cores = ['puae2021_libretro', 'puae_libretro',
-             'fsuae_libretro', 'uae4arm_libretro']
+    cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
@@ -260,16 +267,16 @@ class PlatformAmigaAGA(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
 class PlatformAmigaPPCRTG(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
-    cores = ['puae2021_libretro', 'puae_libretro',
-             'fsuae_libretro', 'uae4arm_libretro']
+    cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
@@ -393,8 +400,9 @@ class PlatformAmigaPPCRTG(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 

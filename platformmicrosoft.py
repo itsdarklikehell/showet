@@ -60,9 +60,10 @@ class PlatformXbox(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -127,9 +128,10 @@ class PlatformMsx(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -143,7 +145,7 @@ class PlatformWindows(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['exe', 'bat']
+        extensions = ['exe']
         emulator = ['wine']
         core = ['wine']
         fullscreen = ['false']
@@ -152,8 +154,10 @@ class PlatformWindows(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+            
         if len(files) == 0:
             files = self.find_ext_files()
+            
         if len(files) == 0:
             print("Didn't find any exe files.")
             exit(-1)
@@ -185,8 +189,9 @@ class PlatformWindows(PlatformCommon):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
-            if size > 0 and not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+            if size > 0:
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
