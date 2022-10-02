@@ -66,7 +66,7 @@ class PlatformMsdos(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ') and not file.endswith('.m3u') and not file.endswith('.vfl'):
+                if not file.endswith('.json') and not file.endswith('.DIZ') and not file.endswith('.m3u') and not file.endswith('.vfl') and not file.endswith('.ASM'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
