@@ -2,17 +2,17 @@ import os
 from platformcommon import PlatformCommon
 
 
-class PlatformPdp11(PlatformCommon):
+class Platform_Pico8(PlatformCommon):
     emulators = ['retroarch']
-    cores = ['bk_libretro']
+    cores = ['retro8_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
-    core = ['bk_libretro']
+    core = ['retro8_libretro']
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'bin']
+        extensions = ['zip', 'p8', 'png']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -23,12 +23,12 @@ class PlatformPdp11(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['bk_libretro']
+        core = ['retro8_libretro']
         fullscreen = ['false']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('bk_libretro')
+            emulator.append('retro8_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -53,7 +53,7 @@ class PlatformPdp11(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['bk001010', 'bk001011m']
+        return ['pico8']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -61,7 +61,7 @@ class PlatformPdp11(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

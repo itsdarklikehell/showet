@@ -2,17 +2,17 @@ import os
 from platformcommon import PlatformCommon
 
 
-class PlatformMsdos(PlatformCommon):
-    emulators = ['retroarch', 'dosbox']
-    cores = ['dosbox_core_libretro']
+class Platform_Apple(PlatformCommon):
+    emulators = ['retroarch', 'linapple', 'basilisk']
+    cores = ['minivmac_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
-    core = ['dosbox_core_libretro']
+    core = ['minivmac_libretro']
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'exe', 'com', 'bat', 'conf']
+        extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -23,15 +23,16 @@ class PlatformMsdos(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['dosbox_core_libretro']
+        core = ['minivmac_libretro']
         fullscreen = ['false']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('dosbox_core_libretro')
+            emulator.append('minivmac_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
-        if emulator[0] == 'dosbox':
+
+        if emulator[0] == 'linapple':
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -53,12 +54,10 @@ class PlatformMsdos(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'dosbox':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['msdos', 'msdosgus']
+        return ['appleii', 'appleiigs']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -66,7 +65,8 @@ class PlatformMsdos(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ') and not file.endswith('.m3u') and not file.endswith('.vfl') and not file.endswith('.ASM'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
+

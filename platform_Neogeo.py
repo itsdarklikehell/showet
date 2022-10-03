@@ -2,18 +2,17 @@ import os
 from platformcommon import PlatformCommon
 
 
-class PlatformGamemusic(PlatformCommon):
+class Platform_Neogeo(PlatformCommon):
     emulators = ['retroarch']
-    cores = ['gme_libretro']
     fullscreens = ['false']
+    cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
 
     emulator = ['retroarch']
     fullscreen = ['false']
-    core = ['gme_libretro']
+    core = ['fbneo_libretro']
 
     def run(self):
-        extensions = ['zip', 'ay', 'gbs', 'gym', 'hes',
-                      'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
+        extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -24,12 +23,12 @@ class PlatformGamemusic(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['gme_libretro']
+        core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('gme_libretro')
+            emulator.append('mednafen_ngp_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -54,7 +53,7 @@ class PlatformGamemusic(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['music', 'wild']
+        return ['neogeo']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -62,30 +61,23 @@ class PlatformGamemusic(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformVideoFFMPEG(PlatformCommon):
+class Platform_Neopocket(PlatformCommon):
     emulators = ['retroarch']
-    cores = ['ffmpeg_libretro']
     fullscreens = ['false']
+    cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
 
     emulator = ['retroarch']
-    core = ['ffmpeg_libretro']
     fullscreen = ['false']
+    core = ['mednafen_ngp_libretro']
 
     def run(self):
-        extensions = ['zip', 'mkv', 'avi', 'f4v',
-                      'f4f', '3gp', 'ogm', 'flv',
-                      'mp4', 'mp3', 'flac', 'ogg',
-                      'm4a', 'webm', '3g2', 'mov',
-                      'wmv', 'mpg', 'mpeg', 'vob',
-                      'asf', 'divx', 'm2p', 'm2ts',
-                      'ps', 'ts', 'mxf', 'wma',
-                      'wav']
+        extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -96,12 +88,12 @@ class PlatformVideoFFMPEG(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['ffmpeg_libretro']
+        core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('ffmpeg_libretro')
+            emulator.append('mednafen_ngp_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -126,7 +118,7 @@ class PlatformVideoFFMPEG(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['animationvideo', 'linux', 'wild']
+        return ['neogeopocket']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -134,30 +126,23 @@ class PlatformVideoFFMPEG(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformVideoMPV(PlatformCommon):
+class Platform_Neopocketcolor(PlatformCommon):
     emulators = ['retroarch']
-    cores = ['mpv_libretro']
     fullscreens = ['false']
+    cores = ['mednafen_ngpc_libretro', 'fbneo_ngpc']
 
     emulator = ['retroarch']
-    core = ['mpv_libretro']
     fullscreen = ['false']
+    core = ['mednafen_ngpc_libretro']
 
     def run(self):
-        extensions = ['zip', 'mkv', 'avi', 'f4v',
-                      'f4f', '3gp', 'ogm', 'flv',
-                      'mp4', 'mp3', 'flac', 'ogg',
-                      'm4a', 'webm', '3g2', 'mov',
-                      'wmv', 'mpg', 'mpeg', 'vob',
-                      'asf', 'divx', 'm2p', 'm2ts',
-                      'ps', 'ts', 'mxf', 'wma',
-                      'wav']
+        extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -168,12 +153,12 @@ class PlatformVideoMPV(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['ffmpeg_libretro']
+        core = ['mednafen_ngpc_libretro']
         fullscreen = ['false']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('ffmpeg_libretro')
+            emulator.append('mednafen_ngpc_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -198,7 +183,7 @@ class PlatformVideoMPV(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['animationvideo', 'linux', 'wild']
+        return ['neogeopocketcolor']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -206,7 +191,7 @@ class PlatformVideoMPV(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

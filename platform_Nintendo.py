@@ -2,7 +2,7 @@ import os
 from platformcommon import PlatformCommon
 
 
-class PlatformFamicom(PlatformCommon):
+class Platform_Famicom(PlatformCommon):
     emulators = ['retroarch']
     cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
              'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
@@ -63,13 +63,13 @@ class PlatformFamicom(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformSuperFamicom(PlatformCommon):
+class Platform_SuperFamicom(PlatformCommon):
     emulators = ['retroarch']
     cores = ['snes9x_libretro']
     fullscreens = ['false']
@@ -128,13 +128,13 @@ class PlatformSuperFamicom(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformN64(PlatformCommon):
+class Platform_N64(PlatformCommon):
     emulators = ['retroarch', 'mupen64plus-glide64',
                  'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
     cores = ['mupen64plus_libretro',
@@ -195,13 +195,13 @@ class PlatformN64(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformGameboy(PlatformCommon):
+class Platform_Gameboy(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['gambatte_libretro', 'mess2016_libretro',
@@ -261,13 +261,13 @@ class PlatformGameboy(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformGameboyColor(PlatformCommon):
+class Platform_GameboyColor(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
@@ -326,13 +326,13 @@ class PlatformGameboyColor(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformGameboyAdvance(PlatformCommon):
+class Platform_GameboyAdvance(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['vba_next_libretro', 'mgba_libretro']
@@ -392,13 +392,13 @@ class PlatformGameboyAdvance(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformGamecube(PlatformCommon):
+class Platform_Gamecube(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['dolphin_libretro']
@@ -458,13 +458,13 @@ class PlatformGamecube(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformWii(PlatformCommon):
+class Platform_Wii(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['dolphin_libretro']
@@ -524,13 +524,13 @@ class PlatformWii(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformPokemini(PlatformCommon):
+class Platform_Pokemini(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['pokemini_libretro']
@@ -589,13 +589,13 @@ class PlatformPokemini(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformDS(PlatformCommon):
+class Platform_DS(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
@@ -654,13 +654,13 @@ class PlatformDS(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
 
 
-class PlatformVirtualboy(PlatformCommon):
+class Platform_Virtualboy(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['mednafen_vb_libretro']
@@ -719,7 +719,7 @@ class PlatformVirtualboy(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

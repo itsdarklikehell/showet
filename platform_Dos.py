@@ -2,17 +2,17 @@ import os
 from platformcommon import PlatformCommon
 
 
-class PlatformPico8(PlatformCommon):
-    emulators = ['retroarch']
-    cores = ['retro8_libretro']
+class Platform_Msdos(PlatformCommon):
+    emulators = ['retroarch', 'dosbox']
+    cores = ['dosbox_core_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
-    core = ['retro8_libretro']
+    core = ['dosbox_core_libretro']
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'p8', 'png']
+        extensions = ['zip', 'exe', 'com', 'bat', 'conf']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -23,12 +23,15 @@ class PlatformPico8(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['retro8_libretro']
+        core = ['dosbox_core_libretro']
         fullscreen = ['false']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('retro8_libretro')
+            emulator.append('dosbox_core_libretro')
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+        if emulator[0] == 'dosbox':
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -50,10 +53,12 @@ class PlatformPico8(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == 'dosbox':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['pico8']
+        return ['msdos', 'msdosgus']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -61,8 +66,7 @@ class PlatformPico8(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.DIZ') and not file.endswith('.m3u') and not file.endswith('.vfl') and not file.endswith('.ASM') and not file.endswith('.bak'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

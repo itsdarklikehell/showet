@@ -3,37 +3,32 @@ import urllib.request
 import json
 import os
 import argparse
-from platformnec import PlatformSupergrafx
-from platformmicrosoft import PlatformWindows, PlatformMsx, PlatformXbox
-from platformmsdos import PlatformMsdos
-from platformelektronika import PlatformPdp11
-from platformamiga import PlatformAmigaOSECS, PlatformAmigaAGA, PlatformAmigaPPCRTG
-from platformapple import PlatformApple
-from platformamstrad import PlatformCaprice, PlatformCrocods
-from platformnintendo import PlatformGameboy, PlatformGameboyColor, PlatformGameboyAdvance
-from platformnintendo import PlatformFamicom, PlatformSuperFamicom, PlatformVirtualboy
-from platformnintendo import PlatformN64, PlatformGamecube, PlatformWii, PlatformPokemini
-from platformnintendo import PlatformDS
-from platformatari import PlatformAtarist, PlatformAtarixlxe, PlatformFalcon, PlatformJaguar
-from platformatari import PlatformLynx, PlatformVcs
-from platformsinclair import PlatformZx81, PlatformZxspectrum
-from platformcommodore import PlatformCommodore64, PlatformCommodorePet
-from platformcommodore import PlatformCommodore128, PlatformCommodorePlus4
-from platformcommodore import PlatformCommodoreVIC20, PlatformCommodoreCBM
-from platformlinux import PlatformLinux
-from platformtic80 import PlatformTic80
-from platformsega import PlatformMegadrive, PlatformGamegear, PlatformMastersystem
-from platformsega import PlatformGenesis, PlatformFlycast, PlatformSaturn
-from platformneogeo import PlatformNeogeo, PlatformNeopocket, PlatformNeopocketcolor
-from platformsony import PlatformPsx, PlatformPsp, PlatformPs2
-from platformmattel import PlatformIntellivision
-from platformarchimedes import PlatformAcorn
-from platformenterprise import PlatformEnterprise
-from platformwild import PlatformGamemusic, PlatformVideoMPV, PlatformVideoFFMPEG
-from platformjava import PlatformJava
-from platformpalm import PlatformPalm
-from platformpico8 import PlatformPico8
-from platformvectrex import PlatformVectrex
+from platform_3do import Platform_3do
+from platform_Amstrad import Platform_Caprice, Platform_Crocods
+from platform_Apple import Platform_Apple
+from platform_Arcade import Platform_Arcade
+from platform_Archimedes import Platform_Acorn
+from platform_Atari import Platform_Atarixlxe, Platform_STETTFalcon, Platform_Jaguar, Platform_Lynx, Platform_2600
+from platform_Commodore import Platform_Commodore64, Platform_CommodorePet, Platform_Commodore128, Platform_CommodorePlus4, Platform_CommodoreVIC20, Platform_CommodoreCBMII, Platform_CommodoreAmiga
+from platform_Dos import Platform_Msdos
+from platform_Elektronika import Platform_Pdp11
+from platform_Enterprise import Platform_Enterprise
+from platform_Java import Platform_Java
+from platform_Linux import Platform_Linux
+from platform_Mattel import Platform_Intellivision
+from platform_Microsoft import Platform_Windows, Platform_Msx, Platform_Xbox
+from platform_Nec import Platform_Supergrafx
+from platform_Neogeo import Platform_Neogeo, Platform_Neopocket, Platform_Neopocketcolor
+from platform_Nintendo import Platform_Gameboy, Platform_GameboyColor, Platform_GameboyAdvance, Platform_Famicom, Platform_SuperFamicom, Platform_Virtualboy, Platform_N64, Platform_Gamecube, Platform_Wii, Platform_Pokemini, Platform_DS
+from platform_Palm import Platform_Palm
+from platform_Pico8 import Platform_Pico8
+from platform_Sega import Platform_Megadrive, Platform_Gamegear, Platform_Mastersystem, Platform_Genesis, Platform_Flycast, Platform_Saturn
+from platform_Sinclair import Platform_Zx81, Platform_Zxspectrum
+from platform_Sony import Platform_Psx, Platform_Psp, Platform_Ps2
+from platform_Tic80 import Platform_Tic80
+from platform_Vectrex import Platform_Vectrex
+from platform_Wild import Platform_Gamemusic, Platform_VideoMPV, Platform_VideoFFMPEG
+
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
 parser.add_argument('pouetid', type=int, nargs='?',
@@ -46,24 +41,23 @@ parser.add_argument('--random', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [PlatformAmigaOSECS(), PlatformAmigaAGA(), PlatformAmigaPPCRTG(),
-                    PlatformCaprice(), PlatformCrocods(), PlatformFamicom(),
-                    PlatformSuperFamicom(), PlatformN64(), PlatformGameboy(),
-                    PlatformGameboyColor(), PlatformGameboyAdvance(), PlatformAtarist(),
-                    PlatformAtarixlxe(), PlatformFalcon(), PlatformFalcon(), PlatformJaguar(),
-                    PlatformLynx(), PlatformVcs(), PlatformZx81(), PlatformZxspectrum(),
-                    PlatformCommodore64(), PlatformCommodorePet(), PlatformCommodore128(),
-                    PlatformCommodorePlus4(), PlatformCommodoreVIC20(), PlatformCommodoreCBM(),
-                    PlatformGamecube(), PlatformWii(), PlatformPokemini(), PlatformDS(),
-                    PlatformVirtualboy(), PlatformWindows(), PlatformMsdos(), PlatformLinux(),
-                    PlatformApple(), PlatformTic80(), PlatformNeogeo(), PlatformNeopocket(),
-                    PlatformNeopocketcolor(), PlatformSupergrafx(), PlatformMsx(), PlatformXbox(),
-                    PlatformGamegear(), PlatformMastersystem(), PlatformMegadrive(),
-                    PlatformGenesis(), PlatformSaturn(), PlatformEnterprise(), PlatformPsx(),
-                    PlatformPs2(), PlatformPsp(), PlatformIntellivision(), PlatformJava(),
-                    PlatformAcorn(), PlatformPalm(), PlatformPico8(), PlatformVectrex(),
-                    PlatformFlycast(), PlatformPdp11(), PlatformGamemusic(), PlatformVideoMPV(),
-                    PlatformVideoFFMPEG()]
+platform_runners = [Platform_Caprice(), Platform_Crocods(), Platform_Famicom(),
+                    Platform_SuperFamicom(), Platform_N64(), Platform_Gameboy(),
+                    Platform_GameboyColor(), Platform_GameboyAdvance(),
+                    Platform_Atarixlxe(), Platform_STETTFalcon(), Platform_Jaguar(),
+                    Platform_Lynx(), Platform_2600(), Platform_Zx81(), Platform_Zxspectrum(),
+                    Platform_Commodore64(), Platform_CommodoreAmiga(), Platform_CommodorePet(), Platform_Commodore128(),
+                    Platform_CommodorePlus4(), Platform_CommodoreVIC20(), Platform_CommodoreCBMII(),
+                    Platform_Gamecube(), Platform_Wii(), Platform_Pokemini(), Platform_DS(),
+                    Platform_Virtualboy(), Platform_Windows(), Platform_Msdos(), Platform_Linux(),
+                    Platform_Apple(), Platform_Tic80(), Platform_Neogeo(), Platform_Neopocket(),
+                    Platform_Neopocketcolor(), Platform_Supergrafx(), Platform_Msx(), Platform_Xbox(),
+                    Platform_Gamegear(), Platform_Mastersystem(), Platform_Megadrive(),
+                    Platform_Genesis(), Platform_Saturn(), Platform_Enterprise(), Platform_Psx(),
+                    Platform_Ps2(), Platform_Psp(), Platform_Intellivision(), Platform_Java(),
+                    Platform_Acorn(), Platform_Palm(), Platform_Pico8(), Platform_Vectrex(),
+                    Platform_Flycast(), Platform_Pdp11(), Platform_Gamemusic(), Platform_VideoMPV(),
+                    Platform_VideoFFMPEG(), Platform_Arcade(), Platform_3do()]
 
 if args.platforms:
     for r in platform_runners:
