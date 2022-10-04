@@ -65,9 +65,9 @@ class Platform_Gamemusic(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -140,9 +140,9 @@ class Platform_VideoFFMPEG(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -215,8 +215,8 @@ class Platform_VideoMPV(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
