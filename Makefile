@@ -265,26 +265,31 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_Arcade.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Arcade.py
 	$(QINSTALL) /home/rizzo/showet/platform_Archimedes.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Archimedes.py
 	$(QINSTALL) /home/rizzo/showet/platform_Atari.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari.py
+	$(QINSTALL) /home/rizzo/showet/platform_Bandai.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Bandai.py
+	$(QINSTALL) /home/rizzo/showet/platform_Coleco.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Coleco.py
 	$(QINSTALL) /home/rizzo/showet/platform_Commodore.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Commodore.py
 	$(QINSTALL) /home/rizzo/showet/platform_Dos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Dos.py
 	$(QINSTALL) /home/rizzo/showet/platform_Elektronika.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py
 	$(QINSTALL) /home/rizzo/showet/platform_Enterprise.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
+	$(QINSTALL) /home/rizzo/showet/platform_Fairchild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Fairchild.py
+	$(QINSTALL) /home/rizzo/showet/platform_GCE.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_GCE.py
 	$(QINSTALL) /home/rizzo/showet/platform_Java.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Java.py
 	$(QINSTALL) /home/rizzo/showet/platform_Linux.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Linux.py
+	$(QINSTALL) /home/rizzo/showet/platform_Magnavox.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Magnavox.py
 	$(QINSTALL) /home/rizzo/showet/platform_Mattel.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Mattel.py
 	$(QINSTALL) /home/rizzo/showet/platform_Microsoft.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Microsoft.py
 	$(QINSTALL) /home/rizzo/showet/platform_Nec.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nec.py
-	$(QINSTALL) /home/rizzo/showet/platform_Neogeo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Neogeo.py
 	$(QINSTALL) /home/rizzo/showet/platform_Nintendo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nintendo.py
 	$(QINSTALL) /home/rizzo/showet/platform_Palm.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Palm.py
+	$(QINSTALL) /home/rizzo/showet/platform_Phillips.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Phillips.py
 	$(QINSTALL) /home/rizzo/showet/platform_Pico8.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Pico8.py
 	$(QINSTALL) /home/rizzo/showet/platform_Sega.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega.py
 	$(QINSTALL) /home/rizzo/showet/platform_Sinclair.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sinclair.py
+	$(QINSTALL) /home/rizzo/showet/platform_Snk.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Snk.py
 	$(QINSTALL) /home/rizzo/showet/platform_Sony.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sony.py
+	$(QINSTALL) /home/rizzo/showet/platform_Spectravideo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Spectravideo.py
 	$(QINSTALL) /home/rizzo/showet/platform_Tic80.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Tic80.py
-	$(QINSTALL) /home/rizzo/showet/platform_Vectrex.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Vectrex.py
 	$(QINSTALL) /home/rizzo/showet/platform_Wild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Wild.py
-	$(QINSTALL) /home/rizzo/showet/platform_Wonderswan.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Wonderswan.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
@@ -292,26 +297,31 @@ install_pymodules: FORCE
 uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Wonderswan.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Wild.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Vectrex.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Tic80.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Spectravideo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sony.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Snk.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sinclair.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Pico8.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Phillips.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Palm.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nintendo.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Neogeo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nec.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Microsoft.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Mattel.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Magnavox.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Linux.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Java.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_GCE.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Fairchild.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Dos.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Commodore.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Coleco.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Bandai.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Archimedes.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Arcade.py
