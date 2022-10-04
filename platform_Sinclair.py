@@ -18,11 +18,11 @@ class Platform_Zxspectrum(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -62,13 +62,14 @@ class Platform_Zxspectrum(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -88,11 +89,11 @@ class Platform_Zx81(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -132,12 +133,13 @@ class Platform_Zx81(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 

@@ -16,8 +16,8 @@ class Platform_Msdos(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -51,16 +51,19 @@ class Platform_Msdos(PlatformCommon):
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+                
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
             if emulator[0] == 'dosbox':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['msdos', 'msdosgus']
+        return ['msdos', 'msdosgus', 'wild']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -69,8 +72,9 @@ class Platform_Msdos(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                    if not file.endswith(str(exclusions)):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
         return ext_files
 

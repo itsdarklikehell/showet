@@ -16,11 +16,11 @@ class Platform_3DS(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -60,13 +60,14 @@ class Platform_3DS(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -86,11 +87,11 @@ class Platform_N64(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -130,13 +131,14 @@ class Platform_N64(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -154,11 +156,11 @@ class Platform_DS(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -198,13 +200,14 @@ class Platform_DS(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -224,11 +227,11 @@ class Platform_Famicom(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -268,13 +271,14 @@ class Platform_Famicom(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -294,11 +298,11 @@ class Platform_FamicomDisksystem(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -338,13 +342,14 @@ class Platform_FamicomDisksystem(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -363,11 +368,11 @@ class Platform_Gameboy(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -407,13 +412,14 @@ class Platform_Gameboy(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -431,11 +437,11 @@ class Platform_GameboyColor(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -475,13 +481,14 @@ class Platform_GameboyColor(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -500,11 +507,11 @@ class Platform_GameboyAdvance(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -544,13 +551,14 @@ class Platform_GameboyAdvance(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -569,11 +577,11 @@ class Platform_Gamecube(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -613,13 +621,14 @@ class Platform_Gamecube(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -637,11 +646,11 @@ class Platform_Pokemini(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -681,13 +690,14 @@ class Platform_Pokemini(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -705,11 +715,11 @@ class Platform_SuperFamicom(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -749,13 +759,14 @@ class Platform_SuperFamicom(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -773,11 +784,11 @@ class Platform_Virtualboy(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -817,13 +828,14 @@ class Platform_Virtualboy(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 
@@ -842,11 +854,11 @@ class Platform_Wii(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        # if len(files) == 0:
-        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
+        elif len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
+        elif len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -886,12 +898,13 @@ class Platform_Wii(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
+        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                #if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('diz') and not file.endswith('jpg'):
+                #    if not file.endswith(str(exclusions)):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 

@@ -8,13 +8,12 @@ class PlatformCommon:
     fullscreen = ['true']
     native = ['false']
     audio = ['true']
-
+    
     def __init__(self):
         self.showetdir = None
         self.datadir = None
         self.prod_platform = None
         self.prod_files = []
-        steam = ['false']
 
     # TODO: Change this to be relative to datadir
     def find_files_recursively(self, path):
@@ -38,8 +37,6 @@ class PlatformCommon:
         return None
 
     def find_files_with_extension(self, extension):
-        # excl_files = ['json', 'txt', 'diz', 'nfo',
-        #               '.json', '.txt', '.diz', '.nfo']
         foundfiles = [f for f in self.prod_files if (f.lower().endswith(extension) or f.upper().endswith(extension))]
         return foundfiles
 
