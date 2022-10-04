@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Psx(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_psx_libretro']
@@ -66,7 +65,6 @@ class Platform_Psx(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Ps2(PlatformCommon):
     emulators = ['retroarch']
@@ -133,7 +131,6 @@ class Platform_Ps2(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Psp(PlatformCommon):
     emulators = ['retroarch', 'ppsspp']
     cores = ['ppsspp_libretro']
@@ -197,4 +194,3 @@ class Platform_Psp(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

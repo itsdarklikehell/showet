@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Pdp11(PlatformCommon):
     emulators = ['retroarch', 'm']
     cores = ['bk_libretro']

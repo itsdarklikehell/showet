@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Pcengine(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro',
@@ -66,7 +65,6 @@ class Platform_Pcengine(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Supergrafx(PlatformCommon):
     emulators = ['retroarch']
@@ -133,8 +131,7 @@ class Platform_Supergrafx(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
-class Platform_pc8000(PlatformCommon):
+class Platform_Pc8000(PlatformCommon):
     emulators = ['retroarch']
     cores = ['quasi88_libretro']
     fullscreens = ['false']
@@ -198,8 +195,7 @@ class Platform_pc8000(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
-class Platform_pc8800(PlatformCommon):
+class Platform_Pc8800(PlatformCommon):
     emulators = ['retroarch']
     cores = ['quasi88_libretro']
     fullscreens = ['false']
@@ -263,8 +259,7 @@ class Platform_pc8800(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
-class Platform_pc98(PlatformCommon):
+class Platform_Pc98(PlatformCommon):
     emulators = ['retroarch']
     cores = ['nekop2_libretro']
     fullscreens = ['false']
@@ -328,7 +323,7 @@ class Platform_pc98(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-class Platform_pcfx(PlatformCommon):
+class Platform_Pcfx(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_pcfx_libretro']
     fullscreens = ['false']

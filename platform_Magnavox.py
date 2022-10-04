@@ -1,18 +1,17 @@
 import os
 from platformcommon import PlatformCommon
 
-
-class Platform_Wonderswan(PlatformCommon):
-    emulators = ['retroarch', 'mednafen']
-    cores = ['mednafen_wswan_libretro']
+class Platform_Odyssey(PlatformCommon):
+    emulators = ['retroarch']
+    cores = ['o2em_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
-    core = ['mednafen_wswan_libretro']
+    core = ['o2em_libretro']
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['ws', 'wsc', 'pc2']
+        extensions = ['bin']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -23,12 +22,12 @@ class Platform_Wonderswan(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['mednafen_wswan_libretro']
+        core = ['o2em_libretro']
         fullscreen = ['false']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mednafen_wswan_libretro')
+            emulator.append('o2em_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -53,7 +52,7 @@ class Platform_Wonderswan(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['wonderswan', 'wonderswancolor']
+        return ['intellivision']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -65,4 +64,3 @@ class Platform_Wonderswan(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

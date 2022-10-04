@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Linux(PlatformCommon):
     emulators = ['none']
     cores = ['none']
@@ -52,4 +51,3 @@ class Platform_Linux(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

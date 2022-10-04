@@ -1,7 +1,6 @@
 import os.path
 from platformcommon import PlatformCommon
 
-
 class Platform_Xbox(PlatformCommon):
     emulators = ['retroarch']
     cores = ['directxbox_libretro']
@@ -65,7 +64,6 @@ class Platform_Xbox(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Msx(PlatformCommon):
     emulators = ['retroarch', 'openmsx', 'openmsx-msx2',
@@ -134,7 +132,6 @@ class Platform_Msx(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Windows(PlatformCommon):
     emulators = ['wine']
     cores = ['wine']
@@ -194,4 +191,3 @@ class Platform_Windows(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

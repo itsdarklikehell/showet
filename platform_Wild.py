@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Gamemusic(PlatformCommon):
     emulators = ['retroarch']
     cores = ['gme_libretro']
@@ -66,7 +65,6 @@ class Platform_Gamemusic(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_VideoFFMPEG(PlatformCommon):
     emulators = ['retroarch']
@@ -139,7 +137,6 @@ class Platform_VideoFFMPEG(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_VideoMPV(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mpv_libretro']
@@ -210,4 +207,3 @@ class Platform_VideoMPV(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

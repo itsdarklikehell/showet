@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Pico8(PlatformCommon):
     emulators = ['retroarch']
     cores = ['retro8_libretro']
@@ -65,4 +64,3 @@ class Platform_Pico8(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

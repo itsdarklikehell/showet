@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Zxspectrum(PlatformCommon):
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro', '81_libretro']
@@ -68,7 +67,6 @@ class Platform_Zxspectrum(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Zx81(PlatformCommon):
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro', '81_libretro']
@@ -134,4 +132,3 @@ class Platform_Zx81(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

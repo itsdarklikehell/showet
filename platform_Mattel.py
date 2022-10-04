@@ -1,13 +1,12 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Intellivision(PlatformCommon):
     emulators = ['retroarch']
-    cores = ['freeintv_libretro']
+    cores = ['freeintv_libretro', 'jzintv', 'jzintv-ecs']
     fullscreens = ['false']
 
-    emulator = ['retroarch', 'jzintv', 'jzintv-ecs']
+    emulator = ['retroarch']
     core = ['freeintv_libretro']
     fullscreen = ['false']
 
@@ -65,4 +64,3 @@ class Platform_Intellivision(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

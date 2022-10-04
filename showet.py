@@ -9,6 +9,7 @@ from platform_Apple import Platform_Apple
 from platform_Arcade import Platform_Arcade
 from platform_Archimedes import Platform_Acorn
 from platform_Atari import Platform_Atarixlxe, Platform_STETTFalcon, Platform_Jaguar, Platform_Lynx, Platform_2600
+from platform_Bandai import Platform_Wonderswan
 from platform_Commodore import Platform_Commodore64, Platform_CommodorePet, Platform_Commodore128, Platform_CommodorePlus4, Platform_CommodoreVIC20, Platform_CommodoreCBMII, Platform_CommodoreAmiga
 from platform_Dos import Platform_Msdos
 from platform_Elektronika import Platform_Pdp11
@@ -26,7 +27,7 @@ from platform_Sega import Platform_Megadrive, Platform_Gamegear, Platform_Master
 from platform_Sinclair import Platform_Zx81, Platform_Zxspectrum
 from platform_Sony import Platform_Psx, Platform_Psp, Platform_Ps2
 from platform_Tic80 import Platform_Tic80
-from platform_Vectrex import Platform_Vectrex
+from platform_GCE import Platform_Vectrex
 from platform_Wild import Platform_Gamemusic, Platform_VideoMPV, Platform_VideoFFMPEG
 
 
@@ -57,7 +58,7 @@ platform_runners = [Platform_Caprice(), Platform_Crocods(), Platform_Famicom(),
                     Platform_Ps2(), Platform_Psp(), Platform_Intellivision(), Platform_Java(),
                     Platform_Acorn(), Platform_Palm(), Platform_Pico8(), Platform_Vectrex(),
                     Platform_Flycast(), Platform_Pdp11(), Platform_Gamemusic(), Platform_VideoMPV(),
-                    Platform_VideoFFMPEG(), Platform_Arcade(), Platform_3do()]
+                    Platform_VideoFFMPEG(), Platform_Arcade(), Platform_3do(), Platform_Wonderswan]
 
 if args.platforms:
     for r in platform_runners:

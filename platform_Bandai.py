@@ -1,18 +1,17 @@
 import os
 from platformcommon import PlatformCommon
 
-class Platform_Java(PlatformCommon):
-    emulators = ['retroarch']
-    cores = ['squirreljme_libretro']
+class Platform_Wonderswan(PlatformCommon):
+    emulators = ['retroarch', 'mednafen']
+    cores = ['mednafen_wswan_libretro']
     fullscreens = ['false']
 
     emulator = ['retroarch']
-    core = ['squirreljme_libretro']
+    core = ['mednafen_wswan_libretro']
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'jar', 'sqc', 'jam',
-                      'jad', 'kjx']
+        extensions = ['ws', 'wsc', 'pc2']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -23,12 +22,12 @@ class Platform_Java(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['squirreljme_libretro']
+        core = ['mednafen_wswan_libretro']
         fullscreen = ['false']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('squirreljme_libretro')
+            emulator.append('mednafen_wswan_libretro')
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -53,7 +52,7 @@ class Platform_Java(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['java', 'javascript']
+        return ['wonderswan', 'wonderswancolor']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):

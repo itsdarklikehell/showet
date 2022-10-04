@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_3do(PlatformCommon):
     emulators = ['retroarch', '4do']
     cores = ['4do_libretro']
@@ -69,4 +68,3 @@ class Platform_3do(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

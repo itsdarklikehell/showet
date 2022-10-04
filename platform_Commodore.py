@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Commodore64(PlatformCommon):
     emulators = ['retroarch', 'vice', 'frodo']
     cores = ['vice_x64_libretro', 'frodo_libretro']
@@ -82,7 +81,6 @@ class Platform_Commodore64(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Commodore128(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_x128_libretro']
@@ -155,7 +153,6 @@ class Platform_Commodore128(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_CommodoreAmiga(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
@@ -293,7 +290,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_CommodoreCBMII(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xcbm2_libretro']
@@ -366,7 +362,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_CommodorePet(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -441,7 +436,6 @@ class Platform_CommodorePet(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_CommodorePlus4(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xplus4_libretro']
@@ -514,7 +508,6 @@ class Platform_CommodorePlus4(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_CommodoreVIC20(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -589,4 +582,3 @@ class Platform_CommodoreVIC20(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

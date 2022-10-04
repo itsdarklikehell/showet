@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Arcade(PlatformCommon):
     emulators = ['retroarch', 'MAME', 'MESS']
     cores = ['mame_libretro', 'mamemess_libretro',]
@@ -69,4 +68,3 @@ class Platform_Arcade(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

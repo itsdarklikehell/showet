@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_STETTFalcon(PlatformCommon):
     emulators = ['retroarch', 'stella']
     cores = ['hatari_libretro']
@@ -66,7 +65,6 @@ class Platform_STETTFalcon(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Atarixlxe(PlatformCommon):
     emulators = ['retroarch']
@@ -133,7 +131,6 @@ class Platform_Atarixlxe(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Jaguar(PlatformCommon):
     emulators = ['retroarch']
     cores = ['virtualjaguar_libretro']
@@ -199,7 +196,6 @@ class Platform_Jaguar(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Lynx(PlatformCommon):
     emulators = ['retroarch', 'mednafen']
     cores = ['handy_libretro', 'mednafen_lynx_libretro']
@@ -263,7 +259,6 @@ class Platform_Lynx(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_2600(PlatformCommon):
     emulators = ['retroarch', 'stella']
@@ -329,7 +324,6 @@ class Platform_2600(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_5200(PlatformCommon):
     emulators = ['retroarch', 'atari800']
     cores = ['atari800_libretro']
@@ -394,7 +388,6 @@ class Platform_5200(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_5200(PlatformCommon):
     emulators = ['retroarch', 'prosystem']
     cores = ['prosystem_libretro']
@@ -458,4 +451,3 @@ class Platform_5200(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

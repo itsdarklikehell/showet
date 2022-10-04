@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Famicom(PlatformCommon):
     emulators = ['retroarch']
     cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
@@ -68,7 +67,6 @@ class Platform_Famicom(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_SuperFamicom(PlatformCommon):
     emulators = ['retroarch']
     cores = ['snes9x_libretro']
@@ -132,7 +130,6 @@ class Platform_SuperFamicom(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_N64(PlatformCommon):
     emulators = ['retroarch', 'mupen64plus-glide64',
@@ -200,7 +197,6 @@ class Platform_N64(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Gameboy(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -266,7 +262,6 @@ class Platform_Gameboy(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_GameboyColor(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -330,7 +325,6 @@ class Platform_GameboyColor(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_GameboyAdvance(PlatformCommon):
     emulators = ['retroarch']
@@ -397,7 +391,6 @@ class Platform_GameboyAdvance(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Gamecube(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -462,7 +455,6 @@ class Platform_Gamecube(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Wii(PlatformCommon):
     emulators = ['retroarch']
@@ -529,7 +521,6 @@ class Platform_Wii(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Pokemini(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -593,7 +584,6 @@ class Platform_Pokemini(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_DS(PlatformCommon):
     emulators = ['retroarch']
@@ -659,7 +649,6 @@ class Platform_DS(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Virtualboy(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -723,4 +712,3 @@ class Platform_Virtualboy(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

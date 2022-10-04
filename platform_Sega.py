@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Mastersystem(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
@@ -68,7 +67,6 @@ class Platform_Mastersystem(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Genesis(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -132,7 +130,6 @@ class Platform_Genesis(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Megadrive(PlatformCommon):
     emulators = ['retroarch', 'dgen']
@@ -200,7 +197,6 @@ class Platform_Megadrive(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Gamegear(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
@@ -265,7 +261,6 @@ class Platform_Gamegear(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Flycast(PlatformCommon):
     emulators = ['retroarch']
@@ -332,7 +327,6 @@ class Platform_Flycast(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_FlycastGLES2(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -398,7 +392,6 @@ class Platform_FlycastGLES2(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-
 class Platform_Saturn(PlatformCommon):
     emulators = ['retroarch', 'yabause', 'kronos']
     fullscreens = ['false']
@@ -462,4 +455,3 @@ class Platform_Saturn(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

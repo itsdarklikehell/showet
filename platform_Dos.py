@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Msdos(PlatformCommon):
     emulators = ['retroarch', 'dosbox']
     cores = ['dosbox_core_libretro']

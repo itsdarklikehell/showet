@@ -1,7 +1,6 @@
 import os
 from platformcommon import PlatformCommon
 
-
 class Platform_Palm(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mu_libretro']
@@ -65,4 +64,3 @@ class Platform_Palm(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
