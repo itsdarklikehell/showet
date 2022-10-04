@@ -61,7 +61,7 @@ class Platform_3DS(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -127,7 +127,7 @@ class Platform_N64(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -191,7 +191,7 @@ class Platform_DS(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -257,7 +257,7 @@ class Platform_Famicom(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -323,7 +323,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -388,7 +388,7 @@ class Platform_Gameboy(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -452,7 +452,7 @@ class Platform_GameboyColor(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -517,7 +517,7 @@ class Platform_GameboyAdvance(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -582,7 +582,7 @@ class Platform_Gamecube(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -646,7 +646,7 @@ class Platform_Pokemini(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -710,7 +710,7 @@ class Platform_SuperFamicom(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -774,7 +774,7 @@ class Platform_Virtualboy(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -839,7 +839,7 @@ class Platform_Wii(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

@@ -61,7 +61,7 @@ class Platform_32X(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -126,7 +126,7 @@ class Platform_Dreamcast(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -191,7 +191,7 @@ class Platform_Gamegear(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -257,7 +257,7 @@ class Platform_Mastersystem(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -323,7 +323,7 @@ class Platform_Megadrive(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -387,7 +387,7 @@ class Platform_Genesis(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -451,7 +451,7 @@ class Platform_Saturn(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -515,7 +515,7 @@ class Platform_Stv(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -579,7 +579,7 @@ class Platform_Vmu(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -643,7 +643,7 @@ class Platform_SG1000(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
