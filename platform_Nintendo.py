@@ -2,19 +2,17 @@ import os
 import os.path
 from platformcommon import PlatformCommon
 
-class Platform_Famicom(PlatformCommon):
-    emulators = ['retroarch']
-    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
-             'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
+class Platform_3DS(PlatformCommon):
+    emulators = ['retroarch', 'citra']
     fullscreens = ['false']
+    cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
 
     emulator = ['retroarch']
-    core = ['fceumm_libretro']
     fullscreen = ['false']
+    core = ['melonds_libretro']
 
     def run(self):
-        extensions = ['zip', 'nes', 'fds', 'unf',
-                      'unif', 'qd', 'nsf']
+        extensions = ['zip', 'nds', 'dsi']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -25,12 +23,12 @@ class Platform_Famicom(PlatformCommon):
             exit(-1)
 
         emulator = ['retroarch']
-        core = ['quicknes_libretro']
         fullscreen = ['false']
+        core = ['melonds_libretro']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('quicknes_libretro')
+            emulator.append('melonds_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -55,71 +53,7 @@ class Platform_Famicom(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['nesfamicom']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self):
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-        return ext_files
-
-class Platform_SuperFamicom(PlatformCommon):
-    emulators = ['retroarch']
-    cores = ['snes9x_libretro']
-    fullscreens = ['false']
-
-    emulator = ['retroarch']
-    core = ['snes9x_libretro']
-    fullscreen = ['false']
-
-    def run(self):
-        extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
-        ext = []
-        for ext in extensions:
-            files = self.find_files_with_extension(ext)
-        if len(files) == 0:
-            files = self.find_ext_files()
-        if len(files) == 0:
-            print("Didn't find any runnable files.")
-            exit(-1)
-
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['snes9x_libretro']
-
-        if emulator[0] == 'retroarch':
-            emulator.append('-L')
-            emulator.append('snes9x_libretro')
-            if fullscreen == 'true':
-                emulator.append('--fullscreen')
-
-        print("\tUsing: " + str(emulator[0]))
-        print("\tUsing core: " + str(core[0]))
-        print("\tUsing fullscreen: " + str(fullscreen[0]))
-
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        if len(files) > 0:
-            files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [files[0]]
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['snessuperfamicom']
+        return ['nintendods']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -186,6 +120,202 @@ class Platform_N64(PlatformCommon):
 
     def supported_platforms(self):
         return ['nintendo64']
+
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self):
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+        return ext_files
+
+class Platform_DS(PlatformCommon):
+    emulators = ['retroarch', 'desmume', 'melonds']
+    fullscreens = ['false']
+    cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
+
+    emulator = ['retroarch']
+    fullscreen = ['false']
+    core = ['desmume_libretro']
+
+    def run(self):
+        extensions = ['zip', 'nds', 'dsi']
+        ext = []
+        for ext in extensions:
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            files = self.find_ext_files()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['desmume_libretro']
+
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('desmume_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
+
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
+
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        if len(files) > 0:
+            files = self.sort_disks(files)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [files[0]]
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['nintendods']
+
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self):
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+        return ext_files
+
+class Platform_Famicom(PlatformCommon):
+    emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
+    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
+             'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
+    fullscreens = ['false']
+
+    emulator = ['retroarch']
+    core = ['fceumm_libretro']
+    fullscreen = ['false']
+
+    def run(self):
+        extensions = ['zip', 'nes', 'fds', 'unf',
+                      'unif', 'qd', 'nsf']
+        ext = []
+        for ext in extensions:
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            files = self.find_ext_files()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        core = ['quicknes_libretro']
+        fullscreen = ['false']
+
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('quicknes_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
+
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
+
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        if len(files) > 0:
+            files = self.sort_disks(files)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [files[0]]
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['nesfamicom']
+
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self):
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+        return ext_files
+
+class Platform_FamicomDisksystem(PlatformCommon):
+    emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
+    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
+             'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
+    fullscreens = ['false']
+
+    emulator = ['retroarch']
+    core = ['fceumm_libretro']
+    fullscreen = ['false']
+
+    def run(self):
+        extensions = ['zip', 'nes', 'fds', 'unf',
+                      'unif', 'qd', 'nsf']
+        ext = []
+        for ext in extensions:
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            files = self.find_ext_files()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        core = ['quicknes_libretro']
+        fullscreen = ['false']
+
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('quicknes_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
+
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
+
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        if len(files) > 0:
+            files = self.sort_disks(files)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [files[0]]
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['nesfamicom']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -457,71 +587,6 @@ class Platform_Gamecube(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-class Platform_Wii(PlatformCommon):
-    emulators = ['retroarch']
-    fullscreens = ['false']
-    cores = ['dolphin_libretro']
-
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['dolphin_libretro']
-
-    def run(self):
-        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
-        ext = []
-        for ext in extensions:
-            files = self.find_files_with_extension(ext)
-        if len(files) == 0:
-            files = self.find_ext_files()
-        if len(files) == 0:
-            print("Didn't find any runnable files.")
-            exit(-1)
-
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['dolphin_libretro']
-
-        if emulator[0] == 'retroarch':
-            emulator.append('-L')
-            emulator.append('dolphin_libretro')
-            if fullscreen == 'true':
-                emulator.append('--fullscreen')
-
-        print("\tUsing: " + str(emulator[0]))
-        print("\tUsing core: " + str(core[0]))
-        print("\tUsing fullscreen: " + str(fullscreen[0]))
-
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        if len(files) > 0:
-            files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [files[0]]
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['wii', 'wiiu']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self):
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-        return ext_files
-
 class Platform_Pokemini(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -586,17 +651,17 @@ class Platform_Pokemini(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-class Platform_DS(PlatformCommon):
+class Platform_SuperFamicom(PlatformCommon):
     emulators = ['retroarch']
+    cores = ['snes9x_libretro']
     fullscreens = ['false']
-    cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
 
     emulator = ['retroarch']
+    core = ['snes9x_libretro']
     fullscreen = ['false']
-    core = ['melonds_libretro']
 
     def run(self):
-        extensions = ['zip', 'nds', 'dsi']
+        extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -608,11 +673,11 @@ class Platform_DS(PlatformCommon):
 
         emulator = ['retroarch']
         fullscreen = ['false']
-        core = ['melonds_libretro']
+        core = ['snes9x_libretro']
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('melonds_libretro')
+            emulator.append('snes9x_libretro')
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -637,7 +702,7 @@ class Platform_DS(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['nintendods']
+        return ['snessuperfamicom']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -702,6 +767,71 @@ class Platform_Virtualboy(PlatformCommon):
 
     def supported_platforms(self):
         return ['virtualboy']
+
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self):
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+        return ext_files
+
+class Platform_Wii(PlatformCommon):
+    emulators = ['retroarch']
+    fullscreens = ['false']
+    cores = ['dolphin_libretro']
+
+    emulator = ['retroarch']
+    fullscreen = ['false']
+    core = ['dolphin_libretro']
+
+    def run(self):
+        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
+                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        ext = []
+        for ext in extensions:
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            files = self.find_ext_files()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
+
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['dolphin_libretro']
+
+        if emulator[0] == 'retroarch':
+            emulator.append('-L')
+            emulator.append('dolphin_libretro')
+            if fullscreen == 'true':
+                emulator.append('--fullscreen')
+
+        print("\tUsing: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
+
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        if len(files) > 0:
+            files = self.sort_disks(files)
+            if emulator[0] == 'retroarch':
+                emulator = emulator + [files[0]]
+        self.run_process(emulator)
+
+    def supported_platforms(self):
+        return ['wii', 'wiiu']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):

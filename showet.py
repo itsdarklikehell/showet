@@ -10,24 +10,29 @@ from platform_Arcade import Platform_Arcade
 from platform_Archimedes import Platform_Acorn
 from platform_Atari import Platform_Atarixlxe, Platform_STETTFalcon, Platform_Jaguar, Platform_Lynx, Platform_2600
 from platform_Bandai import Platform_Wonderswan
+from platform_Coleco import Platform_Coleco
 from platform_Commodore import Platform_Commodore64, Platform_CommodorePet, Platform_Commodore128, Platform_CommodorePlus4, Platform_CommodoreVIC20, Platform_CommodoreCBMII, Platform_CommodoreAmiga
 from platform_Dos import Platform_Msdos
 from platform_Elektronika import Platform_Pdp11
 from platform_Enterprise import Platform_Enterprise
+from platform_Fairchild import Platform_Channelf
+from platform_GCE import Platform_Vectrex
 from platform_Java import Platform_Java
 from platform_Linux import Platform_Linux
+from platform_Magnavox import Platform_Odyssey
 from platform_Mattel import Platform_Intellivision
 from platform_Microsoft import Platform_Windows, Platform_Msx, Platform_Xbox
 from platform_Nec import Platform_Supergrafx
-from platform_Neogeo import Platform_Neogeo, Platform_Neopocket, Platform_Neopocketcolor
 from platform_Nintendo import Platform_Gameboy, Platform_GameboyColor, Platform_GameboyAdvance, Platform_Famicom, Platform_SuperFamicom, Platform_Virtualboy, Platform_N64, Platform_Gamecube, Platform_Wii, Platform_Pokemini, Platform_DS
 from platform_Palm import Platform_Palm
+from platform_Phillips import Platform_Cdi
 from platform_Pico8 import Platform_Pico8
-from platform_Sega import Platform_Megadrive, Platform_Gamegear, Platform_Mastersystem, Platform_Genesis, Platform_Flycast, Platform_Saturn
+from platform_Sega import Platform_Megadrive, Platform_Gamegear, Platform_Mastersystem, Platform_Genesis, Platform_Dreamcast, Platform_Saturn
 from platform_Sinclair import Platform_Zx81, Platform_Zxspectrum
+from platform_Snk import Platform_Neogeo, Platform_Neopocket, Platform_Neopocketcolor
 from platform_Sony import Platform_Psx, Platform_Psp, Platform_Ps2
+from platform_Spectravideo import Platform_Spectravideo
 from platform_Tic80 import Platform_Tic80
-from platform_GCE import Platform_Vectrex
 from platform_Wild import Platform_Gamemusic, Platform_VideoMPV, Platform_VideoFFMPEG
 
 
@@ -57,8 +62,9 @@ platform_runners = [Platform_Caprice(), Platform_Crocods(), Platform_Famicom(),
                     Platform_Genesis(), Platform_Saturn(), Platform_Enterprise(), Platform_Psx(),
                     Platform_Ps2(), Platform_Psp(), Platform_Intellivision(), Platform_Java(),
                     Platform_Acorn(), Platform_Palm(), Platform_Pico8(), Platform_Vectrex(),
-                    Platform_Flycast(), Platform_Pdp11(), Platform_Gamemusic(), Platform_VideoMPV(),
-                    Platform_VideoFFMPEG(), Platform_Arcade(), Platform_3do(), Platform_Wonderswan]
+                    Platform_Dreamcast(), Platform_Pdp11(), Platform_Gamemusic(), Platform_VideoMPV(),
+                    Platform_VideoFFMPEG(), Platform_Arcade(), Platform_3do(), Platform_Wonderswan(), 
+                    Platform_Coleco(), Platform_Channelf(), Platform_Odyssey(), Platform_Cdi(), Platform_Spectravideo()]
 
 if args.platforms:
     for r in platform_runners:
