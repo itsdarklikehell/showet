@@ -74,13 +74,15 @@ class Platform_Commodore64(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
+                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
+
 
 class Platform_Commodore128(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -103,6 +105,8 @@ class Platform_Commodore128(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        # if len(files) == 0:
+        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -147,13 +151,15 @@ class Platform_Commodore128(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
+                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
+
 
 class Platform_CommodoreAmiga(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
@@ -175,6 +181,8 @@ class Platform_CommodoreAmiga(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        # if len(files) == 0:
+        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -283,13 +291,15 @@ class Platform_CommodoreAmiga(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
+                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
+
 
 class Platform_CommodoreCBMII(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -312,6 +322,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        # if len(files) == 0:
+        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -356,13 +368,15 @@ class Platform_CommodoreCBMII(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
+                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
+
 
 class Platform_CommodorePet(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -385,6 +399,8 @@ class Platform_CommodorePet(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        # if len(files) == 0:
+        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -429,13 +445,15 @@ class Platform_CommodorePet(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
+                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
+
 
 class Platform_CommodorePlus4(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -458,6 +476,8 @@ class Platform_CommodorePlus4(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        # if len(files) == 0:
+        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -502,13 +522,15 @@ class Platform_CommodorePlus4(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
+                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
+
 
 class Platform_CommodoreVIC20(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -532,6 +554,8 @@ class Platform_CommodoreVIC20(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        # if len(files) == 0:
+        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -576,10 +600,11 @@ class Platform_CommodoreVIC20(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
+        exclusions = ['json', 'txt', 'nfo', 'doc', 'me']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.DIZ') and not file.endswith('.DOC') and not file.endswith('.NOW') and not file.endswith('.JPG') and not file.endswith('.ANS') and not file.endswith('.DAT') and not file.endswith('.ION'):
+                if not file.endswith(str(exclusions)) and not file.endswith(str(exclusions).upper()):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
