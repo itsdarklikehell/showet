@@ -2,7 +2,6 @@ import os
 import os.path
 import subprocess
 
-
 class PlatformCommon:
     prod_files = []
     steam = ['false']
