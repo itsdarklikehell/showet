@@ -16,10 +16,13 @@ class Platform_Pcengine(PlatformCommon):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -64,11 +67,11 @@ class Platform_Pcengine(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Supergrafx(PlatformCommon):
     emulators = ['retroarch']
@@ -84,10 +87,13 @@ class Platform_Supergrafx(PlatformCommon):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -132,11 +138,11 @@ class Platform_Supergrafx(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Pc8000(PlatformCommon):
     emulators = ['retroarch']
@@ -151,10 +157,13 @@ class Platform_Pc8000(PlatformCommon):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -199,11 +208,11 @@ class Platform_Pc8000(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Pc8800(PlatformCommon):
     emulators = ['retroarch']
@@ -218,10 +227,13 @@ class Platform_Pc8800(PlatformCommon):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -266,11 +278,11 @@ class Platform_Pc8800(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Pc98(PlatformCommon):
     emulators = ['retroarch']
@@ -285,10 +297,13 @@ class Platform_Pc98(PlatformCommon):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -333,11 +348,11 @@ class Platform_Pc98(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Pcfx(PlatformCommon):
     emulators = ['retroarch']
@@ -352,10 +367,13 @@ class Platform_Pcfx(PlatformCommon):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -400,8 +418,8 @@ class Platform_Pcfx(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

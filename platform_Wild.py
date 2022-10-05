@@ -16,10 +16,13 @@ class Platform_Gamemusic(PlatformCommon):
                       'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -50,10 +53,12 @@ class Platform_Gamemusic(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -65,11 +70,11 @@ class Platform_Gamemusic(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_VideoFFMPEG(PlatformCommon):
     emulators = ['retroarch']
@@ -91,10 +96,13 @@ class Platform_VideoFFMPEG(PlatformCommon):
                       'wav']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -125,10 +133,12 @@ class Platform_VideoFFMPEG(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -140,11 +150,11 @@ class Platform_VideoFFMPEG(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_VideoMPV(PlatformCommon):
     emulators = ['retroarch']
@@ -166,10 +176,13 @@ class Platform_VideoMPV(PlatformCommon):
                       'wav']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -200,10 +213,12 @@ class Platform_VideoMPV(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -215,8 +230,8 @@ class Platform_VideoMPV(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

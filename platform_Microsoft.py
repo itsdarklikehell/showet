@@ -15,10 +15,13 @@ class Platform_Xbox(PlatformCommon):
         extensions = ['zip', 'iso']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -48,7 +51,8 @@ class Platform_Xbox(PlatformCommon):
         #     f.write("UNIT 8\n")
         #     for disk in files:
         #         f.write(disk + "\n")
-                
+
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -64,11 +68,11 @@ class Platform_Xbox(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Msx(PlatformCommon):
     emulators = ['retroarch', 'openmsx', 'openmsx-msx2',
@@ -86,10 +90,13 @@ class Platform_Msx(PlatformCommon):
                       'cas', 'sg', 'sc', 'm3u']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -119,7 +126,8 @@ class Platform_Msx(PlatformCommon):
         #     f.write("UNIT 8\n")
         #     for disk in files:
         #         f.write(disk + "\n")
-                
+
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -135,11 +143,11 @@ class Platform_Msx(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Windows(PlatformCommon):
     emulators = ['wine']
@@ -159,10 +167,13 @@ class Platform_Windows(PlatformCommon):
 
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")

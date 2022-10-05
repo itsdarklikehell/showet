@@ -73,11 +73,11 @@ class Platform_Commodore64(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Commodore128(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -99,10 +99,13 @@ class Platform_Commodore128(PlatformCommon):
                       'd2m', 'd4m']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -150,11 +153,11 @@ class Platform_Commodore128(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_CommodoreAmiga(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
@@ -175,10 +178,13 @@ class Platform_CommodoreAmiga(PlatformCommon):
 
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -290,11 +296,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_CommodoreCBMII(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -316,10 +322,13 @@ class Platform_CommodoreCBMII(PlatformCommon):
                       'd2m', 'd4m']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -367,11 +376,11 @@ class Platform_CommodoreCBMII(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_CommodorePet(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -393,10 +402,13 @@ class Platform_CommodorePet(PlatformCommon):
                       'd2m', 'd4m']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -444,11 +456,11 @@ class Platform_CommodorePet(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_CommodorePlus4(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -470,10 +482,13 @@ class Platform_CommodorePlus4(PlatformCommon):
                       'd2m', 'd4m']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -521,11 +536,11 @@ class Platform_CommodorePlus4(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_CommodoreVIC20(PlatformCommon):
     emulators = ['retroarch', 'vice']
@@ -548,10 +563,13 @@ class Platform_CommodoreVIC20(PlatformCommon):
                       '60', 'a0', 'b0', 'rom']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -599,6 +617,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)

@@ -15,10 +15,13 @@ class Platform_3DS(PlatformCommon):
         extensions = ['zip', 'nds', 'dsi']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -49,10 +52,12 @@ class Platform_3DS(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -64,11 +69,11 @@ class Platform_3DS(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_N64(PlatformCommon):
     emulators = ['retroarch', 'mupen64plus-glide64',
@@ -85,10 +90,13 @@ class Platform_N64(PlatformCommon):
         extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -119,10 +127,12 @@ class Platform_N64(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -134,11 +144,11 @@ class Platform_N64(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_DS(PlatformCommon):
     emulators = ['retroarch', 'desmume', 'melonds']
@@ -153,10 +163,13 @@ class Platform_DS(PlatformCommon):
         extensions = ['zip', 'nds', 'dsi']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -187,10 +200,12 @@ class Platform_DS(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -202,11 +217,11 @@ class Platform_DS(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Famicom(PlatformCommon):
     emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
@@ -223,10 +238,13 @@ class Platform_Famicom(PlatformCommon):
                       'unif', 'qd', 'nsf']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -257,10 +275,12 @@ class Platform_Famicom(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -272,11 +292,11 @@ class Platform_Famicom(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_FamicomDisksystem(PlatformCommon):
     emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
@@ -293,10 +313,13 @@ class Platform_FamicomDisksystem(PlatformCommon):
                       'unif', 'qd', 'nsf']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -327,10 +350,12 @@ class Platform_FamicomDisksystem(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -342,11 +367,11 @@ class Platform_FamicomDisksystem(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Gameboy(PlatformCommon):
     emulators = ['retroarch']
@@ -362,10 +387,13 @@ class Platform_Gameboy(PlatformCommon):
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -396,10 +424,12 @@ class Platform_Gameboy(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -411,11 +441,11 @@ class Platform_Gameboy(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_GameboyColor(PlatformCommon):
     emulators = ['retroarch']
@@ -430,10 +460,13 @@ class Platform_GameboyColor(PlatformCommon):
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -464,10 +497,12 @@ class Platform_GameboyColor(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -479,11 +514,11 @@ class Platform_GameboyColor(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_GameboyAdvance(PlatformCommon):
     emulators = ['retroarch']
@@ -499,10 +534,13 @@ class Platform_GameboyAdvance(PlatformCommon):
                       'dmg', 'agb', 'bin', 'cgb', 'sgb']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -533,10 +571,12 @@ class Platform_GameboyAdvance(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -548,11 +588,11 @@ class Platform_GameboyAdvance(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Gamecube(PlatformCommon):
     emulators = ['retroarch']
@@ -568,10 +608,13 @@ class Platform_Gamecube(PlatformCommon):
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -602,10 +645,12 @@ class Platform_Gamecube(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -617,11 +662,11 @@ class Platform_Gamecube(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Pokemini(PlatformCommon):
     emulators = ['retroarch']
@@ -636,10 +681,13 @@ class Platform_Pokemini(PlatformCommon):
         extensions = ['zip', 'min']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -670,10 +718,12 @@ class Platform_Pokemini(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -685,11 +735,11 @@ class Platform_Pokemini(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_SuperFamicom(PlatformCommon):
     emulators = ['retroarch']
@@ -704,10 +754,13 @@ class Platform_SuperFamicom(PlatformCommon):
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -738,10 +791,12 @@ class Platform_SuperFamicom(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -753,11 +808,11 @@ class Platform_SuperFamicom(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Virtualboy(PlatformCommon):
     emulators = ['retroarch']
@@ -772,10 +827,13 @@ class Platform_Virtualboy(PlatformCommon):
         extensions = ['zip', 'vb', 'vboy', 'bin']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -806,10 +864,12 @@ class Platform_Virtualboy(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -821,11 +881,11 @@ class Platform_Virtualboy(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 class Platform_Wii(PlatformCommon):
     emulators = ['retroarch']
@@ -841,10 +901,13 @@ class Platform_Wii(PlatformCommon):
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -875,10 +938,12 @@ class Platform_Wii(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+                
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -890,8 +955,8 @@ class Platform_Wii(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
