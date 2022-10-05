@@ -196,7 +196,7 @@ class Platform_Windows(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                # if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if file.endswith('.exe') or file.endswith('.bat') or file.endswith('.com'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
