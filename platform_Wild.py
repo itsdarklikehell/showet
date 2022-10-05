@@ -17,8 +17,8 @@ class Platform_Gamemusic(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -71,7 +71,6 @@ class Platform_Gamemusic(PlatformCommon):
         return ext_files
 
 
-
 class Platform_VideoFFMPEG(PlatformCommon):
     emulators = ['retroarch']
     cores = ['ffmpeg_libretro']
@@ -93,8 +92,8 @@ class Platform_VideoFFMPEG(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -145,7 +144,6 @@ class Platform_VideoFFMPEG(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 
 class Platform_VideoMPV(PlatformCommon):
@@ -169,8 +167,8 @@ class Platform_VideoMPV(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -221,5 +219,4 @@ class Platform_VideoMPV(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 

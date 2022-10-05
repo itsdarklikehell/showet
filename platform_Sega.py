@@ -16,8 +16,8 @@ class Platform_32X(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -70,7 +70,6 @@ class Platform_32X(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Dreamcast(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -86,8 +85,8 @@ class Platform_Dreamcast(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -140,7 +139,6 @@ class Platform_Dreamcast(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Gamegear(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
@@ -156,8 +154,8 @@ class Platform_Gamegear(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -210,7 +208,6 @@ class Platform_Gamegear(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Mastersystem(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
@@ -227,8 +224,8 @@ class Platform_Mastersystem(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -281,7 +278,6 @@ class Platform_Mastersystem(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Megadrive(PlatformCommon):
     emulators = ['retroarch', 'dgen']
     fullscreens = ['false']
@@ -298,8 +294,8 @@ class Platform_Megadrive(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -350,7 +346,6 @@ class Platform_Megadrive(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 
 class Platform_Genesis(PlatformCommon):
@@ -367,8 +362,8 @@ class Platform_Genesis(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -421,7 +416,6 @@ class Platform_Genesis(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Saturn(PlatformCommon):
     emulators = ['retroarch', 'yabause', 'kronos']
     fullscreens = ['false']
@@ -436,8 +430,8 @@ class Platform_Saturn(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -490,7 +484,6 @@ class Platform_Saturn(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Stv(PlatformCommon):
     emulators = ['retroarch', 'yabause', 'kronos']
     fullscreens = ['false']
@@ -505,8 +498,8 @@ class Platform_Stv(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -559,7 +552,6 @@ class Platform_Stv(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Vmu(PlatformCommon):
     emulators = ['retroarch', 'yabause', 'kronos']
     fullscreens = ['false']
@@ -574,8 +566,8 @@ class Platform_Vmu(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -628,7 +620,6 @@ class Platform_Vmu(PlatformCommon):
         return ext_files
 
 
-
 class Platform_SG1000(PlatformCommon):
     emulators = ['retroarch', 'yabause', 'kronos']
     fullscreens = ['false']
@@ -643,8 +634,8 @@ class Platform_SG1000(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -695,5 +686,4 @@ class Platform_SG1000(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 

@@ -16,8 +16,8 @@ class Platform_Xbox(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -70,7 +70,6 @@ class Platform_Xbox(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Msx(PlatformCommon):
     emulators = ['retroarch', 'openmsx', 'openmsx-msx2',
                  'openmsx-msx2-plus', 'openmsx-msx-turbo']
@@ -88,8 +87,8 @@ class Platform_Msx(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -142,7 +141,6 @@ class Platform_Msx(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Windows(PlatformCommon):
     emulators = ['wine']
     cores = ['wine']
@@ -162,8 +160,8 @@ class Platform_Windows(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:

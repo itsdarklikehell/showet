@@ -79,7 +79,6 @@ class Platform_Commodore64(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Commodore128(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_x128_libretro']
@@ -101,8 +100,8 @@ class Platform_Commodore128(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -157,7 +156,6 @@ class Platform_Commodore128(PlatformCommon):
         return ext_files
 
 
-
 class Platform_CommodoreAmiga(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
     cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
@@ -178,8 +176,8 @@ class Platform_CommodoreAmiga(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -298,7 +296,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
         return ext_files
 
 
-
 class Platform_CommodoreCBMII(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xcbm2_libretro']
@@ -320,8 +317,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -376,7 +373,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
         return ext_files
 
 
-
 class Platform_CommodorePet(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xpet_libretro']
@@ -398,8 +394,8 @@ class Platform_CommodorePet(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -454,7 +450,6 @@ class Platform_CommodorePet(PlatformCommon):
         return ext_files
 
 
-
 class Platform_CommodorePlus4(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xplus4_libretro']
@@ -476,8 +471,8 @@ class Platform_CommodorePlus4(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -532,7 +527,6 @@ class Platform_CommodorePlus4(PlatformCommon):
         return ext_files
 
 
-
 class Platform_CommodoreVIC20(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xvic_libretro']
@@ -555,8 +549,8 @@ class Platform_CommodoreVIC20(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -609,4 +603,3 @@ class Platform_CommodoreVIC20(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-

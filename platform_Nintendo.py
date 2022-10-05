@@ -16,8 +16,8 @@ class Platform_3DS(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -70,7 +70,6 @@ class Platform_3DS(PlatformCommon):
         return ext_files
 
 
-
 class Platform_N64(PlatformCommon):
     emulators = ['retroarch', 'mupen64plus-glide64',
                  'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
@@ -87,8 +86,8 @@ class Platform_N64(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -141,7 +140,6 @@ class Platform_N64(PlatformCommon):
         return ext_files
 
 
-
 class Platform_DS(PlatformCommon):
     emulators = ['retroarch', 'desmume', 'melonds']
     fullscreens = ['false']
@@ -156,8 +154,8 @@ class Platform_DS(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -210,7 +208,6 @@ class Platform_DS(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Famicom(PlatformCommon):
     emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
     cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
@@ -227,8 +224,8 @@ class Platform_Famicom(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -279,7 +276,6 @@ class Platform_Famicom(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 
 class Platform_FamicomDisksystem(PlatformCommon):
@@ -298,8 +294,8 @@ class Platform_FamicomDisksystem(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -352,7 +348,6 @@ class Platform_FamicomDisksystem(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Gameboy(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -368,8 +363,8 @@ class Platform_Gameboy(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -422,7 +417,6 @@ class Platform_Gameboy(PlatformCommon):
         return ext_files
 
 
-
 class Platform_GameboyColor(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -437,8 +431,8 @@ class Platform_GameboyColor(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -491,7 +485,6 @@ class Platform_GameboyColor(PlatformCommon):
         return ext_files
 
 
-
 class Platform_GameboyAdvance(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -507,8 +500,8 @@ class Platform_GameboyAdvance(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -561,7 +554,6 @@ class Platform_GameboyAdvance(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Gamecube(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -577,8 +569,8 @@ class Platform_Gamecube(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -631,7 +623,6 @@ class Platform_Gamecube(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Pokemini(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -646,8 +637,8 @@ class Platform_Pokemini(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -700,7 +691,6 @@ class Platform_Pokemini(PlatformCommon):
         return ext_files
 
 
-
 class Platform_SuperFamicom(PlatformCommon):
     emulators = ['retroarch']
     cores = ['snes9x_libretro']
@@ -715,8 +705,8 @@ class Platform_SuperFamicom(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -769,7 +759,6 @@ class Platform_SuperFamicom(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Virtualboy(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -784,8 +773,8 @@ class Platform_Virtualboy(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -838,7 +827,6 @@ class Platform_Virtualboy(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Wii(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -854,8 +842,8 @@ class Platform_Wii(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -906,5 +894,4 @@ class Platform_Wii(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 

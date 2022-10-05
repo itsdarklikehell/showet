@@ -16,8 +16,8 @@ class Platform_Neogeo(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -70,7 +70,6 @@ class Platform_Neogeo(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Neopocket(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -85,8 +84,8 @@ class Platform_Neopocket(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -139,7 +138,6 @@ class Platform_Neopocket(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Neopocketcolor(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
@@ -154,8 +152,8 @@ class Platform_Neopocketcolor(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -206,6 +204,5 @@ class Platform_Neopocketcolor(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
 

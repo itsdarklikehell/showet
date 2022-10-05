@@ -17,8 +17,8 @@ class Platform_STETTFalcon(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -71,7 +71,6 @@ class Platform_STETTFalcon(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Atarixlxe(PlatformCommon):
     emulators = ['retroarch']
     cores = ['atari800_libretro']
@@ -87,8 +86,8 @@ class Platform_Atarixlxe(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -141,7 +140,6 @@ class Platform_Atarixlxe(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Jaguar(PlatformCommon):
     emulators = ['retroarch']
     cores = ['virtualjaguar_libretro']
@@ -157,8 +155,8 @@ class Platform_Jaguar(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -211,7 +209,6 @@ class Platform_Jaguar(PlatformCommon):
         return ext_files
 
 
-
 class Platform_Lynx(PlatformCommon):
     emulators = ['retroarch', 'mednafen']
     cores = ['handy_libretro', 'mednafen_lynx_libretro']
@@ -226,8 +223,8 @@ class Platform_Lynx(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -280,7 +277,6 @@ class Platform_Lynx(PlatformCommon):
         return ext_files
 
 
-
 class Platform_2600(PlatformCommon):
     emulators = ['retroarch', 'stella']
     cores = ['stella2014_libretro', 'stella_libretro']
@@ -295,8 +291,8 @@ class Platform_2600(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -349,7 +345,6 @@ class Platform_2600(PlatformCommon):
         return ext_files
 
 
-
 class Platform_5200(PlatformCommon):
     emulators = ['retroarch', 'atari800']
     cores = ['atari800_libretro']
@@ -364,8 +359,8 @@ class Platform_5200(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -418,7 +413,6 @@ class Platform_5200(PlatformCommon):
         return ext_files
 
 
-
 class Platform_5200(PlatformCommon):
     emulators = ['retroarch', 'prosystem']
     cores = ['prosystem_libretro']
@@ -433,8 +427,8 @@ class Platform_5200(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        #if len(files) == 0:
-        #     files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -485,5 +479,4 @@ class Platform_5200(PlatformCommon):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
-
 
