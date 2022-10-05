@@ -21,8 +21,7 @@ class Platform_3do(PlatformCommon):
         core = ['4do_libretro']
         fullscreen = ['false']
         extensions = ['iso', 'bin', 'chd', 'cue']
-        
-        
+            
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
