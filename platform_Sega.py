@@ -243,16 +243,17 @@ class Platform_Mastersystem(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # m3ufile = self.datadir + "/fliplist.m3u"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -311,16 +312,17 @@ class Platform_Megadrive(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # m3ufile = self.datadir + "/fliplist.m3u"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -377,16 +379,17 @@ class Platform_Genesis(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # m3ufile = self.datadir + "/fliplist.m3u"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -443,16 +446,17 @@ class Platform_Saturn(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # m3ufile = self.datadir + "/fliplist.m3u"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -509,16 +513,17 @@ class Platform_Stv(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # m3ufile = self.datadir + "/fliplist.m3u"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -575,16 +580,17 @@ class Platform_Vmu(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # m3ufile = self.datadir + "/fliplist.m3u"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -641,16 +647,17 @@ class Platform_SG1000(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # m3ufile = self.datadir + "/fliplist.m3u"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
