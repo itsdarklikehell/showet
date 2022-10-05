@@ -65,7 +65,7 @@ class Platform_Psx(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json'):
+                if not file.endswith('.json') or file.endswith('.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -134,7 +134,7 @@ class Platform_Ps2(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json'):
+                if not file.endswith('.json') or file.endswith('.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -203,7 +203,7 @@ class Platform_Psp(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json'):
+                if not file.endswith('.json') or file.endswith('.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
