@@ -20,7 +20,7 @@ class Platform_Acorn(PlatformCommon):
         #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        elif len(files) == 0:
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -38,16 +38,17 @@ class Platform_Acorn(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-        with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
+        # flipfile = self.datadir + "/fliplist.vfl"
+        # m3ufile = self.datadir + "/fliplist.m3u"
+        # with open(flipfile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+        # with open(m3ufile, "w") as f:
+        #     f.write("UNIT 8\n")
+        #     for disk in files:
+        #         f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':

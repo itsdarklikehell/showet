@@ -47,12 +47,10 @@ class Platform_Commodore64(PlatformCommon):
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
-        
         with open(flipfile, "w") as f:
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
-                
         with open(m3ufile, "w") as f:
             f.write("UNIT 8\n")
             for disk in files:
@@ -60,10 +58,8 @@ class Platform_Commodore64(PlatformCommon):
                 
         if len(files) > 0:
             files = self.sort_disks(files)
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
             if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
@@ -107,7 +103,7 @@ class Platform_Commodore128(PlatformCommon):
         #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        elif len(files) == 0:
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -135,6 +131,7 @@ class Platform_Commodore128(PlatformCommon):
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -181,7 +178,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        elif len(files) == 0:
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -220,6 +217,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                     exename = exename[len(exename) - 1]
                     f.write(exename + "\n")
                     f.close()
+
         if len(files) > 0:
             drives = self.sort_disks(files)
             emulator = emulator + [files[0]]
@@ -320,7 +318,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
         #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        elif len(files) == 0:
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -348,6 +346,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -395,7 +394,7 @@ class Platform_CommodorePet(PlatformCommon):
         #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        elif len(files) == 0:
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -423,6 +422,7 @@ class Platform_CommodorePet(PlatformCommon):
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -470,7 +470,7 @@ class Platform_CommodorePlus4(PlatformCommon):
         #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        elif len(files) == 0:
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -498,6 +498,7 @@ class Platform_CommodorePlus4(PlatformCommon):
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -546,7 +547,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
         #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        elif len(files) == 0:
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -574,6 +575,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
             f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':

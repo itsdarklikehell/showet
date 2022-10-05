@@ -88,7 +88,7 @@ class Platform_Ps2(PlatformCommon):
         #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        elif len(files) == 0:
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
@@ -154,7 +154,7 @@ class Platform_Psp(PlatformCommon):
         #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        elif len(files) == 0:
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
