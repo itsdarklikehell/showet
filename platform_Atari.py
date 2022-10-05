@@ -61,14 +61,11 @@ class Platform_STETTFalcon(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('diz') and not file.endswith('jpg'):
-                #    if not file.endswith(str(exclusions)):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -131,14 +128,11 @@ class Platform_Atarixlxe(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('diz') and not file.endswith('jpg'):
-                #    if not file.endswith(str(exclusions)):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -201,14 +195,11 @@ class Platform_Jaguar(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('diz') and not file.endswith('jpg'):
-                #    if not file.endswith(str(exclusions)):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -270,14 +261,11 @@ class Platform_Lynx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('diz') and not file.endswith('jpg'):
-                #    if not file.endswith(str(exclusions)):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -339,14 +327,11 @@ class Platform_2600(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('diz') and not file.endswith('jpg'):
-                #    if not file.endswith(str(exclusions)):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -408,14 +393,11 @@ class Platform_5200(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('diz') and not file.endswith('jpg'):
-                #    if not file.endswith(str(exclusions)):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -477,13 +459,10 @@ class Platform_5200(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('diz') and not file.endswith('jpg'):
-                #    if not file.endswith(str(exclusions)):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 

@@ -60,14 +60,11 @@ class Platform_Xbox(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('diz') and not file.endswith('jpg'):
-                #    if not file.endswith(str(exclusions)):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -132,14 +129,11 @@ class Platform_Msx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
         ext_files = []
-        exclusions = ['asm', 'json', 'txt', 'nfo', 'doc', 'me', 'pcx', 'diz']
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('diz') and not file.endswith('jpg'):
-                #    if not file.endswith(str(exclusions)):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
@@ -162,12 +156,12 @@ class Platform_Windows(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        if len(files) == 0:
-            files = self.find_files_with_extension(ext.upper())
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
-        if len(files) == 0:
-            print("Didn't find any exe files.")
+        elif len(files) == 0:
+            print("Didn't find any runnable files.")
             exit(-1)
 
         exefile = files[0]
@@ -198,7 +192,6 @@ class Platform_Windows(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if file.endswith('.exe') or file.endswith('.bat') or file.endswith('.com'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
