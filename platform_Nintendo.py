@@ -16,9 +16,9 @@ class Platform_3DS(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -87,9 +87,9 @@ class Platform_N64(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -156,9 +156,9 @@ class Platform_DS(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -227,9 +227,9 @@ class Platform_Famicom(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -298,9 +298,9 @@ class Platform_FamicomDisksystem(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -368,9 +368,9 @@ class Platform_Gameboy(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -437,9 +437,9 @@ class Platform_GameboyColor(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -507,9 +507,9 @@ class Platform_GameboyAdvance(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -577,9 +577,9 @@ class Platform_Gamecube(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -646,9 +646,9 @@ class Platform_Pokemini(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -715,9 +715,9 @@ class Platform_SuperFamicom(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -784,9 +784,9 @@ class Platform_Virtualboy(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -854,9 +854,9 @@ class Platform_Wii(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")

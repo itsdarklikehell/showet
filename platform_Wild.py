@@ -17,9 +17,9 @@ class Platform_Gamemusic(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -93,9 +93,9 @@ class Platform_VideoFFMPEG(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -169,9 +169,9 @@ class Platform_VideoMPV(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")

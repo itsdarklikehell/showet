@@ -16,9 +16,9 @@ class Platform_32X(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -86,9 +86,9 @@ class Platform_Dreamcast(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -156,9 +156,9 @@ class Platform_Gamegear(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -227,9 +227,9 @@ class Platform_Mastersystem(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -298,9 +298,9 @@ class Platform_Megadrive(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -367,9 +367,9 @@ class Platform_Genesis(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -436,9 +436,9 @@ class Platform_Saturn(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -505,9 +505,9 @@ class Platform_Stv(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -574,9 +574,9 @@ class Platform_Vmu(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
@@ -643,9 +643,9 @@ class Platform_SG1000(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
+        #if len(files) == 0:
+        #     files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
-        elif len(files) == 0:
             files = self.find_ext_files()
         elif len(files) == 0:
             print("Didn't find any runnable files.")
