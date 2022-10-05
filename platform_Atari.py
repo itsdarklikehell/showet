@@ -12,13 +12,13 @@ class Platform_STETTFalcon(PlatformCommon):
     fullscreen = ['false']
 
     def run(self):
-        extensions = ['zip', 'st', 'msa', 'zip',
+        extensions = ['zip', 'st', 'msa',
                       'stx', 'dim', 'ipf', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+        # if len(files) == 0:
+        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
