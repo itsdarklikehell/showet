@@ -66,9 +66,11 @@ class Platform_Zxspectrum(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_Zx81(PlatformCommon):
@@ -135,7 +137,9 @@ class Platform_Zx81(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 

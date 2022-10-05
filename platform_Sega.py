@@ -64,9 +64,11 @@ class Platform_32X(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_Dreamcast(PlatformCommon):
@@ -132,9 +134,11 @@ class Platform_Dreamcast(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_Gamegear(PlatformCommon):
@@ -200,9 +204,11 @@ class Platform_Gamegear(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_Mastersystem(PlatformCommon):
@@ -269,9 +275,11 @@ class Platform_Mastersystem(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_Megadrive(PlatformCommon):
@@ -338,9 +346,11 @@ class Platform_Megadrive(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_Genesis(PlatformCommon):
@@ -405,9 +415,11 @@ class Platform_Genesis(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_Saturn(PlatformCommon):
@@ -472,9 +484,11 @@ class Platform_Saturn(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_Stv(PlatformCommon):
@@ -539,9 +553,11 @@ class Platform_Stv(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_Vmu(PlatformCommon):
@@ -606,9 +622,11 @@ class Platform_Vmu(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
 
 class Platform_SG1000(PlatformCommon):
@@ -673,7 +691,9 @@ class Platform_SG1000(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
+
 
