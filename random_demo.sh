@@ -90,6 +90,7 @@ play_demo(){
 if [ $loop = "true" ]; then
     while true; do
         play_demo
+        clear
     done
 else
     play_demo
