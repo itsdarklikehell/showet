@@ -7,9 +7,9 @@ class Platform_Pdp11(PlatformCommon):
     cores = ['bk_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['bk_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['bk_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'bin']

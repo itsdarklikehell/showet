@@ -7,9 +7,9 @@ class Platform_Channelf(PlatformCommon):
     cores = ['freechaf_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['freechaf_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['freechaf_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['bin', 'chf']

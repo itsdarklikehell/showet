@@ -7,9 +7,9 @@ class Platform_Linux(PlatformCommon):
     cores = ['none']
     fullscreens = ['false']
 
-    emulator = ['none']
-    core = ['none']
-    fullscreen = ['false']
+    # emulator = ['none']
+    # core = ['none']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'exe', 'elf']

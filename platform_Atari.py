@@ -7,9 +7,9 @@ class Platform_STETTFalcon(PlatformCommon):
     cores = ['hatari_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['hatari_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['hatari_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'st', 'msa',
@@ -76,9 +76,9 @@ class Platform_Atarixlxe(PlatformCommon):
     cores = ['atari800_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['atari800_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['atari800_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['st', 'msa', 'zip', 'stx',
@@ -145,9 +145,9 @@ class Platform_Jaguar(PlatformCommon):
     cores = ['virtualjaguar_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['virtualjaguar_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['virtualjaguar_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'j64', 'jag', 'rom',
@@ -214,9 +214,9 @@ class Platform_Lynx(PlatformCommon):
     cores = ['handy_libretro', 'mednafen_lynx_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mednafen_lynx_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mednafen_lynx_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['lnx', 'o']
@@ -282,9 +282,9 @@ class Platform_2600(PlatformCommon):
     cores = ['stella2014_libretro', 'stella_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['stella2014_libretro', 'stella_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['stella2014_libretro', 'stella_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'a26', 'bin']
@@ -350,9 +350,9 @@ class Platform_5200(PlatformCommon):
     cores = ['atari800_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['atari800_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['atari800_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
@@ -418,9 +418,9 @@ class Platform_5200(PlatformCommon):
     cores = ['prosystem_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['prosystem_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['prosystem_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['a78', 'bin', 'cdf']

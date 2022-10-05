@@ -7,9 +7,9 @@ class Platform_Zxspectrum(PlatformCommon):
     cores = ['fuse_libretro', '81_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['fuse_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['fuse_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['tzx', 'p', 't81',

@@ -7,9 +7,9 @@ class Platform_Acorn(PlatformCommon):
     cores = ['mame_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mame_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mame_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'chd', '7z', 'cmd']

@@ -7,9 +7,9 @@ class Platform_Pico8(PlatformCommon):
     cores = ['retro8_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['retro8_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['retro8_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'p8', 'png']

@@ -7,9 +7,9 @@ class Platform_Coleco(PlatformCommon):
     cores = ['bluemsx_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['bluemsx_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['bluemsx_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']

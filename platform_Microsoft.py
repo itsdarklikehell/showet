@@ -7,9 +7,9 @@ class Platform_Xbox(PlatformCommon):
     cores = ['directxbox_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['directxbox_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['directxbox_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'iso']
@@ -76,9 +76,9 @@ class Platform_Msx(PlatformCommon):
     cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['fmsx_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['fmsx_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'rom', 'ri', 'mx1',
@@ -146,9 +146,9 @@ class Platform_Windows(PlatformCommon):
     cores = ['wine']
     fullscreens = ['false']
 
-    emulator = ['wine']
-    core = ['wine']
-    fullscreen = ['false']
+    # emulator = ['wine']
+    # core = ['wine']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['exe', 'bat', 'com']

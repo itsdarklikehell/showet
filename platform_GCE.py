@@ -7,9 +7,9 @@ class Platform_Vectrex(PlatformCommon):
     cores = ['vecx_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['vecx_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['vecx_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'bin', 'vec']

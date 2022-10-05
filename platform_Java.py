@@ -7,9 +7,9 @@ class Platform_Java(PlatformCommon):
     cores = ['squirreljme_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['squirreljme_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['squirreljme_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'jar', 'sqc', 'jam',

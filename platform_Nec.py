@@ -8,9 +8,9 @@ class Platform_Pcengine(PlatformCommon):
              'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mednafen_supergrafx_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mednafen_supergrafx_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
@@ -76,9 +76,9 @@ class Platform_Supergrafx(PlatformCommon):
              'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mednafen_supergrafx_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mednafen_supergrafx_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
@@ -143,9 +143,9 @@ class Platform_Pc8000(PlatformCommon):
     cores = ['quasi88_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['quasi88_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['quasi88_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
@@ -210,9 +210,9 @@ class Platform_Pc8800(PlatformCommon):
     cores = ['quasi88_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['quasi88_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['quasi88_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
@@ -277,9 +277,9 @@ class Platform_Pc98(PlatformCommon):
     cores = ['nekop2_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['nekop2_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['nekop2_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
@@ -344,9 +344,9 @@ class Platform_Pcfx(PlatformCommon):
     cores = ['mednafen_pcfx_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mednafen_pcfx_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mednafen_pcfx_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']

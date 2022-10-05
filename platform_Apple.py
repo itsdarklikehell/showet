@@ -7,9 +7,9 @@ class Platform_Apple(PlatformCommon):
     cores = ['minivmac_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['minivmac_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['minivmac_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']

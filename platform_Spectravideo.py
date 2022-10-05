@@ -7,9 +7,9 @@ class Platform_Spectravideo(PlatformCommon):
     cores = ['bluemsx_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['bluemsx_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['bluemsx_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['bin']

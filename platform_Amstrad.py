@@ -7,9 +7,9 @@ class Platform_Crocods(PlatformCommon):
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['crocods_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['crocods_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'dsk', 'sna', 'kcr']
@@ -75,9 +75,9 @@ class Platform_Caprice(PlatformCommon):
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['cap32_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['cap32_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'dsk', 'sna', 'zip',

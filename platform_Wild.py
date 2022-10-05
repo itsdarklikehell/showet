@@ -7,9 +7,9 @@ class Platform_Gamemusic(PlatformCommon):
     cores = ['gme_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['gme_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['gme_libretro']
 
     def run(self):
         extensions = ['zip', 'ay', 'gbs', 'gym', 'hes',
@@ -76,9 +76,9 @@ class Platform_VideoFFMPEG(PlatformCommon):
     cores = ['ffmpeg_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['ffmpeg_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['ffmpeg_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'mkv', 'avi', 'f4v',
@@ -151,9 +151,9 @@ class Platform_VideoMPV(PlatformCommon):
     cores = ['mpv_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mpv_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mpv_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'mkv', 'avi', 'f4v',

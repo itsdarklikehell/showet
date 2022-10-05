@@ -7,9 +7,9 @@ class Platform_Msdos(PlatformCommon):
     cores = ['dosbox_core_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['dosbox_core_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['dosbox_core_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']

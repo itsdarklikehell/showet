@@ -7,9 +7,9 @@ class Platform_Tic80(PlatformCommon):
     cores = ['tic80_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['tic80_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['tic80_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'tic']

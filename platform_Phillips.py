@@ -7,9 +7,9 @@ class Platform_Cdi(PlatformCommon):
     cores = ['samecdi_libretro', 'cdi2015_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['samecdi_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['samecdi_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['chd', 'iso']

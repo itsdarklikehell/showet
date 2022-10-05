@@ -7,9 +7,9 @@ class Platform_3DS(PlatformCommon):
     fullscreens = ['false']
     cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['melonds_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['melonds_libretro']
 
     def run(self):
         extensions = ['zip', 'nds', 'dsi']
@@ -77,9 +77,9 @@ class Platform_N64(PlatformCommon):
              'mupen64plus_next_libretro', 'parallel_n46_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mupen64plus_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mupen64plus_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
@@ -145,9 +145,9 @@ class Platform_DS(PlatformCommon):
     fullscreens = ['false']
     cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['desmume_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['desmume_libretro']
 
     def run(self):
         extensions = ['zip', 'nds', 'dsi']
@@ -214,9 +214,9 @@ class Platform_Famicom(PlatformCommon):
              'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['fceumm_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['fceumm_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'nes', 'fds', 'unf',
@@ -284,9 +284,9 @@ class Platform_FamicomDisksystem(PlatformCommon):
              'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['fceumm_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['fceumm_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'nes', 'fds', 'unf',
@@ -354,9 +354,9 @@ class Platform_Gameboy(PlatformCommon):
     cores = ['gambatte_libretro', 'mess2016_libretro',
              'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['gambatte_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['gambatte_libretro']
 
     def run(self):
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
@@ -422,9 +422,9 @@ class Platform_GameboyColor(PlatformCommon):
     fullscreens = ['false']
     cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['gambatte_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['gambatte_libretro']
 
     def run(self):
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
@@ -490,9 +490,9 @@ class Platform_GameboyAdvance(PlatformCommon):
     fullscreens = ['false']
     cores = ['vba_next_libretro', 'mgba_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['vba_next_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['vba_next_libretro']
 
     def run(self):
         extensions = ['zip', 'gb', 'gbc', 'gba',
@@ -559,9 +559,9 @@ class Platform_Gamecube(PlatformCommon):
     fullscreens = ['false']
     cores = ['dolphin_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['dolphin_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['dolphin_libretro']
 
     def run(self):
         extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
@@ -628,9 +628,9 @@ class Platform_Pokemini(PlatformCommon):
     fullscreens = ['false']
     cores = ['pokemini_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['pokemini_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['pokemini_libretro']
 
     def run(self):
         extensions = ['zip', 'min']
@@ -696,9 +696,9 @@ class Platform_SuperFamicom(PlatformCommon):
     cores = ['snes9x_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['snes9x_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['snes9x_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
@@ -764,9 +764,9 @@ class Platform_Virtualboy(PlatformCommon):
     fullscreens = ['false']
     cores = ['mednafen_vb_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['mednafen_vb_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['mednafen_vb_libretro']
 
     def run(self):
         extensions = ['zip', 'vb', 'vboy', 'bin']
@@ -832,9 +832,9 @@ class Platform_Wii(PlatformCommon):
     fullscreens = ['false']
     cores = ['dolphin_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['dolphin_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['dolphin_libretro']
 
     def run(self):
         extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',

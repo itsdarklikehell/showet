@@ -7,9 +7,9 @@ class Platform_32X(PlatformCommon):
     fullscreens = ['false']
     cores = ['picodrive_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['picodrive_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['picodrive_libretro']
 
     def run(self):
         extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
@@ -75,9 +75,9 @@ class Platform_Dreamcast(PlatformCommon):
     fullscreens = ['false']
     cores = ['flycast_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['flycast_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['flycast_libretro']
 
     def run(self):
         extensions = ['zip', 'chd', 'cdi', 'iso', 'elf',
@@ -142,12 +142,11 @@ class Platform_Dreamcast(PlatformCommon):
 class Platform_Gamegear(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
-    cores = ['gearsystem_libretro',
-             'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
+    cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['gearsystem_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['gearsystem_libretro']
 
     def run(self):
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
@@ -211,12 +210,11 @@ class Platform_Gamegear(PlatformCommon):
 class Platform_Mastersystem(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
-    cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro',
-             'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
+    cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['genesis_plus_gx_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['genesis_plus_gx_libretro']
 
     def run(self):
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',
@@ -281,16 +279,14 @@ class Platform_Mastersystem(PlatformCommon):
 class Platform_Megadrive(PlatformCommon):
     emulators = ['retroarch', 'dgen']
     fullscreens = ['false']
-    cores = ['genesis_plus_gx_libretro',
-             'fbneo_md_libretro', 'picodrive_libretro']
+    cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['picodrive_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['picodrive_libretro']
 
     def run(self):
-        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',
-                      'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
@@ -353,9 +349,9 @@ class Platform_Genesis(PlatformCommon):
     fullscreens = ['false']
     cores = ['picodrive_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['picodrive_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['picodrive_libretro']
 
     def run(self):
         extensions = ['zip', 'md', 'bin', 'smd', 'gen', '68k', 'sgd']
@@ -421,9 +417,9 @@ class Platform_Saturn(PlatformCommon):
     fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['mednafen_saturn_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['mednafen_saturn_libretro']
 
     def run(self):
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
@@ -489,9 +485,9 @@ class Platform_Stv(PlatformCommon):
     fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['kronos_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['kronos_libretro']
 
     def run(self):
         extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
@@ -557,9 +553,9 @@ class Platform_Vmu(PlatformCommon):
     fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['vemulator_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['vemulator_libretro']
 
     def run(self):
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
@@ -625,9 +621,9 @@ class Platform_SG1000(PlatformCommon):
     fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['bluemsx_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['bluemsx_libretro']
 
     def run(self):
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']

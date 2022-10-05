@@ -7,9 +7,9 @@ class Platform_Psx(PlatformCommon):
     cores = ['mednafen_psx_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mednafen_psx_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mednafen_psx_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
@@ -76,9 +76,9 @@ class Platform_Ps2(PlatformCommon):
     cores = ['pcsx2_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['pcsx2_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['pcsx2_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
@@ -146,9 +146,9 @@ class Platform_Psp(PlatformCommon):
     cores = ['ppsspp_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['ppsspp_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['ppsspp_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'elf', 'iso', 'cso', 'prx', 'pbp']

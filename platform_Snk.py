@@ -7,9 +7,9 @@ class Platform_Neogeo(PlatformCommon):
     fullscreens = ['false']
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['fbneo_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['fbneo_libretro']
 
     def run(self):
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
@@ -75,9 +75,9 @@ class Platform_Neopocket(PlatformCommon):
     fullscreens = ['false']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['mednafen_ngp_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['mednafen_ngp_libretro']
 
     def run(self):
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
@@ -143,9 +143,9 @@ class Platform_Neopocketcolor(PlatformCommon):
     fullscreens = ['false']
     cores = ['mednafen_ngpc_libretro', 'fbneo_ngpc']
 
-    emulator = ['retroarch']
-    fullscreen = ['false']
-    core = ['mednafen_ngpc_libretro']
+    # emulator = ['retroarch']
+    # fullscreen = ['false']
+    # core = ['mednafen_ngpc_libretro']
 
     def run(self):
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']

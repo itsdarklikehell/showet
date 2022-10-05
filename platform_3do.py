@@ -7,9 +7,9 @@ class Platform_3do(PlatformCommon):
     cores = ['4do_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['4do_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['4do_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['iso', 'bin', 'chd', 'cue']

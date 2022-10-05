@@ -7,9 +7,9 @@ class Platform_Commodore64(PlatformCommon):
     cores = ['vice_x64sc_libretro', 'frodo_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch', 'vice-x64']
-    core = ['vice_x64sc_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch', 'vice-x64']
+    # core = ['vice_x64sc_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'd64', 'd71', 'd80',
@@ -84,9 +84,9 @@ class Platform_Commodore128(PlatformCommon):
     cores = ['vice_x128_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['vice_x128_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['vice_x128_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'd64', 'd71', 'd80',
@@ -161,9 +161,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
     cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['puae_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['puae_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'm3u', 'adf', 'adz',
@@ -301,9 +301,9 @@ class Platform_CommodoreCBMII(PlatformCommon):
     cores = ['vice_xcbm2_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['vice_xcbm2_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['vice_xcbm2_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'd64', 'd71', 'd80',
@@ -378,9 +378,9 @@ class Platform_CommodorePet(PlatformCommon):
     cores = ['vice_xpet_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['vice_xpet_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['vice_xpet_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'd64', 'd71', 'd80',
@@ -455,9 +455,9 @@ class Platform_CommodorePlus4(PlatformCommon):
     cores = ['vice_xplus4_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['vice_xplus4_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['vice_xplus4_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'd64', 'd71', 'd80',
@@ -532,9 +532,9 @@ class Platform_CommodoreVIC20(PlatformCommon):
     cores = ['vice_xvic_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['vice_xvic_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['vice_xvic_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'd64', 'd71', 'd80',

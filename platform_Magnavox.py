@@ -7,9 +7,9 @@ class Platform_Odyssey(PlatformCommon):
     cores = ['o2em_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['o2em_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['o2em_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['bin']

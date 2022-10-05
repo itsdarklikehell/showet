@@ -7,9 +7,9 @@ class Platform_Enterprise(PlatformCommon):
     cores = ['ep128emu_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['ep128emu_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['ep128emu_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'img', 'dsk', 'tap',

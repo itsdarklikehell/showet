@@ -7,9 +7,9 @@ class Platform_Palm(PlatformCommon):
     cores = ['mu_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mu_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mu_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'prc', 'pqa', 'img', 'pdb']

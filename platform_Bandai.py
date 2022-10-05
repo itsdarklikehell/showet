@@ -7,9 +7,9 @@ class Platform_Wonderswan(PlatformCommon):
     cores = ['mednafen_wswan_libretro']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['mednafen_wswan_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['mednafen_wswan_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['ws', 'wsc', 'pc2']

@@ -7,9 +7,9 @@ class Platform_Intellivision(PlatformCommon):
     cores = ['freeintv_libretro', 'jzintv', 'jzintv-ecs']
     fullscreens = ['false']
 
-    emulator = ['retroarch']
-    core = ['freeintv_libretro']
-    fullscreen = ['false']
+    # emulator = ['retroarch']
+    # core = ['freeintv_libretro']
+    # fullscreen = ['false']
 
     def run(self):
         extensions = ['zip', 'int', 'bin', 'rom']
