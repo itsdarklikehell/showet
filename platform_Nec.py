@@ -64,7 +64,7 @@ class Platform_Pcengine(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -132,7 +132,7 @@ class Platform_Supergrafx(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -199,7 +199,7 @@ class Platform_Pc8000(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -266,7 +266,7 @@ class Platform_Pc8800(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -333,7 +333,7 @@ class Platform_Pc98(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -400,7 +400,7 @@ class Platform_Pcfx(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

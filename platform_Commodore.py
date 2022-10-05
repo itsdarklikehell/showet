@@ -73,7 +73,7 @@ class Platform_Commodore64(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -150,7 +150,7 @@ class Platform_Commodore128(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -290,7 +290,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -367,7 +367,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -444,7 +444,7 @@ class Platform_CommodorePet(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -521,7 +521,7 @@ class Platform_CommodorePlus4(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -599,7 +599,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

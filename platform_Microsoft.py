@@ -64,7 +64,7 @@ class Platform_Xbox(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -135,7 +135,7 @@ class Platform_Msx(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
