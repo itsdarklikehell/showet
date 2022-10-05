@@ -3,38 +3,50 @@ import os.path
 from platformcommon import PlatformCommon
 
 class Platform_3do(PlatformCommon):
-    emulators = ['retroarch', '4do']
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
+    emulators = ['retroarch']
     cores = ['4do_libretro']
     fullscreens = ['false']
-
-    # emulator = ['retroarch']
-    # core = ['4do_libretro']
-    # fullscreen = ['false']
-
+    extensions = ['iso', 'bin', 'chd', 'cue']
+        
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['4do_libretro']
+        fullscreen = ['false']
         extensions = ['iso', 'bin', 'chd', 'cue']
+        
+        
         ext = []
         for ext in extensions:
+            # Tries to identify files by the list of extensions
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            # Tries to identify files by the list of extensions in UPPERCASE
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['4do_libretro']
-        fullscreen = ['false']
-
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('4do_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
         if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -52,7 +64,8 @@ class Platform_3do(PlatformCommon):
         #     f.write("UNIT 8\n")
         #     for disk in files:
         #         f.write(disk + "\n")
-                
+
+        # Sort the files.
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
@@ -68,6 +81,7 @@ class Platform_3do(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
