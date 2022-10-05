@@ -87,7 +87,7 @@ class Platform_Atarixlxe(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -156,7 +156,7 @@ class Platform_Jaguar(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -224,7 +224,7 @@ class Platform_Lynx(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -292,7 +292,7 @@ class Platform_2600(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -360,7 +360,7 @@ class Platform_5200(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -428,7 +428,7 @@ class Platform_5200(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:

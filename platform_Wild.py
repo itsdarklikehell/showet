@@ -18,7 +18,7 @@ class Platform_Gamemusic(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -93,7 +93,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -168,7 +168,7 @@ class Platform_VideoMPV(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:

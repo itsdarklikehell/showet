@@ -17,7 +17,7 @@ class Platform_32X(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -86,7 +86,7 @@ class Platform_Dreamcast(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -154,7 +154,7 @@ class Platform_Gamegear(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -223,7 +223,7 @@ class Platform_Mastersystem(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -291,7 +291,7 @@ class Platform_Megadrive(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -359,7 +359,7 @@ class Platform_Genesis(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -427,7 +427,7 @@ class Platform_Saturn(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -495,7 +495,7 @@ class Platform_Stv(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -563,7 +563,7 @@ class Platform_Vmu(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -631,7 +631,7 @@ class Platform_SG1000(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:

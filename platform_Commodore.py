@@ -101,7 +101,7 @@ class Platform_Commodore128(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -177,7 +177,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -318,7 +318,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -395,7 +395,7 @@ class Platform_CommodorePet(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -472,7 +472,7 @@ class Platform_CommodorePlus4(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -550,7 +550,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:

@@ -18,7 +18,7 @@ class Platform_Pcengine(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -86,7 +86,7 @@ class Platform_Supergrafx(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -153,7 +153,7 @@ class Platform_Pc8000(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -220,7 +220,7 @@ class Platform_Pc8800(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -287,7 +287,7 @@ class Platform_Pc98(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -354,7 +354,7 @@ class Platform_Pcfx(PlatformCommon):
         for ext in extensions:
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+            files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:

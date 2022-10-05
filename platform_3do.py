@@ -37,14 +37,15 @@ class Platform_3do(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('4do_libretro')
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
-
+        
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
