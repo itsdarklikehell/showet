@@ -34,6 +34,7 @@ class Platform_Wonderswan(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_wswan_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 

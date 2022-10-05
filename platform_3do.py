@@ -70,6 +70,7 @@ class Platform_3do(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):

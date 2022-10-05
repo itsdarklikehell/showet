@@ -36,9 +36,17 @@ class Platform_Crocods(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('crocods_libretro')
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == 'zesarux':
+            # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
@@ -81,6 +89,10 @@ class Platform_Crocods(PlatformCommon):
         return ext_files
 
 class Platform_Caprice(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'zesarux']
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
@@ -114,8 +126,15 @@ class Platform_Caprice(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('cap32_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 # Set wether we should run in fullscreens or not.
+                emulator.append('--fullscreen')
+
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == 'cap32':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
         print("\tUsing: " + str(emulator[0]))

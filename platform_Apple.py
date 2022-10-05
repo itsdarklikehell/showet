@@ -3,16 +3,29 @@ import os.path
 from platformcommon import PlatformCommon
 
 class Platform_Apple(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'linapple', 'basilisk']
     cores = ['minivmac_libretro']
     fullscreens = ['false']
+    extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
 
     # emulator = ['retroarch']
     # core = ['minivmac_libretro']
     # fullscreen = ['false']
 
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['minivmac_libretro']
+        fullscreen = ['false']
         extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -27,17 +40,16 @@ class Platform_Apple(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['minivmac_libretro']
-        fullscreen = ['false']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('minivmac_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
         if emulator[0] == 'linapple':
+            # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
