@@ -160,8 +160,8 @@ class Platform_Windows(PlatformCommon):
         ext = []
         for ext in extensions:
             files = self.find_files_with_extension(ext)
-        if len(files) == 0:
-             files = self.find_files_with_extension(ext.upper())
+        # if len(files) == 0:
+        #      files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             files = self.find_ext_files()
         if len(files) == 0:
@@ -196,7 +196,7 @@ class Platform_Windows(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                # if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
