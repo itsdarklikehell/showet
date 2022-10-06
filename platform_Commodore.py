@@ -55,7 +55,8 @@ class Platform_Commodore64(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"        m3ufile = self.datadir + "/fliplist.m3u"
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
             f.write("UNIT 8\n")
             for disk in files:
@@ -143,7 +144,8 @@ class Platform_Commodore128(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"        m3ufile = self.datadir + "/fliplist.m3u"
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
             f.write("UNIT 8\n")
             for disk in files:
@@ -390,7 +392,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"        m3ufile = self.datadir + "/fliplist.m3u"
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
             f.write("UNIT 8\n")
             for disk in files:
@@ -478,7 +481,8 @@ class Platform_CommodorePet(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"        m3ufile = self.datadir + "/fliplist.m3u"
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
             f.write("UNIT 8\n")
             for disk in files:
@@ -566,7 +570,8 @@ class Platform_CommodorePlus4(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        flipfile = self.datadir + "/fliplist.vfl"        m3ufile = self.datadir + "/fliplist.m3u"
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
             f.write("UNIT 8\n")
             for disk in files:
