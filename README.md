@@ -51,6 +51,14 @@ Install the package to get dependencies.
 
 ## Supported Platforms
 
+### 3do / 4do
+
+See: [platform_3do.md](platform_3do.md) for more information.
+
+### Amstrad Notes
+
+See: [platform_Amstrad.md](platform_Amstrad.md) for more information.
+
 ### Amiga Notes
 
 Current: `puae2021_libretro`
@@ -103,8 +111,6 @@ By: Triad
 Type: demo,wild
 Platform: amigappcrtg
 `./showet.py 92257`
-
-### Amstrad Notes
 
 #### CPC
 
@@ -264,6 +270,8 @@ atari800: `xfd|atr|cdm|cas|bin|a52|zip|atx|car|rom|com|xex`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### 7800
 
 ProSystem: `prosystem_libretro`
@@ -276,6 +284,8 @@ Supported filetypes:
 - `a78|bin`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### Commodore Notes
 
@@ -334,6 +344,8 @@ SquirrelJME: `jar|sqc|jam|jad|kjx`
 
 Example(s):
 
+[Back to top](README.md)
+
 ### Linux Notes
 
 Linux: `sh`
@@ -344,6 +356,8 @@ Supported filetypes:
 Linux: `exe|elf|sh`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### Mattel Notes
 
@@ -356,6 +370,8 @@ Supported filetypes:
 Freeintv: `int|bin|rom`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### Microsoft Notes
 
@@ -370,6 +386,8 @@ Supported filetypes:
 Directxbox: `iso`
 
 Example(s):
+
+[Back to top](README.md)
 
 #### MSX
 
@@ -388,6 +406,8 @@ Fmsx: `rom|mx1|mx2|dsk|cas|m3u`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### Windows
 
 Wine: `wine`
@@ -398,6 +418,8 @@ Supported filetypes:
 Wine: `bat|com|exe`
 
 Example(s):
+
+[Back to top](README.md)
 
 #### MsDOS
 
@@ -412,6 +434,8 @@ Dosbox/Wine: `exe|com|bat|conf`
 
 Example(s):
 
+[Back to top](README.md)
+
 ### Music Notes
 
 GameMusicEmu: `gme_libretro`
@@ -423,6 +447,8 @@ Supported filetypes:
 GameMusicEmu: `ay|gbs|gym|hes|kss|nsf|nsfe|sap|spc|vgm|vgz|zip`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### Nec Notes
 
@@ -438,6 +464,8 @@ Mednafen pce: `pce|sgx|cue|ccd|chd|toc|m3u`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### PCFX
 
 Mednafen pcfx: `
@@ -449,6 +477,8 @@ Supported filetypes:
 Mednafen pcfx: `cue|ccd|toc|chd`
 
 Example(s):
+
+[Back to top](README.md)
 
 #### PC98
 
@@ -464,6 +494,8 @@ nekop2/np2kai: `d98|zip|98d|fdi|fdd|2hd|tfd|d88|88d|hdm|xdf|dup|cmd|hdi|thd|nhd|
 
 Example(s):
 
+[Back to top](README.md)
+
 #### PC8000/PC8800
 
 Quasi88: `
@@ -476,6 +508,8 @@ Quasi88: `d88|u88|m3u`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### SuperGrafx
 
 Mednafen Supergrafx: `mednafen_supergrafx_libretro`
@@ -487,6 +521,8 @@ Supported filetypes:
 Mednafen supergrafx: `pce|sgx|cue|ccd|chd`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### NeoGeo Notes
 
@@ -501,6 +537,8 @@ Supported filetypes:
 Race/Mednafen: `ngp|ngc|ngpc|npc`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### Nintendo Notes
 
@@ -529,6 +567,8 @@ Mesen/Nestopia/Fixnes/Fceumm: `nes|fds|unf|unif`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### SNES
 
 Bsnes: `bsnes_libretro`
@@ -550,6 +590,8 @@ Snes9x: `smc|sfc|swc|fig|bs|st`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### N64
 
 Mupen64plus: `mupen64plus_next_libretro`
@@ -564,6 +606,8 @@ Mupen64plus: `n64|v64|z64|bin|u1`
 Parallel: `n64|v64|z64|bin|u1|ndd`
 
 Example(s):
+
+[Back to top](README.md)
 
 #### GB/GBC
 
@@ -591,6 +635,8 @@ Gearboy: `gb|dmg|gbc|cgb|sgb`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### GBA
 
 Mednafen: `mednafen_gba_libretro`
@@ -614,6 +660,8 @@ VBAM: `dmg|gb|gbc|cgb|sgb|gba`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### GameCube/WII
 
 Dolphin: `dolphin_libretro`
@@ -628,6 +676,8 @@ Dolphin Launcher: `lf|dol|gcm|iso|wbfs|ciso|gcz|wad`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### POKEMINI
 
 Pokemini: `pokemini_libretro`
@@ -640,6 +690,8 @@ Supported filetypes:
 - `min`
 
 Example(s):
+
+[Back to top](README.md)
 
 #### NDS
 
@@ -654,6 +706,8 @@ Supported filetypes:
 
 Example(s):
 
+[Back to top](README.md)
+
 #### 3DS
 
 Citra: `citra_libretro`
@@ -665,6 +719,8 @@ Supported filetypes:
 Citra: `3ds|3dsx|elf|axf|cci|cxi|app`
 
 Example(s):
+
+[Back to top](README.md)
 
 #### VirtualBoy
 
@@ -678,6 +734,8 @@ MelonDS: `vb|vboy|bin`
 
 Example(s):
 
+[Back to top](README.md)
+
 ### PalmOS Notes
 
 Mu: `mu_libretro`
@@ -690,6 +748,8 @@ Mu: `prc|pqa|img|pdb`
 
 Example(s):
 
+[Back to top](README.md)
+
 ### Pico8 Notes
 
 Retro8: `retro8_libretro`
@@ -701,6 +761,8 @@ Supported filetypes:
 Retro8: `p8|png`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### Sega Notes
 
@@ -721,6 +783,8 @@ Smsplus: `sms|bin|rom|col|gg|sg`
 Genesis plus: `mdx|md|smd|gen|bin|cue|iso|sms|bms|gg|sg|68k|sgd|chd|m3u`
 
 Example(s):
+
+[Back to top](README.md)
 
 #### Saturn
 
@@ -752,6 +816,8 @@ FinalBurn Neo: `zip|7z|cue|ccd`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### Dreamcast
 
 Flycast: `flycast_libretro`
@@ -765,6 +831,8 @@ Supported filetypes:
 Flycast: `sms|gg|sg|bin|rom`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### Sinclair Notes
 
@@ -780,6 +848,8 @@ Fuse: `tzx|tap|z80|rzx|scl|trd|dsk|zip`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### ZX81
 
 81: `81_libretro`
@@ -790,6 +860,8 @@ Example(s):
 81: `p|tzx|t81`
 
 Example(s):
+
+[Back to top](README.md)
 
 #### Enterprise 64/128
 
@@ -802,6 +874,8 @@ Supported filetypes:
 Ep128emu: `img|dsk|tap|dtf|com|trn|128|bas|cas|cdt|tzx|.`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### Sony Notes
 
@@ -829,6 +903,8 @@ Swanstation: `exe|psexe|cue|bin|img|iso|chd|pbp|ecm|mds|psf|m3u`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### PS2
 
 Pcsx2: `pcsx2_libretro`
@@ -846,6 +922,8 @@ Play: `chd|cso|cue|elf|iso|isz`
 
 Example(s):
 
+[Back to top](README.md)
+
 #### PSP
 
 Ppsspp: `ppsspp_libretro`
@@ -859,6 +937,8 @@ Ppsspp: `elf|iso|cso|prx|pbp`
 
 Example(s):
 
+[Back to top](README.md)
+
 ### Tic80 Notes
 
 Tic80: `tic80_libretro`
@@ -871,6 +951,8 @@ tic80: `tic`
 
 Example(s):
 
+[Back to top](README.md)
+
 ### Vectrex Notes
 
 Vecx: `vecx_libretro`
@@ -882,6 +964,8 @@ Supported filetypes:
 Vecx: `bin|vec`
 
 Example(s):
+
+[Back to top](README.md)
 
 ### Video Notes
 
@@ -896,6 +980,8 @@ Supported filetypes:
 
 MPV/FFmpeg: `mkv|avi|f4v|f4f|3gp|ogm|flv|mp4|mp3|flac|ogg|m4a|webm|3g2|mov|wmv|mpg|mpeg|vob|asf|divx|m2p|m2ts|ps|ts|mxf|wma|wav`
 Example(s):
+
+[Back to top](README.md)
 
 ## Todo
 
