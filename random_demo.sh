@@ -1,6 +1,11 @@
 #!/bin/bash
 # Showet random demo picker script
 # author: Bauke Molenaar.
+
+alias resoreset='echo "(Re)setting Resolution (tm)" && xrandr -d :0 --output HDMI-0 --mode 1920x1080'
+alias resoreset='echo "(Re)setting Resolution (tm)" && xrandr -d :0 --output DP-1 --mode 1920x1080'
+alias resoreset='echo "(Re)setting Resolution (tm)" && xrandr -d :0 --output eDP-1 --mode 1600x900'
+
 function extract () {
     if [ -f $1 ] ; then
         case $1 in

@@ -123,6 +123,7 @@ class Platform_Supergrafx(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_supergrafx_libretro')
