@@ -238,7 +238,7 @@ else:
 
     if prod_download_filename.endswith(".arc"):
         print("\tExtracting:", prod_download_filename)
-        ret = os.system("nomarch -v " + datadir + "/" + prod_download_filename)
+        ret = os.system("arc x " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
