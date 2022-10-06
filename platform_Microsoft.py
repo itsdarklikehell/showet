@@ -225,8 +225,8 @@ class Platform_Windows(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'wine':
             # Set wether we should run in fullscreens or not.
-            if fullscreen == ['true']:
-                emulator.append('--fullscreen')
+            # if fullscreen == ['true']:
+            #     emulator.append('--fullscreen')
             exefile = files[0]
 
         print("\tUsing: " + str(emulator[0]))

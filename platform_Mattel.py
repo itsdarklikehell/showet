@@ -35,7 +35,8 @@ class Platform_Intellivision(PlatformCommon):
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
-
+        
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('freeintv_libretro')
