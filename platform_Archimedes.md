@@ -1,26 +1,26 @@
-# Platforms: 3do / 4d0
+# Platforms: Arcimedes / Acorn
 
 ## Supported emulators:
 
 ```python
-emulators = ['retroarch', '4do']
+emulators = ['retroarch', 'mame']
 ```
 
 ## Supported Libretro Cores:
 
 ```python
-cores = ['4do_libretro']
+cores = ['mame_libretro', 'mame2016_libretro']
 ```
 
 ## Supported file extensions:
 
 ```python
-extensions = ['iso', 'bin', 'chd', 'cue']
+extensions = ['zip', 'chd', '7z', 'cmd']
 ```
 
 ### Examples:
 
-#### extension: iso
+#### extension: zip
 
 Name: Asynchronous - Desire
 [![Asynchronous - Desire](https://img.youtube.com/vi/TRvH73Jft_s/0.jpg)](https://www.youtube.com/watch?v=TRvH73Jft_s)

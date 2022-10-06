@@ -8,7 +8,7 @@ class Platform_Acorn(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    cores = ['mame_libretro']
+    cores = ['mame_libretro', 'mame2016_libretro']
     fullscreens = ['false']
     extensions = ['zip', 'chd', '7z', 'cmd']
 

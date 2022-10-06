@@ -236,6 +236,12 @@ else:
         if ret == 1:
             print("\tExtracting file failed!")
 
+    if prod_download_filename.endswith(".arc"):
+        print("\tExtracting:", prod_download_filename)
+        ret = os.system("nomarch -p " + datadir + " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+
     open(datadir + "/.FILES_DOWNLOADED", 'a').close()
 
 runner.setup(showetdir, datadir, prod_platform)
