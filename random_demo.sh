@@ -2,11 +2,6 @@
 # Showet random demo picker script
 # author: Bauke Molenaar.
 
-alias resoreset='echo "(Re)setting Resolution (tm)" && xrandr -d :0 --output HDMI-0 --mode 1920x1080'
-alias resoreset='echo "(Re)setting Resolution (tm)" && xrandr -d :0 --output DP-1 --mode 1920x1080'
-alias resoreset='echo "(Re)setting Resolution (tm)" && xrandr -d :0 --output eDP-1 --mode 1600x900'
-alias resoreset='echo "(Re)setting Resolution (tm)" && xrandr -d :0 --output HDMI-0 --mode 1920x1080 & xrandr -d :0 --output DP-1 --mode 1920x1080 & xrandr -d :0 --output eDP-1 --mode 1600x900'
-
 function extract () {
     if [ -f $1 ] ; then
         case $1 in
@@ -88,7 +83,7 @@ play_demo(){
         loop="false"
         # Cleanup after script
         rm -rf ~/.showet/data/* >/dev/null 2>&1
-	resoreset
+	    resoreset
         exit 0
     fi
 }
@@ -97,7 +92,7 @@ play_demo(){
 if [ $loop = "true" ]; then
     while true; do
         play_demo
-	resoreset
+	    resoreset
         clear
     done
 else

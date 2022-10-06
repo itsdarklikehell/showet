@@ -8,8 +8,8 @@ class Platform_3DS(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'citra']
-    fullscreens = ['false']
     cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
+    fullscreens = ['false']
     extensions = ['zip', 'nds', 'dsi']
     
     def run(self):
@@ -18,8 +18,8 @@ class Platform_3DS(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['melonds_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'nds', 'dsi']
         
         ext = []
@@ -106,8 +106,8 @@ class Platform_N64(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['mupen64plus_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         
         ext = []
@@ -536,8 +536,8 @@ class Platform_GameboyColor(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.    
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
+    fullscreens = ['false']
     extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
     def run(self):
@@ -546,8 +546,8 @@ class Platform_GameboyColor(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['gambatte_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
         
         ext = []
@@ -624,8 +624,8 @@ class Platform_GameboyAdvance(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['vba_next_libretro', 'mgba_libretro']
+    fullscreens = ['false']
     extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
     
     def run(self):
@@ -634,8 +634,8 @@ class Platform_GameboyAdvance(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['vba_next_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
         
         ext = []
@@ -712,8 +712,8 @@ class Platform_Gamecube(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['dolphin_libretro']
+    fullscreens = ['false']
     extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
     
     def run(self):
@@ -722,8 +722,8 @@ class Platform_Gamecube(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['dolphin_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext = []
@@ -800,8 +800,8 @@ class Platform_Pokemini(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['pokemini_libretro']
+    fullscreens = ['false']
     extensions = ['zip', 'min']
     
     def run(self):
@@ -810,8 +810,8 @@ class Platform_Pokemini(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['pokemini_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'min']
         
         ext = []
@@ -898,8 +898,8 @@ class Platform_SuperFamicom(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['snes9x_libretro']        
+        fullscreen = ['false']
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
         
         ext = []
@@ -976,8 +976,8 @@ class Platform_Virtualboy(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['mednafen_vb_libretro']
+    fullscreens = ['false']
     extensions = ['zip', 'vb', 'vboy', 'bin']
     
     def run(self):
@@ -986,8 +986,8 @@ class Platform_Virtualboy(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['mednafen_vb_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'vb', 'vboy', 'bin']
         
         ext = []
