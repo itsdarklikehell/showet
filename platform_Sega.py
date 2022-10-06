@@ -91,17 +91,25 @@ class Platform_32X(PlatformCommon):
         return ext_files
 
 class Platform_Dreamcast(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['flycast_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['flycast_libretro']
-
+    fullscreens = ['false']
+    extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+    
     def run(self):
-        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf',
-                      'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['flycast_libretro']
+        fullscreen = ['false']
+        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -116,10 +124,7 @@ class Platform_Dreamcast(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['flycast_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('flycast_libretro')
@@ -168,16 +173,25 @@ class Platform_Dreamcast(PlatformCommon):
         return ext_files
 
 class Platform_Gamegear(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'osmose']
     fullscreens = ['false']
     cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['gearsystem_libretro']
-
+    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['gearsystem_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+    
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -191,11 +205,8 @@ class Platform_Gamegear(PlatformCommon):
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
-
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['gearsystem_libretro']
-
+        
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gearsystem_libretro')
@@ -203,6 +214,12 @@ class Platform_Gamegear(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+                
         # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
@@ -244,17 +261,25 @@ class Platform_Gamegear(PlatformCommon):
         return ext_files
 
 class Platform_Mastersystem(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'osmose']
-    fullscreens = ['false']
     cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['genesis_plus_gx_libretro']
-
+    fullscreens = ['false']
+    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+    
     def run(self):
-        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',
-                      'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['genesis_plus_gx_libretro']        
+        fullscreen = ['false']
+        extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -269,13 +294,16 @@ class Platform_Mastersystem(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['genesis_plus_gx_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('genesis_plus_gx_libretro')
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -321,16 +349,25 @@ class Platform_Mastersystem(PlatformCommon):
         return ext_files
 
 class Platform_Megadrive(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'dgen']
-    fullscreens = ['false']
     cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['picodrive_libretro']
-
+    fullscreens = ['false']
+    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['picodrive_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -345,13 +382,16 @@ class Platform_Megadrive(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['picodrive_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('picodrive_libretro')
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -397,16 +437,25 @@ class Platform_Megadrive(PlatformCommon):
         return ext_files
 
 class Platform_Genesis(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['picodrive_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['picodrive_libretro']
-
+    fullscreens = ['false']
+    extensions = ['zip', 'md', 'bin', 'smd', 'gen', '68k', 'sgd']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['picodrive_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'md', 'bin', 'smd', 'gen', '68k', 'sgd']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -421,13 +470,16 @@ class Platform_Genesis(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['picodrive_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('picodrive_libretro')
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+        
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -473,16 +525,25 @@ class Platform_Genesis(PlatformCommon):
         return ext_files
 
 class Platform_Saturn(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'yabause', 'kronos']
     fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['mednafen_saturn_libretro']
-
+    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['mednafen_saturn_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -497,10 +558,7 @@ class Platform_Saturn(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['mednafen_saturn_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_saturn_libretro')
@@ -508,6 +566,11 @@ class Platform_Saturn(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
         # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
@@ -549,16 +612,25 @@ class Platform_Saturn(PlatformCommon):
         return ext_files
 
 class Platform_Stv(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'yabause', 'kronos']
-    fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['kronos_libretro']
-
+    fullscreens = ['false']
+    extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['kronos_libretro']
+        fullscreen = ['false']
         extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -572,14 +644,17 @@ class Platform_Stv(PlatformCommon):
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
-
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['kronos_libretro']
-
+        
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('kronos_libretro')
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+        
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -625,16 +700,25 @@ class Platform_Stv(PlatformCommon):
         return ext_files
 
 class Platform_Vmu(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'yabause', 'kronos']
-    fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['vemulator_libretro']
-
+    fullscreens = ['false']
+    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['vemulator_libretro']
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -649,13 +733,16 @@ class Platform_Vmu(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['vemulator_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vemulator_libretro')
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+        
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -701,16 +788,25 @@ class Platform_Vmu(PlatformCommon):
         return ext_files
 
 class Platform_SG1000(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'yabause', 'kronos']
-    fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['bluemsx_libretro']
+    fullscreens = ['false']
+    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
 
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['bluemsx_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -725,13 +821,16 @@ class Platform_SG1000(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['bluemsx_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('bluemsx_libretro')
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')

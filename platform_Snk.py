@@ -8,8 +8,8 @@ class Platform_Neogeo(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
+    fullscreens = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -96,8 +96,8 @@ class Platform_Neopocket(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
+    fullscreens = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -184,8 +184,8 @@ class Platform_Neopocketcolor(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['mednafen_ngpc_libretro', 'fbneo_ngpc']
+    fullscreens = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
