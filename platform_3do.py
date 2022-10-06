@@ -50,6 +50,7 @@ class Platform_3do(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
@@ -70,6 +71,8 @@ class Platform_3do(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 

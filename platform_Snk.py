@@ -3,16 +3,25 @@ import os.path
 from platformcommon import PlatformCommon
 
 class Platform_Neogeo(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['fbneo_libretro']
-
+    extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['mednafen_ngp_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -27,10 +36,7 @@ class Platform_Neogeo(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['mednafen_ngp_libretro']
-        fullscreen = ['false']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_ngp_libretro')
@@ -38,12 +44,18 @@ class Platform_Neogeo(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -58,6 +70,8 @@ class Platform_Neogeo(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -77,16 +91,25 @@ class Platform_Neogeo(PlatformCommon):
         return ext_files
 
 class Platform_Neopocket(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['mednafen_ngp_libretro']
-
+    extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['mednafen_ngp_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -101,23 +124,26 @@ class Platform_Neopocket(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['mednafen_ngp_libretro']
-        fullscreen = ['false']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_ngp_libretro')
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+        
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -132,6 +158,8 @@ class Platform_Neopocket(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -151,16 +179,25 @@ class Platform_Neopocket(PlatformCommon):
         return ext_files
 
 class Platform_Neopocketcolor(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['mednafen_ngpc_libretro', 'fbneo_ngpc']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['mednafen_ngpc_libretro']
-
+    extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['mednafen_ngpc_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -174,11 +211,8 @@ class Platform_Neopocketcolor(PlatformCommon):
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
-
-        emulator = ['retroarch']
-        core = ['mednafen_ngpc_libretro']
-        fullscreen = ['false']
-
+        
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_ngpc_libretro')
@@ -186,12 +220,18 @@ class Platform_Neopocketcolor(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -206,6 +246,8 @@ class Platform_Neopocketcolor(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 

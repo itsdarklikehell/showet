@@ -38,12 +38,12 @@ class Platform_32X(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -58,7 +58,9 @@ class Platform_32X(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -113,12 +115,12 @@ class Platform_Dreamcast(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -133,7 +135,9 @@ class Platform_Dreamcast(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -187,12 +191,12 @@ class Platform_Gamegear(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -207,7 +211,9 @@ class Platform_Gamegear(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -262,12 +268,12 @@ class Platform_Mastersystem(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -282,7 +288,9 @@ class Platform_Mastersystem(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -336,12 +344,12 @@ class Platform_Megadrive(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -356,7 +364,9 @@ class Platform_Megadrive(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -410,12 +420,12 @@ class Platform_Genesis(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -430,7 +440,9 @@ class Platform_Genesis(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -484,12 +496,12 @@ class Platform_Saturn(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -504,7 +516,9 @@ class Platform_Saturn(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -558,12 +572,12 @@ class Platform_Stv(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -578,7 +592,9 @@ class Platform_Stv(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -632,12 +648,12 @@ class Platform_Vmu(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -652,7 +668,9 @@ class Platform_Vmu(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -706,12 +724,12 @@ class Platform_SG1000(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -726,7 +744,9 @@ class Platform_SG1000(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):

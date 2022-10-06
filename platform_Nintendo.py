@@ -3,16 +3,25 @@ import os.path
 from platformcommon import PlatformCommon
 
 class Platform_3DS(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'citra']
     fullscreens = ['false']
     cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['melonds_libretro']
-
+    extensions = ['zip', 'nds', 'dsi']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['melonds_libretro']
         extensions = ['zip', 'nds', 'dsi']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -27,10 +36,7 @@ class Platform_3DS(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['melonds_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('melonds_libretro')
@@ -38,12 +44,18 @@ class Platform_3DS(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -58,6 +70,8 @@ class Platform_3DS(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -77,18 +91,25 @@ class Platform_3DS(PlatformCommon):
         return ext_files
 
 class Platform_N64(PlatformCommon):
-    emulators = ['retroarch', 'mupen64plus-glide64',
-                 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
-    cores = ['mupen64plus_libretro',
-             'mupen64plus_next_libretro', 'parallel_n46_libretro']
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
+    emulators = ['retroarch', 'mupen64plus-glide64', 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
+    cores = ['mupen64plus_libretro', 'mupen64plus_next_libretro', 'parallel_n46_libretro']
     fullscreens = ['false']
-
-    # emulator = ['retroarch']
-    # core = ['mupen64plus_libretro']
-    # fullscreen = ['false']
-
+    extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.        
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['mupen64plus_libretro']
         extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -103,10 +124,7 @@ class Platform_N64(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['mupen64plus_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mupen64plus_libretro')
@@ -114,12 +132,18 @@ class Platform_N64(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -134,6 +158,8 @@ class Platform_N64(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -153,16 +179,25 @@ class Platform_N64(PlatformCommon):
         return ext_files
 
 class Platform_DS(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'desmume', 'melonds']
-    fullscreens = ['false']
     cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['desmume_libretro']
-
+    fullscreens = ['false']
+    extensions = ['zip', 'nds', 'dsi']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.        
+        emulator = ['retroarch']
+        core = ['desmume_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'nds', 'dsi']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -177,10 +212,7 @@ class Platform_DS(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['desmume_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('desmume_libretro')
@@ -188,12 +220,18 @@ class Platform_DS(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -208,6 +246,8 @@ class Platform_DS(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -227,18 +267,25 @@ class Platform_DS(PlatformCommon):
         return ext_files
 
 class Platform_Famicom(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
-    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
-             'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
+    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
     fullscreens = ['false']
-
-    # emulator = ['retroarch']
-    # core = ['fceumm_libretro']
-    # fullscreen = ['false']
+    extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
     def run(self):
-        extensions = ['zip', 'nes', 'fds', 'unf',
-                      'unif', 'qd', 'nsf']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['quicknes_libretro']
+        fullscreen = ['false']
+        extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -253,10 +300,7 @@ class Platform_Famicom(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['quicknes_libretro']
-        fullscreen = ['false']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('quicknes_libretro')
@@ -264,12 +308,18 @@ class Platform_Famicom(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -284,6 +334,8 @@ class Platform_Famicom(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -303,18 +355,25 @@ class Platform_Famicom(PlatformCommon):
         return ext_files
 
 class Platform_FamicomDisksystem(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
-    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
-             'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
+    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
     fullscreens = ['false']
-
-    # emulator = ['retroarch']
-    # core = ['fceumm_libretro']
-    # fullscreen = ['false']
-
+    extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
+    
     def run(self):
-        extensions = ['zip', 'nes', 'fds', 'unf',
-                      'unif', 'qd', 'nsf']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['quicknes_libretro']
+        fullscreen = ['false']
+        extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -329,23 +388,26 @@ class Platform_FamicomDisksystem(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['quicknes_libretro']
-        fullscreen = ['false']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('quicknes_libretro')
             # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
+        
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -360,6 +422,8 @@ class Platform_FamicomDisksystem(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -379,17 +443,25 @@ class Platform_FamicomDisksystem(PlatformCommon):
         return ext_files
 
 class Platform_Gameboy(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     fullscreens = ['false']
-    cores = ['gambatte_libretro', 'mess2016_libretro',
-             'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['gambatte_libretro']
-
+    cores = ['gambatte_libretro', 'mess2016_libretro', 'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
+    extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['gambatte_libretro']        
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -404,10 +476,7 @@ class Platform_Gameboy(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['gambatte_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
@@ -415,12 +484,18 @@ class Platform_Gameboy(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -435,6 +510,8 @@ class Platform_Gameboy(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -454,16 +531,25 @@ class Platform_Gameboy(PlatformCommon):
         return ext_files
 
 class Platform_GameboyColor(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.    
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['gambatte_libretro']
+    extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['gambatte_libretro']
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -478,10 +564,7 @@ class Platform_GameboyColor(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['gambatte_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
@@ -489,12 +572,18 @@ class Platform_GameboyColor(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -509,6 +598,8 @@ class Platform_GameboyColor(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -528,17 +619,25 @@ class Platform_GameboyColor(PlatformCommon):
         return ext_files
 
 class Platform_GameboyAdvance(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['vba_next_libretro', 'mgba_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['vba_next_libretro']
-
+    extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
+    
     def run(self):
-        extensions = ['zip', 'gb', 'gbc', 'gba',
-                      'dmg', 'agb', 'bin', 'cgb', 'sgb']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['vba_next_libretro']
+        extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -553,10 +652,7 @@ class Platform_GameboyAdvance(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['vba_next_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('vba_next_libretro')
@@ -564,12 +660,18 @@ class Platform_GameboyAdvance(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -584,7 +686,9 @@ class Platform_GameboyAdvance(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -603,17 +707,25 @@ class Platform_GameboyAdvance(PlatformCommon):
         return ext_files
 
 class Platform_Gamecube(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['dolphin_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['dolphin_libretro']
-
+    extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+    
     def run(self):
-        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.        
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['dolphin_libretro']
+        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -628,10 +740,7 @@ class Platform_Gamecube(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['dolphin_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
@@ -639,12 +748,18 @@ class Platform_Gamecube(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+                
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -659,7 +774,9 @@ class Platform_Gamecube(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -678,16 +795,25 @@ class Platform_Gamecube(PlatformCommon):
         return ext_files
 
 class Platform_Pokemini(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['pokemini_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['pokemini_libretro']
-
+    extensions = ['zip', 'min']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['pokemini_libretro']
         extensions = ['zip', 'min']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -702,10 +828,7 @@ class Platform_Pokemini(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['pokemini_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('pokemini_libretro')
@@ -713,12 +836,18 @@ class Platform_Pokemini(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -733,7 +862,9 @@ class Platform_Pokemini(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -752,16 +883,25 @@ class Platform_Pokemini(PlatformCommon):
         return ext_files
 
 class Platform_SuperFamicom(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['snes9x_libretro']
     fullscreens = ['false']
-
-    # emulator = ['retroarch']
-    # core = ['snes9x_libretro']
-    # fullscreen = ['false']
-
+    extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['snes9x_libretro']        
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -776,10 +916,7 @@ class Platform_SuperFamicom(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['snes9x_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('snes9x_libretro')
@@ -787,12 +924,18 @@ class Platform_SuperFamicom(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -807,7 +950,9 @@ class Platform_SuperFamicom(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -826,16 +971,25 @@ class Platform_SuperFamicom(PlatformCommon):
         return ext_files
 
 class Platform_Virtualboy(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['mednafen_vb_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['mednafen_vb_libretro']
-
+    extensions = ['zip', 'vb', 'vboy', 'bin']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        fullscreen = ['false']
+        core = ['mednafen_vb_libretro']
         extensions = ['zip', 'vb', 'vboy', 'bin']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -850,10 +1004,7 @@ class Platform_Virtualboy(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['mednafen_vb_libretro']
-
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_vb_libretro')
@@ -861,12 +1012,18 @@ class Platform_Virtualboy(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -881,7 +1038,9 @@ class Platform_Virtualboy(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -900,17 +1059,25 @@ class Platform_Virtualboy(PlatformCommon):
         return ext_files
 
 class Platform_Wii(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['dolphin_libretro']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['dolphin_libretro']
-
+    fullscreens = ['false']
+    extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+    
     def run(self):
-        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['dolphin_libretro']
+        fullscreen = ['false']
+        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -925,10 +1092,7 @@ class Platform_Wii(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        fullscreen = ['false']
-        core = ['dolphin_libretro']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
@@ -936,12 +1100,18 @@ class Platform_Wii(PlatformCommon):
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == '4do':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+                
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -956,7 +1126,9 @@ class Platform_Wii(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-                
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):

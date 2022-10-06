@@ -49,12 +49,12 @@ class Platform_Apple(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -69,6 +69,8 @@ class Platform_Apple(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == 'linapple':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 

@@ -3,17 +3,25 @@ import os.path
 from platformcommon import PlatformCommon
 
 class Platform_Gamemusic(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['gme_libretro']
     fullscreens = ['false']
-
-    # emulator = ['retroarch']
-    # fullscreen = ['false']
-    # core = ['gme_libretro']
-
+    extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
+    
     def run(self):
-        extensions = ['zip', 'ay', 'gbs', 'gym', 'hes',
-                      'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['gme_libretro']
+        fullscreen = ['false']
+        extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -28,23 +36,26 @@ class Platform_Gamemusic(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['gme_libretro']
-        fullscreen = ['false']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gme_libretro')
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
+        
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == 'vlc':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
 
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -59,6 +70,8 @@ class Platform_Gamemusic(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == 'vlc':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -78,23 +91,25 @@ class Platform_Gamemusic(PlatformCommon):
         return ext_files
 
 class Platform_VideoFFMPEG(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['ffmpeg_libretro']
     fullscreens = ['false']
-
-    # emulator = ['retroarch']
-    # core = ['ffmpeg_libretro']
-    # fullscreen = ['false']
+    extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
     def run(self):
-        extensions = ['zip', 'mkv', 'avi', 'f4v',
-                      'f4f', '3gp', 'ogm', 'flv',
-                      'mp4', 'mp3', 'flac', 'ogg',
-                      'm4a', 'webm', '3g2', 'mov',
-                      'wmv', 'mpg', 'mpeg', 'vob',
-                      'asf', 'divx', 'm2p', 'm2ts',
-                      'ps', 'ts', 'mxf', 'wma',
-                      'wav']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['ffmpeg_libretro']
+        fullscreen = ['false']
+        extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -109,10 +124,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['ffmpeg_libretro']
-        fullscreen = ['false']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('ffmpeg_libretro')
@@ -120,12 +132,18 @@ class Platform_VideoFFMPEG(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == 'vlc':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -140,6 +158,8 @@ class Platform_VideoFFMPEG(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == 'vlc':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 
@@ -159,23 +179,25 @@ class Platform_VideoFFMPEG(PlatformCommon):
         return ext_files
 
 class Platform_VideoMPV(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['mpv_libretro']
     fullscreens = ['false']
-
-    # emulator = ['retroarch']
-    # core = ['mpv_libretro']
-    # fullscreen = ['false']
-
+    extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
+    
     def run(self):
-        extensions = ['zip', 'mkv', 'avi', 'f4v',
-                      'f4f', '3gp', 'ogm', 'flv',
-                      'mp4', 'mp3', 'flac', 'ogg',
-                      'm4a', 'webm', '3g2', 'mov',
-                      'wmv', 'mpg', 'mpeg', 'vob',
-                      'asf', 'divx', 'm2p', 'm2ts',
-                      'ps', 'ts', 'mxf', 'wma',
-                      'wav']
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['ffmpeg_libretro']
+        fullscreen = ['false']
+        extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -189,11 +211,8 @@ class Platform_VideoMPV(PlatformCommon):
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
-
-        emulator = ['retroarch']
-        core = ['ffmpeg_libretro']
-        fullscreen = ['false']
-
+        
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('ffmpeg_libretro')
@@ -201,12 +220,18 @@ class Platform_VideoMPV(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == 'vlc':
+            # Set wether we should run in fullscreens or not.
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
+
+        # print status to console.
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"
-        # m3ufile = self.datadir + "/fliplist.m3u"
+        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
         # with open(flipfile, "w") as f:
         #     f.write("UNIT 8\n")
         #     for disk in files:
@@ -221,6 +246,8 @@ class Platform_VideoMPV(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
+            if emulator[0] == '3do':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
 

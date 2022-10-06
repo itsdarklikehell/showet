@@ -3,16 +3,25 @@ import os.path
 from platformcommon import PlatformCommon
 
 class Platform_Linux(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['none']
     cores = ['none']
     fullscreens = ['false']
-
-    # emulator = ['none']
-    # core = ['none']
-    # fullscreen = ['false']
-
+    extensions = ['zip', 'exe', 'elf']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['none']
+        core = ['none']
+        fullscreen = ['false']
         extensions = ['zip', 'exe', 'elf']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -27,21 +36,20 @@ class Platform_Linux(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['none']
-        core = ['none']
-        fullscreen = ['false']
-
+        # cd to the datadir
         os.chdir(self.datadir)
+        
+        # check if there are multiple executable files in the datadir
         if len(files) > 1:
-            print("Found multiple executables: ", files,
-                  " - not sure which one to run!")
+            print("Found multiple executables: ", files, " - not sure which one to run!")
             exit(-1)
         else:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tUsing fullscreen: " + str(fullscreen))
-
+            # print status to console.
+            print("\tUsing emulator: " + str(emulator[0]))
+            print("\tUsing core: " + str(core[0]))
+            print("\tUsing fullscreen: " + str(fullscreen[0]))
             print("Running ", files[0])
+            # run the executable
             self.run_process([files[0]])
 
     def supported_platforms(self):

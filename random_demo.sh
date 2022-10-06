@@ -82,6 +82,7 @@ play_demo(){
         loop="false"
         # Cleanup after script
         rm -rf ~/.showet/data/* >/dev/null 2>&1
+	resoreset
         exit 0
     fi
 }
@@ -90,10 +91,12 @@ play_demo(){
 if [ $loop = "true" ]; then
     while true; do
         play_demo
+	resoreset
         clear
     done
 else
     play_demo
+    resoreset
 fi
 # Cleanup after script
 rm -rf ~/.showet/data/* >/dev/null 2>&1
