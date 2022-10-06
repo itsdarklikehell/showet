@@ -34,6 +34,7 @@ class Platform_3DS(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('melonds_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -109,6 +110,7 @@ class Platform_N64(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mupen64plus_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -182,6 +184,7 @@ class Platform_DS(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('desmume_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -257,6 +260,7 @@ class Platform_Famicom(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('quicknes_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -332,6 +336,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('quicknes_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -406,6 +411,7 @@ class Platform_Gameboy(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -479,6 +485,7 @@ class Platform_GameboyColor(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('gambatte_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -628,6 +635,7 @@ class Platform_Gamecube(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -701,6 +709,7 @@ class Platform_Pokemini(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('pokemini_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -774,6 +783,7 @@ class Platform_SuperFamicom(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('snes9x_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -847,6 +857,7 @@ class Platform_Virtualboy(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mednafen_vb_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 
@@ -921,6 +932,7 @@ class Platform_Wii(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('dolphin_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
 

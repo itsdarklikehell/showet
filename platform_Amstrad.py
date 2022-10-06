@@ -128,7 +128,6 @@ class Platform_Caprice(PlatformCommon):
             emulator.append('cap32_libretro')
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
-                # Set wether we should run in fullscreens or not.
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:

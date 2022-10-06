@@ -11,11 +11,7 @@ class Platform_Apple(PlatformCommon):
     cores = ['minivmac_libretro']
     fullscreens = ['false']
     extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
-
-    # emulator = ['retroarch']
-    # core = ['minivmac_libretro']
-    # fullscreen = ['false']
-
+    
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).

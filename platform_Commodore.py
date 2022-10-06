@@ -199,6 +199,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('puae_libretro')
+            # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
         if emulator[0] == 'fs-uae':

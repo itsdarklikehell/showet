@@ -3,16 +3,25 @@ import os.path
 from platformcommon import PlatformCommon
 
 class Platform_Arcade(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set wether we should run in fullscreens or not.        
+    # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'MAME', 'MESS']
     cores = ['mame_libretro', 'mamemess_libretro',]
     fullscreens = ['false']
-
-    # emulator = ['retroarch']
-    # core = ['mame_libretro']
-    # fullscreen = ['false']
-
+    extensions = ['zip', 'chd', '7z', 'cmd']
+    
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set wether we should run in fullscreens or not.        
+        # Supply A list of extensions that the specified emulator supports.
+        emulator = ['retroarch']
+        core = ['mame_libretro']
+        fullscreen = ['false']
         extensions = ['zip', 'chd', '7z', 'cmd']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -27,10 +36,7 @@ class Platform_Arcade(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        emulator = ['retroarch']
-        core = ['mame_libretro']
-        fullscreen = ['false']
-
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append('mame_libretro')
@@ -38,7 +44,8 @@ class Platform_Arcade(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
-        if emulator[0] == '4do':
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == 'mame':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
