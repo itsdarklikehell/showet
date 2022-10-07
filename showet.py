@@ -216,7 +216,7 @@ else:
     if prod_download_filename.endswith(".gz"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("gunzip " + datadir + " " + prod_download_filename)
+        ret = os.system("gunzip " + prod_download_filename + " " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
