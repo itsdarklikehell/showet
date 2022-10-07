@@ -85,7 +85,7 @@ class Platform_Neogeo(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -173,7 +173,7 @@ class Platform_Neopocket(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -261,7 +261,7 @@ class Platform_Neopocketcolor(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png'):
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

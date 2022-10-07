@@ -289,6 +289,8 @@ Example(s):
 
 ### Commodore Notes
 
+See: [platform_Commodore.md](platform_Commodore.md) For more information.
+
 Vice: `vice_[version]_libretro`
 
 - [Vice Libretro Library](https://docs.libretro.com/library/vice/)
