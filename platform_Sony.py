@@ -99,7 +99,7 @@ class Platform_Ps2(PlatformCommon):
     emulators = ['retroarch']
     cores = ['pcsx2_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+    extensions = ['exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -109,7 +109,7 @@ class Platform_Ps2(PlatformCommon):
         emulator = ['retroarch']
         core = ['pcsx2_libretro']
         fullscreen = ['false']        
-        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+        extensions = ['exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         
         ext = []
         for ext in extensions:
@@ -158,7 +158,7 @@ class Platform_Ps2(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [files[0]]
+                emulator = emulator + [files[1]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
@@ -174,9 +174,9 @@ class Platform_Ps2(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.png') and not file.endswith('.org') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.png') and not file.endswith('.org') and not file.endswith('.org.txt'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 
