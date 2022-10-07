@@ -2,27 +2,27 @@
 # Showet random demo picker script
 # author: Bauke Molenaar.
 
-function extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)    tar xvjf $1    ;;
-            *.tar.gz)    tar xvzf $1    ;;
-            *.tar.xz)    tar xf $1      ;;
-            *.bz2)        bunzip2 $1     ;;
-            *.rar)        unrar x $1     ;;
-            *.gz)        gunzip $1      ;;
-            *.tar)        tar xvf $1     ;;
-            *.tbz2)        tar xvjf $1    ;;
-            *.tgz)        tar xvzf $1    ;;
-            *.zip)        unzip $1       ;;
-            *.Z)        uncompress $1  ;;
-            *.7z)        7z x $1        ;;
-            *)        echo "don't know how to extract '$1'..." ;;
-        esac
-    else
-        echo "'$1' is not a valid file!"
-    fi
-}
+# function extract () {
+#     if [ -f $1 ] ; then
+#         case $1 in
+#             *.tar.bz2)    tar xvjf $1    ;;
+#             *.tar.gz)    tar xvzf $1    ;;
+#             *.tar.xz)    tar xf $1      ;;
+#             *.bz2)        bunzip2 $1     ;;
+#             *.rar)        unrar x $1     ;;
+#             *.gz)        gunzip $1      ;;
+#             *.tar)        tar xvf $1     ;;
+#             *.tbz2)        tar xvjf $1    ;;
+#             *.tgz)        tar xvzf $1    ;;
+#             *.zip)        unzip $1       ;;
+#             *.Z)        uncompress $1  ;;
+#             *.7z)        7z x $1        ;;
+#             *)        echo "don't know how to extract '$1'..." ;;
+#         esac
+#     else
+#         echo "'$1' is not a valid file!"
+#     fi
+# }
 
 TIMEOUT=3 # seconds
 MAX_POUETIDS=88863
@@ -64,7 +64,7 @@ play_demo(){
         pouet_id=$(shuf -i0-$MAX_POUETIDS -n1)
         echo "I randomly selected production no: $pouet_id from the massive pouet.net database containting: $MAX_POUETIDS productions...(insert windows TADAA! sfx...)"
     fi
-    
+
     chmod +x ~/.showet/data/$pouet_id/*.exe >/dev/null 2>&1
     chmod +x ~/.showet/data/$pouet_id/*.adf >/dev/null 2>&1
     chmod +x ~/.showet/data/$pouet_id/*.dms >/dev/null 2>&1
