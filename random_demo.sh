@@ -25,6 +25,7 @@ function extract () {
 }
 
 TIMEOUT=3 # seconds
+MAX_POUETIDS=88863
 
 # if $1 is empty, then dont loop
 if [ -z $1 ]; then
@@ -59,8 +60,9 @@ fi
 play_demo(){
     # if random is enabled, then play a random demo
     if [ $random = "true" ]; then
-        echo "Random selection..."
-        pouet_id=$(shuf -i0-88429 -n1)
+        echo "Random selection...(insert drumroll...)"
+        pouet_id=$(shuf -i0-$MAX_POUETIDS -n1)
+        echo "I randomly selected $pouet_id from 0-$MAX_POUETIDS...(insert windows TADAA! sfx...)"
     fi
     
     echo "loop is $loop"
