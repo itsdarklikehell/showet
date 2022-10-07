@@ -28,7 +28,7 @@ from platform_Palm import Platform_Palm
 from platform_Phillips import Platform_Cdi
 from platform_Pico8 import Platform_Pico8
 from platform_Sega import Platform_Megadrive, Platform_Gamegear, Platform_Mastersystem, Platform_Genesis, Platform_Dreamcast, Platform_Saturn
-from platform_Sinclair import Platform_Zx81, Platform_Zxspectrum
+from platform_Sinclair import Platform_Zxspectrum
 from platform_Snk import Platform_Neogeo, Platform_Neopocket, Platform_Neopocketcolor
 from platform_Sony import Platform_Psx, Platform_Psp, Platform_Ps2
 from platform_Spectravideo import Platform_Spectravideo
@@ -50,7 +50,7 @@ args = parser.parse_args()
 platform_runners = [Platform_Caprice(), Platform_Crocods(), Platform_Famicom(),
                     Platform_SuperFamicom(), Platform_N64(), Platform_Gameboy(),
                     Platform_GameboyColor(), Platform_GameboyAdvance(),
-                    Platform_Zx81(), Platform_Zxspectrum(),
+                    Platform_Zxspectrum(),
                     Platform_Commodore64(), Platform_CommodoreAmiga(), Platform_CommodorePet(), Platform_Commodore128(),
                     Platform_CommodorePlus4(), Platform_CommodoreVIC20(), Platform_CommodoreCBMII(),
                     Platform_Gamecube(), Platform_Wii(), Platform_Pokemini(), Platform_DS(),
