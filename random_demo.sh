@@ -65,11 +65,6 @@ play_demo(){
         echo "I randomly selected production no: $pouet_id from the massive pouet.net database containting: $MAX_POUETIDS productions...(insert windows TADAA! sfx...)"
     fi
     
-    echo "loop is $loop"
-    echo "random is $random"
-    echo "pouet_id is $pouet_id"
-    
-    echo "Selected demo id: $pouet_id"
     chmod +x ~/.showet/data/$pouet_id/*.exe >/dev/null 2>&1
     chmod +x ~/.showet/data/$pouet_id/*.adf >/dev/null 2>&1
     chmod +x ~/.showet/data/$pouet_id/*.dms >/dev/null 2>&1
