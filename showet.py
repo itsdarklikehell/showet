@@ -195,7 +195,7 @@ else:
     if prod_download_filename.endswith(".tar.gz"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xzvf " + datadir + " " + prod_download_filename)
+        ret = os.system("tar xzvf " + prod_download_filename + " " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
