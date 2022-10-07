@@ -165,11 +165,11 @@ else:
           "\n\tFilesize: ", os.path.getsize(prod_download_filename))
 
     # Decompress the file if needed
-    # if prod_download_filename.endswith(".lha"):
-    #     print("\tExtracting:", prod_download_filename, "To:", datadir)
-    #     ret = os.system("lhasa x " + datadir + " " + prod_download_filename)
-    #     if ret == 1:
-    #         print("\tExtracting file failed!")
+    if prod_download_filename.endswith(".lha"):
+        print("\tExtracting:", prod_download_filename, "To:", datadir)
+        ret = os.system("lhasa x " + datadir + " " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".7z"):
         print("\tExtracting:", prod_download_filename)
