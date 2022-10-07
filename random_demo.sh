@@ -62,7 +62,7 @@ play_demo(){
     if [ $random = "true" ]; then
         echo "Random selection...(insert drumroll...)"
         pouet_id=$(shuf -i0-$MAX_POUETIDS -n1)
-        echo "I randomly selected $pouet_id from 0-$MAX_POUETIDS...(insert windows TADAA! sfx...)"
+        echo "I randomly selected production no: $pouet_id from the massive pouet.net database containting: $MAX_POUETIDS productions...(insert windows TADAA! sfx...)"
     fi
     
     echo "loop is $loop"
