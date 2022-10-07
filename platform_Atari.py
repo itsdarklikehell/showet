@@ -2,7 +2,7 @@ import os
 import os.path
 from platformcommon import PlatformCommon
 
-class Platform_STETTFalcon(PlatformCommon):
+class Platform_AtariSTETTFalcon(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set wether we should run in fullscreens or not.        
@@ -178,7 +178,7 @@ class Platform_Atarixlxe(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-class Platform_Jaguar(PlatformCommon):
+class Platform_AtariJaguar(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set wether we should run in fullscreens or not.        
@@ -266,7 +266,7 @@ class Platform_Jaguar(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-class Platform_Lynx(PlatformCommon):
+class Platform_AtariLynx(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set wether we should run in fullscreens or not.        
@@ -355,7 +355,7 @@ class Platform_Lynx(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-class Platform_2600(PlatformCommon):
+class Platform_Atari2600(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set wether we should run in fullscreens or not.        
@@ -443,7 +443,7 @@ class Platform_2600(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-class Platform_5200(PlatformCommon):
+class Platform_Atari5200(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set wether we should run in fullscreens or not.        
@@ -531,7 +531,7 @@ class Platform_5200(PlatformCommon):
                     print("\tFound file: " + file)
         return ext_files
 
-class Platform_5200(PlatformCommon):
+class Platform_Atari5200(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set wether we should run in fullscreens or not.        

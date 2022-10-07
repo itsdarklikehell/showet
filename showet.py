@@ -8,7 +8,7 @@ from platform_Amstrad import Platform_Caprice, Platform_Crocods
 from platform_Apple import Platform_Apple
 from platform_Arcade import Platform_Arcade
 from platform_Archimedes import Platform_Acorn
-from platform_Atari import Platform_Atarixlxe, Platform_STETTFalcon, Platform_Jaguar, Platform_Lynx, Platform_2600
+from platform_Atari import Platform_Atarixlxe, Platform_AtariSTETTFalcon, Platform_AtariJaguar, Platform_AtariLynx, Platform_Atari2600, Platform_Atari5200
 from platform_Bandai import Platform_Wonderswan
 from platform_Coleco import Platform_Coleco
 from platform_Commodore import Platform_Commodore64, Platform_CommodorePet, Platform_Commodore128, Platform_CommodorePlus4, Platform_CommodoreVIC20, Platform_CommodoreCBMII, Platform_CommodoreAmiga
@@ -50,8 +50,7 @@ args = parser.parse_args()
 platform_runners = [Platform_Caprice(), Platform_Crocods(), Platform_Famicom(),
                     Platform_SuperFamicom(), Platform_N64(), Platform_Gameboy(),
                     Platform_GameboyColor(), Platform_GameboyAdvance(),
-                    Platform_Atarixlxe(), Platform_STETTFalcon(), Platform_Jaguar(),
-                    Platform_Lynx(), Platform_2600(), Platform_Zx81(), Platform_Zxspectrum(),
+                    Platform_Zx81(), Platform_Zxspectrum(),
                     Platform_Commodore64(), Platform_CommodoreAmiga(), Platform_CommodorePet(), Platform_Commodore128(),
                     Platform_CommodorePlus4(), Platform_CommodoreVIC20(), Platform_CommodoreCBMII(),
                     Platform_Gamecube(), Platform_Wii(), Platform_Pokemini(), Platform_DS(),
@@ -64,7 +63,9 @@ platform_runners = [Platform_Caprice(), Platform_Crocods(), Platform_Famicom(),
                     Platform_Acorn(), Platform_Palm(), Platform_Pico8(), Platform_Vectrex(),
                     Platform_Dreamcast(), Platform_Pdp11(), Platform_Gamemusic(), Platform_VideoMPV(),
                     Platform_VideoFFMPEG(), Platform_Arcade(), Platform_3do(), Platform_Wonderswan(), 
-                    Platform_Coleco(), Platform_Channelf(), Platform_Odyssey(), Platform_Cdi(), Platform_Spectravideo()]
+                    Platform_Coleco(), Platform_Channelf(), Platform_Odyssey(), Platform_Cdi(), 
+                    Platform_Spectravideo(), Platform_AtariSTETTFalcon(), Platform_Atarixlxe(), 
+                    Platform_AtariJaguar(), Platform_AtariLynx(), Platform_Atari2600(), Platform_Atari5200(),]
 
 if args.platforms:
     for r in platform_runners:
