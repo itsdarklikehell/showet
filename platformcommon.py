@@ -22,8 +22,10 @@ class PlatformCommon:
             return
 
         for e in entries:
+            # check if entry is a file and append it to prod_files.
             if os.path.isfile(e):
                 self.prod_files.append(os.path.realpath(e))
+            # else check if entry is a directory and find files recursively relative to that path.
             elif os.path.isdir(e):
                 self.find_files_recursively(e)
 
