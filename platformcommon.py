@@ -46,7 +46,7 @@ class PlatformCommon:
     # Input: list of disk images, output: same list sorted by some
     # logic so that first image is first, second disk then etc..
     def sort_disks(self, files):
-        sorted_list = sorted(files, key=lambda s: s.lower())
+        sorted_list = sorted(files, key=lambda s: (s.lower() or s.upper()))
         if len(sorted_list) > 1:
             print("\tGuessing disk order should be:")
             print("\t")
