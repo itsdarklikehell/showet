@@ -20,7 +20,7 @@ class Platform_STETTFalcon(PlatformCommon):
         emulator = ['retroarch']
         core = ['hatari_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'st', 'msa', 'stx', 'dim', 'ipf', 'm3u', 'exe']
+        extensions = ['zip', 'st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
         ext = []
         for ext in extensions:
