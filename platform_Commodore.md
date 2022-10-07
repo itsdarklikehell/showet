@@ -3,7 +3,7 @@
 ## Supported emulators:
 
 ```python
-emulators = ['retroarch', 'hatari']
+emulators = ['retroarch', 'fs-uae']
 ```
 
 ## Supported Libretro Cores:
@@ -15,6 +15,7 @@ cores = ['puae_libretro']
 ## Supported file extensions:
 
 ```python
+puae_libretro
 extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
 ```
 
@@ -22,21 +23,21 @@ extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lh
 
 #### extension: exe
 
-Name: Starstruck - The Black Lotus
-[![Starstruck - The Black Lotus](https://img.youtube.com/vi/eqnZH7Pa3vo/0.jpg)](https://www.youtube.com/watch?v=eqnZH7Pa3vo)
+Name: State of the Art - Spaceballs
+[![State of the Art - Spaceballs](https://img.youtube.com/vi/eqnZH7Pa3vo/0.jpg)](https://www.youtube.com/watch?v=eqnZH7Pa3vo)
 
 Pouet.net Link:
-[Starstruck - The Black Lotus](https://www.pouet.net/prod.php?which=25778)
+[State of the Art - Spaceballs](https://www.pouet.net/prod.php?which=99)
 
 ```
-Demo id: 25778
-Name: Starstruck - The Black Lotus
+Demo id: 99
+Name: State of the Art - Spaceballs
 Type: demo
-Platform: atarifalcon030
+Platform: amigaocsecs
 ```
 
 ```bash
-showet.py 25778
+showet.py 99
 ```
 
 ## Supported file extensions:

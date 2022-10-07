@@ -211,6 +211,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
             # Tries to identify files by any magic necessary    
             files = self.find_ext_files()
         if len(files) == 0:
+            # Tries to identify files by any magic necessary    
+            files = self.find_magic_cookies()
+        if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
         
@@ -338,9 +341,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                #if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_CommodoreCBMII(PlatformCommon):
