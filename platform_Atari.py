@@ -20,7 +20,7 @@ class Platform_STETTFalcon(PlatformCommon):
         emulator = ['retroarch']
         core = ['hatari_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+        extensions = ['zip', 'st', 'msa', 'stx', 'dim', 'ipf', 'm3u', 'exe']
         
         ext = []
         for ext in extensions:
@@ -85,9 +85,9 @@ class Platform_STETTFalcon(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                #if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 class Platform_Atarixlxe(PlatformCommon):
