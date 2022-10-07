@@ -69,7 +69,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [files[0]]
+                emulator = emulator + [files]
             if emulator[0] == 'hatari':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
@@ -85,9 +85,9 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                #if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
-                ext_files.append(file)
-                print("\tFound file: " + file)
+                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_Atarixlxe(PlatformCommon):
