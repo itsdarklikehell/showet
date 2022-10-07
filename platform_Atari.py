@@ -69,7 +69,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [files[*]]
+                emulator = emulator + [files[0]]
             if emulator[0] == 'hatari':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
