@@ -263,11 +263,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
                     f.write(exename + "\n")
                     f.close()
         
-        # Sort the files.
-        if len(files) > 0:
-            drives = self.sort_disks(files)
-            emulator = emulator + [files[0]]
-
         if emulator[0] == 'retroarch':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
@@ -310,6 +305,15 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 emulator.append('--floppy_drive_3=' + drives[3])
             emulator.append('--model=' + amiga_model)
 
+        # Sort the files.
+        if len(files) > 0:
+            files = self.sort_disks(files)
+            if emulator[0] == 'retroarch':
+                drives = self.sort_disks(files)
+                emulator = emulator + [files[0]]
+            if emulator[0] == 'hatari':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+
         self.run_process(emulator)
 
     def supported_platforms(self):
@@ -334,9 +338,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                #if not file.endswith('.json') or file.endswith('.txt') or file.endswith('.diz') or file.endswith('.png') or file.endswith('.org') or file.endswith('.org.txt'):
+                ext_files.append(file)
+                print("\tFound file: " + file)
         return ext_files
 
 class Platform_CommodoreCBMII(PlatformCommon):

@@ -1,4 +1,4 @@
-# Platforms: Atari
+# Platforms: Commodore
 
 ## Supported emulators:
 
@@ -9,13 +9,13 @@ emulators = ['retroarch', 'hatari']
 ## Supported Libretro Cores:
 
 ```python
-cores = ['hatari_libretro']
+cores = ['puae_libretro']
 ```
 
 ## Supported file extensions:
 
 ```python
-extensions = ['zip', 'chd', '7z', 'cmd']
+extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
 ```
 
 ### Examples:
