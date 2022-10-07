@@ -259,7 +259,7 @@ else:
     if prod_download_filename.endswith(".arj") or prod_download_filename.endswith(".ARJ"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("arj x " + datadir + " " + prod_download_filename)
+        ret = os.system("arj x " + prod_download_filename + " " + datadir)
         #ret = os.system("nomarch " + prod_download_filename + " " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
