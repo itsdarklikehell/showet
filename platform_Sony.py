@@ -158,7 +158,7 @@ class Platform_Ps2(PlatformCommon):
         if len(files) > 0:
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                emulator = emulator + [files[1]]
+                emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
