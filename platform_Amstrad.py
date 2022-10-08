@@ -68,7 +68,7 @@ class Platform_Crocods(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'zesarux':
@@ -99,7 +99,7 @@ class Platform_Caprice(PlatformCommon):
     emulators = ['retroarch', 'zesarux']
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+    extensions = ['m3u', 'zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -109,7 +109,7 @@ class Platform_Caprice(PlatformCommon):
         emulator = ['retroarch']
         core = ['cap32_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+        extensions = ['m3u', 'zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
         
         ext = []
         for ext in extensions:
@@ -134,7 +134,7 @@ class Platform_Caprice(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'cap32':
+        if emulator[0] == 'zesarux':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -160,7 +160,7 @@ class Platform_Caprice(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'cap32':
+            if emulator[0] == 'zesarux':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

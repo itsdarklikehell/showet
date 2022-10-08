@@ -24,23 +24,43 @@ extensions = ['zip', 'dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
 
 ### Examples:
 
-#### extension: exe
+#### extension: dsk
 
-Name: from Platforms/platform\_
-[![Batman Forever](https://img.youtube.com/vi/dqjZNnjNu3Y/0.jpg)](https://www.youtube.com/watch?v=dqjZNnjNu3Y)
+CPC:
+Name: Batman Forever - Batman Group
+[![Batman Forever - Batman Group](https://img.youtube.com/vi/dqjZNnjNu3Y/0.jpg)](https://www.youtube.com/watch?v=dqjZNnjNu3Y)
 
 Pouet.net Link:
-[Batman Forever](https://www.pouet.net/prod.php?which=56761)
+[Batman Forever - Batman Group](https://www.pouet.net/prod.php?which=56761)
 
 ```
 Demo id: 56761
-Name: Batman Forever
+Name: Batman Forever - Batman Group
 Type: demo
-Platform: amigaocsecs
+Platform: amstradcpc
 ```
 
 ```bash
 showet.py 56761
+```
+
+CPCPLUS:
+
+Name: Phortem - Condense
+[![Phortem - Condense](https://img.youtube.com/vi/GFp9qIT6AF0/0.jpg)](https://www.youtube.com/watch?v=GFp9qIT6AF0)
+
+Pouet.net Link:
+[Phortem - Condense](https://www.pouet.net/prod.php?which=61465)
+
+```
+Demo id: 61465
+Name: Phortem - Condense
+Type: demo
+Platform: amstradcpc
+```
+
+```bash
+showet.py 61465
 ```
 
 ## Supported file extensions:
