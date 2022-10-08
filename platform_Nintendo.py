@@ -1132,7 +1132,7 @@ class Platform_Wii(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['wii', 'wiiu']
+        return ['wii', 'wiiu', 'nintendowii']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
