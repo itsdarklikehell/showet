@@ -18,7 +18,7 @@ class Platform_Psx(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
-        core = ['pcsx_rearmed_libretro']
+        core = ['swanstation_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         
@@ -39,7 +39,7 @@ class Platform_Psx(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('pcsx_rearmed_libretro')
+            emulator.append('swanstation_libretro')
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
