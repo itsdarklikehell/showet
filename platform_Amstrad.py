@@ -99,7 +99,7 @@ class Platform_Caprice(PlatformCommon):
     emulators = ['retroarch', 'zesarux']
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+    extensions = ['zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -109,7 +109,7 @@ class Platform_Caprice(PlatformCommon):
         emulator = ['retroarch']
         core = ['cap32_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+        extensions = ['zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
         
         ext = []
         for ext in extensions:
