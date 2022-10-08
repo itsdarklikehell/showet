@@ -209,21 +209,21 @@ else:
     if prod_download_filename.endswith(".tar") or prod_download_filename.endswith(".TAR"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xf " + datadir + " " + prod_download_filename)
+        ret = os.system("tar xf " + prod_download_filename + " -C " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tbz2"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xjvf " + datadir + " " + prod_download_filename)
+        ret = os.system("tar xjvf " + prod_download_filename + " -C " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tgz"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xzvf " + datadir + " " + prod_download_filename)
+        ret = os.system("tar xzvf " + prod_download_filename + " -C " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
