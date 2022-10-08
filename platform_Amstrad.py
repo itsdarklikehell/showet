@@ -3,7 +3,7 @@ import os.path
 from platformcommon import PlatformCommon
 
 
-class Platform_Caprice(PlatformCommon):
+class Platform_Cpcplus(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set wether we should run in fullscreens or not.        
@@ -78,7 +78,7 @@ class Platform_Caprice(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['amstradcpc', 'amstradplus']
+        return ['amstradplus', 'amstradcpc']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):

@@ -4,7 +4,7 @@ import json
 import os
 import argparse
 from platform_3do import Platform_3do
-from platform_Amstrad import Platform_Caprice, Platform_Crocods
+from platform_Amstrad import Platform_Cpcplus
 from platform_Apple import Platform_Apple
 from platform_Arcade import Platform_Arcade
 from platform_Archimedes import Platform_Acorn
@@ -47,7 +47,7 @@ parser.add_argument('--random', action="store_true",
 args = parser.parse_args()
 
 # In priority order
-platform_runners = [Platform_Caprice(), Platform_Crocods(), Platform_Famicom(),
+platform_runners = [Platform_Cpcplus(), Platform_Famicom(),
                     Platform_SuperFamicom(), Platform_N64(), Platform_Gameboy(),
                     Platform_GameboyColor(), Platform_GameboyAdvance(),
                     Platform_Zxspectrum(),
