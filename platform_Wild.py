@@ -55,15 +55,16 @@ class Platform_Gamemusic(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -143,15 +144,16 @@ class Platform_VideoFFMPEG(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -231,15 +233,16 @@ class Platform_VideoMPV(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.

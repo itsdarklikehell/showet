@@ -55,15 +55,16 @@ class Platform_3DS(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -143,15 +144,16 @@ class Platform_N64(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -231,15 +233,16 @@ class Platform_DS(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -319,15 +322,16 @@ class Platform_Famicom(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -407,15 +411,16 @@ class Platform_FamicomDisksystem(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -495,15 +500,16 @@ class Platform_Gameboy(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -583,15 +589,16 @@ class Platform_GameboyColor(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -671,15 +678,16 @@ class Platform_GameboyAdvance(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -759,15 +767,16 @@ class Platform_Gamecube(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -847,15 +856,16 @@ class Platform_Pokemini(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -935,15 +945,16 @@ class Platform_SuperFamicom(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -1023,15 +1034,16 @@ class Platform_Virtualboy(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -1111,15 +1123,16 @@ class Platform_Wii(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.

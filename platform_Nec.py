@@ -55,15 +55,16 @@ class Platform_Pcengine(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
                 
         if len(files) > 0:
             files = self.sort_disks(files)
@@ -142,15 +143,16 @@ class Platform_Supergrafx(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
         
         if len(files) > 0:
             # Sort the files.
@@ -231,15 +233,16 @@ class Platform_Pc8000(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
                 
         if len(files) > 0:
             files = self.sort_disks(files)
@@ -318,15 +321,16 @@ class Platform_Pc8800(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
                 
         if len(files) > 0:
             files = self.sort_disks(files)
@@ -405,15 +409,16 @@ class Platform_Pc98(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -493,15 +498,16 @@ class Platform_Pcfx(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
                 
         if len(files) > 0:
             # Sort the files.

@@ -144,15 +144,16 @@ class Platform_Atarixlxe(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -232,15 +233,16 @@ class Platform_AtariJaguar(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -321,15 +323,16 @@ class Platform_AtariLynx(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -409,15 +412,16 @@ class Platform_Atari2600(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -497,15 +501,16 @@ class Platform_Atari5200(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -585,15 +590,16 @@ class Platform_Atari5200(PlatformCommon):
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
 
-        # flipfile = self.datadir + "/fliplist.vfl"        # m3ufile = self.datadir + "/fliplist.m3u"
-        # with open(flipfile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
-        # with open(m3ufile, "w") as f:
-        #     f.write("UNIT 8\n")
-        #     for disk in files:
-        #         f.write(disk + "\n")
+        flipfile = self.datadir + "/fliplist.vfl"
+        m3ufile = self.datadir + "/fliplist.m3u"
+        with open(flipfile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
+        with open(m3ufile, "w") as f:
+            f.write("UNIT 8\n")
+            for disk in files:
+                f.write(disk + "\n")
 
         if len(files) > 0:
             # Sort the files.
