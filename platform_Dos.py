@@ -85,7 +85,7 @@ class Platform_Msdos(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.png') and not file.endswith('.org') and not file.endswith('.org.txt'):
+                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.nfo') and not file.endswith('.png') and not file.endswith('.jpg') and not file.endswith('.org') and not file.endswith('.org.txt'):
                     if file.endswith('.bat') or file.endswith('.com') or file.endswith('.exe'):
                         ext_files.append(file)
                         print("\tFound file: " + file)
