@@ -181,14 +181,14 @@ else:
     if prod_download_filename.endswith(".tar.bz2"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xjvf " + datadir + " " + prod_download_filename)
+        ret = os.system("tar xjvf " + datadir + " -C " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tar.gz"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xzvf " + prod_download_filename + " " + datadir)
+        ret = os.system("tar xzvf " + prod_download_filename + " -C " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
@@ -202,7 +202,7 @@ else:
     if prod_download_filename.endswith(".gz") or prod_download_filename.endswith(".GZ"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("gunzip " + prod_download_filename + " " + datadir)
+        ret = os.system("tar xf " + prod_download_filename + " " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
@@ -216,14 +216,14 @@ else:
     if prod_download_filename.endswith(".tbz2"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xjvf " + prod_download_filename + " -C " + datadir)
+        ret = os.system("tar xjf " + prod_download_filename + " -C " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
     if prod_download_filename.endswith(".tgz"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xzvf " + prod_download_filename + " -C " + datadir)
+        ret = os.system("tar xzf " + prod_download_filename + " -C " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
