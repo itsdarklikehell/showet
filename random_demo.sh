@@ -63,16 +63,10 @@ play_demo(){
         echo "Random selection...(insert drumroll...)"
         pouet_id=$(shuf -i0-$MAX_POUETIDS -n1)
         echo "I randomly selected production no: $pouet_id from the massive pouet.net database containting: $MAX_POUETIDS productions...(insert windows TADAA! sfx...)"
-    fi
-
-    chmod +x ~/.showet/data/$pouet_id/*.exe >/dev/null 2>&1
-    chmod +x ~/.showet/data/$pouet_id/*.adf >/dev/null 2>&1
-    chmod +x ~/.showet/data/$pouet_id/*.dms >/dev/null 2>&1
-    chmod +x ~/.showet/data/$pouet_id/*.d64 >/dev/null 2>&1
-    chmod +x ~/.showet/data/$pouet_id/*.prg >/dev/null 2>&1
-    chmod +x ~/.showet/data/$pouet_id/*.dsk >/dev/null 2>&1
-    
+    fi    
     python3 ~/showet/showet.py $pouet_id
+    resoreset
+    sleep 1
     read -p "Press [q] to quit or [enter] to continue (or wait a few seconds)..." -n1 -s -t $TIMEOUT
     # if q is pressed, then quit
     if [[ $REPLY = "q" ]]; then
@@ -80,7 +74,6 @@ play_demo(){
         loop="false"
         # Cleanup after script
         rm -rf ~/.showet/data/* >/dev/null 2>&1
-	    resoreset
         exit 0
     fi
 }
@@ -89,11 +82,9 @@ play_demo(){
 if [ $loop = "true" ]; then
     while true; do
         play_demo
-	    resoreset
     done
 else
     play_demo
-    resoreset
 fi
 # Cleanup after script
 rm -rf ~/.showet/data/* >/dev/null 2>&1
