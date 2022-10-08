@@ -81,9 +81,11 @@ play_demo(){
 if [ $loop = "true" ]; then
     while true; do
         play_demo
+        resoreset
     done
 else
     play_demo
+    resoreset
 fi
 # Cleanup after script
 rm -rf ~/.showet/data/* >/dev/null 2>&1
