@@ -165,20 +165,13 @@ else:
           "\n\tFilesize: ", os.path.getsize(prod_download_filename))
 
     # Decompress the file if needed
-    if prod_download_filename.endswith(".lha"):
+    if prod_download_filename.endswith(".lha") or prod_download_filename.endswith(".LHA"):
         print("\tExtracting:", prod_download_filename, "To:", datadir)
         ret = os.system("lhasa x " + datadir + " " + prod_download_filename)
         if ret == 1:
             print("\tExtracting file failed!")
 
-    if prod_download_filename.endswith(".7z"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("7za e -y " + prod_download_filename + " -o" + datadir + " > /dev/null 2>&1" )
-        if ret == 1:
-            print("\tExtracting file failed!")
-
-    if prod_download_filename.endswith(".zip"):
+    if prod_download_filename.endswith(".rar") or prod_download_filename.endswith(".RAR") or prod_download_filename.endswith(".7z") or prod_download_filename.endswith(".zip") or prod_download_filename.endswith(".ZIP"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
         ret = os.system("7za e -y " + prod_download_filename + " -o" + datadir + " > /dev/null 2>&1" )
@@ -206,21 +199,14 @@ else:
         if ret == 1:
             print("\tExtracting file failed!")
 
-    if prod_download_filename.endswith(".rar"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("7za e -y " + prod_download_filename + " -o" + datadir + " > /dev/null 2>&1" )
-        if ret == 1:
-            print("\tExtracting file failed!")
-
-    if prod_download_filename.endswith(".gz"):
+    if prod_download_filename.endswith(".gz") or prod_download_filename.endswith(".GZ"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
         ret = os.system("gunzip " + prod_download_filename + " " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
 
-    if prod_download_filename.endswith(".tar"):
+    if prod_download_filename.endswith(".tar") or prod_download_filename.endswith(".TAR"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
         ret = os.system("tar xf " + datadir + " " + prod_download_filename)
@@ -238,13 +224,6 @@ else:
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
         ret = os.system("tar xzvf " + datadir + " " + prod_download_filename)
-        if ret == 1:
-            print("\tExtracting file failed!")
-
-    if prod_download_filename.endswith(".7z"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("7za e -y " + prod_download_filename + " -o" + datadir + " > /dev/null 2>&1" )
         if ret == 1:
             print("\tExtracting file failed!")
 
