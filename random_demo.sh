@@ -65,9 +65,8 @@ play_demo(){
         echo "I randomly selected production no: $pouet_id from the massive pouet.net database containting: $MAX_POUETIDS productions...(insert windows TADAA! sfx...)"
     fi    
     python3 ~/showet/showet.py $pouet_id
-    resoreset
-    sleep 1
     read -p "Press [q] to quit or [enter] to continue (or wait a few seconds)..." -n1 -s -t $TIMEOUT
+    resoreset
     # if q is pressed, then quit
     if [[ $REPLY = "q" ]]; then
         echo "Quitting..."
