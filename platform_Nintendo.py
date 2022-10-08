@@ -65,9 +65,9 @@ class Platform_3DS(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -153,9 +153,9 @@ class Platform_N64(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -241,9 +241,9 @@ class Platform_DS(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -329,9 +329,9 @@ class Platform_Famicom(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -417,9 +417,9 @@ class Platform_FamicomDisksystem(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -505,9 +505,9 @@ class Platform_Gameboy(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -593,9 +593,9 @@ class Platform_GameboyColor(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -681,9 +681,9 @@ class Platform_GameboyAdvance(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -769,9 +769,9 @@ class Platform_Gamecube(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -857,9 +857,9 @@ class Platform_Pokemini(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -945,9 +945,9 @@ class Platform_SuperFamicom(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -1033,9 +1033,9 @@ class Platform_Virtualboy(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -1121,9 +1121,9 @@ class Platform_Wii(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':

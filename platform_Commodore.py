@@ -155,9 +155,9 @@ class Platform_Commodore128(PlatformCommon):
             for disk in files:
                 f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':
@@ -308,9 +308,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 emulator.append('--floppy_drive_3=' + drives[3])
             emulator.append('--model=' + amiga_model)
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 drives = self.sort_disks(files)
                 emulator = emulator + [files[0]]
@@ -410,9 +410,9 @@ class Platform_CommodoreCBMII(PlatformCommon):
             for disk in files:
                 f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':
@@ -499,9 +499,9 @@ class Platform_CommodorePet(PlatformCommon):
             for disk in files:
                 f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':
@@ -588,9 +588,9 @@ class Platform_CommodorePlus4(PlatformCommon):
             for disk in files:
                 f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':
@@ -677,9 +677,9 @@ class Platform_CommodoreVIC20(PlatformCommon):
             for disk in files:
                 f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':

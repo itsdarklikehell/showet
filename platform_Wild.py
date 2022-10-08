@@ -65,9 +65,9 @@ class Platform_Gamemusic(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'vlc':
@@ -153,9 +153,9 @@ class Platform_VideoFFMPEG(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'vlc':
@@ -241,9 +241,9 @@ class Platform_VideoMPV(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':

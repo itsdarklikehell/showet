@@ -65,9 +65,9 @@ class Platform_32X(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -147,9 +147,9 @@ class Platform_Dreamcast(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -235,9 +235,9 @@ class Platform_Gamegear(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -323,9 +323,9 @@ class Platform_Mastersystem(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -411,9 +411,9 @@ class Platform_Megadrive(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -499,9 +499,9 @@ class Platform_Saturn(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -587,9 +587,9 @@ class Platform_Stv(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -675,9 +675,9 @@ class Platform_Vmu(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -763,9 +763,9 @@ class Platform_SG1000(PlatformCommon):
         #     for disk in files:
         #         f.write(disk + "\n")
 
-        # Sort the files.
         if len(files) > 0:
-            files = self.sort_disks(files)
+            # Sort the files.
+            #files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
