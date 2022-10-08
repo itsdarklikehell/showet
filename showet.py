@@ -27,7 +27,7 @@ from platform_Nintendo import Platform_Gameboy, Platform_GameboyColor, Platform_
 from platform_Palm import Platform_Palm
 from platform_Phillips import Platform_Cdi
 from platform_Pico8 import Platform_Pico8
-from platform_Sega import Platform_Megadrive, Platform_Gamegear, Platform_Mastersystem, Platform_Genesis, Platform_Dreamcast, Platform_Saturn
+from platform_Sega import Platform_Megadrive, Platform_Gamegear, Platform_Mastersystem, Platform_Dreamcast, Platform_Saturn
 from platform_Sinclair import Platform_Zxspectrum
 from platform_Snk import Platform_Neogeo, Platform_Neopocket, Platform_Neopocketcolor
 from platform_Sony import Platform_Psx, Platform_Psp, Platform_Ps2
@@ -58,7 +58,7 @@ platform_runners = [Platform_Caprice(), Platform_Crocods(), Platform_Famicom(),
                     Platform_Apple(), Platform_Tic80(), Platform_Neogeo(), Platform_Neopocket(),
                     Platform_Neopocketcolor(), Platform_Supergrafx(), Platform_Msx(), Platform_Xbox(),
                     Platform_Gamegear(), Platform_Mastersystem(), Platform_Megadrive(),
-                    Platform_Genesis(), Platform_Saturn(), Platform_Enterprise(), Platform_Psx(),
+                    Platform_Saturn(), Platform_Enterprise(), Platform_Psx(),
                     Platform_Ps2(), Platform_Psp(), Platform_Intellivision(), Platform_Java(),
                     Platform_Acorn(), Platform_Palm(), Platform_Pico8(), Platform_Vectrex(),
                     Platform_Dreamcast(), Platform_Pdp11(), Platform_Gamemusic(), Platform_VideoMPV(),
