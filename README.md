@@ -183,6 +183,10 @@ Platform: acorn
 
 ### Atari Notes
 
+### Bandai Notes
+
+See: [platform_Bandai.md](platform_Bandai.md) for more information.
+
 #### ST/STE/Falcon
 
 Hatari: `hatari_libretro`
