@@ -176,7 +176,7 @@ else:
     if prod_download_filename.endswith(".rar") or prod_download_filename.endswith(".RAR"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("rar x " + prod_download_filename + datadir)
+        ret = os.system("rar x " + prod_download_filename + " " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
     # 7zip,zip    
