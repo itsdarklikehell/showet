@@ -172,8 +172,15 @@ else:
         ret = os.system("lhasa x " + prod_download_filename + " " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
-    # rar,7zip,zip etc...
-    if prod_download_filename.endswith(".rar") or prod_download_filename.endswith(".RAR") or prod_download_filename.endswith(".7z") or prod_download_filename.endswith(".7Z") or prod_download_filename.endswith(".zip") or prod_download_filename.endswith(".ZIP"):
+    # rar
+    if prod_download_filename.endswith(".rar") or prod_download_filename.endswith(".RAR"):
+        print("\tExtracting:", prod_download_filename)
+        print("\tTo:", datadir)
+        ret = os.system("rar x " + prod_download_filename + datadir)
+        if ret == 1:
+            print("\tExtracting file failed!")
+    # 7zip,zip    
+    if prod_download_filename.endswith(".7z") or prod_download_filename.endswith(".7Z") or prod_download_filename.endswith(".zip") or prod_download_filename.endswith(".ZIP"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
         ret = os.system("7za e -y " + prod_download_filename + " -o" + datadir + " >/dev/null 2>&1")
