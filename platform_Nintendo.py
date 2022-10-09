@@ -68,7 +68,7 @@ class Platform_3DS(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -157,7 +157,7 @@ class Platform_N64(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -246,7 +246,7 @@ class Platform_DS(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -335,7 +335,7 @@ class Platform_Famicom(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -424,7 +424,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -513,7 +513,7 @@ class Platform_Gameboy(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -602,7 +602,7 @@ class Platform_GameboyColor(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -691,7 +691,7 @@ class Platform_GameboyAdvance(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -780,7 +780,7 @@ class Platform_Gamecube(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -869,7 +869,7 @@ class Platform_Pokemini(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -958,7 +958,7 @@ class Platform_SuperFamicom(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -1047,7 +1047,7 @@ class Platform_Virtualboy(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -1136,7 +1136,7 @@ class Platform_Wii(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':

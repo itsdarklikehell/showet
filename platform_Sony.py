@@ -68,7 +68,7 @@ class Platform_Psx(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -158,7 +158,7 @@ class Platform_Ps2(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -249,7 +249,7 @@ class Platform_Psp(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'ppsspp':

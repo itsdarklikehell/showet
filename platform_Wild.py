@@ -68,7 +68,7 @@ class Platform_Gamemusic(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'vlc':
@@ -157,7 +157,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'vlc':
@@ -246,7 +246,7 @@ class Platform_VideoMPV(PlatformCommon):
 
         if len(files) > 0:
             # Sort the files.
-            #files = self.sort_disks(files)
+            files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
