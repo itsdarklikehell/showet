@@ -86,7 +86,8 @@ class Platform_Commodore64(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                if file.endswith('.zip') or file.endswith('.d64') or file.endswith('.d71') or file.endswith('.d80') or file.endswith('.d81') or file.endswith('.d82') or file.endswith('.g64') or file.endswith('.g41') or file.endswith('.x64') or file.endswith('.t64') or file.endswith('.tap') or file.endswith('.prg') or file.endswith('.p00') or file.endswith('.crt') or file.endswith('.bin') or file.endswith('.gz') or file.endswith('.d6z') or file.endswith('.d7z') or file.endswith('.d8z') or file.endswith('.g6z') or file.endswith('.x6z') or file.endswith('.cmd') or file.endswith('.m3u') or file.endswith('.vfl') or file.endswith('.vsf') or file.endswith('.nib') or file.endswith('.nbz') or file.endswith('.d2m') or file.endswith('.d4m'):
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -175,7 +176,8 @@ class Platform_Commodore128(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                if file.endswith('.zip') or file.endswith('.d64') or file.endswith('.d71') or file.endswith('.d80') or file.endswith('.d81') or file.endswith('.d82') or file.endswith('.g64') or file.endswith('.g41') or file.endswith('.x64') or file.endswith('.t64') or file.endswith('.tap') or file.endswith('.prg') or file.endswith('.p00') or file.endswith('.crt') or file.endswith('.bin') or file.endswith('.gz') or file.endswith('.d6z') or file.endswith('.d7z') or file.endswith('.d8z') or file.endswith('.g6z') or file.endswith('.x6z') or file.endswith('.cmd') or file.endswith('.m3u') or file.endswith('.vfl') or file.endswith('.vsf') or file.endswith('.nib') or file.endswith('.nbz') or file.endswith('.d2m') or file.endswith('.d4m'):
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -341,7 +343,8 @@ class Platform_CommodoreAmiga(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                if file.endswith('.zip') or file.endswith('.m3u') or file.endswith('.adf') or file.endswith('.adz') or file.endswith('.dms') or file.endswith('.fdi') or file.endswith('.ipf') or file.endswith('.hdf') or file.endswith('.hdz') or file.endswith('.lha') or file.endswith('.tga') or file.endswith('.slave') or file.endswith('.info') or file.endswith('.cue') or file.endswith('.ccd') or file.endswith('.nrg') or file.endswith('.mds') or file.endswith('.iso') or file.endswith('.chd') or file.endswith('.uae') or file.endswith('.7z') or file.endswith('.rp9') or file.endswith('.exe') or file.endswith('.run'):
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -430,7 +433,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                if file.endswith('.zip') or file.endswith('.d64') or file.endswith('.d71') or file.endswith('.d80') or file.endswith('.d81') or file.endswith('.d82') or file.endswith('.g64') or file.endswith('.g41') or file.endswith('.x64') or file.endswith('.t64') or file.endswith('.tap') or file.endswith('.prg') or file.endswith('.p00') or file.endswith('.crt') or file.endswith('.bin') or file.endswith('.gz') or file.endswith('.d6z') or file.endswith('.d7z') or file.endswith('.d8z') or file.endswith('.g6z') or file.endswith('.x6z') or file.endswith('.cmd') or file.endswith('.m3u') or file.endswith('.vfl') or file.endswith('.vsf') or file.endswith('.nib') or file.endswith('.nbz') or file.endswith('.d2m') or file.endswith('.d4m'):
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -519,7 +523,8 @@ class Platform_CommodorePet(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                if file.endswith('.zip') or file.endswith('.d64') or file.endswith('.d71') or file.endswith('.d80') or file.endswith('.d81') or file.endswith('.d82') or file.endswith('.g64') or file.endswith('.g41') or file.endswith('.x64') or file.endswith('.t64') or file.endswith('.tap') or file.endswith('.prg') or file.endswith('.p00') or file.endswith('.crt') or file.endswith('.bin') or file.endswith('.gz') or file.endswith('.d6z') or file.endswith('.d7z') or file.endswith('.d8z') or file.endswith('.g6z') or file.endswith('.x6z') or file.endswith('.cmd') or file.endswith('.m3u') or file.endswith('.vfl') or file.endswith('.vsf') or file.endswith('.nib') or file.endswith('.nbz') or file.endswith('.d2m') or file.endswith('.d4m'):
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -608,7 +613,8 @@ class Platform_CommodorePlus4(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                if file.endswith('.zip') or file.endswith('.d64') or file.endswith('.d71') or file.endswith('.d80') or file.endswith('.d81') or file.endswith('.d82') or file.endswith('.g64') or file.endswith('.g41') or file.endswith('.x64') or file.endswith('.t64') or file.endswith('.tap') or file.endswith('.prg') or file.endswith('.p00') or file.endswith('.crt') or file.endswith('.bin') or file.endswith('.gz') or file.endswith('.d6z') or file.endswith('.d7z') or file.endswith('.d8z') or file.endswith('.g6z') or file.endswith('.x6z') or file.endswith('.cmd') or file.endswith('.m3u') or file.endswith('.vfl') or file.endswith('.vsf') or file.endswith('.nib') or file.endswith('.nbz') or file.endswith('.d2m') or file.endswith('.d4m'):
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -697,7 +703,8 @@ class Platform_CommodoreVIC20(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                if file.endswith('.zip') or file.endswith('.d64') or file.endswith('.d71') or file.endswith('.d80') or file.endswith('.d81') or file.endswith('.d82') or file.endswith('.g64') or file.endswith('.g41') or file.endswith('.x64') or file.endswith('.t64') or file.endswith('.tap') or file.endswith('.prg') or file.endswith('.p00') or file.endswith('.crt') or file.endswith('.bin') or file.endswith('.gz') or file.endswith('.d6z') or file.endswith('.d7z') or file.endswith('.d8z') or file.endswith('.g6z') or file.endswith('.g4z') or file.endswith('.x6z') or file.endswith('.cmd') or file.endswith('.m3u') or file.endswith('.vfl') or file.endswith('.vsf') or file.endswith('.nib') or file.endswith('.nbz') or file.endswith('.d2m') or file.endswith('.d4m') or file.endswith('.20') or file.endswith('.40') or file.endswith('.60') or file.endswith('.a0') or file.endswith('.b0') or file.endswith('.rom'):
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

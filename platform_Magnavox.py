@@ -10,7 +10,7 @@ class Platform_Odyssey(PlatformCommon):
     emulators = ['retroarch']
     cores = ['o2em_libretro']
     fullscreens = ['false']
-    extensions = ['bin']
+    extensions = ['zip', 'bin']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,7 +20,7 @@ class Platform_Odyssey(PlatformCommon):
         emulator = ['retroarch']
         core = ['o2em_libretro']
         fullscreen = ['false']
-        extensions = ['bin']
+        extensions = ['zip', 'bin']
         
         ext = []
         for ext in extensions:
@@ -86,7 +86,8 @@ class Platform_Odyssey(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                if file.endswith('.zip') or file.endswith('.bin'):
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

@@ -11,7 +11,7 @@ class Platform_Cpcplus(PlatformCommon):
     emulators = ['retroarch', 'zesarux']
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
-    extensions = ['m3u', 'zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
+    extensions = ['zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -21,7 +21,7 @@ class Platform_Cpcplus(PlatformCommon):
         emulator = ['retroarch']
         core = ['cap32_libretro']
         fullscreen = ['false']
-        extensions = ['m3u', 'zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
+        extensions = ['zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
         
         ext = []
         for ext in extensions:
@@ -87,7 +87,8 @@ class Platform_Cpcplus(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                if file.endswith('.zip') or file.endswith('.dsk') or file.endswith('.sna') or file.endswith('.tap') or file.endswith('.cdt') or file.endswith('.voc') or file.endswith('.cpr') or file.endswith('.m3u'):
+                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
