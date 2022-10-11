@@ -8,9 +8,9 @@ class Platform_Zxspectrum(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', '81']
-    cores = ['fuse_libretro', '81_libretro']
+    cores = ['81_libretro']
     fullscreens = ['false']
-    extensions = ['tzx', 'p', 't81', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+    extensions = ['tzx', 'p', 't81']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,7 +20,7 @@ class Platform_Zxspectrum(PlatformCommon):
         emulator = ['retroarch']
         core = ['81_libretro']
         fullscreen = ['false']
-        extensions = ['tzx', 'p', 't81', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+        extensions = ['tzx', 'p', 't81']
         
         ext = []
         for ext in extensions:
@@ -86,8 +86,9 @@ class Platform_Zxspectrum(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.tzx') or file.endswith('.p') or file.endswith('.t81') or file.endswith('.tap') or file.endswith('.z80') or file.endswith('.rzx') or file.endswith('.scl') or file.endswith('.trd') or file.endswith('.dsk'):
+                if file.endswith('.tzx') or file.endswith('.p') or file.endswith('.t81'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
+
