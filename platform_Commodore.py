@@ -1,5 +1,6 @@
 import os
 import os.path
+from sys import float_repr_style
 from platformcommon import PlatformCommon
 
 class Platform_Commodore64(PlatformCommon):
@@ -343,7 +344,10 @@ class Platform_CommodoreAmiga(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.m3u') or file.endswith('.adf') or file.endswith('.adz') or file.endswith('.dms') or file.endswith('.fdi') or file.endswith('.ipf') or file.endswith('.hdf') or file.endswith('.hdz') or file.endswith('.lha') or file.endswith('.tga') or file.endswith('.slave') or file.endswith('.info') or file.endswith('.cue') or file.endswith('.ccd') or file.endswith('.nrg') or file.endswith('.mds') or file.endswith('.iso') or file.endswith('.chd') or file.endswith('.uae') or file.endswith('.7z') or file.endswith('.rp9') or file.endswith('.exe') or file.endswith('.run'):
+                if file.isdir():
+                    ext_files.append(file)
+                    print("\tFound Directory: " + file)
+                elif file.endswith('.zip') or file.endswith('.m3u') or file.endswith('.adf') or file.endswith('.adz') or file.endswith('.dms') or file.endswith('.fdi') or file.endswith('.ipf') or file.endswith('.hdf') or file.endswith('.hdz') or file.endswith('.lha') or file.endswith('.tga') or file.endswith('.slave') or file.endswith('.info') or file.endswith('.cue') or file.endswith('.ccd') or file.endswith('.nrg') or file.endswith('.mds') or file.endswith('.iso') or file.endswith('.chd') or file.endswith('.uae') or file.endswith('.7z') or file.endswith('.rp9') or file.endswith('.exe') or file.endswith('.run'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
