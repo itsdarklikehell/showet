@@ -251,6 +251,14 @@ else:
         if ret == 1:
             print("\tExtracting file failed!")
             
+    # t64.gz
+    if prod_download_filename.endswith(".t64.gz") or prod_download_filename.endswith(".T64.GZ"):
+        print("\tExtracting:", prod_download_filename)
+        print("\tTo:", datadir)
+        ret = os.system("cd " + datadir + "dtrx -r " + prod_download_filename)
+        if ret == 1:
+            print("\tExtracting file failed!")
+            
     # arc
     if prod_download_filename.endswith(".arc") or prod_download_filename.endswith(".ARC"):
         print("\tExtracting:", prod_download_filename)
