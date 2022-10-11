@@ -215,7 +215,7 @@ else:
     # lzh
     if prod_download_filename.endswith(".lzh") or prod_download_filename.endswith(".LZH") or prod_download_filename.endswith(".lzs") or prod_download_filename.endswith(".LZS") or prod_download_filename.endswith(".pma") or prod_download_filename.endswith(".PMA"):
         print("\tExtracting:", prod_download_filename, "To:", datadir)
-        ret = os.system("lhasa x " + prod_download_filename + " " + datadir)
+        ret = os.system("lhasa x '" + prod_download_filename + "' " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
             
@@ -223,7 +223,7 @@ else:
     if prod_download_filename.endswith(".rar") or prod_download_filename.endswith(".RAR"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("rar x " + prod_download_filename + " " + datadir + " >/dev/null 2>&1")
+        ret = os.system("rar x '" + prod_download_filename + "' " + datadir + " >/dev/null 2>&1")
         if ret == 1:
             print("\tExtracting file failed!")
             
@@ -239,7 +239,7 @@ else:
     if prod_download_filename.endswith(".tar") or prod_download_filename.endswith(".TAR") or prod_download_filename.endswith(".bz2") or prod_download_filename.endswith(".BZ2") or prod_download_filename.endswith(".tar.bz2") or prod_download_filename.endswith(".TAR.BZ2") or prod_download_filename.endswith(".tbz2") or prod_download_filename.endswith(".TBZ2"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xjvf " + prod_download_filename + " -C " + datadir)
+        ret = os.system("tar xjvf '" + prod_download_filename + "' -C " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
             
@@ -247,7 +247,7 @@ else:
     if prod_download_filename.endswith(".gz") or prod_download_filename.endswith(".GZ") or prod_download_filename.endswith(".tgz") or prod_download_filename.endswith(".TGZ"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("tar xzvf " + prod_download_filename + " -C " + datadir)
+        ret = os.system("tar xzvf '" + prod_download_filename + "' -C " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
             
@@ -255,7 +255,7 @@ else:
     if prod_download_filename.endswith(".t64.gz") or prod_download_filename.endswith(".T64.GZ"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("cd " + datadir + "dtrx -r " + prod_download_filename)
+        ret = os.system("cd " + datadir + "dtrx -r '" + prod_download_filename + "'")
         if ret == 1:
             print("\tExtracting file failed!")
             
@@ -263,7 +263,7 @@ else:
     if prod_download_filename.endswith(".arc") or prod_download_filename.endswith(".ARC"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("arc x " + prod_download_filename + " " + datadir)
+        ret = os.system("arc x '" + prod_download_filename + "' " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
             
@@ -271,7 +271,7 @@ else:
     if prod_download_filename.endswith(".arj") or prod_download_filename.endswith(".ARJ"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("arj x " + prod_download_filename + " " + datadir)
+        ret = os.system("arj x '" + prod_download_filename + "' " + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
             
