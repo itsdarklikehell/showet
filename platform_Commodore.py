@@ -249,73 +249,69 @@ class Platform_CommodoreAmiga(PlatformCommon):
             for disk in files:
                 f.write(disk + "\n")
         
-        drives = []
-        # Support only one for now..
-        if len(files) > 0:
-            if emulator[0] == 'fs-uae':
-                emulator.append('--hard_drive_0=.')
-            # Set wether we should run in fullscreens or not.
-            if emulator[0] == 'retroarch':
-                # emulator.append('--hard_drive_0=.')
-                emulator = emulator + [files[0]]
+        # drives = []
+        # # Support only one for now..
+        # if len(files) > 0:
+        #     if emulator[0] == 'fs-uae':
+        #         emulator.append('--hard_drive_0=.')
+        #     # Set wether we should run in fullscreens or not.
+        #     if emulator[0] == 'retroarch':
+        #         # emulator.append('--hard_drive_0=.')
+        #         emulator = emulator + [files[0]]
             
-            if not os.path.exists(self.datadir + "/s"):
-                os.makedirs(self.datadir + "/s")
-                # when find_files_with_extension works with paths relative to datadir.
-                # we can simplify this
-                with open(self.datadir + "/s/startup-sequence", 'w') as f:
-                    exename = files[0].split('/')
-                    exename = exename[len(exename) - 1]
-                    f.write(exename + "\n")
-                    f.close()
+        #     if not os.path.exists(self.datadir + "/s"):
+        #         os.makedirs(self.datadir + "/s")
+        #         # when find_files_with_extension works with paths relative to datadir.
+        #         # we can simplify this
+        #         with open(self.datadir + "/s/startup-sequence", 'w') as f:
+        #             exename = files[0].split('/')
+        #             exename = exename[len(exename) - 1]
+        #             f.write(exename + "\n")
+        #             f.close()
         
-        if emulator[0] == 'retroarch':
-            amiga_model = 'A1200'
-            if self.prod_platform == 'amigaocsecs':
-                amiga_model = 'A500'
-            # if self.prod_platform == 'amigaaga':
-            #     emulator.append('--fast_memory=8192')
-            
-            if len(drives) > 0:
-                print("\tUsing drive 0: ", drives[0])
-                emulator.append(drives[0])
-            if len(drives) > 1:
-                print("\tUsing drive 1: ", drives[1])
-                emulator.append(drives[1])
-            if len(drives) > 2:
-                print("\tUsing drive 2: ", drives[2])
-                emulator.append(drives[2])
-            if len(drives) > 3:
-                print("\tUsing drive 3: ", drives[3])
-                emulator.append(drives[3])
-            #emulator.append('--model=' + amiga_model)
-        if emulator[0] == 'fs-uae':
-            amiga_model = 'A1200'
-            if self.prod_platform == 'amigaocsecs':
-                amiga_model = 'A500'
-                
-            if self.prod_platform == 'amigaaga':
-                emulator.append('--fast_memory=8192')
-                
-            if len(drives) > 0:
-                print("\tUsing drive 0: ", drives[0])
-                emulator.append('--floppy_drive_0=' + drives[0])
-            if len(drives) > 1:
-                print("\tUsing drive 1: ", drives[1])
-                emulator.append('--floppy_drive_1=' + drives[1])
-            if len(drives) > 2:
-                print("\tUsing drive 2: ", drives[2])
-                emulator.append('--floppy_drive_2=' + drives[2])
-            if len(drives) > 3:
-                print("\tUsing drive 3: ", drives[3])
-                emulator.append('--floppy_drive_3=' + drives[3])
-            emulator.append('--model=' + amiga_model)
+        # if emulator[0] == 'retroarch':
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        #     #emulator.append('--model=' + amiga_model)
+        # if emulator[0] == 'fs-uae':
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     if self.prod_platform == 'amigaaga':
+        #         emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append('--floppy_drive_0=' + drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append('--floppy_drive_1=' + drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append('--floppy_drive_2=' + drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append('--floppy_drive_3=' + drives[3])
+        #     emulator.append('--model=' + amiga_model)
 
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
-                drives = self.sort_disks(files)
                 emulator = emulator + [files[0]]
             if emulator[0] == 'hatari':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
