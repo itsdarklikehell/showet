@@ -10,7 +10,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
     emulators = ['retroarch', 'stella', 'hatari']
     cores = ['hatari_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+    extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,7 +20,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         emulator = ['retroarch']
         core = ['hatari_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+        extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
         ext = []
         for ext in extensions:
@@ -86,11 +86,11 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.st') or file.endswith('.msa') or file.endswith('.stx') or file.endswith('.dim') or file.endswith('.ipf') or file.endswith('.m3u'):
+                if file.endswith('.st') or file.endswith('.msa') or file.endswith('.stx') or file.endswith('.dim') or file.endswith('.ipf') or file.endswith('.m3u'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.ST') or file.endswith('.MSA') or file.endswith('.STX') or file.endswith('.DIM') or file.endswith('.IPF') or file.endswith('.M3U'):
+                if file.endswith('.ST') or file.endswith('.MSA') or file.endswith('.STX') or file.endswith('.DIM') or file.endswith('.IPF') or file.endswith('.M3U'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
