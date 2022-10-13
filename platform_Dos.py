@@ -93,11 +93,19 @@ class Platform_Msdos(PlatformCommon):
                 for ext in extensions:
                     
                     if file.endswith(ext):
-                        ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if file == 'dos4gw.exe' or file == 'DOS4GW.EXE':
+                            print("\tFound dos4gw.exe file: skipping for now... ")
+                            #ext_files.append(file)
+                        else:
+                            ext_files.append(file)
+                            print("\tFound file: " + file)
                     
                     if file.endswith(ext.upper()):
-                        ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if file == 'dos4gw.exe' or file == 'DOS4GW.EXE':
+                            print("\tFound dos4gw.exe file: skipping for now... ")
+                            #ext_files.append(file)
+                        else:
+                            ext_files.append(file)
+                            print("\tFound file: " + file)
         
         return ext_files

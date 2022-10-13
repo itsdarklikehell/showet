@@ -77,7 +77,7 @@ class Platform_Gamemusic(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['music', 'wild']
+        return ['wild', 'music']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -177,7 +177,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['animationvideo', 'linux', 'wild']
+        return ['wild', 'animationvideo', 'linux']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
@@ -277,7 +277,7 @@ class Platform_VideoMPV(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['animationvideo', 'linux', 'wild']
+        return ['wild', 'animationvideo', 'linux']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):

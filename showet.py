@@ -265,7 +265,7 @@ else:
     if prod_download_filename.endswith(".7z") or prod_download_filename.endswith(".7Z") or prod_download_filename.endswith(".zip") or prod_download_filename.endswith(".ZIP"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("7z x '" + prod_download_filename + "' -o" + datadir)
+        ret = os.system("7z x '" + prod_download_filename + "' -o" + datadir + " >/dev/null")
         if ret == 1:
             print("\tExtracting file failed!")
             

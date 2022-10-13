@@ -40,24 +40,20 @@ class PlatformCommon:
 
     def find_files_with_extension(self, extension):
         foundfiles = [f for f in self.prod_files if (f.lower().endswith(extension) or f.upper().endswith(extension))]
-        # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-        #if not foundfiles.endswith('.json') and not foundfiles.endswith('.txt') and not foundfiles.endswith('.diz') and not foundfiles.endswith('.nfo') and not foundfiles.endswith('.png') and not foundfiles.endswith('.org') and not foundfiles.endswith('.org.txt'):
         return foundfiles
 
     # Input: list of disk images, output: same list sorted by some
     # logic so that first image is first, second disk then etc..
     def sort_disks(self, files):
-        # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-        #if not files.endswith('.json') and not files.endswith('.txt') and not files.endswith('.diz') and not files.endswith('.nfo') and not files.endswith('.png') and not files.endswith('.org') and not files.endswith('.org.txt'):    
         sorted_list = sorted(files, key=lambda s: (s.lower() or s.upper()))
         if len(sorted_list) > 1:
-            print("\tGuessing disk order should be: \t")
+            print("\tGuessing disk order should be: ")
             print(sorted_list)
         return sorted_list
 
     def run_process(self, arguments):
         print("\tRunning command: ", arguments)
-        print("================================")
+        print("\t================================")
         process = subprocess.Popen(
             arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         process.wait()
@@ -68,5 +64,5 @@ class PlatformCommon:
             print(arguments[0], "\n\tprocess exited with ", retcode)
             exit(-1)
         return retcode
-    print("================================")
+    print("\t================================")
         
