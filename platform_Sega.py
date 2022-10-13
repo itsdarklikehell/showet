@@ -10,7 +10,7 @@ class Platform_32X(PlatformCommon):
     emulators = ['retroarch', 'picodrive']
     cores = ['picodrive_libretro']
     fullscreens = ['false']
-    extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
+    extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,7 +20,7 @@ class Platform_32X(PlatformCommon):
         emulator = ['retroarch']
         core = ['picodrive_libretro']
         fullscreen = ['false']
-        extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
+        extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
         
         ext = []
         for ext in extensions:
@@ -86,10 +86,13 @@ class Platform_32X(PlatformCommon):
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.bin') or file.endswith('.gen') or file.endswith('.gg') or file.endswith('.smd') or file.endswith('.pco') or file.endswith('.md') or file.endswith('.32x') or file.endswith('.chd') or file.endswith('.cue') or file.endswith('.iso') or file.endswith('.sms') or file.endswith('.68k') or file.endswith('.sgd') or file.endswith('.m3u'):
+                if file.endswith('.zip') or file.endswith('.bin') or file.endswith('.gen') or file.endswith('.gg') or file.endswith('.smd') or file.endswith('.pco') or file.endswith('.md') or file.endswith('.32x') or file.endswith('.chd') or file.endswith('.cue') or file.endswith('.iso') or file.endswith('.sms') or file.endswith('.68k') or file.endswith('.sgd') or file.endswith('.m3u'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.BIN') or file.endswith('.GEN') or file.endswith('.GG') or file.endswith('.SMD') or file.endswith('.PCO') or file.endswith('.MD') or file.endswith('.32X') or file.endswith('.CHD') or file.endswith('.CUE') or file.endswith('.ISO') or file.endswith('.SMS') or file.endswith('.68K') or file.endswith('.SGD') or file.endswith('.M3U'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                
         return ext_files
 
 class Platform_Dreamcast(PlatformCommon):
@@ -174,6 +177,9 @@ class Platform_Dreamcast(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.CHD') or file.endswith('.CDI') or file.endswith('.ISO') or file.endswith('.ELF') or file.endswith('.BIN') or file.endswith('.CUE') or file.endswith('.GDI') or file.endswith('.LST') or file.endswith('.DAT') or file.endswith('.7Z') or file.endswith('.M3U'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Gamegear(PlatformCommon):
@@ -259,11 +265,14 @@ class Platform_Gamegear(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                if file.endswith('.zip') or file.endswith('.sms') or file.endswith('.gg') or file.endswith('.sg') or file.endswith('.bin') or file.endswith('.rom'):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
+                if file.endswith('.zip') or file.endswith('.sms') or file.endswith('.gg') or file.endswith('.sg') or file.endswith('.bin') or file.endswith('.rom'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.SMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.BIN') or file.endswith('.ROM'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                
         return ext_files
 
 class Platform_Mastersystem(PlatformCommon):
@@ -352,6 +361,9 @@ class Platform_Mastersystem(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if file.endswith('.zip') or file.endswith('.mdx') or file.endswith('.md') or file.endswith('.smd') or file.endswith('.gen') or file.endswith('.bin') or file.endswith('.cue') or file.endswith('.iso') or file.endswith('.sms') or file.endswith('.bms') or file.endswith('.gg') or file.endswith('.sg') or file.endswith('.68k') or file.endswith('.sgd') or file.endswith('.chd') or file.endswith('.m3u'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.MDX') or file.endswith('.MD') or file.endswith('.SMD') or file.endswith('.GEN') or file.endswith('.BIN') or file.endswith('.CUE') or file.endswith('.ISO') or file.endswith('.SMS') or file.endswith('.BMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.68K') or file.endswith('.SGD') or file.endswith('.CHD') or file.endswith('.M3U'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -444,6 +456,9 @@ class Platform_Megadrive(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.MDX') or file.endswith('.MD') or file.endswith('.SMD') or file.endswith('.GEN') or file.endswith('.BIN') or file.endswith('.CUE') or file.endswith('.ISO') or file.endswith('.SMS') or file.endswith('.BMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.68K') or file.endswith('.SGD') or file.endswith('.CHD') or file.endswith('.M3U'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)            
         return ext_files
 
 class Platform_Saturn(PlatformCommon):
@@ -533,6 +548,9 @@ class Platform_Saturn(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.SMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.BIN') or file.endswith('.ROM'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Stv(PlatformCommon):
@@ -623,6 +641,9 @@ class Platform_Stv(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.CCD') or file.endswith('.CHD') or file.endswith('.CUE') or file.endswith('.ISO') or file.endswith('.MDS') or file.endswith('.M3U'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Vmu(PlatformCommon):
@@ -713,6 +734,9 @@ class Platform_Vmu(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.VMS') or file.endswith('.DCI') or file.endswith('.BIN'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_SG1000(PlatformCommon):
@@ -803,4 +827,7 @@ class Platform_SG1000(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.SMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.BIN') or file.endswith('.ROM'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files

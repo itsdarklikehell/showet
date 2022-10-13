@@ -11,7 +11,7 @@ class Platform_Msdos(PlatformCommon):
     cores = ['dosbox_core_libretro']
     fullscreens = ['false']
     extensions = ['zip', 'exe', 'com', 'bat', 'conf']
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).

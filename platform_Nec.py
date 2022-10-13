@@ -89,6 +89,9 @@ class Platform_Pcengine(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Supergrafx(PlatformCommon):
@@ -179,6 +182,9 @@ class Platform_Supergrafx(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Pc8000(PlatformCommon):
@@ -269,6 +275,9 @@ class Platform_Pc8000(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                     
         return ext_files
 
 class Platform_Pc8800(PlatformCommon):
@@ -358,6 +367,9 @@ class Platform_Pc8800(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                     
         return ext_files
 
 class Platform_Pc98(PlatformCommon):
@@ -448,6 +460,9 @@ class Platform_Pc98(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                     
         return ext_files
 
 class Platform_Pcfx(PlatformCommon):
@@ -538,4 +553,7 @@ class Platform_Pcfx(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                     
         return ext_files

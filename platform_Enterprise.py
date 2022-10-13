@@ -91,4 +91,7 @@ class Platform_Enterprise(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.IMG') or file.endswith('.DSK') or file.endswith('.TAP') or file.endswith('.DTF') or file.endswith('.COM') or file.endswith('.TRN') or file.endswith('.128') or file.endswith('.BAS') or file.endswith('.CAS') or file.endswith('.CDT') or file.endswith('.TZX'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files

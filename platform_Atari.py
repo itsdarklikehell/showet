@@ -183,6 +183,9 @@ class Platform_Atarixlxe(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.ST') or file.endswith('.MSA') or file.endswith('.STX') or file.endswith('.DIM') or file.endswith('.IPF') or file.endswith('.M3U') or file.endswith('.XEX'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_AtariJaguar(PlatformCommon):
@@ -271,6 +274,9 @@ class Platform_AtariJaguar(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if file.endswith('.zip') or file.endswith('.j64') or file.endswith('.jag') or file.endswith('.rom') or file.endswith('.abs') or file.endswith('.cof') or file.endswith('.bin') or file.endswith('.prg'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.J64') or file.endswith('.JAG') or file.endswith('.ROM') or file.endswith('.ABS') or file.endswith('.COF') or file.endswith('.BIN') or file.endswith('.PRG'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -364,6 +370,9 @@ class Platform_AtariLynx(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.LNX') or file.endswith('.O'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_Atari2600(PlatformCommon):
@@ -452,6 +461,9 @@ class Platform_Atari2600(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if file.endswith('.zip') or file.endswith('.a26') or file.endswith('.bin'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.A26') or file.endswith('.BIN'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -544,6 +556,9 @@ class Platform_Atari5200(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.XFD') or file.endswith('.ATR') or file.endswith('.CDM') or file.endswith('.CAS') or file.endswith('.BIN') or file.endswith('.A52') or file.endswith('.ATX') or file.endswith('.CAR') or file.endswith('.ROM') or file.endswith('.XEX'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_Atari7800(PlatformCommon):
@@ -632,6 +647,9 @@ class Platform_Atari7800(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if file.endswith('.zip') or file.endswith('.a78') or file.endswith('.bin') or file.endswith('.cdf'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.A78') or file.endswith('.BIN') or file.endswith('.CDF'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

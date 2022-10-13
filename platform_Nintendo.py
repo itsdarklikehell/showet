@@ -90,6 +90,9 @@ class Platform_3DS(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.NDS') or file.endswith('.DSI'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_N64(PlatformCommon):
@@ -180,6 +183,9 @@ class Platform_N64(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.N64') or file.endswith('.V64') or file.endswith('.Z64') or file.endswith('.BIN') or file.endswith('.U1') or file.endswith('.NDD'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_DS(PlatformCommon):
@@ -270,6 +276,9 @@ class Platform_DS(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.NDS') or file.endswith('.DSI'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Famicom(PlatformCommon):
@@ -358,6 +367,9 @@ class Platform_Famicom(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll
                 if file.endswith('.zip') or file.endswith('.nes') or file.endswith('.fds') or file.endswith('.unf') or file.endswith('.unif') or file.endswith('.qd') or file.endswith('.nsf'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.NES') or file.endswith('.FDS') or file.endswith('.UNF') or file.endswith('.UNIF') or file.endswith('.QD') or file.endswith('.NSF'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -450,6 +462,9 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.NES') or file.endswith('.FDS') or file.endswith('.UNF') or file.endswith('.UNIF') or file.endswith('.QD') or file.endswith('.NSF'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Gameboy(PlatformCommon):
@@ -540,6 +555,9 @@ class Platform_Gameboy(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.GB') or file.endswith('.DMG') or file.endswith('.BIN') or file.endswith('.U1') or file.endswith('.NDD'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_GameboyColor(PlatformCommon):
@@ -630,6 +648,9 @@ class Platform_GameboyColor(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.GBC') or file.endswith('.DMG') or file.endswith('.BIN') or file.endswith('.U1') or file.endswith('.NDD'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_GameboyAdvance(PlatformCommon):
@@ -720,6 +741,9 @@ class Platform_GameboyAdvance(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.GB') or file.endswith('.GBC') or file.endswith('.GBA') or file.endswith('.DMG') or file.endswith('.BIN') or file.endswith('.CBG') or file.endswith('.SGB'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                
         return ext_files
 
 class Platform_Gamecube(PlatformCommon):
@@ -810,6 +834,9 @@ class Platform_Gamecube(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.GCM') or file.endswith('.ISO') or file.endswith('.WBFS') or file.endswith('.CISO') or file.endswith('.GCZ') or file.endswith('.ELF') or file.endswith('.DOL') or file.endswith('.DFF') or file.endswith('.TGC') or file.endswith('.WAD') or file.endswith('.RVZ') or file.endswith('.M3U'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Pokemini(PlatformCommon):
@@ -900,6 +927,9 @@ class Platform_Pokemini(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.MIN'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_SuperFamicom(PlatformCommon):
@@ -990,6 +1020,9 @@ class Platform_SuperFamicom(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.SFC') or file.endswith('.SMC') or file.endswith('.FIG') or file.endswith('.SWC') or file.endswith('.BS'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Virtualboy(PlatformCommon):
@@ -1080,6 +1113,9 @@ class Platform_Virtualboy(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.VB') or file.endswith('.VBOY') or file.endswith('.BIN'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_Wii(PlatformCommon):
@@ -1170,4 +1206,7 @@ class Platform_Wii(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.GCM') or file.endswith('.ISO') or file.endswith('.WBFS') or file.endswith('.CISO') or file.endswith('.GCZ') or file.endswith('.ELF') or file.endswith('.DOL') or file.endswith('.DFF') or file.endswith('.TGC') or file.endswith('.WAD') or file.endswith('.RVZ') or file.endswith('.M3U'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files

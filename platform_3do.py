@@ -11,7 +11,7 @@ class Platform_3do(PlatformCommon):
     cores = ['4do_libretro']
     fullscreens = ['false']
     extensions = ['zip', 'iso', 'bin', 'chd', 'cue']
-        
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -21,7 +21,7 @@ class Platform_3do(PlatformCommon):
         core = ['4do_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'iso', 'bin', 'chd', 'cue']
-            
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -88,6 +88,9 @@ class Platform_3do(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if file.endswith('.zip') or file.endswith('.iso') or file.endswith('.bin') or file.endswith('.chd') or file.endswith('.cue'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.ISO') or file.endswith('.BIN') or file.endswith('.CHD') or file.endswith('.CUE'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

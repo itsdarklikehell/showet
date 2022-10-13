@@ -90,6 +90,9 @@ class Platform_Gamemusic(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.AY') or file.endswith('.GBS') or file.endswith('.GYM') or file.endswith('.HES') or file.endswith('.KSS') or file.endswith('.NSF') or file.endswith('.NSFE') or file.endswith('.SAP') or file.endswith('.SPC') or file.endswith('.VGM') or file.endswith('.VGZ'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_VideoFFMPEG(PlatformCommon):
@@ -180,6 +183,9 @@ class Platform_VideoFFMPEG(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.MKV') or file.endswith('.AVI') or file.endswith('.F4V') or file.endswith('.F4F') or file.endswith('.3GP') or file.endswith('.OGM') or file.endswith('.FLV') or file.endswith('.MP4') or file.endswith('.MP3') or file.endswith('.FLAC') or file.endswith('.OGG') or file.endswith('.M4A') or file.endswith('.WEBM') or file.endswith('.3G2') or file.endswith('.MOV') or file.endswith('.WMV') or file.endswith('.MPG') or file.endswith('.MPEG') or file.endswith('.VOB') or file.endswith('.ASF') or file.endswith('.DIVX') or file.endswith('.M2P') or file.endswith('.M2TS') or file.endswith('.PS') or file.endswith('.TS') or file.endswith('.MXF') or file.endswith('.WAV'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)                    
         return ext_files
 
 class Platform_VideoMPV(PlatformCommon):
@@ -268,6 +274,9 @@ class Platform_VideoMPV(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if file.endswith('.zip') or file.endswith('.mkv') or file.endswith('.avi') or file.endswith('.f4v') or file.endswith('.f4f') or file.endswith('.3gp') or file.endswith('.ogm') or file.endswith('.flv') or file.endswith('.mp4') or file.endswith('.mp3') or file.endswith('.flac') or file.endswith('.ogg') or file.endswith('.m4a') or file.endswith('.webm') or file.endswith('.3g2') or file.endswith('.mov') or file.endswith('.wmv') or file.endswith('.mpg') or file.endswith('.mpeg') or file.endswith('.vob') or file.endswith('.asf') or file.endswith('.divx') or file.endswith('.m2p') or file.endswith('.m2ts') or file.endswith('.ps') or file.endswith('.ts') or file.endswith('.mxf') or file.endswith('.wav'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.MKV') or file.endswith('.AVI') or file.endswith('.F4V') or file.endswith('.F4F') or file.endswith('.3GP') or file.endswith('.OGM') or file.endswith('.FLV') or file.endswith('.MP4') or file.endswith('.MP3') or file.endswith('.FLAC') or file.endswith('.OGG') or file.endswith('.M4A') or file.endswith('.WEBM') or file.endswith('.3G2') or file.endswith('.MOV') or file.endswith('.WMV') or file.endswith('.MPG') or file.endswith('.MPEG') or file.endswith('.VOB') or file.endswith('.ASF') or file.endswith('.DIVX') or file.endswith('.M2P') or file.endswith('.M2TS') or file.endswith('.PS') or file.endswith('.TS') or file.endswith('.MXF') or file.endswith('.WAV'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files

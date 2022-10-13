@@ -91,6 +91,9 @@ class Platform_Commodore64(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.D64') or file.endswith('.D71') or file.endswith('.D80') or file.endswith('.D81') or file.endswith('.D82') or file.endswith('.G64') or file.endswith('.G41') or file.endswith('.X64') or file.endswith('.T64') or file.endswith('.TAP') or file.endswith('.PRG') or file.endswith('.P00') or file.endswith('.CRT') or file.endswith('.BIN') or file.endswith('.GZ') or file.endswith('.D6Z') or file.endswith('.D7Z') or file.endswith('.D8Z') or file.endswith('.G6Z') or file.endswith('.X6Z') or file.endswith('.CMD') or file.endswith('.M3U') or file.endswith('.VFL') or file.endswith('.VSF') or file.endswith('.NIB') or file.endswith('.NBZ') or file.endswith('.D2M') or file.endswith('.D4M'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_Commodore128(PlatformCommon):
@@ -179,6 +182,9 @@ class Platform_Commodore128(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if file.endswith('.zip') or file.endswith('.d64') or file.endswith('.d71') or file.endswith('.d80') or file.endswith('.d81') or file.endswith('.d82') or file.endswith('.g64') or file.endswith('.g41') or file.endswith('.x64') or file.endswith('.t64') or file.endswith('.tap') or file.endswith('.prg') or file.endswith('.p00') or file.endswith('.crt') or file.endswith('.bin') or file.endswith('.gz') or file.endswith('.d6z') or file.endswith('.d7z') or file.endswith('.d8z') or file.endswith('.g6z') or file.endswith('.x6z') or file.endswith('.cmd') or file.endswith('.m3u') or file.endswith('.vfl') or file.endswith('.vsf') or file.endswith('.nib') or file.endswith('.nbz') or file.endswith('.d2m') or file.endswith('.d4m'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.D64') or file.endswith('.D71') or file.endswith('.D80') or file.endswith('.D81') or file.endswith('.D82') or file.endswith('.G64') or file.endswith('.G41') or file.endswith('.X64') or file.endswith('.T64') or file.endswith('.TAP') or file.endswith('.PRG') or file.endswith('.P00') or file.endswith('.CRT') or file.endswith('.BIN') or file.endswith('.GZ') or file.endswith('.D6Z') or file.endswith('.D7Z') or file.endswith('.D8Z') or file.endswith('.G6Z') or file.endswith('.X6Z') or file.endswith('.CMD') or file.endswith('.M3U') or file.endswith('.VFL') or file.endswith('.VSF') or file.endswith('.NIB') or file.endswith('.NBZ') or file.endswith('.D2M') or file.endswith('.D4M'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -344,8 +350,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
-                # else if file is a folder
-                
+                if file.endswith('.ZIP') or file.endswith('.M3U') or file.endswith('.ADF') or file.endswith('.ADZ') or file.endswith('.DMS') or file.endswith('.FDI') or file.endswith('.IPF') or file.endswith('.HDF') or file.endswith('.HDZ') or file.endswith('.LHA') or file.endswith('.TGA') or file.endswith('.SLAVE') or file.endswith('.INFO') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.NRG') or file.endswith('.MDS') or file.endswith('.ISO') or file.endswith('.CHD') or file.endswith('.UAE') or file.endswith('.7Z') or file.endswith('.RP9') or file.endswith('.EXE') or file.endswith('.RUN'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_CommodoreCBMII(PlatformCommon):
@@ -434,6 +441,9 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if file.endswith('.zip') or file.endswith('.d64') or file.endswith('.d71') or file.endswith('.d80') or file.endswith('.d81') or file.endswith('.d82') or file.endswith('.g64') or file.endswith('.g41') or file.endswith('.x64') or file.endswith('.t64') or file.endswith('.tap') or file.endswith('.prg') or file.endswith('.p00') or file.endswith('.crt') or file.endswith('.bin') or file.endswith('.gz') or file.endswith('.d6z') or file.endswith('.d7z') or file.endswith('.d8z') or file.endswith('.g6z') or file.endswith('.x6z') or file.endswith('.cmd') or file.endswith('.m3u') or file.endswith('.vfl') or file.endswith('.vsf') or file.endswith('.nib') or file.endswith('.nbz') or file.endswith('.d2m') or file.endswith('.d4m'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.D64') or file.endswith('.D71') or file.endswith('.D80') or file.endswith('.D81') or file.endswith('.D82') or file.endswith('.G64') or file.endswith('.G41') or file.endswith('.X64') or file.endswith('.T64') or file.endswith('.TAP') or file.endswith('.PRG') or file.endswith('.P00') or file.endswith('.CRT') or file.endswith('.BIN') or file.endswith('.GZ') or file.endswith('.D6Z') or file.endswith('.D7Z') or file.endswith('.D8Z') or file.endswith('.G6Z') or file.endswith('.X6Z') or file.endswith('.CMD') or file.endswith('.M3U') or file.endswith('.VFL') or file.endswith('.VSF') or file.endswith('.NIB') or file.endswith('.NBZ') or file.endswith('.D2M') or file.endswith('.D4M'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
@@ -526,6 +536,10 @@ class Platform_CommodorePet(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.D64') or file.endswith('.D71') or file.endswith('.D80') or file.endswith('.D81') or file.endswith('.D82') or file.endswith('.G64') or file.endswith('.G41') or file.endswith('.X64') or file.endswith('.T64') or file.endswith('.TAP') or file.endswith('.PRG') or file.endswith('.P00') or file.endswith('.CRT') or file.endswith('.BIN') or file.endswith('.GZ') or file.endswith('.D6Z') or file.endswith('.D7Z') or file.endswith('.D8Z') or file.endswith('.G6Z') or file.endswith('.X6Z') or file.endswith('.CMD') or file.endswith('.M3U') or file.endswith('.VFL') or file.endswith('.VSF') or file.endswith('.NIB') or file.endswith('.NBZ') or file.endswith('.D2M') or file.endswith('.D4M'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_CommodorePlus4(PlatformCommon):
@@ -616,6 +630,9 @@ class Platform_CommodorePlus4(PlatformCommon):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.D64') or file.endswith('.D71') or file.endswith('.D80') or file.endswith('.D81') or file.endswith('.D82') or file.endswith('.G64') or file.endswith('.G41') or file.endswith('.X64') or file.endswith('.T64') or file.endswith('.TAP') or file.endswith('.PRG') or file.endswith('.P00') or file.endswith('.CRT') or file.endswith('.BIN') or file.endswith('.GZ') or file.endswith('.D6Z') or file.endswith('.D7Z') or file.endswith('.D8Z') or file.endswith('.G6Z') or file.endswith('.X6Z') or file.endswith('.CMD') or file.endswith('.M3U') or file.endswith('.VFL') or file.endswith('.VSF') or file.endswith('.NIB') or file.endswith('.NBZ') or file.endswith('.D2M') or file.endswith('.D4M'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_CommodoreVIC20(PlatformCommon):
@@ -704,6 +721,9 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 if file.endswith('.zip') or file.endswith('.d64') or file.endswith('.d71') or file.endswith('.d80') or file.endswith('.d81') or file.endswith('.d82') or file.endswith('.g64') or file.endswith('.g41') or file.endswith('.x64') or file.endswith('.t64') or file.endswith('.tap') or file.endswith('.prg') or file.endswith('.p00') or file.endswith('.crt') or file.endswith('.bin') or file.endswith('.gz') or file.endswith('.d6z') or file.endswith('.d7z') or file.endswith('.d8z') or file.endswith('.g6z') or file.endswith('.g4z') or file.endswith('.x6z') or file.endswith('.cmd') or file.endswith('.m3u') or file.endswith('.vfl') or file.endswith('.vsf') or file.endswith('.nib') or file.endswith('.nbz') or file.endswith('.d2m') or file.endswith('.d4m') or file.endswith('.20') or file.endswith('.40') or file.endswith('.60') or file.endswith('.a0') or file.endswith('.b0') or file.endswith('.rom'):
                 #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
+                    ext_files.append(file)
+                    print("\tFound file: " + file)
+                if file.endswith('.ZIP') or file.endswith('.D64') or file.endswith('.D71') or file.endswith('.D80') or file.endswith('.D81') or file.endswith('.D82') or file.endswith('.G64') or file.endswith('.G41') or file.endswith('.X64') or file.endswith('.T64') or file.endswith('.TAP') or file.endswith('.PRG') or file.endswith('.P00') or file.endswith('.CRT') or file.endswith('.BIN') or file.endswith('.GZ') or file.endswith('.D6Z') or file.endswith('.D7Z') or file.endswith('.D8Z') or file.endswith('.G6Z') or file.endswith('.G4Z') or file.endswith('.X6Z') or file.endswith('.CMD') or file.endswith('.M3U') or file.endswith('.VFL') or file.endswith('.VSF') or file.endswith('.NIB') or file.endswith('.NBZ') or file.endswith('.D2M') or file.endswith('.D4M') or file.endswith('.20') or file.endswith('.40') or file.endswith('.60') or file.endswith('.A0') or file.endswith('.B0') or file.endswith('.ROM'):
                     ext_files.append(file)
                     print("\tFound file: " + file)
         return ext_files
