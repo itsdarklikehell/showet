@@ -51,13 +51,13 @@ class PlatformCommon:
         #if not files.endswith('.json') and not files.endswith('.txt') and not files.endswith('.diz') and not files.endswith('.nfo') and not files.endswith('.png') and not files.endswith('.org') and not files.endswith('.org.txt'):    
         sorted_list = sorted(files, key=lambda s: (s.lower() or s.upper()))
         if len(sorted_list) > 1:
-            print("\tGuessing disk order should be:")
-            print("\t")
+            print("\tGuessing disk order should be: \t")
             print(sorted_list)
         return sorted_list
 
     def run_process(self, arguments):
-        print("\n\tRunning command: ", arguments)
+        print("\tRunning command: ", arguments)
+        print("================================")
         process = subprocess.Popen(
             arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         process.wait()
@@ -68,3 +68,5 @@ class PlatformCommon:
             print(arguments[0], "\n\tprocess exited with ", retcode)
             exit(-1)
         return retcode
+    print("================================")
+        

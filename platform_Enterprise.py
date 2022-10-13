@@ -81,17 +81,23 @@ class Platform_Enterprise(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
-                if file.endswith('.zip') or file.endswith('.img') or file.endswith('.dsk') or file.endswith('.tap') or file.endswith('.dtf') or file.endswith('.com') or file.endswith('.trn') or file.endswith('.128') or file.endswith('.bas') or file.endswith('.cas') or file.endswith('.cdt') or file.endswith('.tzx'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.IMG') or file.endswith('.DSK') or file.endswith('.TAP') or file.endswith('.DTF') or file.endswith('.COM') or file.endswith('.TRN') or file.endswith('.128') or file.endswith('.BAS') or file.endswith('.CAS') or file.endswith('.CDT') or file.endswith('.TZX'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                    
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
+                    if file.endswith('.ZIP') or file.endswith('.IMG') or file.endswith('.DSK') or file.endswith('.TAP') or file.endswith('.DTF') or file.endswith('.COM') or file.endswith('.TRN') or file.endswith('.128') or file.endswith('.BAS') or file.endswith('.CAS') or file.endswith('.CDT') or file.endswith('.TZX'):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files

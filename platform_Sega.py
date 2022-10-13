@@ -179,7 +179,7 @@ class Platform_Dreamcast(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.CHD') or file.endswith('.CDI') or file.endswith('.ISO') or file.endswith('.ELF') or file.endswith('.BIN') or file.endswith('.CUE') or file.endswith('.GDI') or file.endswith('.LST') or file.endswith('.DAT') or file.endswith('.7Z') or file.endswith('.M3U'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_Gamegear(PlatformCommon):
@@ -550,7 +550,7 @@ class Platform_Saturn(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.SMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.BIN') or file.endswith('.ROM'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_Stv(PlatformCommon):
@@ -643,7 +643,7 @@ class Platform_Stv(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.CCD') or file.endswith('.CHD') or file.endswith('.CUE') or file.endswith('.ISO') or file.endswith('.MDS') or file.endswith('.M3U'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_Vmu(PlatformCommon):
@@ -736,7 +736,7 @@ class Platform_Vmu(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.VMS') or file.endswith('.DCI') or file.endswith('.BIN'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_SG1000(PlatformCommon):
@@ -829,5 +829,5 @@ class Platform_SG1000(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.SMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.BIN') or file.endswith('.ROM'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                    print("\tFound file: " + file)
         return ext_files

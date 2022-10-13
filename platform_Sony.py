@@ -81,18 +81,25 @@ class Platform_Psx(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.exe') or file.endswith('.psx') or file.endswith('.psexe') or file.endswith('.cue') or file.endswith('.toc') or file.endswith('.bin') or file.endswith('.img') or file.endswith('iso') or file.endswith('.chd') or file.endswith('.pbp') or file.endswith('.ccd') or file.endswith('.ecm') or file.endswith('.cbn') or file.endswith('.mdf') or file.endswith('.mds') or file.endswith('.psf') or file.endswith('.m3u'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.EXE') or file.endswith('.PSX') or file.endswith('.PSEXE') or file.endswith('.CUE') or file.endswith('.TOC') or file.endswith('.BIN') or file.endswith('.IMG') or file.endswith('ISO') or file.endswith('.CHD') or file.endswith('.PBP') or file.endswith('.CCD') or file.endswith('.ECM') or file.endswith('.CBN') or file.endswith('.MDF') or file.endswith('.MDS') or file.endswith('.PSF') or file.endswith('.M3U'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                ext = []
+                for ext in extensions:
+                                    
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+            
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
         return ext_files
 
 
@@ -175,18 +182,25 @@ class Platform_Ps2(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.exe') or file.endswith('.psexe') or file.endswith('.cue') or file.endswith('.toc') or file.endswith('.bin') or file.endswith('.img') or file.endswith('.iso') or file.endswith('.chd') or file.endswith('.pbp') or file.endswith('.ccd') or file.endswith('.ecm') or file.endswith('.cbn') or file.endswith('.mdf') or file.endswith('.mds') or file.endswith('.psf') or file.endswith('.m3u'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.EXE') or file.endswith('.PSEXE') or file.endswith('.CUE') or file.endswith('.TOC') or file.endswith('.BIN') or file.endswith('.IMG') or file.endswith('ISO') or file.endswith('.CHD') or file.endswith('.PBP') or file.endswith('.CCD') or file.endswith('.ECM') or file.endswith('.CBN') or file.endswith('.MDF') or file.endswith('.MDS') or file.endswith('.PSF') or file.endswith('.M3U'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)                       
+                ext = []
+                for ext in extensions:
+                            
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+            
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 
@@ -269,16 +283,23 @@ class Platform_Psp(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'elf', 'iso', 'cso', 'prx', 'pbp']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.elf') or file.endswith('.iso') or file.endswith('.cso') or file.endswith('.prx') or file.endswith('.pbp'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.ELF') or file.endswith('.ISO') or file.endswith('.CSO') or file.endswith('.PRX') or file.endswith('.PBP'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                ext = []
+                for ext in extensions:
+
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files

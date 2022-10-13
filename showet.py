@@ -196,26 +196,58 @@ prod_download_url = prod_download_url.replace(
 if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
     print("\tFile already downloaded")
 else:
-    print("\n\tDownloading prod file from " + prod_download_url + "...")
+    print("\tDownloading prod file from " + prod_download_url + "...")
     filedata = urllib.request.urlopen(prod_download_url)
     filename = os.path.basename(filedata.url)
     if len(filename) == 0:
         print("Error downloading file at ", prod_download_url)
         exit(-1)
-    print("\n\tFilename: ", filename)
+    print("\tFilename: ", filename)
     prod_download_filename = datadir + "/" + filename
     datatowrite = filedata.read()
 
     with open(prod_download_filename, 'wb') as f:
         f.write(datatowrite)
 
-    print("\tDownloaded: ", prod_download_filename,
-          "\n\tFilesize: ", os.path.getsize(prod_download_filename))
+    print("\tDownloaded: ", prod_download_filename)
+    print("\tFilesize: ", os.path.getsize(prod_download_filename))
 
-    # Decompress the file if needed:
+    # # Decompress the file if needed:
+    # archives = [
+    #     'zip', 
+    #     'rar', 
+    #     '7z', 
+    #     'lha', 
+    #     'lzh', 
+    #     'gz',
+    #     'tgz',
+    #     't64.gz',
+    #     'lzs', 
+    #     'pma',
+    #     'tar',
+    #     'bz2',
+    #     'tbz2',
+    #     'tar.bz',
+    #     'arc',
+    #     'arj'
+    #     ]
     
+    # # all
+    # for archive in archives:
+    #     if archive.endswith(archive):
+    #         print("\tExtracting:", prod_download_filename, "To:", datadir)    
+    #         ret = os.system("7z x '" + prod_download_filename + "' " + datadir)
+    #         if ret == 1:
+    #             print("\tExtracting file failed!")
+    
+    #     if archive.endswith(archive.upper()):
+    #         print("\tExtracting:", prod_download_filename, "To:", datadir)    
+    #         ret = os.system("7z x '" + prod_download_filename + "' " + datadir)
+    #         if ret == 1:
+    #             print("\tExtracting file failed!")
+                
     # lzh
-    if prod_download_filename.endswith(".lzh") or prod_download_filename.endswith(".LZH") or prod_download_filename.endswith(".lzs") or prod_download_filename.endswith(".LZS") or prod_download_filename.endswith(".pma") or prod_download_filename.endswith(".PMA"):
+    if prod_download_filename.endswith(".lha") or prod_download_filename.endswith(".LHA") or prod_download_filename.endswith(".lzh") or prod_download_filename.endswith(".LZH") or prod_download_filename.endswith(".lzs") or prod_download_filename.endswith(".LZS") or prod_download_filename.endswith(".pma") or prod_download_filename.endswith(".PMA"):
         print("\tExtracting:", prod_download_filename, "To:", datadir)
         ret = os.system("lhasa x '" + prod_download_filename + "' " + datadir)
         if ret == 1:
@@ -233,7 +265,7 @@ else:
     if prod_download_filename.endswith(".7z") or prod_download_filename.endswith(".7Z") or prod_download_filename.endswith(".zip") or prod_download_filename.endswith(".ZIP"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("7za e -y '" + prod_download_filename + "' -o" + datadir + " >/dev/null 2>&1")
+        ret = os.system("7z x '" + prod_download_filename + "' -o" + datadir)
         if ret == 1:
             print("\tExtracting file failed!")
             
@@ -273,7 +305,7 @@ else:
     if prod_download_filename.endswith(".arj") or prod_download_filename.endswith(".ARJ"):
         print("\tExtracting:", prod_download_filename)
         print("\tTo:", datadir)
-        ret = os.system("arj x '" + prod_download_filename + "' " + datadir)
+        ret = os.system("arj x '" + prod_download_filename + "' " + datadir + " >/dev/null 2&1")
         if ret == 1:
             print("\tExtracting file failed!")
             

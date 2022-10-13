@@ -81,18 +81,25 @@ class Platform_Xbox(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'iso']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.iso'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.ISO'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                ext = []
+                for ext in extensions:
+                
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
         return ext_files
 
 class Platform_Msx(PlatformCommon):
@@ -174,18 +181,25 @@ class Platform_Msx(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'fdi', 'cas', 'sg', 'sc', 'm3u']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.rom') or file.endswith('.ri') or file.endswith('.mx1') or file.endswith('.mx2') or file.endswith('.col') or file.endswith('.dsk') or file.endswith('.fdi') or file.endswith('.cas') or file.endswith('.sg') or file.endswith('.sc') or file.endswith('.m3u'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.ROM') or file.endswith('.RI') or file.endswith('.MX1') or file.endswith('.MX2') or file.endswith('.COL') or file.endswith('.DSK') or file.endswith('.FDI') or file.endswith('.CAS') or file.endswith('.SG') or file.endswith('.SC') or file.endswith('.M3U'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                ext = []
+                for ext in extensions:
+                                    
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
         return ext_files
 
 class Platform_Windows(PlatformCommon):
@@ -242,7 +256,7 @@ class Platform_Windows(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
-        print("Guessed executable file: " + exefile)
+        print("\tGuessed executable file: " + exefile)
 
         exepath = self.datadir + "/" + exefile
 
@@ -260,16 +274,24 @@ class Platform_Windows(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['exe']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.exe'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.png') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.EXE'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                ext = []
+                for ext in extensions:
+                    
+                    if file.endswith(ext):
+
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files

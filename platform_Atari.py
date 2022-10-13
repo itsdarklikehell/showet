@@ -81,18 +81,25 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.st') or file.endswith('.msa') or file.endswith('.stx') or file.endswith('.dim') or file.endswith('.ipf') or file.endswith('.m3u'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ST') or file.endswith('.MSA') or file.endswith('.STX') or file.endswith('.DIM') or file.endswith('.IPF') or file.endswith('.M3U'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                            
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_Atarixlxe(PlatformCommon):
@@ -174,18 +181,25 @@ class Platform_Atarixlxe(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.st') or file.endswith('.msa') or file.endswith('.stx') or file.endswith('.dim') or file.endswith('.ipf') or file.endswith('.m3u') or file.endswith('.xex'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.ST') or file.endswith('.MSA') or file.endswith('.STX') or file.endswith('.DIM') or file.endswith('.IPF') or file.endswith('.M3U') or file.endswith('.XEX'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                            
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
         return ext_files
 
 class Platform_AtariJaguar(PlatformCommon):
@@ -267,18 +281,25 @@ class Platform_AtariJaguar(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.j64') or file.endswith('.jag') or file.endswith('.rom') or file.endswith('.abs') or file.endswith('.cof') or file.endswith('.bin') or file.endswith('.prg'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.J64') or file.endswith('.JAG') or file.endswith('.ROM') or file.endswith('.ABS') or file.endswith('.COF') or file.endswith('.BIN') or file.endswith('.PRG'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
         return ext_files
 
 class Platform_AtariLynx(PlatformCommon):
@@ -361,18 +382,25 @@ class Platform_AtariLynx(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['lnx', 'o']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.lnx') or file.endswith('.o'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.LNX') or file.endswith('.O'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                            
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
         return ext_files
 
 class Platform_Atari2600(PlatformCommon):
@@ -454,18 +482,25 @@ class Platform_Atari2600(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'a26', 'bin']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.a26') or file.endswith('.bin'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.A26') or file.endswith('.BIN'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                            
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
         return ext_files
 
 class Platform_Atari5200(PlatformCommon):
@@ -547,18 +582,25 @@ class Platform_Atari5200(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.xfd') or file.endswith('.atr') or file.endswith('.cdm') or file.endswith('.cas') or file.endswith('.bin') or file.endswith('.a52') or file.endswith('.atx') or file.endswith('.car') or file.endswith('.rom') or file.endswith('.xex'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.XFD') or file.endswith('.ATR') or file.endswith('.CDM') or file.endswith('.CAS') or file.endswith('.BIN') or file.endswith('.A52') or file.endswith('.ATX') or file.endswith('.CAR') or file.endswith('.ROM') or file.endswith('.XEX'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
         return ext_files
 
 class Platform_Atari7800(PlatformCommon):
@@ -640,16 +682,23 @@ class Platform_Atari7800(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'a78', 'bin', 'cdf']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.a78') or file.endswith('.bin') or file.endswith('.cdf'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.A78') or file.endswith('.BIN') or file.endswith('.CDF'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
         return ext_files

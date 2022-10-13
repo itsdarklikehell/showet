@@ -91,7 +91,7 @@ class Platform_Pcengine(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_Supergrafx(PlatformCommon):
@@ -184,7 +184,7 @@ class Platform_Supergrafx(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                    print("\tFound file: " + file)
         return ext_files
 
 class Platform_Pc8000(PlatformCommon):
@@ -277,7 +277,7 @@ class Platform_Pc8000(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                     
+                    print("\tFound file: " + file) 
         return ext_files
 
 class Platform_Pc8800(PlatformCommon):
@@ -369,7 +369,7 @@ class Platform_Pc8800(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                     
+                    print("\tFound file: " + file) 
         return ext_files
 
 class Platform_Pc98(PlatformCommon):
@@ -462,7 +462,7 @@ class Platform_Pc98(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                     
+                    print("\tFound file: " + file) 
         return ext_files
 
 class Platform_Pcfx(PlatformCommon):
@@ -555,5 +555,5 @@ class Platform_Pcfx(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                     
+                    print("\tFound file: " + file) 
         return ext_files

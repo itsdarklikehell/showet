@@ -81,18 +81,25 @@ class Platform_Tic80(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
+        extensions = ['zip', 'tic']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.tic'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.TIC'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                ext = []
+                for ext in extensions:
+                    
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
         return ext_files
 
 class Platform_TRS80(PlatformCommon):
@@ -185,5 +192,5 @@ class Platform_TRS80(PlatformCommon):
                     print("\tFound file: " + file)
                 if file.endswith('.ZIP') or file.endswith('.TIC'):
                     ext_files.append(file)
-                    print("\tFound file: " + file)                    
+                    print("\tFound file: " + file)
         return ext_files
