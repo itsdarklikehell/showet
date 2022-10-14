@@ -810,7 +810,7 @@ class Platform_Gamecube(PlatformCommon):
     emulators = ['retroarch']
     cores = ['dolphin_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+    extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -820,7 +820,7 @@ class Platform_Gamecube(PlatformCommon):
         emulator = ['retroarch']
         core = ['dolphin_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext = []
         for ext in extensions:
@@ -881,7 +881,7 @@ class Platform_Gamecube(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
-        extensions = ['zip', 'gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext_files = []
         for file in self.prod_files:
