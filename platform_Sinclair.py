@@ -8,7 +8,7 @@ class Platform_Zxspectrum(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', '81']
-    cores = ['81_libretro']
+    cores = ['fuse_libretro']
     fullscreens = ['false']
     extensions = ['tzx', 'p', 't81']
     
@@ -18,9 +18,9 @@ class Platform_Zxspectrum(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['81_libretro']
+        core = ['fuse_libretro']
         fullscreen = ['false']
-        extensions = ['tzx', 'p', 't81']
+        extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         
         ext = []
         for ext in extensions:
@@ -39,7 +39,7 @@ class Platform_Zxspectrum(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('81_libretro')
+            emulator.append('fuse_libretro')
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
