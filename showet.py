@@ -197,6 +197,7 @@ else:
     if len(filename) == 0:
         print("Error downloading file at ", prod_download_url)
         exit(-1)
+        
     print("\tFilename: ", filename)
     prod_download_filename = datadir + "/" + filename
     datatowrite = filedata.read()
@@ -215,7 +216,15 @@ else:
     filetypes = [ '7z', 'ap_', 'apk', 'ar', 'arc', 'arj', 'bz', 'bz2', 'cab', 'cb7', 'crx', 'dazip', 'deb', 'dmg', 'exe', 'gnutar', 'gz', 'gzi', 'gzip', 'hfs', 'iso', 'jgz', 'lha', 'lxf', 'lhz', 'lzma', 'mcgame', 'mct', 'mcworld', 'msi', 'ntfs', 'pax', 'pet', 'pk3', 'psz', 'r00', 'rar', 'reloc', 'sdt', 'sdz', 'sdz', 'sfs', 'sfx', 'spk', 'squashfs', 'tar', 'tar.gz', 'tar.gz2', 'tar.lzma', 'tar.xz', 'tbz', 'tgz', 't64.gz', 'tlz', 'u3p', 'udf', 'vhd', 'wim', 'xar', 'xz', 'z', 'zad', 'zip', '001', '7z.001', '7z.002', 'azw2', 'he', 'r01', 'r02', 'r03', 'r21', 'txz', 'zi', 'zpi' ] 
     filetype = []
     for filetype in filetypes:
-        if prod_download_filename.endswith(filetype) or prod_download_filename.endswith(filetype.upper()):
+        if prod_download_filename.endswith(filetype):
+            print("\t================================")
+            print("\tDetected archive: " + filetype)
+            print("\t================================")
+            extract_files(prod_download_filename, datadir)
+            print("\t================================")
+    
+    for filetype in filetypes:
+        if prod_download_filename.endswith(filetype.upper()):
             print("\t================================")
             print("\tDetected archive: " + filetype)
             print("\t================================")
