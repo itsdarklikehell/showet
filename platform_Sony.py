@@ -212,7 +212,7 @@ class Platform_Psp(PlatformCommon):
     emulators = ['retroarch', 'ppsspp']
     cores = ['ppsspp_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'elf', 'iso', 'cso', 'prx', 'pbp']
+    extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -222,7 +222,7 @@ class Platform_Psp(PlatformCommon):
         emulator = ['retroarch']
         core = ['ppsspp_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'elf', 'iso', 'cso', 'prx', 'pbp']
+        extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
         ext = []
         for ext in extensions:
@@ -283,7 +283,7 @@ class Platform_Psp(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
-        extensions = ['zip', 'elf', 'iso', 'cso', 'prx', 'pbp']
+        extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
         ext_files = []
         for file in self.prod_files:
