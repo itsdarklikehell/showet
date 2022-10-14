@@ -51,6 +51,7 @@
 			"exefile",
 			"exename",
 			"exepath",
+			"extractfiles",
 			"Famicom",
 			"fbneo",
 			"fileformats",

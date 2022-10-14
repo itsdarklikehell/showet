@@ -54,10 +54,11 @@ class PlatformCommon:
     def run_process(self, arguments):
         print("\tRunning command: ", arguments)
         print("\t================================")
-        process = subprocess.Popen(
-            arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        
+        process = subprocess.Popen(arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         process.wait()
         retcode = process.returncode
+        
         for line in process.stdout:
             print(line.decode('utf-8'))
         if retcode:
