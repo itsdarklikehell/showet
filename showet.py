@@ -3,7 +3,8 @@ import urllib.request
 import json
 import os
 import argparse
-import subprocess
+import patoolib
+
 from platform_3do import Platform_3do
 from platform_Amstrad import Platform_Cpcplus
 from platform_Apple import Platform_Apple
@@ -206,55 +207,19 @@ else:
     print("\tDownloaded: ", prod_download_filename)
     print("\tFilesize: ", os.path.getsize(prod_download_filename))
 
-    # extreact files depending on the filetype
-    def extractfiles(prod_download_filename, datadir):
-        print("\tExtracting:", prod_download_filename, "To:", datadir)
-        
-        arguments = [ "7z", "e", prod_download_filename, datadir ]
-        process = subprocess.Popen(arguments, cwd=datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        process.wait()
-        retcode = process.returncode
-        
-        for line in process.stdout:
-            print("\t" + line.decode('utf-8'))
-        if retcode:
-            print(arguments[0], "\n\tprocess exited with ", retcode)
-            exit(-1)
-        return retcode
-    print("\t================================")
-
-    # 7zip,zip    
-    if prod_download_filename.endswith(".7z") or prod_download_filename.endswith(".7Z") or prod_download_filename.endswith(".zip") or prod_download_filename.endswith(".ZIP"):
-        extractfiles(prod_download_filename, datadir)       
+    # extract files depending on the filetype
+    def extract_files(prod_download_filename, datadir):
+        # # print("\tExtracting:", prod_download_filename, "To:", datadir)
+        patoolib.extract_archive(prod_download_filename, verbosity=0, outdir=datadir, program=None, interactive=None)
     
-    # lzh
-    if prod_download_filename.endswith(".lha") or prod_download_filename.endswith(".LHA") or prod_download_filename.endswith(".lzh") or prod_download_filename.endswith(".LZH") or prod_download_filename.endswith(".lzs") or prod_download_filename.endswith(".LZS") or prod_download_filename.endswith(".pma") or prod_download_filename.endswith(".PMA"):
-       extractfiles(prod_download_filename, datadir)
-            
-    # rar
-    if prod_download_filename.endswith(".rar") or prod_download_filename.endswith(".RAR"):
-        extractfiles(prod_download_filename, datadir)
-
-    # tar,bz2
-    if prod_download_filename.endswith(".tar") or prod_download_filename.endswith(".TAR") or prod_download_filename.endswith(".bz2") or prod_download_filename.endswith(".BZ2") or prod_download_filename.endswith(".tar.bz2") or prod_download_filename.endswith(".TAR.BZ2") or prod_download_filename.endswith(".tbz2") or prod_download_filename.endswith(".TBZ2"):
-        extractfiles(prod_download_filename, datadir)
-            
-    # gzip
-    if prod_download_filename.endswith(".gz") or prod_download_filename.endswith(".GZ") or prod_download_filename.endswith(".tgz") or prod_download_filename.endswith(".TGZ"):
-        extractfiles(prod_download_filename, datadir)
-            
-    # t64.gz
-    if prod_download_filename.endswith(".t64.gz") or prod_download_filename.endswith(".T64.GZ"):
-        extractfiles(prod_download_filename, datadir)
-            
-    # arc
-    if prod_download_filename.endswith(".arc") or prod_download_filename.endswith(".ARC"):
-        extractfiles(prod_download_filename, datadir)
-            
-    # arj
-    if prod_download_filename.endswith(".arj") or prod_download_filename.endswith(".ARJ"):
-        extractfiles(prod_download_filename, datadir)
-            
+    filetypes = [ '7z', 'ap_', 'apk', 'ar', 'arc', 'arj', 'bz', 'bz2', 'cab', 'cb7', 'crx', 'dazip', 'deb', 'dmg', 'exe', 'gnutar', 'gz', 'gzi', 'gzip', 'hfs', 'iso', 'jgz', 'lha', 'lxf', 'lhz', 'lzma', 'mcgame', 'mct', 'mcworld', 'msi', 'ntfs', 'pax', 'pet', 'pk3', 'psz', 'r00', 'rar', 'reloc', 'sdt', 'sdz', 'sdz', 'sfs', 'sfx', 'spk', 'squashfs', 'tar', 'tar.gz', 'tar.gz2', 'tar.lzma', 'tar.xz', 'tbz', 'tgz', 't64.gz', 'tlz', 'u3p', 'udf', 'vhd', 'wim', 'xar', 'xz', 'z', 'zad', 'zip', '001', '7z.001', '7z.002', 'azw2', 'he', 'r01', 'r02', 'r03', 'r21', 'txz', 'zi', 'zpi' ] 
+    filetype = []
+    for filetype in filetypes:
+        if prod_download_filename.endswith(filetype) or prod_download_filename.endswith(filetype.upper()):
+            print("\t================================")
+            extract_files(prod_download_filename, datadir)
+            print("\t================================")
+    
     open(datadir + "/.FILES_DOWNLOADED", 'a').close()
 
 runner.setup(showetdir, datadir, prod_platform)
