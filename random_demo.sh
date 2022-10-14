@@ -58,6 +58,7 @@ else
 fi
 
 play_demo(){
+    git pull
     # if random is enabled, then play a random demo
     if [ $random = "true" ]; then
         echo "Random selection...(insert drumroll...)"
@@ -76,6 +77,10 @@ play_demo(){
         resoreset
         exit 0
     fi
+}
+
+update(){
+    git pull
 }
 
 # if loop is enabled, then loop forever
