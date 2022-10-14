@@ -113,13 +113,12 @@ platform_runners = [
     Platform_Atari7800(),
     Platform_Enterprise(),
     Platform_Cpcplus(),
-    Platform_Zx81(),
-    Platform_Zxspectrum(),
     Platform_Linux(),
     Platform_Msdos(),
     Platform_Windows(),
     ]
-
+    # Platform_Zx81(),
+    # Platform_Zxspectrum(),
 if args.platforms:
     for r in platform_runners:
         for p in r.supported_platforms():
