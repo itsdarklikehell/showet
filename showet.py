@@ -3,6 +3,7 @@ import urllib.request
 import json
 import os
 import argparse
+import subprocess
 from platform_3do import Platform_3do
 from platform_Amstrad import Platform_Cpcplus
 from platform_Apple import Platform_Apple
@@ -37,12 +38,9 @@ from platform_Wild import Platform_Gamemusic, Platform_VideoMPV, Platform_VideoF
 
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
-parser.add_argument('pouetid', type=int, nargs='?',
-                    help='Pouet ID of the production to show')
-parser.add_argument('--platforms', action="store_true",
-                    help='List supported platforms and exit')
-parser.add_argument('--random', action="store_true",
-                    help='Play random productions')
+parser.add_argument('pouetid', type=int, nargs='?', help='Pouet ID of the production to show')
+parser.add_argument('--platforms', action="store_true", help='List supported platforms and exit')
+parser.add_argument('--random', action="store_true", help='Play random productions')
 
 args = parser.parse_args()
 
@@ -153,11 +151,8 @@ else:
         f.close()
 
 # print(prod_json)
-
 data = json.loads(prod_json)
-
 prod_platform = None
-
 runner = None
 
 platforms = []
@@ -190,8 +185,7 @@ print("\tPlatform: " + prod_platform)
 # Get necessary fields from the data
 
 prod_download_url = data['prod']['download']
-prod_download_url = prod_download_url.replace(
-    "https://files.scene.org/view", "https://files.scene.org/get")
+prod_download_url = prod_download_url.replace("https://files.scene.org/view", "https://files.scene.org/get")
 
 if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
     print("\tFile already downloaded")
@@ -212,102 +206,54 @@ else:
     print("\tDownloaded: ", prod_download_filename)
     print("\tFilesize: ", os.path.getsize(prod_download_filename))
 
-    # # Decompress the file if needed:
-    # archives = [
-    #     'zip', 
-    #     'rar', 
-    #     '7z', 
-    #     'lha', 
-    #     'lzh', 
-    #     'gz',
-    #     'tgz',
-    #     't64.gz',
-    #     'lzs', 
-    #     'pma',
-    #     'tar',
-    #     'bz2',
-    #     'tbz2',
-    #     'tar.bz',
-    #     'arc',
-    #     'arj'
-    #     ]
+    # extreact files depending on the filetype
+    def extractfiles(prod_download_filename, datadir):
+        print("\tExtracting:", prod_download_filename, "To:", datadir)
+        
+        arguments = [ "7z", "e", prod_download_filename, datadir ]
+        process = subprocess.Popen(arguments, cwd=datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        process.wait()
+        retcode = process.returncode
+        
+        for line in process.stdout:
+            print("\t" + line.decode('utf-8'))
+        if retcode:
+            print(arguments[0], "\n\tprocess exited with ", retcode)
+            exit(-1)
+        return retcode
+    print("\t================================")
+
+    # 7zip,zip    
+    if prod_download_filename.endswith(".7z") or prod_download_filename.endswith(".7Z") or prod_download_filename.endswith(".zip") or prod_download_filename.endswith(".ZIP"):
+        extractfiles(prod_download_filename, datadir)       
     
-    # # all
-    # for archive in archives:
-    #     if archive.endswith(archive):
-    #         print("\tExtracting:", prod_download_filename, "To:", datadir)    
-    #         ret = os.system("7z x '" + prod_download_filename + "' " + datadir)
-    #         if ret == 1:
-    #             print("\tExtracting file failed!")
-    
-    #     if archive.endswith(archive.upper()):
-    #         print("\tExtracting:", prod_download_filename, "To:", datadir)    
-    #         ret = os.system("7z x '" + prod_download_filename + "' " + datadir)
-    #         if ret == 1:
-    #             print("\tExtracting file failed!")
-                
     # lzh
     if prod_download_filename.endswith(".lha") or prod_download_filename.endswith(".LHA") or prod_download_filename.endswith(".lzh") or prod_download_filename.endswith(".LZH") or prod_download_filename.endswith(".lzs") or prod_download_filename.endswith(".LZS") or prod_download_filename.endswith(".pma") or prod_download_filename.endswith(".PMA"):
-        print("\tExtracting:", prod_download_filename, "To:", datadir)
-        ret = os.system("lhasa x '" + prod_download_filename + "' " + datadir)
-        if ret == 1:
-            print("\tExtracting file failed!")
+       extractfiles(prod_download_filename, datadir)
             
     # rar
     if prod_download_filename.endswith(".rar") or prod_download_filename.endswith(".RAR"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("rar x '" + prod_download_filename + "' " + datadir)
-        if ret == 1:
-            print("\tExtracting file failed!")
-            
-    # 7zip,zip    
-    if prod_download_filename.endswith(".7z") or prod_download_filename.endswith(".7Z") or prod_download_filename.endswith(".zip") or prod_download_filename.endswith(".ZIP"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("7z x '" + prod_download_filename + "' -o" + datadir + " >/dev/null")
-        if ret == 1:
-            print("\tExtracting file failed!")
-            
+        extractfiles(prod_download_filename, datadir)
+
     # tar,bz2
     if prod_download_filename.endswith(".tar") or prod_download_filename.endswith(".TAR") or prod_download_filename.endswith(".bz2") or prod_download_filename.endswith(".BZ2") or prod_download_filename.endswith(".tar.bz2") or prod_download_filename.endswith(".TAR.BZ2") or prod_download_filename.endswith(".tbz2") or prod_download_filename.endswith(".TBZ2"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("tar xjvf '" + prod_download_filename + "' -C " + datadir)
-        if ret == 1:
-            print("\tExtracting file failed!")
+        extractfiles(prod_download_filename, datadir)
             
     # gzip
     if prod_download_filename.endswith(".gz") or prod_download_filename.endswith(".GZ") or prod_download_filename.endswith(".tgz") or prod_download_filename.endswith(".TGZ"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("tar xzvf '" + prod_download_filename + "' -C " + datadir)
-        if ret == 1:
-            print("\tExtracting file failed!")
+        extractfiles(prod_download_filename, datadir)
             
     # t64.gz
     if prod_download_filename.endswith(".t64.gz") or prod_download_filename.endswith(".T64.GZ"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("cd " + datadir + "dtrx -r '" + prod_download_filename + "'")
-        if ret == 1:
-            print("\tExtracting file failed!")
+        extractfiles(prod_download_filename, datadir)
             
     # arc
     if prod_download_filename.endswith(".arc") or prod_download_filename.endswith(".ARC"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("arc x '" + prod_download_filename + "' " + datadir)
-        if ret == 1:
-            print("\tExtracting file failed!")
+        extractfiles(prod_download_filename, datadir)
             
     # arj
     if prod_download_filename.endswith(".arj") or prod_download_filename.endswith(".ARJ"):
-        print("\tExtracting:", prod_download_filename)
-        print("\tTo:", datadir)
-        ret = os.system("arj x '" + prod_download_filename + "' " + datadir + " >/dev/null 2&1")
-        if ret == 1:
-            print("\tExtracting file failed!")
+        extractfiles(prod_download_filename, datadir)
             
     open(datadir + "/.FILES_DOWNLOADED", 'a').close()
 
