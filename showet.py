@@ -49,8 +49,6 @@ args = parser.parse_args()
 
 # In priority order
 platform_runners = [
-    Platform_Msdos(),
-    Platform_Windows(),
     Platform_CommodoreAmiga(),
     Platform_Commodore128(),
     Platform_Commodore64(), 
@@ -117,6 +115,8 @@ platform_runners = [
     Platform_Cpcplus(),
     Platform_Zxspectrum(),
     Platform_Linux(),
+    Platform_Msdos(),
+    Platform_Windows(),
     ]
 
 if args.platforms:
