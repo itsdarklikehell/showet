@@ -11,7 +11,7 @@ class Platform_Cpcplus(PlatformCommon):
     emulators = ['retroarch', 'zesarux']
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+    extensions = ['zip', 'm3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -21,7 +21,7 @@ class Platform_Cpcplus(PlatformCommon):
         emulator = ['retroarch']
         core = ['cap32_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+        extensions = ['zip', 'm3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
         
         ext = []
         for ext in extensions:
@@ -84,7 +84,7 @@ class Platform_Cpcplus(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
-        extensions = ['zip', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+        extensions = ['zip', 'm3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
         
         ext_files = []
         for file in self.prod_files:

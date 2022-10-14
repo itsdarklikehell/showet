@@ -10,7 +10,7 @@ class Platform_Apple(PlatformCommon):
     emulators = ['retroarch', 'linapple', 'basilisk']
     cores = ['minivmac_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'dsk', 'img', 'hvf', 'cmd']
+    extensions = ['zip', 'm3u', 'dsk', 'img', 'hvf', 'cmd']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,7 +20,7 @@ class Platform_Apple(PlatformCommon):
         emulator = ['retroarch']
         core = ['minivmac_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'dsk', 'img', 'hvf', 'cmd']
+        extensions = ['zip', 'm3u', 'dsk', 'img', 'hvf', 'cmd']
 
         ext = []
         for ext in extensions:
@@ -82,7 +82,7 @@ class Platform_Apple(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
-        extensions = ['zip', 'dsk', 'img', 'hvf', 'cmd']
+        extensions = ['zip', 'm3u', 'dsk', 'img', 'hvf', 'cmd']
 
         ext_files = []
         for file in self.prod_files:
