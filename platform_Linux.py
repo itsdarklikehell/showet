@@ -53,7 +53,7 @@ class Platform_Linux(PlatformCommon):
             self.run_process([files[0]])
 
     def supported_platforms(self):
-        return ['linux', 'freebsd']
+        return ['linux', 'freebsd', 'raspberrypi' ]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
