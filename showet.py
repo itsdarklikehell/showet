@@ -35,6 +35,7 @@ from platform_Snk import Platform_Neogeo, Platform_Neopocket, Platform_Neopocket
 from platform_Sony import Platform_Psx, Platform_Psp, Platform_Ps2
 from platform_Spectravideo import Platform_Spectravideo
 from platform_Tic80 import Platform_Tic80
+from platform_Gamepark import Platform_GP2x, Platform_GP32
 from platform_Thomson import Platform_MOTO
 from platform_Wild import Platform_Gamemusic, Platform_VideoMPV, Platform_VideoFFMPEG
 
@@ -74,6 +75,8 @@ platform_runners = [
     Platform_Apple(),
     Platform_Tic80(),
     Platform_MOTO(),
+    Platform_GP32(),
+    Platform_GP2x(),
     Platform_Neogeo(),
     Platform_Neopocket(),
     Platform_Neopocketcolor(),
