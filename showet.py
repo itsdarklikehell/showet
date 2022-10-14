@@ -217,6 +217,8 @@ else:
     for filetype in filetypes:
         if prod_download_filename.endswith(filetype) or prod_download_filename.endswith(filetype.upper()):
             print("\t================================")
+            print("\tDetected archive: " + filetype)
+            print("\t================================")
             extract_files(prod_download_filename, datadir)
             print("\t================================")
     
