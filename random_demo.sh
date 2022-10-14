@@ -1,6 +1,10 @@
 #!/bin/bash
 # Showet random demo picker script
 # author: Bauke Molenaar.
+function update(){
+    cd ~/showet
+    git pull
+}
 
 # function extract () {
 #     if [ -f $1 ] ; then
@@ -58,7 +62,7 @@ else
 fi
 
 play_demo(){
-    git pull
+    update
     # if random is enabled, then play a random demo
     if [ $random = "true" ]; then
         echo "Random selection...(insert drumroll...)"
@@ -79,9 +83,7 @@ play_demo(){
     fi
 }
 
-update(){
-    git pull
-}
+
 
 # if loop is enabled, then loop forever
 if [ $loop = "true" ]; then
