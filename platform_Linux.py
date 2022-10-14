@@ -10,7 +10,7 @@ class Platform_Linux(PlatformCommon):
     emulators = ['none']
     cores = ['none']
     fullscreens = ['false']
-    extensions = ['zip', 'exe', 'elf']
+    extensions = ['elf', 'exe']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,7 +20,7 @@ class Platform_Linux(PlatformCommon):
         emulator = ['none']
         core = ['none']
         fullscreen = ['false']
-        extensions = ['zip', 'exe', 'elf']
+        extensions = ['elf', 'exe']
         
         ext = []
         for ext in extensions:
@@ -57,7 +57,7 @@ class Platform_Linux(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
-        extensions = ['zip', 'exe', 'elf']
+        extensions = ['elf', 'exe']
         
         ext_files = []
         for file in self.prod_files:
