@@ -58,13 +58,15 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
                 
         if len(files) > 0:
             # Sort the files.
@@ -158,13 +160,15 @@ class Platform_Atarixlxe(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -258,13 +262,15 @@ class Platform_AtariJaguar(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -359,13 +365,15 @@ class Platform_AtariLynx(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -459,13 +467,15 @@ class Platform_Atari2600(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -559,13 +569,15 @@ class Platform_Atari5200(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -659,13 +671,15 @@ class Platform_Atari7800(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.

@@ -272,6 +272,7 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_Elektronika.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py
 	$(QINSTALL) /home/rizzo/showet/platform_Enterprise.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
 	$(QINSTALL) /home/rizzo/showet/platform_Fairchild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Fairchild.py
+	$(QINSTALL) /home/rizzo/showet/platform_Gamepark.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Gamepark.py
 	$(QINSTALL) /home/rizzo/showet/platform_GCE.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_GCE.py
 	$(QINSTALL) /home/rizzo/showet/platform_Java.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Java.py
 	$(QINSTALL) /home/rizzo/showet/platform_Linux.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Linux.py
@@ -288,6 +289,7 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_Snk.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Snk.py
 	$(QINSTALL) /home/rizzo/showet/platform_Sony.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sony.py
 	$(QINSTALL) /home/rizzo/showet/platform_Spectravideo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Spectravideo.py
+	$(QINSTALL) /home/rizzo/showet/platform_Thomson.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Thomson.py
 	$(QINSTALL) /home/rizzo/showet/platform_Tic80.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Tic80.py
 	$(QINSTALL) /home/rizzo/showet/platform_Wild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Wild.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
@@ -299,6 +301,7 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Wild.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Tic80.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Thomson.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Spectravideo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sony.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Snk.py
@@ -315,6 +318,7 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Linux.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Java.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_GCE.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Gamepark.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Fairchild.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py

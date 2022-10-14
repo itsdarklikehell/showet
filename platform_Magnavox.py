@@ -58,13 +58,15 @@ class Platform_Odyssey(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.

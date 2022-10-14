@@ -58,13 +58,15 @@ class Platform_32X(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -145,13 +147,15 @@ class Platform_Dreamcast(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -238,13 +242,15 @@ class Platform_Gamegear(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -331,13 +337,15 @@ class Platform_Mastersystem(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -424,13 +432,15 @@ class Platform_Megadrive(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -516,13 +526,15 @@ class Platform_Saturn(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -609,13 +621,15 @@ class Platform_Stv(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -702,13 +716,15 @@ class Platform_Vmu(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
@@ -795,13 +811,15 @@ class Platform_SG1000(PlatformCommon):
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
         with open(flipfile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
         with open(m3ufile, "w") as f:
-            f.write("UNIT 8\n")
+            #f.write("UNIT 8\n")
             for disk in files:
                 f.write(disk + "\n")
+            f.write("#SAVEDISK:\n")
 
         if len(files) > 0:
             # Sort the files.
