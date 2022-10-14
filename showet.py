@@ -30,7 +30,7 @@ from platform_Palm import Platform_Palm
 from platform_Phillips import Platform_Cdi
 from platform_Pico8 import Platform_Pico8
 from platform_Sega import Platform_Megadrive, Platform_Gamegear, Platform_Mastersystem, Platform_Dreamcast, Platform_Saturn
-from platform_Sinclair import Platform_Zxspectrum
+from platform_Sinclair import Platform_Zxspectrum, Platform_Zx81
 from platform_Snk import Platform_Neogeo, Platform_Neopocket, Platform_Neopocketcolor
 from platform_Sony import Platform_Psx, Platform_Psp, Platform_Ps2
 from platform_Spectravideo import Platform_Spectravideo
@@ -113,6 +113,7 @@ platform_runners = [
     Platform_Atari7800(),
     Platform_Enterprise(),
     Platform_Cpcplus(),
+    Platform_Zx81(),
     Platform_Zxspectrum(),
     Platform_Linux(),
     Platform_Msdos(),
