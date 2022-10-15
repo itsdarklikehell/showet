@@ -23,7 +23,7 @@ class Platform_Enterprise(PlatformCommon):
         extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
         
         if emulator == 'retroarch':
-            if core == 'ep128emu_libretro'
+            if core == 'ep128emu_libretro':
                 extensions = ['img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', 'tvcwav', '.']
 
         ext = []
@@ -90,7 +90,7 @@ class Platform_Enterprise(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
-            if core[0] == 'ep128emu_libretro'
+            if core[0] == 'ep128emu_libretro':
                 extensions = ['img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', 'tvcwav', '.']        
 
         ext_files = []
