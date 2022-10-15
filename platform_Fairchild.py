@@ -20,8 +20,12 @@ class Platform_Channelf(PlatformCommon):
         emulator = ['retroarch']
         core = ['freechaf_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'bin', 'chf']        
+        extensions = ['zip', 'bin', 'chf']
         
+        if emulator == 'retroarch':
+            if core == 'freechaf_libretro':
+                extensions = ['bin', 'chf']
+                
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_Channelf(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('freechaf_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,8 +88,11 @@ class Platform_Channelf(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'bin', 'chf']
-    
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'freechaf_libretro':
+                extensions = ['bin', 'chf']
+                    
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
