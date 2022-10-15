@@ -197,7 +197,7 @@ class Platform_N64(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+        extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         if emulator[0] == 'retroarch':
             if core[0] == 'mupen64plus_next_libretro':
                 extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
