@@ -56,7 +56,7 @@ class Platform_Linux(PlatformCommon):
         return ['linux', 'freebsd', 'raspberrypi' ]
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['elf', 'exe']
         
         ext_files = []

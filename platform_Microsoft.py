@@ -83,7 +83,7 @@ class Platform_Xbox(PlatformCommon):
         return ['xbox']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'iso']
         
         ext_files = []
@@ -288,7 +288,7 @@ class Platform_Windows(PlatformCommon):
         return ['windows', 'wild']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['exe']
         
         ext_files = []

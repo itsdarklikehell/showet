@@ -83,7 +83,7 @@ class Platform_Commodore64(PlatformCommon):
         return ['commodore64']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         ext_files = []
@@ -186,7 +186,7 @@ class Platform_Commodore128(PlatformCommon):
         return ['commodore128']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         ext_files = []
@@ -361,7 +361,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         return cookie_files
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
         
         ext_files = []
@@ -464,7 +464,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
         return ['commodorecbm']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         ext_files = []
@@ -567,7 +567,7 @@ class Platform_CommodorePet(PlatformCommon):
         return ['commodorepet']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         ext_files = []
@@ -670,7 +670,7 @@ class Platform_CommodorePlus4(PlatformCommon):
         return ['commodoreplus4', 'c16116plus4']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         ext_files = []
@@ -773,7 +773,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
         return ['vic20']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
         
         ext_files = []

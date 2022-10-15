@@ -83,7 +83,7 @@ class Platform_Tic80(PlatformCommon):
         return ['tic80']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'tic']
         
         ext_files = []
@@ -186,7 +186,7 @@ class Platform_TRS80(PlatformCommon):
         return ['trs80']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

@@ -81,7 +81,7 @@ class Platform_Pcengine(PlatformCommon):
         return ['necturbografxpcengine']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -176,7 +176,7 @@ class Platform_Supergrafx(PlatformCommon):
         return ['necturbografxpcengine']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -271,7 +271,7 @@ class Platform_Pc8000(PlatformCommon):
         return ['pc8000', 'pc8800']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -365,7 +365,7 @@ class Platform_Pc8800(PlatformCommon):
         return ['pc8800']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -461,7 +461,7 @@ class Platform_Pc98(PlatformCommon):
         return ['pc-98']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -556,7 +556,7 @@ class Platform_Pcfx(PlatformCommon):
         return ['pcfx']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

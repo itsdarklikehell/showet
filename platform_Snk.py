@@ -83,7 +83,7 @@ class Platform_Neogeo(PlatformCommon):
         return ['neogeo']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []
@@ -186,7 +186,7 @@ class Platform_Neopocket(PlatformCommon):
         return ['neogeopocket']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []
@@ -289,7 +289,7 @@ class Platform_Neopocketcolor(PlatformCommon):
         return ['neogeopocketcolor']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []

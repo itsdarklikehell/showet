@@ -83,7 +83,7 @@ class Platform_MOTO(PlatformCommon):
         return ['thomson']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
         
         ext_files = []

@@ -83,7 +83,7 @@ class Platform_Arcade(PlatformCommon):
         return ['arcade']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'chd', '7z', 'cmd']
         
         ext_files = []

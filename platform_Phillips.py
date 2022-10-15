@@ -82,7 +82,7 @@ class Platform_Cdi(PlatformCommon):
         return ['palmos']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'chd', 'iso']
         
         ext_files = []

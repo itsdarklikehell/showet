@@ -83,7 +83,7 @@ class Platform_Java(PlatformCommon):
         return ['java', 'javascript']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'jar', 'sqc', 'jam', 'jad', 'kjx']
         
         ext_files = []

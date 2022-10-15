@@ -302,7 +302,7 @@ class Platform_DS(PlatformCommon):
         return ['nintendods']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'nds', 'dsi']
         
         ext_files = []
@@ -405,7 +405,7 @@ class Platform_Famicom(PlatformCommon):
         return ['nesfamicom']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
         
         ext_files = []
@@ -508,7 +508,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
         return ['nesfamicom']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
         
         ext_files = []
@@ -743,7 +743,7 @@ class Platform_GameboyColor(PlatformCommon):
         return ['gameboy', 'gameboycolor']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
         
         ext_files = []
@@ -970,7 +970,7 @@ class Platform_Gamecube(PlatformCommon):
         return ['gamecube']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext_files = []
@@ -1073,7 +1073,7 @@ class Platform_Pokemini(PlatformCommon):
         return ['pokemini']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'min']
         
         ext_files = []
@@ -1176,7 +1176,7 @@ class Platform_SuperFamicom(PlatformCommon):
         return ['snessuperfamicom']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
         
         ext_files = []
@@ -1279,7 +1279,7 @@ class Platform_Virtualboy(PlatformCommon):
         return ['virtualboy']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'vb', 'vboy', 'bin']
         
         ext_files = []
@@ -1382,7 +1382,7 @@ class Platform_Wii(PlatformCommon):
         return ['wii', 'wiiu', 'nintendowii']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext_files = []

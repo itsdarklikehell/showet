@@ -83,7 +83,7 @@ class Platform_32X(PlatformCommon):
         return ['sega32x']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -285,7 +285,7 @@ class Platform_Gamegear(PlatformCommon):
         return ['segagamegear']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -381,7 +381,7 @@ class Platform_Mastersystem(PlatformCommon):
         return ['segamastersystem', 'segagamegear', 'segasg1000', 'segagenesismegadrive', 'segasaturn', 'segastv']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -477,7 +477,7 @@ class Platform_Megadrive(PlatformCommon):
         return ['segagenesismegadrive']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -572,7 +572,7 @@ class Platform_Saturn(PlatformCommon):
         return ['segasaturn']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -668,7 +668,7 @@ class Platform_Stv(PlatformCommon):
         return ['segastv']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -764,7 +764,7 @@ class Platform_Vmu(PlatformCommon):
         return ['segavmu']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -860,7 +860,7 @@ class Platform_SG1000(PlatformCommon):
         return ['segasg1000']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

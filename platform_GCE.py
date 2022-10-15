@@ -83,7 +83,7 @@ class Platform_Vectrex(PlatformCommon):
         return ['vectrex']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'bin', 'vec']
         
         ext_files = []

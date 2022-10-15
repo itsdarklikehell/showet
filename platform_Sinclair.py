@@ -83,7 +83,7 @@ class Platform_Zxspectrum(PlatformCommon):
         return ['zxenhanced', 'spectrum', 'zxspectrum']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
         
         ext_files = []
@@ -185,7 +185,7 @@ class Platform_Zx81(PlatformCommon):
         return ['zx81']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
         
         ext_files = []

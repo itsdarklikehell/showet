@@ -82,7 +82,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         return ['atarifalcon030', 'atarist', 'atariste', 'ataritt030']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
         ext_files = []
@@ -185,7 +185,7 @@ class Platform_Atarixlxe(PlatformCommon):
         return ['atarixlxe']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
         
         ext_files = []
@@ -288,7 +288,7 @@ class Platform_AtariJaguar(PlatformCommon):
         return ['atarijaguar']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
         
         ext_files = []
@@ -500,7 +500,7 @@ class Platform_Atari2600(PlatformCommon):
         return ['atarivcs']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'a26', 'bin']
         
         ext_files = []
@@ -603,7 +603,7 @@ class Platform_Atari5200(PlatformCommon):
         return ['atarixlxe']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
         
         ext_files = []
@@ -706,7 +706,7 @@ class Platform_Atari7800(PlatformCommon):
         return ['atari7800']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'a78', 'bin', 'cdf']
         
         ext_files = []

@@ -83,7 +83,7 @@ class Platform_Pico8(PlatformCommon):
         return ['pico8']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'p8', 'png']
         
         ext_files = []

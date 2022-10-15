@@ -83,7 +83,7 @@ class Platform_Wonderswan(PlatformCommon):
         return ['wonderswan', 'wonderswancolor']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'ws', 'wsc', 'pc2']
         
         ext_files = []

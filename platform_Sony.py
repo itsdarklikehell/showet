@@ -83,7 +83,7 @@ class Platform_Psx(PlatformCommon):
         return ['playstation']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         
         ext_files = []
@@ -187,7 +187,7 @@ class Platform_Ps2(PlatformCommon):
         return ['playstation2']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         
         ext_files = []
@@ -291,7 +291,7 @@ class Platform_Psp(PlatformCommon):
         return ['playstationportable']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
         ext_files = []
