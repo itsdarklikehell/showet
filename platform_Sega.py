@@ -104,7 +104,7 @@ class Platform_Dreamcast(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'flycast', 'redream']
-    cores = ['flycast_libretro', 'flycast_gles2_libretro']
+    cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
     fullscreens = ['false']
     extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
     
@@ -120,6 +120,8 @@ class Platform_Dreamcast(PlatformCommon):
         if emulator == 'retroarch':
             if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
+            if core == 'retrodream_libretro':
+                extensions = ['gdi', 'chd', 'cdi']
 
         ext = []
         for ext in extensions:
@@ -180,7 +182,9 @@ class Platform_Dreamcast(PlatformCommon):
         if emulator == 'retroarch':
             if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
-
+            if core == 'retrodream_libretro':
+                extensions = ['gdi', 'chd', 'cdi']
+                
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
