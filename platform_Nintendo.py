@@ -771,7 +771,7 @@ class Platform_GameboyAdvance(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    cores = ['vba_next_libretro', 'mgba_libretro']
+    cores = ['meteor_libretro', 'vba_next_libretro', 'vbam_librertro', 'mgba_libretro', 'gpsp_librertro']
     fullscreens = ['false']
     extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
     
@@ -784,7 +784,18 @@ class Platform_GameboyAdvance(PlatformCommon):
         core = ['vba_next_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
-        
+        if emulator == 'retroarch':
+            if core == 'vba_next_libretro':
+                extensions = ['gba']
+            if core == 'vbam_libretro':
+                extensions = ['dmg', 'gb', 'gbc', 'cgb', 'sgb', 'gba']
+            if core == 'mgba_libretro':
+                extensions = ['gb', 'gbc', 'gba']                        
+            if core == 'gpsp_libretro':
+                extensions = ['gba', 'bin']
+            if core == 'meteor_libretro':
+                extensions = ['gba']
+                
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -802,7 +813,7 @@ class Platform_GameboyAdvance(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('vba_next_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -846,9 +857,19 @@ class Platform_GameboyAdvance(PlatformCommon):
         return ['gameboyadvance', 'gameboycolor', 'gameboy']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
-        extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
-        
+    def find_ext_files(self,emulator,core):
+        if emulator[0] == 'retroarch':
+            if core[0] == 'vba_next_libretro':
+                extensions = ['gba']
+            if core[0] == 'vbam_libretro':
+                extensions = ['dmg', 'gb', 'gbc', 'cgb', 'sgb', 'gba']
+            if core[0] == 'mgba_libretro':
+                extensions = ['gb', 'gbc', 'gba']                        
+            if core[0] == 'gpsp_libretro':
+                extensions = ['gba', 'bin']
+            if core[0] == 'meteor_libretro':
+                extensions = ['gba']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
