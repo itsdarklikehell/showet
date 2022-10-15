@@ -8,9 +8,9 @@ class Platform_3do(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    cores = ['4do_libretro']
+    cores = ['4do_libretro', 'opera_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'iso', 'bin', 'chd', 'cue']
+    extensions = ['iso', 'bin', 'chd', 'cue']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -20,7 +20,7 @@ class Platform_3do(PlatformCommon):
         emulator = ['retroarch']
         core = ['4do_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'iso', 'bin', 'chd', 'cue']
+        extensions = ['iso', 'bin', 'chd', 'cue']
 
         ext = []
         for ext in extensions:
@@ -84,7 +84,7 @@ class Platform_3do(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self):
-        extensions = ['zip', 'iso', 'bin', 'chd', 'cue']
+        extensions = ['iso', 'bin', 'chd', 'cue']
         
         ext_files = []
         for file in self.prod_files:

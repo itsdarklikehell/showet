@@ -8,9 +8,9 @@ class Platform_Msdos(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'dosbox']
-    cores = ['dosbox_core_libretro']
+    cores = ['dosbox_core_libretro', 'dosbox_pure_libretro', 'dosbox_svn_libretro', 'dosbox_svn_ce_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'exe', 'com', 'bat', 'conf']
+    extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8', 'conf']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -21,6 +21,11 @@ class Platform_Msdos(PlatformCommon):
         core = ['dosbox_core_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
+        if emulator == 'retroarch':
+            if core == 'dosbox_core_libretro' or core == 'dosbox_svn_libretro' or core == 'dosbox_svn_ce_libretro':
+                extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
+            if core == 'dosbox_pure_libretro':
+                extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8', 'conf']
         
         ext = []
         for ext in extensions:
@@ -39,7 +44,7 @@ class Platform_Msdos(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('dosbox_core_libretro')
+            emulator.append('dosbox_pure_libretro')
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -83,8 +88,12 @@ class Platform_Msdos(PlatformCommon):
         return ['msdos', 'msdosgus', 'wild']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
-        extensions = ['zip', 'exe', 'com', 'bat', 'conf']
+    def find_ext_files(self,emulator,core):
+        if emulator[0] == 'retroarch':
+            if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
+                extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
+            if core[0] == 'dosbox_pure_libretro':
+                extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8', 'conf']
         
         ext_files = []
         for file in self.prod_files:

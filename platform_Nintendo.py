@@ -8,7 +8,7 @@ class Platform_3DS(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'citra']
-    cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
+    cores = ['citra_libretro', 'citra2018_libretro', 'citra_canary_libretro', 'melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
     fullscreens = ['false']
     extensions = ['zip', 'nds', 'dsi']
     
@@ -18,9 +18,11 @@ class Platform_3DS(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['melonds_libretro']
+        core = ['citra_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'nds', 'dsi']
+        if emulator == 'retroarch':
+            if core == 'citra_libretro' or core == 'citra2018_libretro' or core == 'citra_canary_libretro':
+                extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
         
         ext = []
         for ext in extensions:
@@ -39,7 +41,7 @@ class Platform_3DS(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('melonds_libretro')
+            emulator.append('citra_libretro')
             # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
@@ -83,8 +85,10 @@ class Platform_3DS(PlatformCommon):
         return ['nintendods']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
-        extensions = ['zip', 'nds', 'dsi']
+    def find_ext_files(self,emulator,core):
+        if emulator[0] == 'retroarch':
+            if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
+                extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
         
         ext_files = []
         for file in self.prod_files:
