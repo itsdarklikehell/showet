@@ -22,6 +22,10 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         fullscreen = ['false']
         extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
+        if emulator == 'retroarch':
+            if core == 'hatari_libretro':
+                extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+                        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('hatari_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -83,7 +87,10 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'hatari_libretro':
+                extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
         ext_files = []
         for file in self.prod_files:
@@ -122,7 +129,11 @@ class Platform_Atarixlxe(PlatformCommon):
         emulator = ['retroarch']
         core = ['atari800_libretro']
         fullscreen = ['false']
-        extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+        extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        
+        if emulator == 'retroarch':
+            if core == 'atari800_libretro':
+                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
 
         ext = []
         for ext in extensions:
@@ -141,7 +152,7 @@ class Platform_Atarixlxe(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == ['retroarch']:
             emulator.append('-L')
-            emulator.append('atari800_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
@@ -186,7 +197,10 @@ class Platform_Atarixlxe(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'atari800_libretro':
+                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
         
         ext_files = []
         for file in self.prod_files:
