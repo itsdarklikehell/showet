@@ -44,7 +44,7 @@ class Platform_Msdos(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append(str(core))
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
