@@ -10,7 +10,7 @@ class Platform_Intellivision(PlatformCommon):
     emulators = ['retroarch']
     cores = ['freeintv_libretro', 'jzintv', 'jzintv-ecs']
     fullscreens = ['false']
-    extensions = ['zip', 'int', 'bin', 'rom']
+    extensions = ['int', 'bin', 'rom']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,8 +20,12 @@ class Platform_Intellivision(PlatformCommon):
         emulator = ['retroarch']
         core = ['freeintv_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'int', 'bin', 'rom']
+        extensions = ['int', 'bin', 'rom']
         
+        if emulator == 'retroarch':
+            if core == 'freeintv_libretro':
+                extensions = ['int', 'bin', 'rom']
+                
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -84,8 +88,11 @@ class Platform_Intellivision(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'int', 'bin', 'rom']
-        
+
+        if emulator == 'retroarch':
+            if core == 'freeintv_libretro':
+                extensions = ['int', 'bin', 'rom']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
