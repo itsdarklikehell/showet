@@ -23,6 +23,12 @@ class Platform_Cpcplus(PlatformCommon):
         fullscreen = ['false']
         extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
         
+        if emulator == 'retroarch':
+            if core == 'crocods_libretro':
+                extensions = ['dsk', 'sna', 'kcr']
+            if core == 'cap32_libretro':
+                extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+                
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -40,7 +46,7 @@ class Platform_Cpcplus(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('cap32_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,9 +90,14 @@ class Platform_Cpcplus(PlatformCommon):
         return ['amstradplus', 'amstradcpc']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
-        extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
+    def find_ext_files(self,emulator,core):
         
+        if emulator[0] == 'retroarch':
+            if core[0] == 'crocods_libretro':
+                extensions = ['dsk', 'sna', 'kcr']
+            if core[0] == 'cap32_libretro':
+                extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+                
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
