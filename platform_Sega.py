@@ -103,10 +103,10 @@ class Platform_Dreamcast(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
-    cores = ['flycast_libretro']
+    emulators = ['retroarch', 'flycast', 'redream']
+    cores = ['flycast_libretro', 'flycast_gles2_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
+    extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -116,8 +116,11 @@ class Platform_Dreamcast(PlatformCommon):
         emulator = ['retroarch']
         core = ['flycast_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'chd', 'cdi', 'iso', 'elf', 'bin', 'cue', 'gdi', 'lst', 'dat', '7z', 'm3u']
-        
+        extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
+        if emulator == 'retroarch':
+            if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
+                extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -135,7 +138,7 @@ class Platform_Dreamcast(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('flycast_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -173,19 +176,28 @@ class Platform_Dreamcast(PlatformCommon):
         return ['dreamcast']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
+        if emulator == 'retroarch':
+            if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
+                extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.chd') or file.endswith('.cdi') or file.endswith('.iso') or file.endswith('.elf') or file.endswith('.bin') or file.endswith('.cue') or file.endswith('.gdi') or file.endswith('.lst') or file.endswith('.dat') or file.endswith('.7z') or file.endswith('.m3u'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.CHD') or file.endswith('.CDI') or file.endswith('.ISO') or file.endswith('.ELF') or file.endswith('.BIN') or file.endswith('.CUE') or file.endswith('.GDI') or file.endswith('.LST') or file.endswith('.DAT') or file.endswith('.7Z') or file.endswith('.M3U'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                                    
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_Gamegear(PlatformCommon):
