@@ -18,7 +18,7 @@ class Platform_Msdos(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['dosbox_core_libretro']
+        core = ['dosbox_pure_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
         if emulator == 'retroarch':
