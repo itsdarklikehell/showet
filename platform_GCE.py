@@ -22,6 +22,10 @@ class Platform_Vectrex(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'bin', 'vec']
         
+        if emulator == 'retroarch':
+            if core == 'vecx_libretro':
+                extensions = ['bin', 'vec']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_Vectrex(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('vecx_libretro')
+            emulator.append(cor[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,7 +88,10 @@ class Platform_Vectrex(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'bin', 'vec']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'vecx_libretro':
+                extensions = ['bin', 'vec']
         
         ext_files = []
         for file in self.prod_files:
