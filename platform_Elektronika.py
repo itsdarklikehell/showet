@@ -10,7 +10,7 @@ class Platform_Pdp11(PlatformCommon):
     emulators = ['retroarch', 'm']
     cores = ['bk_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'bin']
+    extensions = ['bin']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,8 +20,11 @@ class Platform_Pdp11(PlatformCommon):
         emulator = ['retroarch']
         core = ['bk_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'bin']
-        
+        extensions = ['bin']
+        if emulator == 'retroarch':
+            if core == 'bk_libretro':
+                extensions = ['bin']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +42,7 @@ class Platform_Pdp11(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('bk_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -83,8 +86,10 @@ class Platform_Pdp11(PlatformCommon):
         return ['bk001010', 'bk001011m']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
-        extensions = ['zip', 'bin']
+    def find_ext_files(self,emulator,core):
+        if emulator[0] == 'retroarch':
+            if core[0] == 'bk_libretro':
+                extensions = ['bin']
         
         ext_files = []
         for file in self.prod_files:
