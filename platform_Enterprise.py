@@ -22,6 +22,10 @@ class Platform_Enterprise(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
         
+        if emulator == 'retroarch':
+            if core == 'ep128emu_libretro'
+                extensions = ['img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', 'tvcwav', '.']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_Enterprise(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('ep128emu_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,8 +88,11 @@ class Platform_Enterprise(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
-        
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'ep128emu_libretro'
+                extensions = ['img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', 'tvcwav', '.']        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
