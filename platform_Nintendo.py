@@ -10,7 +10,7 @@ class Platform_3DS(PlatformCommon):
     emulators = ['retroarch', 'citra']
     cores = ['citra_libretro', 'citra2018_libretro', 'citra_canary_libretro', 'melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'nds', 'dsi']
+    extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,6 +20,8 @@ class Platform_3DS(PlatformCommon):
         emulator = ['retroarch']
         core = ['citra_libretro']
         fullscreen = ['false']
+        extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
+
         if emulator == 'retroarch':
             if core == 'citra_libretro' or core == 'citra2018_libretro' or core == 'citra_canary_libretro':
                 extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
@@ -117,7 +119,7 @@ class Platform_N64(PlatformCommon):
     emulators = ['retroarch', 'mupen64plus-glide64', 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
     cores = ['mupen64plus_libretro', 'mupen64plus_next_libretro', 'parallel_n46_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+    extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -125,10 +127,14 @@ class Platform_N64(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
-        core = ['mupen64plus_libretro']
+        core = ['mupen64plus_next_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+        extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         
+        if emulator == 'retroarch':
+            if core == 'mupen64plus_next_libretro':
+                extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+                
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -146,7 +152,7 @@ class Platform_N64(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mupen64plus_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
@@ -190,8 +196,11 @@ class Platform_N64(PlatformCommon):
         return ['nintendo64']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
+    def find_ext_files(self,emulator,core):
         extensions = ['zip', 'n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mupen64plus_next_libretro':
+                extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         
         ext_files = []
         for file in self.prod_files:
