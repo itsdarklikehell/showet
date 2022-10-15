@@ -21,6 +21,7 @@ class Platform_Msdos(PlatformCommon):
         core = ['dosbox_pure_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
+        
         if emulator == 'retroarch':
             if core == 'dosbox_core_libretro' or core == 'dosbox_svn_libretro' or core == 'dosbox_svn_ce_libretro':
                 extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']

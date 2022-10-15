@@ -549,6 +549,21 @@ class Platform_Gameboy(PlatformCommon):
         fullscreen = ['false']
         core = ['gambatte_libretro']        
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd']
+        if emulator == 'retroarch':
+            if core == 'gambatte_libretro':
+                extensions = ['gb', 'gbc', 'dmg']
+            if core == 'mgba_libretro':
+                extensions = ['gb', 'gbc', 'gba']
+            if core == 'tempgba_libretro':
+                extensions = ['gba', 'bin', 'agb', 'gbz']
+            if core == 'mednafen_gba_libretro':
+                extensions = ['gba', 'agb', 'bin']
+            if core == 'emux_gb_libretro':
+                extensions = ['gb', 'bin', 'rom']
+            if core == 'sameboy_libretro':
+                extensions = ['gb', 'gbc']
+            if core == 'tgbdual_libretro':
+                extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']
 
         ext = []
         for ext in extensions:
@@ -567,7 +582,7 @@ class Platform_Gameboy(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('gambatte_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == 'true':
                 emulator.append('--fullscreen')
@@ -611,9 +626,23 @@ class Platform_Gameboy(PlatformCommon):
         return ['gameboy']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self):
-        extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
-        
+    def find_ext_files(self,emulator,core):
+        if emulator[0] == 'retroarch':
+            if core[0] == 'gambatte_libretro':
+                extensions = ['gb', 'gbc', 'dmg']
+            if core[0] == 'mgba_libretro':
+                extensions = ['gb', 'gbc', 'gba']
+            if core[0] == 'tempgba_libretro':
+                extensions = ['gba', 'bin', 'agb', 'gbz']
+            if core[0] == 'mednafen_gba_libretro':
+                extensions = ['gba', 'agb', 'bin']
+            if core[0] == 'emux_gb_libretro':
+                extensions = ['gb', 'bin', 'rom']
+            if core[0] == 'sameboy_libretro':
+                extensions = ['gb', 'gbc']
+            if core[0] == 'tgbdual_libretro':
+                extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']
+                            
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
