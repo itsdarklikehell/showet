@@ -21,7 +21,11 @@ class Platform_Pcengine(PlatformCommon):
         core = ['mednafen_supergrafx_libretro']
         fullscreen = ['false']        
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
-        
+
+        if emulator == 'retroarch':
+            if core == 'mednafen_supergrafx_libretro':
+                extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_Pcengine(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mednafen_supergrafx_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -82,18 +86,28 @@ class Platform_Pcengine(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_supergrafx_libretro':
+                extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.pce') or file.endswith('.sgx') or file.endswith('.cue') or file.endswith('.ccd') or file.endswith('.chd'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
         return ext_files
 
 class Platform_Supergrafx(PlatformCommon):
@@ -116,6 +130,10 @@ class Platform_Supergrafx(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
         
+        if emulator == 'retroarch':
+            if core == 'mednafen_supergrafx_libretro':
+                extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -133,7 +151,7 @@ class Platform_Supergrafx(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mednafen_supergrafx_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -177,18 +195,28 @@ class Platform_Supergrafx(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_supergrafx_libretro':
+                extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
+                
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.pce') or file.endswith('.sgx') or file.endswith('.cue') or file.endswith('.ccd') or file.endswith('.chd'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_Pc8000(PlatformCommon):
@@ -210,8 +238,12 @@ class Platform_Pc8000(PlatformCommon):
         emulator = ['retroarch']
         core = ['quasi88_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+        extensions = ['d88', 'u88', 'm3u']
         
+        if emulator == 'retroarch':
+            if core == 'quasi88_libretro':
+                extensions = ['d88', 'u88', 'm3u']
+                
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -229,7 +261,7 @@ class Platform_Pc8000(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('quasi88_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -272,18 +304,28 @@ class Platform_Pc8000(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
+        if emulator[0] == 'retroarch':
+            if core[0] == 'quasi88_libretro':
+                extensions = ['d88', 'u88', 'm3u']
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.pce') or file.endswith('.sgx') or file.endswith('.cue') or file.endswith('.ccd') or file.endswith('.chd'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file) 
+                ext = []
+                for ext in extensions:                    
+
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
         return ext_files
 
 class Platform_Pc8800(PlatformCommon):
@@ -294,7 +336,7 @@ class Platform_Pc8800(PlatformCommon):
     emulators = ['retroarch']
     cores = ['quasi88_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+    extensions = ['d88', 'u88', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -304,8 +346,12 @@ class Platform_Pc8800(PlatformCommon):
         emulator = ['retroarch']
         core = ['quasi88_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
-        
+        extensions = ['d88', 'u88', 'm3u']
+
+        if emulator == 'retroarch':
+            if core == 'quasi88_libretro':
+                extensions = ['d88', 'u88', 'm3u']
+                        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -323,7 +369,7 @@ class Platform_Pc8800(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('quasi88_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -366,18 +412,28 @@ class Platform_Pc8800(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+
+        if emulator == 'retroarch':
+            if core == 'quasi88_libretro':
+                extensions = ['d88', 'u88', 'm3u']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.pce') or file.endswith('.sgx') or file.endswith('.cue') or file.endswith('.ccd') or file.endswith('.chd'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file) 
+                ext = []
+                for ext in extensions:
+                
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+            
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
         return ext_files
 
 class Platform_Pc98(PlatformCommon):
@@ -388,7 +444,7 @@ class Platform_Pc98(PlatformCommon):
     emulators = ['retroarch']
     cores = ['nekop2_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+    extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -398,8 +454,12 @@ class Platform_Pc98(PlatformCommon):
         emulator = ['retroarch']
         core = ['nekop2_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+        extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
         
+        if emulator == 'retroarch':
+            if core == 'nekop2_libretro':
+                extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -417,7 +477,7 @@ class Platform_Pc98(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('nekop2_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -462,18 +522,28 @@ class Platform_Pc98(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'nekop2_libretro':
+                extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.pce') or file.endswith('.sgx') or file.endswith('.cue') or file.endswith('.ccd') or file.endswith('.chd'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file) 
+                ext = []
+                for ext in extensions:
+                
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_Pcfx(PlatformCommon):
@@ -484,7 +554,7 @@ class Platform_Pcfx(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_pcfx_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+    extensions = ['cue', 'ccd', 'toc', 'chd']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -494,8 +564,12 @@ class Platform_Pcfx(PlatformCommon):
         emulator = ['retroarch']
         core = ['mednafen_pcfx_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+        extensions = ['cue', 'ccd', 'toc', 'chd']
         
+        if emulator == 'retroarch':
+            if core == 'mednafen_pcfx_libretro':
+                extensions = ['cue', 'ccd', 'toc', 'chd']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -557,16 +631,26 @@ class Platform_Pcfx(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+
+        if emulator == 'retroarch':
+            if core == 'mednafen_pcfx_libretro':
+                extensions = ['cue', 'ccd', 'toc', 'chd']
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.pce') or file.endswith('.sgx') or file.endswith('.cue') or file.endswith('.ccd') or file.endswith('.chd'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.PCE') or file.endswith('.SGX') or file.endswith('.CUE') or file.endswith('.CCD') or file.endswith('.CHD'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file) 
+                ext = []
+                for ext in extensions:
+                
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                    
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files

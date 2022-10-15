@@ -10,7 +10,7 @@ class Platform_Palm(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mu_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'prc', 'pqa', 'img', 'pdb']
+    extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,8 +20,12 @@ class Platform_Palm(PlatformCommon):
         emulator = ['retroarch']
         core = ['mu_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'prc', 'pqa', 'img', 'pdb']
+        extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
         
+        if extensions == 'retroarch':
+            if core == 'mu_libretro':
+                extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -84,7 +88,10 @@ class Platform_Palm(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'prc', 'pqa', 'img', 'pdb']
+
+        if extensions == 'retroarch':
+            if core == 'mu_libretro':
+                extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
         
         ext_files = []
         for file in self.prod_files:

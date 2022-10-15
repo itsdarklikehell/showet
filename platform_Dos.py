@@ -90,6 +90,7 @@ class Platform_Msdos(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
         if emulator[0] == 'retroarch':
             if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
                 extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']

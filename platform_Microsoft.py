@@ -22,6 +22,10 @@ class Platform_Xbox(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'iso']
         
+        if emulator == 'retroarch':
+            if core == 'directxbox_libretro':
+                extensions = ['iso']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -84,8 +88,11 @@ class Platform_Xbox(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'iso']
-        
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'directxbox_libretro':
+                extensions = ['iso']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -124,6 +131,7 @@ class Platform_Msx(PlatformCommon):
         core = ['bluesx_libretro']
         fullscreen = ['false']
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+
         if emulator == 'retroarch':
             if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
@@ -192,6 +200,7 @@ class Platform_Msx(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
         if emulator[0] == 'retroarch':
             if core[0] == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
@@ -239,6 +248,10 @@ class Platform_Windows(PlatformCommon):
         fullscreen = ['false']
         wineprefix = self.showetdir + '/wineprefix'
 
+        if emulator == 'wine':
+            if core == 'wine':
+                extensions = ['exe']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -253,19 +266,12 @@ class Platform_Windows(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
-            emulator.append('-L')
-            emulator.append('4do_libretro')
-            # Set wether we should run in fullscreens or not.
-            if fullscreen == ['true']:
-                emulator.append('--fullscreen')
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'wine':
             # Set wether we should run in fullscreens or not.
-            # if fullscreen == ['true']:
-            #     emulator.append('--fullscreen')
+            if fullscreen == ['true']:
+                emulator.append('--fullscreen')
             exefile = files[0]
 
         print("\tUsing: " + str(emulator[0]))
@@ -289,8 +295,11 @@ class Platform_Windows(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['exe']
-        
+
+        if emulator[0] == 'wine':
+            if core[0] == 'wine':
+                extensions = ['exe']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
