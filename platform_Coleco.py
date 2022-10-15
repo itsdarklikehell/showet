@@ -21,6 +21,8 @@ class Platform_Coleco(PlatformCommon):
         emulator = ['retroarch']
         core = ['bluemsx_libretro']
         fullscreen = ['false']
+        extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+                
         if emulator == 'retroarch':
             if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
@@ -44,7 +46,7 @@ class Platform_Coleco(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('bluemsx_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')

@@ -22,6 +22,10 @@ class Platform_Wonderswan(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'ws', 'wsc', 'pc2']
         
+        if emulator == 'retroarch':
+            if core == 'mednafen_wswan_libretro':
+                extensions = ['ws', 'wsc', 'pc2']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_Wonderswan(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mednafen_wswan_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,8 +88,11 @@ class Platform_Wonderswan(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'ws', 'wsc', 'pc2']
-        
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_wswan_libretro':
+                extensions = ['ws', 'wsc', 'pc2']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
