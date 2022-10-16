@@ -22,6 +22,10 @@ class Platform_32X(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
         
+        if emulator == 'retroarch':
+            if core == 'picodrive_libretro':
+                extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
+            
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_32X(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('picodrive_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,18 +88,28 @@ class Platform_32X(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'picodrive_libretro':
+                extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.bin') or file.endswith('.gen') or file.endswith('.gg') or file.endswith('.smd') or file.endswith('.pco') or file.endswith('.md') or file.endswith('.32x') or file.endswith('.chd') or file.endswith('.cue') or file.endswith('.iso') or file.endswith('.sms') or file.endswith('.68k') or file.endswith('.sgd') or file.endswith('.m3u'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.BIN') or file.endswith('.GEN') or file.endswith('.GG') or file.endswith('.SMD') or file.endswith('.PCO') or file.endswith('.MD') or file.endswith('.32X') or file.endswith('.CHD') or file.endswith('.CUE') or file.endswith('.ISO') or file.endswith('.SMS') or file.endswith('.68K') or file.endswith('.SGD') or file.endswith('.M3U'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)                
+                ext = []
+                for ext in extensions:
+                                    
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
         return ext_files
 
 class Platform_Dreamcast(PlatformCommon):
@@ -117,6 +131,7 @@ class Platform_Dreamcast(PlatformCommon):
         core = ['flycast_libretro']
         fullscreen = ['false']
         extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
+        
         if emulator == 'retroarch':
             if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
@@ -179,6 +194,7 @@ class Platform_Dreamcast(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
         if emulator == 'retroarch':
             if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
@@ -220,10 +236,18 @@ class Platform_Gamegear(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['gearsystem_libretro']
+        core = ['genesis_plus_gx_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
-    
+
+        if emulator == 'retroarch':
+            #MS/GG/MD/CD
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
+                extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+            #MS/GG/SG-1000
+            if core == 'gearsystem_libretro':
+                extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
+                        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -241,7 +265,7 @@ class Platform_Gamegear(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('gearsystem_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -286,18 +310,32 @@ class Platform_Gamegear(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+
+        if emulator[0] == 'retroarch':
+            #MS/GG/MD/CD
+            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+                extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+            #MS/GG/SG-1000
+            if core[0] == 'gearsystem_libretro':
+                extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.sms') or file.endswith('.gg') or file.endswith('.sg') or file.endswith('.bin') or file.endswith('.rom'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.SMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.BIN') or file.endswith('.ROM'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)                
+                ext = []
+                for ext in extensions:
+
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_Mastersystem(PlatformCommon):
@@ -320,6 +358,23 @@ class Platform_Mastersystem(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
         
+        if emulator == 'retroarch':
+            #MS
+            if core == 'emux_sms_libretro':
+                extensions = ['sms', 'bms', 'bin', 'rom']
+            #MS/GG/MD/CD
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
+                extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+            #MS/MD/CD/32X
+            if core == 'picodrive_libretro':
+                extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
+            #MS/GG/SG-1000
+            if core == 'gearsystem_libretro':
+                extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
+            #MSX/SVI/ColecoVision/SG-1000
+            if core == 'bluemsx_libretro':
+                extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+            
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -337,7 +392,7 @@ class Platform_Mastersystem(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('genesis_plus_gx_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -382,18 +437,41 @@ class Platform_Mastersystem(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
+        if emulator[0] == 'retroarch':
+            #MS
+            if core[0] == 'emux_sms_libretro':
+                extensions = ['sms', 'bms', 'bin', 'rom']
+            #MS/GG/MD/CD
+            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+                extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+            #MS/MD/CD/32X
+            if core[0] == 'picodrive_libretro':
+                extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
+            #MS/GG/SG-1000
+            if core[0] == 'gearsystem_libretro':
+                extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
+            #MSX/SVI/ColecoVision/SG-1000
+            if core[0] == 'bluemsx_libretro':
+                extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.mdx') or file.endswith('.md') or file.endswith('.smd') or file.endswith('.gen') or file.endswith('.bin') or file.endswith('.cue') or file.endswith('.iso') or file.endswith('.sms') or file.endswith('.bms') or file.endswith('.gg') or file.endswith('.sg') or file.endswith('.68k') or file.endswith('.sgd') or file.endswith('.chd') or file.endswith('.m3u'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.MDX') or file.endswith('.MD') or file.endswith('.SMD') or file.endswith('.GEN') or file.endswith('.BIN') or file.endswith('.CUE') or file.endswith('.ISO') or file.endswith('.SMS') or file.endswith('.BMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.68K') or file.endswith('.SGD') or file.endswith('.CHD') or file.endswith('.M3U'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                                    
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_Megadrive(PlatformCommon):
@@ -415,6 +493,14 @@ class Platform_Megadrive(PlatformCommon):
         core = ['picodrive_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+        
+        if emulator == 'retroarch':
+            #MS/GG/MD/CD
+            if core == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+                extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+            #MS/MD/CD/32X
+            if core == 'picodrive_libretro':
+                extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
 
         ext = []
         for ext in extensions:
@@ -433,7 +519,7 @@ class Platform_Megadrive(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('picodrive_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -478,18 +564,32 @@ class Platform_Megadrive(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
+        if emulator == 'retroarch':
+            #MS/GG/MD/CD
+            if core == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+                extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+            #MS/MD/CD/32X
+            if core == 'picodrive_libretro':
+                extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.mdx') or file.endswith('.md') or file.endswith('.smd') or file.endswith('.gen') or file.endswith('.bin') or file.endswith('.cue') or file.endswith('.iso') or file.endswith('.sms') or file.endswith('.bms') or file.endswith('.gg') or file.endswith('.sg') or file.endswith('.68k') or file.endswith('.sgd') or file.endswith('.chd') or file.endswith('.m3u'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.MDX') or file.endswith('.MD') or file.endswith('.SMD') or file.endswith('.GEN') or file.endswith('.BIN') or file.endswith('.CUE') or file.endswith('.ISO') or file.endswith('.SMS') or file.endswith('.BMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.68K') or file.endswith('.SGD') or file.endswith('.CHD') or file.endswith('.M3U'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)            
+                ext = []
+                for ext in extensions:
+
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_Saturn(PlatformCommon):
@@ -508,10 +608,18 @@ class Platform_Saturn(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['mednafen_saturn_libretro']
+        core = ['yabause_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+        extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
         
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
+                extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
+            if core == 'kronos_libretro':
+                extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
+                extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -529,7 +637,7 @@ class Platform_Saturn(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mednafen_saturn_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -573,18 +681,32 @@ class Platform_Saturn(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_saturn_libretro':
+                extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
+            if core[0] == 'kronos_libretro':
+                extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
+            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+                extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.sms') or file.endswith('.gg') or file.endswith('.sg') or file.endswith('.bin') or file.endswith('.rom'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.SMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.BIN') or file.endswith('.ROM'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
         return ext_files
 
 class Platform_Stv(PlatformCommon):
@@ -606,6 +728,14 @@ class Platform_Stv(PlatformCommon):
         core = ['kronos_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
+
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
+                extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
+            if core == 'kronos_libretro':
+                extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
+                extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
         
         ext = []
         for ext in extensions:
@@ -624,7 +754,7 @@ class Platform_Stv(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('kronos_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -669,18 +799,32 @@ class Platform_Stv(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
+        if emulator == 'retroarch':
+            if core[0] == 'mednafen_saturn_libretro':
+                extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
+            if core[0] == 'kronos_libretro':
+                extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
+            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+                extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.ccd') or file.endswith('.chd') or file.endswith('.cue') or file.endswith('.iso') or file.endswith('.mds') or file.endswith('.m3u'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.CCD') or file.endswith('.CHD') or file.endswith('.CUE') or file.endswith('.ISO') or file.endswith('.MDS') or file.endswith('.M3U'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                                    
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_Vmu(PlatformCommon):
@@ -703,6 +847,10 @@ class Platform_Vmu(PlatformCommon):
         core = ['vemulator_libretro']
         extensions = ['zip', 'vms', 'dci', 'bin']
         
+        if emulator == 'retroarch':
+            if core == 'vemulator_libretro':
+                extensions = ['vms', 'dci', 'bin']
+        
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -720,7 +868,7 @@ class Platform_Vmu(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('vemulator_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -765,18 +913,28 @@ class Platform_Vmu(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
+        if emulator == 'retroarch':
+            if core == 'vemulator_libretro':
+                extensions = ['vms', 'dci', 'bin']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.vms') or file.endswith('.dci') or file.endswith('.bin'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.VMS') or file.endswith('.DCI') or file.endswith('.BIN'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
         return ext_files
 
 class Platform_SG1000(PlatformCommon):
@@ -785,9 +943,9 @@ class Platform_SG1000(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'gearsystem']
-    cores = ['gearsystem_libretro']
+    cores = ['gearsystem_libretro', 'bluemsx_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+    extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -795,9 +953,14 @@ class Platform_SG1000(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['gearsystem_libretro']
+        core = ['bluemsx_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+        extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+
+        if emulator == 'retroarch':
+            #MSX/SVI/ColecoVision/SG-1000
+            if core == 'bluemsx_libretro':
+                extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
         
         ext = []
         for ext in extensions:
@@ -816,7 +979,7 @@ class Platform_SG1000(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('bluemsx_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -861,16 +1024,26 @@ class Platform_SG1000(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+
+        if emulator == 'retroarch':
+            #MSX/SVI/ColecoVision/SG-1000
+            if core == 'bluemsx_libretro':
+                extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
+                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                if file.endswith('.zip') or file.endswith('.sms') or file.endswith('.gg') or file.endswith('.sg') or file.endswith('.bin') or file.endswith('.rom'):
-                #if not file.endswith('.json') and not file.endswith('.txt') and not file.endswith('.TXT') and not file.endswith('.diz') and not file.endswith('.DIZ') and not file.endswith('.nfo') and not file.endswith('.NFO') and not file.endswith('.png') and not file.endswith('.PNG') and not file.endswith('.jpg') and not file.endswith('.JPG') and not file.endswith('.org') and not file.endswith('.ORG') and not file.endswith('.org.txt'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
-                if file.endswith('.ZIP') or file.endswith('.SMS') or file.endswith('.GG') or file.endswith('.SG') or file.endswith('.BIN') or file.endswith('.ROM'):
-                    ext_files.append(file)
-                    print("\tFound file: " + file)
+                ext = []
+                for ext in extensions:
+                    if file.endswith(ext):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+
+                    if file.endswith(ext.upper()):
+                        ext_files.append(file)
+                        print("\tFound file: " + file)
+                        
         return ext_files
