@@ -52,7 +52,7 @@ class Platform_3DS(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -176,7 +176,7 @@ class Platform_N64(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -301,7 +301,7 @@ class Platform_DS(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -430,7 +430,7 @@ class Platform_Famicom(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -563,7 +563,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -711,7 +711,7 @@ class Platform_Gameboy(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -877,7 +877,7 @@ class Platform_GameboyColor(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -1035,7 +1035,7 @@ class Platform_GameboyAdvance(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -1171,7 +1171,7 @@ class Platform_Gamecube(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -1296,7 +1296,7 @@ class Platform_Pokemini(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -1427,7 +1427,7 @@ class Platform_SuperFamicom(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -1670,7 +1670,7 @@ class Platform_Wii(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:

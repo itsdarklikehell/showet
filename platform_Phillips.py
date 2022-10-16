@@ -48,7 +48,7 @@ class Platform_Cdi(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             if streaming == ['true']:
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             if recording == ['true']:
                 emulator.append('--recordconfig twitch.cfg')
             # Set wether we should run in fullscreens or not.

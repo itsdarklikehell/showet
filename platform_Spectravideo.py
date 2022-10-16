@@ -52,7 +52,7 @@ class Platform_Spectravideo(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:

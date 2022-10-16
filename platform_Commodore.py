@@ -55,7 +55,7 @@ class Platform_Commodore64(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -176,7 +176,7 @@ class Platform_Commodore128(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -303,7 +303,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -496,7 +496,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -620,7 +620,7 @@ class Platform_CommodorePet(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -748,7 +748,7 @@ class Platform_CommodorePlus4(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
@@ -872,7 +872,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
