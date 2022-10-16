@@ -10,8 +10,8 @@ class Platform_Msdos(PlatformCommon):
     emulators = ['retroarch', 'dosbox']
     cores = ['dosbox_core_libretro', 'dosbox_pure_libretro', 'dosbox_svn_libretro', 'dosbox_svn_ce_libretro']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8', 'conf']
 
     def run(self):
@@ -22,7 +22,7 @@ class Platform_Msdos(PlatformCommon):
         emulator = ['retroarch']
         core = ['dosbox_core_libretro']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
         
@@ -51,21 +51,27 @@ class Platform_Msdos(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             
-            # Set wether we should start streaming or not.
-            if streaming == ['true']:
-                print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
+            # Set whether we should start streaming to twitch or not.
+            if streaming == ['twitch']:
+                print("\tTwitch Streaming enabled!")
+                emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+
+            # Set whether we should start streaming to youtube or not.
+            if streaming == ['youtube']:
+                print("\tYoutube Streaming enabled!")
+                emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
-                emulator.append('-R ~/.config/retroarch/records')
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
                 # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
-        
+                emulator.append('--fullscreen')        
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:          
         if emulator[0] == 'dosbox':
             # Set wether we should run in fullscreens or not.

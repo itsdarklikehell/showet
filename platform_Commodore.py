@@ -13,8 +13,8 @@ class Platform_Commodore64(PlatformCommon):
     emulators = ['retroarch', 'vice', 'frodo']
     cores = ['vice_x64sc_libretro', 'frodo_libretro']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
     def run(self):
@@ -25,7 +25,7 @@ class Platform_Commodore64(PlatformCommon):
         emulator = ['retroarch']
         core = ['vice_x64sc_libretro']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
@@ -52,21 +52,28 @@ class Platform_Commodore64(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             
-            # Set wether we should start streaming or not.
-            if streaming == ['true']:
-                print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
+            # Set whether we should start streaming to twitch or not.
+            if streaming == ['twitch']:
+                print("\tTwitch Streaming enabled!")
+                emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+
+            # Set whether we should start streaming to youtube or not.
+            if streaming == ['youtube']:
+                print("\tYoutube Streaming enabled!")
+                emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
-                emulator.append('-R ~/.config/retroarch/records')
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
                 # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
-
+        
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
@@ -134,8 +141,8 @@ class Platform_Commodore128(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_x128_libretro']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
@@ -146,7 +153,7 @@ class Platform_Commodore128(PlatformCommon):
         emulator = ['retroarch']
         core = ['vice_x128_libretro']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
@@ -173,21 +180,28 @@ class Platform_Commodore128(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             
-            # Set wether we should start streaming or not.
-            if streaming == ['true']:
-                print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
+            # Set whether we should start streaming to twitch or not.
+            if streaming == ['twitch']:
+                print("\tTwitch Streaming enabled!")
+                emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+
+            # Set whether we should start streaming to youtube or not.
+            if streaming == ['youtube']:
+                print("\tYoutube Streaming enabled!")
+                emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
-                emulator.append('-R ~/.config/retroarch/records')
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
                 # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
-
+        
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
@@ -258,8 +272,8 @@ class Platform_CommodoreAmiga(PlatformCommon):
     emulators = ['retroarch', 'puae', 'fs-uae']
     cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
     
     def run(self):
@@ -270,7 +284,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         emulator = ['retroarch']
         core = ['puae_libretro']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
 
@@ -300,21 +314,27 @@ class Platform_CommodoreAmiga(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             
-            # Set wether we should start streaming or not.
-            if streaming == ['true']:
-                print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
+            # Set whether we should start streaming to twitch or not.
+            if streaming == ['twitch']:
+                print("\tTwitch Streaming enabled!")
+                emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+
+            # Set whether we should start streaming to youtube or not.
+            if streaming == ['youtube']:
+                print("\tYoutube Streaming enabled!")
+                emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
-                emulator.append('-R ~/.config/retroarch/records')
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
                 # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
-
         
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:        
         if emulator[0] == 'fs-uae':
@@ -454,8 +474,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xcbm2_libretro']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
@@ -466,7 +486,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
         emulator = ['retroarch']
         core = ['vice_xcbm2_libretro']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
@@ -493,14 +513,21 @@ class Platform_CommodoreCBMII(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             
-            # Set wether we should start streaming or not.
-            if streaming == ['true']:
-                print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
+            # Set whether we should start streaming to twitch or not.
+            if streaming == ['twitch']:
+                print("\tTwitch Streaming enabled!")
+                emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+
+            # Set whether we should start streaming to youtube or not.
+            if streaming == ['youtube']:
+                print("\tYoutube Streaming enabled!")
+                emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
-                emulator.append('-R ~/.config/retroarch/records')
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
                 # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -578,8 +605,8 @@ class Platform_CommodorePet(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xpet_libretro']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
@@ -590,7 +617,7 @@ class Platform_CommodorePet(PlatformCommon):
         emulator = ['retroarch']
         core = ['vice_xpet_libretro']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
@@ -617,21 +644,28 @@ class Platform_CommodorePet(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             
-            # Set wether we should start streaming or not.
-            if streaming == ['true']:
-                print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
+            # Set whether we should start streaming to twitch or not.
+            if streaming == ['twitch']:
+                print("\tTwitch Streaming enabled!")
+                emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+
+            # Set whether we should start streaming to youtube or not.
+            if streaming == ['youtube']:
+                print("\tYoutube Streaming enabled!")
+                emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
-                emulator.append('-R ~/.config/retroarch/records')
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
                 # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
-
+        
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
@@ -706,8 +740,8 @@ class Platform_CommodorePlus4(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xplus4_libretro']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
@@ -718,7 +752,7 @@ class Platform_CommodorePlus4(PlatformCommon):
         emulator = ['retroarch']
         core = ['vice_xplus4_libretro']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
@@ -745,21 +779,28 @@ class Platform_CommodorePlus4(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             
-            # Set wether we should start streaming or not.
-            if streaming == ['true']:
-                print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
+            # Set whether we should start streaming to twitch or not.
+            if streaming == ['twitch']:
+                print("\tTwitch Streaming enabled!")
+                emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+
+            # Set whether we should start streaming to youtube or not.
+            if streaming == ['youtube']:
+                print("\tYoutube Streaming enabled!")
+                emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
-                emulator.append('-R ~/.config/retroarch/records')
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
                 # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
-
+        
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
@@ -830,8 +871,8 @@ class Platform_CommodoreVIC20(PlatformCommon):
     emulators = ['retroarch', 'vice']
     cores = ['vice_xvic_libretro']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
 
     def run(self):
@@ -842,7 +883,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
         emulator = ['retroarch']
         core = ['vice_xvic_libretro']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
 
@@ -869,14 +910,21 @@ class Platform_CommodoreVIC20(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             
-            # Set wether we should start streaming or not.
-            if streaming == ['true']:
-                print("\tStreaming enabled!")
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
+            # Set whether we should start streaming to twitch or not.
+            if streaming == ['twitch']:
+                print("\tTwitch Streaming enabled!")
+                emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+
+            # Set whether we should start streaming to youtube or not.
+            if streaming == ['youtube']:
+                print("\tYoutube Streaming enabled!")
+                emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
-                emulator.append('-R ~/.config/retroarch/records')
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
                 # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.

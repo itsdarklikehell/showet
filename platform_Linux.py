@@ -10,8 +10,8 @@ class Platform_Linux(PlatformCommon):
     emulators = ['linux']
     cores = ['linux']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['elf', 'exe']
     
     def run(self):
@@ -22,7 +22,7 @@ class Platform_Linux(PlatformCommon):
         emulator = ['bash']
         core = ['bash']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['elf', 'exe']
         

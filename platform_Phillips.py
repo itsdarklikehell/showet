@@ -10,8 +10,8 @@ class Platform_Cdi(PlatformCommon):
     emulators = ['retroarch']
     cores = ['samecdi_libretro', 'cdi2015_libretro']
     fullscreens = ['false']
-    streaming = ['true']
-    recording = ['true']
+    streamings = ['twitch', 'youtube']
+    recordings = ['true']
     extensions = ['zip', 'chd', 'iso']
     
     def run(self):
@@ -22,7 +22,7 @@ class Platform_Cdi(PlatformCommon):
         emulator = ['retroarch']
         core = ['samecdi_libretro']
         fullscreen = ['false']
-        streaming = ['true']
+        streaming = ['twitch']
         recording = ['true']
         extensions = ['zip', 'chd', 'iso']
 
@@ -48,7 +48,7 @@ class Platform_Cdi(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
             if streaming == ['true']:
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_STREAM_KEY')
+                emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
             if recording == ['true']:
                 emulator.append('--recordconfig twitch.cfg')
             # Set wether we should run in fullscreens or not.
