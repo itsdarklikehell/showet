@@ -52,13 +52,12 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                recording = 'true'
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
                 emulator.append('-R ~/.config/retroarch/records')
-                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
+                # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -286,13 +285,12 @@ class Platform_AtariJaguar(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                recording = 'true'
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
                 emulator.append('-R ~/.config/retroarch/records')
-                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
+                # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -410,13 +408,12 @@ class Platform_AtariLynx(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                recording = 'true'
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
                 emulator.append('-R ~/.config/retroarch/records')
-                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
+                # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -535,13 +532,12 @@ class Platform_Atari2600(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                recording = 'true'
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
                 emulator.append('-R ~/.config/retroarch/records')
-                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
+                # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -660,13 +656,12 @@ class Platform_Atari5200(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                recording = 'true'
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
                 emulator.append('-R ~/.config/retroarch/records')
-                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
+                # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -785,13 +780,12 @@ class Platform_Atari7800(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                recording = 'true'
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
                 emulator.append('-R ~/.config/retroarch/records')
-                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
+                # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:

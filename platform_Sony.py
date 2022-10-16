@@ -60,13 +60,12 @@ class Platform_Psx(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                recording = 'true'
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
                 emulator.append('-R ~/.config/retroarch/records')
-                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
+                # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -196,13 +195,12 @@ class Platform_Ps2(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                recording = 'true'
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
                 emulator.append('-R ~/.config/retroarch/records')
-                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
+                # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -324,13 +322,12 @@ class Platform_Psp(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
-                recording = 'true'
-                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$TWITCH_LIVE_KEY')
             
             # Set wether we should start recording or not.
             if recording == ['true']:
                 emulator.append('-R ~/.config/retroarch/records')
-                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
+                # emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
