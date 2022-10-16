@@ -22,6 +22,14 @@ class Platform_Arcade(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'chd', '7z', 'cmd']
 
+        if emulator == 'retroarch':
+            if core == 'mame_libretro' or core == 'mame2015_libretro' or core == 'mame2016_libretro' or core == 'mamearcade_libretro' or core == 'hbmame_libretro':
+                extensions = ['zip', 'chd', '7z', 'cmd']
+            if core == 'mame2000_libretro' or core == 'mame2010_libretro' or core == 'mame2009_libretro':
+                extensions = ['zip', 'chd', '7z']
+            if core == 'mame2003_libretro' or core == 'mame2003_plus_libretro' or core == 'mame2003_midway_libretro':
+                extensions = ['zip']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -84,7 +92,14 @@ class Platform_Arcade(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'chd', '7z', 'cmd']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
+                extensions = ['zip', 'chd', '7z', 'cmd']
+            if core[0] == 'mame2000_libretro' or core[0] == 'mame2010_libretro' or core[0] == 'mame2009_libretro':
+                extensions = ['zip', 'chd', '7z']
+            if core[0] == 'mame2003_libretro' or core[0] == 'mame2003_plus_libretro' or core[0] == 'mame2003_midway_libretro':
+                extensions = ['zip']
         
         ext_files = []
         for file in self.prod_files:

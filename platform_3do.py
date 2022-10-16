@@ -21,6 +21,7 @@ class Platform_3do(PlatformCommon):
         core = ['4do_libretro']
         fullscreen = ['false']
         extensions = ['iso', 'bin', 'chd', 'cue']
+        
         if emulator == 'retroarch':
             if core == '4do_libretro' or core == 'opera_libretro':
                 extensions = ['iso', 'bin', 'chd', 'cue']
@@ -87,6 +88,7 @@ class Platform_3do(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+        
         if emulator[0] == 'retroarch':
             if core[0] == '4do_libretro' or core[0] == 'opera_libretro':
                 extensions = ['iso', 'bin', 'chd', 'cue']
