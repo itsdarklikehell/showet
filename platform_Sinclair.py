@@ -20,8 +20,12 @@ class Platform_Zxspectrum(PlatformCommon):
         emulator = ['retroarch']
         core = ['fuse_libretro']
         fullscreen = ['false']
-        extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
+        extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         
+        if emulator == 'retroarch':
+            if core == 'fuse_libretro':
+                extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_Zxspectrum(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('fuse_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,7 +88,10 @@ class Platform_Zxspectrum(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'fuse_libretro':
+                extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         
         ext_files = []
         for file in self.prod_files:
@@ -110,7 +117,7 @@ class Platform_Zx81(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', '81']
-    cores = ['fuse_libretro']
+    cores = ['fuse_libretro', '81_libretro']
     fullscreens = ['false']
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
@@ -120,10 +127,16 @@ class Platform_Zx81(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['fuse_libretro']
+        core = ['81_libretro']
         fullscreen = ['false']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
-        
+
+        if emulator == 'retroarch':
+            if core == 'fuse_libretro':
+                extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+            if core == '81_libretro':
+                extensions = ['p', 'tzx', 't81']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -141,7 +154,7 @@ class Platform_Zx81(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('fuse_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -186,7 +199,12 @@ class Platform_Zx81(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'fuse_libretro':
+                extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
+            if core[0] == '81_libretro':
+                extensions = ['p', 'tzx', 't81']
         
         ext_files = []
         for file in self.prod_files:
