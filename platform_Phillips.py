@@ -101,11 +101,11 @@ class Platform_Cdi(PlatformCommon):
                 ext = []
                 for ext in extensions:
                                     
-                    if file.endswith('.zip') or file.endswith('.chd') or file.endswith('iso'):
+                    if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
                     
-                    if file.endswith('.ZIP') or file.endswith('.CHD') or file.endswith('ISO'):
+                    if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
                     

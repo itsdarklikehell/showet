@@ -106,7 +106,7 @@ class Platform_Enterprise(PlatformCommon):
                         ext_files.append(file)
                         print("\tFound file: " + file)
                         
-                    if file.endswith('.ZIP') or file.endswith('.IMG') or file.endswith('.DSK') or file.endswith('.TAP') or file.endswith('.DTF') or file.endswith('.COM') or file.endswith('.TRN') or file.endswith('.128') or file.endswith('.BAS') or file.endswith('.CAS') or file.endswith('.CDT') or file.endswith('.TZX'):
+                    if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
 
