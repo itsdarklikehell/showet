@@ -11,7 +11,7 @@ class Platform_Wonderswan(PlatformCommon):
     cores = ['mednafen_wswan_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'ws', 'wsc', 'pc2']
 
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Wonderswan(PlatformCommon):
         core = ['mednafen_wswan_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'ws', 'wsc', 'pc2']
         
         if emulator == 'retroarch':
@@ -114,17 +114,13 @@ class Platform_Wonderswan(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                        
         return ext_files

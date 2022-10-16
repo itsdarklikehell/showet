@@ -12,7 +12,7 @@ class Platform_Coleco(PlatformCommon):
     cores = ['bluemsx_libretro', 'gearcoleco_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
@@ -24,7 +24,7 @@ class Platform_Coleco(PlatformCommon):
         core = ['bluemsx_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
                 
         if emulator == 'retroarch':
@@ -119,17 +119,13 @@ class Platform_Coleco(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
-                for ext in extensions:  
-                          
+                for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                        
         return ext_files

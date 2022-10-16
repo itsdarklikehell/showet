@@ -11,7 +11,7 @@ class Platform_32X(PlatformCommon):
     cores = ['picodrive_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_32X(PlatformCommon):
         core = ['picodrive_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
         
         if emulator == 'retroarch':
@@ -114,19 +114,15 @@ class Platform_32X(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                        
         return ext_files
 
 class Platform_Dreamcast(PlatformCommon):
@@ -138,7 +134,7 @@ class Platform_Dreamcast(PlatformCommon):
     cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
     
     def run(self):
@@ -150,7 +146,7 @@ class Platform_Dreamcast(PlatformCommon):
         core = ['flycast_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
         
         if emulator == 'retroarch':
@@ -239,21 +235,16 @@ class Platform_Dreamcast(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                        
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files
-
 class Platform_Gamegear(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -274,7 +265,7 @@ class Platform_Gamegear(PlatformCommon):
         core = ['genesis_plus_gx_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
 
         if emulator == 'retroarch':
@@ -373,19 +364,15 @@ class Platform_Gamegear(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files
 
 class Platform_Mastersystem(PlatformCommon):
@@ -397,7 +384,7 @@ class Platform_Mastersystem(PlatformCommon):
     cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
     
     def run(self):
@@ -409,7 +396,7 @@ class Platform_Mastersystem(PlatformCommon):
         core = ['genesis_plus_gx_libretro']        
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
         
         if emulator == 'retroarch':
@@ -526,19 +513,15 @@ class Platform_Mastersystem(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files
 
 class Platform_Megadrive(PlatformCommon):
@@ -550,7 +533,7 @@ class Platform_Megadrive(PlatformCommon):
     cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
     
     def run(self):
@@ -562,7 +545,7 @@ class Platform_Megadrive(PlatformCommon):
         core = ['picodrive_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
         
         if emulator == 'retroarch':
@@ -661,19 +644,15 @@ class Platform_Megadrive(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files
 
 class Platform_Saturn(PlatformCommon):
@@ -696,7 +675,7 @@ class Platform_Saturn(PlatformCommon):
         core = ['yabause_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
         
         if emulator == 'retroarch':
@@ -794,19 +773,15 @@ class Platform_Saturn(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                        
         return ext_files
 
 class Platform_Stv(PlatformCommon):
@@ -818,7 +793,7 @@ class Platform_Stv(PlatformCommon):
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
     
     def run(self):
@@ -830,7 +805,7 @@ class Platform_Stv(PlatformCommon):
         core = ['kronos_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
 
         if emulator == 'retroarch':
@@ -929,19 +904,15 @@ class Platform_Stv(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files
 
 class Platform_Vmu(PlatformCommon):
@@ -953,7 +924,7 @@ class Platform_Vmu(PlatformCommon):
     cores = ['vemulator_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'vms', 'dci', 'bin']
     
     def run(self):
@@ -1055,19 +1026,15 @@ class Platform_Vmu(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files
 
 class Platform_SG1000(PlatformCommon):
@@ -1079,7 +1046,7 @@ class Platform_SG1000(PlatformCommon):
     cores = ['gearsystem_libretro', 'bluemsx_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
     def run(self):
@@ -1091,7 +1058,7 @@ class Platform_SG1000(PlatformCommon):
         core = ['bluemsx_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
         if emulator == 'retroarch':
@@ -1184,17 +1151,13 @@ class Platform_SG1000(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                        
         return ext_files

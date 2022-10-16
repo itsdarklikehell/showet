@@ -11,7 +11,7 @@ class Platform_Apple(PlatformCommon):
     cores = ['minivmac_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Apple(PlatformCommon):
         core = ['minivmac_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
         
         if emulator == 'retroarch':
@@ -112,17 +112,13 @@ class Platform_Apple(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
         return ext_files

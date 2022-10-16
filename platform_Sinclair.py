@@ -11,7 +11,7 @@ class Platform_Zxspectrum(PlatformCommon):
     cores = ['fuse_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Zxspectrum(PlatformCommon):
         core = ['fuse_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         
         if emulator == 'retroarch':
@@ -114,19 +114,15 @@ class Platform_Zxspectrum(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-            
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
         return ext_files
 class Platform_Zx81(PlatformCommon):
     # Set up the emulator we want to run.
@@ -137,7 +133,7 @@ class Platform_Zx81(PlatformCommon):
     cores = ['fuse_libretro', '81_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -149,7 +145,7 @@ class Platform_Zx81(PlatformCommon):
         core = ['81_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
 
         if emulator == 'retroarch':
@@ -244,18 +240,14 @@ class Platform_Zx81(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-            
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
         return ext_files
 

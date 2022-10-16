@@ -11,7 +11,7 @@ class Platform_Msdos(PlatformCommon):
     cores = ['dosbox_core_libretro', 'dosbox_pure_libretro', 'dosbox_svn_libretro', 'dosbox_svn_ce_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8', 'conf']
 
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Msdos(PlatformCommon):
         core = ['dosbox_core_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
         
         if emulator == 'retroarch':
@@ -118,11 +118,9 @@ class Platform_Msdos(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                    
                     if file.endswith(ext):
                         if file == 'dos4gw.exe' or file == 'DOS4GW.EXE':
                             print("\tFound dos4gw.exe file: skipping for now... ")
@@ -130,7 +128,6 @@ class Platform_Msdos(PlatformCommon):
                         else:
                             ext_files.append(file)
                             print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         if file == 'dos4gw.exe' or file == 'DOS4GW.EXE':
                             print("\tFound dos4gw.exe file: skipping for now... ")
@@ -138,5 +135,4 @@ class Platform_Msdos(PlatformCommon):
                         else:
                             ext_files.append(file)
                             print("\tFound file: " + file)
-        
         return ext_files

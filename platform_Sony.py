@@ -11,7 +11,7 @@ class Platform_Psx(PlatformCommon):
     cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Psx(PlatformCommon):
         core = ['swanstation_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         
         if emulator == 'retroarch':
@@ -130,19 +130,15 @@ class Platform_Psx(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-                
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-            
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                        
         return ext_files
 
 
@@ -155,7 +151,7 @@ class Platform_Ps2(PlatformCommon):
     cores = ['pcsx2_libretro', 'play_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
     def run(self):
@@ -167,7 +163,7 @@ class Platform_Ps2(PlatformCommon):
         core = ['pcsx2_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
         if emulator == 'retroarch':
@@ -262,19 +258,15 @@ class Platform_Ps2(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                            
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-            
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files
 
 
@@ -287,7 +279,7 @@ class Platform_Psp(PlatformCommon):
     cores = ['ppsspp_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
     
     def run(self):
@@ -299,7 +291,7 @@ class Platform_Psp(PlatformCommon):
         core = ['ppsspp_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
         if emulator == 'retroarch':
@@ -390,17 +382,13 @@ class Platform_Psp(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files

@@ -11,7 +11,7 @@ class Platform_Cdi(PlatformCommon):
     cores = ['samecdi_libretro', 'cdi2015_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'chd', 'iso']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Cdi(PlatformCommon):
         core = ['samecdi_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'chd', 'iso']
 
         if emulator == 'retroarch':
@@ -105,17 +105,13 @@ class Platform_Cdi(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
         return ext_files

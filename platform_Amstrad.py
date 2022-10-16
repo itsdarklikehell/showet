@@ -12,7 +12,7 @@ class Platform_Cpcplus(PlatformCommon):
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
     
     def run(self):
@@ -24,7 +24,7 @@ class Platform_Cpcplus(PlatformCommon):
         core = ['cap32_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
         
         if emulator == 'retroarch':
@@ -119,17 +119,13 @@ class Platform_Cpcplus(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-        
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files

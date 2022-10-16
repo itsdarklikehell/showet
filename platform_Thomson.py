@@ -11,7 +11,7 @@ class Platform_MOTO(PlatformCommon):
     cores = ['theodore_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_MOTO(PlatformCommon):
         core = ['theodore_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
         
         if emulator == 'retroarch':
@@ -114,17 +114,13 @@ class Platform_MOTO(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
         return ext_files

@@ -11,7 +11,7 @@ class Platform_Neogeo(PlatformCommon):
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Neogeo(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         
         if emulator == 'retroarch':
@@ -114,19 +114,15 @@ class Platform_Neogeo(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                            
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
         return ext_files
 
 class Platform_Neopocket(PlatformCommon):
@@ -138,7 +134,7 @@ class Platform_Neopocket(PlatformCommon):
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -150,7 +146,7 @@ class Platform_Neopocket(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         if emulator == 'retroarch':
@@ -241,19 +237,15 @@ class Platform_Neopocket(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-            
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
         return ext_files
 
 class Platform_Neopocketcolor(PlatformCommon):
@@ -265,7 +257,7 @@ class Platform_Neopocketcolor(PlatformCommon):
     cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -277,7 +269,7 @@ class Platform_Neopocketcolor(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         if emulator == 'retroarch':
@@ -368,18 +360,14 @@ class Platform_Neopocketcolor(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                            
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files
 

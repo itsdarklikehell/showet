@@ -11,7 +11,7 @@ class Platform_GP32(PlatformCommon):
     cores = ['mame_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'chd', '7z', 'cmd']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_GP32(PlatformCommon):
         core = ['mame_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'chd', '7z', 'cmd']
         
         if emulator == 'retroarch':
@@ -114,19 +114,15 @@ class Platform_GP32(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
         return ext_files
 
 class Platform_GP2x(PlatformCommon):
@@ -138,7 +134,7 @@ class Platform_GP2x(PlatformCommon):
     cores = ['mame_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['zip', 'chd', '7z', 'cmd']
     
     def run(self):
@@ -150,7 +146,7 @@ class Platform_GP2x(PlatformCommon):
         core = ['mame_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['zip', 'chd', '7z', 'cmd']
     
         if emulator == 'retroarch':
@@ -241,17 +237,13 @@ class Platform_GP2x(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-                    
         return ext_files

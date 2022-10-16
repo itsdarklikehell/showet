@@ -11,7 +11,7 @@ class Platform_Palm(PlatformCommon):
     cores = ['mu_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['true']
+    recording = ['false']
     extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Palm(PlatformCommon):
         core = ['mu_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['true']
+        recording = ['false']
         extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
         
         if extensions == 'retroarch':
@@ -114,17 +114,13 @@ class Platform_Palm(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                                    
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
-
         return ext_files
