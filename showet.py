@@ -10,7 +10,15 @@ from platform_Amstrad import Platform_Cpcplus
 from platform_Apple import Platform_Apple
 from platform_Arcade import Platform_Arcade
 from platform_Archimedes import Platform_Acorn
-from platform_Atari import Platform_Atarixlxe, Platform_AtariSTETTFalcon, Platform_AtariJaguar, Platform_AtariLynx, Platform_Atari2600, Platform_Atari5200, Platform_Atari7800
+from platform_Atari import (
+    Platform_Atarixlxe,
+    Platform_AtariSTETTFalcon,
+    Platform_AtariJaguar,
+    Platform_AtariLynx,
+    Platform_Atari2600,
+    Platform_Atari5200,
+    Platform_Atari7800 
+)
 from platform_Bandai import Platform_Wonderswan
 from platform_Coleco import Platform_Coleco
 from platform_Commodore import Platform_Commodore64, Platform_CommodorePet, Platform_Commodore128, Platform_CommodorePlus4, Platform_CommodoreVIC20, Platform_CommodoreCBMII, Platform_CommodoreAmiga
