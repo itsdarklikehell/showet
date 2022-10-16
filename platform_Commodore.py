@@ -8,7 +8,7 @@ from platformcommon import PlatformCommon
 class Platform_Commodore64(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice', 'frodo']
     cores = ['vice_x64sc_libretro', 'frodo_libretro']
@@ -20,7 +20,7 @@ class Platform_Commodore64(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_x64sc_libretro']
@@ -35,13 +35,13 @@ class Platform_Commodore64(PlatformCommon):
         
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -129,7 +129,7 @@ class Platform_Commodore64(PlatformCommon):
 class Platform_Commodore128(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_x128_libretro']
@@ -141,7 +141,7 @@ class Platform_Commodore128(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_x128_libretro']
@@ -156,13 +156,13 @@ class Platform_Commodore128(PlatformCommon):
         
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -252,7 +252,7 @@ class Platform_Commodore128(PlatformCommon):
 class Platform_CommodoreAmiga(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'puae', 'fs-uae']
     cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
@@ -264,7 +264,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['puae_libretro']
@@ -279,16 +279,16 @@ class Platform_CommodoreAmiga(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -448,7 +448,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
 class Platform_CommodoreCBMII(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xcbm2_libretro']
@@ -460,7 +460,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xcbm2_libretro']
@@ -475,13 +475,13 @@ class Platform_CommodoreCBMII(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -571,7 +571,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
 class Platform_CommodorePet(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xpet_libretro']
@@ -583,7 +583,7 @@ class Platform_CommodorePet(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xpet_libretro']
@@ -598,13 +598,13 @@ class Platform_CommodorePet(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -698,7 +698,7 @@ class Platform_CommodorePet(PlatformCommon):
 class Platform_CommodorePlus4(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xplus4_libretro']
@@ -710,7 +710,7 @@ class Platform_CommodorePlus4(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xplus4_libretro']
@@ -725,13 +725,13 @@ class Platform_CommodorePlus4(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -821,7 +821,7 @@ class Platform_CommodorePlus4(PlatformCommon):
 class Platform_CommodoreVIC20(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xvic_libretro']
@@ -833,7 +833,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xvic_libretro']
@@ -848,13 +848,13 @@ class Platform_CommodoreVIC20(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")

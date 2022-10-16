@@ -5,7 +5,7 @@ from platformcommon import PlatformCommon
 class Platform_AtariSTETTFalcon(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'stella', 'hatari']
     cores = ['hatari_libretro']
@@ -17,7 +17,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['hatari_libretro']
@@ -32,13 +32,13 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
                         
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -126,7 +126,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
 class Platform_Atarixlxe(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['atari800_libretro']
@@ -138,7 +138,7 @@ class Platform_Atarixlxe(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['atari800_libretro']
@@ -153,13 +153,13 @@ class Platform_Atarixlxe(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -237,7 +237,7 @@ class Platform_Atarixlxe(PlatformCommon):
 class Platform_AtariJaguar(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['virtualjaguar_libretro']
@@ -249,7 +249,7 @@ class Platform_AtariJaguar(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['virtualjaguar_libretro']
@@ -264,13 +264,13 @@ class Platform_AtariJaguar(PlatformCommon):
                 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -360,7 +360,7 @@ class Platform_AtariJaguar(PlatformCommon):
 class Platform_AtariLynx(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
 
     emulators = ['retroarch', 'mednafen']
@@ -373,7 +373,7 @@ class Platform_AtariLynx(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         fullscreen = ['false']
@@ -386,13 +386,13 @@ class Platform_AtariLynx(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -482,7 +482,7 @@ class Platform_AtariLynx(PlatformCommon):
 class Platform_Atari2600(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'stella']
     cores = ['stella2014_libretro', 'stella_libretro']
@@ -494,7 +494,7 @@ class Platform_Atari2600(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['stella_libretro']
@@ -509,13 +509,13 @@ class Platform_Atari2600(PlatformCommon):
                 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -605,7 +605,7 @@ class Platform_Atari2600(PlatformCommon):
 class Platform_Atari5200(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'atari800']
     cores = ['atari800_libretro']
@@ -617,7 +617,7 @@ class Platform_Atari5200(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['atari800_libretro']
@@ -632,13 +632,13 @@ class Platform_Atari5200(PlatformCommon):
                 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
@@ -728,7 +728,7 @@ class Platform_Atari5200(PlatformCommon):
 class Platform_Atari7800(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.        
+    # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'prosystem']
     cores = ['prosystem_libretro']
@@ -740,7 +740,7 @@ class Platform_Atari7800(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.        
+        # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['prosystem_libretro']
@@ -755,13 +755,13 @@ class Platform_Atari7800(PlatformCommon):
 
         ext = []
         for ext in extensions:
-            # Tries to identify files by the list of extensions
+            # Tries to identify files by the list of extensions.
             files = self.find_files_with_extension(ext)
         if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE
+            # Tries to identify files by the list of extensions in UPPERCASE.
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
-            # Tries to identify files by any magic necessary    
+            # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
