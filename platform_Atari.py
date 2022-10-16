@@ -83,12 +83,12 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -195,12 +195,12 @@ class Platform_Atarixlxe(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -328,12 +328,12 @@ class Platform_AtariJaguar(PlatformCommon):
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -463,12 +463,12 @@ class Platform_AtariLynx(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -597,12 +597,12 @@ class Platform_Atari2600(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -731,12 +731,12 @@ class Platform_Atari5200(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -865,12 +865,12 @@ class Platform_Atari7800(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.

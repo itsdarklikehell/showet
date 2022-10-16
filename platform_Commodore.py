@@ -15,8 +15,7 @@ class Platform_Commodore64(PlatformCommon):
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
-    extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-
+    
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -27,7 +26,6 @@ class Platform_Commodore64(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         if emulator == 'retroarch':
             if core == 'vice_x64sc_libretro':
@@ -83,12 +81,12 @@ class Platform_Commodore64(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -148,7 +146,6 @@ class Platform_Commodore128(PlatformCommon):
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
-    extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -160,7 +157,6 @@ class Platform_Commodore128(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         if emulator == 'retroarch':
             if core == 'vice_x128_libretro':
@@ -216,12 +212,12 @@ class Platform_Commodore128(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -282,7 +278,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
-    extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -294,7 +289,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
 
         if emulator == 'retroarch':
             if core == 'puae_libretro':
@@ -352,9 +346,13 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
 
-        print("\tUsing: " + str(emulator[0]))
-        print("\tUsing core: " + str(core[0]))
-        print("\tUsing fullscreen: " + str(fullscreen[0]))
+        # print status to console.
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
         
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -486,7 +484,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
-    extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -498,7 +495,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
         if emulator == 'retroarch':
             if core == 'vice_xcbm2_libretro':
@@ -538,6 +534,10 @@ class Platform_CommodoreCBMII(PlatformCommon):
                     print("\tYoutube Streaming enabled!")
                     emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
+            # Set wether we should start recording or not.
+            if recording != ['false']:
+                emulator.append('--recordconfig twitch.cfg')
+            
             # Set wether we should run in fullscreens or not.
             if fullscreen != ['false']:
                 print("\tFullscreen enabled!")
@@ -550,12 +550,12 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -616,7 +616,6 @@ class Platform_CommodorePet(PlatformCommon):
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
-    extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -628,7 +627,6 @@ class Platform_CommodorePet(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
         if emulator == 'retroarch':
             if core == 'vice_xpet_libretro':
@@ -684,12 +682,12 @@ class Platform_CommodorePet(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -754,7 +752,6 @@ class Platform_CommodorePlus4(PlatformCommon):
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
-    extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -766,7 +763,6 @@ class Platform_CommodorePlus4(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
         if emulator == 'retroarch':
             if core == 'vice_xplus4_libretro':
@@ -822,12 +818,12 @@ class Platform_CommodorePlus4(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -888,7 +884,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
-    extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -900,7 +895,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
 
         if emulator == 'retroarch':
             if core == 'vice_xvic_libretro':
@@ -939,6 +933,10 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 if streaming == ['youtube']:
                     print("\tYoutube Streaming enabled!")
                     emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
+            
+            # Set wether we should start recording or not.
+            if recording != ['false']:
+                emulator.append('--recordconfig twitch.cfg')
             
             # Set wether we should run in fullscreens or not.
             if fullscreen != ['false']:

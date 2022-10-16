@@ -88,12 +88,12 @@ class Platform_Psx(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -233,12 +233,12 @@ class Platform_Ps2(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -354,6 +354,10 @@ class Platform_Psp(PlatformCommon):
                     print("\tYoutube Streaming enabled!")
                     emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
             
+            # Set wether we should start recording or not.
+            if recording != ['false']:
+                emulator.append('--recordconfig twitch.cfg')
+            
             # Set wether we should run in fullscreens or not.
             if fullscreen != ['false']:
                 print("\tFullscreen enabled!")
@@ -366,12 +370,12 @@ class Platform_Psp(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
