@@ -10,7 +10,7 @@ class Platform_Linux(PlatformCommon):
     emulators = ['linux']
     cores = ['linux']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['elf', 'exe']
     
@@ -22,7 +22,7 @@ class Platform_Linux(PlatformCommon):
         emulator = ['bash']
         core = ['bash']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['elf', 'exe']
         

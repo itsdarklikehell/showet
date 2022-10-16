@@ -10,7 +10,7 @@ class Platform_Psx(PlatformCommon):
     emulators = ['retroarch']
     cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
@@ -22,7 +22,7 @@ class Platform_Psx(PlatformCommon):
         emulator = ['retroarch']
         core = ['swanstation_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         
@@ -62,6 +62,11 @@ class Platform_Psx(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -72,8 +77,7 @@ class Platform_Psx(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
@@ -158,7 +162,7 @@ class Platform_Ps2(PlatformCommon):
     emulators = ['retroarch']
     cores = ['pcsx2_libretro', 'play_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
@@ -170,7 +174,7 @@ class Platform_Ps2(PlatformCommon):
         emulator = ['retroarch']
         core = ['pcsx2_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
@@ -204,6 +208,11 @@ class Platform_Ps2(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -214,8 +223,7 @@ class Platform_Ps2(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
@@ -294,7 +302,7 @@ class Platform_Psp(PlatformCommon):
     emulators = ['retroarch', 'ppsspp']
     cores = ['ppsspp_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
     
@@ -306,7 +314,7 @@ class Platform_Psp(PlatformCommon):
         emulator = ['retroarch']
         core = ['ppsspp_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
@@ -338,6 +346,11 @@ class Platform_Psp(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -348,8 +361,7 @@ class Platform_Psp(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")

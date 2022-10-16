@@ -10,7 +10,7 @@ class Platform_Cdi(PlatformCommon):
     emulators = ['retroarch']
     cores = ['samecdi_libretro', 'cdi2015_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['zip', 'chd', 'iso']
     
@@ -22,7 +22,7 @@ class Platform_Cdi(PlatformCommon):
         emulator = ['retroarch']
         core = ['samecdi_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['zip', 'chd', 'iso']
 

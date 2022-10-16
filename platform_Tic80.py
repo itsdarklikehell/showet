@@ -10,7 +10,7 @@ class Platform_Tic80(PlatformCommon):
     emulators = ['retroarch']
     cores = ['tic80_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['zip', 'tic']
     
@@ -22,7 +22,7 @@ class Platform_Tic80(PlatformCommon):
         emulator = ['retroarch']
         core = ['tic80_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['zip', 'tic']
         
@@ -54,6 +54,11 @@ class Platform_Tic80(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -64,8 +69,7 @@ class Platform_Tic80(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
@@ -141,7 +145,7 @@ class Platform_TRS80(PlatformCommon):
     emulators = ['retroarch']
     cores = ['tic80_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['zip', 'tic']
     
@@ -153,7 +157,7 @@ class Platform_TRS80(PlatformCommon):
         emulator = ['retroarch']
         core = ['tic80_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['zip', 'tic']
 
@@ -185,6 +189,11 @@ class Platform_TRS80(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -195,8 +204,7 @@ class Platform_TRS80(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")

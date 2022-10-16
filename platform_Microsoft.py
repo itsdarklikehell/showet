@@ -12,7 +12,7 @@ class Platform_Xbox(PlatformCommon):
     emulators = ['retroarch']
     cores = ['directxbox_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['zip', 'iso']
     
@@ -24,7 +24,7 @@ class Platform_Xbox(PlatformCommon):
         emulator = ['retroarch']
         core = ['directxbox_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['zip', 'iso']
         
@@ -56,6 +56,11 @@ class Platform_Xbox(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -66,8 +71,7 @@ class Platform_Xbox(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
@@ -143,7 +147,7 @@ class Platform_Msx(PlatformCommon):
     emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
     cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
@@ -155,7 +159,7 @@ class Platform_Msx(PlatformCommon):
         emulator = ['retroarch']
         core = ['bluesx_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
@@ -189,6 +193,11 @@ class Platform_Msx(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -199,8 +208,7 @@ class Platform_Msx(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
@@ -278,7 +286,7 @@ class Platform_Windows(PlatformCommon):
     emulators = ['wine']
     cores = ['wine']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['exe']
     # wineprefix = self.showetdir + '/wineprefix'
@@ -291,7 +299,7 @@ class Platform_Windows(PlatformCommon):
         emulator = ['wine']
         core = ['wine']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['exe']
 

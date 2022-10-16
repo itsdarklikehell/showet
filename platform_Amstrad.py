@@ -11,7 +11,7 @@ class Platform_Cpcplus(PlatformCommon):
     emulators = ['retroarch', 'zesarux']
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
     
@@ -23,7 +23,7 @@ class Platform_Cpcplus(PlatformCommon):
         emulator = ['retroarch']
         core = ['cap32_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
         
@@ -57,6 +57,11 @@ class Platform_Cpcplus(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -67,8 +72,7 @@ class Platform_Cpcplus(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")

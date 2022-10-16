@@ -10,7 +10,7 @@ class Platform_Neogeo(PlatformCommon):
     emulators = ['retroarch']
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
@@ -22,7 +22,7 @@ class Platform_Neogeo(PlatformCommon):
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         
@@ -54,6 +54,11 @@ class Platform_Neogeo(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -64,8 +69,7 @@ class Platform_Neogeo(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
@@ -141,7 +145,7 @@ class Platform_Neopocket(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
@@ -153,7 +157,7 @@ class Platform_Neopocket(PlatformCommon):
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
@@ -185,6 +189,11 @@ class Platform_Neopocket(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -195,8 +204,7 @@ class Platform_Neopocket(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
@@ -272,7 +280,7 @@ class Platform_Neopocketcolor(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube']
+    streamings = ['twitch', 'youtube', 'restream']
     recordings = ['true']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
@@ -284,7 +292,7 @@ class Platform_Neopocketcolor(PlatformCommon):
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
-        streaming = ['twitch']
+        streaming = ['restream']
         recording = ['true']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
@@ -316,6 +324,11 @@ class Platform_Neopocketcolor(PlatformCommon):
                 print("\tTwitch Streaming enabled!")
                 emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
 
+            # Set whether we should start streaming to restream or not.
+            if streaming == ['restream']:
+                print("\tRestream Streaming enabled!")
+                emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+
             # Set whether we should start streaming to youtube or not.
             if streaming == ['youtube']:
                 print("\tYoutube Streaming enabled!")
@@ -326,8 +339,7 @@ class Platform_Neopocketcolor(PlatformCommon):
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-                # emulator.append('--recordconfig twitch.cfg')
-                
+
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 print("\tFullscreen enabled!")
