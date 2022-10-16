@@ -12,6 +12,7 @@ class Platform_Cpcplus(PlatformCommon):
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
     
     def run(self):
@@ -23,6 +24,7 @@ class Platform_Cpcplus(PlatformCommon):
         core = ['cap32_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
         
         if emulator == 'retroarch':
@@ -53,7 +55,11 @@ class Platform_Cpcplus(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.

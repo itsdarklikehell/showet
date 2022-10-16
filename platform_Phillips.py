@@ -11,6 +11,7 @@ class Platform_Cdi(PlatformCommon):
     cores = ['samecdi_libretro', 'cdi2015_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'chd', 'iso']
     
     def run(self):
@@ -22,6 +23,7 @@ class Platform_Cdi(PlatformCommon):
         core = ['samecdi_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'chd', 'iso']
 
         if emulator == 'retroarch':

@@ -13,6 +13,7 @@ class Platform_Pcengine(PlatformCommon):
     cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
     
     def run(self):
@@ -24,6 +25,7 @@ class Platform_Pcengine(PlatformCommon):
         core = ['mednafen_supergrafx_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
 
         if emulator == 'retroarch':
@@ -52,7 +54,11 @@ class Platform_Pcengine(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -131,6 +137,7 @@ class Platform_Supergrafx(PlatformCommon):
     cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
     
     def run(self):
@@ -142,6 +149,7 @@ class Platform_Supergrafx(PlatformCommon):
         core = ['mednafen_supergrafx_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
         
         if emulator == 'retroarch':
@@ -170,7 +178,11 @@ class Platform_Supergrafx(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -251,6 +263,7 @@ class Platform_Pc8000(PlatformCommon):
     cores = ['quasi88_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
 
     def run(self):
@@ -262,6 +275,7 @@ class Platform_Pc8000(PlatformCommon):
         core = ['quasi88_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['d88', 'u88', 'm3u']
         
         if emulator == 'retroarch':
@@ -290,7 +304,11 @@ class Platform_Pc8000(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -369,6 +387,7 @@ class Platform_Pc8800(PlatformCommon):
     cores = ['quasi88_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['d88', 'u88', 'm3u']
     
     def run(self):
@@ -380,6 +399,7 @@ class Platform_Pc8800(PlatformCommon):
         core = ['quasi88_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['d88', 'u88', 'm3u']
 
         if emulator == 'retroarch':
@@ -408,7 +428,11 @@ class Platform_Pc8800(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -487,6 +511,7 @@ class Platform_Pc98(PlatformCommon):
     cores = ['nekop2_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
     
     def run(self):
@@ -498,6 +523,7 @@ class Platform_Pc98(PlatformCommon):
         core = ['nekop2_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
         
         if emulator == 'retroarch':
@@ -526,7 +552,11 @@ class Platform_Pc98(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -608,6 +638,7 @@ class Platform_Pcfx(PlatformCommon):
     cores = ['mednafen_pcfx_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['cue', 'ccd', 'toc', 'chd']
     
     def run(self):
@@ -619,6 +650,7 @@ class Platform_Pcfx(PlatformCommon):
         core = ['mednafen_pcfx_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['cue', 'ccd', 'toc', 'chd']
         
         if emulator == 'retroarch':
@@ -647,7 +679,11 @@ class Platform_Pcfx(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.

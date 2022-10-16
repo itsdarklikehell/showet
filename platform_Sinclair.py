@@ -11,6 +11,7 @@ class Platform_Zxspectrum(PlatformCommon):
     cores = ['fuse_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -22,6 +23,7 @@ class Platform_Zxspectrum(PlatformCommon):
         core = ['fuse_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         
         if emulator == 'retroarch':
@@ -50,7 +52,11 @@ class Platform_Zxspectrum(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -131,6 +137,7 @@ class Platform_Zx81(PlatformCommon):
     cores = ['fuse_libretro', '81_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -142,6 +149,7 @@ class Platform_Zx81(PlatformCommon):
         core = ['81_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
 
         if emulator == 'retroarch':
@@ -172,7 +180,11 @@ class Platform_Zx81(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.

@@ -11,6 +11,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
     cores = ['hatari_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
     
     def run(self):
@@ -22,6 +23,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         core = ['hatari_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
         if emulator == 'retroarch':
@@ -50,7 +52,11 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -130,6 +136,7 @@ class Platform_Atarixlxe(PlatformCommon):
     cores = ['atari800_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
     
     def run(self):
@@ -141,6 +148,7 @@ class Platform_Atarixlxe(PlatformCommon):
         core = ['atari800_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
         
         if emulator == 'retroarch':
@@ -243,6 +251,7 @@ class Platform_AtariJaguar(PlatformCommon):
     cores = ['virtualjaguar_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
     
     def run(self):
@@ -254,6 +263,7 @@ class Platform_AtariJaguar(PlatformCommon):
         core = ['virtualjaguar_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
         
         if emulator == 'retroarch':
@@ -282,7 +292,11 @@ class Platform_AtariJaguar(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -365,6 +379,7 @@ class Platform_AtariLynx(PlatformCommon):
     cores = ['handy_libretro', 'mednafen_lynx_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['lnx', 'o']
     
     def run(self):
@@ -403,7 +418,11 @@ class Platform_AtariLynx(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -485,6 +504,7 @@ class Platform_Atari2600(PlatformCommon):
     cores = ['stella2014_libretro', 'stella_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'a26', 'bin']
 
     def run(self):
@@ -496,6 +516,7 @@ class Platform_Atari2600(PlatformCommon):
         core = ['stella_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'a26', 'bin']
         
         if emulator == 'retroarch':
@@ -524,7 +545,11 @@ class Platform_Atari2600(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -606,6 +631,7 @@ class Platform_Atari5200(PlatformCommon):
     cores = ['atari800_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
     
     def run(self):
@@ -617,6 +643,7 @@ class Platform_Atari5200(PlatformCommon):
         core = ['atari800_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
         
         if emulator == 'retroarch':
@@ -645,7 +672,11 @@ class Platform_Atari5200(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -727,6 +758,7 @@ class Platform_Atari7800(PlatformCommon):
     cores = ['prosystem_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'a78', 'bin', 'cdf']
     
     def run(self):
@@ -738,6 +770,7 @@ class Platform_Atari7800(PlatformCommon):
         core = ['prosystem_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'a78', 'bin', 'cdf']
 
         if emulator == 'retroarch':
@@ -766,7 +799,11 @@ class Platform_Atari7800(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.

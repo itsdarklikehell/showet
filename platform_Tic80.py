@@ -11,6 +11,7 @@ class Platform_Tic80(PlatformCommon):
     cores = ['tic80_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'tic']
     
     def run(self):
@@ -22,6 +23,7 @@ class Platform_Tic80(PlatformCommon):
         core = ['tic80_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'tic']
         
         if emulator == 'retroarch':
@@ -50,7 +52,11 @@ class Platform_Tic80(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
@@ -132,6 +138,7 @@ class Platform_TRS80(PlatformCommon):
     cores = ['tic80_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'tic']
     
     def run(self):
@@ -143,6 +150,7 @@ class Platform_TRS80(PlatformCommon):
         core = ['tic80_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'tic']
 
         if emulator == 'retroarch':
@@ -171,7 +179,11 @@ class Platform_TRS80(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.

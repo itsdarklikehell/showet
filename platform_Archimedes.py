@@ -11,6 +11,7 @@ class Platform_Acorn(PlatformCommon):
     cores = ['mame_libretro', 'mame2016_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['zip', 'chd', '7z', 'cmd']
 
     def run(self):
@@ -22,6 +23,7 @@ class Platform_Acorn(PlatformCommon):
         core = ['mame_libretro']
         fullscreen = ['false']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'chd', '7z', 'cmd']
         
         if emulator == 'retroarch':
@@ -50,7 +52,11 @@ class Platform_Acorn(PlatformCommon):
             # Set wether we should start streaming or not.
             if streaming == ['true']:
                 print("\tStreaming enabled!")
+                recording = 'true'
                 emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            
+            if recording == ['true']:
+                print("\tRecording enabled!")
                 emulator.append('--recordconfig twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
