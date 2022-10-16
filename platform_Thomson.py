@@ -22,6 +22,10 @@ class Platform_MOTO(PlatformCommon):
         fullscreen = ['false']
         extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
         
+        if emulator == 'retroarch':
+            if core == 'theodore_libretro':
+                extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_MOTO(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('theodore_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,7 +88,10 @@ class Platform_MOTO(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'theodore_libretro':
+                extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
         
         ext_files = []
         for file in self.prod_files:

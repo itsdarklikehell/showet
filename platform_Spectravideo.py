@@ -10,7 +10,7 @@ class Platform_Spectravideo(PlatformCommon):
     emulators = ['retroarch']
     cores = ['bluemsx_libretro']
     fullscreens = ['false']
-    extensions = ['zip', 'bin']
+    extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -20,8 +20,12 @@ class Platform_Spectravideo(PlatformCommon):
         emulator = ['retroarch']
         core = ['bluemsx_libretro']
         fullscreen = ['false']
-        extensions = ['zip', 'bin']
-        
+        extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+
+        if emulator == 'retroarch':
+            if core == 'bluemsx_libretro':
+                extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_Spectravideo(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('bluemsx_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,7 +88,10 @@ class Platform_Spectravideo(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'bin']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'bluemsx_libretro':
+                extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
         
         ext_files = []
         for file in self.prod_files:
