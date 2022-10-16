@@ -199,8 +199,8 @@ class Platform_Neopocket(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'mednafen_ngp_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []

@@ -351,6 +351,7 @@ class Platform_AtariLynx(PlatformCommon):
         fullscreen = ['false']
         core = ['mednafen_lynx_libretro']
         extensions = ['lnx', 'o']
+
         if emulator == 'retroarch':
             if core == 'handy_libretro' or core == 'mednafen_lynx_libretro':
                 extensions = ['lnx', 'o']
@@ -417,6 +418,7 @@ class Platform_AtariLynx(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
+
         if emulator[0] == 'retroarch':
             if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
                 extensions = ['lnx', 'o']

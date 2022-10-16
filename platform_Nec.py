@@ -413,8 +413,8 @@ class Platform_Pc8800(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'quasi88_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
                         
         ext_files = []
@@ -632,8 +632,8 @@ class Platform_Pcfx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'mednafen_pcfx_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_pcfx_libretro':
                 extensions = ['cue', 'ccd', 'toc', 'chd']
 
         ext_files = []

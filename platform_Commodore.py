@@ -294,45 +294,46 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 f.write(disk + "\n")
             f.write("#SAVEDISK:\n")
         
-        # drives = []
-        # # Support only one for now..
-        # if len(files) > 0:
-        #     if emulator[0] == 'fs-uae':
-        #         emulator.append('--hard_drive_0=.')
-        #     # Set wether we should run in fullscreens or not.
-        #     if emulator[0] == 'retroarch':
-        #         # emulator.append('--hard_drive_0=.')
-        #         emulator = emulator + [files[0]]
+        drives = []
+        # Support only one for now..
+        if len(files) > 0:
+            if emulator[0] == 'fs-uae':
+                emulator.append('--hard_drive_0=.')
+            # Set wether we should run in fullscreens or not.
+            if emulator[0] == 'retroarch':
+                # emulator.append('--hard_drive_0=.')
+                emulator = emulator + [files[0]]
             
-        #     if not os.path.exists(self.datadir + "/s"):
-        #         os.makedirs(self.datadir + "/s")
-        #         # when find_files_with_extension works with paths relative to datadir.
-        #         # we can simplify this
-        #         with open(self.datadir + "/s/startup-sequence", 'w') as f:
-        #             exename = files[0].split('/')
-        #             exename = exename[len(exename) - 1]
-        #             f.write(exename + "\n")
-        #             f.close()
+            if not os.path.exists(self.datadir + "/s"):
+                os.makedirs(self.datadir + "/s")
+                # when find_files_with_extension works with paths relative to datadir.
+                # we can simplify this
+                with open(self.datadir + "/s/startup-sequence", 'w') as f:
+                    exename = files[0].split('/')
+                    exename = exename[len(exename) - 1]
+                    f.write(exename + "\n")
+                    f.close()
         
-        # if emulator[0] == 'retroarch':
-        #     amiga_model = 'A1200'
-        #     if self.prod_platform == 'amigaocsecs':
-        #         amiga_model = 'A500'
-        #     # if self.prod_platform == 'amigaaga':
-        #     #     emulator.append('--fast_memory=8192')
-        #     if len(drives) > 0:
-        #         print("\tUsing drive 0: ", drives[0])
-        #         emulator.append(drives[0])
-        #     if len(drives) > 1:
-        #         print("\tUsing drive 1: ", drives[1])
-        #         emulator.append(drives[1])
-        #     if len(drives) > 2:
-        #         print("\tUsing drive 2: ", drives[2])
-        #         emulator.append(drives[2])
-        #     if len(drives) > 3:
-        #         print("\tUsing drive 3: ", drives[3])
-        #         emulator.append(drives[3])
-        #     #emulator.append('--model=' + amiga_model)
+        if emulator[0] == 'retroarch':
+            amiga_model = 'A1200'
+            if self.prod_platform == 'amigaocsecs':
+                amiga_model = 'A500'
+            # if self.prod_platform == 'amigaaga':
+            #     emulator.append('--fast_memory=8192')
+            if len(drives) > 0:
+                print("\tUsing drive 0: ", drives[0])
+                emulator.append(drives[0])
+            if len(drives) > 1:
+                print("\tUsing drive 1: ", drives[1])
+                emulator.append(drives[1])
+            if len(drives) > 2:
+                print("\tUsing drive 2: ", drives[2])
+                emulator.append(drives[2])
+            if len(drives) > 3:
+                print("\tUsing drive 3: ", drives[3])
+                emulator.append(drives[3])
+            #emulator.append('--model=' + amiga_model)
+        
         # if emulator[0] == 'fs-uae':
         #     amiga_model = 'A1200'
         #     if self.prod_platform == 'amigaocsecs':
@@ -491,8 +492,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'vice_xcbm2_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'vice_xcbm2_libretro':
                 extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         ext_files = []

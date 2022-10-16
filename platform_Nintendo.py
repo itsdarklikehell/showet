@@ -540,12 +540,12 @@ class Platform_FamicomDisksystem(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'quicknes_libretro' or core == 'bnes_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
                 extensions = ['nes']
-            if core == 'emux_nes_libretro':
+            if core[0] == 'emux_nes_libretro':
                 extensions = ['nes', 'bin', 'rom']
-            if core == 'nestopia_libretro' or core == 'fceumm_libretro' or core == 'mesen_libretro':
+            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
                 extensions = ['fds', 'nes', 'unif', 'unf']
         
         ext_files = []

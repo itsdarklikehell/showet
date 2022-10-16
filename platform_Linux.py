@@ -7,8 +7,8 @@ class Platform_Linux(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['none']
-    cores = ['none']
+    emulators = ['linux']
+    cores = ['linux']
     fullscreens = ['false']
     extensions = ['elf', 'exe']
     
@@ -17,11 +17,15 @@ class Platform_Linux(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['none']
-        core = ['none']
+        emulator = ['bash']
+        core = ['bash']
         fullscreen = ['false']
         extensions = ['elf', 'exe']
         
+        if emulator == 'bash':
+            if core == 'bash':
+                extensions = ['elf', 'exe']
+                
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,18 +43,36 @@ class Platform_Linux(PlatformCommon):
         # cd to the datadir
         os.chdir(self.datadir)
         
+        # print status to console.
+        print("\tUsing emulator: " + str(emulator[0]))
+        print("\tUsing core: " + str(core[0]))
+        print("\tUsing fullscreen: " + str(fullscreen[0]))
+
+        if len(files) > 0:
+            # Sort the files.
+            files = self.sort_disks(files)
+            
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                #f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                #f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            
         # check if there are multiple executable files in the datadir
         if len(files) > 1:
             print("Found multiple executables: ", files, " - not sure which one to run!")
             exit(-1)
         else:
-            # print status to console.
-            print("\tUsing emulator: " + str(emulator[0]))
-            print("\tUsing core: " + str(core[0]))
-            print("\tUsing fullscreen: " + str(fullscreen[0]))
             print("Running ", files[0])
-            # run the executable
-            self.run_process([files[0]])
+            emulator = emulator + [files[0]]
+            self.run_process(emulator)
 
     def supported_platforms(self):
         return ['linux', 'freebsd', 'raspberrypi' ]
@@ -59,6 +81,10 @@ class Platform_Linux(PlatformCommon):
     def find_ext_files(self,emulator,core):
         extensions = ['elf', 'exe']
         
+        if emulator[0] == 'bash':
+            if core[0] == 'bash':
+                extensions = ['elf', 'exe']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

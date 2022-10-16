@@ -195,10 +195,10 @@ class Platform_Dreamcast(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator == 'retroarch':
-            if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'flycast_libretro' or core[0] == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
-            if core == 'retrodream_libretro':
+            if core[0] == 'retrodream_libretro':
                 extensions = ['gdi', 'chd', 'cdi']
                 
         ext_files = []
@@ -496,7 +496,7 @@ class Platform_Megadrive(PlatformCommon):
         
         if emulator == 'retroarch':
             #MS/GG/MD/CD
-            if core == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
             if core == 'picodrive_libretro':
@@ -565,12 +565,12 @@ class Platform_Megadrive(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             #MS/GG/MD/CD
-            if core == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
-            if core == 'picodrive_libretro':
+            if core[0] == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
         
         ext_files = []
@@ -800,7 +800,7 @@ class Platform_Stv(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
             if core[0] == 'kronos_libretro':
@@ -914,8 +914,8 @@ class Platform_Vmu(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator == 'retroarch':
-            if core == 'vemulator_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'vemulator_libretro':
                 extensions = ['vms', 'dci', 'bin']
                         
         ext_files = []
@@ -1025,9 +1025,9 @@ class Platform_SG1000(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             #MSX/SVI/ColecoVision/SG-1000
-            if core == 'bluemsx_libretro':
+            if core[0] == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
         
         ext_files = []
