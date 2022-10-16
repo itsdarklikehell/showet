@@ -21,7 +21,15 @@ from platform_Atari import (
 )
 from platform_Bandai import Platform_Wonderswan
 from platform_Coleco import Platform_Coleco
-from platform_Commodore import Platform_Commodore64, Platform_CommodorePet, Platform_Commodore128, Platform_CommodorePlus4, Platform_CommodoreVIC20, Platform_CommodoreCBMII, Platform_CommodoreAmiga
+from platform_Commodore import (
+    Platform_Commodore64,
+    Platform_CommodorePet,
+    Platform_Commodore128,
+    Platform_CommodorePlus4,
+    Platform_CommodoreVIC20,
+    Platform_CommodoreCBMII,
+    Platform_CommodoreAmiga
+)
 from platform_Dos import Platform_Msdos
 from platform_Elektronika import Platform_Pdp11
 from platform_Enterprise import Platform_Enterprise
@@ -31,22 +39,61 @@ from platform_Java import Platform_Java
 from platform_Linux import Platform_Linux
 from platform_Magnavox import Platform_Odyssey
 from platform_Mattel import Platform_Intellivision
-from platform_Microsoft import Platform_Windows, Platform_Msx, Platform_Xbox
+from platform_Microsoft import (
+    Platform_Windows,
+    Platform_Msx,
+    Platform_Xbox
+)
 from platform_Nec import Platform_Supergrafx
-from platform_Nintendo import Platform_Gameboy, Platform_GameboyColor, Platform_GameboyAdvance, Platform_Famicom, Platform_SuperFamicom, Platform_Virtualboy, Platform_N64, Platform_Gamecube, Platform_Wii, Platform_Pokemini, Platform_DS
+from platform_Nintendo import (
+    Platform_Gameboy,
+    Platform_GameboyColor,
+    Platform_GameboyAdvance,
+    Platform_Famicom,
+    Platform_SuperFamicom, 
+    Platform_Virtualboy,
+    Platform_N64,
+    Platform_Gamecube,
+    Platform_Wii,
+    Platform_Pokemini,
+    Platform_DS
+)
 from platform_Palm import Platform_Palm
 from platform_Phillips import Platform_Cdi
 from platform_Pico8 import Platform_Pico8
-from platform_Sega import Platform_Megadrive, Platform_Gamegear, Platform_Mastersystem, Platform_Dreamcast, Platform_Saturn
-from platform_Sinclair import Platform_Zxspectrum, Platform_Zx81
-from platform_Snk import Platform_Neogeo, Platform_Neopocket, Platform_Neopocketcolor
-from platform_Sony import Platform_Psx, Platform_Psp, Platform_Ps2
+from platform_Sega import (
+    Platform_Megadrive,
+    Platform_Gamegear,
+    Platform_Mastersystem,
+    Platform_Dreamcast,
+    Platform_Saturn
+)
+from platform_Sinclair import (
+    Platform_Zxspectrum,
+    Platform_Zx81
+)
+from platform_Snk import (
+    Platform_Neogeo,
+    Platform_Neopocket,
+    Platform_Neopocketcolor
+)
+from platform_Sony import (
+    Platform_Psx,
+    Platform_Psp,
+    Platform_Ps2
+)
 from platform_Spectravideo import Platform_Spectravideo
 from platform_Tic80 import Platform_Tic80
-from platform_Gamepark import Platform_GP2x, Platform_GP32
+from platform_Gamepark import (
+    Platform_GP2x,
+    Platform_GP32
+)
 from platform_Thomson import Platform_MOTO
-from platform_Wild import Platform_Gamemusic, Platform_VideoMPV, Platform_VideoFFMPEG
-
+from platform_Wild import (
+    Platform_Gamemusic,
+    Platform_VideoMPV,
+    Platform_VideoFFMPEG
+)
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
 parser.add_argument('pouetid', type=int, nargs='?', help='Pouet ID of the production to show')
