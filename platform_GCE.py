@@ -10,8 +10,8 @@ class Platform_Vectrex(PlatformCommon):
     emulators = ['retroarch', 'vecx']
     cores = ['vecx_libretro']
     fullscreens = ['false']
-    streamings = ['twitch', 'youtube', 'restream']
-    recordings = ['true']
+    streamings = ['false', 'twitch', 'youtube', 'restream']
+    recordings = ['true', 'false']
     extensions = ['zip', 'bin', 'vec']
     
     def run(self):
@@ -22,8 +22,8 @@ class Platform_Vectrex(PlatformCommon):
         emulator = ['retroarch']
         core = ['vecx_libretro']
         fullscreen = ['false']
-        streaming = ['restream']
-        recording = ['true']
+        streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'bin', 'vec']
         
         if emulator == 'retroarch':
@@ -59,11 +59,12 @@ class Platform_Vectrex(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator[0]))
-        print("\tUsing core: " + str(core[0]))
-        print("\tUsing fullscreen: " + str(fullscreen[0]))
-        print("\tUsing recording: " + str(recording[0]))
-        print("\tUsing streaming: " + str(streaming[0]))
+        print("\tUsing: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing extensions: " + str(extensions))
+        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing recording: " + str(recording))
+        print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.

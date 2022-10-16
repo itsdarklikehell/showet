@@ -1,5 +1,6 @@
 import os
 import os.path
+from pkgutil import extend_path
 import subprocess
 
 class PlatformCommon:
@@ -66,4 +67,4 @@ class PlatformCommon:
             exit(-1)
         return retcode
     print("\t================================")
-        
+    
