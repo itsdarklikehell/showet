@@ -22,6 +22,18 @@ class Platform_Psx(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         
+        if emulator == 'retroarch':
+            if core == 'duckstation_libretro' or core == 'swanstation_libretro':
+                extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
+            if core == 'rustation_libretro':
+                extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe']
+            if core == 'mednafen_psx_libretro' or core == 'mednafen_psx_hw_libretro':
+                extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe', 'pbp', 'chd']
+            if core == 'pcsx1_libretro':
+                extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u']
+            if core == 'pcsx_rearmed_libretro' or core == 'pcsx_rearmed_neon_libretro':
+                extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u', 'ccd', 'chd']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +51,7 @@ class Platform_Psx(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('swanstation_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,7 +96,18 @@ class Platform_Psx(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'duckstation_libretro' or core[0] == 'swanstation_libretro':
+                extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
+            if core[0] == 'rustation_libretro':
+                extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe']
+            if core[0] == 'mednafen_psx_libretro' or core[0] == 'mednafen_psx_hw_libretro':
+                extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe', 'pbp', 'chd']
+            if core[0] == 'pcsx1_libretro':
+                extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u']
+            if core[0] == 'pcsx_rearmed_libretro' or core[0] == 'pcsx_rearmed_neon_libretro':
+                extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u', 'ccd', 'chd']
         
         ext_files = []
         for file in self.prod_files:
@@ -122,9 +145,15 @@ class Platform_Ps2(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['play_libretro']
+        core = ['pcsx2_libretro']
         fullscreen = ['false']        
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+
+        if emulator == 'retroarch':
+            if core == 'pcsx2_libretro':
+                extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
+            if core == 'play_libretro':
+                extensions = ['chd', 'cso', 'cue', 'elf', 'iso', 'isz']
         
         ext = []
         for ext in extensions:
@@ -143,7 +172,7 @@ class Platform_Ps2(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('play_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -188,7 +217,12 @@ class Platform_Ps2(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'pcsx2_libretro':
+                extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
+            if core[0] == 'play_libretro':
+                extensions = ['chd', 'cso', 'cue', 'elf', 'iso', 'isz']
         
         ext_files = []
         for file in self.prod_files:
@@ -230,6 +264,10 @@ class Platform_Psp(PlatformCommon):
         fullscreen = ['false']
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
+        if emulator == 'retroarch':
+            if core == 'ppsspp_libretro':
+                extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -247,7 +285,7 @@ class Platform_Psp(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('ppsspp_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -292,7 +330,10 @@ class Platform_Psp(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
+
+        if emulator == 'retroarch':
+            if core == 'ppsspp_libretro':
+                extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
         ext_files = []
         for file in self.prod_files:
