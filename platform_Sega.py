@@ -1038,6 +1038,7 @@ class Platform_SG1000(PlatformCommon):
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
+
                     if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
