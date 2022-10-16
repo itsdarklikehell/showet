@@ -11,7 +11,7 @@ class Platform_Tic80(PlatformCommon):
     cores = ['tic80_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'tic']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Tic80(PlatformCommon):
         core = ['tic80_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'tic']
         
         if emulator == 'retroarch':
@@ -75,6 +75,7 @@ class Platform_Tic80(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
@@ -135,7 +136,7 @@ class Platform_TRS80(PlatformCommon):
     cores = ['tic80_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'tic']
     
     def run(self):
@@ -147,7 +148,7 @@ class Platform_TRS80(PlatformCommon):
         core = ['tic80_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'tic']
 
         if emulator == 'retroarch':
@@ -199,6 +200,7 @@ class Platform_TRS80(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:

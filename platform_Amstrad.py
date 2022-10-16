@@ -12,7 +12,7 @@ class Platform_Cpcplus(PlatformCommon):
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
     
     def run(self):
@@ -24,7 +24,7 @@ class Platform_Cpcplus(PlatformCommon):
         core = ['cap32_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
         
         if emulator == 'retroarch':
@@ -79,6 +79,7 @@ class Platform_Cpcplus(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:

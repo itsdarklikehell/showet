@@ -11,7 +11,7 @@ class Platform_Spectravideo(PlatformCommon):
     cores = ['bluemsx_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Spectravideo(PlatformCommon):
         core = ['bluemsx_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
         if emulator == 'retroarch':
@@ -75,6 +75,7 @@ class Platform_Spectravideo(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:

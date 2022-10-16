@@ -11,7 +11,7 @@ class Platform_Neogeo(PlatformCommon):
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Neogeo(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         
         if emulator == 'retroarch':
@@ -75,6 +75,7 @@ class Platform_Neogeo(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
@@ -135,7 +136,7 @@ class Platform_Neopocket(PlatformCommon):
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -147,7 +148,7 @@ class Platform_Neopocket(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         if emulator == 'retroarch':
@@ -199,6 +200,7 @@ class Platform_Neopocket(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
@@ -259,7 +261,7 @@ class Platform_Neopocketcolor(PlatformCommon):
     cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -271,7 +273,7 @@ class Platform_Neopocketcolor(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         if emulator == 'retroarch':
@@ -323,6 +325,7 @@ class Platform_Neopocketcolor(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:

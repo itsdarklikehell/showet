@@ -11,7 +11,7 @@ class Platform_Apple(PlatformCommon):
     cores = ['minivmac_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Apple(PlatformCommon):
         core = ['minivmac_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
         
         if emulator == 'retroarch':
@@ -74,6 +74,7 @@ class Platform_Apple(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:

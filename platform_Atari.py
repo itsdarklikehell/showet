@@ -11,7 +11,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
     cores = ['hatari_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         core = ['hatari_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
         if emulator == 'retroarch':
@@ -133,7 +133,7 @@ class Platform_Atarixlxe(PlatformCommon):
     cores = ['atari800_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
     
     def run(self):
@@ -145,7 +145,7 @@ class Platform_Atarixlxe(PlatformCommon):
         core = ['atari800_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
         
         if emulator == 'retroarch':
@@ -184,6 +184,7 @@ class Platform_Atarixlxe(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
@@ -244,7 +245,7 @@ class Platform_AtariJaguar(PlatformCommon):
     cores = ['virtualjaguar_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
     
     def run(self):
@@ -256,7 +257,7 @@ class Platform_AtariJaguar(PlatformCommon):
         core = ['virtualjaguar_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
         
         if emulator == 'retroarch':
@@ -308,6 +309,7 @@ class Platform_AtariJaguar(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
@@ -369,7 +371,7 @@ class Platform_AtariLynx(PlatformCommon):
     cores = ['handy_libretro', 'mednafen_lynx_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['lnx', 'o']
     
     def run(self):
@@ -431,6 +433,7 @@ class Platform_AtariLynx(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
@@ -491,7 +494,7 @@ class Platform_Atari2600(PlatformCommon):
     cores = ['stella2014_libretro', 'stella_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'a26', 'bin']
 
     def run(self):
@@ -503,7 +506,7 @@ class Platform_Atari2600(PlatformCommon):
         core = ['stella_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'a26', 'bin']
         
         if emulator == 'retroarch':
@@ -555,6 +558,7 @@ class Platform_Atari2600(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
@@ -615,7 +619,7 @@ class Platform_Atari5200(PlatformCommon):
     cores = ['atari800_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
     
     def run(self):
@@ -627,7 +631,7 @@ class Platform_Atari5200(PlatformCommon):
         core = ['atari800_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
         
         if emulator == 'retroarch':
@@ -679,6 +683,7 @@ class Platform_Atari5200(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
@@ -739,7 +744,7 @@ class Platform_Atari7800(PlatformCommon):
     cores = ['prosystem_libretro']
     fullscreens = ['false']
     streaming = ['true']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'a78', 'bin', 'cdf']
     
     def run(self):
@@ -751,7 +756,7 @@ class Platform_Atari7800(PlatformCommon):
         core = ['prosystem_libretro']
         fullscreen = ['false']
         streaming = ['true']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'a78', 'bin', 'cdf']
 
         if emulator == 'retroarch':
@@ -803,6 +808,7 @@ class Platform_Atari7800(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing recording: " + str(recording[0]))
         print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
