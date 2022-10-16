@@ -13,6 +13,7 @@ class Platform_Cpcplus(PlatformCommon):
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
+    extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -24,6 +25,7 @@ class Platform_Cpcplus(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
+        extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
         
         if emulator == 'retroarch':
             if core == 'crocods_libretro':

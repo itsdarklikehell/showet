@@ -13,7 +13,8 @@ class Platform_3do(PlatformCommon):
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
-
+    extensions = ['iso', 'bin', 'chd', 'cue']
+    
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -24,7 +25,8 @@ class Platform_3do(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        
+        extensions = ['iso', 'bin', 'chd', 'cue']
+            
         if emulator == 'retroarch':
             if core == '4do_libretro' or core == 'opera_libretro':
                 extensions = ['iso', 'bin', 'chd', 'cue']
