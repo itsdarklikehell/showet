@@ -12,6 +12,7 @@ class Platform_3do(PlatformCommon):
     cores = ['4do_libretro', 'opera_libretro']
     fullscreens = ['false']
     streaming = ['false']
+    recording = ['false']
     extensions = ['iso', 'bin', 'chd', 'cue']
 
     def run(self):
