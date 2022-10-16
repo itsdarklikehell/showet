@@ -22,6 +22,7 @@ class Platform_Commodore64(PlatformCommon):
         emulator = ['retroarch']
         fullscreen = ['false']
         core = ['vice_x64sc_libretro']
+        streaming = ['false']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         if emulator == 'retroarch':
@@ -139,7 +140,8 @@ class Platform_Commodore128(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         fullscreen = ['false']
-        core = ['vice_x128_libretro']        
+        core = ['vice_x128_libretro']
+        streaming = ['false']        
         extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         if emulator == 'retroarch':
