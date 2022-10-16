@@ -10,7 +10,7 @@ class Platform_Gamemusic(PlatformCommon):
     emulators = ['retroarch']
     cores = ['gme_libretro']
     fullscreens = ['false']
-    streaming = ['false']
+    streaming = ['true']
     recording = ['false']
     extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
     
@@ -22,7 +22,7 @@ class Platform_Gamemusic(PlatformCommon):
         emulator = ['retroarch']
         core = ['gme_libretro']
         fullscreen = ['false']
-        streaming = ['false']
+        streaming = ['true']
         recording = ['false']
         extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
 
@@ -53,11 +53,12 @@ class Platform_Gamemusic(PlatformCommon):
             if streaming == ['true']:
                 print("\tStreaming enabled!")
                 recording = 'true'
-                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
             
+            # Set wether we should start recording or not.
             if recording == ['true']:
-                print("\tRecording enabled!")
-                emulator.append('--recordconfig twitch.cfg')
+                emulator.append('-R ~/.config/retroarch/records')
+                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -133,7 +134,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
     emulators = ['retroarch']
     cores = ['ffmpeg_libretro']
     fullscreens = ['false']
-    streaming = ['false']
+    streaming = ['true']
     recording = ['false']
     extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
@@ -145,7 +146,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
         emulator = ['retroarch']
         core = ['ffmpeg_libretro']
         fullscreen = ['false']
-        streaming = ['false']
+        streaming = ['true']
         recording = ['false']
         extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         
@@ -176,11 +177,12 @@ class Platform_VideoFFMPEG(PlatformCommon):
             if streaming == ['true']:
                 print("\tStreaming enabled!")
                 recording = 'true'
-                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
             
+            # Set wether we should start recording or not.
             if recording == ['true']:
-                print("\tRecording enabled!")
-                emulator.append('--recordconfig twitch.cfg')
+                emulator.append('-R ~/.config/retroarch/records')
+                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -256,7 +258,7 @@ class Platform_VideoMPV(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mpv_libretro']
     fullscreens = ['false']
-    streaming = ['false']
+    streaming = ['true']
     recording = ['false']
     extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
     
@@ -268,7 +270,7 @@ class Platform_VideoMPV(PlatformCommon):
         emulator = ['retroarch']
         core = ['mpv_libretro']
         fullscreen = ['false']
-        streaming = ['false']
+        streaming = ['true']
         recording = ['false']
         extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         
@@ -299,11 +301,12 @@ class Platform_VideoMPV(PlatformCommon):
             if streaming == ['true']:
                 print("\tStreaming enabled!")
                 recording = 'true'
-                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
             
+            # Set wether we should start recording or not.
             if recording == ['true']:
-                print("\tRecording enabled!")
-                emulator.append('--recordconfig twitch.cfg')
+                emulator.append('-R ~/.config/retroarch/records')
+                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:

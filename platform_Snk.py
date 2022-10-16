@@ -10,7 +10,7 @@ class Platform_Neogeo(PlatformCommon):
     emulators = ['retroarch']
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
     fullscreens = ['false']
-    streaming = ['false']
+    streaming = ['true']
     recording = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
@@ -22,7 +22,7 @@ class Platform_Neogeo(PlatformCommon):
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
-        streaming = ['false']
+        streaming = ['true']
         recording = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         
@@ -53,11 +53,12 @@ class Platform_Neogeo(PlatformCommon):
             if streaming == ['true']:
                 print("\tStreaming enabled!")
                 recording = 'true'
-                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
             
+            # Set wether we should start recording or not.
             if recording == ['true']:
-                print("\tRecording enabled!")
-                emulator.append('--recordconfig twitch.cfg')
+                emulator.append('-R ~/.config/retroarch/records')
+                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -133,7 +134,7 @@ class Platform_Neopocket(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
     fullscreens = ['false']
-    streaming = ['false']
+    streaming = ['true']
     recording = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
@@ -145,7 +146,7 @@ class Platform_Neopocket(PlatformCommon):
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
-        streaming = ['false']
+        streaming = ['true']
         recording = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
@@ -176,11 +177,12 @@ class Platform_Neopocket(PlatformCommon):
             if streaming == ['true']:
                 print("\tStreaming enabled!")
                 recording = 'true'
-                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
             
+            # Set wether we should start recording or not.
             if recording == ['true']:
-                print("\tRecording enabled!")
-                emulator.append('--recordconfig twitch.cfg')
+                emulator.append('-R ~/.config/retroarch/records')
+                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
@@ -256,7 +258,7 @@ class Platform_Neopocketcolor(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
     fullscreens = ['false']
-    streaming = ['false']
+    streaming = ['true']
     recording = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
@@ -268,7 +270,7 @@ class Platform_Neopocketcolor(PlatformCommon):
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
-        streaming = ['false']
+        streaming = ['true']
         recording = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
@@ -299,11 +301,12 @@ class Platform_Neopocketcolor(PlatformCommon):
             if streaming == ['true']:
                 print("\tStreaming enabled!")
                 recording = 'true'
-                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
             
+            # Set wether we should start recording or not.
             if recording == ['true']:
-                print("\tRecording enabled!")
-                emulator.append('--recordconfig twitch.cfg')
+                emulator.append('-R ~/.config/retroarch/records')
+                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:

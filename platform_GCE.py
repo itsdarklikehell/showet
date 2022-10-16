@@ -10,7 +10,7 @@ class Platform_Vectrex(PlatformCommon):
     emulators = ['retroarch', 'vecx']
     cores = ['vecx_libretro']
     fullscreens = ['false']
-    streaming = ['false']
+    streaming = ['true']
     recording = ['false']
     extensions = ['zip', 'bin', 'vec']
     
@@ -22,7 +22,7 @@ class Platform_Vectrex(PlatformCommon):
         emulator = ['retroarch']
         core = ['vecx_libretro']
         fullscreen = ['false']
-        streaming = ['false']
+        streaming = ['true']
         recording = ['false']
         extensions = ['zip', 'bin', 'vec']
         

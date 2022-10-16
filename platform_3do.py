@@ -11,7 +11,7 @@ class Platform_3do(PlatformCommon):
     emulators = ['retroarch']
     cores = ['4do_libretro', 'opera_libretro']
     fullscreens = ['false']
-    streaming = ['false']
+    streaming = ['true']
     recording = ['false']
     extensions = ['iso', 'bin', 'chd', 'cue']
 
@@ -23,7 +23,7 @@ class Platform_3do(PlatformCommon):
         emulator = ['retroarch']
         core = ['4do_libretro']
         fullscreen = ['false']
-        streaming = ['false']
+        streaming = ['true']
         recording = ['false']
         extensions = ['iso', 'bin', 'chd', 'cue']
         
@@ -54,11 +54,13 @@ class Platform_3do(PlatformCommon):
             if streaming == ['true']:
                 print("\tStreaming enabled!")
                 recording = 'true'
-                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('-r rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
             
+            # Set wether we should start recording or not.
             if recording == ['true']:
                 print("\tRecording enabled!")
-                emulator.append('--recordconfig twitch.cfg')
+                emulator.append('-R ~/.config/retroarch/records')
+                emulator.append('--recordconfig ~/.config/retroarch/records_config/twitch.cfg')
                 
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
