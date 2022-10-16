@@ -79,12 +79,12 @@ class Platform_Commodore64(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        # print("\tUsing: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        print("\tUsing: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing extensions: " + str(extensions))
+        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing recording: " + str(recording))
+        print("\tUsing streaming: " + str(streaming))
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -208,12 +208,12 @@ class Platform_Commodore128(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        # print("\tUsing: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        print("\tUsing: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing extensions: " + str(extensions))
+        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing recording: " + str(recording))
+        print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -341,12 +341,12 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 emulator.append('--keep_aspect')
 
         # print status to console.
-        # print("\tUsing: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        print("\tUsing: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing extensions: " + str(extensions))
+        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing recording: " + str(recording))
+        print("\tUsing streaming: " + str(streaming))
         
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -542,12 +542,12 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        # print("\tUsing: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        print("\tUsing: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing extensions: " + str(extensions))
+        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing recording: " + str(recording))
+        print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -672,12 +672,12 @@ class Platform_CommodorePet(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        # print("\tUsing: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        print("\tUsing: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing extensions: " + str(extensions))
+        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing recording: " + str(recording))
+        print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -806,12 +806,12 @@ class Platform_CommodorePlus4(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        # print("\tUsing: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        print("\tUsing: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing extensions: " + str(extensions))
+        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing recording: " + str(recording))
+        print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -936,12 +936,12 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        # print("\tUsing: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        print("\tUsing: " + str(emulator))
+        print("\tUsing core: " + str(core))
+        print("\tUsing extensions: " + str(extensions))
+        print("\tUsing fullscreen: " + str(fullscreen))
+        print("\tUsing recording: " + str(recording))
+        print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
