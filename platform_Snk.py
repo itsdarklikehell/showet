@@ -22,6 +22,10 @@ class Platform_Neogeo(PlatformCommon):
         fullscreen = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         
+        if emulator == 'retroarch':
+            if core == 'mednafen_ngp_libretro':
+                extensions = ['ngp', 'ngc', 'ngpc', 'npc']
+                
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_Neogeo(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mednafen_ngp_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,7 +88,10 @@ class Platform_Neogeo(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_ngp_libretro':
+                extensions = ['ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []
         for file in self.prod_files:
@@ -124,6 +131,10 @@ class Platform_Neopocket(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+
+        if emulator == 'retroarch':
+            if core == 'mednafen_ngp_libretro':
+                extensions = ['ngp', 'ngc', 'ngpc', 'npc']
         
         ext = []
         for ext in extensions:
@@ -142,7 +153,7 @@ class Platform_Neopocket(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mednafen_ngp_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -187,7 +198,10 @@ class Platform_Neopocket(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+
+        if emulator == 'retroarch':
+            if core == 'mednafen_ngp_libretro':
+                extensions = ['ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []
         for file in self.prod_files:
@@ -214,7 +228,7 @@ class Platform_Neopocketcolor(PlatformCommon):
     # Set wether we should run in fullscreens or not.        
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    cores = ['mednafen_ngpc_libretro', 'fbneo_ngpc']
+    cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
     fullscreens = ['false']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
@@ -224,9 +238,13 @@ class Platform_Neopocketcolor(PlatformCommon):
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['mednafen_ngpc_libretro']
+        core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+
+        if emulator == 'retroarch':
+            if core == 'mednafen_ngp_libretro':
+                extensions = ['ngp', 'ngc', 'ngpc', 'npc']
         
         ext = []
         for ext in extensions:
@@ -245,7 +263,7 @@ class Platform_Neopocketcolor(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mednafen_ngpc_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -290,7 +308,10 @@ class Platform_Neopocketcolor(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_ngp_libretro':
+                extensions = ['ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []
         for file in self.prod_files:
@@ -301,11 +322,11 @@ class Platform_Neopocketcolor(PlatformCommon):
                 ext = []
                 for ext in extensions:
                             
-                    if file.endswith('.zip') or file.endswith('.ngp') or file.endswith('.ngc') or file.endswith('.ngpc') or file.endswith('.npc'):
+                    if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
 
-                    if file.endswith('.ZIP') or file.endswith('.NGP') or file.endswith('.NGC') or file.endswith('.NGPC') or file.endswith('.NPC'):
+                    if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
 
