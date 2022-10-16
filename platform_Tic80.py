@@ -11,7 +11,7 @@ class Platform_Tic80(PlatformCommon):
     cores = ['tic80_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'tic']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Tic80(PlatformCommon):
         core = ['tic80_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'tic']
         
         if emulator == 'retroarch':
@@ -138,7 +138,7 @@ class Platform_TRS80(PlatformCommon):
     cores = ['tic80_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'tic']
     
     def run(self):
@@ -150,7 +150,7 @@ class Platform_TRS80(PlatformCommon):
         core = ['tic80_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'tic']
 
         if emulator == 'retroarch':

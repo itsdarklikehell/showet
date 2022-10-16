@@ -11,7 +11,7 @@ class Platform_Linux(PlatformCommon):
     cores = ['linux']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['elf', 'exe']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Linux(PlatformCommon):
         core = ['bash']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['elf', 'exe']
         
         if emulator == 'bash':

@@ -11,7 +11,7 @@ class Platform_Neogeo(PlatformCommon):
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Neogeo(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
         
         if emulator == 'retroarch':
@@ -138,7 +138,7 @@ class Platform_Neopocket(PlatformCommon):
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -150,7 +150,7 @@ class Platform_Neopocket(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         if emulator == 'retroarch':
@@ -265,7 +265,7 @@ class Platform_Neopocketcolor(PlatformCommon):
     cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -277,7 +277,7 @@ class Platform_Neopocketcolor(PlatformCommon):
         core = ['mednafen_ngp_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         if emulator == 'retroarch':

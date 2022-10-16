@@ -11,7 +11,7 @@ class Platform_Apple(PlatformCommon):
     cores = ['minivmac_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Apple(PlatformCommon):
         core = ['minivmac_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
         
         if emulator == 'retroarch':

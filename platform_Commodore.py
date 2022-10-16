@@ -14,7 +14,7 @@ class Platform_Commodore64(PlatformCommon):
     cores = ['vice_x64sc_libretro', 'frodo_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
     def run(self):
@@ -26,7 +26,7 @@ class Platform_Commodore64(PlatformCommon):
         core = ['vice_x64sc_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         if emulator == 'retroarch':
@@ -139,7 +139,7 @@ class Platform_Commodore128(PlatformCommon):
     cores = ['vice_x128_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
@@ -151,7 +151,7 @@ class Platform_Commodore128(PlatformCommon):
         core = ['vice_x128_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         
         if emulator == 'retroarch':
@@ -266,7 +266,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
     cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'm3u', 'adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'tga', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', '7z', 'rp9', 'exe', 'run']
     
     def run(self):
@@ -278,7 +278,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         core = ['puae_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
 
         if emulator == 'retroarch':
@@ -466,7 +466,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
     cores = ['vice_xcbm2_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
@@ -478,7 +478,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
         core = ['vice_xcbm2_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
         if emulator == 'retroarch':
@@ -593,7 +593,7 @@ class Platform_CommodorePet(PlatformCommon):
     cores = ['vice_xpet_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
@@ -605,7 +605,7 @@ class Platform_CommodorePet(PlatformCommon):
         core = ['vice_xpet_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
         if emulator == 'retroarch':
@@ -720,7 +720,7 @@ class Platform_CommodorePlus4(PlatformCommon):
     cores = ['vice_xplus4_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     def run(self):
@@ -732,7 +732,7 @@ class Platform_CommodorePlus4(PlatformCommon):
         core = ['vice_xplus4_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
 
         if emulator == 'retroarch':
@@ -814,7 +814,7 @@ class Platform_CommodorePlus4(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-
+    
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xpet_libretro':
                 extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
@@ -847,7 +847,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
     cores = ['vice_xvic_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
 
     def run(self):
@@ -859,7 +859,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
         core = ['vice_xvic_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'd64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m', '20', '40', '60', 'a0', 'b0', 'rom']
 
         if emulator == 'retroarch':

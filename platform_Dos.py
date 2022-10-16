@@ -11,7 +11,7 @@ class Platform_Msdos(PlatformCommon):
     cores = ['dosbox_core_libretro', 'dosbox_pure_libretro', 'dosbox_svn_libretro', 'dosbox_svn_ce_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8', 'conf']
 
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Msdos(PlatformCommon):
         core = ['dosbox_core_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
         
         if emulator == 'retroarch':

@@ -11,7 +11,7 @@ class Platform_MOTO(PlatformCommon):
     cores = ['theodore_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_MOTO(PlatformCommon):
         core = ['theodore_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
         
         if emulator == 'retroarch':

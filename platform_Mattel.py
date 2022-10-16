@@ -11,7 +11,7 @@ class Platform_Intellivision(PlatformCommon):
     cores = ['freeintv_libretro', 'jzintv', 'jzintv-ecs']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['int', 'bin', 'rom']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Intellivision(PlatformCommon):
         core = ['freeintv_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['int', 'bin', 'rom']
         
         if emulator == 'retroarch':

@@ -12,7 +12,7 @@ class Platform_3do(PlatformCommon):
     cores = ['4do_libretro', 'opera_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['iso', 'bin', 'chd', 'cue']
 
     def run(self):
@@ -24,7 +24,7 @@ class Platform_3do(PlatformCommon):
         core = ['4do_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['iso', 'bin', 'chd', 'cue']
         
         if emulator == 'retroarch':

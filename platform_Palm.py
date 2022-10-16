@@ -11,7 +11,7 @@ class Platform_Palm(PlatformCommon):
     cores = ['mu_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Palm(PlatformCommon):
         core = ['mu_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
         
         if extensions == 'retroarch':

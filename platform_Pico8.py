@@ -11,7 +11,7 @@ class Platform_Pico8(PlatformCommon):
     cores = ['retro8_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'p8', 'png']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Pico8(PlatformCommon):
         core = ['retro8_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'p8', 'png']
 
         if emulator == 'retroarch':

@@ -11,7 +11,7 @@ class Platform_Odyssey(PlatformCommon):
     cores = ['o2em_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'bin']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Odyssey(PlatformCommon):
         core = ['o2em_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'bin']
         
         if emulator == 'retroarch':

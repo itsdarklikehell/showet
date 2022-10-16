@@ -11,7 +11,7 @@ class Platform_3DS(PlatformCommon):
     cores = ['citra_libretro', 'citra2018_libretro', 'citra_canary_libretro', 'melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_3DS(PlatformCommon):
         core = ['citra_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
 
         if emulator == 'retroarch':
@@ -138,7 +138,7 @@ class Platform_N64(PlatformCommon):
     cores = ['mupen64plus_libretro', 'mupen64plus_next_libretro', 'parallel_n46_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
     
     def run(self):
@@ -150,7 +150,7 @@ class Platform_N64(PlatformCommon):
         core = ['mupen64plus_next_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         
         if emulator == 'retroarch':
@@ -266,7 +266,7 @@ class Platform_DS(PlatformCommon):
     cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'nds', 'dsi']
     
     def run(self):
@@ -278,7 +278,7 @@ class Platform_DS(PlatformCommon):
         core = ['desmume_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'nds', 'dsi']
         
         if emulator == 'retroarch':
@@ -394,7 +394,7 @@ class Platform_Famicom(PlatformCommon):
     cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
     def run(self):
@@ -406,7 +406,7 @@ class Platform_Famicom(PlatformCommon):
         core = ['fceumm_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
         if emulator == 'retroarch':
@@ -530,7 +530,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
     cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
     
     def run(self):
@@ -542,7 +542,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
         core = ['quicknes_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
         if emulator == 'retroarch':
@@ -834,7 +834,7 @@ class Platform_GameboyColor(PlatformCommon):
     cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
     def run(self):
@@ -846,7 +846,7 @@ class Platform_GameboyColor(PlatformCommon):
         core = ['mesen-s_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
         if emulator == 'retroarch':
@@ -1004,7 +1004,7 @@ class Platform_GameboyAdvance(PlatformCommon):
     cores = ['meteor_libretro', 'vba_next_libretro', 'vbam_librertro', 'mgba_libretro', 'gpsp_librertro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
     
     def run(self):
@@ -1016,7 +1016,7 @@ class Platform_GameboyAdvance(PlatformCommon):
         core = ['vba_next_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
 
         if emulator == 'retroarch':
@@ -1155,7 +1155,7 @@ class Platform_Gamecube(PlatformCommon):
     cores = ['dolphin_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
     
     def run(self):
@@ -1167,7 +1167,7 @@ class Platform_Gamecube(PlatformCommon):
         core = ['dolphin_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         if emulator == 'retroarch':
@@ -1283,7 +1283,7 @@ class Platform_Pokemini(PlatformCommon):
     cores = ['pokemini_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'min']
     
     def run(self):
@@ -1295,7 +1295,7 @@ class Platform_Pokemini(PlatformCommon):
         core = ['pokemini_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'min']
         
         if emulator == 'retroarch':
@@ -1411,7 +1411,7 @@ class Platform_SuperFamicom(PlatformCommon):
     cores = ['snes9x_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
     
     def run(self):
@@ -1423,7 +1423,7 @@ class Platform_SuperFamicom(PlatformCommon):
         core = ['snes9x_libretro']        
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
         
         if emulator == 'retroarch':
@@ -1551,7 +1551,7 @@ class Platform_Virtualboy(PlatformCommon):
     cores = ['mednafen_vb_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'vb', 'vboy', 'bin']
     
     def run(self):
@@ -1563,7 +1563,7 @@ class Platform_Virtualboy(PlatformCommon):
         core = ['mednafen_vb_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'vb', 'vboy', 'bin']
         
         if emulator == 'retroarch':
@@ -1666,7 +1666,7 @@ class Platform_Wii(PlatformCommon):
     cores = ['dolphin_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
     
     def run(self):
@@ -1678,7 +1678,7 @@ class Platform_Wii(PlatformCommon):
         core = ['dolphin_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         if emulator == 'retroarch':

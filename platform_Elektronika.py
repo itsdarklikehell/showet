@@ -11,7 +11,7 @@ class Platform_Pdp11(PlatformCommon):
     cores = ['bk_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['bin']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Pdp11(PlatformCommon):
         core = ['bk_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['bin']
         
         if emulator == 'retroarch':

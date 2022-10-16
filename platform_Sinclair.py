@@ -11,7 +11,7 @@ class Platform_Zxspectrum(PlatformCommon):
     cores = ['fuse_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Zxspectrum(PlatformCommon):
         core = ['fuse_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         
         if emulator == 'retroarch':
@@ -137,7 +137,7 @@ class Platform_Zx81(PlatformCommon):
     cores = ['fuse_libretro', '81_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -149,7 +149,7 @@ class Platform_Zx81(PlatformCommon):
         core = ['81_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
 
         if emulator == 'retroarch':

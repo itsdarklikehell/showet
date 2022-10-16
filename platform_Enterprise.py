@@ -11,7 +11,7 @@ class Platform_Enterprise(PlatformCommon):
     cores = ['ep128emu_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Enterprise(PlatformCommon):
         core = ['ep128emu_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
         
         if emulator == 'retroarch':

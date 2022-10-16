@@ -11,7 +11,7 @@ class Platform_Wonderswan(PlatformCommon):
     cores = ['mednafen_wswan_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'ws', 'wsc', 'pc2']
 
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Wonderswan(PlatformCommon):
         core = ['mednafen_wswan_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'ws', 'wsc', 'pc2']
         
         if emulator == 'retroarch':

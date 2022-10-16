@@ -12,7 +12,7 @@ class Platform_Cpcplus(PlatformCommon):
     cores = ['crocods_libretro', 'cap32_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
     
     def run(self):
@@ -24,7 +24,7 @@ class Platform_Cpcplus(PlatformCommon):
         core = ['cap32_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['m3u', 'dsk', 'sna', 'tap', 'cdt', 'voc', 'cpr']
         
         if emulator == 'retroarch':

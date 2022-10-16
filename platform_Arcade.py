@@ -11,7 +11,7 @@ class Platform_Arcade(PlatformCommon):
     cores = ['mame_libretro', 'mamemess_libretro',]
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'chd', '7z', 'cmd']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Arcade(PlatformCommon):
         core = ['mame_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'chd', '7z', 'cmd']
 
         if emulator == 'retroarch':

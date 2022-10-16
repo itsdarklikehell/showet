@@ -11,7 +11,7 @@ class Platform_Acorn(PlatformCommon):
     cores = ['mame_libretro', 'mame2016_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'chd', '7z', 'cmd']
 
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Acorn(PlatformCommon):
         core = ['mame_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'chd', '7z', 'cmd']
         
         if emulator == 'retroarch':

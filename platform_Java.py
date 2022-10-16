@@ -11,7 +11,7 @@ class Platform_Java(PlatformCommon):
     cores = ['squirreljme_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'jar', 'sqc', 'jam', 'jad', 'kjx']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Java(PlatformCommon):
         core = ['squirreljme_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'jar', 'sqc', 'jam', 'jad', 'kjx']
 
         if emulator == 'retroarch':

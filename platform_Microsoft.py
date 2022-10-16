@@ -13,7 +13,7 @@ class Platform_Xbox(PlatformCommon):
     cores = ['directxbox_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'iso']
     
     def run(self):
@@ -25,7 +25,7 @@ class Platform_Xbox(PlatformCommon):
         core = ['directxbox_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'iso']
         
         if emulator == 'retroarch':
@@ -140,7 +140,7 @@ class Platform_Msx(PlatformCommon):
     cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
@@ -152,7 +152,7 @@ class Platform_Msx(PlatformCommon):
         core = ['bluesx_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
         if emulator == 'retroarch':
@@ -271,7 +271,7 @@ class Platform_Windows(PlatformCommon):
     cores = ['wine']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['exe']
     # wineprefix = self.showetdir + '/wineprefix'
 
@@ -284,7 +284,7 @@ class Platform_Windows(PlatformCommon):
         core = ['wine']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['exe']
 
 

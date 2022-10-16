@@ -11,7 +11,7 @@ class Platform_Channelf(PlatformCommon):
     cores = ['freechaf_libretro']
     fullscreens = ['false']
     streaming = ['false']
-    recording = ['false']
+    recording = ['true']
     extensions = ['zip', 'bin', 'chf']
     
     def run(self):
@@ -23,7 +23,7 @@ class Platform_Channelf(PlatformCommon):
         core = ['freechaf_libretro']
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
+        recording = ['true']
         extensions = ['zip', 'bin', 'chf']
         
         if emulator == 'retroarch':
