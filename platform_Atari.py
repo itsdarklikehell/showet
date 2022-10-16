@@ -391,8 +391,10 @@ class Platform_AtariLynx(PlatformCommon):
         # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        fullscreen = ['false']
         core = ['mednafen_lynx_libretro']
+        fullscreen = ['false']
+        streaming = ['twitch']
+        recording = ['true']
         extensions = ['lnx', 'o']
 
         if emulator == 'retroarch':
