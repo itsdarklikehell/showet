@@ -21,7 +21,11 @@ class Platform_Cdi(PlatformCommon):
         core = ['samecdi_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'chd', 'iso']
-        
+
+        if emulator == 'retroarch':
+            if core == 'samecdi_libretro':
+                extensions = ['chd', 'iso']
+                
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -38,7 +42,7 @@ class Platform_Cdi(PlatformCommon):
 
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('samecdi_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -83,8 +87,11 @@ class Platform_Cdi(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'chd', 'iso']
-        
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'samecdi_libretro':
+                extensions = ['chd', 'iso']
+                        
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

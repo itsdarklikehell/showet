@@ -21,7 +21,11 @@ class Platform_Pico8(PlatformCommon):
         core = ['retro8_libretro']
         fullscreen = ['false']
         extensions = ['zip', 'p8', 'png']
-        
+
+        if emulator == 'retroarch':
+            if core == 'retro8_libretro':
+                extensions = ['p8', 'png']
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions
@@ -39,7 +43,7 @@ class Platform_Pico8(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('retro8_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -84,7 +88,10 @@ class Platform_Pico8(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        extensions = ['zip', 'p8', 'png']
+
+        if emulator[0] == 'retroarch':
+            if core[0] == 'retro8_libretro':
+                extensions = ['p8', 'png']
         
         ext_files = []
         for file in self.prod_files:
@@ -95,11 +102,11 @@ class Platform_Pico8(PlatformCommon):
                 ext = []
                 for ext in extensions:
                             
-                    if file.endswith('.zip') or file.endswith('.p8') or file.endswith('.png'):
+                    if file.endswith(ext):
                         ext_files.append(file)
                         print("\tFound file: " + file)
                     
-                    if file.endswith('.ZIP') or file.endswith('.P8') or file.endswith('.PNG'):
+                    if file.endswith(ext.upper()):
                         ext_files.append(file)
                         print("\tFound file: " + file)
                     

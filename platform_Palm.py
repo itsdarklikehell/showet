@@ -43,7 +43,7 @@ class Platform_Palm(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append('mu_libretro')
+            emulator.append(core[0])
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -89,7 +89,7 @@ class Platform_Palm(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if extensions == 'retroarch':
+        if emulator == 'retroarch':
             if core == 'mu_libretro':
                 extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
         
