@@ -10,6 +10,7 @@ class Platform_Gamemusic(PlatformCommon):
     emulators = ['retroarch']
     cores = ['gme_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
     
     def run(self):
@@ -20,6 +21,7 @@ class Platform_Gamemusic(PlatformCommon):
         emulator = ['retroarch']
         core = ['gme_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
 
         if emulator == 'retroarch':
@@ -44,8 +46,16 @@ class Platform_Gamemusic(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
         
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -58,6 +68,7 @@ class Platform_Gamemusic(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -120,6 +131,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
     emulators = ['retroarch']
     cores = ['ffmpeg_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
     def run(self):
@@ -130,6 +142,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
         emulator = ['retroarch']
         core = ['ffmpeg_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         
         if emulator == 'retroarch':
@@ -154,8 +167,16 @@ class Platform_VideoFFMPEG(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -168,6 +189,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -230,6 +252,7 @@ class Platform_VideoMPV(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mpv_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
     
     def run(self):
@@ -240,6 +263,7 @@ class Platform_VideoMPV(PlatformCommon):
         emulator = ['retroarch']
         core = ['mpv_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         
         if emulator == 'retroarch':
@@ -264,8 +288,16 @@ class Platform_VideoMPV(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -278,6 +310,7 @@ class Platform_VideoMPV(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.

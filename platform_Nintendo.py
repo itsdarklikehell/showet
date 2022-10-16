@@ -10,6 +10,7 @@ class Platform_3DS(PlatformCommon):
     emulators = ['retroarch', 'citra']
     cores = ['citra_libretro', 'citra2018_libretro', 'citra_canary_libretro', 'melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
     
     def run(self):
@@ -20,6 +21,7 @@ class Platform_3DS(PlatformCommon):
         emulator = ['retroarch']
         core = ['citra_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
 
         if emulator == 'retroarch':
@@ -44,9 +46,18 @@ class Platform_3DS(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -58,6 +69,7 @@ class Platform_3DS(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -119,6 +131,7 @@ class Platform_N64(PlatformCommon):
     emulators = ['retroarch', 'mupen64plus-glide64', 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
     cores = ['mupen64plus_libretro', 'mupen64plus_next_libretro', 'parallel_n46_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
     
     def run(self):
@@ -129,6 +142,7 @@ class Platform_N64(PlatformCommon):
         emulator = ['retroarch']
         core = ['mupen64plus_next_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         
         if emulator == 'retroarch':
@@ -153,9 +167,18 @@ class Platform_N64(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -167,6 +190,7 @@ class Platform_N64(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -229,6 +253,7 @@ class Platform_DS(PlatformCommon):
     emulators = ['retroarch', 'desmume', 'melonds']
     cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'nds', 'dsi']
     
     def run(self):
@@ -239,6 +264,7 @@ class Platform_DS(PlatformCommon):
         emulator = ['retroarch']
         core = ['desmume_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'nds', 'dsi']
         
         if emulator == 'retroarch':
@@ -263,9 +289,18 @@ class Platform_DS(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -277,6 +312,7 @@ class Platform_DS(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -339,6 +375,7 @@ class Platform_Famicom(PlatformCommon):
     emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
     cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
     def run(self):
@@ -349,6 +386,7 @@ class Platform_Famicom(PlatformCommon):
         emulator = ['retroarch']
         core = ['fceumm_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
         if emulator == 'retroarch':
@@ -377,9 +415,18 @@ class Platform_Famicom(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -391,6 +438,7 @@ class Platform_Famicom(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -457,6 +505,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
     emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
     cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
     
     def run(self):
@@ -467,6 +516,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
         emulator = ['retroarch']
         core = ['quicknes_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
         if emulator == 'retroarch':
@@ -495,9 +545,18 @@ class Platform_FamicomDisksystem(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
         
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -509,6 +568,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -575,6 +635,7 @@ class Platform_Gameboy(PlatformCommon):
     emulators = ['retroarch']
     fullscreens = ['false']
     cores = ['gambatte_libretro', 'mess2016_libretro', 'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
+    streaming = ['false']
     extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
     
     def run(self):
@@ -584,7 +645,8 @@ class Platform_Gameboy(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         fullscreen = ['false']
-        core = ['mesen-s_libretro']        
+        core = ['mesen-s_libretro']
+        streaming = ['false']
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd']
         
         if emulator == 'retroarch':
@@ -630,9 +692,18 @@ class Platform_Gameboy(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -644,6 +715,7 @@ class Platform_Gameboy(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -727,6 +799,7 @@ class Platform_GameboyColor(PlatformCommon):
     emulators = ['retroarch']
     cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
     def run(self):
@@ -737,6 +810,7 @@ class Platform_GameboyColor(PlatformCommon):
         emulator = ['retroarch']
         core = ['mesen-s_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
         if emulator == 'retroarch':
@@ -782,9 +856,18 @@ class Platform_GameboyColor(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -796,6 +879,7 @@ class Platform_GameboyColor(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -879,6 +963,7 @@ class Platform_GameboyAdvance(PlatformCommon):
     emulators = ['retroarch']
     cores = ['meteor_libretro', 'vba_next_libretro', 'vbam_librertro', 'mgba_libretro', 'gpsp_librertro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
     
     def run(self):
@@ -889,6 +974,7 @@ class Platform_GameboyAdvance(PlatformCommon):
         emulator = ['retroarch']
         core = ['vba_next_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
 
         if emulator == 'retroarch':
@@ -925,8 +1011,16 @@ class Platform_GameboyAdvance(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -939,6 +1033,7 @@ class Platform_GameboyAdvance(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -1013,6 +1108,7 @@ class Platform_Gamecube(PlatformCommon):
     emulators = ['retroarch']
     cores = ['dolphin_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
     
     def run(self):
@@ -1023,6 +1119,7 @@ class Platform_Gamecube(PlatformCommon):
         emulator = ['retroarch']
         core = ['dolphin_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         if emulator == 'retroarch':
@@ -1047,9 +1144,18 @@ class Platform_Gamecube(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -1061,6 +1167,7 @@ class Platform_Gamecube(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -1123,6 +1230,7 @@ class Platform_Pokemini(PlatformCommon):
     emulators = ['retroarch']
     cores = ['pokemini_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'min']
     
     def run(self):
@@ -1133,6 +1241,7 @@ class Platform_Pokemini(PlatformCommon):
         emulator = ['retroarch']
         core = ['pokemini_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'min']
         
         if emulator == 'retroarch':
@@ -1157,9 +1266,18 @@ class Platform_Pokemini(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -1171,6 +1289,7 @@ class Platform_Pokemini(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -1233,6 +1352,7 @@ class Platform_SuperFamicom(PlatformCommon):
     emulators = ['retroarch']
     cores = ['snes9x_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
     
     def run(self):
@@ -1243,6 +1363,7 @@ class Platform_SuperFamicom(PlatformCommon):
         emulator = ['retroarch']
         core = ['snes9x_libretro']        
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
         
         if emulator == 'retroarch':
@@ -1273,9 +1394,18 @@ class Platform_SuperFamicom(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -1287,6 +1417,7 @@ class Platform_SuperFamicom(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -1355,6 +1486,7 @@ class Platform_Virtualboy(PlatformCommon):
     emulators = ['retroarch']
     cores = ['mednafen_vb_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'vb', 'vboy', 'bin']
     
     def run(self):
@@ -1365,6 +1497,7 @@ class Platform_Virtualboy(PlatformCommon):
         emulator = ['retroarch']
         core = ['mednafen_vb_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'vb', 'vboy', 'bin']
         
         if emulator == 'retroarch':
@@ -1403,6 +1536,7 @@ class Platform_Virtualboy(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -1465,6 +1599,7 @@ class Platform_Wii(PlatformCommon):
     emulators = ['retroarch']
     cores = ['dolphin_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
     
     def run(self):
@@ -1475,6 +1610,7 @@ class Platform_Wii(PlatformCommon):
         emulator = ['retroarch']
         core = ['dolphin_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         if emulator == 'retroarch':
@@ -1499,9 +1635,18 @@ class Platform_Wii(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
-            if fullscreen == 'true':
+            if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -1513,6 +1658,7 @@ class Platform_Wii(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.

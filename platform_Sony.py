@@ -10,6 +10,7 @@ class Platform_Psx(PlatformCommon):
     emulators = ['retroarch']
     cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
     def run(self):
@@ -20,6 +21,7 @@ class Platform_Psx(PlatformCommon):
         emulator = ['retroarch']
         core = ['swanstation_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
         
         if emulator == 'retroarch':
@@ -52,8 +54,16 @@ class Platform_Psx(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
         
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -66,6 +76,7 @@ class Platform_Psx(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -137,6 +148,7 @@ class Platform_Ps2(PlatformCommon):
     emulators = ['retroarch']
     cores = ['pcsx2_libretro', 'play_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
     def run(self):
@@ -146,7 +158,8 @@ class Platform_Ps2(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['pcsx2_libretro']
-        fullscreen = ['false']        
+        fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
         if emulator == 'retroarch':
@@ -173,8 +186,16 @@ class Platform_Ps2(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
         
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -187,6 +208,7 @@ class Platform_Ps2(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -252,6 +274,7 @@ class Platform_Psp(PlatformCommon):
     emulators = ['retroarch', 'ppsspp']
     cores = ['ppsspp_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
     
     def run(self):
@@ -262,6 +285,7 @@ class Platform_Psp(PlatformCommon):
         emulator = ['retroarch']
         core = ['ppsspp_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
         if emulator == 'retroarch':
@@ -286,8 +310,16 @@ class Platform_Psp(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -300,6 +332,7 @@ class Platform_Psp(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.

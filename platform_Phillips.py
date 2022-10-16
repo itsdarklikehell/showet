@@ -10,6 +10,7 @@ class Platform_Cdi(PlatformCommon):
     emulators = ['retroarch']
     cores = ['samecdi_libretro', 'cdi2015_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'chd', 'iso']
     
     def run(self):
@@ -20,6 +21,7 @@ class Platform_Cdi(PlatformCommon):
         emulator = ['retroarch']
         core = ['samecdi_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'chd', 'iso']
 
         if emulator == 'retroarch':
@@ -43,6 +45,10 @@ class Platform_Cdi(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            if streaming == ['true']:
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+            if recording == ['true']:
+                emulator.append('--recordconfig twitch.cfg')
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -57,6 +63,7 @@ class Platform_Cdi(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.

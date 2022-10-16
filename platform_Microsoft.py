@@ -1,5 +1,7 @@
 import os
 import os.path
+
+from httpcore import stream
 from platformcommon import PlatformCommon
 
 class Platform_Xbox(PlatformCommon):
@@ -10,6 +12,7 @@ class Platform_Xbox(PlatformCommon):
     emulators = ['retroarch']
     cores = ['directxbox_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'iso']
     
     def run(self):
@@ -20,6 +23,7 @@ class Platform_Xbox(PlatformCommon):
         emulator = ['retroarch']
         core = ['directxbox_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'iso']
         
         if emulator == 'retroarch':
@@ -44,8 +48,16 @@ class Platform_Xbox(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -58,6 +70,7 @@ class Platform_Xbox(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -120,6 +133,7 @@ class Platform_Msx(PlatformCommon):
     emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
     cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
@@ -130,6 +144,7 @@ class Platform_Msx(PlatformCommon):
         emulator = ['retroarch']
         core = ['bluesx_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
         if emulator == 'retroarch':
@@ -156,8 +171,16 @@ class Platform_Msx(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -170,6 +193,7 @@ class Platform_Msx(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -234,6 +258,7 @@ class Platform_Windows(PlatformCommon):
     emulators = ['wine']
     cores = ['wine']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['exe']
     # wineprefix = self.showetdir + '/wineprefix'
 
@@ -242,10 +267,13 @@ class Platform_Windows(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set wether we should run in fullscreens or not.        
         # Supply A list of extensions that the specified emulator supports.        
-        extensions = ['exe']
         emulator = ['wine']
         core = ['wine']
         fullscreen = ['false']
+        streaming = ['false']
+        extensions = ['exe']
+
+
         wineprefix = self.showetdir + '/wineprefix'
 
         if emulator == 'wine':

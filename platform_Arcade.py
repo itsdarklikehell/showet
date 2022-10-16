@@ -10,6 +10,7 @@ class Platform_Arcade(PlatformCommon):
     emulators = ['retroarch', 'MAME', 'MESS']
     cores = ['mame_libretro', 'mamemess_libretro',]
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['zip', 'chd', '7z', 'cmd']
     
     def run(self):
@@ -20,6 +21,7 @@ class Platform_Arcade(PlatformCommon):
         emulator = ['retroarch']
         core = ['mame_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['zip', 'chd', '7z', 'cmd']
 
         if emulator == 'retroarch':
@@ -48,8 +50,16 @@ class Platform_Arcade(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -62,6 +72,7 @@ class Platform_Arcade(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.

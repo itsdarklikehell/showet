@@ -10,6 +10,7 @@ class Platform_Zxspectrum(PlatformCommon):
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -20,6 +21,7 @@ class Platform_Zxspectrum(PlatformCommon):
         emulator = ['retroarch']
         core = ['fuse_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         
         if emulator == 'retroarch':
@@ -44,8 +46,16 @@ class Platform_Zxspectrum(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -58,6 +68,7 @@ class Platform_Zxspectrum(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
@@ -119,6 +130,7 @@ class Platform_Zx81(PlatformCommon):
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro', '81_libretro']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -129,6 +141,7 @@ class Platform_Zx81(PlatformCommon):
         emulator = ['retroarch']
         core = ['81_libretro']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
 
         if emulator == 'retroarch':
@@ -155,8 +168,16 @@ class Platform_Zx81(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
+            
+            # Set wether we should start streaming or not.
+            if streaming == ['true']:
+                print("\tStreaming enabled!")
+                emulator.append('--record rtmp://live.twitch.tv/app/$YOUR_TWITCH_ID')
+                emulator.append('--recordconfig twitch.cfg')
+                
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -169,6 +190,7 @@ class Platform_Zx81(PlatformCommon):
         print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.

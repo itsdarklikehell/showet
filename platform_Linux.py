@@ -10,6 +10,7 @@ class Platform_Linux(PlatformCommon):
     emulators = ['linux']
     cores = ['linux']
     fullscreens = ['false']
+    streaming = ['false']
     extensions = ['elf', 'exe']
     
     def run(self):
@@ -20,6 +21,7 @@ class Platform_Linux(PlatformCommon):
         emulator = ['bash']
         core = ['bash']
         fullscreen = ['false']
+        streaming = ['false']
         extensions = ['elf', 'exe']
         
         if emulator == 'bash':
@@ -44,9 +46,10 @@ class Platform_Linux(PlatformCommon):
         os.chdir(self.datadir)
         
         # print status to console.
-        print("\tUsing emulator: " + str(emulator[0]))
+        print("\tUsing: " + str(emulator[0]))
         print("\tUsing core: " + str(core[0]))
         print("\tUsing fullscreen: " + str(fullscreen[0]))
+        print("\tUsing streaming: " + str(streaming[0]))
 
         if len(files) > 0:
             # Sort the files.
