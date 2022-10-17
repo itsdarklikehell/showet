@@ -249,26 +249,27 @@ if not runner:
 if len(platforms) > 1:
     print("Demo supports platform platforms ", platforms, "of which", prod_platform, "rules the most.")
 
-# Print fields collected from the data:
-# Name: + data['prod']['name']
-# By: " + data['prod']['groups'][0]['name']
-# Type: " + data['prod']['type']
-# Released: " + data['prod']['releaseDate']
-# Platform: " + prod_platform
-print("\tName: " + data['prod']['name'])
-try:
-    print("\tBy: " + data['prod']['groups'][0]['name'])
-except IndexError:
-    pass
-try:
-    print("\tType: " + data['prod']['type'])
-except IndexError:
-    pass    
-try:
-    print("\tReleased: " + data['prod']['releaseDate'])
-except IndexError:
-    pass
-print("\tPlatform: " + prod_platform)
+if debugging != False:
+    # Print fields collected from the data:
+    # Name: + data['prod']['name']
+    # By: " + data['prod']['groups'][0]['name']
+    # Type: " + data['prod']['type']
+    # Released: " + data['prod']['releaseDate']
+    # Platform: " + prod_platform
+    print("\tName: " + data['prod']['name'])
+    try:
+        print("\tBy: " + data['prod']['groups'][0]['name'])
+    except IndexError:
+        pass
+    try:
+        print("\tType: " + data['prod']['type'])
+    except IndexError:
+        pass    
+    try:
+        print("\tReleased: " + data['prod']['releaseDate'])
+    except IndexError:
+        pass
+    print("\tPlatform: " + prod_platform)
 
 # Get necessary fields from the data
 prod_download_url = data['prod']['download']
