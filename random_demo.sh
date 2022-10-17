@@ -49,13 +49,14 @@ play_demo(){
     fi
     python3 ~/showet/showet.py $pouet_id && chmod +x ~/.showet/data/$pouet_id/*
     resoreset
+    sleep 1
     read -p "Press [q] to quit or [enter] to continue (or wait a few seconds)..." -n1 -s -t $TIMEOUT
     # if q is pressed, then quit
     if [[ $REPLY = "q" ]]; then
         echo "Quitting..."
         loop="false"
         # Cleanup after script
-        rm -rf ~/.showet/data/* >/dev/null 2>&1
+        rm -rf ~/.showet/data/*
         resoreset
         exit 0
     fi
