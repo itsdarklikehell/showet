@@ -368,7 +368,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
     other = ['uae', 'm3u', 'zip', '7z']
     
-    extensions = str(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
+    extensions = [(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)]
     
     
     def run(self):
@@ -389,7 +389,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
         other = ['uae', 'm3u', 'zip', '7z']
         
-        extensions = str(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
+        extensions = [(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)]
                 
         if emulator == 'retroarch':
             if core == 'puae_libretro':
@@ -401,7 +401,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                     other = ['uae', 'm3u', 'zip', '7z']
                     
-                    extensions = str(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
+                    extensions = [(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)]
 
         ext = []
         for ext in extensions:
@@ -563,7 +563,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                 other = ['uae', 'm3u', 'zip', '7z']
                 
-                extensions = str(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
+                extensions = [(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)]
                     
         ext_files = []
         for file in self.prod_files:
