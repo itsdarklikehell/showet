@@ -95,6 +95,8 @@ from platform_Wild import (
     Platform_VideoFFMPEG
 )
 
+debugging = True
+
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
 parser.add_argument('pouetid', type=int, nargs='?', help='Pouet ID of the production to show')
 parser.add_argument('--platforms', action="store_true", help='List supported platforms and exit')
@@ -258,7 +260,10 @@ try:
     print("\tBy: " + data['prod']['groups'][0]['name'])
 except IndexError:
     pass
-print("\tType: " + data['prod']['type'])
+try:
+    print("\tType: " + data['prod']['type'])
+except IndexError:
+    pass    
 try:
     print("\tReleased: " + data['prod']['releaseDate'])
 except IndexError:
