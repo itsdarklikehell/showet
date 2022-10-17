@@ -327,7 +327,7 @@ class Platform_AtariJaguar(PlatformCommon):
         
         if emulator == 'retroarch':
             if core == 'virtualjaguar_libretro':
-                extensions = ['j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
+                extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
                 
         ext = []
         for ext in extensions:
@@ -432,7 +432,7 @@ class Platform_AtariJaguar(PlatformCommon):
         
         if emulator[0] == 'retroarch':
             if core[0] == 'virtualjaguar_libretro':
-                extensions = ['j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
+                extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
         
         ext_files = []
         for file in self.prod_files:
@@ -625,7 +625,7 @@ class Platform_Atari2600(PlatformCommon):
         
         if emulator == 'retroarch':
             if core == 'stella_libretro':
-                extensions = ['a26', 'bin']
+                extensions = ['zip', 'a26', 'bin']
                 
         ext = []
         for ext in extensions:
@@ -731,7 +731,7 @@ class Platform_Atari2600(PlatformCommon):
         
         if emulator[0] == 'retroarch':
             if core[0] == 'stella_libretro':
-                extensions = ['a26', 'bin']
+                extensions = ['zip', 'a26', 'bin']
                         
         ext_files = []
         for file in self.prod_files:
@@ -923,7 +923,7 @@ class Platform_Atari7800(PlatformCommon):
 
         if emulator == 'retroarch':
             if core == 'prosystem_libretro':
-                extensions = ['a78', 'bin', 'cdf']    
+                extensions = ['zip', 'a78', 'bin', 'cdf']
 
         ext = []
         for ext in extensions:
@@ -1028,7 +1028,7 @@ class Platform_Atari7800(PlatformCommon):
         
         if emulator[0] == 'retroarch':
             if core[0] == 'prosystem_libretro':
-                extensions = ['a78', 'bin', 'cdf']            
+                extensions = ['zip', 'a78', 'bin', 'cdf']
                 
         ext_files = []
         for file in self.prod_files:
