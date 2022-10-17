@@ -222,7 +222,6 @@ class Platform_Commodore128(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -235,7 +234,6 @@ class Platform_Commodore128(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':
@@ -560,7 +558,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -573,7 +570,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':
@@ -692,7 +688,6 @@ class Platform_CommodorePet(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -705,7 +700,6 @@ class Platform_CommodorePet(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':
@@ -828,7 +822,6 @@ class Platform_CommodorePlus4(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -841,7 +834,6 @@ class Platform_CommodorePlus4(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':
@@ -960,7 +952,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -973,7 +964,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':

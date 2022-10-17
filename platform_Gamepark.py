@@ -88,7 +88,6 @@ class Platform_GP32(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -101,7 +100,6 @@ class Platform_GP32(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
@@ -220,7 +218,6 @@ class Platform_GP2x(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -233,7 +230,6 @@ class Platform_GP2x(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':

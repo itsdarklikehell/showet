@@ -219,7 +219,6 @@ class Platform_Atarixlxe(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -232,7 +231,6 @@ class Platform_Atarixlxe(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'atari800':
@@ -350,7 +348,6 @@ class Platform_AtariJaguar(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -363,7 +360,6 @@ class Platform_AtariJaguar(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'virtualjaguar':
@@ -483,7 +479,6 @@ class Platform_AtariLynx(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -496,7 +491,6 @@ class Platform_AtariLynx(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'mednafen':
@@ -615,7 +609,6 @@ class Platform_Atari2600(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -628,7 +621,6 @@ class Platform_Atari2600(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '4do':
@@ -747,7 +739,6 @@ class Platform_Atari5200(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
@@ -760,7 +751,6 @@ class Platform_Atari5200(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'atari800':
