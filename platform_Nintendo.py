@@ -97,12 +97,12 @@ class Platform_3DS(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -245,12 +245,12 @@ class Platform_N64(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -394,12 +394,12 @@ class Platform_DS(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -547,12 +547,12 @@ class Platform_Famicom(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -704,12 +704,12 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -878,12 +878,12 @@ class Platform_Gameboy(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -1068,12 +1068,12 @@ class Platform_GameboyColor(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -1250,12 +1250,12 @@ class Platform_GameboyAdvance(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -1411,12 +1411,12 @@ class Platform_Gamecube(PlatformCommon):
                 emulator.append('--fullscreen')
                 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -1560,12 +1560,12 @@ class Platform_Pokemini(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -1715,12 +1715,12 @@ class Platform_SuperFamicom(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -1870,12 +1870,12 @@ class Platform_Virtualboy(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -2019,12 +2019,12 @@ class Platform_Wii(PlatformCommon):
                 emulator.append('--fullscreen')
                 
         # print status to console.
-        print("\tUsing emulator: " + str(emulator))
-        print("\tUsing core: " + str(core))
-        print("\tUsing extensions: " + str(extensions))
-        print("\tUsing fullscreen: " + str(fullscreen))
-        print("\tUsing recording: " + str(recording))
-        print("\tUsing streaming: " + str(streaming))
+        # print("\tUsing emulator: " + str(emulator))
+        # print("\tUsing core: " + str(core))
+        # print("\tUsing extensions: " + str(extensions))
+        # print("\tUsing fullscreen: " + str(fullscreen))
+        # print("\tUsing recording: " + str(recording))
+        # print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
