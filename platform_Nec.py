@@ -7,7 +7,7 @@ from platformcommon import PlatformCommon
 class Platform_Pcengine(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.
+    # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
@@ -19,7 +19,7 @@ class Platform_Pcengine(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.
+        # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_supergrafx_libretro']
@@ -63,24 +63,43 @@ class Platform_Pcengine(PlatformCommon):
                 if streaming == ['youtube']:
                     print("\tYoutube Streaming enabled!")
                     emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set wether we should start recording or not.
+            # Set whether we should start recording or not.
             if recording != ['false']:
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-            # Set wether we should run in fullscreen or not.
+            # Set whether we should run in fullscreen or not.
             if fullscreen != ['false']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
-            # Set wether we should run in fullscreens or not.
-            if fullscreen == ['true']:
+            if streaming != ['false']:
+                # Set whether we should start streaming to twitch or not.
+                if streaming == ['twitch']:
+                    print("\tTwitch Streaming enabled!")
+                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to restream or not.
+                if streaming == ['restream']:
+                    print("\tRestream Streaming enabled!")
+                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to youtube or not.
+                if streaming == ['youtube']:
+                    print("\tYoutube Streaming enabled!")
+                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
+            # Set whether we should start recording or not.
+            if recording != ['false']:
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
+            # Set whether we should run in fullscreen or not.
+            if fullscreen != ['false']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
+        print("\tUsing emulator: " + str(emulator))
         print("\tUsing core: " + str(core))
         print("\tUsing extensions: " + str(extensions))
         print("\tUsing fullscreen: " + str(fullscreen))
@@ -137,7 +156,7 @@ class Platform_Pcengine(PlatformCommon):
 class Platform_Supergrafx(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.
+    # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
@@ -149,7 +168,7 @@ class Platform_Supergrafx(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.
+        # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_supergrafx_libretro']
@@ -193,24 +212,43 @@ class Platform_Supergrafx(PlatformCommon):
                 if streaming == ['youtube']:
                     print("\tYoutube Streaming enabled!")
                     emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set wether we should start recording or not.
+            # Set whether we should start recording or not.
             if recording != ['false']:
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-            # Set wether we should run in fullscreen or not.
+            # Set whether we should run in fullscreen or not.
             if fullscreen != ['false']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
-            # Set wether we should run in fullscreens or not.
-            if fullscreen == ['true']:
+            if streaming != ['false']:
+                # Set whether we should start streaming to twitch or not.
+                if streaming == ['twitch']:
+                    print("\tTwitch Streaming enabled!")
+                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to restream or not.
+                if streaming == ['restream']:
+                    print("\tRestream Streaming enabled!")
+                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to youtube or not.
+                if streaming == ['youtube']:
+                    print("\tYoutube Streaming enabled!")
+                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
+            # Set whether we should start recording or not.
+            if recording != ['false']:
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
+            # Set whether we should run in fullscreen or not.
+            if fullscreen != ['false']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
+        print("\tUsing emulator: " + str(emulator))
         print("\tUsing core: " + str(core))
         print("\tUsing extensions: " + str(extensions))
         print("\tUsing fullscreen: " + str(fullscreen))
@@ -267,7 +305,7 @@ class Platform_Supergrafx(PlatformCommon):
 class Platform_Pc8000(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.
+    # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
 
     emulators = ['retroarch']
@@ -280,7 +318,7 @@ class Platform_Pc8000(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.
+        # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['quasi88_libretro']
@@ -324,24 +362,43 @@ class Platform_Pc8000(PlatformCommon):
                 if streaming == ['youtube']:
                     print("\tYoutube Streaming enabled!")
                     emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set wether we should start recording or not.
+            # Set whether we should start recording or not.
             if recording != ['false']:
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-            # Set wether we should run in fullscreen or not.
+            # Set whether we should run in fullscreen or not.
             if fullscreen != ['false']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
-            # Set wether we should run in fullscreens or not.
-            if fullscreen == ['true']:
+            if streaming != ['false']:
+                # Set whether we should start streaming to twitch or not.
+                if streaming == ['twitch']:
+                    print("\tTwitch Streaming enabled!")
+                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to restream or not.
+                if streaming == ['restream']:
+                    print("\tRestream Streaming enabled!")
+                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to youtube or not.
+                if streaming == ['youtube']:
+                    print("\tYoutube Streaming enabled!")
+                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
+            # Set whether we should start recording or not.
+            if recording != ['false']:
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
+            # Set whether we should run in fullscreen or not.
+            if fullscreen != ['false']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
+        print("\tUsing emulator: " + str(emulator))
         print("\tUsing core: " + str(core))
         print("\tUsing extensions: " + str(extensions))
         print("\tUsing fullscreen: " + str(fullscreen))
@@ -398,7 +455,7 @@ class Platform_Pc8000(PlatformCommon):
 class Platform_Pc8800(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.
+    # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['quasi88_libretro']
@@ -410,7 +467,7 @@ class Platform_Pc8800(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.
+        # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['quasi88_libretro']
@@ -454,24 +511,43 @@ class Platform_Pc8800(PlatformCommon):
                 if streaming == ['youtube']:
                     print("\tYoutube Streaming enabled!")
                     emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set wether we should start recording or not.
+            # Set whether we should start recording or not.
             if recording != ['false']:
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-            # Set wether we should run in fullscreen or not.
+            # Set whether we should run in fullscreen or not.
             if fullscreen != ['false']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
-            # Set wether we should run in fullscreens or not.
-            if fullscreen == ['true']:
+            if streaming != ['false']:
+                # Set whether we should start streaming to twitch or not.
+                if streaming == ['twitch']:
+                    print("\tTwitch Streaming enabled!")
+                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to restream or not.
+                if streaming == ['restream']:
+                    print("\tRestream Streaming enabled!")
+                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to youtube or not.
+                if streaming == ['youtube']:
+                    print("\tYoutube Streaming enabled!")
+                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
+            # Set whether we should start recording or not.
+            if recording != ['false']:
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
+            # Set whether we should run in fullscreen or not.
+            if fullscreen != ['false']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
+        print("\tUsing emulator: " + str(emulator))
         print("\tUsing core: " + str(core))
         print("\tUsing extensions: " + str(extensions))
         print("\tUsing fullscreen: " + str(fullscreen))
@@ -528,7 +604,7 @@ class Platform_Pc8800(PlatformCommon):
 class Platform_Pc98(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.
+    # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['nekop2_libretro']
@@ -540,7 +616,7 @@ class Platform_Pc98(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.
+        # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['nekop2_libretro']
@@ -584,24 +660,43 @@ class Platform_Pc98(PlatformCommon):
                 if streaming == ['youtube']:
                     print("\tYoutube Streaming enabled!")
                     emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set wether we should start recording or not.
+            # Set whether we should start recording or not.
             if recording != ['false']:
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-            # Set wether we should run in fullscreen or not.
+            # Set whether we should run in fullscreen or not.
             if fullscreen != ['false']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
-            # Set wether we should run in fullscreens or not.
-            if fullscreen == ['true']:
+            if streaming != ['false']:
+                # Set whether we should start streaming to twitch or not.
+                if streaming == ['twitch']:
+                    print("\tTwitch Streaming enabled!")
+                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to restream or not.
+                if streaming == ['restream']:
+                    print("\tRestream Streaming enabled!")
+                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to youtube or not.
+                if streaming == ['youtube']:
+                    print("\tYoutube Streaming enabled!")
+                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
+            # Set whether we should start recording or not.
+            if recording != ['false']:
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
+            # Set whether we should run in fullscreen or not.
+            if fullscreen != ['false']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
+        print("\tUsing emulator: " + str(emulator))
         print("\tUsing core: " + str(core))
         print("\tUsing extensions: " + str(extensions))
         print("\tUsing fullscreen: " + str(fullscreen))
@@ -658,7 +753,7 @@ class Platform_Pc98(PlatformCommon):
 class Platform_Pcfx(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.
+    # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
     cores = ['mednafen_pcfx_libretro']
@@ -670,7 +765,7 @@ class Platform_Pcfx(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.
+        # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_pcfx_libretro']
@@ -714,24 +809,43 @@ class Platform_Pcfx(PlatformCommon):
                 if streaming == ['youtube']:
                     print("\tYoutube Streaming enabled!")
                     emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set wether we should start recording or not.
+            # Set whether we should start recording or not.
             if recording != ['false']:
                 print("\tRecording enabled!")
                 emulator.append('-P ~/.config/retroarch/records')
                 emulator.append('-r ~/.config/retroarch/records')
-            # Set wether we should run in fullscreen or not.
+            # Set whether we should run in fullscreen or not.
             if fullscreen != ['false']:
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
-            # Set wether we should run in fullscreens or not.
-            if fullscreen == ['true']:
+            if streaming != ['false']:
+                # Set whether we should start streaming to twitch or not.
+                if streaming == ['twitch']:
+                    print("\tTwitch Streaming enabled!")
+                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to restream or not.
+                if streaming == ['restream']:
+                    print("\tRestream Streaming enabled!")
+                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
+                # Set whether we should start streaming to youtube or not.
+                if streaming == ['youtube']:
+                    print("\tYoutube Streaming enabled!")
+                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
+            # Set whether we should start recording or not.
+            if recording != ['false']:
+                print("\tRecording enabled!")
+                emulator.append('-P ~/.config/retroarch/records')
+                emulator.append('-r ~/.config/retroarch/records')
+            # Set whether we should run in fullscreen or not.
+            if fullscreen != ['false']:
+                print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
+        print("\tUsing emulator: " + str(emulator))
         print("\tUsing core: " + str(core))
         print("\tUsing extensions: " + str(extensions))
         print("\tUsing fullscreen: " + str(fullscreen))

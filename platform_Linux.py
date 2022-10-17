@@ -5,7 +5,7 @@ from platformcommon import PlatformCommon
 class Platform_Linux(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.
+    # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['linux']
     cores = ['linux']
@@ -17,7 +17,7 @@ class Platform_Linux(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.
+        # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['bash']
         core = ['bash']
@@ -48,7 +48,7 @@ class Platform_Linux(PlatformCommon):
         os.chdir(self.datadir)
         
         # print status to console.
-        print("\tUsing: " + str(emulator))
+        print("\tUsing emulator: " + str(emulator))
         print("\tUsing core: " + str(core))
         print("\tUsing extensions: " + str(extensions))
         print("\tUsing fullscreen: " + str(fullscreen))

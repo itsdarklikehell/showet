@@ -5,7 +5,7 @@ from platformcommon import PlatformCommon
 class Platform_Vectrex(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set wether we should run in fullscreens or not.
+    # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vecx']
     cores = ['vecx_libretro']
@@ -17,7 +17,7 @@ class Platform_Vectrex(PlatformCommon):
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set wether we should run in fullscreens or not.
+        # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vecx_libretro']
@@ -48,18 +48,18 @@ class Platform_Vectrex(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
-            # Set wether we should run in fullscreens or not.
+            # Set whether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'vecx':
-            # Set wether we should run in fullscreens or not.
+            # Set whether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        print("\tUsing: " + str(emulator))
+        print("\tUsing emulator: " + str(emulator))
         print("\tUsing core: " + str(core))
         print("\tUsing extensions: " + str(extensions))
         print("\tUsing fullscreen: " + str(fullscreen))
