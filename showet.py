@@ -270,9 +270,10 @@ else:
 
     # extract files depending on the filetype
     def extract_files(prod_download_filename, datadir):
-        patoolib.extract_archive(prod_download_filename, outdir=datadir, verbosity=0, interactive=None)
-        os.system("tochd -d " + datadir + " -- " + prod_download_filename)
-        os.system("tochd -q -d " + datadir + " " + datadir)
+        if not prod_download_filename.endswith("exe") or not prod_download_filename.endswith("EXE"):
+            patoolib.extract_archive(prod_download_filename, outdir=datadir, verbosity=0, interactive=None)
+            os.system("tochd -d " + datadir + " -- " + prod_download_filename)
+            os.system("tochd -q -d " + datadir + " " + datadir)
         
     
     filetypes = [
