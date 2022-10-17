@@ -359,8 +359,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
     
-    # extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
-    
     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
     harddrives_ext = ['hdf', 'hdz', 'datadir' ]
     whdload_ext = ['lha', 'slave', 'info']
@@ -374,7 +372,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
     extensions.append(other)
     
     
-    def run(self,datadir):
+    def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
@@ -384,10 +382,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        # extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
-        
+                
         floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
-        harddrives_ext = ['hdf', 'hdz', datadir ]
+        harddrives_ext = ['hdf', 'hdz', 'datadir' ]
         whdload_ext = ['lha', 'slave', 'info']
         cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
         other = ['uae', 'm3u', 'zip', '7z']
@@ -401,7 +398,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         if emulator == 'retroarch':
             if core == 'puae_libretro':
                     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
-                    harddrives_ext = ['hdf', 'hdz', datadir ]
+                    harddrives_ext = ['hdf', 'hdz', 'datadir' ]
                     whdload_ext = ['lha', 'slave', 'info']
                     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                     other = ['uae', 'm3u', 'zip', '7z', 'rp9']
@@ -560,12 +557,12 @@ class Platform_CommodoreAmiga(PlatformCommon):
         return cookie_files
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core, datadir):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
                 floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
-                harddrives_ext = ['hdf', 'hdz', datadir ]
+                harddrives_ext = ['hdf', 'hdz', 'datadir' ]
                 whdload_ext = ['lha', 'slave', 'info']
                 cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                 other = ['uae', 'm3u', 'zip', '7z']
