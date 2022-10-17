@@ -215,7 +215,8 @@ prod_download_filename = None
 prod_json = None
 prod_json_filename = datadir + "/pouet.json"
 if os.path.exists(prod_json_filename):
-    print("Json already downloaded")
+    if debugging != False:
+        print("Json already downloaded")
     with open(prod_json_filename, 'r') as f:
         prod_json = f.read()
 else:
@@ -249,13 +250,13 @@ if not runner:
 if len(platforms) > 1:
     print("Demo supports platform platforms ", platforms, "of which", prod_platform, "rules the most.")
 
+# Print fields collected from the data:
+# Name: + data['prod']['name']
+# By: " + data['prod']['groups'][0]['name']
+# Type: " + data['prod']['type']
+# Released: " + data['prod']['releaseDate']
+# Platform: " + prod_platform
 if debugging != False:
-    # Print fields collected from the data:
-    # Name: + data['prod']['name']
-    # By: " + data['prod']['groups'][0]['name']
-    # Type: " + data['prod']['type']
-    # Released: " + data['prod']['releaseDate']
-    # Platform: " + prod_platform
     print("\tName: " + data['prod']['name'])
     try:
         print("\tBy: " + data['prod']['groups'][0]['name'])
@@ -277,24 +278,29 @@ prod_download_url = prod_download_url.replace("https://files.scene.org/view", "h
 
 # Check if the download is already downloaded, else just download it.
 if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
-    print("\tFile already downloaded")
+        print("\tFile already downloaded")
 else:
-    print("\tDownloading prod file from " + prod_download_url + "...")
+    if debugging != False:
+        print("\tDownloading prod file from " + prod_download_url + "...")
+    
     filedata = urllib.request.urlopen(prod_download_url)
     filename = os.path.basename(filedata.url)
+    
     if len(filename) == 0:
         print("Error downloading file at ", prod_download_url)
         exit(-1)
-        
-    print("\tFilename: ", filename)
+    if debugging != False:
+        print("\tFilename: ", filename)
+
     prod_download_filename = datadir + "/" + filename
     datatowrite = filedata.read()
 
     with open(prod_download_filename, 'wb') as f:
         f.write(datatowrite)
 
-    print("\tDownloaded: ", prod_download_filename)
-    print("\tFilesize: ", os.path.getsize(prod_download_filename))
+    if debugging != False:
+        print("\tDownloaded: ", prod_download_filename)
+        print("\tFilesize: ", os.path.getsize(prod_download_filename))
 
     # extract files depending on the filetype
     def extract_files(prod_download_filename, datadir):
@@ -382,19 +388,24 @@ else:
     #lowercase
     for filetype in filetypes:
         if prod_download_filename.endswith(filetype):
-            print("\t================================")
-            print("\tDetected archive: " + filetype)
-            print("\t================================")
+            if debugging != False:
+                print("\t================================")
+                print("\tDetected archive: " + filetype)
+                print("\t================================")
             extract_files(prod_download_filename, datadir)
-            print("\t================================")
+            if debugging != False:
+                print("\t================================")
     #uppercase
     for filetype in filetypes:
         if prod_download_filename.endswith(filetype.upper()):
-            print("\t================================")
-            print("\tDetected archive: " + filetype)
-            print("\t================================")
+            if debugging != False:
+
+                print("\t================================")
+                print("\tDetected archive: " + filetype)
+                print("\t================================")
             extract_files(prod_download_filename, datadir)
-            print("\t================================")
+            if debugging != False:
+                print("\t================================")
     
     open(datadir + "/.FILES_DOWNLOADED", 'a').close()
 
