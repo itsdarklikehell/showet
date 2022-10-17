@@ -204,6 +204,7 @@ if not args.pouetid:
     print("No pouet id specified. Use --help to see options.")
     exit(-1)
 
+# Get the json data:
 prod_id = args.pouetid
 prod_url = "http://api.pouet.net/v1/prod/?id=" + str(prod_id)
 datadir = showetdir + "/data/" + str(prod_id)
@@ -211,8 +212,6 @@ prod_download_url = None
 prod_download_filename = None
 prod_json = None
 prod_json_filename = datadir + "/pouet.json"
-
-# Get the json data:
 if os.path.exists(prod_json_filename):
     print("Json already downloaded")
     with open(prod_json_filename, 'r') as f:
@@ -228,9 +227,9 @@ else:
 
 # print(prod_json)
 data = json.loads(prod_json)
+
 prod_platform = None
 runner = None
-
 platforms = []
 for p in data['prod']['platforms'].values():
     platforms.append(p['slug'])
