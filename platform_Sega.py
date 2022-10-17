@@ -982,6 +982,7 @@ class Platform_Vmu(PlatformCommon):
         fullscreen = ['false']
         core = ['vemulator_libretro']
         streaming = ['false']
+        recording = ['false']
         extensions = ['zip', 'vms', 'dci', 'bin']
         
         if emulator == 'retroarch':

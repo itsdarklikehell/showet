@@ -88,22 +88,21 @@ class Platform_Commodore64(PlatformCommon):
         print("\tUsing recording: " + str(recording))
         print("\tUsing streaming: " + str(streaming))
 
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            #f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-            f.write("#SAVEDISK:\n")
-        with open(m3ufile, "w") as f:
-            #f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-            f.write("#SAVEDISK:\n")
-           
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                #f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                #f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'x64':
@@ -352,28 +351,27 @@ class Platform_CommodoreAmiga(PlatformCommon):
         print("\tUsing recording: " + str(recording))
         print("\tUsing streaming: " + str(streaming))
         
-        flipfile = self.datadir + "/fliplist.vfl"
-        m3ufile = self.datadir + "/fliplist.m3u"
-        with open(flipfile, "w") as f:
-            #f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-            f.write("#SAVEDISK:\n")
-        with open(m3ufile, "w") as f:
-            #f.write("UNIT 8\n")
-            for disk in files:
-                f.write(disk + "\n")
-            f.write("#SAVEDISK:\n")
-        
         drives = []
         # Support only one for now..
         if len(files) > 0:
-            if emulator[0] == 'fs-uae':
-                emulator.append('--hard_drive_0=.')
-            # Set wether we should run in fullscreens or not.
+            # Sort the files.
+            files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                #f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                #f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
-                # emulator.append('--hard_drive_0=.')
                 emulator = emulator + [files[0]]
+            if emulator[0] == 'hatari':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
             
             if not os.path.exists(self.datadir + "/s"):
                 os.makedirs(self.datadir + "/s")
@@ -424,14 +422,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
         #         print("\tUsing drive 3: ", drives[3])
         #         emulator.append('--floppy_drive_3=' + drives[3])
         #     emulator.append('--model=' + amiga_model)
-
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            if emulator[0] == 'retroarch':
-                emulator = emulator + [files[0]]
-            if emulator[0] == 'hatari':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 

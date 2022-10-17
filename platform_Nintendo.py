@@ -676,6 +676,7 @@ class Platform_Gameboy(PlatformCommon):
     fullscreens = ['false']
     cores = ['gambatte_libretro', 'mess2016_libretro', 'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
     streamings = ['false', 'twitch', 'youtube', 'restream']
+    recordings = ['true', 'false']
     extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
     
     def run(self):
@@ -687,6 +688,7 @@ class Platform_Gameboy(PlatformCommon):
         fullscreen = ['false']
         core = ['mesen-s_libretro']
         streaming = ['false']
+        recording = ['false']        
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd']
         
         if emulator == 'retroarch':
