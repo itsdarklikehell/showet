@@ -401,13 +401,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 
         if emulator == 'retroarch':
             if core == 'puae_libretro':
-                    # extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
-    
                     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
                     harddrives_ext = ['hdf', 'hdz', 'directory']
                     whdload_ext = ['lha', 'slave', 'info']
                     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
-                    other = ['uae', 'm3u', 'zip', '7z']
+                    other = ['uae', 'm3u', 'zip', '7z', 'rp9']
                     extensions = []
                     extensions.extend(floppys_ext)
                     extensions.extend(harddrives_ext)
@@ -567,13 +565,16 @@ class Platform_CommodoreAmiga(PlatformCommon):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
-                # extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
-                
                 floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
                 harddrives_ext = ['hdf', 'hdz', 'directory']
                 whdload_ext = ['lha', 'slave', 'info']
                 cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                 other = ['uae', 'm3u', 'zip', '7z']
+                print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
+                print('\tFiles with extension: %s will be identified as Hard Drives' % harddrives_ext)
+                print('\tFiles with extension: %s will be identified as CD-Roms' % cd_ext)
+                print('\tFiles with extension: %s will be identified as Other Files' % other)
+                
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(harddrives_ext)
