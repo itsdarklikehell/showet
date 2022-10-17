@@ -71,6 +71,7 @@ class Platform_Apple(PlatformCommon):
                 print("\tFullscreen enabled!")
                 emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'linapple':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
