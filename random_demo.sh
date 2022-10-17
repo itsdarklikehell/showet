@@ -47,7 +47,7 @@ play_demo(){
         pouet_id=$(shuf -i0-$MAX_POUETIDS -n1)
         echo "I randomly selected production no: $pouet_id from the massive pouet.net database containting: $MAX_POUETIDS productions...(insert windows TADAA! sfx...)"
     fi
-    python3 ~/showet/showet.py $pouet_id & chmod +x ~/.showet/data/$pouet_id/*.*
+    python3 ~/showet/showet.py $pouet_id && chmod +x ~/.showet/data/$pouet_id/*.*
     resoreset
     read -p "Press [q] to quit or [enter] to continue (or wait a few seconds)..." -n1 -s -t $TIMEOUT
     # if q is pressed, then quit
