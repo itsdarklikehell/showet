@@ -1,7 +1,6 @@
 import os
 import os.path
 
-from keyboard import record
 from platformcommon import PlatformCommon
 
 class Platform_Commodore64(PlatformCommon):
