@@ -247,6 +247,12 @@ if not runner:
 if len(platforms) > 1:
     print("Demo supports platform platforms ", platforms, "of which", prod_platform, "rules the most.")
 
+# Print fields collected from the data:
+# Name: + data['prod']['name']
+# By: " + data['prod']['groups'][0]['name']
+# Type: " + data['prod']['type']
+# Released: " + data['prod']['releaseDate']
+# Platform: " + prod_platform
 print("\tName: " + data['prod']['name'])
 try:
     print("\tBy: " + data['prod']['groups'][0]['name'])
@@ -263,6 +269,7 @@ print("\tPlatform: " + prod_platform)
 prod_download_url = data['prod']['download']
 prod_download_url = prod_download_url.replace("https://files.scene.org/view", "https://files.scene.org/get")
 
+# Check if the download is already downloaded, else just download it.
 if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
     print("\tFile already downloaded")
 else:
@@ -289,8 +296,6 @@ else:
             patoolib.extract_archive(prod_download_filename, outdir=datadir, verbosity=0, interactive=None)
             os.system("tochd -d " + datadir + " -- " + prod_download_filename)
             os.system("tochd -q -d " + datadir + " " + datadir)
-        
-    
     filetypes = [
         '7z',
         'ap_',
@@ -352,7 +357,6 @@ else:
         'wim',
         'xar',
         'xz',
-        'z',
         'zad',
         'zip',
         '001',
