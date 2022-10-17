@@ -368,7 +368,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
     other = ['uae', 'm3u', 'zip', '7z']
     extensions = []
-    extensions.append(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
+    extensions.append(floppys_ext)
+    extensions.append(harddrives_ext)
+    extensions.append(whdload_ext)
+    extensions.append(cd_ext)
+    extensions.append(other)
     
     
     def run(self):
@@ -389,7 +393,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
         cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
         other = ['uae', 'm3u', 'zip', '7z']
         extensions = []
-        extensions.append(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
+        extensions.append(floppys_ext)
+        extensions.append(harddrives_ext)
+        extensions.append(whdload_ext)
+        extensions.append(cd_ext)
+        extensions.append(other)
                 
         if emulator == 'retroarch':
             if core == 'puae_libretro':
@@ -401,7 +409,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
                     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                     other = ['uae', 'm3u', 'zip', '7z']
                     extensions = []
-                    extensions.append(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
+                    extensions.append(floppys_ext)
+                    extensions.append(harddrives_ext)
+                    extensions.append(whdload_ext)
+                    extensions.append(cd_ext)
+                    extensions.append(other)
 
         ext = []
         for ext in extensions:
@@ -563,7 +575,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                 other = ['uae', 'm3u', 'zip', '7z']
                 extensions = []
-                extensions.append(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
+                extensions.append(floppys_ext)
+                extensions.append(harddrives_ext)
+                extensions.append(whdload_ext)
+                extensions.append(cd_ext)
+                extensions.append(other)
                     
         ext_files = []
         for file in self.prod_files:
