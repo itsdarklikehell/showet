@@ -365,12 +365,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
     other = ['uae', 'm3u', 'zip', '7z']
     extensions = []
+    extensions.append(other)
     extensions.append(floppys_ext)
     extensions.append(harddrives_ext)
     extensions.append(whdload_ext)
     extensions.append(cd_ext)
-    extensions.append(other)
-    
     
     def run(self):
         # Set up the emulator we want to run.
@@ -403,11 +402,12 @@ class Platform_CommodoreAmiga(PlatformCommon):
                     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                     other = ['uae', 'm3u', 'zip', '7z', 'rp9']
                     extensions = []
+                    extensions.extend(other)
                     extensions.extend(floppys_ext)
                     extensions.extend(harddrives_ext)
                     extensions.extend(whdload_ext)
                     extensions.extend(cd_ext)
-                    extensions.extend(other)
+
 
         ext = []
         for ext in extensions:
@@ -572,11 +572,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 print('\tFiles with extension: %s will be identified as Other Files' % other)
                 
                 extensions = []
+                extensions.extend(other)
                 extensions.extend(floppys_ext)
                 extensions.extend(harddrives_ext)
                 extensions.extend(whdload_ext)
                 extensions.extend(cd_ext)
-                extensions.extend(other)
                     
         ext_files = []
         for file in self.prod_files:
