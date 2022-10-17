@@ -58,7 +58,6 @@ class Platform_Linux(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
