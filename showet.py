@@ -245,8 +245,7 @@ if not runner:
     exit(-1)
 
 if len(platforms) > 1:
-    print("Demo supports platform platforms ", platforms,
-          "of which", prod_platform, "rules the most.")
+    print("Demo supports platform platforms ", platforms, "of which", prod_platform, "rules the most.")
 
 print("\tName: " + data['prod']['name'])
 try:
@@ -254,11 +253,13 @@ try:
 except IndexError:
     pass
 print("\tType: " + data['prod']['type'])
-# print("\tReleased: " + data['prod']['releaseDate'])
+try:
+    print("\tReleased: " + data['prod']['releaseDate'])
+except IndexError:
+    pass
 print("\tPlatform: " + prod_platform)
 
 # Get necessary fields from the data
-
 prod_download_url = data['prod']['download']
 prod_download_url = prod_download_url.replace("https://files.scene.org/view", "https://files.scene.org/get")
 
