@@ -14,7 +14,7 @@ class Platform_Commodore64(PlatformCommon):
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
     
-    extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
+    # extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
     floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
@@ -27,7 +27,22 @@ class Platform_Commodore64(PlatformCommon):
     extensions.extend(roms_ext)
     extensions.extend(vic20_ext)
 
+    # If only one emulator is specified (e.g. retroarch), then use that one.
+    # else ask the user to specify which one to use from the list of supported cores.
+    if len(emulators) > 1:
+        print("Info: Only 1 emulator is supported: %s" % emulators)
+    else:
+        print("Info: Multiple emulators are supported: %s" % emulators)
+        print("Please select one of the supported emulators to continue")
     
+    # If only one core is specified (e.g. 4do_libretro), then use that one.
+    # else ask the user to specify which one to use from the list of supported cores.            
+    if len(cores) > 1:
+        print("Info: Only 1 core is supported: %s" % cores)
+    else:
+        print("Info: Multiple cores are supported: %s" % cores)
+        print("Please select one of the supported cores to continue")
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -50,7 +65,7 @@ class Platform_Commodore64(PlatformCommon):
         extensions.extend(floppys_ext)
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
-        extensions.extend(vic20_ext)    
+        extensions.extend(vic20_ext)
                     
         if emulator == 'retroarch':
             if core == 'vice_x64sc_libretro':
