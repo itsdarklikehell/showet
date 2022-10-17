@@ -1,5 +1,6 @@
 import os
 import os.path
+import inquirer
 
 from platformcommon import PlatformCommon
 
@@ -30,14 +31,26 @@ class Platform_Commodore64(PlatformCommon):
     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
     if len(emulators) > 1:
         print("Info: Multiple emulators are supported: %s" % emulators)
-        print("Please select one of the supported emulators to continue")
+        selection = [
+            inquirer.List('emulators',
+                          message='Please select one of the supported emulators to continue',
+                          choices=emulators
+                          ),
+        ]
+        emulator = inquirer.prompt(selection)
     else:
         print("Info: Only 1 emulator is supported: %s" % emulators)
     
     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
     if len(cores) > 1:
-        print("Info: Multiple cores are supported: %s" % cores)
-        print("Please select one of the supported cores to continue")
+        print("Info: Multiple cores are supported: %s" % emulators)
+        selection = [
+            inquirer.List('cores',
+                          message='Please select one of the supported emulators to continue',
+                          choices=cores
+                          ),
+        ]
+        core = inquirer.prompt(selection)
     else:
         print("Info: Only 1 core is supported: %s" % cores)
 
