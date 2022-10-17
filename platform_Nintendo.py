@@ -334,7 +334,7 @@ class Platform_DS(PlatformCommon):
         if emulator[0] == '4do':
             # Set wether we should run in fullscreens or not.
             if fullscreen == ['true']:
-                emulator.apppend('--fullscreen')
+                emulator.append('--fullscreen')
 
         # print status to console.
         print("\tUsing: " + str(emulator))
@@ -1016,7 +1016,7 @@ class Platform_GameboyAdvance(PlatformCommon):
     # Set wether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    cores = ['meteor_libretro', 'vba_next_libretro', 'vbam_librertro', 'mgba_libretro', 'gpsp_librertro']
+    cores = ['meteor_libretro', 'vba_next_libretro', 'vbam_libretro', 'mgba_libretro', 'gpsp_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']

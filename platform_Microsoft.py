@@ -152,7 +152,7 @@ class Platform_Msx(PlatformCommon):
         # Set wether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['bluesx_libretro']
+        core = ['bluemsx_libretro']
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
