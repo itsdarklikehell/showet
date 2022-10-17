@@ -174,6 +174,7 @@ platform_runners = [
     Platform_Zxspectrum(),
     Platform_Zx81(),
     ]
+
 if args.platforms:
     for r in platform_runners:
         for p in r.supported_platforms():
@@ -181,9 +182,23 @@ if args.platforms:
     exit(0)
 
 showetdir = os.path.expanduser("~/.showet")
+RetroPieEmuDir = os.path.expanduser("/opt/retropie/emulators")
 
+print("Check: If Folder %s exists." % showetdir)
 if not os.path.exists(showetdir):
+    print("Warning: Folder %s does not exist" % showetdir)
     os.makedirs(showetdir)
+    print("Info: Folder %s Created." % showetdir)
+else:
+    print("Info: Folder %s exists." % showetdir)
+
+print("Check: iF Folder %s exists." % RetroPieEmuDir)
+if not os.path.exists(RetroPieEmuDir):
+    print("Warning: %s does not exist" % RetroPieEmuDir)
+    exit(-1)
+else:
+    print("Info: Folder %s exists." % RetroPieEmuDir)
+
 
 if not args.pouetid:
     print("No pouet id specified. Use --help to see options.")
