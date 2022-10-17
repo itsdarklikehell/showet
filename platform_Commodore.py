@@ -27,21 +27,19 @@ class Platform_Commodore64(PlatformCommon):
     extensions.extend(roms_ext)
     extensions.extend(vic20_ext)
 
-    # If only one emulator is specified (e.g. retroarch), then use that one.
-    # else ask the user to specify which one to use from the list of supported cores.
+    # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
     if len(emulators) > 1:
-        print("Info: Only 1 emulator is supported: %s" % emulators)
-    else:
         print("Info: Multiple emulators are supported: %s" % emulators)
         print("Please select one of the supported emulators to continue")
-    
-    # If only one core is specified (e.g. 4do_libretro), then use that one.
-    # else ask the user to specify which one to use from the list of supported cores.            
-    if len(cores) > 1:
-        print("Info: Only 1 core is supported: %s" % cores)
     else:
+        print("Info: Only 1 emulator is supported: %s" % emulators)
+    
+    # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+    if len(cores) > 1:
         print("Info: Multiple cores are supported: %s" % cores)
         print("Please select one of the supported cores to continue")
+    else:
+        print("Info: Only 1 core is supported: %s" % cores)
 
     def run(self):
         # Set up the emulator we want to run.
