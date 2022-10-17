@@ -270,8 +270,15 @@ else:
 
     # extract files depending on the filetype
     def extract_files(prod_download_filename, datadir):
-        # # print("\tExtracting:", prod_download_filename, "To:", datadir)
         patoolib.extract_archive(prod_download_filename, verbosity=0, outdir=datadir, program=None, interactive=None)
+        
+        # os.system("tochd -q -d " + datadir + " " + datadir)
+        
+        ret = os.system("tochd -q -d " + datadir + " " + datadir)
+        if ret == 0:
+            print("\tCreated CHD from: " + datadir)
+        else:
+            print("\tCreating CHD failed!")
     
     filetypes = [
         '7z',
