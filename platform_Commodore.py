@@ -360,15 +360,15 @@ class Platform_CommodoreAmiga(PlatformCommon):
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
     
-    extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
+    # extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
     
     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
     harddrives_ext = ['hdf', 'hdz', 'directory']
     whdload_ext = ['lha', 'slave', 'info']
     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
     other = ['uae', 'm3u', 'zip', '7z']
-    
-    extensions = [(floppys_ext) + (harddrives_ext) + (whdload_ext) + (cd_ext) + (other)]
+    extensions = []
+    extensions.append(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
     
     
     def run(self):
@@ -381,27 +381,27 @@ class Platform_CommodoreAmiga(PlatformCommon):
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
+        # extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
         
         floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
         harddrives_ext = ['hdf', 'hdz', 'directory']
         whdload_ext = ['lha', 'slave', 'info']
         cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
         other = ['uae', 'm3u', 'zip', '7z']
-        
-        extensions = [(floppys_ext) + (harddrives_ext) + (whdload_ext) + (cd_ext) + (other)]
+        extensions = []
+        extensions.append(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
                 
         if emulator == 'retroarch':
             if core == 'puae_libretro':
-                    extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
+                    # extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
     
                     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
                     harddrives_ext = ['hdf', 'hdz', 'directory']
                     whdload_ext = ['lha', 'slave', 'info']
                     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                     other = ['uae', 'm3u', 'zip', '7z']
-                    
-                    extensions = [(floppys_ext) + (harddrives_ext) + (whdload_ext) + (cd_ext) + (other)]
+                    extensions = []
+                    extensions.append(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
 
         ext = []
         for ext in extensions:
@@ -555,15 +555,15 @@ class Platform_CommodoreAmiga(PlatformCommon):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
-                extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
+                # extensions = ['adf', 'adz', 'dms', 'fdi', 'ipf', 'hdf', 'hdz', 'lha', 'slave', 'info', 'cue', 'ccd', 'nrg', 'mds', 'iso', 'chd', 'uae', 'm3u', 'zip', '7z', 'rp9']
                 
                 floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
                 harddrives_ext = ['hdf', 'hdz', 'directory']
                 whdload_ext = ['lha', 'slave', 'info']
                 cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                 other = ['uae', 'm3u', 'zip', '7z']
-                
-                extensions = [(floppys_ext) + (harddrives_ext) + (whdload_ext) + (cd_ext) + (other)]
+                extensions = []
+                extensions.append(floppys_ext, harddrives_ext, whdload_ext, cd_ext, other)
                     
         ext_files = []
         for file in self.prod_files:
