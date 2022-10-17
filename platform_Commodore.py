@@ -561,12 +561,12 @@ class Platform_CommodoreAmiga(PlatformCommon):
         return cookie_files
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core, prod_files):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
                 floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
-                harddrives_ext = ['hdf', 'hdz', 'directory']
+                harddrives_ext = ['hdf', 'hdz', prod_files ]
                 whdload_ext = ['lha', 'slave', 'info']
                 cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                 other = ['uae', 'm3u', 'zip', '7z']
