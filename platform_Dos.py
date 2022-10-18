@@ -23,8 +23,8 @@ class Platform_Msdos(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['dosbox_core_libretro']
+        emulator = ['retroarch']
+        core = ['dosbox_core_libretro']
         emulators = ['retroarch', 'dosbox']
         cores = ['dosbox_core_libretro', 'dosbox_pure_libretro', 'dosbox_svn_libretro', 'dosbox_svn_ce_libretro']
         

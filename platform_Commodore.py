@@ -36,8 +36,8 @@ class Platform_Commodore64(PlatformCommon):
         emulators = ['retroarch', 'vice', 'frodo']
         cores = ['vice_x64sc_libretro', 'frodo_libretro']
 
-        #emulator = ['retroarch']
-        #core = ['vice_x64sc_libretro']
+        emulator = ['retroarch']
+        core = ['vice_x64sc_libretro']
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -470,8 +470,8 @@ class Platform_CommodoreAmiga(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['puae_libretro']
+        emulator = ['retroarch']
+        core = ['puae_libretro']
         emulators = ['retroarch', 'puae', 'fs-uae']
         cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
 
