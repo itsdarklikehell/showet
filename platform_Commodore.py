@@ -4,7 +4,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-debugging = True
+debugging = False
 
 class Platform_Commodore64(PlatformCommon):
     # Set up the emulator we want to run.
@@ -730,10 +730,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 whdload_ext = ['lha', 'slave', 'info']
                 cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                 other = ['uae', 'm3u', 'zip', '7z']
-                print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                print('\tFiles with extension: %s will be identified as Hard Drives' % harddrives_ext)
-                print('\tFiles with extension: %s will be identified as CD-Roms' % cd_ext)
-                print('\tFiles with extension: %s will be identified as Other Files' % other)
+                if debugging != False:
+                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
+                    print('\tFiles with extension: %s will be identified as Hard Drives' % harddrives_ext)
+                    print('\tFiles with extension: %s will be identified as CD-Roms' % cd_ext)
+                    print('\tFiles with extension: %s will be identified as Other Files' % other)
                 
                 extensions = []
                 extensions.extend(other)
@@ -1418,11 +1419,11 @@ class Platform_CommodorePlus4(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                
-                print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)                
+                if debugging != False:
+                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
+                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
+                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
+                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)                
                 
                 extensions = []
                 extensions.extend(floppys_ext)
@@ -1635,11 +1636,11 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                
-                print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
+                if debugging != False:
+                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
+                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
+                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
+                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
                                 
                 extensions = []
                 extensions.extend(floppys_ext)

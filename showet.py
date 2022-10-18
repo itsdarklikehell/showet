@@ -95,7 +95,7 @@ from platform_Wild import (
     Platform_VideoFFMPEG
 )
 
-debugging = True
+debugging = False
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
 parser.add_argument('pouetid', type=int, nargs='?', help='Pouet ID of the production to show')

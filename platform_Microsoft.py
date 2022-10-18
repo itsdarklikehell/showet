@@ -4,7 +4,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-debugging = True
+debugging = False
 
 class Platform_Xbox(PlatformCommon):
     # Set up the emulator we want to run.
@@ -472,7 +472,7 @@ class Platform_Windows(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here
-        if emulator == 'wine':
+        if emulator[0] == 'wine':
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -524,7 +524,7 @@ class Platform_Windows(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'wine':
+        if emulator[0] == 'wine':
             if core[0] == 'wine':
                 extensions = ['exe']
                         

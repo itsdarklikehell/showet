@@ -4,7 +4,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-debugging = True
+debugging = False
 
 class Platform_Arcade(PlatformCommon):
     # Set up the emulator we want to run.

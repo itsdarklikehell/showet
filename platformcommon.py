@@ -3,7 +3,7 @@ import os.path
 from pkgutil import extend_path
 import subprocess
 
-debugging = True
+debugging = False
 
 class PlatformCommon:
     prod_files = []
@@ -12,7 +12,7 @@ class PlatformCommon:
     native = ['false']
     audio = ['true']
 
-    debugging = True
+    debugging = False
 
     def __init__(self):
         self.showetdir = None
