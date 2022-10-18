@@ -7,58 +7,61 @@ from platformcommon import PlatformCommon
 debugging = True
 
 class Platform_Commodore64(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
+    # # Set up the emulator we want to run.
+    # # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # # Set whether we should run in fullscreens or not.
+    # # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice', 'frodo']
     cores = ['vice_x64sc_libretro', 'frodo_libretro']
-    fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+    # fullscreens = ['false']
+    # streamings = ['false', 'twitch', 'youtube', 'restream']
+    # recordings = ['true', 'false']
     
-    # extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
+    # # extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
     
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    tapes_ext = ['t64', 'tap', 'tcrt']
-    roms_ext = ['prg', 'p00', 'crt', 'bin']
-    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    # tapes_ext = ['t64', 'tap', 'tcrt']
+    # roms_ext = ['prg', 'p00', 'crt', 'bin']
+    # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
     
-    extensions = []
-    extensions.extend(floppys_ext)
-    extensions.extend(tapes_ext)
-    extensions.extend(roms_ext)
-    extensions.extend(vic20_ext)
+    # extensions = []
+    # extensions.extend(floppys_ext)
+    # extensions.extend(tapes_ext)
+    # extensions.extend(roms_ext)
+    # extensions.extend(vic20_ext)
 
-    # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-    if len(emulators) > 1:
-        print('Info: Multiple emulators are supported: ' + str(emulators))
-        prompt = [
-            inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-        ]
-        emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        if debugging != False:
-            print('Info: You selected: ' + str(emulator))
-            emulator = str(emulator)
-    else:
-        emulator = emulators
-        print('Info: Only 1 emulator is supported: ' + str(emulator))
-    
-    # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-    if len(cores) > 1:
-        print('Info: Multiple cores are supported: ' + str(cores))
-        prompt = [
-            inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        ]
-        core = inquirer.prompt(prompt).get('cores').strip().lower()
-        if debugging != False:
-            print('Info: You selected: ' + str(core))
-            core = str(core)
-    else:
-        core = cores
-        print('Info: Only 1 core is supported: ' + str(core))
+    def multiman(self,emulators,cores):
+        # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            print('Info: Multiple emulators are supported: ' + str(emulators))
+            prompt = [
+                inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+            ]
+            emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            if debugging != False:
+                print('Info: You selected: ' + str(emulator))
+                emulator = str(emulator)
+        else:
+            emulator = emulators
+            print('Info: Only 1 emulator is supported: ' + str(emulator))
+        # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            print('Info: Multiple cores are supported: ' + str(cores))
+            prompt = [
+                inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+            ]
+            core = inquirer.prompt(prompt).get('cores').strip().lower()
+            if debugging != False:
+                print('Info: You selected: ' + str(core))
+                core = str(core)
+        else:
+            core = cores
+            print('Info: Only 1 core is supported: ' + str(core))
 
     def run(self):
+        emulators = ['retroarch', 'vice', 'frodo']
+        cores = ['vice_x64sc_libretro', 'frodo_libretro']
+
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
@@ -81,7 +84,9 @@ class Platform_Commodore64(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-                    
+        
+        multiman(emulators,cores)
+        
         if emulator == 'retroarch':
             if core == 'vice_x64sc_libretro':
                 extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
