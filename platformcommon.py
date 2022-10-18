@@ -10,7 +10,7 @@ class PlatformCommon:
     native = ['false']
     audio = ['true']
 
-    debugging = True
+    debugging = False
 
     def __init__(self):
         self.showetdir = None
