@@ -204,11 +204,11 @@ class Platform_Commodore64(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-
-                print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
+                if debugging != False:
+                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
+                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
+                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
+                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
 
                 extensions = []
                 extensions.extend(floppys_ext)
@@ -407,11 +407,11 @@ class Platform_Commodore128(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-
-                print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
+                if debugging != False:
+                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
+                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
+                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
+                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
 
                 extensions = []
                 extensions.extend(floppys_ext)
@@ -837,11 +837,11 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-
-                print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
+                if debugging != False:
+                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
+                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
+                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
+                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
 
                 extensions = []
                 extensions.extend(floppys_ext)
@@ -1038,12 +1038,11 @@ class Platform_CommodorePet(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-
-                print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
-                                
+                if debugging != False:
+                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
+                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
+                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
+                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)                                
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -1054,19 +1053,17 @@ class Platform_CommodorePet(PlatformCommon):
         for file in self.prod_files:
             size = os.path.getsize(file)
             if size > 0:
-        
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
                 ext = []
                 for ext in extensions:
-                            
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
-                        
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
-
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_CommodorePlus4(PlatformCommon):
