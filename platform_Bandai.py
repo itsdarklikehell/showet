@@ -30,8 +30,8 @@ class Platform_Wonderswan(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'ws', 'wsc', 'pc2']
         
-        if emulator == 'retroarch':
-            if core == 'mednafen_wswan_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_wswan_libretro':
                 extensions = ['ws', 'wsc', 'pc2']
         
         ext = []
@@ -49,7 +49,7 @@ class Platform_Wonderswan(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
             if streaming != ['false']:
@@ -105,7 +105,7 @@ class Platform_Wonderswan(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'mednafen':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -118,8 +118,8 @@ class Platform_Wonderswan(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'mednafen_wswan_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_wswan_libretro':
                 extensions = ['ws', 'wsc', 'pc2']
                         
         ext_files = []

@@ -30,8 +30,8 @@ class Platform_Gamemusic(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
 
-        if emulator == 'retroarch':
-            if core == 'gme_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'gme_libretro':
                 extensions = ['ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz', 'zip']
                 
         ext = []
@@ -49,7 +49,7 @@ class Platform_Gamemusic(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
             if streaming != ['false']:
@@ -124,7 +124,7 @@ class Platform_Gamemusic(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'vlc':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -137,8 +137,8 @@ class Platform_Gamemusic(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'gme_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'gme_libretro':
                 extensions = ['ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz', 'zip']
         
         ext_files = []
@@ -182,8 +182,8 @@ class Platform_VideoFFMPEG(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         
-        if emulator == 'retroarch':
-            if core == 'ffmpeg_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'ffmpeg_libretro':
                 extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
         ext = []
@@ -201,7 +201,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
             if streaming != ['false']:
@@ -276,7 +276,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'vlc':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -289,8 +289,8 @@ class Platform_VideoFFMPEG(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'ffmpeg_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'ffmpeg_libretro':
                 extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         
         ext_files = []
@@ -334,8 +334,8 @@ class Platform_VideoMPV(PlatformCommon):
         recording = ['false']
         extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         
-        if emulator == 'retroarch':
-            if core == 'mpv_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mpv_libretro':
                 extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
         ext = []
@@ -353,7 +353,7 @@ class Platform_VideoMPV(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
             if streaming != ['false']:
@@ -428,7 +428,7 @@ class Platform_VideoMPV(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -441,8 +441,8 @@ class Platform_VideoMPV(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'mpv_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mpv_libretro':
                 extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         
         ext_files = []

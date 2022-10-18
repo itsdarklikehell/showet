@@ -30,12 +30,12 @@ class Platform_Arcade(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'chd', '7z', 'cmd']
 
-        if emulator == 'retroarch':
-            if core == 'mame_libretro' or core == 'mame2015_libretro' or core == 'mame2016_libretro' or core == 'mamearcade_libretro' or core == 'hbmame_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
                 extensions = ['zip', 'chd', '7z', 'cmd']
-            if core == 'mame2000_libretro' or core == 'mame2010_libretro' or core == 'mame2009_libretro':
+            if core[0] == 'mame2000_libretro' or core[0] == 'mame2010_libretro' or core[0] == 'mame2009_libretro':
                 extensions = ['zip', 'chd', '7z']
-            if core == 'mame2003_libretro' or core == 'mame2003_plus_libretro' or core == 'mame2003_midway_libretro':
+            if core[0] == 'mame2003_libretro' or core[0] == 'mame2003_plus_libretro' or core[0] == 'mame2003_midway_libretro':
                 extensions = ['zip']
 
         ext = []
@@ -53,7 +53,7 @@ class Platform_Arcade(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
             if streaming != ['false']:
@@ -128,7 +128,7 @@ class Platform_Arcade(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'mame':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -141,12 +141,12 @@ class Platform_Arcade(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'mame_libretro' or core == 'mame2015_libretro' or core == 'mame2016_libretro' or core == 'mamearcade_libretro' or core == 'hbmame_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
                 extensions = ['zip', 'chd', '7z', 'cmd']
-            if core == 'mame2000_libretro' or core == 'mame2010_libretro' or core == 'mame2009_libretro':
+            if core[0] == 'mame2000_libretro' or core[0] == 'mame2010_libretro' or core[0] == 'mame2009_libretro':
                 extensions = ['zip', 'chd', '7z']
-            if core == 'mame2003_libretro' or core == 'mame2003_plus_libretro' or core == 'mame2003_midway_libretro':
+            if core[0] == 'mame2003_libretro' or core[0] == 'mame2003_plus_libretro' or core[0] == 'mame2003_midway_libretro':
                 extensions = ['zip']
         
         ext_files = []
