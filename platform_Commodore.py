@@ -39,7 +39,7 @@ class Platform_Commodore64(PlatformCommon):
                           choices=emulators
                           ),
         ]
-        emulator = inquirer.prompt(selection)
+        emulator = inquirer.prompt(str(selection))
         if debugging != False:
             print('Info: You selected: ' + str(emulator))
     else:
@@ -55,7 +55,7 @@ class Platform_Commodore64(PlatformCommon):
                           choices=cores
                           ),
         ]
-        core = inquirer.prompt(selection)
+        core = inquirer.prompt(str(selection))
         if debugging != False:
             print('Info: You selected: ' + str(core))
     else:
