@@ -40,6 +40,8 @@ class Platform_Commodore64(PlatformCommon):
                           ),
         ]
         emulator = inquirer.prompt(selection)
+        if debugging != False:
+            print('Info: You selected: %s', emulator)
     else:
         print("Info: Only 1 emulator is supported: %s" % emulators)
     
@@ -53,6 +55,8 @@ class Platform_Commodore64(PlatformCommon):
                           ),
         ]
         core = inquirer.prompt(selection)
+        if debugging != False:
+            print('Info: You selected: %s', core)
     else:
         print("Info: Only 1 core is supported: %s" % cores)
 
