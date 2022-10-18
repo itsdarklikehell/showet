@@ -48,7 +48,7 @@ class Platform_Commodore64(PlatformCommon):
     
     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
     if len(cores) > 1:
-        print('Info: Multiple cores are supported: ' + cores)
+        print('Info: Multiple cores are supported: ' + str(cores))
         selection = [
             inquirer.List('cores',
                           message='Please select one of the supported emulators to continue',
