@@ -7,7 +7,7 @@ function update(){
 }
 
 TIMEOUT=3 # seconds
-MAX_POUETIDS=88909
+MAX_POUETIDS=88912
 
 # if $1 is empty, then dont loop
 if [ -z $1 ]; then
