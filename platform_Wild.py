@@ -101,12 +101,13 @@ class Platform_Gamemusic(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        # print("\tUsing emulator: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        if debugging != False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
+            print("\tUsing fullscreen: " + str(fullscreen))
+            print("\tUsing recording: " + str(recording))
+            print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -252,12 +253,13 @@ class Platform_VideoFFMPEG(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        # print("\tUsing emulator: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        if debugging != False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
+            print("\tUsing fullscreen: " + str(fullscreen))
+            print("\tUsing recording: " + str(recording))
+            print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
@@ -403,12 +405,13 @@ class Platform_VideoMPV(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # print status to console.
-        # print("\tUsing emulator: " + str(emulator))
-        # print("\tUsing core: " + str(core))
-        # print("\tUsing extensions: " + str(extensions))
-        # print("\tUsing fullscreen: " + str(fullscreen))
-        # print("\tUsing recording: " + str(recording))
-        # print("\tUsing streaming: " + str(streaming))
+        if debugging != False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
+            print("\tUsing fullscreen: " + str(fullscreen))
+            print("\tUsing recording: " + str(recording))
+            print("\tUsing streaming: " + str(streaming))
 
         if len(files) > 0:
             # Sort the files.
