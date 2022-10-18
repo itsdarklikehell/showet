@@ -1,8 +1,10 @@
 import os
 import os.path
+import inquirer
 
-from httpcore import stream
 from platformcommon import PlatformCommon
+
+debugging = False
 
 class Platform_Pcengine(PlatformCommon):
     # Set up the emulator we want to run.
