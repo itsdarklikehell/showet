@@ -32,32 +32,32 @@ class Platform_Commodore64(PlatformCommon):
 
     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
     if len(emulators) > 1:
-        print('Info: Multiple emulators are supported: ' + str(emulators))
+        print('Info: Multiple emulators are supported: ' + emulators)
         selection = [
             inquirer.List('emulators',
                           message='Please select one of the supported emulators to continue',
                           choices=emulators
                           ),
         ]
-        emulator = inquirer.prompt(str(selection))
+        emulator = inquirer.prompt(selection)
         if debugging != False:
-            print('Info: You selected: ' + str(emulator))
+            print('Info: You selected: ' + emulator)
     else:
         emulator = emulators
-        print('Info: Only 1 emulator is supported: ' + str(emulators))
+        print('Info: Only 1 emulator is supported: ' + emulators)
     
     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
     if len(cores) > 1:
-        print('Info: Multiple cores are supported: ' + str(cores))
+        print('Info: Multiple cores are supported: ' + cores)
         selection = [
             inquirer.List('cores',
                           message='Please select one of the supported emulators to continue',
                           choices=cores
                           ),
         ]
-        core = inquirer.prompt(str(selection))
+        core = inquirer.prompt(selection)
         if debugging != False:
-            print('Info: You selected: ' + str(core))
+            print('Info: You selected: ' + core)
     else:
         core = cores
         print("Info: Only 1 core is supported: %s" % cores)
