@@ -65,7 +65,7 @@ class Platform_Linux(PlatformCommon):
 
         # multiman(emulators,cores)
         
-        if emulator == 'bash':
+        if emulator[0] == 'bash':
             if core[0] == 'bash':
                 extensions = ['elf', 'exe']
                 

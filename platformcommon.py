@@ -3,6 +3,8 @@ import os.path
 from pkgutil import extend_path
 import subprocess
 
+debugging = True
+
 class PlatformCommon:
     prod_files = []
     steam = ['false']
@@ -50,13 +52,15 @@ class PlatformCommon:
     def sort_disks(self, files):
         sorted_list = sorted(files, key=lambda s: (s.lower() or s.upper()))
         if len(sorted_list) > 1:
-            print("\tGuessing disk order should be: ")
-            print(sorted_list)
+            if debugging != False:
+                print("\tGuessing disk order should be: ")
+                print(sorted_list)
         return sorted_list
 
     def run_process(self, arguments):
-        print("\tRunning command: ", arguments)
-        print("\t================================")
+        if debugging != False:
+            print("\tRunning command: ", arguments)
+            print("\t================================")
         
         process = subprocess.Popen(arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         process.wait()
@@ -65,7 +69,8 @@ class PlatformCommon:
         for line in process.stdout:
             print(line.decode('utf-8'))
         if retcode:
-            print(arguments[0], "\n\tprocess exited with ", retcode)
+            if debugging != False:
+                print(arguments[0], "\n\tprocess exited with ", retcode)
             exit(-1)
         return retcode
     print("\t================================")

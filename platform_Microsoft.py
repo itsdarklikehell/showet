@@ -426,7 +426,7 @@ class Platform_Windows(PlatformCommon):
 
         # multiman(emulators,cores)
         
-        if emulator == 'wine':
+        if emulator[0] == 'wine':
             if core[0] == 'wine':
                 extensions = ['exe']
 
@@ -505,8 +505,7 @@ class Platform_Windows(PlatformCommon):
             print("\tUsing fullscreen: " + str(fullscreen))
             print("\tUsing recording: " + str(recording))
             print("\tUsing streaming: " + str(streaming))
-
-        print("\tGuessed executable file: " + exefile)
+            print("\tGuessed executable file: " + exefile)
 
         exepath = self.datadir + "/" + exefile
 
