@@ -33,32 +33,33 @@ class Platform_Commodore64(PlatformCommon):
     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
     if len(emulators) > 1:
         print('Info: Multiple emulators are supported: ' + str(emulators))
-        selection = [
+        prompt = [
             inquirer.List('emulators',
-                          message='Please select one of the supported emulators to continue',
-                          choices=emulators
-                          ),
+                        message='Please select one of the supported emulators to continue',
+                        choices=emulators[1]
+                        ),
         ]
-        emulator = inquirer.prompt(selection)
+        selection = inquirer.prompt(prompt).get('emulators').strip.lower()
+        
         if debugging != False:
-            print('Info: You selected: ' + str(emulator))
+            print('Info: You selected: ' + str(selection))
             #print('Info: You selected: ' + list(emulators.keys())[list(emulator.values()).index('retroarch')])
     else:
         emulator = emulators
-        print('Info: Only 1 emulator is supported: ' + str(emulators))
+        print('Info: Only 1 emulator is supported: ' + str(emulator))
     
     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
     if len(cores) > 1:
         print('Info: Multiple cores are supported: ' + str(cores))
-        selection = [
+        prompt = [
             inquirer.List('cores',
                           message='Please select one of the supported emulators to continue',
-                          choices=cores
+                          choices=cores[1]
                           ),
         ]
-        core = inquirer.prompt(selection)
+        core = inquirer.prompt(prompt).get('emulators').strip.lower()
         if debugging != False:
-            print('Info: You selected: ' + str(core))
+            print('Info: You selected: ' + str(selection))
             #print('Info: You selected: ' + list(core.keys())[list(core.values()).index(100)])
     else:
         core = cores
