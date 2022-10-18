@@ -44,7 +44,7 @@ class Platform_Commodore64(PlatformCommon):
             print('Info: You selected: ' + emulator)
     else:
         emulator = emulators
-        print('Info: Only 1 emulator is supported: ' + emulators)
+        print('Info: Only 1 emulator is supported: ' + str(emulators))
     
     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
     if len(cores) > 1:
