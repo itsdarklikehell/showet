@@ -138,7 +138,7 @@ class Platform_Palm(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mu_libretro':
+            if core == 'mu_libretro':
                 extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
         
         ext_files = []

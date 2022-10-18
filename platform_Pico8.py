@@ -138,7 +138,7 @@ class Platform_Pico8(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'retro8_libretro':
+            if core == 'retro8_libretro':
                 extensions = ['p8', 'png']
         
         ext_files = []

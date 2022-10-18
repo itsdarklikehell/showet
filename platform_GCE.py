@@ -100,7 +100,7 @@ class Platform_Vectrex(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'vecx_libretro':
+            if core == 'vecx_libretro':
                 extensions = ['bin', 'vec']
         
         ext_files = []

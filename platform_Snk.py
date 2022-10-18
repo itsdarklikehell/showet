@@ -138,7 +138,7 @@ class Platform_Neogeo(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mednafen_ngp_libretro':
+            if core == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []
@@ -290,7 +290,7 @@ class Platform_Neopocket(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mednafen_ngp_libretro':
+            if core == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []
@@ -442,7 +442,7 @@ class Platform_Neopocketcolor(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mednafen_ngp_libretro':
+            if core == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
         
         ext_files = []

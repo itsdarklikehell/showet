@@ -119,7 +119,7 @@ class Platform_Channelf(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'freechaf_libretro':
+            if core == 'freechaf_libretro':
                 extensions = ['bin', 'chf']
                     
         ext_files = []

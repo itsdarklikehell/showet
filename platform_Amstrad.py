@@ -141,9 +141,9 @@ class Platform_Cpcplus(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'crocods_libretro':
+            if core == 'crocods_libretro':
                 extensions = ['dsk', 'sna', 'kcr']
-            if core[0] == 'cap32_libretro':
+            if core == 'cap32_libretro':
                 extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
                 
         ext_files = []

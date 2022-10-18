@@ -119,7 +119,7 @@ class Platform_Odyssey(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'o2em_libretro':
+            if core == 'o2em_libretro':
                 extensions = ['bin']
         
         ext_files = []

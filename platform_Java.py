@@ -138,7 +138,7 @@ class Platform_Java(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'squirreljme_libretro':
+            if core == 'squirreljme_libretro':
                 extensions = ['jar', 'sqc', 'jam', 'jad', 'kjx']
                         
         ext_files = []

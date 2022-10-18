@@ -138,7 +138,7 @@ class Platform_GP32(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mame_libretro':
+            if core == 'mame_libretro':
                 extensions = ['zip', 'chd', '7z', 'cmd']
         
         ext_files = []
@@ -290,7 +290,7 @@ class Platform_GP2x(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mame_libretro':
+            if core == 'mame_libretro':
                 extensions = ['zip', 'chd', '7z', 'cmd']
         
         ext_files = []

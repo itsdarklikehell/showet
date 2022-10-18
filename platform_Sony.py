@@ -146,15 +146,15 @@ class Platform_Psx(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'duckstation_libretro' or core[0] == 'swanstation_libretro':
+            if core == 'duckstation_libretro' or core == 'swanstation_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
-            if core[0] == 'rustation_libretro':
+            if core == 'rustation_libretro':
                 extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe']
-            if core[0] == 'mednafen_psx_libretro' or core[0] == 'mednafen_psx_hw_libretro':
+            if core == 'mednafen_psx_libretro' or core == 'mednafen_psx_hw_libretro':
                 extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe', 'pbp', 'chd']
-            if core[0] == 'pcsx1_libretro':
+            if core == 'pcsx1_libretro':
                 extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u']
-            if core[0] == 'pcsx_rearmed_libretro' or core[0] == 'pcsx_rearmed_neon_libretro':
+            if core == 'pcsx_rearmed_libretro' or core == 'pcsx_rearmed_neon_libretro':
                 extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u', 'ccd', 'chd']
         
         ext_files = []
@@ -309,9 +309,9 @@ class Platform_Ps2(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'pcsx2_libretro':
+            if core == 'pcsx2_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
-            if core[0] == 'play_libretro':
+            if core == 'play_libretro':
                 extensions = ['chd', 'cso', 'cue', 'elf', 'iso', 'isz']
         
         ext_files = []
@@ -464,7 +464,7 @@ class Platform_Psp(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'ppsspp_libretro':
+            if core == 'ppsspp_libretro':
                 extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
         ext_files = []

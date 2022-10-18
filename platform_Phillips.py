@@ -138,7 +138,7 @@ class Platform_Cdi(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'samecdi_libretro':
+            if core == 'samecdi_libretro':
                 extensions = ['chd', 'iso']
                         
         ext_files = []

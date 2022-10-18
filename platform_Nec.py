@@ -136,7 +136,7 @@ class Platform_Pcengine(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'mednafen_supergrafx_libretro':
+            if core == 'mednafen_supergrafx_libretro':
                 extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
         
         ext_files = []
@@ -288,7 +288,7 @@ class Platform_Supergrafx(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'mednafen_supergrafx_libretro':
+            if core == 'mednafen_supergrafx_libretro':
                 extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
                 
         ext_files = []
@@ -441,7 +441,7 @@ class Platform_Pc8000(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'quasi88_libretro':
+            if core == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
 
         ext_files = []
@@ -593,7 +593,7 @@ class Platform_Pc8800(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'quasi88_libretro':
+            if core == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
                         
         ext_files = []
@@ -745,7 +745,7 @@ class Platform_Pc98(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'nekop2_libretro':
+            if core == 'nekop2_libretro':
                 extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
 
         ext_files = []
@@ -897,7 +897,7 @@ class Platform_Pcfx(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mednafen_pcfx_libretro':
+            if core == 'mednafen_pcfx_libretro':
                 extensions = ['cue', 'ccd', 'toc', 'chd']
 
         ext_files = []

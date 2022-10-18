@@ -119,7 +119,7 @@ class Platform_Wonderswan(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mednafen_wswan_libretro':
+            if core == 'mednafen_wswan_libretro':
                 extensions = ['ws', 'wsc', 'pc2']
                         
         ext_files = []

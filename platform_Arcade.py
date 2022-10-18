@@ -142,11 +142,11 @@ class Platform_Arcade(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
+            if core == 'mame_libretro' or core == 'mame2015_libretro' or core == 'mame2016_libretro' or core == 'mamearcade_libretro' or core == 'hbmame_libretro':
                 extensions = ['zip', 'chd', '7z', 'cmd']
-            if core[0] == 'mame2000_libretro' or core[0] == 'mame2010_libretro' or core[0] == 'mame2009_libretro':
+            if core == 'mame2000_libretro' or core == 'mame2010_libretro' or core == 'mame2009_libretro':
                 extensions = ['zip', 'chd', '7z']
-            if core[0] == 'mame2003_libretro' or core[0] == 'mame2003_plus_libretro' or core[0] == 'mame2003_midway_libretro':
+            if core == 'mame2003_libretro' or core == 'mame2003_plus_libretro' or core == 'mame2003_midway_libretro':
                 extensions = ['zip']
         
         ext_files = []

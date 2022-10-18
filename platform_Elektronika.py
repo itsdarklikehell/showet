@@ -119,7 +119,7 @@ class Platform_Pdp11(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'bk_libretro':
+            if core == 'bk_libretro':
                 extensions = ['bin']
         
         ext_files = []

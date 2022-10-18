@@ -137,7 +137,7 @@ class Platform_Apple(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         if emulator == 'retroarch':
-            if core[0] == 'minivmac_libretro':
+            if core == 'minivmac_libretro':
                 extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
 
         ext_files = []

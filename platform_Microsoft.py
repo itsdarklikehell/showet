@@ -118,7 +118,7 @@ class Platform_Xbox(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'directxbox_libretro':
+            if core == 'directxbox_libretro':
                 extensions = ['iso']
                         
         ext_files = []
@@ -272,9 +272,9 @@ class Platform_Msx(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-            if core[0] == 'fmsx_libretro':
+            if core == 'fmsx_libretro':
                 extensions = ['rom', 'mx1', 'mx2', 'dsk', 'fdi', 'cas', 'm3u']
         
         ext_files = []
@@ -420,7 +420,7 @@ class Platform_Windows(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'wine':
-            if core[0] == 'wine':
+            if core == 'wine':
                 extensions = ['exe']
                         
         ext_files = []

@@ -141,9 +141,9 @@ class Platform_Coleco(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-            if core[0] == 'gearcoleco_libretro':
+            if core == 'gearcoleco_libretro':
                 extensions = ['col', 'cv', 'bin', 'rom']
                         
         ext_files = []

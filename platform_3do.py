@@ -173,7 +173,7 @@ class Platform_3do(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == '4do_libretro' or core[0] == 'opera_libretro':
+            if core == '4do_libretro' or core == 'opera_libretro':
                 extensions = ['iso', 'bin', 'chd', 'cue']
                         
         ext_files = []

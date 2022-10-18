@@ -119,7 +119,7 @@ class Platform_Intellivision(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'freeintv_libretro':
+            if core == 'freeintv_libretro':
                 extensions = ['int', 'bin', 'rom']
                         
         ext_files = []

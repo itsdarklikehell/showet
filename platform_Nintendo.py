@@ -137,7 +137,7 @@ class Platform_3DS(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         if emulator == 'retroarch':
-            if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
+            if core == 'citra_libretro' or core == 'citra2018_libretro' or core == 'citra_canary_libretro':
                 extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
         
         ext_files = []
@@ -289,7 +289,7 @@ class Platform_N64(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'mupen64plus_next_libretro':
+            if core == 'mupen64plus_next_libretro':
                 extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         
         ext_files = []
@@ -441,7 +441,7 @@ class Platform_DS(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'desmume_libretro':
+            if core == 'desmume_libretro':
                 extensions = ['nds', 'dsi']
                         
         ext_files = []
@@ -597,11 +597,11 @@ class Platform_Famicom(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
+            if core == 'quicknes_libretro' or core == 'bnes_libretro':
                 extensions = ['nes']
-            if core[0] == 'emux_nes_libretro':
+            if core == 'emux_nes_libretro':
                 extensions = ['nes', 'bin', 'rom']
-            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
+            if core == 'nestopia_libretro' or core == 'fceumm_libretro' or core == 'mesen_libretro':
                 extensions = ['fds', 'nes', 'unif', 'unf']
         
         ext_files = []
@@ -757,11 +757,11 @@ class Platform_FamicomDisksystem(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
+            if core == 'quicknes_libretro' or core == 'bnes_libretro':
                 extensions = ['nes']
-            if core[0] == 'emux_nes_libretro':
+            if core == 'emux_nes_libretro':
                 extensions = ['nes', 'bin', 'rom']
-            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
+            if core == 'nestopia_libretro' or core == 'fceumm_libretro' or core == 'mesen_libretro':
                 extensions = ['fds', 'nes', 'unif', 'unf']
         
         ext_files = []
@@ -935,27 +935,27 @@ class Platform_Gameboy(PlatformCommon):
 
         if emulator == 'retroarch':
             #gb/c
-            if core[0] == 'emux_gb_libretro':
+            if core == 'emux_gb_libretro':
                 extensions = ['gb', 'bin', 'rom']
-            if core[0] == 'gambatte_libretro':
+            if core == 'gambatte_libretro':
                 extensions = ['gb', 'gbc', 'dmg']
-            if core[0] == 'gearhub_libretro':
+            if core == 'gearhub_libretro':
                 extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core[0] == 'sameboy_libretro':
+            if core == 'sameboy_libretro':
                 extensions = ['gb', 'gbc']
-            if core[0] == 'tgbdual_libretro':
+            if core == 'tgbdual_libretro':
                 extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']                                                                
             #gba
-            if core[0] == 'mgba_libretro':
+            if core == 'mgba_libretro':
                 extensions = ['gb', 'gbc', 'gba']
-            if core[0] == 'tempgba_libretro':
+            if core == 'tempgba_libretro':
                 extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core[0] == 'mednafen_gba_libretro':
+            if core == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
             #snes
-            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
+            if core == 'higan_sfc_libretro' or core == 'higan_sfc balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core[0] == 'mesen-s_libretro':
+            if core == 'mesen-s_libretro':
                 extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
                             
         ext_files = []
@@ -1128,27 +1128,27 @@ class Platform_GameboyColor(PlatformCommon):
 
         if emulator == 'retroarch':
             #gb/c
-            if core[0] == 'emux_gb_libretro':
+            if core == 'emux_gb_libretro':
                 extensions = ['gb', 'bin', 'rom']
-            if core[0] == 'gambatte_libretro':
+            if core == 'gambatte_libretro':
                 extensions = ['gb', 'gbc', 'dmg']
-            if core[0] == 'gearhub_libretro':
+            if core == 'gearhub_libretro':
                 extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core[0] == 'sameboy_libretro':
+            if core == 'sameboy_libretro':
                 extensions = ['gb', 'gbc']
-            if core[0] == 'tgbdual_libretro':
+            if core == 'tgbdual_libretro':
                 extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']                                                                
             #gba
-            if core[0] == 'mgba_libretro':
+            if core == 'mgba_libretro':
                 extensions = ['gb', 'gbc', 'gba']
-            if core[0] == 'tempgba_libretro':
+            if core == 'tempgba_libretro':
                 extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core[0] == 'mednafen_gba_libretro':
+            if core == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
             #snes
-            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
+            if core == 'higan_sfc_libretro' or core == 'higan_sfc balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core[0] == 'mesen-s_libretro':
+            if core == 'mesen-s_libretro':
                 extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
         
         ext_files = []
@@ -1312,19 +1312,19 @@ class Platform_GameboyAdvance(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mednafen_gba_libretro':
+            if core == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
-            if core[0] == 'gpsp_libretro':
+            if core == 'gpsp_libretro':
                 extensions = ['gba', 'bin']
-            if core[0] == 'meteor_libretro':
+            if core == 'meteor_libretro':
                 extensions = ['gba']                
-            if core[0] == 'mgba_libretro':
+            if core == 'mgba_libretro':
                 extensions = ['gb', 'gbc', 'gba']
-            if core[0] == 'tempgba_libretro':
+            if core == 'tempgba_libretro':
                 extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core[0] == 'vbam_libretro':
+            if core == 'vbam_libretro':
                 extensions = ['dmg', 'gb', 'gbc', 'cgb', 'sgb', 'gba']            
-            if core[0] == 'vba_next_libretro':
+            if core == 'vba_next_libretro':
                 extensions = ['gba']
                         
         ext_files = []
@@ -1476,7 +1476,7 @@ class Platform_Gamecube(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'dolphin_libretro':
+            if core == 'dolphin_libretro':
                 extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext_files = []
@@ -1628,7 +1628,7 @@ class Platform_Pokemini(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'pokemini_libretro':
+            if core == 'pokemini_libretro':
                 extensions = ['min']
         
         ext_files = []
@@ -1786,13 +1786,13 @@ class Platform_SuperFamicom(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'bsnes_libretro' or core[0] == 'bsnes_hd_beta_libretro' or core[0] == 'bsnes_cplusplus98_libretro' or core[0] == 'bsnes2014_accuracy_libretro' or core[0] == 'bsnes2014_balanced_libretro' or core[0] == 'bsnes2014_performance_libretro' or core[0] == 'bsnes_mercury_accuracy_libretro' or core[0] == 'bsnes_mercury_balanced_libretro' or core[0] == 'bsnes_mercury_balanced_libretro':
+            if core == 'bsnes_libretro' or core == 'bsnes_hd_beta_libretro' or core == 'bsnes_cplusplus98_libretro' or core == 'bsnes2014_accuracy_libretro' or core == 'bsnes2014_balanced_libretro' or core == 'bsnes2014_performance_libretro' or core == 'bsnes_mercury_accuracy_libretro' or core == 'bsnes_mercury_balanced_libretro' or core == 'bsnes_mercury_balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bs']
-            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
+            if core == 'higan_sfc_libretro' or core == 'higan_sfc balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core[0] == 'mesen-s_libretro':
+            if core == 'mesen-s_libretro':
                 extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
-            if core[0] == 'snes9x_libretro' or core[0] == 'snes9x2002_libretro' or core[0] == 'snes9x2005_libretro' or core[0] == 'snes9x2005_plus_libretro' or core[0] == 'snes9x2010_libretro':
+            if core == 'snes9x_libretro' or core == 'snes9x2002_libretro' or core == 'snes9x2005_libretro' or core == 'snes9x2005_plus_libretro' or core == 'snes9x2010_libretro':
                 extensions = ['smc', 'sfc', 'swc', 'fig', 'bs', 'st']
         
         ext_files = []
@@ -1944,7 +1944,7 @@ class Platform_Virtualboy(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'mednafen_vb_libretro':
+            if core == 'mednafen_vb_libretro':
                 extensions = ['vb', 'vboy', 'bin']
                         
         ext_files = []
@@ -2096,7 +2096,7 @@ class Platform_Wii(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'dolphin_libretro':
+            if core == 'dolphin_libretro':
                 extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext_files = []

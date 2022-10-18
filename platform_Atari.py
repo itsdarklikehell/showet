@@ -139,7 +139,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'hatari_libretro':
+            if core == 'hatari_libretro':
                 extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
         ext_files = []
@@ -291,7 +291,7 @@ class Platform_Atarixlxe(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'atari800_libretro':
+            if core == 'atari800_libretro':
                 extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
         
         ext_files = []
@@ -442,7 +442,7 @@ class Platform_AtariJaguar(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'virtualjaguar_libretro':
+            if core == 'virtualjaguar_libretro':
                 extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
         
         ext_files = []
@@ -595,7 +595,7 @@ class Platform_AtariLynx(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
+            if core == 'handy_libretro' or core == 'mednafen_lynx_libretro':
                 extensions = ['lnx', 'o']
         
         ext_files = []
@@ -747,7 +747,7 @@ class Platform_Atari2600(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'stella_libretro':
+            if core == 'stella_libretro':
                 extensions = ['zip', 'a26', 'bin']
                         
         ext_files = []
@@ -899,7 +899,7 @@ class Platform_Atari5200(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'atari800_libretro':
+            if core == 'atari800_libretro':
                 extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
         
         ext_files = []
@@ -1050,7 +1050,7 @@ class Platform_Atari7800(PlatformCommon):
     def find_ext_files(self,emulator,core):
         
         if emulator == 'retroarch':
-            if core[0] == 'prosystem_libretro':
+            if core == 'prosystem_libretro':
                 extensions = ['zip', 'a78', 'bin', 'cdf']
                 
         ext_files = []

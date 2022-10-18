@@ -93,7 +93,7 @@ class Platform_Linux(PlatformCommon):
         extensions = ['elf', 'exe']
         
         if emulator == 'bash':
-            if core[0] == 'bash':
+            if core == 'bash':
                 extensions = ['elf', 'exe']
                         
         ext_files = []

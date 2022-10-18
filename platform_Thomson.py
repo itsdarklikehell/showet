@@ -138,7 +138,7 @@ class Platform_MOTO(PlatformCommon):
     def find_ext_files(self,emulator,core):
 
         if emulator == 'retroarch':
-            if core[0] == 'theodore_libretro':
+            if core == 'theodore_libretro':
                 extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
         
         ext_files = []
