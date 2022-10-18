@@ -1,6 +1,10 @@
 import os
 import os.path
+import inquirer
+
 from platformcommon import PlatformCommon
+
+debugging = False
 
 class Platform_AtariSTETTFalcon(PlatformCommon):
     # Set up the emulator we want to run.
@@ -146,10 +150,12 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Atarixlxe(PlatformCommon):
@@ -295,10 +301,12 @@ class Platform_Atarixlxe(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_AtariJaguar(PlatformCommon):
@@ -443,10 +451,12 @@ class Platform_AtariJaguar(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_AtariLynx(PlatformCommon):
@@ -593,10 +603,12 @@ class Platform_AtariLynx(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Atari2600(PlatformCommon):
@@ -742,10 +754,12 @@ class Platform_Atari2600(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Atari5200(PlatformCommon):
@@ -891,10 +905,12 @@ class Platform_Atari5200(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Atari7800(PlatformCommon):
@@ -1039,8 +1055,10 @@ class Platform_Atari7800(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files

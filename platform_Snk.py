@@ -1,6 +1,10 @@
 import os
 import os.path
+import inquirer
+
 from platformcommon import PlatformCommon
+
+debugging = False
 
 class Platform_Neogeo(PlatformCommon):
     # Set up the emulator we want to run.
@@ -145,10 +149,12 @@ class Platform_Neogeo(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Neopocket(PlatformCommon):
@@ -294,10 +300,12 @@ class Platform_Neopocket(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Neopocketcolor(PlatformCommon):
@@ -443,9 +451,11 @@ class Platform_Neopocketcolor(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 

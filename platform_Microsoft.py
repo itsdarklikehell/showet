@@ -128,10 +128,12 @@ class Platform_Xbox(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Msx(PlatformCommon):
@@ -281,10 +283,12 @@ class Platform_Msx(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Windows(PlatformCommon):
@@ -424,8 +428,10 @@ class Platform_Windows(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files

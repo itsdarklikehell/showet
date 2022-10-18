@@ -147,10 +147,12 @@ class Platform_Pcengine(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Supergrafx(PlatformCommon):
@@ -296,10 +298,12 @@ class Platform_Supergrafx(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Pc8000(PlatformCommon):
@@ -446,10 +450,12 @@ class Platform_Pc8000(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Pc8800(PlatformCommon):
@@ -595,10 +601,12 @@ class Platform_Pc8800(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Pc98(PlatformCommon):
@@ -744,10 +752,12 @@ class Platform_Pc98(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Pcfx(PlatformCommon):
@@ -893,8 +903,10 @@ class Platform_Pcfx(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files

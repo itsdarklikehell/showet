@@ -1,6 +1,10 @@
 import os
 import os.path
+import inquirer
+
 from platformcommon import PlatformCommon
+
+debugging = False
 
 class Platform_32X(PlatformCommon):
     # Set up the emulator we want to run.
@@ -145,10 +149,12 @@ class Platform_32X(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Dreamcast(PlatformCommon):
@@ -298,10 +304,12 @@ class Platform_Dreamcast(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 class Platform_Gamegear(PlatformCommon):
     # Set up the emulator we want to run.
@@ -453,10 +461,12 @@ class Platform_Gamegear(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Mastersystem(PlatformCommon):
@@ -628,10 +638,12 @@ class Platform_Mastersystem(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Megadrive(PlatformCommon):
@@ -785,10 +797,12 @@ class Platform_Megadrive(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Saturn(PlatformCommon):
@@ -940,10 +954,12 @@ class Platform_Saturn(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Stv(PlatformCommon):
@@ -1097,10 +1113,12 @@ class Platform_Stv(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_Vmu(PlatformCommon):
@@ -1246,10 +1264,12 @@ class Platform_Vmu(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 
 class Platform_SG1000(PlatformCommon):
@@ -1397,8 +1417,10 @@ class Platform_SG1000(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files

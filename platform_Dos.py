@@ -1,6 +1,10 @@
 import os
 import os.path
+import inquirer
+
 from platformcommon import PlatformCommon
+
+debugging = False
 
 class Platform_Msdos(PlatformCommon):
     # Set up the emulator we want to run.
@@ -130,16 +134,20 @@ class Platform_Msdos(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         if file == 'dos4gw.exe' or file == 'DOS4GW.EXE':
-                            print("\tFound dos4gw.exe file: skipping for now... ")
+                            if debugging != False:
+                                print("\tFound dos4gw.exe file: skipping for now... ")
                             #ext_files.append(file)
                         else:
                             ext_files.append(file)
-                            print("\tFound file: " + file)
+                            if debugging != False:
+                                print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         if file == 'dos4gw.exe' or file == 'DOS4GW.EXE':
-                            print("\tFound dos4gw.exe file: skipping for now... ")
+                            if debugging != False:
+                                print("\tFound dos4gw.exe file: skipping for now... ")
                             #ext_files.append(file)
                         else:
                             ext_files.append(file)
-                            print("\tFound file: " + file)
+                            if debugging != False:
+                                print("\tFound file: " + file)
         return ext_files

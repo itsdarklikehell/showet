@@ -1,7 +1,11 @@
 from asyncio import streams
 import os
 import os.path
+import inquirer
+
 from platformcommon import PlatformCommon
+
+debugging = False
 
 class Platform_3do(PlatformCommon):
     # Set up the emulator we want to run.
@@ -146,9 +150,11 @@ class Platform_3do(PlatformCommon):
                 for ext in extensions:
                     if file.endswith(ext):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
                         ext_files.append(file)
-                        print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
         return ext_files
 

@@ -9,7 +9,9 @@ class PlatformCommon:
     fullscreen = ['true']
     native = ['false']
     audio = ['true']
-    
+
+    debugging = False
+
     def __init__(self):
         self.showetdir = None
         self.datadir = None
