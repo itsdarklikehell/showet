@@ -57,7 +57,7 @@ class Platform_Commodore64(PlatformCommon):
                           choices=cores
                           ),
         ]
-        core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        core = inquirer.prompt(prompt).get('cores').strip().lower()
         if debugging != False:
             print('Info: You selected: ' + str(selection))
             #print('Info: You selected: ' + list(core.keys())[list(core.values()).index(100)])
