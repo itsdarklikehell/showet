@@ -32,7 +32,7 @@ class Platform_Commodore64(PlatformCommon):
 
     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
     if len(emulators) > 1:
-        print('Info: Multiple emulators are supported: ' + emulators)
+        print('Info: Multiple emulators are supported: ' + str(emulators))
         selection = [
             inquirer.List('emulators',
                           message='Please select one of the supported emulators to continue',
