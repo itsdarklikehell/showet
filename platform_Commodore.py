@@ -36,7 +36,7 @@ class Platform_Commodore64(PlatformCommon):
         prompt = [
             inquirer.List('emulators',
                         message='Please select one of the supported emulators to continue',
-                        choices=emulators[1]
+                        choices=emulators
                         ),
         ]
         selection = inquirer.prompt(prompt).get('emulators').strip.lower()
@@ -54,7 +54,7 @@ class Platform_Commodore64(PlatformCommon):
         prompt = [
             inquirer.List('cores',
                           message='Please select one of the supported emulators to continue',
-                          choices=cores[1]
+                          choices=cores
                           ),
         ]
         core = inquirer.prompt(prompt).get('emulators').strip.lower()
