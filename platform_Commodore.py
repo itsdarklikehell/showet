@@ -41,7 +41,7 @@ class Platform_Commodore64(PlatformCommon):
         ]
         emulator = inquirer.prompt(selection)
         if debugging != False:
-            print('Info: You selected: {emulator}'
+            print('Info: You selected: {emulator}')
     else:
         emulator = emulators
         print('Info: Only 1 emulator is supported: ' + str(emulators))
