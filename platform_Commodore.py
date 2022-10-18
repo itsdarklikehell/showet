@@ -203,27 +203,25 @@ class Platform_Commodore64(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-
-        if emulator == 'retroarch':
-            if core == 'vice_x64sc_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-                tapes_ext = ['t64', 'tap', 'tcrt']
-                roms_ext = ['prg', 'p00', 'crt', 'bin']
-                vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
-                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
-
-                extensions = []
-                extensions.extend(floppys_ext)
-                extensions.extend(tapes_ext)
-                extensions.extend(roms_ext)
-                extensions.extend(vic20_ext)
-                        
         ext_files = []
         for file in self.prod_files:
+            if emulator == 'retroarch':
+                if core == 'vice_x64sc_libretro':
+                    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                    tapes_ext = ['t64', 'tap', 'tcrt']
+                    roms_ext = ['prg', 'p00', 'crt', 'bin']
+                    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+                    if debugging != False:
+                        print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
+                        print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
+                        print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
+                        print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
+
+                    extensions = []
+                    extensions.extend(floppys_ext)
+                    extensions.extend(tapes_ext)
+                    extensions.extend(roms_ext)
+                    extensions.extend(vic20_ext)
             size = os.path.getsize(file)
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
