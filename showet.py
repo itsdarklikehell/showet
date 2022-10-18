@@ -248,7 +248,7 @@ if not runner:
     exit(-1)
 
 if len(platforms) > 1:
-    print("Demo supports platform platforms ", platforms, "of which", prod_platform, "rules the most.")
+    print("Demo supports platforms ", platforms, "of which", prod_platform, "rules the most.")
 
 # Print fields collected from the data:
 # Name: + data['prod']['name']
