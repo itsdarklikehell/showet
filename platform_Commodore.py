@@ -56,7 +56,7 @@ class Platform_Commodore64(PlatformCommon):
         
         emulator = []
         core = []
-        def multiman(self,emulators,cores):
+        def multiman(emulators,cores):
             # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
             if len(emulators) > 1:
                 print('Info: Multiple emulators are supported: ' + str(emulators))
