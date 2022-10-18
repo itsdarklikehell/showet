@@ -39,10 +39,11 @@ class Platform_Commodore64(PlatformCommon):
                         choices=emulators
                         ),
         ]
-        selection = inquirer.prompt(prompt).get('emulators').strip().lower()
+        emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         
         if debugging != False:
-            print('Info: You selected: ' + str(selection))
+            print('Info: You selected: ' + str(emulator))
+            
             #print('Info: You selected: ' + list(emulators.keys())[list(emulator.values()).index('retroarch')])
     else:
         emulator = emulators
@@ -59,7 +60,7 @@ class Platform_Commodore64(PlatformCommon):
         ]
         core = inquirer.prompt(prompt).get('cores').strip().lower()
         if debugging != False:
-            print('Info: You selected: ' + str(selection))
+            print('Info: You selected: ' + str(core))
             #print('Info: You selected: ' + list(core.keys())[list(core.values()).index(100)])
     else:
         core = cores
