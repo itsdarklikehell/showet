@@ -42,9 +42,9 @@ class Platform_3DS(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -55,9 +55,9 @@ class Platform_3DS(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -225,9 +225,9 @@ class Platform_N64(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -238,9 +238,9 @@ class Platform_N64(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -409,9 +409,9 @@ class Platform_DS(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -422,9 +422,9 @@ class Platform_DS(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -593,9 +593,9 @@ class Platform_Famicom(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -606,9 +606,9 @@ class Platform_Famicom(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -785,9 +785,9 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -798,9 +798,9 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -977,9 +977,9 @@ class Platform_Gameboy(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -990,9 +990,9 @@ class Platform_Gameboy(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -1202,9 +1202,9 @@ class Platform_GameboyColor(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -1215,9 +1215,9 @@ class Platform_GameboyColor(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -1428,9 +1428,9 @@ class Platform_GameboyAdvance(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -1441,9 +1441,9 @@ class Platform_GameboyAdvance(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -1636,9 +1636,9 @@ class Platform_Gamecube(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -1649,9 +1649,9 @@ class Platform_Gamecube(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -1820,9 +1820,9 @@ class Platform_Pokemini(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -1833,9 +1833,9 @@ class Platform_Pokemini(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -2004,9 +2004,9 @@ class Platform_SuperFamicom(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -2017,9 +2017,9 @@ class Platform_SuperFamicom(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -2200,9 +2200,9 @@ class Platform_Virtualboy(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -2213,9 +2213,9 @@ class Platform_Virtualboy(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
@@ -2384,9 +2384,9 @@ class Platform_Wii(PlatformCommon):
                 emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(emulator))
-                    emulator = str(emulator)
+                    #emulator = str(emulator)
             else:
-                emulator = emulators
+                #emulator = emulators
                 print('Info: Only 1 emulator is supported: ' + str(emulator))
             # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
             if len(cores) > 1:
@@ -2397,9 +2397,9 @@ class Platform_Wii(PlatformCommon):
                 core = inquirer.prompt(prompt).get('cores').strip().lower()
                 if debugging != False:
                     print('Info: You selected: ' + str(core))
-                    core = str(core)
+                    #core = str(core)
             else:
-                core = cores
+                #core = cores
                 print('Info: Only 1 core is supported: ' + str(core))
 
         multiman(emulators,cores)
