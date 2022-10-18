@@ -42,7 +42,7 @@ class Platform_Commodore64(PlatformCommon):
         emulator = inquirer.prompt(selection)
         if debugging != False:
             print('Info: You selected: ' + str(emulator))
-            print('Info: You selected: ' + list(emulator.keys())[list(emulator.values()).index(100)])
+            #print('Info: You selected: ' + list(emulators.keys())[list(emulator.values()).index('retroarch')])
     else:
         emulator = emulators
         print('Info: Only 1 emulator is supported: ' + str(emulators))
@@ -59,7 +59,7 @@ class Platform_Commodore64(PlatformCommon):
         core = inquirer.prompt(selection)
         if debugging != False:
             print('Info: You selected: ' + str(core))
-            print('Info: You selected: ' + list(core.keys())[list(core.values()).index(100)])
+            #print('Info: You selected: ' + list(core.keys())[list(core.values()).index(100)])
     else:
         core = cores
         print('Info: Only 1 core is supported: ' + str(core))
