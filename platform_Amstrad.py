@@ -66,7 +66,7 @@ class Platform_Cpcplus(PlatformCommon):
 
         # multiman(emulators,cores)
         
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             if core[0] == 'crocods_libretro':
                 extensions = ['dsk', 'sna', 'kcr']
             if core[0] == 'cap32_libretro':
@@ -87,7 +87,7 @@ class Platform_Cpcplus(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
             if streaming != ['false']:
@@ -162,7 +162,7 @@ class Platform_Cpcplus(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'zesarux':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -175,7 +175,7 @@ class Platform_Cpcplus(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             if core[0] == 'crocods_libretro':
                 extensions = ['dsk', 'sna', 'kcr']
             if core[0] == 'cap32_libretro':
