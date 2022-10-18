@@ -807,7 +807,39 @@ class Platform_CommodoreCBMII(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-        
+
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
+                
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xcbm2_libretro':
                 extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
@@ -974,6 +1006,9 @@ class Platform_CommodorePet(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xpet_libretro']
+        emulators = ['retroarch', 'vice']
+        cores = ['vice_xpet_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -989,7 +1024,39 @@ class Platform_CommodorePet(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-                        
+
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
+
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xpet_libretro':
                 extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
@@ -1174,6 +1241,9 @@ class Platform_CommodorePlus4(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xplus4_libretro']
+        emulators = ['retroarch', 'vice']
+        cores = ['vice_xplus4_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -1189,7 +1259,39 @@ class Platform_CommodorePlus4(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-        
+
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
+
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xplus4_libretro':
                 extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
@@ -1375,6 +1477,9 @@ class Platform_CommodoreVIC20(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xvic_libretro']
+        emulators = ['retroarch', 'vice']
+        cores = ['vice_xvic_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -1390,7 +1495,39 @@ class Platform_CommodoreVIC20(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-    
+
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
+            
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xvic_libretro':
                 extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
