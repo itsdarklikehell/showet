@@ -3,7 +3,7 @@ import os.path
 
 from platformcommon import PlatformCommon
 
-debugging = False
+debugging = True
 
 class Platform_Xbox(PlatformCommon):
     # Set up the emulator we want to run.

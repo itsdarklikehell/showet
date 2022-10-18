@@ -4,7 +4,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-debugging = False
+debugging = True
 
 class Platform_Msdos(PlatformCommon):
     # Set up the emulator we want to run.
@@ -144,7 +144,7 @@ class Platform_Msdos(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'dosbox':
+            if emulator == 'dosbox':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
