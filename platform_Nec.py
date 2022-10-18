@@ -28,6 +28,38 @@ class Platform_Pcengine(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
 
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
+        
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_supergrafx_libretro':
                 extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
@@ -179,6 +211,38 @@ class Platform_Supergrafx(PlatformCommon):
         streaming = ['false']
         recording = ['false']
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_supergrafx_libretro':
@@ -332,7 +396,39 @@ class Platform_Pc8000(PlatformCommon):
         streaming = ['false']
         recording = ['false']
         extensions = ['d88', 'u88', 'm3u']
-        
+
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
+                
         if emulator[0] == 'retroarch':
             if core[0] == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
@@ -485,6 +581,38 @@ class Platform_Pc8800(PlatformCommon):
         recording = ['false']
         extensions = ['d88', 'u88', 'm3u']
 
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
+        
         if emulator[0] == 'retroarch':
             if core[0] == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
@@ -636,7 +764,39 @@ class Platform_Pc98(PlatformCommon):
         streaming = ['false']
         recording = ['false']
         extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
-        
+
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
+                
         if emulator[0] == 'retroarch':
             if core[0] == 'nekop2_libretro':
                 extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
@@ -788,7 +948,39 @@ class Platform_Pcfx(PlatformCommon):
         streaming = ['false']
         recording = ['false']
         extensions = ['cue', 'ccd', 'toc', 'chd']
-        
+
+        # emulator = []
+        # core = []
+        # def multiman(emulators,cores):
+        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+        #     if len(emulators) > 1:
+        #         print('Info: Multiple emulators are supported: ' + str(emulators))
+        #         prompt = [
+        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+        #         ]
+        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(emulator))
+        #             emulator = str(emulator)
+        #     else:
+        #         emulator = emulators
+        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
+        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+        #     if len(cores) > 1:
+        #         print('Info: Multiple cores are supported: ' + str(cores))
+        #         prompt = [
+        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+        #         ]
+        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #         if debugging != False:
+        #             print('Info: You selected: ' + str(core))
+        #             core = str(core)
+        #     else:
+        #         core = cores
+        #         print('Info: Only 1 core is supported: ' + str(core))
+
+        # multiman(emulators,cores)
+                
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_pcfx_libretro':
                 extensions = ['cue', 'ccd', 'toc', 'chd']
