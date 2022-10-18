@@ -49,7 +49,7 @@ class Platform_Wonderswan(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
             if streaming != ['false']:
@@ -76,7 +76,7 @@ class Platform_Wonderswan(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'mednafen':
+        if emulator == 'mednafen':
             # Set whether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -105,9 +105,9 @@ class Platform_Wonderswan(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'mednafen':
+            if emulator == 'mednafen':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
             
         self.run_process(emulator)
@@ -118,7 +118,7 @@ class Platform_Wonderswan(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             if core[0] == 'mednafen_wswan_libretro':
                 extensions = ['ws', 'wsc', 'pc2']
                         
