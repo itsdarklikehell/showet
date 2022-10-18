@@ -33,37 +33,37 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         recording = ['false']
         extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
-        # emulator = []
-        # core = []
-        # def multiman(emulators,cores):
-        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-        #     if len(emulators) > 1:
-        #         print('Info: Multiple emulators are supported: ' + str(emulators))
-        #         prompt = [
-        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-        #         ]
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(emulator))
-        #             emulator = str(emulator)
-        #     else:
-        #         emulator = emulators
-        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
-        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-        #     if len(cores) > 1:
-        #         print('Info: Multiple cores are supported: ' + str(cores))
-        #         prompt = [
-        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        #         ]
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(core))
-        #             core = str(core)
-        #     else:
-        #         core = cores
-        #         print('Info: Only 1 core is supported: ' + str(core))
+        emulator = []
+        core = []
+        def multiman(emulators,cores):
+            # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+            if len(emulators) > 1:
+                print('Info: Multiple emulators are supported: ' + str(emulators))
+                prompt = [
+                    inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+                ]
+                emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(emulator))
+                    emulator = str(emulator)
+            else:
+                emulator = emulators
+                print('Info: Only 1 emulator is supported: ' + str(emulator))
+            # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+            if len(cores) > 1:
+                print('Info: Multiple cores are supported: ' + str(cores))
+                prompt = [
+                    inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+                ]
+                core = inquirer.prompt(prompt).get('cores').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(core))
+                    core = str(core)
+            else:
+                core = cores
+                print('Info: Only 1 core is supported: ' + str(core))
 
-        # multiman(emulators,cores)
+        multiman(emulators,cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'hatari_libretro':
@@ -221,37 +221,37 @@ class Platform_Atarixlxe(PlatformCommon):
         recording = ['false']
         extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
 
-        # emulator = []
-        # core = []
-        # def multiman(emulators,cores):
-        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-        #     if len(emulators) > 1:
-        #         print('Info: Multiple emulators are supported: ' + str(emulators))
-        #         prompt = [
-        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-        #         ]
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(emulator))
-        #             emulator = str(emulator)
-        #     else:
-        #         emulator = emulators
-        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
-        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-        #     if len(cores) > 1:
-        #         print('Info: Multiple cores are supported: ' + str(cores))
-        #         prompt = [
-        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        #         ]
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(core))
-        #             core = str(core)
-        #     else:
-        #         core = cores
-        #         print('Info: Only 1 core is supported: ' + str(core))
+        emulator = []
+        core = []
+        def multiman(emulators,cores):
+            # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+            if len(emulators) > 1:
+                print('Info: Multiple emulators are supported: ' + str(emulators))
+                prompt = [
+                    inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+                ]
+                emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(emulator))
+                    emulator = str(emulator)
+            else:
+                emulator = emulators
+                print('Info: Only 1 emulator is supported: ' + str(emulator))
+            # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+            if len(cores) > 1:
+                print('Info: Multiple cores are supported: ' + str(cores))
+                prompt = [
+                    inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+                ]
+                core = inquirer.prompt(prompt).get('cores').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(core))
+                    core = str(core)
+            else:
+                core = cores
+                print('Info: Only 1 core is supported: ' + str(core))
 
-        # multiman(emulators,cores)
+        multiman(emulators,cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'atari800_libretro':
@@ -408,37 +408,37 @@ class Platform_AtariJaguar(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
 
-        # emulator = []
-        # core = []
-        # def multiman(emulators,cores):
-        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-        #     if len(emulators) > 1:
-        #         print('Info: Multiple emulators are supported: ' + str(emulators))
-        #         prompt = [
-        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-        #         ]
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(emulator))
-        #             emulator = str(emulator)
-        #     else:
-        #         emulator = emulators
-        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
-        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-        #     if len(cores) > 1:
-        #         print('Info: Multiple cores are supported: ' + str(cores))
-        #         prompt = [
-        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        #         ]
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(core))
-        #             core = str(core)
-        #     else:
-        #         core = cores
-        #         print('Info: Only 1 core is supported: ' + str(core))
+        emulator = []
+        core = []
+        def multiman(emulators,cores):
+            # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+            if len(emulators) > 1:
+                print('Info: Multiple emulators are supported: ' + str(emulators))
+                prompt = [
+                    inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+                ]
+                emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(emulator))
+                    emulator = str(emulator)
+            else:
+                emulator = emulators
+                print('Info: Only 1 emulator is supported: ' + str(emulator))
+            # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+            if len(cores) > 1:
+                print('Info: Multiple cores are supported: ' + str(cores))
+                prompt = [
+                    inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+                ]
+                core = inquirer.prompt(prompt).get('cores').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(core))
+                    core = str(core)
+            else:
+                core = cores
+                print('Info: Only 1 core is supported: ' + str(core))
 
-        # multiman(emulators,cores)
+        multiman(emulators,cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'virtualjaguar_libretro':
@@ -594,37 +594,37 @@ class Platform_AtariLynx(PlatformCommon):
         recording = ['false']
         extensions = ['lnx', 'o']
 
-        # emulator = []
-        # core = []
-        # def multiman(emulators,cores):
-        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-        #     if len(emulators) > 1:
-        #         print('Info: Multiple emulators are supported: ' + str(emulators))
-        #         prompt = [
-        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-        #         ]
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(emulator))
-        #             emulator = str(emulator)
-        #     else:
-        #         emulator = emulators
-        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
-        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-        #     if len(cores) > 1:
-        #         print('Info: Multiple cores are supported: ' + str(cores))
-        #         prompt = [
-        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        #         ]
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(core))
-        #             core = str(core)
-        #     else:
-        #         core = cores
-        #         print('Info: Only 1 core is supported: ' + str(core))
+        emulator = []
+        core = []
+        def multiman(emulators,cores):
+            # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+            if len(emulators) > 1:
+                print('Info: Multiple emulators are supported: ' + str(emulators))
+                prompt = [
+                    inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+                ]
+                emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(emulator))
+                    emulator = str(emulator)
+            else:
+                emulator = emulators
+                print('Info: Only 1 emulator is supported: ' + str(emulator))
+            # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+            if len(cores) > 1:
+                print('Info: Multiple cores are supported: ' + str(cores))
+                prompt = [
+                    inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+                ]
+                core = inquirer.prompt(prompt).get('cores').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(core))
+                    core = str(core)
+            else:
+                core = cores
+                print('Info: Only 1 core is supported: ' + str(core))
 
-        # multiman(emulators,cores)
+        multiman(emulators,cores)
 
         if emulator[0] == 'retroarch':
             if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
@@ -781,37 +781,37 @@ class Platform_Atari2600(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'a26', 'bin']
         
-        # emulator = []
-        # core = []
-        # def multiman(emulators,cores):
-        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-        #     if len(emulators) > 1:
-        #         print('Info: Multiple emulators are supported: ' + str(emulators))
-        #         prompt = [
-        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-        #         ]
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(emulator))
-        #             emulator = str(emulator)
-        #     else:
-        #         emulator = emulators
-        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
-        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-        #     if len(cores) > 1:
-        #         print('Info: Multiple cores are supported: ' + str(cores))
-        #         prompt = [
-        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        #         ]
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(core))
-        #             core = str(core)
-        #     else:
-        #         core = cores
-        #         print('Info: Only 1 core is supported: ' + str(core))
+        emulator = []
+        core = []
+        def multiman(emulators,cores):
+            # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+            if len(emulators) > 1:
+                print('Info: Multiple emulators are supported: ' + str(emulators))
+                prompt = [
+                    inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+                ]
+                emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(emulator))
+                    emulator = str(emulator)
+            else:
+                emulator = emulators
+                print('Info: Only 1 emulator is supported: ' + str(emulator))
+            # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+            if len(cores) > 1:
+                print('Info: Multiple cores are supported: ' + str(cores))
+                prompt = [
+                    inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+                ]
+                core = inquirer.prompt(prompt).get('cores').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(core))
+                    core = str(core)
+            else:
+                core = cores
+                print('Info: Only 1 core is supported: ' + str(core))
 
-        # multiman(emulators,cores)
+        multiman(emulators,cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'stella_libretro':
@@ -968,37 +968,37 @@ class Platform_Atari5200(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
 
-        # emulator = []
-        # core = []
-        # def multiman(emulators,cores):
-        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-        #     if len(emulators) > 1:
-        #         print('Info: Multiple emulators are supported: ' + str(emulators))
-        #         prompt = [
-        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-        #         ]
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(emulator))
-        #             emulator = str(emulator)
-        #     else:
-        #         emulator = emulators
-        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
-        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-        #     if len(cores) > 1:
-        #         print('Info: Multiple cores are supported: ' + str(cores))
-        #         prompt = [
-        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        #         ]
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(core))
-        #             core = str(core)
-        #     else:
-        #         core = cores
-        #         print('Info: Only 1 core is supported: ' + str(core))
+        emulator = []
+        core = []
+        def multiman(emulators,cores):
+            # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+            if len(emulators) > 1:
+                print('Info: Multiple emulators are supported: ' + str(emulators))
+                prompt = [
+                    inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+                ]
+                emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(emulator))
+                    emulator = str(emulator)
+            else:
+                emulator = emulators
+                print('Info: Only 1 emulator is supported: ' + str(emulator))
+            # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+            if len(cores) > 1:
+                print('Info: Multiple cores are supported: ' + str(cores))
+                prompt = [
+                    inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+                ]
+                core = inquirer.prompt(prompt).get('cores').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(core))
+                    core = str(core)
+            else:
+                core = cores
+                print('Info: Only 1 core is supported: ' + str(core))
 
-        # multiman(emulators,cores)
+        multiman(emulators,cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'atari800_libretro':
@@ -1155,37 +1155,37 @@ class Platform_Atari7800(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'a78', 'bin', 'cdf']
 
-        # emulator = []
-        # core = []
-        # def multiman(emulators,cores):
-        #     # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-        #     if len(emulators) > 1:
-        #         print('Info: Multiple emulators are supported: ' + str(emulators))
-        #         prompt = [
-        #             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-        #         ]
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(emulator))
-        #             emulator = str(emulator)
-        #     else:
-        #         emulator = emulators
-        #         print('Info: Only 1 emulator is supported: ' + str(emulator))
-        #     # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-        #     if len(cores) > 1:
-        #         print('Info: Multiple cores are supported: ' + str(cores))
-        #         prompt = [
-        #             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        #         ]
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #         if debugging != False:
-        #             print('Info: You selected: ' + str(core))
-        #             core = str(core)
-        #     else:
-        #         core = cores
-        #         print('Info: Only 1 core is supported: ' + str(core))
+        emulator = []
+        core = []
+        def multiman(emulators,cores):
+            # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
+            if len(emulators) > 1:
+                print('Info: Multiple emulators are supported: ' + str(emulators))
+                prompt = [
+                    inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+                ]
+                emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(emulator))
+                    emulator = str(emulator)
+            else:
+                emulator = emulators
+                print('Info: Only 1 emulator is supported: ' + str(emulator))
+            # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
+            if len(cores) > 1:
+                print('Info: Multiple cores are supported: ' + str(cores))
+                prompt = [
+                    inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
+                ]
+                core = inquirer.prompt(prompt).get('cores').strip().lower()
+                if debugging != False:
+                    print('Info: You selected: ' + str(core))
+                    core = str(core)
+            else:
+                core = cores
+                print('Info: Only 1 core is supported: ' + str(core))
 
-        # multiman(emulators,cores)
+        multiman(emulators,cores)
 
         if emulator[0] == 'retroarch':
             if core[0] == 'prosystem_libretro':
