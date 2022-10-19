@@ -197,7 +197,7 @@ else:
 print("Check: iF Folder %s exists." % RetroPieEmuDir)
 if not os.path.exists(RetroPieEmuDir):
     print("Warning: %s does not exist" % RetroPieEmuDir)
-    exit(-1)
+    #exit(-1)
 else:
     print("Info: Folder %s exists." % RetroPieEmuDir)
 
