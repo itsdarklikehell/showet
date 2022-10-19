@@ -249,6 +249,7 @@ if not runner:
 
 if len(platforms) > 1:
     print("Demo supports platforms ", platforms, "of which", prod_platform, "rules the most.")
+    # Should be possible to implement a inquirer menu here but this ^ works for now.
 
 # Print fields collected from the data:
 # Name: + data['prod']['name']
