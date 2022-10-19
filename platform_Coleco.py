@@ -5,7 +5,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-debugging = False
+debugging = True
 
 class Platform_Coleco(PlatformCommon):
     # Set up the emulator we want to run.
