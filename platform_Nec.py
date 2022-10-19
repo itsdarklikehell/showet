@@ -4,8 +4,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-debugging = False
-
+debugging = True
 class Platform_Pcengine(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
