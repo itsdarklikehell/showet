@@ -4,6 +4,7 @@ import json
 import os
 import argparse
 import patoolib
+import inquirer
 
 from platform_3do import Platform_3do
 from platform_Amstrad import Platform_Cpcplus
