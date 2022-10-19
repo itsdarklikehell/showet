@@ -194,7 +194,7 @@ if not os.path.exists(showetdir):
 else:
     print("Info: Folder %s exists." % showetdir)
 
-print("Check: iF Folder %s exists." % RetroPieEmuDir)
+print("Check: if Folder %s exists." % RetroPieEmuDir)
 if not os.path.exists(RetroPieEmuDir):
     print("Warning: %s does not exist" % RetroPieEmuDir)
     #exit(-1)
