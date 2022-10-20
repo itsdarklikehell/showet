@@ -78,6 +78,7 @@ class PlatformCommon:
     print("\t================================")
     
     def multiemu(self, emulators):
+        
         emulator = []
         print('Info: Multiple emulators are supported: ' + str(emulators))
         prompt = [
