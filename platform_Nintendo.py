@@ -82,7 +82,6 @@ class Platform_3DS(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -124,13 +123,11 @@ class Platform_3DS(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -208,7 +205,6 @@ class Platform_N64(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -253,13 +249,11 @@ class Platform_N64(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -337,7 +331,6 @@ class Platform_DS(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -380,13 +373,11 @@ class Platform_DS(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -468,7 +459,6 @@ class Platform_Famicom(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -515,13 +505,11 @@ class Platform_Famicom(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -603,7 +591,6 @@ class Platform_FamicomDisksystem(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -650,13 +637,11 @@ class Platform_FamicomDisksystem(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -757,7 +742,6 @@ class Platform_Gameboy(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -821,13 +805,11 @@ class Platform_Gameboy(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -914,7 +896,6 @@ class Platform_GameboyColor(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -978,13 +959,11 @@ class Platform_GameboyColor(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1074,7 +1053,6 @@ class Platform_GameboyAdvance(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1129,13 +1107,11 @@ class Platform_GameboyAdvance(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1213,7 +1189,6 @@ class Platform_Gamecube(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1256,13 +1231,11 @@ class Platform_Gamecube(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1340,7 +1313,6 @@ class Platform_Pokemini(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1383,13 +1355,11 @@ class Platform_Pokemini(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1475,7 +1445,6 @@ class Platform_SuperFamicom(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1524,13 +1493,11 @@ class Platform_SuperFamicom(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1608,7 +1575,6 @@ class Platform_Virtualboy(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1651,13 +1617,11 @@ class Platform_Virtualboy(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1735,7 +1699,6 @@ class Platform_Wii(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1778,13 +1741,11 @@ class Platform_Wii(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files

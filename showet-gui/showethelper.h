@@ -26,9 +26,12 @@ signals:
     void supportedPlatformsChanged();
 
 private slots:
-    void processFinished(int exitCode, QProcess::ExitStatus exitStatus);
-    void processErrorOccurred(QProcess::ProcessError error);
+    void processFinished(int exitCode, QProcess
+                         : ExitStatus exitStatus);
+    void processErrorOccurred(QProcess
+                              : ProcessError error);
     void printRunError(QString errorText);
+
 private:
     QProcess m_showetProcess;
     bool m_running;

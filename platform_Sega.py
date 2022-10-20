@@ -82,7 +82,6 @@ class Platform_32X(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -125,13 +124,11 @@ class Platform_32X(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -211,7 +208,6 @@ class Platform_Dreamcast(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -258,13 +254,11 @@ class Platform_Dreamcast(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -334,7 +328,6 @@ class Platform_Gamegear(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -381,13 +374,11 @@ class Platform_Gamegear(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -477,7 +468,6 @@ class Platform_Mastersystem(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -535,13 +525,11 @@ class Platform_Mastersystem(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -622,7 +610,6 @@ class Platform_Megadrive(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -671,13 +658,11 @@ class Platform_Megadrive(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -759,7 +744,6 @@ class Platform_Saturn(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -808,13 +792,11 @@ class Platform_Saturn(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -896,7 +878,6 @@ class Platform_Stv(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -945,13 +926,11 @@ class Platform_Stv(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1029,7 +1008,6 @@ class Platform_Vmu(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1074,13 +1052,11 @@ class Platform_Vmu(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1148,7 +1124,6 @@ class Platform_SG1000(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1192,13 +1167,11 @@ class Platform_SG1000(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files

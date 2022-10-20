@@ -81,7 +81,6 @@ class Platform_Zxspectrum(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -124,13 +123,11 @@ class Platform_Zxspectrum(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -211,7 +208,6 @@ class Platform_Zx81(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -256,13 +252,11 @@ class Platform_Zx81(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files

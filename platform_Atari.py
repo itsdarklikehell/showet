@@ -126,13 +126,11 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -210,7 +208,6 @@ class Platform_Atarixlxe(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -253,13 +250,11 @@ class Platform_Atarixlxe(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -337,7 +332,6 @@ class Platform_AtariJaguar(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -382,13 +376,11 @@ class Platform_AtariJaguar(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -466,7 +458,6 @@ class Platform_AtariLynx(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -509,13 +500,11 @@ class Platform_AtariLynx(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -593,7 +582,6 @@ class Platform_Atari2600(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -638,13 +626,11 @@ class Platform_Atari2600(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -722,7 +708,6 @@ class Platform_Atari5200(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -765,13 +750,11 @@ class Platform_Atari5200(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -849,7 +832,6 @@ class Platform_Atari7800(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -893,13 +875,11 @@ class Platform_Atari7800(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files

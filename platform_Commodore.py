@@ -111,7 +111,6 @@ class Platform_Commodore64(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -146,11 +145,7 @@ class Platform_Commodore64(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
-                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
+
 
                 extensions = []
                 extensions.extend(floppys_ext)
@@ -168,13 +163,11 @@ class Platform_Commodore64(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -269,7 +262,6 @@ class Platform_Commodore128(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -304,11 +296,7 @@ class Platform_Commodore128(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
-                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
+
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -325,13 +313,11 @@ class Platform_Commodore128(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -572,13 +558,11 @@ class Platform_CommodoreAmiga(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -688,7 +672,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -723,11 +706,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
-                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
+
 
                 extensions = []
                 extensions.extend(floppys_ext)
@@ -745,13 +724,11 @@ class Platform_CommodoreCBMII(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -859,7 +836,6 @@ class Platform_CommodorePet(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -894,11 +870,7 @@ class Platform_CommodorePet(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
-                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)                                
+                              
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -915,13 +887,11 @@ class Platform_CommodorePet(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1029,7 +999,6 @@ class Platform_CommodorePlus4(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1064,11 +1033,7 @@ class Platform_CommodorePlus4(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
-                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)                
+              
                 
                 extensions = []
                 extensions.extend(floppys_ext)
@@ -1086,13 +1051,11 @@ class Platform_CommodorePlus4(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1202,7 +1165,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1237,12 +1199,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
-                    print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
-                    print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
-                    print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
-                    print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
-                                
+
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -1259,13 +1216,11 @@ class Platform_CommodoreVIC20(PlatformCommon):
                     if file.endswith(ext):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
                         if debugging != False:
                             print("\tFound file: " + file)
-                            print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
