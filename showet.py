@@ -325,7 +325,6 @@ else:
         'dazip',
         'deb',
         'dmg',
-        'exe',
         'gnutar',
         'gz',
         'gzi',
