@@ -32,21 +32,21 @@ class Platform_32X(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'picodrive_libretro':
@@ -156,21 +156,21 @@ class Platform_Dreamcast(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'flycast_libretro' or core[0] == 'flycast_gles2_libretro':
@@ -285,21 +285,21 @@ class Platform_Gamegear(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
             
         if emulator[0] == 'retroarch':
             #MS/GG/MD/CD
@@ -417,21 +417,21 @@ class Platform_Mastersystem(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
 
         if emulator[0] == 'retroarch':
             #MS
@@ -569,21 +569,21 @@ class Platform_Megadrive(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
 
         if emulator[0] == 'retroarch':
             #MS/GG/MD/CD
@@ -703,21 +703,21 @@ class Platform_Saturn(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_saturn_libretro':
@@ -837,21 +837,21 @@ class Platform_Stv(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_saturn_libretro':
@@ -971,21 +971,21 @@ class Platform_Vmu(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vemulator_libretro':
@@ -1097,21 +1097,21 @@ class Platform_SG1000(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
 
         if emulator[0] == 'retroarch':
             #MSX/SVI/ColecoVision/SG-1000

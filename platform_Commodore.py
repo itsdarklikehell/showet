@@ -51,21 +51,21 @@ class Platform_Commodore64(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
                 
         if emulator == 'other':
             extensions = ['unknown']        
@@ -215,21 +215,21 @@ class Platform_Commodore128(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
             
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x128_libretro':
@@ -378,21 +378,21 @@ class Platform_CommodoreAmiga(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
                 
         if emulator == 'other':
             extensions = ['unknown']        
@@ -621,21 +621,21 @@ class Platform_CommodoreCBMII(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
                 
         if emulator == 'other':
             extensions = ['unknown']        
@@ -787,21 +787,21 @@ class Platform_CommodorePet(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
                 
         if emulator == 'other':
             extensions = ['unknown']        
@@ -950,21 +950,21 @@ class Platform_CommodorePlus4(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
                 
         if emulator == 'other':
             extensions = ['unknown']        
@@ -1114,21 +1114,21 @@ class Platform_CommodoreVIC20(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = str(emulators[0])
+            emulator == emulators[0]
             if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
                 print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = str(emulators[0])
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = str(cores[0])
+            core == cores[0]
             if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
                 print('interactive mode is off, using default ' + str(cores[0]))
-                core = str(cores[0])
+                core == cores[0]
                 
         if emulator == 'other':
             extensions = ['unknown']        
