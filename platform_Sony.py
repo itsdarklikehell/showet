@@ -142,15 +142,17 @@ class Platform_Psx(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 
@@ -276,15 +278,17 @@ class Platform_Ps2(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 
@@ -406,13 +410,15 @@ class Platform_Psp(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files

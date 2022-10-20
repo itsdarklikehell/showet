@@ -125,15 +125,17 @@ class Platform_3DS(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_N64(PlatformCommon):
@@ -254,15 +256,17 @@ class Platform_N64(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_DS(PlatformCommon):
@@ -383,15 +387,17 @@ class Platform_DS(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Famicom(PlatformCommon):
@@ -520,15 +526,17 @@ class Platform_Famicom(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_FamicomDisksystem(PlatformCommon):
@@ -657,15 +665,17 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Gameboy(PlatformCommon):
@@ -827,15 +837,17 @@ class Platform_Gameboy(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 class Platform_GameboyColor(PlatformCommon):
     # Set up the emulator we want to run.
@@ -996,15 +1008,17 @@ class Platform_GameboyColor(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_GameboyAdvance(PlatformCommon):
@@ -1149,15 +1163,17 @@ class Platform_GameboyAdvance(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Gamecube(PlatformCommon):
@@ -1278,15 +1294,17 @@ class Platform_Gamecube(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Pokemini(PlatformCommon):
@@ -1407,15 +1425,17 @@ class Platform_Pokemini(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_SuperFamicom(PlatformCommon):
@@ -1548,15 +1568,17 @@ class Platform_SuperFamicom(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Virtualboy(PlatformCommon):
@@ -1677,15 +1699,17 @@ class Platform_Virtualboy(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Wii(PlatformCommon):
@@ -1806,13 +1830,15 @@ class Platform_Wii(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files

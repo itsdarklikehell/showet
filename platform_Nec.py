@@ -125,15 +125,17 @@ class Platform_Pcengine(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Supergrafx(PlatformCommon):
@@ -254,15 +256,17 @@ class Platform_Supergrafx(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Pc8000(PlatformCommon):
@@ -383,15 +387,17 @@ class Platform_Pc8000(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Pc8800(PlatformCommon):
@@ -512,15 +518,17 @@ class Platform_Pc8800(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Pc98(PlatformCommon):
@@ -641,15 +649,17 @@ class Platform_Pc98(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Pcfx(PlatformCommon):
@@ -770,13 +780,15 @@ class Platform_Pcfx(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files

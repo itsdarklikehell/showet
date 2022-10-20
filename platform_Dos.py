@@ -131,21 +131,15 @@ class Platform_Msdos(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if file == 'dos4gw.exe' or file == 'DOS4GW.EXE':
-                            if debugging != False:
-                                print("\tFound dos4gw.exe file: skipping for now... ")
-                            #ext_files.append(file)
-                        else:
-                            ext_files.append(file)
-                            if debugging != False:
-                                print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if file == 'dos4gw.exe' or file == 'DOS4GW.EXE':
-                            if debugging != False:
-                                print("\tFound dos4gw.exe file: skipping for now... ")
-                            #ext_files.append(file)
-                        else:
-                            ext_files.append(file)
-                            if debugging != False:
-                                print("\tFound file: " + file)
+                        if debugging != False:
+                            print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files

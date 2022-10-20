@@ -126,15 +126,17 @@ class Platform_Gamemusic(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_VideoFFMPEG(PlatformCommon):
@@ -255,15 +257,17 @@ class Platform_VideoFFMPEG(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_VideoMPV(PlatformCommon):
@@ -384,13 +388,15 @@ class Platform_VideoMPV(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files

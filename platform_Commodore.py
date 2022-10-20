@@ -163,15 +163,17 @@ class Platform_Commodore64(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_Commodore128(PlatformCommon):
@@ -327,15 +329,17 @@ class Platform_Commodore128(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_CommodoreAmiga(PlatformCommon):
@@ -573,15 +577,17 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_CommodoreCBMII(PlatformCommon):
@@ -745,15 +751,17 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_CommodorePet(PlatformCommon):
@@ -911,15 +919,17 @@ class Platform_CommodorePet(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_CommodorePlus4(PlatformCommon):
@@ -1081,15 +1091,17 @@ class Platform_CommodorePlus4(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
 
 class Platform_CommodoreVIC20(PlatformCommon):
@@ -1253,13 +1265,15 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
+                            print("\tMaking it executable for you")                        
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
         return ext_files
