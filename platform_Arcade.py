@@ -113,7 +113,7 @@ class Platform_Arcade(PlatformCommon):
         return ['arcade']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':

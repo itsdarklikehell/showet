@@ -111,7 +111,7 @@ class Platform_Channelf(PlatformCommon):
         return ['fairchild', 'channelf']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'freechaf_libretro':

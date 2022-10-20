@@ -111,7 +111,7 @@ class Platform_Odyssey(PlatformCommon):
         return ['intellivision']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'o2em_libretro':

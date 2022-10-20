@@ -109,7 +109,7 @@ class Platform_Tic80(PlatformCommon):
         return ['tic80']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'tic80_libretro':
@@ -236,7 +236,7 @@ class Platform_TRS80(PlatformCommon):
         return ['trs80']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'tic80_libretro':

@@ -111,7 +111,7 @@ class Platform_Xbox(PlatformCommon):
         return ['xbox']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'directxbox_libretro':
@@ -240,7 +240,7 @@ class Platform_Msx(PlatformCommon):
         return ['msx', 'msx2', 'msx2plus', 'msxturbor', 'spectravideo3x8']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -353,7 +353,7 @@ class Platform_Windows(PlatformCommon):
         return ['windows', 'wild']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'wine':
             if core[0] == 'wine':

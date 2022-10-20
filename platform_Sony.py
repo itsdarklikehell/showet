@@ -117,7 +117,7 @@ class Platform_Psx(PlatformCommon):
         return ['playstation']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'duckstation_libretro' or core[0] == 'swanstation_libretro':
@@ -255,7 +255,7 @@ class Platform_Ps2(PlatformCommon):
         return ['playstation2']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'pcsx2_libretro':
@@ -385,7 +385,7 @@ class Platform_Psp(PlatformCommon):
         return ['playstationportable']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'ppsspp_libretro':

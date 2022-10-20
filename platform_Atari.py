@@ -110,7 +110,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         return ['atarifalcon030', 'atarist', 'atariste', 'ataritt030']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'hatari_libretro':
@@ -237,7 +237,7 @@ class Platform_Atarixlxe(PlatformCommon):
         return ['atarixlxe']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'atari800_libretro':
@@ -364,7 +364,7 @@ class Platform_AtariJaguar(PlatformCommon):
         return ['atarijaguar']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -493,7 +493,7 @@ class Platform_AtariLynx(PlatformCommon):
         return ['atarilynx']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
@@ -620,7 +620,7 @@ class Platform_Atari2600(PlatformCommon):
         return ['atarivcs']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -749,7 +749,7 @@ class Platform_Atari5200(PlatformCommon):
         return ['atarixlxe']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'atari800_libretro':
@@ -875,7 +875,7 @@ class Platform_Atari7800(PlatformCommon):
         return ['atari7800']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             

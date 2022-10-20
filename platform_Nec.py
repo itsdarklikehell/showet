@@ -109,7 +109,7 @@ class Platform_Pcengine(PlatformCommon):
         return ['necturbografxpcengine']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -238,7 +238,7 @@ class Platform_Supergrafx(PlatformCommon):
         return ['necturbografxpcengine']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -367,7 +367,7 @@ class Platform_Pc8000(PlatformCommon):
         return ['pc8000', 'pc8800']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -496,7 +496,7 @@ class Platform_Pc8800(PlatformCommon):
         return ['pc8800']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'quasi88_libretro':
@@ -623,7 +623,7 @@ class Platform_Pc98(PlatformCommon):
         return ['pc-98']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'nekop2_libretro':
@@ -750,7 +750,7 @@ class Platform_Pcfx(PlatformCommon):
         return ['pcfx']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_pcfx_libretro':

@@ -109,7 +109,7 @@ class Platform_Neogeo(PlatformCommon):
         return ['neogeo']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_ngp_libretro':
@@ -236,7 +236,7 @@ class Platform_Neopocket(PlatformCommon):
         return ['neogeopocket']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_ngp_libretro':
@@ -363,7 +363,7 @@ class Platform_Neopocketcolor(PlatformCommon):
         return ['neogeopocketcolor']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_ngp_libretro':

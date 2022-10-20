@@ -111,7 +111,7 @@ class Platform_Cpcplus(PlatformCommon):
         return ['amstradplus', 'amstradcpc']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             

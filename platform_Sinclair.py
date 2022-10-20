@@ -108,7 +108,7 @@ class Platform_Zxspectrum(PlatformCommon):
         return ['zxenhanced', 'spectrum', 'zxspectrum']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'fuse_libretro':
@@ -238,7 +238,7 @@ class Platform_Zx81(PlatformCommon):
         return ['zx81']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'fuse_libretro':

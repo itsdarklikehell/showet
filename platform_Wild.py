@@ -109,7 +109,7 @@ class Platform_Gamemusic(PlatformCommon):
         return ['wild', 'music']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'gme_libretro':
@@ -236,7 +236,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
         return ['wild', 'animationvideo', 'linux']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'ffmpeg_libretro':
@@ -363,7 +363,7 @@ class Platform_VideoMPV(PlatformCommon):
         return ['wild', 'animationvideo', 'linux']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mpv_libretro':

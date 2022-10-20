@@ -111,7 +111,7 @@ class Platform_Enterprise(PlatformCommon):
         return ['enterprise']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'ep128emu_libretro':

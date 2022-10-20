@@ -109,7 +109,7 @@ class Platform_32X(PlatformCommon):
         return ['sega32x']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'picodrive_libretro':
@@ -238,7 +238,7 @@ class Platform_Dreamcast(PlatformCommon):
         return ['dreamcast']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -361,7 +361,7 @@ class Platform_Gamegear(PlatformCommon):
         return ['segagamegear']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             #MS/GG/MD/CD
@@ -504,7 +504,7 @@ class Platform_Mastersystem(PlatformCommon):
         return ['segamastersystem', 'segagamegear', 'segasg1000', 'segagenesismegadrive', 'segasaturn', 'segastv']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -649,7 +649,7 @@ class Platform_Megadrive(PlatformCommon):
         return ['segagenesismegadrive']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -786,7 +786,7 @@ class Platform_Saturn(PlatformCommon):
         return ['segasaturn']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -923,7 +923,7 @@ class Platform_Stv(PlatformCommon):
         return ['segastv']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -1056,7 +1056,7 @@ class Platform_Vmu(PlatformCommon):
         return ['segavmu']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -1175,7 +1175,7 @@ class Platform_SG1000(PlatformCommon):
         return ['segasg1000']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self,emulator,core,extensions):
 
         if emulator[0] == 'retroarch':
             #MSX/SVI/ColecoVision/SG-1000
