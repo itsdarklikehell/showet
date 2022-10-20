@@ -39,9 +39,10 @@ class Platform_3DS(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -166,9 +167,10 @@ class Platform_N64(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -294,9 +296,10 @@ class Platform_DS(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -422,9 +425,10 @@ class Platform_Famicom(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -558,9 +562,10 @@ class Platform_FamicomDisksystem(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -694,9 +699,10 @@ class Platform_Gameboy(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -862,16 +868,17 @@ class Platform_GameboyColor(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]      
         if emulator[0] == 'retroarch':
             #gb/c
             if core[0] == 'emux_gb_libretro':
@@ -1031,9 +1038,10 @@ class Platform_GameboyAdvance(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -1183,9 +1191,10 @@ class Platform_Gamecube(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -1311,9 +1320,10 @@ class Platform_Pokemini(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -1439,9 +1449,10 @@ class Platform_SuperFamicom(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -1579,9 +1590,10 @@ class Platform_Virtualboy(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -1707,9 +1719,10 @@ class Platform_Wii(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:

@@ -37,9 +37,10 @@ class Platform_Pcengine(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -165,9 +166,10 @@ class Platform_Supergrafx(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -293,9 +295,10 @@ class Platform_Pc8000(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -421,9 +424,10 @@ class Platform_Pc8800(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -549,9 +553,10 @@ class Platform_Pc98(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -677,9 +682,10 @@ class Platform_Pcfx(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:

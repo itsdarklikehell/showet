@@ -38,9 +38,10 @@ class Platform_Xbox(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -168,9 +169,10 @@ class Platform_Msx(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
@@ -302,16 +304,17 @@ class Platform_Windows(PlatformCommon):
         # if len(emulators) > 1:
         #     if interactive != False:
         #         emulator = self.multiemu(emulators)
-        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #         #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         #     else:
         #         emulator = emulators[0]
+        
         # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         # if len(cores) > 1:
         #     if interactive != False:
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]      
         if emulator[0] == 'wine':
             if core[0] == 'wine':
                 extensions = ['exe']
