@@ -78,7 +78,7 @@ class PlatformCommon:
     print("\t================================")
     
     def multiemu(self,emulators):
-        emulator = []
+        #emulator = []
         if debugging != False:
             print('Info: Multiple emulators are supported: ' + str(emulators))
         prompt = [
@@ -90,7 +90,7 @@ class PlatformCommon:
         return emulator
     
     def multicore(self,cores):
-        core = []
+        #core = []
         if debugging != False:
             print('Info: Multiple cores are supported: ' + str(cores))
         prompt = [
