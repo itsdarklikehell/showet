@@ -84,6 +84,7 @@ class PlatformCommon:
             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
         ]
         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+        print('You chose the selected emulator: ' + str(emulator))
         return emulator
     
     def multicore(self, cores):
@@ -91,6 +92,7 @@ class PlatformCommon:
         print('Info: Multiple cores are supported: ' + str(cores))
         prompt = [
             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        ]
+        ]   
         core = inquirer.prompt(prompt).get('cores').strip().lower()
+        print('You chose the selected core: ' + str(core))
         return core

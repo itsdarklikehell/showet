@@ -1,5 +1,6 @@
 import os
 import os.path
+from re import S
 import inquirer
 
 from platformcommon import PlatformCommon
@@ -24,8 +25,8 @@ class Platform_3DS(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['citra_libretro']
+        emulator = ['retroarch']
+        core = ['citra_libretro']
         emulators = ['retroarch', 'citra']
         cores = ['citra_libretro', 'citra2018_libretro', 'citra_canary_libretro', 'melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
         
@@ -34,21 +35,22 @@ class Platform_3DS(PlatformCommon):
         recording = ['false']
         extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-        
-        if emulator == 'retroarch':
-            if core == 'citra_libretro' or core == 'citra2018_libretro' or core == 'citra_canary_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]        
+        if emulator[0] == 'retroarch':
+            if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
                 extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
         
         ext = []
@@ -66,56 +68,15 @@ class Platform_3DS(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -141,9 +102,9 @@ class Platform_3DS(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -153,8 +114,8 @@ class Platform_3DS(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        if emulator == 'retroarch':
-            if core == 'citra_libretro' or core == 'citra2018_libretro' or core == 'citra_canary_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
                 extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
         
         ext_files = []
@@ -201,21 +162,22 @@ class Platform_N64(PlatformCommon):
         recording = ['false']
         extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-
-        if emulator == 'retroarch':
-            if core == 'mupen64plus_next_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mupen64plus_next_libretro':
                 extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
                 
         ext = []
@@ -233,56 +195,15 @@ class Platform_N64(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -308,9 +229,9 @@ class Platform_N64(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -321,8 +242,8 @@ class Platform_N64(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator == 'retroarch':
-            if core == 'mupen64plus_next_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mupen64plus_next_libretro':
                 extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
         
         ext_files = []
@@ -369,21 +290,22 @@ class Platform_DS(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'nds', 'dsi']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-
-        if emulator == 'retroarch':
-            if core == 'desmume_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]
+        if emulator[0] == 'retroarch':
+            if core[0] == 'desmume_libretro':
                 extensions = ['nds', 'dsi']
         
         ext = []
@@ -401,56 +323,15 @@ class Platform_DS(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -476,9 +357,9 @@ class Platform_DS(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -489,8 +370,8 @@ class Platform_DS(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'desmume_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'desmume_libretro':
                 extensions = ['nds', 'dsi']
                         
         ext_files = []
@@ -527,8 +408,8 @@ class Platform_Famicom(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['fceumm_libretro']
+        emulator = ['retroarch']
+        core = ['fceumm_libretro']
         emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
         cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
         
@@ -537,25 +418,26 @@ class Platform_Famicom(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-        
-        if emulator == 'retroarch':
-            if core == 'quicknes_libretro' or core == 'bnes_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]        
+        if emulator[0] == 'retroarch':
+            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
                 extensions = ['nes']
-            if core == 'emux_nes_libretro':
+            if core[0] == 'emux_nes_libretro':
                 extensions = ['nes', 'bin', 'rom']
-            if core == 'nestopia_libretro' or core == 'fceumm_libretro' or core == 'mesen_libretro':
+            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
                 extensions = ['fds', 'nes', 'unif', 'unf']
                 
         ext = []
@@ -573,56 +455,15 @@ class Platform_Famicom(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -648,9 +489,9 @@ class Platform_Famicom(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -661,12 +502,12 @@ class Platform_Famicom(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'quicknes_libretro' or core == 'bnes_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
                 extensions = ['nes']
-            if core == 'emux_nes_libretro':
+            if core[0] == 'emux_nes_libretro':
                 extensions = ['nes', 'bin', 'rom']
-            if core == 'nestopia_libretro' or core == 'fceumm_libretro' or core == 'mesen_libretro':
+            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
                 extensions = ['fds', 'nes', 'unif', 'unf']
         
         ext_files = []
@@ -703,8 +544,8 @@ class Platform_FamicomDisksystem(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['quicknes_libretro']
+        emulator = ['retroarch']
+        core = ['quicknes_libretro']
         emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
         cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
 
@@ -713,25 +554,26 @@ class Platform_FamicomDisksystem(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-        
-        if emulator == 'retroarch':
-            if core == 'quicknes_libretro' or core == 'bnes_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]        
+        if emulator[0] == 'retroarch':
+            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
                 extensions = ['nes']
-            if core == 'emux_nes_libretro':
+            if core[0] == 'emux_nes_libretro':
                 extensions = ['nes', 'bin', 'rom']
-            if core == 'nestopia_libretro' or core == 'fceumm_libretro' or core == 'mesen_libretro':
+            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
                 extensions = ['fds', 'nes', 'unif', 'unf']
 
         ext = []
@@ -749,56 +591,15 @@ class Platform_FamicomDisksystem(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -824,9 +625,9 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -837,12 +638,12 @@ class Platform_FamicomDisksystem(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'quicknes_libretro' or core == 'bnes_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
                 extensions = ['nes']
-            if core == 'emux_nes_libretro':
+            if core[0] == 'emux_nes_libretro':
                 extensions = ['nes', 'bin', 'rom']
-            if core == 'nestopia_libretro' or core == 'fceumm_libretro' or core == 'mesen_libretro':
+            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
                 extensions = ['fds', 'nes', 'unif', 'unf']
         
         ext_files = []
@@ -889,42 +690,43 @@ class Platform_Gameboy(PlatformCommon):
         recording = ['false']        
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-
-        if emulator == 'retroarch':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]
+        if emulator[0] == 'retroarch':
             #gb/c
-            if core == 'emux_gb_libretro':
+            if core[0] == 'emux_gb_libretro':
                 extensions = ['gb', 'bin', 'rom']
-            if core == 'gambatte_libretro':
+            if core[0] == 'gambatte_libretro':
                 extensions = ['gb', 'gbc', 'dmg']
-            if core == 'gearhub_libretro':
+            if core[0] == 'gearhub_libretro':
                 extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core == 'sameboy_libretro':
+            if core[0] == 'sameboy_libretro':
                 extensions = ['gb', 'gbc']
-            if core == 'tgbdual_libretro':
+            if core[0] == 'tgbdual_libretro':
                 extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']                                                                
             #gba
-            if core == 'mgba_libretro':
+            if core[0] == 'mgba_libretro':
                 extensions = ['gb', 'gbc', 'gba']
-            if core == 'tempgba_libretro':
+            if core[0] == 'tempgba_libretro':
                 extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core == 'mednafen_gba_libretro':
+            if core[0] == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
             #snes
-            if core == 'higan_sfc_libretro' or core == 'higan_sfc balanced_libretro':
+            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core == 'mesen-s_libretro':
+            if core[0] == 'mesen-s_libretro':
                 extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
 
         ext = []
@@ -942,56 +744,15 @@ class Platform_Gameboy(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -1017,9 +778,9 @@ class Platform_Gameboy(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -1030,29 +791,29 @@ class Platform_Gameboy(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             #gb/c
-            if core == 'emux_gb_libretro':
+            if core[0] == 'emux_gb_libretro':
                 extensions = ['gb', 'bin', 'rom']
-            if core == 'gambatte_libretro':
+            if core[0] == 'gambatte_libretro':
                 extensions = ['gb', 'gbc', 'dmg']
-            if core == 'gearhub_libretro':
+            if core[0] == 'gearhub_libretro':
                 extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core == 'sameboy_libretro':
+            if core[0] == 'sameboy_libretro':
                 extensions = ['gb', 'gbc']
-            if core == 'tgbdual_libretro':
+            if core[0] == 'tgbdual_libretro':
                 extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']                                                                
             #gba
-            if core == 'mgba_libretro':
+            if core[0] == 'mgba_libretro':
                 extensions = ['gb', 'gbc', 'gba']
-            if core == 'tempgba_libretro':
+            if core[0] == 'tempgba_libretro':
                 extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core == 'mednafen_gba_libretro':
+            if core[0] == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
             #snes
-            if core == 'higan_sfc_libretro' or core == 'higan_sfc balanced_libretro':
+            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core == 'mesen-s_libretro':
+            if core[0] == 'mesen-s_libretro':
                 extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
                             
         ext_files = []
@@ -1088,8 +849,8 @@ class Platform_GameboyColor(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['mesen-s_libretro']
+        emulator = ['retroarch']
+        core = ['mesen-s_libretro']
         emulators = ['retroarch', 'other']
         cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
         
@@ -1098,42 +859,43 @@ class Platform_GameboyColor(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-        
-        if emulator == 'retroarch':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]        
+        if emulator[0] == 'retroarch':
             #gb/c
-            if core == 'emux_gb_libretro':
+            if core[0] == 'emux_gb_libretro':
                 extensions = ['gb', 'bin', 'rom']
-            if core == 'gambatte_libretro':
+            if core[0] == 'gambatte_libretro':
                 extensions = ['gb', 'gbc', 'dmg']
-            if core == 'gearhub_libretro':
+            if core[0] == 'gearhub_libretro':
                 extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core == 'sameboy_libretro':
+            if core[0] == 'sameboy_libretro':
                 extensions = ['gb', 'gbc']
-            if core == 'tgbdual_libretro':
+            if core[0] == 'tgbdual_libretro':
                 extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']                                                                
             #gba
-            if core == 'mgba_libretro':
+            if core[0] == 'mgba_libretro':
                 extensions = ['gb', 'gbc', 'gba']
-            if core == 'tempgba_libretro':
+            if core[0] == 'tempgba_libretro':
                 extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core == 'mednafen_gba_libretro':
+            if core[0] == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
             #snes
-            if core == 'higan_sfc_libretro' or core == 'higan_sfc balanced_libretro':
+            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core == 'mesen-s_libretro':
+            if core[0] == 'mesen-s_libretro':
                 extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
         
         ext = []
@@ -1151,56 +913,15 @@ class Platform_GameboyColor(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -1226,9 +947,9 @@ class Platform_GameboyColor(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -1239,29 +960,29 @@ class Platform_GameboyColor(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             #gb/c
-            if core == 'emux_gb_libretro':
+            if core[0] == 'emux_gb_libretro':
                 extensions = ['gb', 'bin', 'rom']
-            if core == 'gambatte_libretro':
+            if core[0] == 'gambatte_libretro':
                 extensions = ['gb', 'gbc', 'dmg']
-            if core == 'gearhub_libretro':
+            if core[0] == 'gearhub_libretro':
                 extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core == 'sameboy_libretro':
+            if core[0] == 'sameboy_libretro':
                 extensions = ['gb', 'gbc']
-            if core == 'tgbdual_libretro':
+            if core[0] == 'tgbdual_libretro':
                 extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']                                                                
             #gba
-            if core == 'mgba_libretro':
+            if core[0] == 'mgba_libretro':
                 extensions = ['gb', 'gbc', 'gba']
-            if core == 'tempgba_libretro':
+            if core[0] == 'tempgba_libretro':
                 extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core == 'mednafen_gba_libretro':
+            if core[0] == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
             #snes
-            if core == 'higan_sfc_libretro' or core == 'higan_sfc balanced_libretro':
+            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core == 'mesen-s_libretro':
+            if core[0] == 'mesen-s_libretro':
                 extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
         
         ext_files = []
@@ -1298,8 +1019,8 @@ class Platform_GameboyAdvance(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['vba_next_libretro']
+        emulator = ['retroarch']
+        core = ['vba_next_libretro']
         emulators = ['retroarch', 'other']
         cores = ['meteor_libretro', 'vba_next_libretro', 'vbam_libretro', 'mgba_libretro', 'gpsp_libretro']
         
@@ -1308,33 +1029,34 @@ class Platform_GameboyAdvance(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-        
-        if emulator == 'retroarch':
-            if core == 'mednafen_gba_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]        
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
-            if core == 'gpsp_libretro':
+            if core[0] == 'gpsp_libretro':
                 extensions = ['gba', 'bin']
-            if core == 'meteor_libretro':
+            if core[0] == 'meteor_libretro':
                 extensions = ['gba']                
-            if core == 'mgba_libretro':
+            if core[0] == 'mgba_libretro':
                 extensions = ['gb', 'gbc', 'gba']
-            if core == 'tempgba_libretro':
+            if core[0] == 'tempgba_libretro':
                 extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core == 'vbam_libretro':
+            if core[0] == 'vbam_libretro':
                 extensions = ['dmg', 'gb', 'gbc', 'cgb', 'sgb', 'gba']            
-            if core == 'vba_next_libretro':
+            if core[0] == 'vba_next_libretro':
                 extensions = ['gba']
                 
         ext = []
@@ -1352,56 +1074,15 @@ class Platform_GameboyAdvance(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -1427,9 +1108,9 @@ class Platform_GameboyAdvance(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -1440,20 +1121,20 @@ class Platform_GameboyAdvance(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'mednafen_gba_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
-            if core == 'gpsp_libretro':
+            if core[0] == 'gpsp_libretro':
                 extensions = ['gba', 'bin']
-            if core == 'meteor_libretro':
+            if core[0] == 'meteor_libretro':
                 extensions = ['gba']                
-            if core == 'mgba_libretro':
+            if core[0] == 'mgba_libretro':
                 extensions = ['gb', 'gbc', 'gba']
-            if core == 'tempgba_libretro':
+            if core[0] == 'tempgba_libretro':
                 extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core == 'vbam_libretro':
+            if core[0] == 'vbam_libretro':
                 extensions = ['dmg', 'gb', 'gbc', 'cgb', 'sgb', 'gba']            
-            if core == 'vba_next_libretro':
+            if core[0] == 'vba_next_libretro':
                 extensions = ['gba']
                         
         ext_files = []
@@ -1500,21 +1181,22 @@ class Platform_Gamecube(PlatformCommon):
         recording = ['false']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-
-        if emulator == 'retroarch':
-            if core == 'dolphin_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]
+        if emulator[0] == 'retroarch':
+            if core[0] == 'dolphin_libretro':
                 extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
         ext = []
@@ -1532,57 +1214,16 @@ class Platform_Gamecube(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
-                
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
+
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -1607,9 +1248,9 @@ class Platform_Gamecube(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -1620,8 +1261,8 @@ class Platform_Gamecube(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'dolphin_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'dolphin_libretro':
                 extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext_files = []
@@ -1658,8 +1299,8 @@ class Platform_Pokemini(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['pokemini_libretro']
+        emulator = ['retroarch']
+        core = ['pokemini_libretro']
         emulators = ['retroarch', 'other']
         cores = ['pokemini_libretro']
         
@@ -1668,21 +1309,22 @@ class Platform_Pokemini(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'min']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-
-        if emulator == 'retroarch':
-            if core == 'pokemini_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]
+        if emulator[0] == 'retroarch':
+            if core[0] == 'pokemini_libretro':
                 extensions = ['min']
 
         ext = []
@@ -1700,56 +1342,15 @@ class Platform_Pokemini(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -1775,9 +1376,9 @@ class Platform_Pokemini(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -1788,8 +1389,8 @@ class Platform_Pokemini(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'pokemini_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'pokemini_libretro':
                 extensions = ['min']
         
         ext_files = []
@@ -1826,8 +1427,8 @@ class Platform_SuperFamicom(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['snes9x_libretro']     
+        emulator = ['retroarch']
+        core = ['snes9x_libretro']     
         emulators = ['retroarch', 'other']
         cores = ['snes9x_libretro']
            
@@ -1836,27 +1437,28 @@ class Platform_SuperFamicom(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-
-        if emulator == 'retroarch':
-            if core == 'bsnes_libretro' or core == 'bsnes_hd_beta_libretro' or core == 'bsnes_cplusplus98_libretro' or core == 'bsnes2014_accuracy_libretro' or core == 'bsnes2014_balanced_libretro' or core == 'bsnes2014_performance_libretro' or core == 'bsnes_mercury_accuracy_libretro' or core == 'bsnes_mercury_balanced_libretro' or core == 'bsnes_mercury_balanced_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]
+        if emulator[0] == 'retroarch':
+            if core[0] == 'bsnes_libretro' or core[0] == 'bsnes_hd_beta_libretro' or core[0] == 'bsnes_cplusplus98_libretro' or core[0] == 'bsnes2014_accuracy_libretro' or core[0] == 'bsnes2014_balanced_libretro' or core[0] == 'bsnes2014_performance_libretro' or core[0] == 'bsnes_mercury_accuracy_libretro' or core[0] == 'bsnes_mercury_balanced_libretro' or core[0] == 'bsnes_mercury_balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bs']
-            if core == 'higan_sfc_libretro' or core == 'higan_sfc balanced_libretro':
+            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core == 'mesen-s_libretro':
+            if core[0] == 'mesen-s_libretro':
                 extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
-            if core == 'snes9x_libretro' or core == 'snes9x2002_libretro' or core == 'snes9x2005_libretro' or core == 'snes9x2005_plus_libretro' or core == 'snes9x2010_libretro':
+            if core[0] == 'snes9x_libretro' or core[0] == 'snes9x2002_libretro' or core[0] == 'snes9x2005_libretro' or core[0] == 'snes9x2005_plus_libretro' or core[0] == 'snes9x2010_libretro':
                 extensions = ['smc', 'sfc', 'swc', 'fig', 'bs', 'st']
 
         ext = []
@@ -1874,56 +1476,15 @@ class Platform_SuperFamicom(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -1949,9 +1510,9 @@ class Platform_SuperFamicom(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -1962,14 +1523,14 @@ class Platform_SuperFamicom(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'bsnes_libretro' or core == 'bsnes_hd_beta_libretro' or core == 'bsnes_cplusplus98_libretro' or core == 'bsnes2014_accuracy_libretro' or core == 'bsnes2014_balanced_libretro' or core == 'bsnes2014_performance_libretro' or core == 'bsnes_mercury_accuracy_libretro' or core == 'bsnes_mercury_balanced_libretro' or core == 'bsnes_mercury_balanced_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'bsnes_libretro' or core[0] == 'bsnes_hd_beta_libretro' or core[0] == 'bsnes_cplusplus98_libretro' or core[0] == 'bsnes2014_accuracy_libretro' or core[0] == 'bsnes2014_balanced_libretro' or core[0] == 'bsnes2014_performance_libretro' or core[0] == 'bsnes_mercury_accuracy_libretro' or core[0] == 'bsnes_mercury_balanced_libretro' or core[0] == 'bsnes_mercury_balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bs']
-            if core == 'higan_sfc_libretro' or core == 'higan_sfc balanced_libretro':
+            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core == 'mesen-s_libretro':
+            if core[0] == 'mesen-s_libretro':
                 extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
-            if core == 'snes9x_libretro' or core == 'snes9x2002_libretro' or core == 'snes9x2005_libretro' or core == 'snes9x2005_plus_libretro' or core == 'snes9x2010_libretro':
+            if core[0] == 'snes9x_libretro' or core[0] == 'snes9x2002_libretro' or core[0] == 'snes9x2005_libretro' or core[0] == 'snes9x2005_plus_libretro' or core[0] == 'snes9x2010_libretro':
                 extensions = ['smc', 'sfc', 'swc', 'fig', 'bs', 'st']
         
         ext_files = []
@@ -2006,8 +1567,8 @@ class Platform_Virtualboy(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['mednafen_vb_libretro']
+        emulator = ['retroarch']
+        core = ['mednafen_vb_libretro']
         emulators = ['retroarch', 'other']
         cores = ['mednafen_vb_libretro']
         
@@ -2016,21 +1577,22 @@ class Platform_Virtualboy(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'vb', 'vboy', 'bin']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-
-        if emulator == 'retroarch':
-            if core == 'mednafen_vb_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_vb_libretro':
                 extensions = ['vb', 'vboy', 'bin']
                 
         ext = []
@@ -2048,56 +1610,14 @@ class Platform_Virtualboy(PlatformCommon):
             exit(-1)
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
 
         # print status to console.
         if debugging != False:
@@ -2123,9 +1643,9 @@ class Platform_Virtualboy(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -2136,8 +1656,8 @@ class Platform_Virtualboy(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'mednafen_vb_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'mednafen_vb_libretro':
                 extensions = ['vb', 'vboy', 'bin']
                         
         ext_files = []
@@ -2174,8 +1694,8 @@ class Platform_Wii(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['dolphin_libretro']
+        emulator = ['retroarch']
+        core = ['dolphin_libretro']
         emulators = ['retroarch', 'other']
         cores = ['dolphin_libretro']
 
@@ -2184,21 +1704,22 @@ class Platform_Wii(PlatformCommon):
         recording = ['false']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-
-        if emulator == 'retroarch':
-            if core == 'dolphin_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]
+        if emulator[0] == 'retroarch':
+            if core[0] == 'dolphin_libretro':
                 extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext = []
@@ -2216,57 +1737,16 @@ class Platform_Wii(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == '4do':
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
-                
+        if emulator[0] == '4do':
+            print("Using: " + str(emulator))
+
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -2291,9 +1771,9 @@ class Platform_Wii(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -2304,8 +1784,8 @@ class Platform_Wii(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'dolphin_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'dolphin_libretro':
                 extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
         
         ext_files = []

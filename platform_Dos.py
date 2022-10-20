@@ -24,8 +24,8 @@ class Platform_Msdos(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['dosbox_core_libretro']
+        emulator = ['retroarch']
+        core = ['dosbox_core_libretro']
         emulators = ['retroarch', 'dosbox']
         cores = ['dosbox_core_libretro', 'dosbox_pure_libretro', 'dosbox_svn_libretro', 'dosbox_svn_ce_libretro']
         
@@ -34,23 +34,25 @@ class Platform_Msdos(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
         
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]
         
-        if emulator == 'retroarch':
-            if core == 'dosbox_core_libretro' or core == 'dosbox_svn_libretro' or core == 'dosbox_svn_ce_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
                 extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
-            if core == 'dosbox_pure_libretro':
+            if core[0] == 'dosbox_pure_libretro':
                 extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8']
         
         ext = []
@@ -68,34 +70,15 @@ class Platform_Msdos(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-            if streaming != ['false']:
-                # Set whether we should start streaming to twitch or not.
-                if streaming == ['twitch']:
-                    print("\tTwitch Streaming enabled!")
-                    emulator.append('-r rtmp://ams03.contribute.live-video.net/app/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to restream or not.
-                if streaming == ['restream']:
-                    print("\tRestream Streaming enabled!")
-                    emulator.append('-r rtmp://live.restream.io/live/$YOUR_STREAM_KEY')
-                # Set whether we should start streaming to youtube or not.
-                if streaming == ['youtube']:
-                    print("\tYoutube Streaming enabled!")
-                    emulator.append('-r rtmp://a.rtmp.youtube.com/live2/$YOUR_STREAM_KEY')
-            # Set whether we should start recording or not.
-            if recording != ['false']:
-                print("\tRecording enabled!")
-                emulator.append('-P ~/.config/retroarch/records')
-                emulator.append('-r ~/.config/retroarch/records')
-            # Set whether we should run in fullscreen or not.
-            if fullscreen != ['false']:
-                print("\tFullscreen enabled!")
-                emulator.append('--fullscreen')
+            
+
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:                
-        if emulator == 'dosbox':
+        if emulator[0] == 'dosbox':
             # Set whether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -124,9 +107,9 @@ class Platform_Msdos(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'dosbox':
+            if emulator[0] == 'dosbox':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -137,10 +120,10 @@ class Platform_Msdos(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator == 'retroarch':
-            if core == 'dosbox_core_libretro' or core == 'dosbox_svn_libretro' or core == 'dosbox_svn_ce_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
                 extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
-            if core == 'dosbox_pure_libretro':
+            if core[0] == 'dosbox_pure_libretro':
                 extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8']
         
         ext_files = []

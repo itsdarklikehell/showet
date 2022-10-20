@@ -24,8 +24,8 @@ class Platform_Vectrex(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        #emulator = ['retroarch']
-        #core = ['vecx_libretro']
+        emulator = ['retroarch']
+        core = ['vecx_libretro']
         emulators = ['retroarch', 'vecx']
         cores = ['vecx_libretro']
         
@@ -34,21 +34,22 @@ class Platform_Vectrex(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'bin', 'vec']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-        
-        if emulator == 'retroarch':
-            if core == 'vecx_libretro':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]        
+        if emulator[0] == 'retroarch':
+            if core[0] == 'vecx_libretro':
                 extensions = ['bin', 'vec']
 
         ext = []
@@ -66,7 +67,8 @@ class Platform_Vectrex(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
+            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
             # Set whether we should run in fullscreens or not.
@@ -74,7 +76,7 @@ class Platform_Vectrex(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'vecx':
+        if emulator[0] == 'vecx':
             # Set whether we should run in fullscreens or not.
             if fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -103,9 +105,9 @@ class Platform_Vectrex(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'vecx':
+            if emulator[0] == 'vecx':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -116,8 +118,8 @@ class Platform_Vectrex(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'vecx_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'vecx_libretro':
                 extensions = ['bin', 'vec']
         
         ext_files = []

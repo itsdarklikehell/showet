@@ -34,21 +34,22 @@ class Platform_Linux(PlatformCommon):
         recording = ['false']
         extensions = ['elf', 'exe']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            if interactive != False:
-                emulator = self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            if interactive != False:
-                core = self.multicore(cores)
-            else:
-                core = core[0]
-        
-        if emulator == 'bash':
-            if core == 'bash':
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     if interactive != False:
+        #         emulator = self.multiemu(emulators)
+        #         #core = inquirer.prompt(prompt).get('emulators').strip().lower()
+        #     else:
+        #         emulator = emulators[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     if interactive != False:
+        #         core = self.multicore(cores)
+        #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
+        #     else:
+        #         core = core[0]        
+        if emulator[0] == 'bash':
+            if core[0] == 'bash':
                 extensions = ['elf', 'exe']
                 
         ext = []
@@ -109,8 +110,8 @@ class Platform_Linux(PlatformCommon):
     def find_ext_files(self,emulator,core):
         extensions = ['elf', 'exe']
         
-        if emulator == 'bash':
-            if core == 'bash':
+        if emulator[0] == 'bash':
+            if core[0] == 'bash':
                 extensions = ['elf', 'exe']
                         
         ext_files = []
