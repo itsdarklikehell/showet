@@ -37,8 +37,8 @@ class Platform_3do(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
                             
-        if emulator[0] == 'retroarch':
-            if core[0] == '4do_libretro' or core[0] == 'opera_libretro':
+        if emulator == 'retroarch':
+            if core == '4do_libretro' or core == 'opera_libretro':
                 extensions = ['iso', 'bin', 'chd', 'cue']
         
         ext = []
@@ -56,13 +56,13 @@ class Platform_3do(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -87,7 +87,7 @@ class Platform_3do(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -100,8 +100,8 @@ class Platform_3do(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == '4do_libretro' or core[0] == 'opera_libretro':
+        if emulator == 'retroarch':
+            if core == '4do_libretro' or core == 'opera_libretro':
                 extensions = ['iso', 'bin', 'chd', 'cue']
                         
         ext_files = []

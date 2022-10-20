@@ -38,7 +38,7 @@ class Platform_Linux(PlatformCommon):
             PlatformCommon.multicore(self,cores)   
      
         if emulator[0] == 'bash':
-            if core[0] == 'bash':
+            if core == 'bash':
                 extensions = ['elf', 'exe']
                 
         ext = []
@@ -98,7 +98,7 @@ class Platform_Linux(PlatformCommon):
         extensions = ['elf', 'exe']
         
         if emulator[0] == 'bash':
-            if core[0] == 'bash':
+            if core == 'bash':
                 extensions = ['elf', 'exe']
                         
         ext_files = []

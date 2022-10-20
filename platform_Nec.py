@@ -36,8 +36,8 @@ class Platform_Pcengine(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_supergrafx_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_supergrafx_libretro':
                 extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
 
         ext = []
@@ -55,13 +55,13 @@ class Platform_Pcengine(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -86,7 +86,7 @@ class Platform_Pcengine(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -99,8 +99,8 @@ class Platform_Pcengine(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_supergrafx_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_supergrafx_libretro':
                 extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
         
         ext_files = []
@@ -153,8 +153,8 @@ class Platform_Supergrafx(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_supergrafx_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_supergrafx_libretro':
                 extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
         
         ext = []
@@ -172,13 +172,13 @@ class Platform_Supergrafx(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -203,7 +203,7 @@ class Platform_Supergrafx(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -216,8 +216,8 @@ class Platform_Supergrafx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_supergrafx_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_supergrafx_libretro':
                 extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
                 
         ext_files = []
@@ -270,8 +270,8 @@ class Platform_Pc8000(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'quasi88_libretro':
+        if emulator == 'retroarch':
+            if core == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
                 
         ext = []
@@ -289,13 +289,13 @@ class Platform_Pc8000(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -320,7 +320,7 @@ class Platform_Pc8000(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -333,8 +333,8 @@ class Platform_Pc8000(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'quasi88_libretro':
+        if emulator == 'retroarch':
+            if core == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
 
         ext_files = []
@@ -387,8 +387,8 @@ class Platform_Pc8800(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'quasi88_libretro':
+        if emulator == 'retroarch':
+            if core == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
                         
         ext = []
@@ -406,13 +406,13 @@ class Platform_Pc8800(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -437,7 +437,7 @@ class Platform_Pc8800(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -450,8 +450,8 @@ class Platform_Pc8800(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'quasi88_libretro':
+        if emulator == 'retroarch':
+            if core == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
                         
         ext_files = []
@@ -504,8 +504,8 @@ class Platform_Pc98(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'nekop2_libretro':
+        if emulator == 'retroarch':
+            if core == 'nekop2_libretro':
                 extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
 
         ext = []
@@ -523,13 +523,13 @@ class Platform_Pc98(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -554,7 +554,7 @@ class Platform_Pc98(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -567,8 +567,8 @@ class Platform_Pc98(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'nekop2_libretro':
+        if emulator == 'retroarch':
+            if core == 'nekop2_libretro':
                 extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
 
         ext_files = []
@@ -621,8 +621,8 @@ class Platform_Pcfx(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_pcfx_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_pcfx_libretro':
                 extensions = ['cue', 'ccd', 'toc', 'chd']
 
         ext = []
@@ -640,13 +640,13 @@ class Platform_Pcfx(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -671,7 +671,7 @@ class Platform_Pcfx(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -684,8 +684,8 @@ class Platform_Pcfx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_pcfx_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_pcfx_libretro':
                 extensions = ['cue', 'ccd', 'toc', 'chd']
 
         ext_files = []

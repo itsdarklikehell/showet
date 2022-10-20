@@ -37,8 +37,8 @@ class Platform_32X(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'picodrive_libretro':
+        if emulator == 'retroarch':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
             
         ext = []
@@ -56,13 +56,13 @@ class Platform_32X(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -87,7 +87,7 @@ class Platform_32X(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -100,8 +100,8 @@ class Platform_32X(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'picodrive_libretro':
+        if emulator == 'retroarch':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
         
         ext_files = []
@@ -154,10 +154,10 @@ class Platform_Dreamcast(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'flycast_libretro' or core[0] == 'flycast_gles2_libretro':
+        if emulator == 'retroarch':
+            if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
-            if core[0] == 'retrodream_libretro':
+            if core == 'retrodream_libretro':
                 extensions = ['gdi', 'chd', 'cdi']
 
         ext = []
@@ -175,13 +175,13 @@ class Platform_Dreamcast(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -206,7 +206,7 @@ class Platform_Dreamcast(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -219,10 +219,10 @@ class Platform_Dreamcast(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'flycast_libretro' or core[0] == 'flycast_gles2_libretro':
+        if emulator == 'retroarch':
+            if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
-            if core[0] == 'retrodream_libretro':
+            if core == 'retrodream_libretro':
                 extensions = ['gdi', 'chd', 'cdi']
                 
         ext_files = []
@@ -273,12 +273,12 @@ class Platform_Gamegear(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)      
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/GG/SG-1000
-            if core[0] == 'gearsystem_libretro':
+            if core == 'gearsystem_libretro':
                 extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
                         
         ext = []
@@ -296,13 +296,13 @@ class Platform_Gamegear(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -327,7 +327,7 @@ class Platform_Gamegear(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -340,12 +340,12 @@ class Platform_Gamegear(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/GG/SG-1000
-            if core[0] == 'gearsystem_libretro':
+            if core == 'gearsystem_libretro':
                 extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
         
         ext_files = []
@@ -398,20 +398,20 @@ class Platform_Mastersystem(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':            #MS
-            if core[0] == 'emux_sms_libretro':
+        if emulator == 'retroarch':            #MS
+            if core == 'emux_sms_libretro':
                 extensions = ['sms', 'bms', 'bin', 'rom']
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
-            if core[0] == 'picodrive_libretro':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
             #MS/GG/SG-1000
-            if core[0] == 'gearsystem_libretro':
+            if core == 'gearsystem_libretro':
                 extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
             #MSX/SVI/ColecoVision/SG-1000
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
             
         ext = []
@@ -429,13 +429,13 @@ class Platform_Mastersystem(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -460,7 +460,7 @@ class Platform_Mastersystem(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -473,21 +473,21 @@ class Platform_Mastersystem(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS
-            if core[0] == 'emux_sms_libretro':
+            if core == 'emux_sms_libretro':
                 extensions = ['sms', 'bms', 'bin', 'rom']
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
-            if core[0] == 'picodrive_libretro':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
             #MS/GG/SG-1000
-            if core[0] == 'gearsystem_libretro':
+            if core == 'gearsystem_libretro':
                 extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
             #MSX/SVI/ColecoVision/SG-1000
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
                         
         ext_files = []
@@ -540,11 +540,11 @@ class Platform_Megadrive(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':            #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+        if emulator == 'retroarch':            #MS/GG/MD/CD
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
-            if core[0] == 'picodrive_libretro':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
 
         ext = []
@@ -562,13 +562,13 @@ class Platform_Megadrive(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -593,7 +593,7 @@ class Platform_Megadrive(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -606,12 +606,12 @@ class Platform_Megadrive(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
-            if core[0] == 'picodrive_libretro':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
         
         ext_files = []
@@ -664,12 +664,12 @@ class Platform_Saturn(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_saturn_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
-            if core[0] == 'kronos_libretro':
+            if core == 'kronos_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
-            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
                 extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
 
         ext = []
@@ -687,13 +687,13 @@ class Platform_Saturn(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -718,7 +718,7 @@ class Platform_Saturn(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -731,12 +731,12 @@ class Platform_Saturn(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_saturn_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
-            if core[0] == 'kronos_libretro':
+            if core == 'kronos_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
-            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
                 extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
 
         ext_files = []
@@ -789,12 +789,12 @@ class Platform_Stv(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_saturn_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
-            if core[0] == 'kronos_libretro':
+            if core == 'kronos_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
-            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
                 extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
         
         ext = []
@@ -812,13 +812,13 @@ class Platform_Stv(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -843,7 +843,7 @@ class Platform_Stv(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -856,12 +856,12 @@ class Platform_Stv(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_saturn_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
-            if core[0] == 'kronos_libretro':
+            if core == 'kronos_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
-            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
                 extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
         
         ext_files = []
@@ -914,8 +914,8 @@ class Platform_Vmu(PlatformCommon):
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vemulator_libretro':
+        if emulator == 'retroarch':
+            if core == 'vemulator_libretro':
                 extensions = ['vms', 'dci', 'bin']
         
         ext = []
@@ -933,13 +933,13 @@ class Platform_Vmu(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -964,7 +964,7 @@ class Platform_Vmu(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -977,8 +977,8 @@ class Platform_Vmu(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vemulator_libretro':
+        if emulator == 'retroarch':
+            if core == 'vemulator_libretro':
                 extensions = ['vms', 'dci', 'bin']
                         
         ext_files = []
@@ -1030,9 +1030,9 @@ class Platform_SG1000(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)      
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MSX/SVI/ColecoVision/SG-1000
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
         
         ext = []
@@ -1050,13 +1050,13 @@ class Platform_SG1000(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -1081,7 +1081,7 @@ class Platform_SG1000(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -1094,9 +1094,9 @@ class Platform_SG1000(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MSX/SVI/ColecoVision/SG-1000
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
         
         ext_files = []

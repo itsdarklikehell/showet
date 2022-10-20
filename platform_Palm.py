@@ -38,7 +38,7 @@ class Platform_Palm(PlatformCommon):
             PlatformCommon.multicore(self,cores)
 
         if extensions == 'retroarch':
-            if core[0] == 'mu_libretro':
+            if core == 'mu_libretro':
                 extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
 
         ext = []
@@ -56,13 +56,13 @@ class Platform_Palm(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == '4do':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -87,7 +87,7 @@ class Platform_Palm(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -100,8 +100,8 @@ class Platform_Palm(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mu_libretro':
+        if emulator == 'retroarch':
+            if core == 'mu_libretro':
                 extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
         
         ext_files = []
