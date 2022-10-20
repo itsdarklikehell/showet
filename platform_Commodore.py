@@ -32,41 +32,43 @@ class Platform_Commodore64(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['vice_x64sc_libretro']
+        #emulator = ['retroarch']
+        #core = ['vice_x64sc_libretro']
         emulators = ['retroarch', 'vice', 'frodo']
         cores = ['vice_x64sc_libretro', 'frodo_libretro']
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
-        
-        extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
         vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    
         extensions = []
         extensions.extend(floppys_ext)
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
         
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_x64sc_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-                
+        if emulator == 'retroarch':
+            if core == 'vice_x64sc_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -88,9 +90,9 @@ class Platform_Commodore64(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -163,7 +165,7 @@ class Platform_Commodore64(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -176,8 +178,8 @@ class Platform_Commodore64(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_x64sc_libretro':
+        if emulator == 'retroarch':
+            if core == 'vice_x64sc_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -236,43 +238,43 @@ class Platform_Commodore128(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['vice_x128_libretro']
+        #emulator = ['retroarch']
+        #core = ['vice_x128_libretro']
         emulators = ['retroarch', 'vice']
         cores = ['vice_x128_libretro']
-        
         fullscreen = ['false']
         streaming = ['false']
-        recording = ['false']
-    
-        extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-        
+        recording = ['false']    
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
         vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-        
         extensions = []
         extensions.extend(floppys_ext)
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
                 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_x128_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-
+        if emulator == 'retroarch':
+            if core == 'vice_x128_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -294,9 +296,9 @@ class Platform_Commodore128(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -369,7 +371,7 @@ class Platform_Commodore128(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -382,10 +384,8 @@ class Platform_Commodore128(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_x128_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-    
+        if emulator == 'retroarch':
+            if core == 'vice_x128_libretro':    
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -395,7 +395,6 @@ class Platform_Commodore128(PlatformCommon):
                     print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
                     print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
                     print('\tFiles with extension: %s will be identified as VIC-20 Files' % vic20_ext)
-
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -446,8 +445,8 @@ class Platform_CommodoreAmiga(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['puae_libretro']
+        #emulator = ['retroarch']
+        #core = ['puae_libretro']
         emulators = ['retroarch', 'puae', 'fs-uae']
         cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
 
@@ -467,14 +466,22 @@ class Platform_CommodoreAmiga(PlatformCommon):
         extensions.extend(cd_ext)
         extensions.extend(other)
         
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
                         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'puae_libretro':
+        if emulator == 'retroarch':
+            if core == 'puae_libretro':
                     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
                     harddrives_ext = ['hdf', 'hdz', 'datadir' ]
                     whdload_ext = ['lha', 'slave', 'info']
@@ -506,9 +513,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -564,7 +571,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'hatari':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -579,7 +586,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                     f.write(exename + "\n")
                     f.close()
         
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             amiga_model = 'A1200'
             if self.prod_platform == 'amigaocsecs':
                 amiga_model = 'A500'
@@ -639,8 +646,8 @@ class Platform_CommodoreAmiga(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'puae_libretro':
+        if emulator == 'retroarch':
+            if core == 'puae_libretro':
                 floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
                 harddrives_ext = ['hdf', 'hdz', 'datadir' ]
                 whdload_ext = ['lha', 'slave', 'info']
@@ -701,8 +708,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['vice_xcbm2_libretro']
+        #emulator = ['retroarch']
+        #core = ['vice_xcbm2_libretro']
         emulators = ['retroarch', 'vice']
         cores = ['vice_xcbm2_libretro']
 
@@ -722,21 +729,26 @@ class Platform_CommodoreCBMII(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
                 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_xcbm2_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-
+        if emulator == 'retroarch':
+            if core == 'vice_xcbm2_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -758,9 +770,9 @@ class Platform_CommodoreCBMII(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -814,7 +826,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -827,10 +839,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_xcbm2_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-
+        if emulator == 'retroarch':
+            if core == 'vice_xcbm2_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -889,42 +899,44 @@ class Platform_CommodorePet(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['vice_xpet_libretro']
+        #emulator = ['retroarch']
+        #core = ['vice_xpet_libretro']
         emulators = ['retroarch', 'vice']
         cores = ['vice_xpet_libretro']
-        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
         extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-        
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
         vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-        
         extensions = []
         extensions.extend(floppys_ext)
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_xpet_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-                
+        if emulator == 'retroarch':
+            if core == 'vice_xpet_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
-                vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                
+                vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']    
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -946,9 +958,9 @@ class Platform_CommodorePet(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -1021,7 +1033,7 @@ class Platform_CommodorePet(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -1034,10 +1046,8 @@ class Platform_CommodorePet(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_xpet_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-    
+        if emulator == 'retroarch':
+            if core == 'vice_xpet_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -1095,8 +1105,8 @@ class Platform_CommodorePlus4(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['vice_xplus4_libretro']
+        #emulator = ['retroarch']
+        #core = ['vice_xplus4_libretro']
         emulators = ['retroarch', 'vice']
         cores = ['vice_xplus4_libretro']
 
@@ -1116,21 +1126,26 @@ class Platform_CommodorePlus4(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_xplus4_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-                
+        if emulator == 'retroarch':
+            if core == 'vice_xplus4_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -1152,9 +1167,9 @@ class Platform_CommodorePlus4(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -1227,7 +1242,7 @@ class Platform_CommodorePlus4(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -1240,10 +1255,8 @@ class Platform_CommodorePlus4(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
     
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_xplus4_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-    
+        if emulator == 'retroarch':
+            if core == 'vice_xplus4_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -1302,8 +1315,8 @@ class Platform_CommodoreVIC20(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['vice_xvic_libretro']
+        #emulator = ['retroarch']
+        #core = ['vice_xvic_libretro']
         emulators = ['retroarch', 'vice']
         cores = ['vice_xvic_libretro']
 
@@ -1323,21 +1336,26 @@ class Platform_CommodoreVIC20(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
             
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_xvic_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-                
+        if emulator == 'retroarch':
+            if core == 'vice_xvic_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
@@ -1359,9 +1377,9 @@ class Platform_CommodoreVIC20(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -1415,7 +1433,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -1428,10 +1446,8 @@ class Platform_CommodoreVIC20(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vice_xvic_libretro':
-                extensions = ['d64', 'd71', 'd80', 'd81', 'd82', 'g64', 'g41', 'x64', 't64', 'tap', 'prg', 'p00', 'crt', 'bin', 'zip', 'gz', 'd6z', 'd7z', 'd8z', 'g6z', 'g4z', 'x6z', 'cmd', 'm3u', 'vfl', 'vsf', 'nib', 'nbz', 'd2m', 'd4m']
-                
+        if emulator == 'retroarch':
+            if core == 'vice_xvic_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']

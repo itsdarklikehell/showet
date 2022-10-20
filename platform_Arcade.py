@@ -24,8 +24,8 @@ class Platform_Arcade(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['mame_libretro']
+        #emulator = ['retroarch']
+        #core = ['mame_libretro']
         emulators = ['retroarch', 'MAME', 'MESS']
         cores = ['mame_libretro', 'mamemess_libretro',]
         
@@ -36,17 +36,24 @@ class Platform_Arcade(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
+        if emulator == 'retroarch':
+            if core == 'mame_libretro' or core == 'mame2015_libretro' or core == 'mame2016_libretro' or core == 'mamearcade_libretro' or core == 'hbmame_libretro':
                 extensions = ['zip', 'chd', '7z', 'cmd']
-            if core[0] == 'mame2000_libretro' or core[0] == 'mame2010_libretro' or core[0] == 'mame2009_libretro':
+            if core == 'mame2000_libretro' or core == 'mame2010_libretro' or core == 'mame2009_libretro':
                 extensions = ['zip', 'chd', '7z']
-            if core[0] == 'mame2003_libretro' or core[0] == 'mame2003_plus_libretro' or core[0] == 'mame2003_midway_libretro':
+            if core == 'mame2003_libretro' or core == 'mame2003_plus_libretro' or core == 'mame2003_midway_libretro':
                 extensions = ['zip']
 
         ext = []
@@ -64,9 +71,9 @@ class Platform_Arcade(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -139,7 +146,7 @@ class Platform_Arcade(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'mame':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -152,12 +159,12 @@ class Platform_Arcade(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
+        if emulator == 'retroarch':
+            if core == 'mame_libretro' or core == 'mame2015_libretro' or core == 'mame2016_libretro' or core == 'mamearcade_libretro' or core == 'hbmame_libretro':
                 extensions = ['zip', 'chd', '7z', 'cmd']
-            if core[0] == 'mame2000_libretro' or core[0] == 'mame2010_libretro' or core[0] == 'mame2009_libretro':
+            if core == 'mame2000_libretro' or core == 'mame2010_libretro' or core == 'mame2009_libretro':
                 extensions = ['zip', 'chd', '7z']
-            if core[0] == 'mame2003_libretro' or core[0] == 'mame2003_plus_libretro' or core[0] == 'mame2003_midway_libretro':
+            if core == 'mame2003_libretro' or core == 'mame2003_plus_libretro' or core == 'mame2003_midway_libretro':
                 extensions = ['zip']
         
         ext_files = []

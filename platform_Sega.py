@@ -24,8 +24,8 @@ class Platform_32X(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['picodrive_libretro']
+        #emulator = ['retroarch']
+        #core = ['picodrive_libretro']
         emulators = ['retroarch', 'picodrive']
         cores = ['picodrive_libretro']
     
@@ -36,13 +36,20 @@ class Platform_32X(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'picodrive_libretro':
+        if emulator == 'retroarch':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
             
         ext = []
@@ -60,9 +67,9 @@ class Platform_32X(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -135,7 +142,7 @@ class Platform_32X(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -148,8 +155,8 @@ class Platform_32X(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'picodrive_libretro':
+        if emulator == 'retroarch':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
         
         ext_files = []
@@ -186,8 +193,8 @@ class Platform_Dreamcast(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['flycast_libretro']
+        #emulator = ['retroarch']
+        #core = ['flycast_libretro']
         emulators = ['retroarch', 'flycast', 'redream']
         cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
 
@@ -198,15 +205,22 @@ class Platform_Dreamcast(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'flycast_libretro' or core[0] == 'flycast_gles2_libretro':
+        if emulator == 'retroarch':
+            if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
-            if core[0] == 'retrodream_libretro':
+            if core == 'retrodream_libretro':
                 extensions = ['gdi', 'chd', 'cdi']
 
         ext = []
@@ -224,9 +238,9 @@ class Platform_Dreamcast(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -299,7 +313,7 @@ class Platform_Dreamcast(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -312,10 +326,10 @@ class Platform_Dreamcast(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'flycast_libretro' or core[0] == 'flycast_gles2_libretro':
+        if emulator == 'retroarch':
+            if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
-            if core[0] == 'retrodream_libretro':
+            if core == 'retrodream_libretro':
                 extensions = ['gdi', 'chd', 'cdi']
                 
         ext_files = []
@@ -350,8 +364,8 @@ class Platform_Gamegear(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['genesis_plus_gx_libretro']
+        #emulator = ['retroarch']
+        #core = ['genesis_plus_gx_libretro']
         emulators = ['retroarch', 'osmose']
         cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
 
@@ -362,17 +376,24 @@ class Platform_Gamegear(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
         
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/GG/SG-1000
-            if core[0] == 'gearsystem_libretro':
+            if core == 'gearsystem_libretro':
                 extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
                         
         ext = []
@@ -390,9 +411,9 @@ class Platform_Gamegear(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -465,7 +486,7 @@ class Platform_Gamegear(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -478,12 +499,12 @@ class Platform_Gamegear(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/GG/SG-1000
-            if core[0] == 'gearsystem_libretro':
+            if core == 'gearsystem_libretro':
                 extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
         
         ext_files = []
@@ -520,8 +541,8 @@ class Platform_Mastersystem(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['genesis_plus_gx_libretro']
+        #emulator = ['retroarch']
+        #core = ['genesis_plus_gx_libretro']
         emulators = ['retroarch', 'osmose']
         cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
 
@@ -532,26 +553,33 @@ class Platform_Mastersystem(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS
-            if core[0] == 'emux_sms_libretro':
+            if core == 'emux_sms_libretro':
                 extensions = ['sms', 'bms', 'bin', 'rom']
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
-            if core[0] == 'picodrive_libretro':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
             #MS/GG/SG-1000
-            if core[0] == 'gearsystem_libretro':
+            if core == 'gearsystem_libretro':
                 extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
             #MSX/SVI/ColecoVision/SG-1000
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
             
         ext = []
@@ -569,9 +597,9 @@ class Platform_Mastersystem(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -644,7 +672,7 @@ class Platform_Mastersystem(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -657,21 +685,21 @@ class Platform_Mastersystem(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS
-            if core[0] == 'emux_sms_libretro':
+            if core == 'emux_sms_libretro':
                 extensions = ['sms', 'bms', 'bin', 'rom']
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
-            if core[0] == 'picodrive_libretro':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
             #MS/GG/SG-1000
-            if core[0] == 'gearsystem_libretro':
+            if core == 'gearsystem_libretro':
                 extensions = ['sms', 'gg', 'sg', 'bin', 'rom']
             #MSX/SVI/ColecoVision/SG-1000
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
                         
         ext_files = []
@@ -708,8 +736,8 @@ class Platform_Megadrive(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['picodrive_libretro']
+        #emulator = ['retroarch']
+        #core = ['picodrive_libretro']
         emulators = ['retroarch', 'dgen']
         cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
         
@@ -720,17 +748,24 @@ class Platform_Megadrive(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
-            if core[0] == 'picodrive_libretro':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
 
         ext = []
@@ -748,9 +783,9 @@ class Platform_Megadrive(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -823,7 +858,7 @@ class Platform_Megadrive(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -836,12 +871,12 @@ class Platform_Megadrive(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MS/GG/MD/CD
-            if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
+            if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
-            if core[0] == 'picodrive_libretro':
+            if core == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
         
         ext_files = []
@@ -877,8 +912,8 @@ class Platform_Saturn(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['yabause_libretro']
+        #emulator = ['retroarch']
+        #core = ['yabause_libretro']
         emulators = ['retroarch', 'yabause', 'kronos']
         cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
 
@@ -889,17 +924,24 @@ class Platform_Saturn(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_saturn_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
-            if core[0] == 'kronos_libretro':
+            if core == 'kronos_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
-            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
                 extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
 
         ext = []
@@ -917,9 +959,9 @@ class Platform_Saturn(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -991,7 +1033,7 @@ class Platform_Saturn(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -1004,12 +1046,12 @@ class Platform_Saturn(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_saturn_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
-            if core[0] == 'kronos_libretro':
+            if core == 'kronos_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
-            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
                 extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
 
         ext_files = []
@@ -1046,8 +1088,8 @@ class Platform_Stv(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['kronos_libretro']
+        #emulator = ['retroarch']
+        #core = ['kronos_libretro']
         emulators = ['retroarch', 'yabause', 'kronos']
         cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
 
@@ -1058,17 +1100,24 @@ class Platform_Stv(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_saturn_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
-            if core[0] == 'kronos_libretro':
+            if core == 'kronos_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
-            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
                 extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
         
         ext = []
@@ -1086,9 +1135,9 @@ class Platform_Stv(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -1161,7 +1210,7 @@ class Platform_Stv(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -1174,12 +1223,12 @@ class Platform_Stv(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'mednafen_saturn_libretro':
+        if emulator == 'retroarch':
+            if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
-            if core[0] == 'kronos_libretro':
+            if core == 'kronos_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'iso', 'mds', 'zip', 'm3u']
-            if core[0] == 'yabause_libretro' or core[0] == 'yabasanshiro_libretro':
+            if core == 'yabause_libretro' or core == 'yabasanshiro_libretro':
                 extensions = ['bin', 'ccd', 'chd', 'cue', 'iso', 'mds', 'zip']
         
         ext_files = []
@@ -1228,13 +1277,20 @@ class Platform_Vmu(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vemulator_libretro':
+        if emulator == 'retroarch':
+            if core == 'vemulator_libretro':
                 extensions = ['vms', 'dci', 'bin']
         
         ext = []
@@ -1252,9 +1308,9 @@ class Platform_Vmu(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -1327,7 +1383,7 @@ class Platform_Vmu(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -1340,8 +1396,8 @@ class Platform_Vmu(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'vemulator_libretro':
+        if emulator == 'retroarch':
+            if core == 'vemulator_libretro':
                 extensions = ['vms', 'dci', 'bin']
                         
         ext_files = []
@@ -1378,8 +1434,8 @@ class Platform_SG1000(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['bluemsx_libretro']
+        #emulator = ['retroarch']
+        #core = ['bluemsx_libretro']
         emulators = ['retroarch', 'gearsystem']
         cores = ['gearsystem_libretro', 'bluemsx_libretro']
         
@@ -1390,14 +1446,21 @@ class Platform_SG1000(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
         
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MSX/SVI/ColecoVision/SG-1000
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
         
         ext = []
@@ -1415,9 +1478,9 @@ class Platform_SG1000(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -1490,7 +1553,7 @@ class Platform_SG1000(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -1503,9 +1566,9 @@ class Platform_SG1000(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             #MSX/SVI/ColecoVision/SG-1000
-            if core[0] == 'bluemsx_libretro':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
         
         ext_files = []

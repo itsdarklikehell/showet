@@ -24,8 +24,8 @@ class Platform_Msdos(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['dosbox_core_libretro']
+        #emulator = ['retroarch']
+        #core = ['dosbox_core_libretro']
         emulators = ['retroarch', 'dosbox']
         cores = ['dosbox_core_libretro', 'dosbox_pure_libretro', 'dosbox_svn_libretro', 'dosbox_svn_ce_libretro']
         
@@ -34,11 +34,19 @@ class Platform_Msdos(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
         
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
         
         if emulator == 'retroarch':
             if core == 'dosbox_core_libretro' or core == 'dosbox_svn_libretro' or core == 'dosbox_svn_ce_libretro':

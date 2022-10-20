@@ -24,8 +24,8 @@ class Platform_Xbox(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['directxbox_libretro']
+        #emulator = ['retroarch']
+        #core = ['directxbox_libretro']
         emulators = ['retroarch']
         cores = ['directxbox_libretro']
         
@@ -36,13 +36,20 @@ class Platform_Xbox(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
                 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'directxbox_libretro':
+        if emulator == 'retroarch':
+            if core == 'directxbox_libretro':
                 extensions = ['iso']
 
         ext = []
@@ -60,9 +67,9 @@ class Platform_Xbox(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -116,7 +123,7 @@ class Platform_Xbox(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -129,8 +136,8 @@ class Platform_Xbox(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'directxbox_libretro':
+        if emulator == 'retroarch':
+            if core == 'directxbox_libretro':
                 extensions = ['iso']
                         
         ext_files = []
@@ -167,8 +174,8 @@ class Platform_Msx(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['bluemsx_libretro']
+        #emulator = ['retroarch']
+        #core = ['bluemsx_libretro']
         emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
         cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
 
@@ -179,15 +186,22 @@ class Platform_Msx(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'bluemsx_libretro':
+        if emulator == 'retroarch':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-            if core[0] == 'fmsx_libretro':
+            if core == 'fmsx_libretro':
                 extensions = ['rom', 'mx1', 'mx2', 'dsk', 'fdi', 'cas', 'm3u']
 
         ext = []
@@ -205,9 +219,9 @@ class Platform_Msx(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -280,7 +294,7 @@ class Platform_Msx(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -293,10 +307,10 @@ class Platform_Msx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'bluemsx_libretro':
+        if emulator == 'retroarch':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-            if core[0] == 'fmsx_libretro':
+            if core == 'fmsx_libretro':
                 extensions = ['rom', 'mx1', 'mx2', 'dsk', 'fdi', 'cas', 'm3u']
         
         ext_files = []
@@ -345,14 +359,22 @@ class Platform_Windows(PlatformCommon):
         extensions = ['exe']
         wineprefix = self.showetdir + '/wineprefix'
         
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
         
-        if emulator[0] == 'wine':
-            if core[0] == 'wine':
+        if emulator == 'wine':
+            if core == 'wine':
                 extensions = ['exe']
 
         ext = []
@@ -370,9 +392,9 @@ class Platform_Windows(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -397,7 +419,7 @@ class Platform_Windows(PlatformCommon):
                 emulator.append('--fullscreen')
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here
-        if emulator[0] == 'wine':
+        if emulator == 'wine':
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -449,8 +471,8 @@ class Platform_Windows(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'wine':
-            if core[0] == 'wine':
+        if emulator == 'wine':
+            if core == 'wine':
                 extensions = ['exe']
                         
         ext_files = []

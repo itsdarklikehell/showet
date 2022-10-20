@@ -24,8 +24,8 @@ class Platform_Intellivision(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
-        core = ['freeintv_libretro']
+        #emulator = ['retroarch']
+        #core = ['freeintv_libretro']
         emulators = ['retroarch']
         cores = ['freeintv_libretro', 'jzintv', 'jzintv-ecs']
 
@@ -33,15 +33,23 @@ class Platform_Intellivision(PlatformCommon):
         streaming = ['false']
         recording = ['false']
         extensions = ['int', 'bin', 'rom']
-        
+
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'freeintv_libretro':
+        if emulator == 'retroarch':
+            if core == 'freeintv_libretro':
                 extensions = ['int', 'bin', 'rom']
                 
         ext = []
@@ -59,9 +67,9 @@ class Platform_Intellivision(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -115,7 +123,7 @@ class Platform_Intellivision(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'freeintv':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -128,8 +136,8 @@ class Platform_Intellivision(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'freeintv_libretro':
+        if emulator == 'retroarch':
+            if core == 'freeintv_libretro':
                 extensions = ['int', 'bin', 'rom']
                         
         ext_files = []

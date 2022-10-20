@@ -4,6 +4,7 @@ from pkgutil import extend_path
 import subprocess
 import inquirer
 
+interactive = True
 debugging = True
 
 class PlatformCommon:
@@ -12,9 +13,9 @@ class PlatformCommon:
     fullscreen = ['true']
     native = ['false']
     audio = ['true']
-
     debugging = True
-
+    interactive = False
+    
     def __init__(self):
         self.showetdir = None
         self.datadir = None
@@ -76,29 +77,20 @@ class PlatformCommon:
         return retcode
     print("\t================================")
     
-    def multiemu(emulators):
+    def multiemu(self, emulators):
+        emulator = []
         print('Info: Multiple emulators are supported: ' + str(emulators))
         prompt = [
             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
         ]
         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        if debugging != False:
-            print('Info: You selected: ' + str(emulator))
-            emulator = str(emulator)
-        else:
-            emulator = emulators
-            print('Info: Only 1 emulator is supported: ' + str(emulator))
-
+        return emulator
     
-    def multicore(cores):
+    def multicore(self, cores):
+        core = []
         print('Info: Multiple cores are supported: ' + str(cores))
         prompt = [
             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
         ]
         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        if debugging != False:
-            print('Info: You selected: ' + str(core))
-            #core = str(core)
-        else:
-            #core = cores
-            print('Info: Only 1 core is supported: ' + str(core))
+        return core

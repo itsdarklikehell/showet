@@ -36,13 +36,20 @@ class Platform_Linux(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            emulator = self.multiemu(emulators)
+            if interactive != False:
+                emulator = self.multiemu(emulators)
+            else:
+                emulator = emulators[0]
+                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            core = self.multicore(cores)
+            if interactive != False:
+                core = self.multicore(cores)
+            else:
+                core = core[0]
         
-        if emulator[0] == 'bash':
-            if core[0] == 'bash':
+        if emulator == 'bash':
+            if core == 'bash':
                 extensions = ['elf', 'exe']
                 
         ext = []
@@ -104,7 +111,7 @@ class Platform_Linux(PlatformCommon):
         extensions = ['elf', 'exe']
         
         if emulator == 'bash':
-            if core[0] == 'bash':
+            if core == 'bash':
                 extensions = ['elf', 'exe']
                         
         ext_files = []
