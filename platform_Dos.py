@@ -1,6 +1,6 @@
 import os
 import os.path
-iport stat
+import stat
 import inquirer
 
 from platformcommon import PlatformCommon

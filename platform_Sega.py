@@ -1,6 +1,6 @@
 import os
 import os.path
-iport stat
+import stat
 import inquirer
 
 from platformcommon import PlatformCommon
@@ -126,10 +126,12 @@ class Platform_32X(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -257,10 +259,12 @@ class Platform_Dreamcast(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -389,10 +393,12 @@ class Platform_Gamegear(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -541,10 +547,12 @@ class Platform_Mastersystem(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -675,10 +683,12 @@ class Platform_Megadrive(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -809,10 +819,12 @@ class Platform_Saturn(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -944,10 +956,12 @@ class Platform_Stv(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -1071,10 +1085,12 @@ class Platform_Vmu(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -1199,10 +1215,12 @@ class Platform_SG1000(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)

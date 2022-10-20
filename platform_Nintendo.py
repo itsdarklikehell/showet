@@ -125,10 +125,12 @@ class Platform_3DS(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -252,10 +254,12 @@ class Platform_N64(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -379,10 +383,12 @@ class Platform_DS(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -514,10 +520,12 @@ class Platform_Famicom(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -649,10 +657,12 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -817,10 +827,12 @@ class Platform_Gameboy(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -984,10 +996,12 @@ class Platform_GameboyColor(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -1135,10 +1149,12 @@ class Platform_GameboyAdvance(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -1262,10 +1278,12 @@ class Platform_Gamecube(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -1389,10 +1407,12 @@ class Platform_Pokemini(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -1528,10 +1548,12 @@ class Platform_SuperFamicom(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -1655,10 +1677,12 @@ class Platform_Virtualboy(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -1782,10 +1806,12 @@ class Platform_Wii(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)

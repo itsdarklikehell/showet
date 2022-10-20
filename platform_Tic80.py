@@ -1,6 +1,6 @@
 import os
 import os.path
-iport stat
+import stat
 import inquirer
 
 from platformcommon import PlatformCommon
@@ -126,10 +126,12 @@ class Platform_Tic80(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
@@ -253,10 +255,12 @@ class Platform_TRS80(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
                     if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                         if debugging != False:
                             print("\tFound file: " + file)
