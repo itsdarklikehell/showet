@@ -25,6 +25,9 @@ class Platform_3DS(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['citra_libretro']
+        emulators = ['retroarch', 'citra']
+        cores = ['citra_libretro', 'citra2018_libretro', 'citra_canary_libretro', 'melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -208,6 +211,9 @@ class Platform_N64(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['mupen64plus_next_libretro']
+        emulators = ['retroarch', 'mupen64plus-glide64', 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
+        cores = ['mupen64plus_libretro', 'mupen64plus_next_libretro', 'parallel_n46_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -392,6 +398,9 @@ class Platform_DS(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['desmume_libretro']
+        emulators = ['retroarch', 'desmume', 'melonds']
+        cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -576,6 +585,9 @@ class Platform_Famicom(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['fceumm_libretro']
+        emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
+        cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -768,6 +780,9 @@ class Platform_FamicomDisksystem(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['quicknes_libretro']
+        emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
+        cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -947,8 +962,8 @@ class Platform_Gameboy(PlatformCommon):
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch']
-    fullscreens = ['false']
     cores = ['gambatte_libretro', 'mess2016_libretro', 'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
+    fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     recordings = ['true', 'false']
     extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
@@ -961,6 +976,9 @@ class Platform_Gameboy(PlatformCommon):
         emulator = ['retroarch']
         fullscreen = ['false']
         core = ['mesen-s_libretro']
+        emulators = ['retroarch']
+        cores = ['gambatte_libretro', 'mess2016_libretro', 'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
+
         streaming = ['false']
         recording = ['false']        
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd']
@@ -1185,6 +1203,9 @@ class Platform_GameboyColor(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mesen-s_libretro']
+        emulators = ['retroarch']
+        cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -1411,6 +1432,9 @@ class Platform_GameboyAdvance(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vba_next_libretro']
+        emulators = ['retroarch']
+        cores = ['meteor_libretro', 'vba_next_libretro', 'vbam_libretro', 'mgba_libretro', 'gpsp_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -1619,6 +1643,9 @@ class Platform_Gamecube(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['dolphin_libretro']
+        emulators = ['retroarch']
+        cores = ['dolphin_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -1803,6 +1830,9 @@ class Platform_Pokemini(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['pokemini_libretro']
+        emulators = ['retroarch']
+        cores = ['pokemini_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -1986,7 +2016,10 @@ class Platform_SuperFamicom(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['snes9x_libretro']        
+        core = ['snes9x_libretro']     
+        emulators = ['retroarch']
+        cores = ['snes9x_libretro']
+           
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -2183,6 +2216,9 @@ class Platform_Virtualboy(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_vb_libretro']
+        emulators = ['retroarch']
+        cores = ['mednafen_vb_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -2367,6 +2403,9 @@ class Platform_Wii(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['dolphin_libretro']
+        emulators = ['retroarch']
+        cores = ['dolphin_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

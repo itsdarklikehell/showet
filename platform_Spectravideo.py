@@ -25,6 +25,9 @@ class Platform_Spectravideo(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['bluemsx_libretro']
+        emulators = ['retroarch']
+        cores = ['bluemsx_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

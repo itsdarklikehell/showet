@@ -25,6 +25,9 @@ class Platform_Pico8(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['retro8_libretro']
+        emulators = ['retroarch']
+        cores = ['retro8_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

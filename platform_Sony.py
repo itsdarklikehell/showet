@@ -25,6 +25,9 @@ class Platform_Psx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['swanstation_libretro']
+        emulators = ['retroarch']
+        cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -226,6 +229,9 @@ class Platform_Ps2(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['pcsx2_libretro']
+        emulators = ['retroarch']
+        cores = ['pcsx2_libretro', 'play_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -415,6 +421,9 @@ class Platform_Psp(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['ppsspp_libretro']
+        emulators = ['retroarch', 'ppsspp']
+        cores = ['ppsspp_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

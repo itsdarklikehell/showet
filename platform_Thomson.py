@@ -25,6 +25,9 @@ class Platform_MOTO(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['theodore_libretro']
+        emulators = ['retroarch']
+        cores = ['theodore_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

@@ -25,6 +25,9 @@ class Platform_32X(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['picodrive_libretro']
+        emulators = ['retroarch', 'picodrive']
+        cores = ['picodrive_libretro']
+    
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -209,6 +212,9 @@ class Platform_Dreamcast(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['flycast_libretro']
+        emulators = ['retroarch', 'flycast', 'redream']
+        cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -383,8 +389,8 @@ class Platform_Gamegear(PlatformCommon):
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'osmose']
-    fullscreens = ['false']
     cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
+    fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
     
@@ -395,6 +401,9 @@ class Platform_Gamegear(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['genesis_plus_gx_libretro']
+        emulators = ['retroarch', 'osmose']
+        cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -586,7 +595,10 @@ class Platform_Mastersystem(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        core = ['genesis_plus_gx_libretro']        
+        core = ['genesis_plus_gx_libretro']
+        emulators = ['retroarch', 'osmose']
+        cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -797,6 +809,9 @@ class Platform_Megadrive(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['picodrive_libretro']
+        emulators = ['retroarch', 'dgen']
+        cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -976,8 +991,8 @@ class Platform_Saturn(PlatformCommon):
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'yabause', 'kronos']
-    fullscreens = ['false']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
+    fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
     extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
     
@@ -988,6 +1003,9 @@ class Platform_Saturn(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['yabause_libretro']
+        emulators = ['retroarch', 'yabause', 'kronos']
+        cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -1179,6 +1197,9 @@ class Platform_Stv(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['kronos_libretro']
+        emulators = ['retroarch', 'yabause', 'kronos']
+        cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -1372,6 +1393,9 @@ class Platform_Vmu(PlatformCommon):
         emulator = ['retroarch']
         fullscreen = ['false']
         core = ['vemulator_libretro']
+        emulators = ['retroarch', 'vemulator']
+        cores = ['vemulator_libretro']
+        
         streaming = ['false']
         recording = ['false']
         extensions = ['zip', 'vms', 'dci', 'bin']
@@ -1555,6 +1579,9 @@ class Platform_SG1000(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['bluemsx_libretro']
+        emulators = ['retroarch', 'gearsystem']
+        cores = ['gearsystem_libretro', 'bluemsx_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

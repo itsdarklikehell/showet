@@ -25,6 +25,9 @@ class Platform_Gamemusic(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['gme_libretro']
+        emulators = ['retroarch']
+        cores = ['gme_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -209,6 +212,9 @@ class Platform_VideoFFMPEG(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['ffmpeg_libretro']
+        emulators = ['retroarch']
+        cores = ['ffmpeg_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -393,6 +399,9 @@ class Platform_VideoMPV(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mpv_libretro']
+        emulators = ['retroarch']
+        cores = ['mpv_libretro']
+
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

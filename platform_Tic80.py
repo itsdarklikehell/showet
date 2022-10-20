@@ -25,6 +25,9 @@ class Platform_Tic80(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['tic80_libretro']
+        emulators = ['retroarch']
+        cores = ['tic80_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -209,6 +212,9 @@ class Platform_TRS80(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['tic80_libretro']
+        emulators = ['retroarch']
+        cores = ['tic80_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

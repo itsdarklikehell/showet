@@ -25,6 +25,9 @@ class Platform_Neogeo(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
+        emulators = ['retroarch']
+        cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -209,6 +212,9 @@ class Platform_Neopocket(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
+        emulators = ['retroarch']
+        cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -393,6 +399,9 @@ class Platform_Neopocketcolor(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
+        emulators = ['retroarch']
+        cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

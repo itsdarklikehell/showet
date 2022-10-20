@@ -24,6 +24,9 @@ class Platform_Pcengine(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_supergrafx_libretro']
+        emulators = ['retroarch']
+        cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -208,6 +211,9 @@ class Platform_Supergrafx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_supergrafx_libretro']
+        emulators = ['retroarch']
+        cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -378,7 +384,6 @@ class Platform_Pc8000(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-
     emulators = ['retroarch']
     cores = ['quasi88_libretro']
     fullscreens = ['false']
@@ -393,6 +398,9 @@ class Platform_Pc8000(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['quasi88_libretro']
+        emulators = ['retroarch']
+        cores = ['quasi88_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -577,6 +585,9 @@ class Platform_Pc8800(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['quasi88_libretro']
+        emulators = ['retroarch']
+        cores = ['quasi88_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -761,6 +772,9 @@ class Platform_Pc98(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['nekop2_libretro']
+        emulators = ['retroarch']
+        cores = ['nekop2_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -945,6 +959,9 @@ class Platform_Pcfx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_pcfx_libretro']
+        emulators = ['retroarch']
+        cores = ['mednafen_pcfx_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

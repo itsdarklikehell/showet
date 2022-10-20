@@ -25,6 +25,9 @@ class Platform_Zxspectrum(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['fuse_libretro']
+        emulators = ['retroarch', '81']
+        cores = ['fuse_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
@@ -208,6 +211,9 @@ class Platform_Zx81(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['81_libretro']
+        emulators = ['retroarch', '81']
+        cores = ['fuse_libretro', '81_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']

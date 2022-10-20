@@ -25,6 +25,9 @@ class Platform_Cdi(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['samecdi_libretro']
+        emulators = ['retroarch']
+        cores = ['samecdi_libretro', 'cdi2015_libretro']
+        
         fullscreen = ['false']
         streaming = ['false']
         recording = ['false']
