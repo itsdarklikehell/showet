@@ -5,7 +5,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-interactive = True
+interactive = False
 debugging = True
 
 class Platform_3DS(PlatformCommon):
@@ -31,11 +31,21 @@ class Platform_3DS(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'citra_libretro' or core == 'citra2018_libretro' or core == 'citra_canary_libretro':
@@ -147,11 +157,21 @@ class Platform_N64(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'mupen64plus_next_libretro':
@@ -215,7 +235,9 @@ class Platform_N64(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        
+        if emulator == 'other':
+            extensions = ['unknown']
+            
         if emulator == 'retroarch':
             if core == 'mupen64plus_next_libretro':
                 extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
@@ -264,11 +286,21 @@ class Platform_DS(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'desmume_libretro':
@@ -381,11 +413,21 @@ class Platform_Famicom(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'quicknes_libretro' or core == 'bnes_libretro':
@@ -506,11 +548,21 @@ class Platform_FamicomDisksystem(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'quicknes_libretro' or core == 'bnes_libretro':
@@ -634,11 +686,21 @@ class Platform_Gameboy(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':            #gb/c
             if core == 'emux_gb_libretro':
@@ -949,11 +1011,21 @@ class Platform_GameboyAdvance(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'mednafen_gba_libretro':
@@ -1090,11 +1162,21 @@ class Platform_Gamecube(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'dolphin_libretro':
@@ -1207,11 +1289,21 @@ class Platform_Pokemini(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'pokemini_libretro':
@@ -1326,11 +1418,21 @@ class Platform_SuperFamicom(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'bsnes_libretro' or core == 'bsnes_hd_beta_libretro' or core == 'bsnes_cplusplus98_libretro' or core == 'bsnes2014_accuracy_libretro' or core == 'bsnes2014_balanced_libretro' or core == 'bsnes2014_performance_libretro' or core == 'bsnes_mercury_accuracy_libretro' or core == 'bsnes_mercury_balanced_libretro' or core == 'bsnes_mercury_balanced_libretro':
@@ -1455,11 +1557,21 @@ class Platform_Virtualboy(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'mednafen_vb_libretro':
@@ -1572,11 +1684,21 @@ class Platform_Wii(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'dolphin_libretro':

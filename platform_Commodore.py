@@ -5,7 +5,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-interactive = True
+interactive = False
 debugging = True
 
 class Platform_Commodore64(PlatformCommon):

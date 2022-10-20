@@ -5,7 +5,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-interactive = True
+interactive = False
 debugging = True
 
 class Platform_3do(PlatformCommon):
@@ -31,12 +31,22 @@ class Platform_3do(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
-                            
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
+
         if emulator == 'retroarch':
             if core == '4do_libretro' or core == 'opera_libretro':
                 extensions = ['iso', 'bin', 'chd', 'cue']
@@ -99,10 +109,11 @@ class Platform_3do(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        
-        if emulator == 'retroarch':
-            if core == '4do_libretro' or core == 'opera_libretro':
-                extensions = ['iso', 'bin', 'chd', 'cue']
+        if emulator == 'other':
+            extensions = ['unknown']
+            
+        if emulator == 'retroarch' and core == '4do_libretro' or core == 'opera_libretro':
+            extensions = ['iso', 'bin', 'chd', 'cue']
                         
         ext_files = []
         for file in self.prod_files:

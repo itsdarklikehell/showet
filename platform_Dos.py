@@ -5,7 +5,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-interactive = True
+interactive = False
 debugging = True
 
 class Platform_Msdos(PlatformCommon):
@@ -102,7 +102,9 @@ class Platform_Msdos(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        
+        if emulator == 'other':
+            extensions = ['unknown']
+            
         if emulator == 'retroarch':
             if core == 'dosbox_core_libretro' or core == 'dosbox_svn_libretro' or core == 'dosbox_svn_ce_libretro':
                 extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']

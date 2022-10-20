@@ -4,7 +4,7 @@ from pkgutil import extend_path
 import subprocess
 import inquirer
 
-interactive = True
+interactive = False
 debugging = True
 
 class PlatformCommon:

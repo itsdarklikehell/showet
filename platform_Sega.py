@@ -5,7 +5,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-interactive = True
+interactive = False
 debugging = True
 
 class Platform_32X(PlatformCommon):
@@ -31,11 +31,21 @@ class Platform_32X(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'picodrive_libretro':
@@ -148,11 +158,21 @@ class Platform_Dreamcast(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
@@ -218,7 +238,9 @@ class Platform_Dreamcast(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        
+        if emulator == 'other':
+            extensions = ['unknown']
+            
         if emulator == 'retroarch':
             if core == 'flycast_libretro' or core == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
@@ -392,11 +414,21 @@ class Platform_Mastersystem(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':            #MS
             if core == 'emux_sms_libretro':
@@ -472,7 +504,9 @@ class Platform_Mastersystem(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        
+        if emulator == 'other':
+            extensions = ['unknown']
+            
         if emulator == 'retroarch':
             #MS
             if core == 'emux_sms_libretro':
@@ -534,11 +568,21 @@ class Platform_Megadrive(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':            #MS/GG/MD/CD
             if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
@@ -605,7 +649,9 @@ class Platform_Megadrive(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        
+        if emulator == 'other':
+            extensions = ['unknown']
+            
         if emulator == 'retroarch':
             #MS/GG/MD/CD
             if core == 'genesis_plus_gx_libretro' or core == 'genesis_plus_gx_wide_libretro':
@@ -658,11 +704,21 @@ class Platform_Saturn(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'mednafen_saturn_libretro':
@@ -730,7 +786,9 @@ class Platform_Saturn(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        
+        if emulator == 'other':
+            extensions = ['unknown']
+            
         if emulator == 'retroarch':
             if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
@@ -783,11 +841,21 @@ class Platform_Stv(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'mednafen_saturn_libretro':
@@ -855,7 +923,9 @@ class Platform_Stv(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        
+        if emulator == 'other':
+            extensions = ['unknown']
+            
         if emulator == 'retroarch':
             if core == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
@@ -908,11 +978,21 @@ class Platform_Vmu(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
 
         if emulator == 'retroarch':
             if core == 'vemulator_libretro':
@@ -976,7 +1056,9 @@ class Platform_Vmu(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        
+        if emulator == 'other':
+            extensions = ['unknown']
+            
         if emulator == 'retroarch':
             if core == 'vemulator_libretro':
                 extensions = ['vms', 'dci', 'bin']
