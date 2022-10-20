@@ -5,8 +5,8 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-debugging = False
-interactive = False
+debugging = True
+interactive = True
 
 class Platform_Pico8(PlatformCommon):
     # Set up the emulator we want to run.
