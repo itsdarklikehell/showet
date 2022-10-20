@@ -215,7 +215,7 @@ prod_download_filename = None
 prod_json = None
 prod_json_filename = datadir + "/pouet.json"
 if os.path.exists(prod_json_filename):
-    if PlatformCommon.debugging != False:
+    if debugging != False:
         print("Json already downloaded")
     with open(prod_json_filename, 'r') as f:
         prod_json = f.read()
@@ -257,7 +257,7 @@ if len(platforms) > 1:
 # Type: " + data['prod']['type']
 # Released: " + data['prod']['releaseDate']
 # Platform: " + prod_platform
-if PlatformCommon.debugging != False:
+if debugging != False:
     print("\tName: " + data['prod']['name'])
     try:
         print("\tBy: " + data['prod']['groups'][0]['name'])
@@ -281,7 +281,7 @@ prod_download_url = prod_download_url.replace("https://files.scene.org/view", "h
 if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
         print("\tFile already downloaded")
 else:
-    if PlatformCommon.debugging != False:
+    if debugging != False:
         print("\tDownloading prod file from " + prod_download_url + "...")
     
     filedata = urllib.request.urlopen(prod_download_url)
@@ -290,7 +290,7 @@ else:
     if len(filename) == 0:
         print("Error downloading file at ", prod_download_url)
         exit(-1)
-    if PlatformCommon.debugging != False:
+    if debugging != False:
         print("\tFilename: ", filename)
 
     prod_download_filename = datadir + "/" + filename
@@ -299,7 +299,7 @@ else:
     with open(prod_download_filename, 'wb') as f:
         f.write(datatowrite)
 
-    if PlatformCommon.debugging != False:
+    if debugging != False:
         print("\tDownloaded: ", prod_download_filename)
         print("\tFilesize: ", os.path.getsize(prod_download_filename))
 
@@ -388,23 +388,23 @@ else:
     #lowercase
     for filetype in filetypes:
         if prod_download_filename.endswith(filetype):
-            if PlatformCommon.debugging != False:
+            if debugging != False:
                 print("\t================================")
                 print("\tDetected archive: " + filetype)
                 print("\t================================")
             extract_files(prod_download_filename, datadir)
-            if PlatformCommon.debugging != False:
+            if debugging != False:
                 print("\t================================")
     #uppercase
     for filetype in filetypes:
         if prod_download_filename.endswith(filetype.upper()):
-            if PlatformCommon.debugging != False:
+            if debugging != False:
 
                 print("\t================================")
                 print("\tDetected archive: " + filetype)
                 print("\t================================")
             extract_files(prod_download_filename, datadir)
-            if PlatformCommon.debugging != False:
+            if debugging != False:
                 print("\t================================")
     
     open(datadir + "/.FILES_DOWNLOADED", 'a').close()

@@ -5,6 +5,8 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
+debugging = False
+interactive = False
 
 class Platform_3DS(PlatformCommon):
     # Set up the emulator we want to run.
@@ -29,19 +31,19 @@ class Platform_3DS(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -74,7 +76,7 @@ class Platform_3DS(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -119,13 +121,13 @@ class Platform_3DS(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -155,19 +157,19 @@ class Platform_N64(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -200,7 +202,7 @@ class Platform_N64(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -248,13 +250,13 @@ class Platform_N64(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -284,19 +286,19 @@ class Platform_DS(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -329,7 +331,7 @@ class Platform_DS(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -375,13 +377,13 @@ class Platform_DS(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -411,19 +413,19 @@ class Platform_Famicom(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -460,7 +462,7 @@ class Platform_Famicom(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -510,13 +512,13 @@ class Platform_Famicom(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -546,19 +548,19 @@ class Platform_FamicomDisksystem(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -595,7 +597,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -645,13 +647,13 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -684,19 +686,19 @@ class Platform_Gameboy(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -749,7 +751,7 @@ class Platform_Gameboy(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -816,13 +818,13 @@ class Platform_Gameboy(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -906,7 +908,7 @@ class Platform_GameboyColor(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -973,13 +975,13 @@ class Platform_GameboyColor(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -1009,19 +1011,19 @@ class Platform_GameboyAdvance(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -1066,7 +1068,7 @@ class Platform_GameboyAdvance(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1124,13 +1126,13 @@ class Platform_GameboyAdvance(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -1160,19 +1162,19 @@ class Platform_Gamecube(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -1205,7 +1207,7 @@ class Platform_Gamecube(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1251,13 +1253,13 @@ class Platform_Gamecube(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -1287,19 +1289,19 @@ class Platform_Pokemini(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -1332,7 +1334,7 @@ class Platform_Pokemini(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1378,13 +1380,13 @@ class Platform_Pokemini(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -1416,19 +1418,19 @@ class Platform_SuperFamicom(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -1467,7 +1469,7 @@ class Platform_SuperFamicom(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1519,13 +1521,13 @@ class Platform_SuperFamicom(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -1555,19 +1557,19 @@ class Platform_Virtualboy(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -1600,7 +1602,7 @@ class Platform_Virtualboy(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1646,13 +1648,13 @@ class Platform_Virtualboy(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -1682,19 +1684,19 @@ class Platform_Wii(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -1727,7 +1729,7 @@ class Platform_Wii(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1773,13 +1775,13 @@ class Platform_Wii(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)

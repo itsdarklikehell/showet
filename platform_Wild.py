@@ -5,6 +5,8 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
+debugging = False
+interactive = False
 
 class Platform_Gamemusic(PlatformCommon):
     # Set up the emulator we want to run.
@@ -29,19 +31,19 @@ class Platform_Gamemusic(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -74,7 +76,7 @@ class Platform_Gamemusic(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -120,13 +122,13 @@ class Platform_Gamemusic(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -156,19 +158,19 @@ class Platform_VideoFFMPEG(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -201,7 +203,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -247,13 +249,13 @@ class Platform_VideoFFMPEG(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -283,19 +285,19 @@ class Platform_VideoMPV(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if PlatformCommon.interactive != False:
+            if interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if PlatformCommon.debugging != False:
+                if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -328,7 +330,7 @@ class Platform_VideoMPV(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -374,13 +376,13 @@ class Platform_VideoMPV(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if PlatformCommon.debugging != False:
+                        if debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)

@@ -54,13 +54,13 @@ class PlatformCommon:
     def sort_disks(self, files):
         sorted_list = sorted(files, key=lambda s: (s.lower() or s.upper()))
         if len(sorted_list) > 1:
-            if PlatformCommon.debugging != False:
+            if debugging != False:
                 print("\tGuessing disk order should be: ")
                 print(sorted_list)
         return sorted_list
 
     def run_process(self, arguments):
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print("\tRunning command: ", arguments)
             print("\t================================")
         
@@ -71,7 +71,7 @@ class PlatformCommon:
         for line in process.stdout:
             print(line.decode('utf-8'))
         if retcode:
-            if PlatformCommon.debugging != False:
+            if debugging != False:
                 print(arguments[0], "\n\tprocess exited with ", retcode)
             exit(-1)
         return retcode
@@ -79,24 +79,24 @@ class PlatformCommon:
     
     def multiemu(self,emulators):
         #emulator = []
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print('Info: Multiple emulators are supported: ' + str(emulators))
         prompt = [
             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
         ]
         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print('You chose the selected emulator: ' + str(emulator))
         return emulator
     
     def multicore(self,cores):
         #core = []
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print('Info: Multiple cores are supported: ' + str(cores))
         prompt = [
             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
         ]   
         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        if PlatformCommon.debugging != False:
+        if debugging != False:
             print('You chose the selected core: ' + str(core))
         return core
