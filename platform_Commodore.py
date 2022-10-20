@@ -92,7 +92,6 @@ class Platform_Commodore64(PlatformCommon):
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -257,7 +256,6 @@ class Platform_Commodore128(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -434,7 +432,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -672,7 +669,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -841,7 +837,6 @@ class Platform_CommodorePet(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -1010,7 +1005,6 @@ class Platform_CommodorePlus4(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -1180,7 +1174,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

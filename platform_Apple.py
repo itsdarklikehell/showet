@@ -47,7 +47,8 @@ class Platform_Apple(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'minivmac_libretro':
                 extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
@@ -68,7 +69,6 @@ class Platform_Apple(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

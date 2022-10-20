@@ -48,6 +48,7 @@ class Platform_32X(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'picodrive_libretro':
                 extensions = ['bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
@@ -68,7 +69,6 @@ class Platform_32X(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -176,6 +176,7 @@ class Platform_Dreamcast(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'flycast_libretro' or core[0] == 'flycast_gles2_libretro':
                 extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
@@ -198,7 +199,6 @@ class Platform_Dreamcast(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -330,7 +330,6 @@ class Platform_Gamegear(PlatformCommon):
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -442,8 +441,8 @@ class Platform_Mastersystem(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
-        if emulator[0] == 'retroarch':
-            #MS
+
+        if emulator[0] == 'retroarch':            #MS
             if core[0] == 'emux_sms_libretro':
                 extensions = ['sms', 'bms', 'bin', 'rom']
             #MS/GG/MD/CD
@@ -475,7 +474,6 @@ class Platform_Mastersystem(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -596,8 +594,8 @@ class Platform_Megadrive(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
-        if emulator[0] == 'retroarch':
-            #MS/GG/MD/CD
+
+        if emulator[0] == 'retroarch':            #MS/GG/MD/CD
             if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
@@ -620,7 +618,6 @@ class Platform_Megadrive(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -731,6 +728,7 @@ class Platform_Saturn(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
@@ -755,7 +753,6 @@ class Platform_Saturn(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -866,7 +863,8 @@ class Platform_Stv(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_saturn_libretro':
                 extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
@@ -891,7 +889,6 @@ class Platform_Stv(PlatformCommon):
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -1003,6 +1000,7 @@ class Platform_Vmu(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'vemulator_libretro':
                 extensions = ['vms', 'dci', 'bin']
@@ -1023,7 +1021,6 @@ class Platform_Vmu(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -1152,7 +1149,6 @@ class Platform_SG1000(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

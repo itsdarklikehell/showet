@@ -46,7 +46,8 @@ class Platform_Pcengine(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_supergrafx_libretro':
                 extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
@@ -67,7 +68,6 @@ class Platform_Pcengine(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -174,7 +174,8 @@ class Platform_Supergrafx(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_supergrafx_libretro':
                 extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
@@ -195,7 +196,6 @@ class Platform_Supergrafx(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -302,7 +302,8 @@ class Platform_Pc8000(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]                
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
@@ -323,7 +324,6 @@ class Platform_Pc8000(PlatformCommon):
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -430,7 +430,8 @@ class Platform_Pc8800(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'quasi88_libretro':
                 extensions = ['d88', 'u88', 'm3u']
@@ -451,7 +452,6 @@ class Platform_Pc8800(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -558,7 +558,8 @@ class Platform_Pc98(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]                
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'nekop2_libretro':
                 extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
@@ -579,7 +580,6 @@ class Platform_Pc98(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -686,7 +686,8 @@ class Platform_Pcfx(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]                
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_pcfx_libretro':
                 extensions = ['cue', 'ccd', 'toc', 'chd']
@@ -707,7 +708,6 @@ class Platform_Pcfx(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

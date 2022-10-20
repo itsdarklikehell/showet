@@ -48,7 +48,8 @@ class Platform_3DS(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
                 extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
@@ -69,7 +70,6 @@ class Platform_3DS(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -176,6 +176,7 @@ class Platform_N64(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mupen64plus_next_libretro':
                 extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
@@ -196,7 +197,6 @@ class Platform_N64(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -304,6 +304,7 @@ class Platform_DS(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'desmume_libretro':
                 extensions = ['nds', 'dsi']
@@ -324,7 +325,6 @@ class Platform_DS(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -431,7 +431,8 @@ class Platform_Famicom(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
                 extensions = ['nes']
@@ -456,7 +457,6 @@ class Platform_Famicom(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -567,7 +567,8 @@ class Platform_FamicomDisksystem(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
                 extensions = ['nes']
@@ -592,7 +593,6 @@ class Platform_FamicomDisksystem(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -704,8 +704,8 @@ class Platform_Gameboy(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
-        if emulator[0] == 'retroarch':
-            #gb/c
+
+        if emulator[0] == 'retroarch':            #gb/c
             if core[0] == 'emux_gb_libretro':
                 extensions = ['gb', 'bin', 'rom']
             if core[0] == 'gambatte_libretro':
@@ -745,7 +745,6 @@ class Platform_Gameboy(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -914,7 +913,6 @@ class Platform_GameboyColor(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -1042,7 +1040,8 @@ class Platform_GameboyAdvance(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_gba_libretro':
                 extensions = ['gba', 'agb', 'bin']
@@ -1075,7 +1074,6 @@ class Platform_GameboyAdvance(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -1195,6 +1193,7 @@ class Platform_Gamecube(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'dolphin_libretro':
                 extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
@@ -1215,7 +1214,6 @@ class Platform_Gamecube(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -1323,6 +1321,7 @@ class Platform_Pokemini(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'pokemini_libretro':
                 extensions = ['min']
@@ -1343,7 +1342,6 @@ class Platform_Pokemini(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -1451,6 +1449,7 @@ class Platform_SuperFamicom(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'bsnes_libretro' or core[0] == 'bsnes_hd_beta_libretro' or core[0] == 'bsnes_cplusplus98_libretro' or core[0] == 'bsnes2014_accuracy_libretro' or core[0] == 'bsnes2014_balanced_libretro' or core[0] == 'bsnes2014_performance_libretro' or core[0] == 'bsnes_mercury_accuracy_libretro' or core[0] == 'bsnes_mercury_balanced_libretro' or core[0] == 'bsnes_mercury_balanced_libretro':
                 extensions = ['sfc', 'smc', 'gb', 'gbc', 'bs']
@@ -1477,7 +1476,6 @@ class Platform_SuperFamicom(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -1591,6 +1589,7 @@ class Platform_Virtualboy(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_vb_libretro':
                 extensions = ['vb', 'vboy', 'bin']
@@ -1718,6 +1717,7 @@ class Platform_Wii(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'dolphin_libretro':
                 extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
@@ -1738,7 +1738,6 @@ class Platform_Wii(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

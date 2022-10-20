@@ -48,6 +48,7 @@ class Platform_MOTO(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'theodore_libretro':
                 extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
@@ -68,7 +69,6 @@ class Platform_MOTO(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

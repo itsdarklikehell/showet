@@ -47,7 +47,8 @@ class Platform_Gamemusic(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'gme_libretro':
                 extensions = ['ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz', 'zip']
@@ -68,7 +69,6 @@ class Platform_Gamemusic(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -176,6 +176,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'ffmpeg_libretro':
                 extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
@@ -196,7 +197,6 @@ class Platform_VideoFFMPEG(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -304,6 +304,7 @@ class Platform_VideoMPV(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mpv_libretro':
                 extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
@@ -324,7 +325,6 @@ class Platform_VideoMPV(PlatformCommon):
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

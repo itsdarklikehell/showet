@@ -47,7 +47,8 @@ class Platform_Palm(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]                
+        #         core = core[0]
+
         if extensions == 'retroarch':
             if core[0] == 'mu_libretro':
                 extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
@@ -68,7 +69,6 @@ class Platform_Palm(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

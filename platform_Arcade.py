@@ -48,6 +48,7 @@ class Platform_Arcade(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
                 extensions = ['zip', 'chd', '7z', 'cmd']
@@ -72,7 +73,6 @@ class Platform_Arcade(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

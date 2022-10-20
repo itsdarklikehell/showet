@@ -47,7 +47,8 @@ class Platform_Linux(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]   
+     
         if emulator[0] == 'bash':
             if core[0] == 'bash':
                 extensions = ['elf', 'exe']

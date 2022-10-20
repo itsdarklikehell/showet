@@ -48,6 +48,7 @@ class Platform_Psx(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'duckstation_libretro' or core[0] == 'swanstation_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
@@ -76,7 +77,6 @@ class Platform_Psx(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -192,7 +192,8 @@ class Platform_Ps2(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'pcsx2_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
@@ -215,7 +216,6 @@ class Platform_Ps2(PlatformCommon):
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -326,6 +326,7 @@ class Platform_Psp(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'ppsspp_libretro':
                 extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
@@ -346,7 +347,6 @@ class Platform_Psp(PlatformCommon):
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

@@ -48,7 +48,8 @@ class Platform_Coleco(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]                        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
@@ -71,7 +72,6 @@ class Platform_Coleco(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 

@@ -48,6 +48,7 @@ class Platform_Zxspectrum(PlatformCommon):
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
         #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
@@ -68,10 +69,8 @@ class Platform_Zxspectrum(PlatformCommon):
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
-            print("Using: " + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
-
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == '4do':
@@ -174,7 +173,8 @@ class Platform_Zx81(PlatformCommon):
         #         core = self.multicore(cores)
         #         #core = inquirer.prompt(prompt).get('cores').strip().lower()
         #     else:
-        #         core = core[0]        
+        #         core = core[0]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
