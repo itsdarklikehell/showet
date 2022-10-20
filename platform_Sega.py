@@ -7,16 +7,16 @@ from platformcommon import PlatformCommon
 
 fullscreen = False
 debugging = True
-interactive = False
+selective_mode = False
 
 class Platform_32X(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'picodrive']
-    cores = ['picodrive_libretro']
-    extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
+    # emulators = ['retroarch', 'picodrive']
+    # cores = ['picodrive_libretro']
+    # extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -32,21 +32,21 @@ class Platform_32X(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'picodrive_libretro':
@@ -73,7 +73,7 @@ class Platform_32X(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -138,9 +138,9 @@ class Platform_Dreamcast(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'flycast', 'redream']
-    cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
-    extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
+    # emulators = ['retroarch', 'flycast', 'redream']
+    # cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
+    # extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -156,21 +156,21 @@ class Platform_Dreamcast(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'flycast_libretro' or core[0] == 'flycast_gles2_libretro':
@@ -199,7 +199,7 @@ class Platform_Dreamcast(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -235,7 +235,7 @@ class Platform_Dreamcast(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
-        if emulator[0] == 'other':
+        if emulator == 'other':
             extensions = ['unknown']
             
         if emulator[0] == 'retroarch':
@@ -267,9 +267,9 @@ class Platform_Gamegear(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'osmose']
-    cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
-    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+    # emulators = ['retroarch', 'osmose']
+    # cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
+    # extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -285,11 +285,22 @@ class Platform_Gamegear(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            emulator = str(emulators[0])
+            if selective_mode != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)      
+            core = str(cores[0])
+            if selective_mode != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
+            
         if emulator[0] == 'retroarch':
             #MS/GG/MD/CD
             if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
@@ -319,7 +330,7 @@ class Platform_Gamegear(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -388,9 +399,9 @@ class Platform_Mastersystem(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'osmose']
-    cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
-    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+    # emulators = ['retroarch', 'osmose']
+    # cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
+    # extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -406,23 +417,24 @@ class Platform_Mastersystem(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
-        if emulator[0] == 'retroarch':            #MS
+        if emulator[0] == 'retroarch':
+            #MS
             if core[0] == 'emux_sms_libretro':
                 extensions = ['sms', 'bms', 'bin', 'rom']
             #MS/GG/MD/CD
@@ -459,7 +471,7 @@ class Platform_Mastersystem(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -495,7 +507,7 @@ class Platform_Mastersystem(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
-        if emulator[0] == 'other':
+        if emulator == 'other':
             extensions = ['unknown']
             
         if emulator[0] == 'retroarch':
@@ -539,9 +551,9 @@ class Platform_Megadrive(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'dgen']
-    cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
-    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+    # emulators = ['retroarch', 'dgen']
+    # cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
+    # extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -557,23 +569,24 @@ class Platform_Megadrive(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
-        if emulator[0] == 'retroarch':            #MS/GG/MD/CD
+        if emulator[0] == 'retroarch':
+            #MS/GG/MD/CD
             if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
                 extensions = ['mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
             #MS/MD/CD/32X
@@ -601,7 +614,7 @@ class Platform_Megadrive(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -637,7 +650,7 @@ class Platform_Megadrive(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
-        if emulator[0] == 'other':
+        if emulator == 'other':
             extensions = ['unknown']
             
         if emulator[0] == 'retroarch':
@@ -672,9 +685,9 @@ class Platform_Saturn(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'yabause', 'kronos']
-    cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
-    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+    # emulators = ['retroarch', 'yabause', 'kronos']
+    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
+    # extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -690,21 +703,21 @@ class Platform_Saturn(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_saturn_libretro':
@@ -735,7 +748,7 @@ class Platform_Saturn(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -771,7 +784,7 @@ class Platform_Saturn(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
-        if emulator[0] == 'other':
+        if emulator == 'other':
             extensions = ['unknown']
             
         if emulator[0] == 'retroarch':
@@ -806,9 +819,9 @@ class Platform_Stv(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'yabause', 'kronos']
-    cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
-    extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
+    # emulators = ['retroarch', 'yabause', 'kronos']
+    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
+    # extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -824,21 +837,21 @@ class Platform_Stv(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_saturn_libretro':
@@ -869,7 +882,7 @@ class Platform_Stv(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -905,7 +918,7 @@ class Platform_Stv(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
-        if emulator[0] == 'other':
+        if emulator == 'other':
             extensions = ['unknown']
             
         if emulator[0] == 'retroarch':
@@ -940,9 +953,9 @@ class Platform_Vmu(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'vemulator']
-    cores = ['vemulator_libretro']
-    extensions = ['zip', 'vms', 'dci', 'bin']
+    # emulators = ['retroarch', 'vemulator']
+    # cores = ['vemulator_libretro']
+    # extensions = ['zip', 'vms', 'dci', 'bin']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -958,21 +971,21 @@ class Platform_Vmu(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vemulator_libretro':
@@ -999,7 +1012,7 @@ class Platform_Vmu(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -1035,7 +1048,7 @@ class Platform_Vmu(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
-        if emulator[0] == 'other':
+        if emulator == 'other':
             extensions = ['unknown']
             
         if emulator[0] == 'retroarch':
@@ -1066,9 +1079,9 @@ class Platform_SG1000(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'gearsystem']
-    cores = ['gearsystem_libretro', 'bluemsx_libretro']
-    extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+    # emulators = ['retroarch', 'gearsystem']
+    # cores = ['gearsystem_libretro', 'bluemsx_libretro']
+    # extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1084,11 +1097,22 @@ class Platform_SG1000(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            emulator = str(emulators[0])
+            if selective_mode != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)      
+            core = str(cores[0])
+            if selective_mode != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
+
         if emulator[0] == 'retroarch':
             #MSX/SVI/ColecoVision/SG-1000
             if core[0] == 'bluemsx_libretro':
@@ -1115,7 +1139,7 @@ class Platform_SG1000(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.

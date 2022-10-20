@@ -7,16 +7,16 @@ from platformcommon import PlatformCommon
 
 fullscreen = False
 debugging = True
-interactive = False
+selective_mode = False
 
 class Platform_Cdi(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['samecdi_libretro', 'cdi2015_libretro']
-    extensions = ['zip', 'chd', 'iso']
+    # emulators = ['retroarch', 'other']
+    # cores = ['samecdi_libretro', 'cdi2015_libretro']
+    # extensions = ['zip', 'chd', 'iso']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -32,21 +32,21 @@ class Platform_Cdi(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'samecdi_libretro':

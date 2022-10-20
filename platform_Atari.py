@@ -7,16 +7,16 @@ from platformcommon import PlatformCommon
 
 fullscreen = False
 debugging = True
-interactive = False
+selective_mode = False
 
 class Platform_AtariSTETTFalcon(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'stella', 'hatari']
-    cores = ['hatari_libretro']
-    extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+    # emulators = ['retroarch', 'stella', 'hatari']
+    # cores = ['hatari_libretro']
+    # extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -32,21 +32,21 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'hatari_libretro':
@@ -140,9 +140,9 @@ class Platform_Atarixlxe(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['atari800_libretro']
-    extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+    # emulators = ['retroarch', 'other']
+    # cores = ['atari800_libretro']
+    # extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -158,21 +158,21 @@ class Platform_Atarixlxe(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'atari800_libretro':
@@ -199,7 +199,7 @@ class Platform_Atarixlxe(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -264,9 +264,9 @@ class Platform_AtariJaguar(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['virtualjaguar_libretro']
-    extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
+    # emulators = ['retroarch', 'other']
+    # cores = ['virtualjaguar_libretro']
+    # extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -282,21 +282,21 @@ class Platform_AtariJaguar(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'virtualjaguar_libretro':
@@ -323,7 +323,7 @@ class Platform_AtariJaguar(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
             
         # print status to console.
@@ -359,7 +359,7 @@ class Platform_AtariJaguar(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
-        if emulator[0] == 'other':
+        if emulator == 'other':
             extensions = ['unknown']
             
         if emulator[0] == 'retroarch':
@@ -390,9 +390,9 @@ class Platform_AtariLynx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'mednafen']
-    cores = ['handy_libretro', 'mednafen_lynx_libretro']
-    extensions = ['lnx', 'o']
+    # emulators = ['retroarch', 'mednafen']
+    # cores = ['handy_libretro', 'mednafen_lynx_libretro']
+    # extensions = ['lnx', 'o']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -408,21 +408,21 @@ class Platform_AtariLynx(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
@@ -449,7 +449,7 @@ class Platform_AtariLynx(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -514,9 +514,9 @@ class Platform_Atari2600(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'stella']
-    cores = ['stella2014_libretro', 'stella_libretro']
-    extensions = ['zip', 'a26', 'bin']
+    # emulators = ['retroarch', 'stella']
+    # cores = ['stella2014_libretro', 'stella_libretro']
+    # extensions = ['zip', 'a26', 'bin']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -532,21 +532,21 @@ class Platform_Atari2600(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'stella_libretro':
@@ -573,7 +573,7 @@ class Platform_Atari2600(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -599,7 +599,7 @@ class Platform_Atari2600(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'other':
+            if emulator == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -609,7 +609,7 @@ class Platform_Atari2600(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
-        if emulator[0] == 'other':
+        if emulator == 'other':
             extensions = ['unknown']
             
         if emulator[0] == 'retroarch':
@@ -640,9 +640,9 @@ class Platform_Atari5200(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'atari800']
-    cores = ['atari800_libretro']
-    extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
+    # emulators = ['retroarch', 'atari800']
+    # cores = ['atari800_libretro']
+    # extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -658,21 +658,21 @@ class Platform_Atari5200(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'atari800_libretro':
@@ -699,7 +699,7 @@ class Platform_Atari5200(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -764,9 +764,9 @@ class Platform_Atari7800(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'prosystem']
-    cores = ['prosystem_libretro']
-    extensions = ['zip', 'a78', 'bin', 'cdf']
+    # emulators = ['retroarch', 'prosystem']
+    # cores = ['prosystem_libretro']
+    # extensions = ['zip', 'a78', 'bin', 'cdf']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -782,21 +782,21 @@ class Platform_Atari7800(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            emulator = str(emulators[0])
+            if selective_mode != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator = emulators[0]
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator = str(emulators[0])
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            core = str(cores[0])
+            if selective_mode != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
-                    print('interactive mode is off, using default ' + str(cores[0]))
-                core = cores[0]
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core = str(cores[0])
 
         if emulator[0] == 'retroarch':
             if core[0] == 'prosystem_libretro':
@@ -823,7 +823,7 @@ class Platform_Atari7800(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -849,7 +849,7 @@ class Platform_Atari7800(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'other':
+            if emulator == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
@@ -858,7 +858,7 @@ class Platform_Atari7800(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
-        if emulator[0] == 'other':
+        if emulator == 'other':
             extensions = ['unknown']
             
         if emulator[0] == 'retroarch':

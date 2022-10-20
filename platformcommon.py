@@ -4,7 +4,8 @@ from pkgutil import extend_path
 import subprocess
 import inquirer
 
-interactive = False
+fullscreen = False
+selective_mode = False
 debugging = True
 
 class PlatformCommon:
@@ -14,7 +15,7 @@ class PlatformCommon:
     native = ['false']
     audio = ['true']
     debugging = True
-    interactive = False
+    selective_mode = False
     
     def __init__(self):
         self.showetdir = None
