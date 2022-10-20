@@ -16,8 +16,7 @@ class Platform_MOTO(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['theodore_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
     
     def run(self):
@@ -31,8 +30,7 @@ class Platform_MOTO(PlatformCommon):
         cores = ['theodore_libretro']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -83,8 +81,7 @@ class Platform_MOTO(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.

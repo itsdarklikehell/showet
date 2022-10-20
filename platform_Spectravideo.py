@@ -16,8 +16,7 @@ class Platform_Spectravideo(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['bluemsx_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
@@ -31,8 +30,7 @@ class Platform_Spectravideo(PlatformCommon):
         cores = ['bluemsx_libretro']
 
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -83,8 +81,7 @@ class Platform_Spectravideo(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.

@@ -16,8 +16,7 @@ class Platform_Gamemusic(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['gme_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
     
     def run(self):
@@ -31,8 +30,7 @@ class Platform_Gamemusic(PlatformCommon):
         cores = ['gme_libretro']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -83,8 +81,7 @@ class Platform_Gamemusic(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -147,8 +144,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['ffmpeg_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
     def run(self):
@@ -162,8 +158,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
         cores = ['ffmpeg_libretro']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -214,8 +209,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -278,8 +272,7 @@ class Platform_VideoMPV(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['mpv_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
     
     def run(self):
@@ -293,8 +286,7 @@ class Platform_VideoMPV(PlatformCommon):
         cores = ['mpv_libretro']
 
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -345,8 +337,7 @@ class Platform_VideoMPV(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.

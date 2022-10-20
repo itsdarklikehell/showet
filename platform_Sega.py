@@ -16,8 +16,7 @@ class Platform_32X(PlatformCommon):
     emulators = ['retroarch', 'picodrive']
     cores = ['picodrive_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
     
     def run(self):
@@ -31,8 +30,7 @@ class Platform_32X(PlatformCommon):
         cores = ['picodrive_libretro']
     
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -83,8 +81,7 @@ class Platform_32X(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -147,8 +144,7 @@ class Platform_Dreamcast(PlatformCommon):
     emulators = ['retroarch', 'flycast', 'redream']
     cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
     
     def run(self):
@@ -162,8 +158,7 @@ class Platform_Dreamcast(PlatformCommon):
         cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
 
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -216,8 +211,7 @@ class Platform_Dreamcast(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -295,8 +289,7 @@ class Platform_Gamegear(PlatformCommon):
         cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
 
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -350,8 +343,7 @@ class Platform_Gamegear(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -418,8 +410,7 @@ class Platform_Mastersystem(PlatformCommon):
     emulators = ['retroarch', 'osmose']
     cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
     
     def run(self):
@@ -433,8 +424,7 @@ class Platform_Mastersystem(PlatformCommon):
         cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
 
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -497,8 +487,7 @@ class Platform_Mastersystem(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -574,8 +563,7 @@ class Platform_Megadrive(PlatformCommon):
     emulators = ['retroarch', 'dgen']
     cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
     
     def run(self):
@@ -589,8 +577,7 @@ class Platform_Megadrive(PlatformCommon):
         cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -644,8 +631,7 @@ class Platform_Megadrive(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -726,8 +712,7 @@ class Platform_Saturn(PlatformCommon):
         cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
 
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -782,8 +767,7 @@ class Platform_Saturn(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -850,8 +834,7 @@ class Platform_Stv(PlatformCommon):
     emulators = ['retroarch', 'yabause', 'kronos']
     cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
     
     def run(self):
@@ -865,8 +848,7 @@ class Platform_Stv(PlatformCommon):
         cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
 
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -921,8 +903,7 @@ class Platform_Stv(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -989,8 +970,7 @@ class Platform_Vmu(PlatformCommon):
     emulators = ['retroarch', 'vemulator']
     cores = ['vemulator_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['zip', 'vms', 'dci', 'bin']
     
     def run(self):
@@ -1004,8 +984,7 @@ class Platform_Vmu(PlatformCommon):
         emulators = ['retroarch', 'vemulator']
         cores = ['vemulator_libretro']
         
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'vms', 'dci', 'bin']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -1056,8 +1035,7 @@ class Platform_Vmu(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -1120,8 +1098,7 @@ class Platform_SG1000(PlatformCommon):
     emulators = ['retroarch', 'gearsystem']
     cores = ['gearsystem_libretro', 'bluemsx_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
     def run(self):
@@ -1135,8 +1112,7 @@ class Platform_SG1000(PlatformCommon):
         cores = ['gearsystem_libretro', 'bluemsx_libretro']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -1187,8 +1163,7 @@ class Platform_SG1000(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.

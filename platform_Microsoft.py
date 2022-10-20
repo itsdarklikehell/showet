@@ -16,8 +16,7 @@ class Platform_Xbox(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['directxbox_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['zip', 'iso']
     
     def run(self):
@@ -31,8 +30,7 @@ class Platform_Xbox(PlatformCommon):
         cores = ['directxbox_libretro']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'iso']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -85,8 +83,7 @@ class Platform_Xbox(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -149,8 +146,7 @@ class Platform_Msx(PlatformCommon):
     emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
     cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
@@ -164,8 +160,7 @@ class Platform_Msx(PlatformCommon):
         cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
 
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -218,8 +213,7 @@ class Platform_Msx(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -284,8 +278,7 @@ class Platform_Windows(PlatformCommon):
     emulators = ['wine']
     cores = ['wine']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['exe']
     # wineprefix = self.showetdir + '/wineprefix'
 
@@ -300,8 +293,7 @@ class Platform_Windows(PlatformCommon):
         cores = ['wine']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['exe']
         wineprefix = self.showetdir + '/wineprefix'
         
@@ -353,8 +345,7 @@ class Platform_Windows(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
             print("\tGuessed executable file: " + exefile)
 
         exepath = self.datadir + "/" + exefile

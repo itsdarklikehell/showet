@@ -16,8 +16,7 @@ class Platform_Zxspectrum(PlatformCommon):
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -31,8 +30,7 @@ class Platform_Zxspectrum(PlatformCommon):
         cores = ['fuse_libretro']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -82,8 +80,7 @@ class Platform_Zxspectrum(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
@@ -145,8 +142,7 @@ class Platform_Zx81(PlatformCommon):
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro', '81_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -160,8 +156,7 @@ class Platform_Zx81(PlatformCommon):
         cores = ['fuse_libretro', '81_libretro']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -216,8 +211,7 @@ class Platform_Zx81(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.

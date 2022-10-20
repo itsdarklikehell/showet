@@ -16,8 +16,7 @@ class Platform_Odyssey(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['o2em_libretro']
     fullscreens = ['false']
-    streamings = ['false', 'twitch', 'youtube', 'restream']
-    recordings = ['true', 'false']
+
     extensions = ['zip', 'bin']
     
     def run(self):
@@ -31,8 +30,7 @@ class Platform_Odyssey(PlatformCommon):
         cores = ['o2em_libretro']
         
         fullscreen = ['false']
-        streaming = ['false']
-        recording = ['false']
+
         extensions = ['zip', 'bin']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -85,8 +83,7 @@ class Platform_Odyssey(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
             print("\tUsing fullscreen: " + str(fullscreen))
-            print("\tUsing recording: " + str(recording))
-            print("\tUsing streaming: " + str(streaming))
+
 
         if len(files) > 0:
             # Sort the files.
