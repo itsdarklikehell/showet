@@ -32,14 +32,10 @@ class Platform_Gamemusic(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'gme_libretro':
@@ -153,14 +149,10 @@ class Platform_VideoFFMPEG(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'ffmpeg_libretro':
@@ -274,14 +266,10 @@ class Platform_VideoMPV(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mpv_libretro':

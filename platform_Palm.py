@@ -32,14 +32,10 @@ class Platform_Palm(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if extensions == 'retroarch':
             if core[0] == 'mu_libretro':

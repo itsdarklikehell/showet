@@ -32,14 +32,10 @@ class Platform_32X(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'picodrive_libretro':
@@ -153,14 +149,10 @@ class Platform_Dreamcast(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'flycast_libretro' or core[0] == 'flycast_gles2_libretro':
@@ -277,14 +269,10 @@ class Platform_Gamegear(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
-        else:
-            core = core      
+            PlatformCommon.multicore(self,cores)      
         if emulator[0] == 'retroarch':
             #MS/GG/MD/CD
             if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
@@ -405,14 +393,10 @@ class Platform_Mastersystem(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':            #MS
             if core[0] == 'emux_sms_libretro':
@@ -551,14 +535,10 @@ class Platform_Megadrive(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':            #MS/GG/MD/CD
             if core[0] == 'genesis_plus_gx_libretro' or core[0] == 'genesis_plus_gx_wide_libretro':
@@ -679,14 +659,10 @@ class Platform_Saturn(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_saturn_libretro':
@@ -808,14 +784,10 @@ class Platform_Stv(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_saturn_libretro':
@@ -937,14 +909,10 @@ class Platform_Vmu(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
-        else:
-            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vemulator_libretro':
@@ -1058,14 +1026,10 @@ class Platform_SG1000(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
-        else:
-            emulator = emulator
-        
+
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
-        else:
-            core = core      
+            PlatformCommon.multicore(self,cores)      
         if emulator[0] == 'retroarch':
             #MSX/SVI/ColecoVision/SG-1000
             if core[0] == 'bluemsx_libretro':
