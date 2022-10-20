@@ -78,22 +78,25 @@ class PlatformCommon:
     print("\t================================")
     
     def multiemu(self, emulators):
-        
         emulator = []
-        print('Info: Multiple emulators are supported: ' + str(emulators))
+        if debugging != False:
+            print('Info: Multiple emulators are supported: ' + str(emulators))
         prompt = [
             inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
         ]
         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        print('You chose the selected emulator: ' + str(emulator))
+        if debugging != False:
+            print('You chose the selected emulator: ' + str(emulator))
         return emulator
     
     def multicore(self, cores):
         core = []
-        print('Info: Multiple cores are supported: ' + str(cores))
+        if debugging != False:
+            print('Info: Multiple cores are supported: ' + str(cores))
         prompt = [
             inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
         ]   
         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        print('You chose the selected core: ' + str(core))
+        if debugging != False:
+            print('You chose the selected core: ' + str(core))
         return core

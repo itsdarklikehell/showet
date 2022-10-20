@@ -49,19 +49,21 @@ class Platform_Commodore64(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
         
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x64sc_libretro':
@@ -214,19 +216,21 @@ class Platform_Commodore128(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]              
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]              
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x128_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
@@ -383,19 +387,21 @@ class Platform_CommodoreAmiga(PlatformCommon):
         extensions.extend(cd_ext)
         extensions.extend(other)
         
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]
         
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
@@ -623,19 +629,21 @@ class Platform_CommodoreCBMII(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xcbm2_libretro':
@@ -791,19 +799,21 @@ class Platform_CommodorePet(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xpet_libretro':
@@ -956,19 +966,21 @@ class Platform_CommodorePlus4(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xplus4_libretro':
@@ -1122,19 +1134,21 @@ class Platform_CommodoreVIC20(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xvic_libretro':

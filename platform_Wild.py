@@ -29,19 +29,21 @@ class Platform_Gamemusic(PlatformCommon):
         cores = ['gme_libretro']
         extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'gme_libretro':
@@ -152,19 +154,21 @@ class Platform_VideoFFMPEG(PlatformCommon):
         cores = ['ffmpeg_libretro']
         extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'ffmpeg_libretro':
@@ -275,19 +279,21 @@ class Platform_VideoMPV(PlatformCommon):
         cores = ['mpv_libretro']
         extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     if interactive != False:
-        #         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        #     else:
-        #         emulator = emulators[0]
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            if interactive != False:
+                self.multiemu(self, emulators)
+                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
+            else:
+                emulator = emulators[0]
         
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     if interactive != False:
-        #         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        #     else:
-        #         core = core[0]
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            if interactive != False:
+                self.multicore(self, emulators)
+                #core = inquirer.prompt(prompt).get('cores').strip().lower()
+            else:
+                core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mpv_libretro':
