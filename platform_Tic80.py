@@ -6,7 +6,7 @@ import inquirer
 from platformcommon import PlatformCommon
 
 debugging = True
-interactive = True
+interactive = False
 
 class Platform_Tic80(PlatformCommon):
     # Set up the emulator we want to run.
