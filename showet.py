@@ -267,10 +267,10 @@ if debugging != False:
         print("\tType: " + data['prod']['type'])
     except IndexError:
         pass    
-    try:
-        print("\tReleased: " + data['prod']['releaseDate'])
-    except IndexError:
-        pass
+    # try:
+    #     print("\tReleased: " + data['prod']['releaseDate'])
+    # except IndexError:
+    #     pass
     print("\tPlatform: " + prod_platform)
 
 # Get necessary fields from the data
