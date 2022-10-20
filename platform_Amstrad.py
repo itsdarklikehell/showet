@@ -4,6 +4,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
+interactive = True
 debugging = True
 
 

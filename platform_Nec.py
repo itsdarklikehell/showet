@@ -4,6 +4,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
+interactive = True
 debugging = True
 class Platform_Pcengine(PlatformCommon):
     # Set up the emulator we want to run.
