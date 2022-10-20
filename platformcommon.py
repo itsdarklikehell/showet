@@ -77,7 +77,7 @@ class PlatformCommon:
         return retcode
     print("\t================================")
     
-    def multiemu(emulators):
+    def multiemu(self,emulators):
         emulator = []
         if debugging != False:
             print('Info: Multiple emulators are supported: ' + str(emulators))
@@ -89,7 +89,7 @@ class PlatformCommon:
             print('You chose the selected emulator: ' + str(emulator))
         return emulator
     
-    def multicore(cores):
+    def multicore(self,cores):
         core = []
         if debugging != False:
             print('Info: Multiple cores are supported: ' + str(cores))

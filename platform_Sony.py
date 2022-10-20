@@ -31,13 +31,13 @@ class Platform_Psx(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]
 
@@ -169,13 +169,13 @@ class Platform_Ps2(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]
 
@@ -295,13 +295,13 @@ class Platform_Psp(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]
 

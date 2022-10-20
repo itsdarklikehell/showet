@@ -51,13 +51,13 @@ class Platform_Commodore64(PlatformCommon):
         
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]
         
@@ -214,13 +214,13 @@ class Platform_Commodore128(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]              
         if emulator[0] == 'retroarch':
@@ -381,13 +381,13 @@ class Platform_CommodoreAmiga(PlatformCommon):
         
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]
         
@@ -619,13 +619,13 @@ class Platform_CommodoreCBMII(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]
         
@@ -785,13 +785,13 @@ class Platform_CommodorePet(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]
         
@@ -948,13 +948,13 @@ class Platform_CommodorePlus4(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]
         
@@ -1112,13 +1112,13 @@ class Platform_CommodoreVIC20(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            self.multiemu(emulators)
+            PlatformCommon.multiemu(self,emulators)
         else:
             emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            self.multicore(cores)
+            PlatformCommon.multicore(self,cores)
         else:
             core = core[0]
         
