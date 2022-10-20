@@ -49,13 +49,27 @@ class Platform_Commodore64(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
         
+        emulators = ['retroarch', 'other']
+        cores = ['4do_libretro', 'opera_libretro']
+        extensions = ['iso', 'bin', 'chd', 'cue']
+
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
         
         if emulator == 'retroarch':
             if core == 'vice_x64sc_libretro':
@@ -371,13 +385,27 @@ class Platform_CommodoreAmiga(PlatformCommon):
         extensions.extend(cd_ext)
         extensions.extend(other)
         
+        emulators = ['retroarch', 'other']
+        cores = ['4do_libretro', 'opera_libretro']
+        extensions = ['iso', 'bin', 'chd', 'cue']
+
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
         
         if emulator == 'retroarch':
             if core == 'puae_libretro':
@@ -605,13 +633,27 @@ class Platform_CommodoreCBMII(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
+        emulators = ['retroarch', 'other']
+        cores = ['4do_libretro', 'opera_libretro']
+        extensions = ['iso', 'bin', 'chd', 'cue']
+
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
         
         if emulator == 'retroarch':
             if core == 'vice_xcbm2_libretro':
@@ -767,13 +809,27 @@ class Platform_CommodorePet(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
+        emulators = ['retroarch', 'other']
+        cores = ['4do_libretro', 'opera_libretro']
+        extensions = ['iso', 'bin', 'chd', 'cue']
+
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
         
         if emulator == 'retroarch':
             if core == 'vice_xpet_libretro':
@@ -926,13 +982,27 @@ class Platform_CommodorePlus4(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
+        emulators = ['retroarch', 'other']
+        cores = ['4do_libretro', 'opera_libretro']
+        extensions = ['iso', 'bin', 'chd', 'cue']
+
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
         
         if emulator == 'retroarch':
             if core == 'vice_xplus4_libretro':
@@ -1086,13 +1156,27 @@ class Platform_CommodoreVIC20(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
+        emulators = ['retroarch', 'other']
+        cores = ['4do_libretro', 'opera_libretro']
+        extensions = ['iso', 'bin', 'chd', 'cue']
+
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)
+            if interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
         
         if emulator == 'retroarch':
             if core == 'vice_xvic_libretro':
