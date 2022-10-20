@@ -48,10 +48,10 @@ class Platform_Cpcplus(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'crocods_libretro':
+        if emulator == 'retroarch':
+            if core == 'crocods_libretro':
                 extensions = ['dsk', 'sna', 'kcr']
-            if core[0] == 'cap32_libretro':
+            if core == 'cap32_libretro':
                 extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
                 
         ext = []
@@ -69,7 +69,7 @@ class Platform_Cpcplus(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -99,7 +99,7 @@ class Platform_Cpcplus(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'zesarux':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -114,10 +114,10 @@ class Platform_Cpcplus(PlatformCommon):
         if emulator == 'other':
             extensions = ['unknown']
             
-        if emulator[0] == 'retroarch':
-            if core[0] == 'crocods_libretro':
+        if emulator == 'retroarch':
+            if core == 'crocods_libretro':
                 extensions = ['dsk', 'sna', 'kcr']
-            if core[0] == 'cap32_libretro':
+            if core == 'cap32_libretro':
                 extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
                 
         ext_files = []

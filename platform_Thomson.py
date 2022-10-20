@@ -48,8 +48,8 @@ class Platform_MOTO(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'theodore_libretro':
+        if emulator == 'retroarch':
+            if core == 'theodore_libretro':
                 extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
 
         ext = []
@@ -67,7 +67,7 @@ class Platform_MOTO(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -97,7 +97,7 @@ class Platform_MOTO(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -110,8 +110,8 @@ class Platform_MOTO(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'theodore_libretro':
+        if emulator == 'retroarch':
+            if core == 'theodore_libretro':
                 extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
         
         ext_files = []

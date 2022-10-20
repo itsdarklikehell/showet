@@ -49,10 +49,10 @@ class Platform_Coleco(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
 
-        if emulator[0] == 'retroarch':
-            if core[0] == 'bluemsx_libretro':
+        if emulator == 'retroarch':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-            if core[0] == 'gearcoleco_libretro':
+            if core == 'gearcoleco_libretro':
                 extensions = ['col', 'cv', 'bin', 'rom']
 
         ext = []
@@ -70,7 +70,7 @@ class Platform_Coleco(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -100,7 +100,7 @@ class Platform_Coleco(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -115,10 +115,10 @@ class Platform_Coleco(PlatformCommon):
         if emulator == 'other':
             extensions = ['unknown']
             
-        if emulator[0] == 'retroarch':
-            if core[0] == 'bluemsx_libretro':
+        if emulator == 'retroarch':
+            if core == 'bluemsx_libretro':
                 extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-            if core[0] == 'gearcoleco_libretro':
+            if core == 'gearcoleco_libretro':
                 extensions = ['col', 'cv', 'bin', 'rom']
                         
         ext_files = []

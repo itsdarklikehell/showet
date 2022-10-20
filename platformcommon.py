@@ -88,7 +88,7 @@ class PlatformCommon:
         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         if debugging != False:
             print('You chose the selected emulator: ' + str(emulator))
-        return emulator
+        return str(emulator)
     
     def multicore(self,cores):
         #core = []
@@ -100,4 +100,4 @@ class PlatformCommon:
         core = inquirer.prompt(prompt).get('cores').strip().lower()
         if debugging != False:
             print('You chose the selected core: ' + str(core))
-        return core
+        return str(core)
