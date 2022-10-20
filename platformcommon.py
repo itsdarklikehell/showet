@@ -72,7 +72,7 @@ class PlatformCommon:
             print(line.decode('utf-8'))
         if retcode:
             if debugging != False:
-                print(arguments[0], "\n\tprocess exited with ", retcode)
+                print(arguments, "\n\tprocess exited with ", retcode)
             exit(-1)
         return retcode
     print("\t================================")
