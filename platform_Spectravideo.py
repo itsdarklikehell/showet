@@ -12,7 +12,7 @@ class Platform_Spectravideo(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
+    emulators = ['retroarch', 'other']
     cores = ['bluemsx_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
@@ -26,7 +26,7 @@ class Platform_Spectravideo(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         #emulator = ['retroarch']
         #core = ['bluemsx_libretro']
-        emulators = ['retroarch']
+        emulators = ['retroarch', 'other']
         cores = ['bluemsx_libretro']
 
         fullscreen = ['false']
@@ -40,7 +40,6 @@ class Platform_Spectravideo(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -69,7 +68,7 @@ class Platform_Spectravideo(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:

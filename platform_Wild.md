@@ -3,7 +3,7 @@
 ## Supported emulators:
 
 ```python
-emulators = ['retroarch']
+emulators = ['retroarch', 'other']
 ```
 
 ## Supported Libretro Cores:

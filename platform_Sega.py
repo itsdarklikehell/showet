@@ -40,7 +40,6 @@ class Platform_32X(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -69,7 +68,7 @@ class Platform_32X(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -209,7 +208,6 @@ class Platform_Dreamcast(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -240,7 +238,7 @@ class Platform_Dreamcast(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -380,7 +378,6 @@ class Platform_Gamegear(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -413,7 +410,7 @@ class Platform_Gamegear(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -557,7 +554,6 @@ class Platform_Mastersystem(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -599,7 +595,7 @@ class Platform_Mastersystem(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -752,7 +748,6 @@ class Platform_Megadrive(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -785,7 +780,7 @@ class Platform_Megadrive(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -928,7 +923,6 @@ class Platform_Saturn(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -961,7 +955,7 @@ class Platform_Saturn(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -1104,7 +1098,6 @@ class Platform_Stv(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -1137,7 +1130,7 @@ class Platform_Stv(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -1281,7 +1274,6 @@ class Platform_Vmu(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -1310,7 +1302,7 @@ class Platform_Vmu(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -1450,7 +1442,6 @@ class Platform_SG1000(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -1480,7 +1471,7 @@ class Platform_SG1000(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:

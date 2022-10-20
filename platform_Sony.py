@@ -12,7 +12,7 @@ class Platform_Psx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
+    emulators = ['retroarch', 'other']
     cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
@@ -26,7 +26,7 @@ class Platform_Psx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['swanstation_libretro']
-        emulators = ['retroarch']
+        emulators = ['retroarch', 'other']
         cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
         
         fullscreen = ['false']
@@ -40,7 +40,6 @@ class Platform_Psx(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -77,7 +76,7 @@ class Platform_Psx(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -198,7 +197,7 @@ class Platform_Ps2(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
+    emulators = ['retroarch', 'other']
     cores = ['pcsx2_libretro', 'play_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
@@ -212,7 +211,7 @@ class Platform_Ps2(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         #emulator = ['retroarch']
         #core = ['pcsx2_libretro']
-        emulators = ['retroarch']
+        emulators = ['retroarch', 'other']
         cores = ['pcsx2_libretro', 'play_libretro']
         
         fullscreen = ['false']
@@ -226,7 +225,6 @@ class Platform_Ps2(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -257,7 +255,7 @@ class Platform_Ps2(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -400,7 +398,6 @@ class Platform_Psp(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -429,7 +426,7 @@ class Platform_Psp(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:

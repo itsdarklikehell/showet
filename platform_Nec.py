@@ -11,7 +11,7 @@ class Platform_Pcengine(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
+    emulators = ['retroarch', 'other']
     cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
@@ -25,7 +25,7 @@ class Platform_Pcengine(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         #emulator = ['retroarch']
         #core = ['mednafen_supergrafx_libretro']
-        emulators = ['retroarch']
+        emulators = ['retroarch', 'other']
         cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
         
         fullscreen = ['false']
@@ -39,7 +39,6 @@ class Platform_Pcengine(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -68,7 +67,7 @@ class Platform_Pcengine(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -180,7 +179,7 @@ class Platform_Supergrafx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
+    emulators = ['retroarch', 'other']
     cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
@@ -194,7 +193,7 @@ class Platform_Supergrafx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         #emulator = ['retroarch']
         #core = ['mednafen_supergrafx_libretro']
-        emulators = ['retroarch']
+        emulators = ['retroarch', 'other']
         cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
         
         fullscreen = ['false']
@@ -208,7 +207,6 @@ class Platform_Supergrafx(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -237,7 +235,7 @@ class Platform_Supergrafx(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -349,7 +347,7 @@ class Platform_Pc8000(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
+    emulators = ['retroarch', 'other']
     cores = ['quasi88_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
@@ -363,7 +361,7 @@ class Platform_Pc8000(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         #emulator = ['retroarch']
         #core = ['quasi88_libretro']
-        emulators = ['retroarch']
+        emulators = ['retroarch', 'other']
         cores = ['quasi88_libretro']
         
         fullscreen = ['false']
@@ -377,7 +375,6 @@ class Platform_Pc8000(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -406,7 +403,7 @@ class Platform_Pc8000(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -518,7 +515,7 @@ class Platform_Pc8800(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
+    emulators = ['retroarch', 'other']
     cores = ['quasi88_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
@@ -532,7 +529,7 @@ class Platform_Pc8800(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         #emulator = ['retroarch']
         #core = ['quasi88_libretro']
-        emulators = ['retroarch']
+        emulators = ['retroarch', 'other']
         cores = ['quasi88_libretro']
         
         fullscreen = ['false']
@@ -546,7 +543,6 @@ class Platform_Pc8800(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -575,7 +571,7 @@ class Platform_Pc8800(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -687,7 +683,7 @@ class Platform_Pc98(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
+    emulators = ['retroarch', 'other']
     cores = ['nekop2_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
@@ -701,7 +697,7 @@ class Platform_Pc98(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         #emulator = ['retroarch']
         #core = ['nekop2_libretro']
-        emulators = ['retroarch']
+        emulators = ['retroarch', 'other']
         cores = ['nekop2_libretro']
         
         fullscreen = ['false']
@@ -715,7 +711,6 @@ class Platform_Pc98(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -744,7 +739,7 @@ class Platform_Pc98(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -856,7 +851,7 @@ class Platform_Pcfx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch']
+    emulators = ['retroarch', 'other']
     cores = ['mednafen_pcfx_libretro']
     fullscreens = ['false']
     streamings = ['false', 'twitch', 'youtube', 'restream']
@@ -870,7 +865,7 @@ class Platform_Pcfx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         #emulator = ['retroarch']
         #core = ['mednafen_pcfx_libretro']
-        emulators = ['retroarch']
+        emulators = ['retroarch', 'other']
         cores = ['mednafen_pcfx_libretro']
         
         fullscreen = ['false']
@@ -884,7 +879,6 @@ class Platform_Pcfx(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -913,7 +907,7 @@ class Platform_Pcfx(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:

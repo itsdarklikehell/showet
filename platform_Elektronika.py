@@ -40,7 +40,6 @@ class Platform_Pdp11(PlatformCommon):
                 emulator = self.multiemu(emulators)
             else:
                 emulator = emulators[0]
-                
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
@@ -69,7 +68,7 @@ class Platform_Pdp11(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
