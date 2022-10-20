@@ -66,7 +66,9 @@ class Platform_Commodore64(PlatformCommon):
                 if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
-        
+                
+        if emulator[0] == 'other':
+            extensions = ['unknown']        
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x64sc_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
@@ -394,7 +396,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
-        
+                
+        if emulator[0] == 'other':
+            extensions = ['unknown']        
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
                     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
@@ -637,7 +641,9 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
-        
+                
+        if emulator[0] == 'other':
+            extensions = ['unknown']        
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xcbm2_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
@@ -808,7 +814,9 @@ class Platform_CommodorePet(PlatformCommon):
                 if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
-        
+                
+        if emulator[0] == 'other':
+            extensions = ['unknown']        
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xpet_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
@@ -976,7 +984,9 @@ class Platform_CommodorePlus4(PlatformCommon):
                 if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
-        
+                
+        if emulator[0] == 'other':
+            extensions = ['unknown']        
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xplus4_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
@@ -1145,7 +1155,9 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
-        
+                
+        if emulator[0] == 'other':
+            extensions = ['unknown']        
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xvic_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']

@@ -48,7 +48,9 @@ class Platform_Msdos(PlatformCommon):
                 if debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
-        
+                
+        if emulator[0] == 'other':
+            extensions = ['unknown']
         if emulator[0] == 'retroarch':
             if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
                 extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
@@ -113,15 +115,15 @@ class Platform_Msdos(PlatformCommon):
         return ['msdos', 'msdosgus', 'wild']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
-        if emulator[0] == 'other':
-            extensions = ['unknown']
+    def find_ext_files(self,emulator,core,extensions):
+        # if emulator[0] == 'other':
+        #     extensions = ['unknown']
             
-        if emulator[0] == 'retroarch':
-            if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
-                extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
-            if core[0] == 'dosbox_pure_libretro':
-                extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8']
+        # if emulator[0] == 'retroarch':
+        #     if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
+        #         extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
+        #     if core[0] == 'dosbox_pure_libretro':
+        #         extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8']
         
         ext_files = []
         for file in self.prod_files:
