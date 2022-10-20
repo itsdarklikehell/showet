@@ -69,10 +69,10 @@ from platform_Sega import (
     Platform_Dreamcast,
     Platform_Saturn
 )
-from platform_Sinclair import (
-    Platform_Zxspectrum,
-    Platform_Zx81
-)
+#from platform_Sinclair import (
+#    Platform_Zxspectrum,
+#    Platform_Zx81
+#)
 from platform_Snk import (
     Platform_Neogeo,
     Platform_Neopocket,
@@ -174,10 +174,9 @@ platform_runners = [
     Platform_Linux(),
     Platform_Msdos(),
     Platform_Windows(),
-    Platform_Zxspectrum(),
-    Platform_Zx81(),
     ]
-
+    #Platform_Zxspectrum(),
+    #Platform_Zx81(),
 if args.platforms:
     for r in platform_runners:
         for p in r.supported_platforms():
