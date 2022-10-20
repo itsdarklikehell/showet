@@ -5,8 +5,6 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-interactive = False
-debugging = True
 
 class Platform_Commodore64(PlatformCommon):
     # Set up the emulator we want to run.
@@ -15,7 +13,6 @@ class Platform_Commodore64(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice', 'frodo']
     cores = ['vice_x64sc_libretro', 'frodo_libretro']
-    fullscreens = ['false']
 
     floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
@@ -37,7 +34,6 @@ class Platform_Commodore64(PlatformCommon):
         
         emulators = ['retroarch', 'vice', 'frodo']
         cores = ['vice_x64sc_libretro', 'frodo_libretro']
-        fullscreen = ['false']
 
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
@@ -48,26 +44,23 @@ class Platform_Commodore64(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-        
-        emulators = ['retroarch', 'other']
-        cores = ['4do_libretro', 'opera_libretro']
-        extensions = ['iso', 'bin', 'chd', 'cue']
+
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
         
@@ -108,7 +101,7 @@ class Platform_Commodore64(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -148,7 +141,7 @@ class Platform_Commodore64(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
                     print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
                     print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
@@ -168,13 +161,13 @@ class Platform_Commodore64(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -266,7 +259,7 @@ class Platform_Commodore128(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -306,7 +299,7 @@ class Platform_Commodore128(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
                     print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
                     print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
@@ -325,13 +318,13 @@ class Platform_Commodore128(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -345,7 +338,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'puae', 'fs-uae']
     cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
-    fullscreens = ['false']
 
     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
     harddrives_ext = ['hdf', 'hdz', 'datadir' ]
@@ -370,9 +362,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
         emulators = ['retroarch', 'puae', 'fs-uae']
         cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
 
-        fullscreen = ['false']
-
-                
         floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
         harddrives_ext = ['hdf', 'hdz', 'datadir' ]
         whdload_ext = ['lha', 'slave', 'info']
@@ -384,26 +373,22 @@ class Platform_CommodoreAmiga(PlatformCommon):
         extensions.extend(whdload_ext)
         extensions.extend(cd_ext)
         extensions.extend(other)
-        
-        emulators = ['retroarch', 'other']
-        cores = ['4do_libretro', 'opera_libretro']
-        extensions = ['iso', 'bin', 'chd', 'cue']
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
         
@@ -452,7 +437,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 emulator.append('--keep_aspect')
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -557,7 +542,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 whdload_ext = ['lha', 'slave', 'info']
                 cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
                 other = ['uae', 'm3u', 'zip', '7z']
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
                     print('\tFiles with extension: %s will be identified as Hard Drives' % harddrives_ext)
                     print('\tFiles with extension: %s will be identified as CD-Roms' % cd_ext)
@@ -578,13 +563,13 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -598,7 +583,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xcbm2_libretro']
-    fullscreens = ['false']
 
     floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
@@ -633,25 +617,21 @@ class Platform_CommodoreCBMII(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        emulators = ['retroarch', 'other']
-        cores = ['4do_libretro', 'opera_libretro']
-        extensions = ['iso', 'bin', 'chd', 'cue']
-
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
         
@@ -690,11 +670,11 @@ class Platform_CommodoreCBMII(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'vice':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == ['true']:
+            if PlatformCommon.fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -734,7 +714,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
                     print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
                     print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
@@ -754,13 +734,13 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -774,7 +754,6 @@ class Platform_CommodorePet(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xpet_libretro']
-    fullscreens = ['false']
 
     floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
@@ -809,25 +788,21 @@ class Platform_CommodorePet(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        emulators = ['retroarch', 'other']
-        cores = ['4do_libretro', 'opera_libretro']
-        extensions = ['iso', 'bin', 'chd', 'cue']
-
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
         
@@ -868,7 +843,7 @@ class Platform_CommodorePet(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -908,7 +883,7 @@ class Platform_CommodorePet(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
                     print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
                     print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
@@ -927,13 +902,13 @@ class Platform_CommodorePet(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -947,7 +922,6 @@ class Platform_CommodorePlus4(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xplus4_libretro']
-    fullscreens = ['false']
 
     floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
@@ -982,25 +956,21 @@ class Platform_CommodorePlus4(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        emulators = ['retroarch', 'other']
-        cores = ['4do_libretro', 'opera_libretro']
-        extensions = ['iso', 'bin', 'chd', 'cue']
-
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
         
@@ -1041,7 +1011,7 @@ class Platform_CommodorePlus4(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1081,7 +1051,7 @@ class Platform_CommodorePlus4(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
                     print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
                     print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
@@ -1101,13 +1071,13 @@ class Platform_CommodorePlus4(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -1121,7 +1091,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xvic_libretro']
-    fullscreens = ['false']
 
     floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
@@ -1156,25 +1125,21 @@ class Platform_CommodoreVIC20(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        emulators = ['retroarch', 'other']
-        cores = ['4do_libretro', 'opera_libretro']
-        extensions = ['iso', 'bin', 'chd', 'cue']
-
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
         
@@ -1213,11 +1178,11 @@ class Platform_CommodoreVIC20(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'vice':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == ['true']:
+            if PlatformCommon.fullscreen == ['true']:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1257,7 +1222,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('\tFiles with extension: %s will be identified as Floppies' % floppys_ext)
                     print('\tFiles with extension: %s will be identified as Tape Drives' % tapes_ext)
                     print('\tFiles with extension: %s will be identified as Roms' % roms_ext)
@@ -1277,13 +1242,13 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)

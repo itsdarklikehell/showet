@@ -5,8 +5,6 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-interactive = False
-debugging = True
 
 class Platform_AtariSTETTFalcon(PlatformCommon):
     # Set up the emulator we want to run.
@@ -31,19 +29,19 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -76,7 +74,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -123,13 +121,13 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -159,19 +157,19 @@ class Platform_Atarixlxe(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -204,7 +202,7 @@ class Platform_Atarixlxe(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -250,13 +248,13 @@ class Platform_Atarixlxe(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -286,19 +284,19 @@ class Platform_AtariJaguar(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -331,7 +329,7 @@ class Platform_AtariJaguar(PlatformCommon):
             print("Using: " + str(emulator))
             
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -379,13 +377,13 @@ class Platform_AtariJaguar(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -415,19 +413,19 @@ class Platform_AtariLynx(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -460,7 +458,7 @@ class Platform_AtariLynx(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -506,13 +504,13 @@ class Platform_AtariLynx(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -542,19 +540,19 @@ class Platform_Atari2600(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -587,7 +585,7 @@ class Platform_Atari2600(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -635,13 +633,13 @@ class Platform_Atari2600(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -671,19 +669,19 @@ class Platform_Atari5200(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -716,7 +714,7 @@ class Platform_Atari5200(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -762,13 +760,13 @@ class Platform_Atari5200(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -798,19 +796,19 @@ class Platform_Atari7800(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -843,7 +841,7 @@ class Platform_Atari7800(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -890,13 +888,13 @@ class Platform_Atari7800(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)

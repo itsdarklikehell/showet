@@ -5,8 +5,6 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-interactive = False
-debugging = True
 
 class Platform_Linux(PlatformCommon):
     # Set up the emulator we want to run.
@@ -31,11 +29,21 @@ class Platform_Linux(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            PlatformCommon.multiemu(self,emulators)
+            if PlatformCommon.interactive != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                if PlatformCommon.debugging != False:
+                    print('interactive mode is off, using default' + str(emulators[0]))
+                emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            PlatformCommon.multicore(self,cores)   
+            if PlatformCommon.interactive != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                if PlatformCommon.debugging != False:
+                    print('interactive mode is off, using default' + str(cores[0]))
+                core = cores[0]
      
         if emulator[0] == 'bash':
             if core == 'bash':
@@ -59,7 +67,7 @@ class Platform_Linux(PlatformCommon):
         os.chdir(self.datadir)
         
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -109,13 +117,13 @@ class Platform_Linux(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)

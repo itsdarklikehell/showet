@@ -5,8 +5,6 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
-interactive = False
-debugging = True
 
 class Platform_Psx(PlatformCommon):
     # Set up the emulator we want to run.
@@ -31,19 +29,19 @@ class Platform_Psx(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -84,7 +82,7 @@ class Platform_Psx(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -138,13 +136,13 @@ class Platform_Psx(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -175,19 +173,19 @@ class Platform_Ps2(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -222,7 +220,7 @@ class Platform_Ps2(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -270,13 +268,13 @@ class Platform_Ps2(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
@@ -307,19 +305,19 @@ class Platform_Psp(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multiemu(self,emulators)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(emulators[0]))
                 emulator = emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
+            if PlatformCommon.interactive != False:
                 PlatformCommon.multicore(self,cores)
             else:
-                if debugging != False:
+                if PlatformCommon.debugging != False:
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
@@ -352,7 +350,7 @@ class Platform_Psp(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if PlatformCommon.debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -398,13 +396,13 @@ class Platform_Psp(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if PlatformCommon.debugging != False:
                             print("\tFound file: " + file)
                             print("\tMaking it executable for you")                        
                         os.chmod(file, stat.S_IEXEC)
