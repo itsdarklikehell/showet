@@ -5,6 +5,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
+fullscreen = False
 debugging = True
 interactive = False
 
@@ -48,7 +49,7 @@ class Platform_Linux(PlatformCommon):
                 core = cores[0]
      
         if emulator[0] == 'bash':
-            if core == 'bash':
+            if core[0] == 'bash':
                 extensions = ['elf', 'exe']
                 
         ext = []
@@ -108,7 +109,7 @@ class Platform_Linux(PlatformCommon):
         extensions = ['elf', 'exe']
         
         if emulator[0] == 'bash':
-            if core == 'bash':
+            if core[0] == 'bash':
                 extensions = ['elf', 'exe']
                         
         ext_files = []

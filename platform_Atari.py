@@ -5,6 +5,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
+fullscreen = False
 debugging = True
 interactive = False
 
@@ -47,8 +48,8 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'hatari_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'hatari_libretro':
                 extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
                         
         ext = []
@@ -66,7 +67,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -98,7 +99,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'hatari':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -111,8 +112,8 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'hatari_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'hatari_libretro':
                 extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
         
         ext_files = []
@@ -175,8 +176,8 @@ class Platform_Atarixlxe(PlatformCommon):
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'atari800_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'atari800_libretro':
                 extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
 
         ext = []
@@ -194,13 +195,13 @@ class Platform_Atarixlxe(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -225,7 +226,7 @@ class Platform_Atarixlxe(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'atari800':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -238,8 +239,8 @@ class Platform_Atarixlxe(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'atari800_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'atari800_libretro':
                 extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
         
         ext_files = []
@@ -302,8 +303,8 @@ class Platform_AtariJaguar(PlatformCommon):
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'virtualjaguar_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'virtualjaguar_libretro':
                 extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
                 
         ext = []
@@ -321,13 +322,13 @@ class Platform_AtariJaguar(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             print("Using: " + str(emulator))
             
         # print status to console.
@@ -352,7 +353,7 @@ class Platform_AtariJaguar(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'virtualjaguar':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -364,11 +365,11 @@ class Platform_AtariJaguar(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        if emulator == 'other':
+        if emulator[0] == 'other':
             extensions = ['unknown']
             
-        if emulator == 'retroarch':
-            if core == 'virtualjaguar_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'virtualjaguar_libretro':
                 extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
         
         ext_files = []
@@ -431,8 +432,8 @@ class Platform_AtariLynx(PlatformCommon):
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'handy_libretro' or core == 'mednafen_lynx_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
                 extensions = ['lnx', 'o']
 
         ext = []
@@ -450,13 +451,13 @@ class Platform_AtariLynx(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -481,7 +482,7 @@ class Platform_AtariLynx(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'mednafen':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -494,8 +495,8 @@ class Platform_AtariLynx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'handy_libretro' or core == 'mednafen_lynx_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
                 extensions = ['lnx', 'o']
         
         ext_files = []
@@ -558,8 +559,8 @@ class Platform_Atari2600(PlatformCommon):
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'stella_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'stella_libretro':
                 extensions = ['zip', 'a26', 'bin']
                 
         ext = []
@@ -577,13 +578,13 @@ class Platform_Atari2600(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -608,9 +609,9 @@ class Platform_Atari2600(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'other':
+            if emulator[0] == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -620,11 +621,11 @@ class Platform_Atari2600(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        if emulator == 'other':
+        if emulator[0] == 'other':
             extensions = ['unknown']
             
-        if emulator == 'retroarch':
-            if core == 'stella_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'stella_libretro':
                 extensions = ['zip', 'a26', 'bin']
                         
         ext_files = []
@@ -687,8 +688,8 @@ class Platform_Atari5200(PlatformCommon):
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'atari800_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'atari800_libretro':
                 extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
                 
         ext = []
@@ -706,13 +707,13 @@ class Platform_Atari5200(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -737,7 +738,7 @@ class Platform_Atari5200(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'atari800':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -750,8 +751,8 @@ class Platform_Atari5200(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
 
-        if emulator == 'retroarch':
-            if core == 'atari800_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'atari800_libretro':
                 extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
         
         ext_files = []
@@ -814,8 +815,8 @@ class Platform_Atari7800(PlatformCommon):
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'prosystem_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'prosystem_libretro':
                 extensions = ['zip', 'a78', 'bin', 'cdf']
 
         ext = []
@@ -833,13 +834,13 @@ class Platform_Atari7800(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -864,9 +865,9 @@ class Platform_Atari7800(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'other':
+            if emulator[0] == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         self.run_process(emulator)
 
@@ -875,11 +876,11 @@ class Platform_Atari7800(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        if emulator == 'other':
+        if emulator[0] == 'other':
             extensions = ['unknown']
             
-        if emulator == 'retroarch':
-            if core == 'prosystem_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'prosystem_libretro':
                 extensions = ['zip', 'a78', 'bin', 'cdf']
                 
         ext_files = []

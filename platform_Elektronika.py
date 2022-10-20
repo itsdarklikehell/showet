@@ -5,6 +5,7 @@ import inquirer
 
 from platformcommon import PlatformCommon
 
+fullscreen = False
 debugging = True
 interactive = False
 
@@ -47,8 +48,8 @@ class Platform_Pdp11(PlatformCommon):
                     print('interactive mode is off, using default' + str(cores[0]))
                 core = cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'bk_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'bk_libretro':
                 extensions = ['bin']
 
         ext = []
@@ -66,7 +67,7 @@ class Platform_Pdp11(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
 
@@ -99,7 +100,7 @@ class Platform_Pdp11(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator[0] == 'bk':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -111,11 +112,11 @@ class Platform_Pdp11(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        if emulator == 'other':
+        if emulator[0] == 'other':
             extensions = ['unknown']
             
-        if emulator == 'retroarch':
-            if core == 'bk_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'bk_libretro':
                 extensions = ['bin']
         
         ext_files = []
