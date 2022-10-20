@@ -68,7 +68,7 @@ class Platform_Vectrex(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
             # Set whether we should run in fullscreens or not.
             if PlatformCommon.fullscreen == ['true']:
                 emulator.append('--fullscreen')

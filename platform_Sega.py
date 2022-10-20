@@ -68,7 +68,7 @@ class Platform_32X(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -197,7 +197,7 @@ class Platform_Dreamcast(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -320,7 +320,7 @@ class Platform_Gamegear(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -463,7 +463,7 @@ class Platform_Mastersystem(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -608,7 +608,7 @@ class Platform_Megadrive(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -745,7 +745,7 @@ class Platform_Saturn(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -882,7 +882,7 @@ class Platform_Stv(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -1015,7 +1015,7 @@ class Platform_Vmu(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -1134,7 +1134,7 @@ class Platform_SG1000(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:

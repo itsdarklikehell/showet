@@ -68,7 +68,7 @@ class Platform_Xbox(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -199,7 +199,7 @@ class Platform_Msx(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -321,7 +321,7 @@ class Platform_Windows(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here

@@ -68,7 +68,7 @@ class Platform_3do(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -112,8 +112,9 @@ class Platform_3do(PlatformCommon):
         if emulator == 'other':
             extensions = ['unknown']
             
-        if emulator == 'retroarch' and core == '4do_libretro' or core == 'opera_libretro':
-            extensions = ['iso', 'bin', 'chd', 'cue']
+        if emulator == 'retroarch':
+            if core == '4do_libretro' or core == 'opera_libretro':
+                extensions = ['iso', 'bin', 'chd', 'cue']
                         
         ext_files = []
         for file in self.prod_files:
