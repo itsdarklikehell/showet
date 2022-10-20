@@ -53,13 +53,13 @@ class Platform_Commodore64(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x64sc_libretro':
@@ -216,13 +216,13 @@ class Platform_Commodore128(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]              
+            core = core              
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x128_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
@@ -383,13 +383,13 @@ class Platform_CommodoreAmiga(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
         
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
@@ -621,13 +621,13 @@ class Platform_CommodoreCBMII(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xcbm2_libretro':
@@ -787,13 +787,13 @@ class Platform_CommodorePet(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xpet_libretro':
@@ -950,13 +950,13 @@ class Platform_CommodorePlus4(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xplus4_libretro':
@@ -1114,13 +1114,13 @@ class Platform_CommodoreVIC20(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
         
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xvic_libretro':

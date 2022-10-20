@@ -33,13 +33,13 @@ class Platform_3DS(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
@@ -153,13 +153,13 @@ class Platform_N64(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mupen64plus_next_libretro':
@@ -274,13 +274,13 @@ class Platform_DS(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'desmume_libretro':
@@ -395,13 +395,13 @@ class Platform_Famicom(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
@@ -524,13 +524,13 @@ class Platform_FamicomDisksystem(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
@@ -656,13 +656,13 @@ class Platform_Gameboy(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':            #gb/c
             if core[0] == 'emux_gb_libretro':
@@ -817,13 +817,13 @@ class Platform_GameboyColor(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]      
+            core = core      
         if emulator[0] == 'retroarch':
             #gb/c
             if core[0] == 'emux_gb_libretro':
@@ -979,13 +979,13 @@ class Platform_GameboyAdvance(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_gba_libretro':
@@ -1124,13 +1124,13 @@ class Platform_Gamecube(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'dolphin_libretro':
@@ -1245,13 +1245,13 @@ class Platform_Pokemini(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'pokemini_libretro':
@@ -1368,13 +1368,13 @@ class Platform_SuperFamicom(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'bsnes_libretro' or core[0] == 'bsnes_hd_beta_libretro' or core[0] == 'bsnes_cplusplus98_libretro' or core[0] == 'bsnes2014_accuracy_libretro' or core[0] == 'bsnes2014_balanced_libretro' or core[0] == 'bsnes2014_performance_libretro' or core[0] == 'bsnes_mercury_accuracy_libretro' or core[0] == 'bsnes_mercury_balanced_libretro' or core[0] == 'bsnes_mercury_balanced_libretro':
@@ -1501,13 +1501,13 @@ class Platform_Virtualboy(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_vb_libretro':
@@ -1622,13 +1622,13 @@ class Platform_Wii(PlatformCommon):
         if len(emulators) > 1:
             PlatformCommon.multiemu(self,emulators)
         else:
-            emulator = emulators[0]
+            emulator = emulator
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             PlatformCommon.multicore(self,cores)
         else:
-            core = core[0]
+            core = core
 
         if emulator[0] == 'retroarch':
             if core[0] == 'dolphin_libretro':
