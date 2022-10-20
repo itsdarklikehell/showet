@@ -15,8 +15,6 @@ class Platform_Intellivision(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['freeintv_libretro', 'jzintv', 'jzintv-ecs']
-    fullscreens = ['false']
-
     extensions = ['int', 'bin', 'rom']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Intellivision(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['freeintv_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['freeintv_libretro', 'jzintv', 'jzintv-ecs']
-
-        fullscreen = ['false']
-
         extensions = ['int', 'bin', 'rom']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -82,7 +78,6 @@ class Platform_Intellivision(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

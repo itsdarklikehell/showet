@@ -15,8 +15,6 @@ class Platform_3DS(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'citra']
     cores = ['citra_libretro', 'citra2018_libretro', 'citra_canary_libretro', 'melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
-    fullscreens = ['false']
-
     extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_3DS(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['citra_libretro']
+        
         emulators = ['retroarch', 'citra']
         cores = ['citra_libretro', 'citra2018_libretro', 'citra_canary_libretro', 'melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -80,7 +76,6 @@ class Platform_3DS(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -142,8 +137,6 @@ class Platform_N64(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'mupen64plus-glide64', 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
     cores = ['mupen64plus_libretro', 'mupen64plus_next_libretro', 'parallel_n46_libretro']
-    fullscreens = ['false']
-
     extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
     
     def run(self):
@@ -153,11 +146,9 @@ class Platform_N64(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['mupen64plus_next_libretro']
+        
         emulators = ['retroarch', 'mupen64plus-glide64', 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
         cores = ['mupen64plus_libretro', 'mupen64plus_next_libretro', 'parallel_n46_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -207,7 +198,6 @@ class Platform_N64(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -270,8 +260,6 @@ class Platform_DS(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'desmume', 'melonds']
     cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'nds', 'dsi']
     
     def run(self):
@@ -281,11 +269,9 @@ class Platform_DS(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['desmume_libretro']
+        
         emulators = ['retroarch', 'desmume', 'melonds']
         cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'nds', 'dsi']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -335,7 +321,6 @@ class Platform_DS(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -398,8 +383,6 @@ class Platform_Famicom(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
     cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
     def run(self):
@@ -409,11 +392,9 @@ class Platform_Famicom(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['fceumm_libretro']
+        
         emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
         cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -467,7 +448,6 @@ class Platform_Famicom(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -534,8 +514,6 @@ class Platform_FamicomDisksystem(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
     cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
     
     def run(self):
@@ -545,11 +523,9 @@ class Platform_FamicomDisksystem(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['quicknes_libretro']
+        
         emulators = ['retroarch', 'higan', 'emux', 'fceumm', 'nestopia', 'quicknes', 'mesen']
         cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro', 'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -603,7 +579,6 @@ class Platform_FamicomDisksystem(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -670,8 +645,6 @@ class Platform_Gameboy(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['gambatte_libretro', 'mess2016_libretro', 'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
     
     def run(self):
@@ -682,6 +655,7 @@ class Platform_Gameboy(PlatformCommon):
         emulator = ['retroarch']
         fullscreen = ['false']
         core = ['mesen-s_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['gambatte_libretro', 'mess2016_libretro', 'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
 
@@ -755,7 +729,6 @@ class Platform_Gameboy(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -838,8 +811,6 @@ class Platform_GameboyColor(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.    
     emulators = ['retroarch', 'other']
     cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
     def run(self):
@@ -849,11 +820,9 @@ class Platform_GameboyColor(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mesen-s_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -923,7 +892,6 @@ class Platform_GameboyColor(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -1007,8 +975,6 @@ class Platform_GameboyAdvance(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['meteor_libretro', 'vba_next_libretro', 'vbam_libretro', 'mgba_libretro', 'gpsp_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
     
     def run(self):
@@ -1018,11 +984,9 @@ class Platform_GameboyAdvance(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vba_next_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['meteor_libretro', 'vba_next_libretro', 'vbam_libretro', 'mgba_libretro', 'gpsp_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -1084,7 +1048,6 @@ class Platform_GameboyAdvance(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -1159,8 +1122,6 @@ class Platform_Gamecube(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['dolphin_libretro']
-    fullscreens = ['false']
-
     extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
     
     def run(self):
@@ -1170,11 +1131,9 @@ class Platform_Gamecube(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['dolphin_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['dolphin_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -1224,7 +1183,6 @@ class Platform_Gamecube(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -1287,8 +1245,6 @@ class Platform_Pokemini(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['pokemini_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'min']
     
     def run(self):
@@ -1298,11 +1254,9 @@ class Platform_Pokemini(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['pokemini_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['pokemini_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'min']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -1352,7 +1306,6 @@ class Platform_Pokemini(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -1415,8 +1368,6 @@ class Platform_SuperFamicom(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['snes9x_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
     
     def run(self):
@@ -1486,7 +1437,6 @@ class Platform_SuperFamicom(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -1555,8 +1505,6 @@ class Platform_Virtualboy(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['mednafen_vb_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'vb', 'vboy', 'bin']
     
     def run(self):
@@ -1566,11 +1514,9 @@ class Platform_Virtualboy(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_vb_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['mednafen_vb_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'vb', 'vboy', 'bin']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -1620,7 +1566,6 @@ class Platform_Virtualboy(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -1683,8 +1628,6 @@ class Platform_Wii(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['dolphin_libretro']
-    fullscreens = ['false']
-
     extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
     
     def run(self):
@@ -1694,11 +1637,9 @@ class Platform_Wii(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['dolphin_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['dolphin_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -1748,7 +1689,6 @@ class Platform_Wii(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

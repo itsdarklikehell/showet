@@ -16,8 +16,6 @@ class Platform_Cpcplus(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'zesarux']
     cores = ['crocods_libretro', 'cap32_libretro']
-    fullscreens = ['false']
-
     extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
     
     def run(self):
@@ -27,11 +25,9 @@ class Platform_Cpcplus(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['cap32_libretro']
+        
         emulators = ['retroarch', 'zesarux']
         cores = ['crocods_libretro', 'cap32_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -83,7 +79,6 @@ class Platform_Cpcplus(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

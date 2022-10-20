@@ -15,8 +15,6 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'stella', 'hatari']
     cores = ['hatari_libretro']
-    fullscreens = ['false']
-
     extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['hatari_libretro']
+        
         emulators = ['retroarch', 'stella', 'hatari']
         cores = ['hatari_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -80,7 +76,6 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         flipfile = self.datadir + "/fliplist.vfl"
@@ -144,8 +139,6 @@ class Platform_Atarixlxe(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['atari800_libretro']
-    fullscreens = ['false']
-
     extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
     
     def run(self):
@@ -155,11 +148,9 @@ class Platform_Atarixlxe(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['atari800_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['atari800_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -209,7 +200,6 @@ class Platform_Atarixlxe(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -272,8 +262,6 @@ class Platform_AtariJaguar(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['virtualjaguar_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
     
     def run(self):
@@ -283,11 +271,9 @@ class Platform_AtariJaguar(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['virtualjaguar_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['virtualjaguar_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -337,7 +323,6 @@ class Platform_AtariJaguar(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -400,8 +385,6 @@ class Platform_AtariLynx(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'mednafen']
     cores = ['handy_libretro', 'mednafen_lynx_libretro']
-    fullscreens = ['false']
-
     extensions = ['lnx', 'o']
     
     def run(self):
@@ -411,11 +394,9 @@ class Platform_AtariLynx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_lynx_libretro']
+        
         emulators = ['retroarch', 'mednafen']
         cores = ['handy_libretro', 'mednafen_lynx_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['lnx', 'o']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -465,7 +446,6 @@ class Platform_AtariLynx(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -528,8 +508,6 @@ class Platform_Atari2600(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'stella']
     cores = ['stella2014_libretro', 'stella_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'a26', 'bin']
 
     def run(self):
@@ -539,11 +517,9 @@ class Platform_Atari2600(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['stella_libretro']
+        
         emulators = ['retroarch', 'stella']
         cores = ['stella2014_libretro', 'stella_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['zip', 'a26', 'bin']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -593,7 +569,6 @@ class Platform_Atari2600(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -656,8 +631,6 @@ class Platform_Atari5200(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'atari800']
     cores = ['atari800_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
     
     def run(self):
@@ -667,11 +640,9 @@ class Platform_Atari5200(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['atari800_libretro']
+        
         emulators = ['retroarch', 'atari800']
         cores = ['atari800_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -721,7 +692,6 @@ class Platform_Atari5200(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -784,8 +754,6 @@ class Platform_Atari7800(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'prosystem']
     cores = ['prosystem_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'a78', 'bin', 'cdf']
     
     def run(self):
@@ -795,11 +763,9 @@ class Platform_Atari7800(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['prosystem_libretro']
+        
         emulators = ['retroarch', 'prosystem']
         cores = ['prosystem_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['zip', 'a78', 'bin', 'cdf']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -849,7 +815,6 @@ class Platform_Atari7800(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

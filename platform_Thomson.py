@@ -15,8 +15,6 @@ class Platform_MOTO(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['theodore_libretro']
-    fullscreens = ['false']
-
     extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_MOTO(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['theodore_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['theodore_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -80,7 +76,6 @@ class Platform_MOTO(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

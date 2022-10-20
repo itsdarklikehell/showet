@@ -15,8 +15,6 @@ class Platform_Channelf(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'freechaf']
     cores = ['freechaf_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'bin', 'chf']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Channelf(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['freechaf_libretro']
+        
         emulators = ['retroarch', 'freechaf']
         cores = ['freechaf_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'bin', 'chf']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -82,7 +78,6 @@ class Platform_Channelf(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

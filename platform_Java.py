@@ -15,8 +15,6 @@ class Platform_Java(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['squirreljme_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'jar', 'sqc', 'jam', 'jad', 'kjx']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Java(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['squirreljme_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['squirreljme_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'jar', 'sqc', 'jam', 'jad', 'kjx']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -80,7 +76,6 @@ class Platform_Java(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

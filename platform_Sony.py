@@ -15,8 +15,6 @@ class Platform_Psx(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Psx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['retroarch']
         core = ['swanstation_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -88,7 +84,6 @@ class Platform_Psx(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -160,8 +155,6 @@ class Platform_Ps2(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['pcsx2_libretro', 'play_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
     def run(self):
@@ -171,11 +164,9 @@ class Platform_Ps2(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['pcsx2_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['pcsx2_libretro', 'play_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -227,7 +218,6 @@ class Platform_Ps2(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -293,8 +283,6 @@ class Platform_Psp(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'ppsspp']
     cores = ['ppsspp_libretro']
-    fullscreens = ['false']
-
     extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
     
     def run(self):
@@ -304,11 +292,9 @@ class Platform_Psp(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['ppsspp_libretro']
+        
         emulators = ['retroarch', 'ppsspp']
         cores = ['ppsspp_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -358,7 +344,6 @@ class Platform_Psp(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

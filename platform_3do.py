@@ -15,8 +15,6 @@ class Platform_3do(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['4do_libretro', 'opera_libretro']
-    fullscreens = ['false']
-
     extensions = ['iso', 'bin', 'chd', 'cue']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_3do(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['4do_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['4do_libretro', 'opera_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['iso', 'bin', 'chd', 'cue']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -80,7 +76,6 @@ class Platform_3do(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

@@ -15,8 +15,6 @@ class Platform_Zxspectrum(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro']
-    fullscreens = ['false']
-
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Zxspectrum(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['fuse_libretro']
+        
         emulators = ['retroarch', '81']
         cores = ['fuse_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -79,7 +75,6 @@ class Platform_Zxspectrum(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -141,8 +136,6 @@ class Platform_Zx81(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', '81']
     cores = ['fuse_libretro', '81_libretro']
-    fullscreens = ['false']
-
     extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
@@ -152,11 +145,9 @@ class Platform_Zx81(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['81_libretro']
+        
         emulators = ['retroarch', '81']
         cores = ['fuse_libretro', '81_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -210,7 +201,6 @@ class Platform_Zx81(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

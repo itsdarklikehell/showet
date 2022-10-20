@@ -15,8 +15,6 @@ class Platform_Xbox(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['directxbox_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'iso']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Xbox(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['directxbox_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['directxbox_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'iso']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -82,7 +78,6 @@ class Platform_Xbox(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -145,8 +140,6 @@ class Platform_Msx(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
     cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
-    fullscreens = ['false']
-
     extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
@@ -156,11 +149,9 @@ class Platform_Msx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['bluemsx_libretro']
+        
         emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
         cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -212,7 +203,6 @@ class Platform_Msx(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -277,8 +267,6 @@ class Platform_Windows(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['wine']
     cores = ['wine']
-    fullscreens = ['false']
-
     extensions = ['exe']
     # wineprefix = self.showetdir + '/wineprefix'
 
@@ -289,11 +277,9 @@ class Platform_Windows(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['wine']
         core = ['wine']
+        
         emulators = ['wine']
         cores = ['wine']
-        
-        fullscreen = ['false']
-
         extensions = ['exe']
         wineprefix = self.showetdir + '/wineprefix'
         
@@ -344,7 +330,6 @@ class Platform_Windows(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
             print("\tGuessed executable file: " + exefile)
 

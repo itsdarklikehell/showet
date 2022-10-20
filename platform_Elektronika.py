@@ -15,8 +15,6 @@ class Platform_Pdp11(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'm']
     cores = ['bk_libretro']
-    fullscreens = ['false']
-
     extensions = ['bin']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Pdp11(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['bk_libretro']
+        
         emulators = ['retroarch', 'm']
         cores = ['bk_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['bin']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -82,7 +78,6 @@ class Platform_Pdp11(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

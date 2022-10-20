@@ -15,8 +15,6 @@ class Platform_Neogeo(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Neogeo(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -80,7 +76,6 @@ class Platform_Neogeo(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -143,8 +138,6 @@ class Platform_Neopocket(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
-    fullscreens = ['false']
-
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -154,11 +147,9 @@ class Platform_Neopocket(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -208,7 +199,6 @@ class Platform_Neopocket(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -271,8 +261,6 @@ class Platform_Neopocketcolor(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
-    fullscreens = ['false']
-
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
@@ -282,11 +270,9 @@ class Platform_Neopocketcolor(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -336,7 +322,6 @@ class Platform_Neopocketcolor(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

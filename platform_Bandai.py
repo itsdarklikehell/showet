@@ -15,8 +15,6 @@ class Platform_Wonderswan(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'mednafen']
     cores = ['mednafen_wswan_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'ws', 'wsc', 'pc2']
 
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Wonderswan(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_wswan_libretro']
+        
         emulators = ['retroarch', 'mednafen']
         cores = ['mednafen_wswan_libretro']
-
-        fullscreen = ['false']
-
         extensions = ['zip', 'ws', 'wsc', 'pc2']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -82,7 +78,6 @@ class Platform_Wonderswan(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

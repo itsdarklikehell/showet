@@ -14,8 +14,6 @@ class Platform_Pcengine(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
     
     def run(self):
@@ -25,11 +23,9 @@ class Platform_Pcengine(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_supergrafx_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -79,7 +75,6 @@ class Platform_Pcengine(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -142,8 +137,6 @@ class Platform_Supergrafx(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
     
     def run(self):
@@ -153,11 +146,9 @@ class Platform_Supergrafx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_supergrafx_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -207,7 +198,6 @@ class Platform_Supergrafx(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -270,8 +260,6 @@ class Platform_Pc8000(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['quasi88_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
 
     def run(self):
@@ -281,11 +269,9 @@ class Platform_Pc8000(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['quasi88_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['quasi88_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['d88', 'u88', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -335,7 +321,6 @@ class Platform_Pc8000(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -398,8 +383,6 @@ class Platform_Pc8800(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['quasi88_libretro']
-    fullscreens = ['false']
-
     extensions = ['d88', 'u88', 'm3u']
     
     def run(self):
@@ -409,11 +392,9 @@ class Platform_Pc8800(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['quasi88_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['quasi88_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['d88', 'u88', 'm3u']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -463,7 +444,6 @@ class Platform_Pc8800(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -526,8 +506,6 @@ class Platform_Pc98(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['nekop2_libretro']
-    fullscreens = ['false']
-
     extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
     
     def run(self):
@@ -537,11 +515,9 @@ class Platform_Pc98(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['nekop2_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['nekop2_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -591,7 +567,6 @@ class Platform_Pc98(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
@@ -654,8 +629,6 @@ class Platform_Pcfx(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['mednafen_pcfx_libretro']
-    fullscreens = ['false']
-
     extensions = ['cue', 'ccd', 'toc', 'chd']
     
     def run(self):
@@ -665,11 +638,9 @@ class Platform_Pcfx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_pcfx_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['mednafen_pcfx_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['cue', 'ccd', 'toc', 'chd']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -719,7 +690,6 @@ class Platform_Pcfx(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:

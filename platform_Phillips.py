@@ -15,8 +15,6 @@ class Platform_Cdi(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'other']
     cores = ['samecdi_libretro', 'cdi2015_libretro']
-    fullscreens = ['false']
-
     extensions = ['zip', 'chd', 'iso']
     
     def run(self):
@@ -26,11 +24,9 @@ class Platform_Cdi(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['samecdi_libretro']
+        
         emulators = ['retroarch', 'other']
         cores = ['samecdi_libretro', 'cdi2015_libretro']
-        
-        fullscreen = ['false']
-
         extensions = ['zip', 'chd', 'iso']
 
         # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
@@ -80,7 +76,6 @@ class Platform_Cdi(PlatformCommon):
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-            print("\tUsing fullscreen: " + str(fullscreen))
 
 
         if len(files) > 0:
