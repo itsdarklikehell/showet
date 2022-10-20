@@ -31,17 +31,15 @@ class Platform_Xbox(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]
+            self.multicore(cores)
+        else:
+            core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'directxbox_libretro':
@@ -156,17 +154,15 @@ class Platform_Msx(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]
+            self.multicore(cores)
+        else:
+            core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'bluemsx_libretro':
@@ -285,17 +281,15 @@ class Platform_Windows(PlatformCommon):
         
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]      
+            self.multicore(cores)
+        else:
+            core = core[0]      
         if emulator[0] == 'wine':
             if core[0] == 'wine':
                 extensions = ['exe']

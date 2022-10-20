@@ -30,17 +30,15 @@ class Platform_Pcengine(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]
+            self.multicore(cores)
+        else:
+            core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_supergrafx_libretro':
@@ -153,17 +151,15 @@ class Platform_Supergrafx(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]
+            self.multicore(cores)
+        else:
+            core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_supergrafx_libretro':
@@ -276,17 +272,15 @@ class Platform_Pc8000(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]
+            self.multicore(cores)
+        else:
+            core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'quasi88_libretro':
@@ -399,17 +393,15 @@ class Platform_Pc8800(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]
+            self.multicore(cores)
+        else:
+            core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'quasi88_libretro':
@@ -522,17 +514,15 @@ class Platform_Pc98(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]
+            self.multicore(cores)
+        else:
+            core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'nekop2_libretro':
@@ -645,17 +635,15 @@ class Platform_Pcfx(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]
+            self.multicore(cores)
+        else:
+            core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_pcfx_libretro':

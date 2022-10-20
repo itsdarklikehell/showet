@@ -31,17 +31,15 @@ class Platform_Arcade(PlatformCommon):
 
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            if interactive != False:
-                self.multiemu(emulators)
-            else:
-                emulator = emulators[0]
+            self.multiemu(emulators)
+        else:
+            emulator = emulators[0]
         
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            if interactive != False:
-                self.multicore(cores)
-            else:
-                core = core[0]
+            self.multicore(cores)
+        else:
+            core = core[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
