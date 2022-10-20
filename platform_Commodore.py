@@ -53,7 +53,6 @@ class Platform_Commodore64(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -61,7 +60,6 @@ class Platform_Commodore64(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
         
@@ -220,7 +218,6 @@ class Platform_Commodore128(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -228,7 +225,6 @@ class Platform_Commodore128(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]              
         if emulator[0] == 'retroarch':
@@ -391,7 +387,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -399,7 +394,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
         
@@ -633,7 +627,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -641,7 +634,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
         
@@ -803,7 +795,6 @@ class Platform_CommodorePet(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -811,7 +802,6 @@ class Platform_CommodorePet(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
         
@@ -970,7 +960,6 @@ class Platform_CommodorePlus4(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -978,7 +967,6 @@ class Platform_CommodorePlus4(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
         
@@ -1138,7 +1126,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -1146,7 +1133,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
         

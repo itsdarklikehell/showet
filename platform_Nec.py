@@ -32,7 +32,6 @@ class Platform_Pcengine(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -40,7 +39,6 @@ class Platform_Pcengine(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -157,7 +155,6 @@ class Platform_Supergrafx(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -165,7 +162,6 @@ class Platform_Supergrafx(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -282,7 +278,6 @@ class Platform_Pc8000(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -290,7 +285,6 @@ class Platform_Pc8000(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -407,7 +401,6 @@ class Platform_Pc8800(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -415,7 +408,6 @@ class Platform_Pc8800(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -532,7 +524,6 @@ class Platform_Pc98(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -540,7 +531,6 @@ class Platform_Pc98(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -657,7 +647,6 @@ class Platform_Pcfx(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -665,7 +654,6 @@ class Platform_Pcfx(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 

@@ -33,7 +33,6 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -41,7 +40,6 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -159,7 +157,6 @@ class Platform_Atarixlxe(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -167,7 +164,6 @@ class Platform_Atarixlxe(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -284,7 +280,6 @@ class Platform_AtariJaguar(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -292,7 +287,6 @@ class Platform_AtariJaguar(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -409,7 +403,6 @@ class Platform_AtariLynx(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -417,7 +410,6 @@ class Platform_AtariLynx(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -534,7 +526,6 @@ class Platform_Atari2600(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -542,7 +533,6 @@ class Platform_Atari2600(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -659,7 +649,6 @@ class Platform_Atari5200(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -667,7 +656,6 @@ class Platform_Atari5200(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -784,7 +772,6 @@ class Platform_Atari7800(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -792,7 +779,6 @@ class Platform_Atari7800(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 

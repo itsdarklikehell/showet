@@ -33,7 +33,6 @@ class Platform_32X(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -41,7 +40,6 @@ class Platform_32X(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -158,7 +156,6 @@ class Platform_Dreamcast(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -166,7 +163,6 @@ class Platform_Dreamcast(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -286,7 +282,6 @@ class Platform_Gamegear(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -294,7 +289,6 @@ class Platform_Gamegear(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]      
         if emulator[0] == 'retroarch':
@@ -418,7 +412,6 @@ class Platform_Mastersystem(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -426,7 +419,6 @@ class Platform_Mastersystem(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -568,7 +560,6 @@ class Platform_Megadrive(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -576,7 +567,6 @@ class Platform_Megadrive(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -700,7 +690,6 @@ class Platform_Saturn(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -708,7 +697,6 @@ class Platform_Saturn(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -833,7 +821,6 @@ class Platform_Stv(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -841,7 +828,6 @@ class Platform_Stv(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -966,7 +952,6 @@ class Platform_Vmu(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -974,7 +959,6 @@ class Platform_Vmu(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -1091,7 +1075,6 @@ class Platform_SG1000(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -1099,7 +1082,6 @@ class Platform_SG1000(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]      
         if emulator[0] == 'retroarch':

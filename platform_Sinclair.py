@@ -33,7 +33,6 @@ class Platform_Zxspectrum(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -41,7 +40,6 @@ class Platform_Zxspectrum(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -156,7 +154,6 @@ class Platform_Zx81(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -164,7 +161,6 @@ class Platform_Zx81(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 

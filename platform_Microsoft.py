@@ -33,7 +33,6 @@ class Platform_Xbox(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -41,7 +40,6 @@ class Platform_Xbox(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -160,7 +158,6 @@ class Platform_Msx(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -168,7 +165,6 @@ class Platform_Msx(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
 
@@ -269,7 +265,7 @@ class Platform_Windows(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['wine']
+    emulators = ['wine', 'other']
     cores = ['wine']
     extensions = ['exe']
     # wineprefix = self.showetdir + '/wineprefix'
@@ -291,7 +287,6 @@ class Platform_Windows(PlatformCommon):
         if len(emulators) > 1:
             if interactive != False:
                 self.multiemu(emulators)
-                #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
         
@@ -299,7 +294,6 @@ class Platform_Windows(PlatformCommon):
         if len(cores) > 1:
             if interactive != False:
                 self.multicore(cores)
-                #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]      
         if emulator[0] == 'wine':
