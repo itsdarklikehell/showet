@@ -61,7 +61,7 @@ class Platform_32X(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -190,7 +190,7 @@ class Platform_Dreamcast(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -313,7 +313,7 @@ class Platform_Gamegear(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -456,7 +456,7 @@ class Platform_Mastersystem(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -601,7 +601,7 @@ class Platform_Megadrive(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -738,7 +738,7 @@ class Platform_Saturn(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -875,7 +875,7 @@ class Platform_Stv(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1008,7 +1008,7 @@ class Platform_Vmu(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1127,7 +1127,7 @@ class Platform_SG1000(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)

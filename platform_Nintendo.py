@@ -61,7 +61,7 @@ class Platform_3DS(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -187,7 +187,7 @@ class Platform_N64(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -316,7 +316,7 @@ class Platform_DS(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -447,7 +447,7 @@ class Platform_Famicom(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -582,7 +582,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -736,7 +736,7 @@ class Platform_Gameboy(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -893,7 +893,7 @@ class Platform_GameboyColor(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1053,7 +1053,7 @@ class Platform_GameboyAdvance(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1192,7 +1192,7 @@ class Platform_Gamecube(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1319,7 +1319,7 @@ class Platform_Pokemini(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1454,7 +1454,7 @@ class Platform_SuperFamicom(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1587,7 +1587,7 @@ class Platform_Virtualboy(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1714,7 +1714,7 @@ class Platform_Wii(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator,core,extensions)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
