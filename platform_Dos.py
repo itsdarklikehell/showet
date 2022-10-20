@@ -34,43 +34,16 @@ class Platform_Msdos(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'exe', 'com', 'bat', 'conf']
         
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
+        if emulator == 'retroarch':
+            if core == 'dosbox_core_libretro' or core == 'dosbox_svn_libretro' or core == 'dosbox_svn_ce_libretro':
                 extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
-            if core[0] == 'dosbox_pure_libretro':
+            if core == 'dosbox_pure_libretro':
                 extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8']
         
         ext = []
@@ -88,9 +61,9 @@ class Platform_Msdos(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator == 'retroarch':
             emulator.append('-L')
-            emulator.append(core[0])
+            emulator.append(core)
             if streaming != ['false']:
                 # Set whether we should start streaming to twitch or not.
                 if streaming == ['twitch']:
@@ -144,7 +117,7 @@ class Platform_Msdos(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'dosbox':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -157,10 +130,10 @@ class Platform_Msdos(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
         
-        if emulator[0] == 'retroarch':
-            if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
+        if emulator == 'retroarch':
+            if core == 'dosbox_core_libretro' or core == 'dosbox_svn_libretro' or core == 'dosbox_svn_ce_libretro':
                 extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
-            if core[0] == 'dosbox_pure_libretro':
+            if core == 'dosbox_pure_libretro':
                 extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8']
         
         ext_files = []

@@ -34,38 +34,12 @@ class Platform_3DS(PlatformCommon):
         recording = ['false']
         extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
@@ -221,38 +195,12 @@ class Platform_N64(PlatformCommon):
         recording = ['false']
         extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mupen64plus_next_libretro':
@@ -409,38 +357,12 @@ class Platform_DS(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'nds', 'dsi']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
 
         if emulator[0] == 'retroarch':
             if core[0] == 'desmume_libretro':
@@ -597,38 +519,12 @@ class Platform_Famicom(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
@@ -793,38 +689,12 @@ class Platform_FamicomDisksystem(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
@@ -989,38 +859,12 @@ class Platform_Gameboy(PlatformCommon):
         recording = ['false']        
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
 
         if emulator[0] == 'retroarch':
             #gb/c
@@ -1218,38 +1062,12 @@ class Platform_GameboyColor(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
         
         if emulator[0] == 'retroarch':
             #gb/c
@@ -1448,38 +1266,12 @@ class Platform_GameboyAdvance(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
         
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_gba_libretro':
@@ -1660,38 +1452,12 @@ class Platform_Gamecube(PlatformCommon):
         recording = ['false']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
 
         if emulator[0] == 'retroarch':
             if core[0] == 'dolphin_libretro':
@@ -1848,38 +1614,12 @@ class Platform_Pokemini(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'min']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
 
         if emulator[0] == 'retroarch':
             if core[0] == 'pokemini_libretro':
@@ -2036,38 +1776,12 @@ class Platform_SuperFamicom(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
 
         if emulator[0] == 'retroarch':
             if core[0] == 'bsnes_libretro' or core[0] == 'bsnes_hd_beta_libretro' or core[0] == 'bsnes_cplusplus98_libretro' or core[0] == 'bsnes2014_accuracy_libretro' or core[0] == 'bsnes2014_balanced_libretro' or core[0] == 'bsnes2014_performance_libretro' or core[0] == 'bsnes_mercury_accuracy_libretro' or core[0] == 'bsnes_mercury_balanced_libretro' or core[0] == 'bsnes_mercury_balanced_libretro':
@@ -2236,38 +1950,12 @@ class Platform_Virtualboy(PlatformCommon):
         recording = ['false']
         extensions = ['zip', 'vb', 'vboy', 'bin']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_vb_libretro':
@@ -2424,38 +2112,12 @@ class Platform_Wii(PlatformCommon):
         recording = ['false']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
-        if interactive != False:
-            emulator = []
-            core = []
-            def multiman(emulators,cores):
-                # If multiple emulators are specified (e.g. 'retroarch', 'vice') ask the user to specify which one to use.
-                if len(emulators) > 1:
-                    print('Info: Multiple emulators are supported: ' + str(emulators))
-                    prompt = [
-                        inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
-                    ]
-                    emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(emulator))
-                        #emulator = str(emulator)
-                else:
-                    #emulator = emulators
-                    print('Info: Only 1 emulator is supported: ' + str(emulator))
-                # If multiple cores are specified (e.g. 'vice_x64sc_libretro', 'frodo_libretro') ask the user to specify which one to use.
-                if len(cores) > 1:
-                    print('Info: Multiple cores are supported: ' + str(cores))
-                    prompt = [
-                        inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-                    ]
-                    core = inquirer.prompt(prompt).get('cores').strip().lower()
-                    if debugging != False:
-                        print('Info: You selected: ' + str(core))
-                        #core = str(core)
-                else:
-                    #core = cores
-                    print('Info: Only 1 core is supported: ' + str(core))
-
-            multiman(emulators,cores)
+        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        if len(emulators) > 1:
+            emulator = self.multiemu(emulators)
+        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        if len(cores) > 1:
+            core = self.multicore(cores)
 
         if emulator[0] == 'retroarch':
             if core[0] == 'dolphin_libretro':
