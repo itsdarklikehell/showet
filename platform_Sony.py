@@ -107,7 +107,7 @@ class Platform_Psx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
+            if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -242,7 +242,7 @@ class Platform_Ps2(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
+            if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -343,7 +343,7 @@ class Platform_Psp(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'ppsspp':
+        if emulator == 'ppsspp':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -369,7 +369,7 @@ class Platform_Psp(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'ppsspp':
+            if emulator == 'ppsspp':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)

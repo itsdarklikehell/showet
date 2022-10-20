@@ -48,7 +48,7 @@ class Platform_Linux(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
      
-        if emulator[0] == 'bash':
+        if emulator == 'bash':
             if core == 'bash':
                 extensions = ['elf', 'exe']
                 
@@ -107,7 +107,7 @@ class Platform_Linux(PlatformCommon):
     def find_ext_files(self,emulator,core,extensions):
         extensions = ['elf', 'exe']
         
-        if emulator[0] == 'bash':
+        if emulator == 'bash':
             if core == 'bash':
                 extensions = ['elf', 'exe']
                         

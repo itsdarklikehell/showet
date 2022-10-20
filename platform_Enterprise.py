@@ -73,7 +73,7 @@ class Platform_Enterprise(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'ep128emu':
+        if emulator == 'ep128emu':
             # Set whether we should run in fullscreens or not.
             if PlatformCommon.fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -101,7 +101,7 @@ class Platform_Enterprise(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
+            if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)

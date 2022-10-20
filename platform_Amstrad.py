@@ -74,7 +74,7 @@ class Platform_Cpcplus(PlatformCommon):
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'zesarux':
+        if emulator == 'zesarux':
             print("Using: " + str(emulator))
 
 
@@ -101,7 +101,7 @@ class Platform_Cpcplus(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'zesarux':
+            if emulator == 'zesarux':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

@@ -73,7 +73,7 @@ class Platform_Xbox(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'directxbox':
+        if emulator == 'directxbox':
             # Set whether we should run in fullscreens or not.
             if PlatformCommon.fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -101,7 +101,7 @@ class Platform_Xbox(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
+            if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
             
         self.run_process(emulator)
@@ -227,7 +227,7 @@ class Platform_Msx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
+            if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -296,7 +296,7 @@ class Platform_Windows(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             multicore(self,cores)      
-        if emulator[0] == 'wine':
+        if emulator == 'wine':
             if core == 'wine':
                 extensions = ['exe']
 
@@ -321,7 +321,7 @@ class Platform_Windows(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here
-        if emulator[0] == 'wine':
+        if emulator == 'wine':
 
             exefile = files[0]
 
@@ -350,7 +350,7 @@ class Platform_Windows(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
 
-        if emulator[0] == 'wine':
+        if emulator == 'wine':
             if core == 'wine':
                 extensions = ['exe']
                         

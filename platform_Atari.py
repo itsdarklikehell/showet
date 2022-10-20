@@ -73,7 +73,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'hatari':
+        if emulator == 'hatari':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -101,7 +101,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             files = self.sort_disks(files)
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'hatari':
+            if emulator == 'hatari':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -225,7 +225,7 @@ class Platform_Atarixlxe(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'atari800':
+            if emulator == 'atari800':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -349,7 +349,7 @@ class Platform_AtariJaguar(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'virtualjaguar':
+            if emulator == 'virtualjaguar':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -475,7 +475,7 @@ class Platform_AtariLynx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'mednafen':
+            if emulator == 'mednafen':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)
@@ -725,7 +725,7 @@ class Platform_Atari5200(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'atari800':
+            if emulator == 'atari800':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

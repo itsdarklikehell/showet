@@ -73,7 +73,7 @@ class Platform_Odyssey(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'o2em':
+        if emulator == 'o2em':
             # Set whether we should run in fullscreens or not.
             if PlatformCommon.fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -101,7 +101,7 @@ class Platform_Odyssey(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'o2em':
+            if emulator == 'o2em':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)

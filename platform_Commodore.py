@@ -128,7 +128,7 @@ class Platform_Commodore64(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'x64':
+            if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
         
         self.run_process(emulator)
@@ -290,7 +290,7 @@ class Platform_Commodore128(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'x64':
+            if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -435,7 +435,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:        
-        if emulator[0] == 'fs-uae':
+        if emulator == 'fs-uae':
             if fullscreen != 'false':
                 emulator.append('--fullscreen')
                 emulator.append('--keep_aspect')
@@ -466,7 +466,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'hatari':
+            if emulator == 'hatari':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
             
             if not os.path.exists(self.datadir + "/s"):
@@ -499,7 +499,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 emulator.append(drives[3])
             #emulator.append('--model=' + amiga_model)
         
-        # if emulator[0] == 'fs-uae':
+        # if emulator == 'fs-uae':
         #     amiga_model = 'A1200'
         #     if self.prod_platform == 'amigaocsecs':
         #         amiga_model = 'A500'
@@ -672,7 +672,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'vice':
+        if emulator == 'vice':
             # Set whether we should run in fullscreens or not.
             if PlatformCommon.fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -700,7 +700,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'x64':
+            if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -864,7 +864,7 @@ class Platform_CommodorePet(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'x64':
+            if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -1027,7 +1027,7 @@ class Platform_CommodorePlus4(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'x64':
+            if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -1165,7 +1165,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'vice':
+        if emulator == 'vice':
             # Set whether we should run in fullscreens or not.
             if PlatformCommon.fullscreen == ['true']:
                 emulator.append('--fullscreen')
@@ -1193,7 +1193,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'x64':
+            if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

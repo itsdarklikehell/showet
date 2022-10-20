@@ -77,7 +77,7 @@ class Platform_Arcade(PlatformCommon):
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'mame':
+        if emulator == 'mame':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -103,7 +103,7 @@ class Platform_Arcade(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'mame':
+            if emulator == 'mame':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
