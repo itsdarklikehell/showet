@@ -32,7 +32,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             if interactive != False:
-                self.multiemu(self, emulators)
+                self.multiemu(emulators)
                 #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
@@ -40,7 +40,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
-                self.multicore(self, emulators)
+                self.multicore(cores)
                 #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
@@ -158,7 +158,7 @@ class Platform_Atarixlxe(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             if interactive != False:
-                self.multiemu(self, emulators)
+                self.multiemu(emulators)
                 #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
@@ -166,7 +166,7 @@ class Platform_Atarixlxe(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
-                self.multicore(self, emulators)
+                self.multicore(cores)
                 #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
@@ -283,7 +283,7 @@ class Platform_AtariJaguar(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             if interactive != False:
-                self.multiemu(self, emulators)
+                self.multiemu(emulators)
                 #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
@@ -291,7 +291,7 @@ class Platform_AtariJaguar(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
-                self.multicore(self, emulators)
+                self.multicore(cores)
                 #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
@@ -408,7 +408,7 @@ class Platform_AtariLynx(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             if interactive != False:
-                self.multiemu(self, emulators)
+                self.multiemu(emulators)
                 #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
@@ -416,7 +416,7 @@ class Platform_AtariLynx(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
-                self.multicore(self, emulators)
+                self.multicore(cores)
                 #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
@@ -533,7 +533,7 @@ class Platform_Atari2600(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             if interactive != False:
-                self.multiemu(self, emulators)
+                self.multiemu(emulators)
                 #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
@@ -541,7 +541,7 @@ class Platform_Atari2600(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
-                self.multicore(self, emulators)
+                self.multicore(cores)
                 #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
@@ -658,7 +658,7 @@ class Platform_Atari5200(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             if interactive != False:
-                self.multiemu(self, emulators)
+                self.multiemu(emulators)
                 #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
@@ -666,7 +666,7 @@ class Platform_Atari5200(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
-                self.multicore(self, emulators)
+                self.multicore(cores)
                 #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
@@ -783,7 +783,7 @@ class Platform_Atari7800(PlatformCommon):
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
             if interactive != False:
-                self.multiemu(self, emulators)
+                self.multiemu(emulators)
                 #emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
             else:
                 emulator = emulators[0]
@@ -791,7 +791,7 @@ class Platform_Atari7800(PlatformCommon):
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
             if interactive != False:
-                self.multicore(self, emulators)
+                self.multicore(cores)
                 #core = inquirer.prompt(prompt).get('cores').strip().lower()
             else:
                 core = core[0]
