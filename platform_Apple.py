@@ -29,23 +29,23 @@ class Platform_Apple(PlatformCommon):
         cores = ['minivmac_libretro']
         extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
 
-        # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        if len(emulators) > 1:
-            emulator == emulators[0]
-            if selective_mode != False:
-                PlatformCommon.multiemu(self,emulators)
-            else:
-                print('interactive mode is off, using default ' + str(emulators[0]))
-                emulator == emulators[0]
+        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
+        # if len(emulators) > 1:
+        #     emulator == emulators[0]
+        #     if selective_mode != False:
+        #         PlatformCommon.multiemu(self,emulators)
+        #     else:
+        #         print('interactive mode is off, using default ' + str(emulators[0]))
+        #         emulator == emulators[0]
 
-        # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        if len(cores) > 1:
-            core == cores[0]
-            if selective_mode != False:
-                PlatformCommon.multicore(self,cores)
-            else:
-                print('interactive mode is off, using default ' + str(cores[0]))
-                core == cores[0]
+        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
+        # if len(cores) > 1:
+        #     core == cores[0]
+        #     if selective_mode != False:
+        #         PlatformCommon.multicore(self,cores)
+        #     else:
+        #         print('interactive mode is off, using default ' + str(cores[0]))
+        #         core == cores[0]
 
         if emulator[0] == 'retroarch':
             if core[0] == 'minivmac_libretro':
