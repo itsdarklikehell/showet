@@ -7,7 +7,7 @@ from platformcommon import PlatformCommon
 
 fullscreen = False
 debugging = True
-selective_mode = False
+selective_mode = True
 
 class Platform_Java(PlatformCommon):
     # Set up the emulator we want to run.
