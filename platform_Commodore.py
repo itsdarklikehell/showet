@@ -14,14 +14,14 @@ class Platform_Commodore64(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'vice', 'frodo']
-    # cores = ['vice_x64sc_libretro', 'frodo_libretro']
+    emulators = ['retroarch', 'vice', 'frodo']
+    cores = ['vice_x64sc_libretro', 'frodo_libretro']
 
     # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     # tapes_ext = ['t64', 'tap', 'tcrt']
     # roms_ext = ['prg', 'p00', 'crt', 'bin']
     # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    # extensions = []
+    extensions = []
     # extensions.extend(floppys_ext)
     # extensions.extend(tapes_ext)
     # extensions.extend(roms_ext)
@@ -176,15 +176,15 @@ class Platform_Commodore128(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'vice']
-    # cores = ['vice_x128_libretro']
+    emulators = ['retroarch', 'vice']
+    cores = ['vice_x128_libretro']
     # fullscreens = ['false']
     
     # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     # tapes_ext = ['t64', 'tap', 'tcrt']
     # roms_ext = ['prg', 'p00', 'crt', 'bin']
     # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    # extensions = []
+    extensions = []
     # extensions.extend(floppys_ext)
     # extensions.extend(tapes_ext)
     # extensions.extend(roms_ext)
@@ -336,15 +336,15 @@ class Platform_CommodoreAmiga(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'puae', 'fs-uae']
-    # cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
+    emulators = ['retroarch', 'puae', 'fs-uae']
+    cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
 
     # floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
     # harddrives_ext = ['hdf', 'hdz', 'datadir' ]
     # whdload_ext = ['lha', 'slave', 'info']
     # cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
     # other = ['uae', 'm3u', 'zip', '7z']
-    # extensions = []
+    extensions = []
     # extensions.append(other)
     # extensions.append(floppys_ext)
     # extensions.append(harddrives_ext)
@@ -571,14 +571,14 @@ class Platform_CommodoreCBMII(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'vice']
-    # cores = ['vice_xcbm2_libretro']
+    emulators = ['retroarch', 'vice']
+    cores = ['vice_xcbm2_libretro']
 
     # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     # tapes_ext = ['t64', 'tap', 'tcrt']
     # roms_ext = ['prg', 'p00', 'crt', 'bin']
     # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    # extensions = []
+    extensions = []
     # extensions.extend(floppys_ext)
     # extensions.extend(tapes_ext)
     # extensions.extend(roms_ext)
@@ -732,14 +732,14 @@ class Platform_CommodorePet(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'vice']
-    # cores = ['vice_xpet_libretro']
+    emulators = ['retroarch', 'vice']
+    cores = ['vice_xpet_libretro']
 
     # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     # tapes_ext = ['t64', 'tap', 'tcrt']
     # roms_ext = ['prg', 'p00', 'crt', 'bin']
     # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    # extensions = []
+    extensions = []
     # extensions.extend(floppys_ext)
     # extensions.extend(tapes_ext)
     # extensions.extend(roms_ext)
@@ -893,14 +893,14 @@ class Platform_CommodorePlus4(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'vice']
-    # cores = ['vice_xplus4_libretro']
+    emulators = ['retroarch', 'vice']
+    cores = ['vice_xplus4_libretro']
 
     # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     # tapes_ext = ['t64', 'tap', 'tcrt']
     # roms_ext = ['prg', 'p00', 'crt', 'bin']
     # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    # extensions = []
+    extensions = []
     # extensions.extend(floppys_ext)
     # extensions.extend(tapes_ext)
     # extensions.extend(roms_ext)
@@ -1054,14 +1054,14 @@ class Platform_CommodoreVIC20(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'vice']
-    # cores = ['vice_xvic_libretro']
+    emulators = ['retroarch', 'vice']
+    cores = ['vice_xvic_libretro']
 
     # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     # tapes_ext = ['t64', 'tap', 'tcrt']
     # roms_ext = ['prg', 'p00', 'crt', 'bin']
     # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    # extensions = []
+    extensions = []
     # extensions.extend(floppys_ext)
     # extensions.extend(tapes_ext)
     # extensions.extend(roms_ext)

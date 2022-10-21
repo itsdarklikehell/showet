@@ -14,9 +14,9 @@ class Platform_Pcengine(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
-    # extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+    emulators = ['retroarch', 'other']
+    cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
+    extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -141,9 +141,9 @@ class Platform_Supergrafx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
-    # extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+    emulators = ['retroarch', 'other']
+    cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro', 'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
+    extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -268,9 +268,9 @@ class Platform_Pc8000(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['quasi88_libretro']
-    # extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+    emulators = ['retroarch', 'other']
+    cores = ['quasi88_libretro']
+    extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -395,9 +395,9 @@ class Platform_Pc8800(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['quasi88_libretro']
-    # extensions = ['d88', 'u88', 'm3u']
+    emulators = ['retroarch', 'other']
+    cores = ['quasi88_libretro']
+    extensions = ['d88', 'u88', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -520,9 +520,9 @@ class Platform_Pc98(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['nekop2_libretro']
-    # extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
+    emulators = ['retroarch', 'other']
+    cores = ['nekop2_libretro']
+    extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -645,9 +645,9 @@ class Platform_Pcfx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['mednafen_pcfx_libretro']
-    # extensions = ['cue', 'ccd', 'toc', 'chd']
+    emulators = ['retroarch', 'other']
+    cores = ['mednafen_pcfx_libretro']
+    extensions = ['cue', 'ccd', 'toc', 'chd']
     
     def run(self):
         # Set up the emulator we want to run.

@@ -14,9 +14,9 @@ class Platform_Pdp11(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'm']
-    # cores = ['bk_libretro']
-    # extensions = ['bin']
+    emulators = ['retroarch', 'm']
+    cores = ['bk_libretro']
+    extensions = ['bin']
     
     def run(self):
         # Set up the emulator we want to run.

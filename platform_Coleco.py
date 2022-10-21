@@ -15,9 +15,9 @@ class Platform_Coleco(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'bluemsx', 'gearcoleco']
-    # cores = ['bluemsx_libretro', 'gearcoleco_libretro']
-    # extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+    emulators = ['retroarch', 'bluemsx', 'gearcoleco']
+    cores = ['bluemsx_libretro', 'gearcoleco_libretro']
+    extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.

@@ -14,9 +14,9 @@ class Platform_Channelf(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'freechaf']
-    # cores = ['freechaf_libretro']
-    # extensions = ['zip', 'bin', 'chf']
+    emulators = ['retroarch', 'freechaf']
+    cores = ['freechaf_libretro']
+    extensions = ['zip', 'bin', 'chf']
     
     def run(self):
         # Set up the emulator we want to run.

@@ -14,9 +14,9 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'stella', 'hatari']
-    # cores = ['hatari_libretro']
-    # extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+    emulators = ['retroarch', 'stella', 'hatari']
+    cores = ['hatari_libretro']
+    extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -140,9 +140,9 @@ class Platform_Atarixlxe(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['atari800_libretro']
-    # extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+    emulators = ['retroarch', 'other']
+    cores = ['atari800_libretro']
+    extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -265,9 +265,9 @@ class Platform_AtariJaguar(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['virtualjaguar_libretro']
-    # extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
+    emulators = ['retroarch', 'other']
+    cores = ['virtualjaguar_libretro']
+    extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -392,9 +392,9 @@ class Platform_AtariLynx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'mednafen']
-    # cores = ['handy_libretro', 'mednafen_lynx_libretro']
-    # extensions = ['lnx', 'o']
+    emulators = ['retroarch', 'mednafen']
+    cores = ['handy_libretro', 'mednafen_lynx_libretro']
+    extensions = ['lnx', 'o']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -517,9 +517,9 @@ class Platform_Atari2600(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'stella']
-    # cores = ['stella2014_libretro', 'stella_libretro']
-    # extensions = ['zip', 'a26', 'bin']
+    emulators = ['retroarch', 'stella']
+    cores = ['stella2014_libretro', 'stella_libretro']
+    extensions = ['zip', 'a26', 'bin']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -644,9 +644,9 @@ class Platform_Atari5200(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'atari800']
-    # cores = ['atari800_libretro']
-    # extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
+    emulators = ['retroarch', 'atari800']
+    cores = ['atari800_libretro']
+    extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -769,9 +769,9 @@ class Platform_Atari7800(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'prosystem']
-    # cores = ['prosystem_libretro']
-    # extensions = ['zip', 'a78', 'bin', 'cdf']
+    emulators = ['retroarch', 'prosystem']
+    cores = ['prosystem_libretro']
+    extensions = ['zip', 'a78', 'bin', 'cdf']
     
     def run(self):
         # Set up the emulator we want to run.

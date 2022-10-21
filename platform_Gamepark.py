@@ -14,9 +14,9 @@ class Platform_GP32(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['mame_libretro']
-    # extensions = ['zip', 'chd', '7z', 'cmd']
+    emulators = ['retroarch', 'other']
+    cores = ['mame_libretro']
+    extensions = ['zip', 'chd', '7z', 'cmd']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -139,9 +139,9 @@ class Platform_GP2x(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['mame_libretro']
-    # extensions = ['zip', 'chd', '7z', 'cmd']
+    emulators = ['retroarch', 'other']
+    cores = ['mame_libretro']
+    extensions = ['zip', 'chd', '7z', 'cmd']
     
     def run(self):
         # Set up the emulator we want to run.

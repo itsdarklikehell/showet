@@ -14,9 +14,9 @@ class Platform_Zxspectrum(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', '81']
-    # cores = ['fuse_libretro']
-    # extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
+    emulators = ['retroarch', '81']
+    cores = ['fuse_libretro']
+    extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -138,9 +138,9 @@ class Platform_Zx81(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', '81']
-    # cores = ['fuse_libretro', '81_libretro']
-    # extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
+    emulators = ['retroarch', '81']
+    cores = ['fuse_libretro', '81_libretro']
+    extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
     
     def run(self):
         # Set up the emulator we want to run.

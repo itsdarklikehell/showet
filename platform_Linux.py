@@ -14,9 +14,9 @@ class Platform_Linux(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['linux']
-    # cores = ['linux']
-    # extensions = ['elf', 'exe']
+    emulators = ['linux']
+    cores = ['linux']
+    extensions = ['elf', 'exe']
     
     def run(self):
         # Set up the emulator we want to run.

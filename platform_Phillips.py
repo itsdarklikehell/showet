@@ -14,9 +14,9 @@ class Platform_Cdi(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['samecdi_libretro', 'cdi2015_libretro']
-    # extensions = ['zip', 'chd', 'iso']
+    emulators = ['retroarch', 'other']
+    cores = ['samecdi_libretro', 'cdi2015_libretro']
+    extensions = ['zip', 'chd', 'iso']
     
     def run(self):
         # Set up the emulator we want to run.

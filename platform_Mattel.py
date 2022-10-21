@@ -14,9 +14,9 @@ class Platform_Intellivision(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['freeintv_libretro', 'jzintv', 'jzintv-ecs']
-    # extensions = ['int', 'bin', 'rom']
+    emulators = ['retroarch', 'other']
+    cores = ['freeintv_libretro', 'jzintv', 'jzintv-ecs']
+    extensions = ['int', 'bin', 'rom']
     
     def run(self):
         # Set up the emulator we want to run.

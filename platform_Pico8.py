@@ -14,9 +14,9 @@ class Platform_Pico8(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['retro8_libretro']
-    # extensions = ['zip', 'p8', 'png']
+    emulators = ['retroarch', 'other']
+    cores = ['retro8_libretro']
+    extensions = ['zip', 'p8', 'png']
     
     def run(self):
         # Set up the emulator we want to run.

@@ -14,9 +14,9 @@ class Platform_Wonderswan(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'mednafen']
-    # cores = ['mednafen_wswan_libretro']
-    # extensions = ['zip', 'ws', 'wsc', 'pc2']
+    emulators = ['retroarch', 'mednafen']
+    cores = ['mednafen_wswan_libretro']
+    extensions = ['zip', 'ws', 'wsc', 'pc2']
 
     def run(self):
         # Set up the emulator we want to run.

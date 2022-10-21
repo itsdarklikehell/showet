@@ -14,9 +14,9 @@ class Platform_MOTO(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['theodore_libretro']
-    # extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
+    emulators = ['retroarch', 'other']
+    cores = ['theodore_libretro']
+    extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
     
     def run(self):
         # Set up the emulator we want to run.

@@ -14,9 +14,9 @@ class Platform_Psx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
-    # extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+    emulators = ['retroarch', 'other']
+    cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
+    extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -156,9 +156,9 @@ class Platform_Ps2(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['pcsx2_libretro', 'play_libretro']
-    # extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+    emulators = ['retroarch', 'other']
+    cores = ['pcsx2_libretro', 'play_libretro']
+    extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
     def run(self):
         # Set up the emulator we want to run.
@@ -286,9 +286,9 @@ class Platform_Psp(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'ppsspp']
-    # cores = ['ppsspp_libretro']
-    # extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
+    emulators = ['retroarch', 'ppsspp']
+    cores = ['ppsspp_libretro']
+    extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
     
     def run(self):
         # Set up the emulator we want to run.

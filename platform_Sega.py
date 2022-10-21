@@ -14,9 +14,9 @@ class Platform_32X(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'picodrive']
-    # cores = ['picodrive_libretro']
-    # extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
+    emulators = ['retroarch', 'picodrive']
+    cores = ['picodrive_libretro']
+    extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -139,9 +139,9 @@ class Platform_Dreamcast(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'flycast', 'redream']
-    # cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
-    # extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
+    emulators = ['retroarch', 'flycast', 'redream']
+    cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']
+    extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -269,9 +269,9 @@ class Platform_Gamegear(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'osmose']
-    # cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
-    # extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+    emulators = ['retroarch', 'osmose']
+    cores = ['gearsystem_libretro', 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
+    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -402,9 +402,9 @@ class Platform_Mastersystem(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'osmose']
-    # cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
-    # extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+    emulators = ['retroarch', 'osmose']
+    cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro', 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
+    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -555,9 +555,9 @@ class Platform_Megadrive(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'dgen']
-    # cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
-    # extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
+    emulators = ['retroarch', 'dgen']
+    cores = ['genesis_plus_gx_libretro', 'fbneo_md_libretro', 'picodrive_libretro']
+    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -690,9 +690,9 @@ class Platform_Saturn(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'yabause', 'kronos']
-    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
-    # extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
+    emulators = ['retroarch', 'yabause', 'kronos']
+    cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
+    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -825,9 +825,9 @@ class Platform_Stv(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'yabause', 'kronos']
-    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
-    # extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
+    emulators = ['retroarch', 'yabause', 'kronos']
+    cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']
+    extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -960,9 +960,9 @@ class Platform_Vmu(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'vemulator']
-    # cores = ['vemulator_libretro']
-    # extensions = ['zip', 'vms', 'dci', 'bin']
+    emulators = ['retroarch', 'vemulator']
+    cores = ['vemulator_libretro']
+    extensions = ['zip', 'vms', 'dci', 'bin']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -1087,9 +1087,9 @@ class Platform_SG1000(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'gearsystem']
-    # cores = ['gearsystem_libretro', 'bluemsx_libretro']
-    # extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+    emulators = ['retroarch', 'gearsystem']
+    cores = ['gearsystem_libretro', 'bluemsx_libretro']
+    extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
     def run(self):
         # Set up the emulator we want to run.

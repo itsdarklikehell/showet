@@ -14,9 +14,9 @@ class Platform_Acorn(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['mame_libretro', 'mame2016_libretro']
-    # extensions = ['zip', 'chd', '7z', 'cmd']
+    emulators = ['retroarch', 'other']
+    cores = ['mame_libretro', 'mame2016_libretro']
+    extensions = ['zip', 'chd', '7z', 'cmd']
 
     def run(self):
         # Set up the emulator we want to run.

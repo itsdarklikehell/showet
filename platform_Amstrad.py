@@ -14,9 +14,9 @@ class Platform_Cpcplus(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'zesarux']
-    # cores = ['crocods_libretro', 'cap32_libretro']
-    # extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
+    emulators = ['retroarch', 'zesarux']
+    cores = ['crocods_libretro', 'cap32_libretro']
+    extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.

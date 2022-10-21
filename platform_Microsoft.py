@@ -14,9 +14,9 @@ class Platform_Xbox(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['directxbox_libretro']
-    # extensions = ['zip', 'iso']
+    emulators = ['retroarch', 'other']
+    cores = ['directxbox_libretro']
+    extensions = ['zip', 'iso']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -139,9 +139,9 @@ class Platform_Msx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
-    # cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
-    # extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+    emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
+    cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
+    extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -270,9 +270,9 @@ class Platform_Windows(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['wine', 'other']
-    # cores = ['wine']
-    # extensions = ['exe']
+    emulators = ['wine', 'other']
+    cores = ['wine']
+    extensions = ['exe']
     
     # wineprefix = self.showetdir + '/wineprefix'
 

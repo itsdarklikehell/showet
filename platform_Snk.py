@@ -14,9 +14,9 @@ class Platform_Neogeo(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
-    # extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+    emulators = ['retroarch', 'other']
+    cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
+    extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -139,9 +139,9 @@ class Platform_Neopocket(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
-    # extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+    emulators = ['retroarch', 'other']
+    cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
+    extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -264,9 +264,9 @@ class Platform_Neopocketcolor(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
-    # extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
+    emulators = ['retroarch', 'other']
+    cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
+    extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
     
     def run(self):
         # Set up the emulator we want to run.
