@@ -28,25 +28,7 @@ class Platform_Psx(PlatformCommon):
         emulators = ['retroarch', 'other']
         cores = ['pcsx_rearmed_libretro', 'mednafen_psx_libretro', 'swanstation_libretro']
         extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
-
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
-
+                
         if emulator[0] == 'retroarch':
             if core[0] == 'duckstation_libretro' or core[0] == 'swanstation_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
@@ -170,25 +152,7 @@ class Platform_Ps2(PlatformCommon):
         emulators = ['retroarch', 'other']
         cores = ['pcsx2_libretro', 'play_libretro']
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
-
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
-
+                
         if emulator[0] == 'retroarch':
             if core[0] == 'pcsx2_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
@@ -300,25 +264,7 @@ class Platform_Psp(PlatformCommon):
         emulators = ['retroarch', 'ppsspp']
         cores = ['ppsspp_libretro']
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
-
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
-
+                
         if emulator[0] == 'retroarch':
             if core[0] == 'ppsspp_libretro':
                 extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']

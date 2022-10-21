@@ -24,28 +24,7 @@ class Platform_Linux(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['bash']
         core = ['bash']
-        
-        emulators = ['linux']
-        cores = ['linux']
         extensions = ['elf', 'exe']
-
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
      
         if emulator == 'bash':
             if core[0] == 'bash':

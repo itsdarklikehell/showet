@@ -15,16 +15,15 @@ class Platform_Commodore64(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice', 'frodo']
     cores = ['vice_x64sc_libretro', 'frodo_libretro']
-
-    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    # tapes_ext = ['t64', 'tap', 'tcrt']
-    # roms_ext = ['prg', 'p00', 'crt', 'bin']
-    # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    tapes_ext = ['t64', 'tap', 'tcrt']
+    roms_ext = ['prg', 'p00', 'crt', 'bin']
+    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
     extensions = []
-    # extensions.extend(floppys_ext)
-    # extensions.extend(tapes_ext)
-    # extensions.extend(roms_ext)
-    # extensions.extend(vic20_ext)
+    extensions.extend(floppys_ext)
+    extensions.extend(tapes_ext)
+    extensions.extend(roms_ext)
+    extensions.extend(vic20_ext)
 
     def run(self):
         # Set up the emulator we want to run.
@@ -33,10 +32,6 @@ class Platform_Commodore64(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_x64sc_libretro']
-        
-        emulators = ['retroarch', 'vice', 'frodo']
-        cores = ['vice_x64sc_libretro', 'frodo_libretro']
-
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -46,25 +41,6 @@ class Platform_Commodore64(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-
-
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
                 
         if emulator[0] == 'other':
             extensions = ['unknown']        
@@ -177,17 +153,15 @@ class Platform_Commodore128(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_x128_libretro']
-    # fullscreens = ['false']
-    
-    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    # tapes_ext = ['t64', 'tap', 'tcrt']
-    # roms_ext = ['prg', 'p00', 'crt', 'bin']
-    # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    tapes_ext = ['t64', 'tap', 'tcrt']
+    roms_ext = ['prg', 'p00', 'crt', 'bin']
+    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
     extensions = []
-    # extensions.extend(floppys_ext)
-    # extensions.extend(tapes_ext)
-    # extensions.extend(roms_ext)
-    # extensions.extend(vic20_ext)
+    extensions.extend(floppys_ext)
+    extensions.extend(tapes_ext)
+    extensions.extend(roms_ext)
+    extensions.extend(vic20_ext)
         
     def run(self):
         # Set up the emulator we want to run.
@@ -196,10 +170,6 @@ class Platform_Commodore128(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_x128_libretro']
-        
-        emulators = ['retroarch', 'vice']
-        cores = ['vice_x128_libretro']
-    
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -210,24 +180,6 @@ class Platform_Commodore128(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
-            
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x128_libretro':
                 floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
@@ -337,18 +289,17 @@ class Platform_CommodoreAmiga(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'puae', 'fs-uae']
     cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
-
-    # floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
-    # harddrives_ext = ['hdf', 'hdz', 'datadir' ]
-    # whdload_ext = ['lha', 'slave', 'info']
-    # cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
-    # other = ['uae', 'm3u', 'zip', '7z']
+    floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
+    harddrives_ext = ['hdf', 'hdz', 'datadir' ]
+    whdload_ext = ['lha', 'slave', 'info']
+    cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
+    other = ['uae', 'm3u', 'zip', '7z']
     extensions = []
-    # extensions.append(other)
-    # extensions.append(floppys_ext)
-    # extensions.append(harddrives_ext)
-    # extensions.append(whdload_ext)
-    # extensions.append(cd_ext)
+    extensions.append(other)
+    extensions.append(floppys_ext)
+    extensions.append(harddrives_ext)
+    extensions.append(whdload_ext)
+    extensions.append(cd_ext)
     
     def run(self):
         # Set up the emulator we want to run.
@@ -357,10 +308,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['puae_libretro']
-
-        emulators = ['retroarch', 'puae', 'fs-uae']
-        cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
-        
         floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
         harddrives_ext = ['hdf', 'hdz', 'datadir']
         whdload_ext = ['lha', 'slave', 'info']
@@ -373,24 +320,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
         extensions.extend(cd_ext)
         extensions.extend(other)
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
-            
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
                     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
@@ -404,7 +333,6 @@ class Platform_CommodoreAmiga(PlatformCommon):
                     extensions.extend(harddrives_ext)
                     extensions.extend(whdload_ext)
                     extensions.extend(cd_ext)
-
 
         ext = []
         for ext in extensions:
@@ -572,16 +500,15 @@ class Platform_CommodoreCBMII(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xcbm2_libretro']
-
-    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    # tapes_ext = ['t64', 'tap', 'tcrt']
-    # roms_ext = ['prg', 'p00', 'crt', 'bin']
-    # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    tapes_ext = ['t64', 'tap', 'tcrt']
+    roms_ext = ['prg', 'p00', 'crt', 'bin']
+    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
     extensions = []
-    # extensions.extend(floppys_ext)
-    # extensions.extend(tapes_ext)
-    # extensions.extend(roms_ext)
-    # extensions.extend(vic20_ext)
+    extensions.extend(floppys_ext)
+    extensions.extend(tapes_ext)
+    extensions.extend(roms_ext)
+    extensions.extend(vic20_ext)
 
     def run(self):
         # Set up the emulator we want to run.
@@ -590,10 +517,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xcbm2_libretro']
-        
-        emulators = ['retroarch', 'vice']
-        cores = ['vice_xcbm2_libretro']
-
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -604,24 +527,6 @@ class Platform_CommodoreCBMII(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
-                
         if emulator[0] == 'other':
             extensions = ['unknown']        
         if emulator[0] == 'retroarch':
@@ -733,16 +638,15 @@ class Platform_CommodorePet(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xpet_libretro']
-
-    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    # tapes_ext = ['t64', 'tap', 'tcrt']
-    # roms_ext = ['prg', 'p00', 'crt', 'bin']
-    # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    tapes_ext = ['t64', 'tap', 'tcrt']
+    roms_ext = ['prg', 'p00', 'crt', 'bin']
+    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
     extensions = []
-    # extensions.extend(floppys_ext)
-    # extensions.extend(tapes_ext)
-    # extensions.extend(roms_ext)
-    # extensions.extend(vic20_ext)
+    extensions.extend(floppys_ext)
+    extensions.extend(tapes_ext)
+    extensions.extend(roms_ext)
+    extensions.extend(vic20_ext)
     
     def run(self):
         # Set up the emulator we want to run.
@@ -751,10 +655,6 @@ class Platform_CommodorePet(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xpet_libretro']
-        
-        emulators = ['retroarch', 'vice']
-        cores = ['vice_xpet_libretro']
-        
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -764,24 +664,6 @@ class Platform_CommodorePet(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
                 
         if emulator[0] == 'other':
             extensions = ['unknown']        
@@ -894,16 +776,15 @@ class Platform_CommodorePlus4(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xplus4_libretro']
-
-    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    # tapes_ext = ['t64', 'tap', 'tcrt']
-    # roms_ext = ['prg', 'p00', 'crt', 'bin']
-    # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    tapes_ext = ['t64', 'tap', 'tcrt']
+    roms_ext = ['prg', 'p00', 'crt', 'bin']
+    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
     extensions = []
-    # extensions.extend(floppys_ext)
-    # extensions.extend(tapes_ext)
-    # extensions.extend(roms_ext)
-    # extensions.extend(vic20_ext)
+    extensions.extend(floppys_ext)
+    extensions.extend(tapes_ext)
+    extensions.extend(roms_ext)
+    extensions.extend(vic20_ext)
         
     def run(self):
         # Set up the emulator we want to run.
@@ -912,10 +793,6 @@ class Platform_CommodorePlus4(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xplus4_libretro']
-        
-        emulators = ['retroarch', 'vice']
-        cores = ['vice_xplus4_libretro']
-        
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -925,24 +802,6 @@ class Platform_CommodorePlus4(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
                 
         if emulator[0] == 'other':
             extensions = ['unknown']        
@@ -1055,16 +914,15 @@ class Platform_CommodoreVIC20(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xvic_libretro']
-
-    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    # tapes_ext = ['t64', 'tap', 'tcrt']
-    # roms_ext = ['prg', 'p00', 'crt', 'bin']
-    # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    tapes_ext = ['t64', 'tap', 'tcrt']
+    roms_ext = ['prg', 'p00', 'crt', 'bin']
+    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
     extensions = []
-    # extensions.extend(floppys_ext)
-    # extensions.extend(tapes_ext)
-    # extensions.extend(roms_ext)
-    # extensions.extend(vic20_ext)
+    extensions.extend(floppys_ext)
+    extensions.extend(tapes_ext)
+    extensions.extend(roms_ext)
+    extensions.extend(vic20_ext)
     
     def run(self):
         # Set up the emulator we want to run.
@@ -1073,10 +931,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xvic_libretro']
-        
-        emulators = ['retroarch', 'vice']
-        cores = ['vice_xvic_libretro']
-        
         floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
@@ -1087,24 +941,6 @@ class Platform_CommodoreVIC20(PlatformCommon):
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
 
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
-                
         if emulator[0] == 'other':
             extensions = ['unknown']        
         if emulator[0] == 'retroarch':
