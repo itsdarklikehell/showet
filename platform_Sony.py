@@ -1,7 +1,6 @@
 import os
 import os.path
 import stat
-import inquirer
 
 from platformcommon import PlatformCommon
 
@@ -343,10 +342,11 @@ class Platform_Psp(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'ppsspp':
-            print("Using: " + str(emulator))
+        if emulator[0] == 'other':
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -371,7 +371,7 @@ class Platform_Psp(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'ppsspp':
+            if emulator[0] == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
                 
         self.run_process(emulator)

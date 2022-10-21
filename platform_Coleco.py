@@ -2,7 +2,6 @@ from cmath import e
 import os
 import os.path
 import stat
-import inquirer
 
 from platformcommon import PlatformCommon
 

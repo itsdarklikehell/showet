@@ -1,7 +1,6 @@
 import os
 import os.path
 import stat
-import inquirer
 
 from platformcommon import PlatformCommon
 
@@ -48,7 +47,6 @@ class Platform_3do(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
                 
-
         if emulator[0] == 'retroarch':
             if core[0] == '4do_libretro' or core[0] == 'opera_libretro':
                 extensions = ['iso', 'bin', 'chd', 'cue']
@@ -101,7 +99,7 @@ class Platform_3do(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

@@ -1,7 +1,6 @@
 import os
 import os.path
 import stat
-import inquirer
 
 from platformcommon import PlatformCommon
 
@@ -333,7 +332,7 @@ class Platform_Windows(PlatformCommon):
                 emulator.append('--fullscreen')
         
         if emulator == 'wine':
-            exefile = files
+            exefile = files[0]
 
         # print status to console.
         if debugging != False:
