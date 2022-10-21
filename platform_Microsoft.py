@@ -296,7 +296,7 @@ class Platform_Windows(PlatformCommon):
                 emulator.append('--fullscreen')
         
         if emulator == 'wine':
-            exefile = files[0]
+            exefile = files
 
         # print status to console.
         if debugging != False:
