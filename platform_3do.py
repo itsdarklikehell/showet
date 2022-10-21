@@ -6,7 +6,6 @@ from platformcommon import PlatformCommon
 
 fullscreen = False
 debugging = True
-selective_mode = False
 
 class Platform_3do(PlatformCommon):
     # Set up the emulator we want to run.
@@ -88,13 +87,14 @@ class Platform_3do(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
-        if emulator[0] == 'other':
-            extensions = ['unknown']
             
         if emulator[0] == 'retroarch':
             if core[0] == '4do_libretro' or core[0] == 'opera_libretro':
                 extensions = ['iso', 'bin', 'chd', 'cue']
                         
+        if emulator[0] == 'other':
+            extensions = ['unknown']
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

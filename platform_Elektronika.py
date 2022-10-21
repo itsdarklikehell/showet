@@ -6,7 +6,6 @@ from platformcommon import PlatformCommon
 
 fullscreen = False
 debugging = True
-selective_mode = False
 
 class Platform_Pdp11(PlatformCommon):
     # Set up the emulator we want to run.

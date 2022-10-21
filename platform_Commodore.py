@@ -6,7 +6,6 @@ from platformcommon import PlatformCommon
 
 fullscreen = False
 debugging = True
-selective_mode = False
 
 class Platform_Commodore64(PlatformCommon):
     # Set up the emulator we want to run.
@@ -344,9 +343,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator,core)
-        if len(files) == 0:
-            # Tries to identify files by any magic necessary.
-            files = self.find_magic_cookies()
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -368,8 +367,8 @@ class Platform_CommodoreAmiga(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
-        drives = []
-        # Support only one for now..
+        # drives = []
+        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -387,58 +386,38 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'hatari':
+            if emulator == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
             
-            if not os.path.exists(self.datadir + "/s"):
-                os.makedirs(self.datadir + "/s")
-                # when find_files_with_extension works with paths relative to datadir.
-                # we can simplify this
-                with open(self.datadir + "/s/startup-sequence", 'w') as f:
-                    exename = files[0].split('/')
-                    exename = exename[len(exename) - 1]
-                    f.write(exename + "\n")
-                    f.close()
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
         
-        if emulator[0] == 'retroarch':
-            amiga_model = 'A1200'
-            if self.prod_platform == 'amigaocsecs':
-                amiga_model = 'A500'
-            # if self.prod_platform == 'amigaaga':
-            #     emulator.append('--fast_memory=8192')
-            if len(drives) > 0:
-                print("\tUsing drive 0: ", drives[0])
-                emulator.append(drives[0])
-            if len(drives) > 1:
-                print("\tUsing drive 1: ", drives[1])
-                emulator.append(drives[1])
-            if len(drives) > 2:
-                print("\tUsing drive 2: ", drives[2])
-                emulator.append(drives[2])
-            if len(drives) > 3:
-                print("\tUsing drive 3: ", drives[3])
-                emulator.append(drives[3])
-            #emulator.append('--model=' + amiga_model)
-        
-        # if emulator == 'fs-uae':
+        # if emulator[0] == 'retroarch':
         #     amiga_model = 'A1200'
         #     if self.prod_platform == 'amigaocsecs':
         #         amiga_model = 'A500'
-        #     if self.prod_platform == 'amigaaga':
-        #         emulator.append('--fast_memory=8192')
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
         #     if len(drives) > 0:
         #         print("\tUsing drive 0: ", drives[0])
-        #         emulator.append('--floppy_drive_0=' + drives[0])
+        #         emulator.append(drives[0])
         #     if len(drives) > 1:
         #         print("\tUsing drive 1: ", drives[1])
-        #         emulator.append('--floppy_drive_1=' + drives[1])
+        #         emulator.append(drives[1])
         #     if len(drives) > 2:
         #         print("\tUsing drive 2: ", drives[2])
-        #         emulator.append('--floppy_drive_2=' + drives[2])
+        #         emulator.append(drives[2])
         #     if len(drives) > 3:
         #         print("\tUsing drive 3: ", drives[3])
-        #         emulator.append('--floppy_drive_3=' + drives[3])
-        #     emulator.append('--model=' + amiga_model)
+        #         emulator.append(drives[3])
+            #emulator.append('--model=' + amiga_model)
 
         self.run_process(emulator)
 
@@ -446,16 +425,16 @@ class Platform_CommodoreAmiga(PlatformCommon):
         return ['amigaocsecs', 'amigaaga', 'amigappcrtg']
 
     # Search demo files for amiga magic cookie (executable file)
-    def find_magic_cookies(self):
-        cookie_files = []
-        for file in self.prod_files:
-            with open(file, "rb") as fin:
-                header = fin.read(4)
-                if len(header) == 4:
-                    # Signature for Amiga magic cookie
-                    if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-                        cookie_files.append(file)
-        return cookie_files
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core):
