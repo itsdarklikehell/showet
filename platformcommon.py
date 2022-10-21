@@ -5,7 +5,7 @@ import subprocess
 import inquirer
 
 fullscreen = False
-selective_mode = True
+selective_mode = False
 debugging = True
 
 class PlatformCommon:
@@ -15,7 +15,7 @@ class PlatformCommon:
     native = ['false']
     audio = ['true']
     debugging = True
-    selective_mode = True
+    selective_mode = False
     
     def __init__(self):
         self.showetdir = None
