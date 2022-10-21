@@ -61,7 +61,7 @@ class Platform_GP32(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -109,7 +109,7 @@ class Platform_GP32(PlatformCommon):
         return ['gameparkgp32']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mame_libretro':
@@ -186,7 +186,7 @@ class Platform_GP2x(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -234,7 +234,7 @@ class Platform_GP2x(PlatformCommon):
         return ['gameparkgp2x']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mame_libretro':

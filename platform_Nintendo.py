@@ -61,7 +61,7 @@ class Platform_3DS(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -109,7 +109,7 @@ class Platform_3DS(PlatformCommon):
         return ['nintendods']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
         if emulator[0] == 'retroarch':
             if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
                 extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
@@ -185,7 +185,7 @@ class Platform_N64(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -233,7 +233,7 @@ class Platform_N64(PlatformCommon):
         return ['nintendo64']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
         if emulator[0] == 'other':
             extensions = ['unknown']
             
@@ -312,7 +312,7 @@ class Platform_DS(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -360,7 +360,7 @@ class Platform_DS(PlatformCommon):
         return ['nintendods']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'desmume_libretro':
@@ -441,7 +441,7 @@ class Platform_Famicom(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -489,7 +489,7 @@ class Platform_Famicom(PlatformCommon):
         return ['nesfamicom']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
@@ -574,7 +574,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -622,7 +622,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
         return ['nesfamicom']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
@@ -726,7 +726,7 @@ class Platform_Gameboy(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -774,7 +774,7 @@ class Platform_Gameboy(PlatformCommon):
         return ['gameboy']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             #gb/c
@@ -893,7 +893,7 @@ class Platform_GameboyColor(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -941,7 +941,7 @@ class Platform_GameboyColor(PlatformCommon):
         return ['gameboy', 'gameboycolor']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             #gb/c
@@ -1051,7 +1051,7 @@ class Platform_GameboyAdvance(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1099,7 +1099,7 @@ class Platform_GameboyAdvance(PlatformCommon):
         return ['gameboyadvance', 'gameboycolor', 'gameboy']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_gba_libretro':
@@ -1188,7 +1188,7 @@ class Platform_Gamecube(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1236,7 +1236,7 @@ class Platform_Gamecube(PlatformCommon):
         return ['gamecube']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'dolphin_libretro':
@@ -1313,7 +1313,7 @@ class Platform_Pokemini(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1361,7 +1361,7 @@ class Platform_Pokemini(PlatformCommon):
         return ['pokemini']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'pokemini_libretro':
@@ -1446,7 +1446,7 @@ class Platform_SuperFamicom(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1494,7 +1494,7 @@ class Platform_SuperFamicom(PlatformCommon):
         return ['snessuperfamicom']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'bsnes_libretro' or core[0] == 'bsnes_hd_beta_libretro' or core[0] == 'bsnes_cplusplus98_libretro' or core[0] == 'bsnes2014_accuracy_libretro' or core[0] == 'bsnes2014_balanced_libretro' or core[0] == 'bsnes2014_performance_libretro' or core[0] == 'bsnes_mercury_accuracy_libretro' or core[0] == 'bsnes_mercury_balanced_libretro' or core[0] == 'bsnes_mercury_balanced_libretro':
@@ -1577,7 +1577,7 @@ class Platform_Virtualboy(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1624,7 +1624,7 @@ class Platform_Virtualboy(PlatformCommon):
         return ['virtualboy']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_vb_libretro':
@@ -1701,7 +1701,7 @@ class Platform_Wii(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1749,7 +1749,7 @@ class Platform_Wii(PlatformCommon):
         return ['wii', 'wiiu', 'nintendowii']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'dolphin_libretro':

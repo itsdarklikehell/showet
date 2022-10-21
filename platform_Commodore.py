@@ -90,7 +90,7 @@ class Platform_Commodore64(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -138,7 +138,7 @@ class Platform_Commodore64(PlatformCommon):
         return ['commodore64']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x64sc_libretro':
@@ -250,7 +250,7 @@ class Platform_Commodore128(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -298,7 +298,7 @@ class Platform_Commodore128(PlatformCommon):
         return ['commodore128']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x128_libretro':    
@@ -416,7 +416,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_magic_cookies()
@@ -531,7 +531,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         return cookie_files
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
@@ -646,7 +646,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -694,7 +694,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
         return ['commodorecbm']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xcbm2_libretro':
@@ -807,7 +807,7 @@ class Platform_CommodorePet(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -855,7 +855,7 @@ class Platform_CommodorePet(PlatformCommon):
         return ['commodorepet']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xpet_libretro':
@@ -968,7 +968,7 @@ class Platform_CommodorePlus4(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1016,7 +1016,7 @@ class Platform_CommodorePlus4(PlatformCommon):
         return ['commodoreplus4', 'c16116plus4']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
     
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xplus4_libretro':
@@ -1129,7 +1129,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core,extensions)
+            files = self.find_ext_files(emulator,core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1177,7 +1177,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
         return ['vic20']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core,extensions):
+    def find_ext_files(self,emulator,core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xvic_libretro':
