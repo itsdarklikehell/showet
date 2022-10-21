@@ -71,13 +71,12 @@ class Platform_Enterprise(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'ep128emu':
+        if emulator == 'other':
             # Set whether we should run in fullscreens or not.
-            if PlatformCommon.fullscreen == ['true']:
+            if fullscreen == True:
                 emulator.append('--fullscreen')
-
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))

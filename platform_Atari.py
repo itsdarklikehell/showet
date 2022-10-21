@@ -71,17 +71,17 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'hatari':
-            print("Using: " + str(emulator))
-
+        if emulator == 'other':
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
-
 
         flipfile = self.datadir + "/fliplist.vfl"
         m3ufile = self.datadir + "/fliplist.m3u"
@@ -197,11 +197,12 @@ class Platform_Atarixlxe(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
-
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -321,10 +322,11 @@ class Platform_AtariJaguar(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
             
         # print status to console.
         if debugging != False:
@@ -447,11 +449,12 @@ class Platform_AtariLynx(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
-
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -571,11 +574,12 @@ class Platform_Atari2600(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
-
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -697,11 +701,12 @@ class Platform_Atari5200(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
-
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -821,11 +826,12 @@ class Platform_Atari7800(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
-
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))

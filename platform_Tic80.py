@@ -71,10 +71,11 @@ class Platform_Tic80(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -195,10 +196,11 @@ class Platform_TRS80(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:

@@ -75,13 +75,13 @@ class Platform_Msdos(PlatformCommon):
         if emulator == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
-            
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:                
-        if emulator == 'dosbox':
-            # Set whether we should run in fullscreens or not.
-            if PlatformCommon.fullscreen == ['true']:
-                emulator.append('--fullscreen')
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator == 'other':
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))

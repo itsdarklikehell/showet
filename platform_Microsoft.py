@@ -71,11 +71,10 @@ class Platform_Xbox(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'directxbox':
+        if emulator == 'other':
             # Set whether we should run in fullscreens or not.
-            if PlatformCommon.fullscreen == ['true']:
+            if fullscreen == True:
                 emulator.append('--fullscreen')
 
         # print status to console.
@@ -199,10 +198,11 @@ class Platform_Msx(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -291,14 +291,21 @@ class Platform_Windows(PlatformCommon):
         
         # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
         if len(emulators) > 1:
-            multiemu(self,emulators)
+            emulator == emulators[0]
+            if selective_mode != False:
+                PlatformCommon.multiemu(self,emulators)
+            else:
+                print('interactive mode is off, using default ' + str(emulators[0]))
+                emulator == emulators[0]
 
         # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
         if len(cores) > 1:
-            multicore(self,cores)      
-        if emulator == 'wine':
-            if core == 'wine':
-                extensions = ['exe']
+            core == cores[0]
+            if selective_mode != False:
+                PlatformCommon.multicore(self,cores)
+            else:
+                print('interactive mode is off, using default ' + str(cores[0]))
+                core == cores[0]
 
         ext = []
         for ext in extensions:
@@ -319,10 +326,13 @@ class Platform_Windows(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator == 'other':
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         if emulator == 'wine':
-
             exefile = files[0]
 
         # print status to console.

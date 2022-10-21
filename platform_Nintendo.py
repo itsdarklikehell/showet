@@ -71,10 +71,11 @@ class Platform_3DS(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -194,10 +195,11 @@ class Platform_N64(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -320,10 +322,11 @@ class Platform_DS(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -448,10 +451,11 @@ class Platform_Famicom(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -580,10 +584,11 @@ class Platform_FamicomDisksystem(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -731,10 +736,11 @@ class Platform_Gameboy(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -897,10 +903,11 @@ class Platform_GameboyColor(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -1054,10 +1061,11 @@ class Platform_GameboyAdvance(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -1190,10 +1198,11 @@ class Platform_Gamecube(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -1314,10 +1323,11 @@ class Platform_Pokemini(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -1446,10 +1456,11 @@ class Platform_SuperFamicom(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -1700,10 +1711,11 @@ class Platform_Wii(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:

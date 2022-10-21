@@ -71,10 +71,11 @@ class Platform_Gamemusic(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'vlc':
-            print("Using: " + str(emulator))
+        if emulator == 'other':
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -195,10 +196,11 @@ class Platform_VideoFFMPEG(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'vlc':
-            print("Using: " + str(emulator))
+        if emulator == 'other':
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:
@@ -319,10 +321,11 @@ class Platform_VideoMPV(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'vlc':
-            print("Using: " + str(emulator))
+        if emulator == 'other':
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
 
         # print status to console.
         if debugging != False:

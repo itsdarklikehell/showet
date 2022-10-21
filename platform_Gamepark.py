@@ -71,11 +71,12 @@ class Platform_GP32(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
-
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -138,9 +139,9 @@ class Platform_GP2x(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['mame_libretro']
-    extensions = ['zip', 'chd', '7z', 'cmd']
+    # emulators = ['retroarch', 'other']
+    # cores = ['mame_libretro']
+    # extensions = ['zip', 'chd', '7z', 'cmd']
     
     def run(self):
         # Set up the emulator we want to run.
@@ -195,11 +196,12 @@ class Platform_GP2x(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'other':
-            print("Using: " + str(emulator))
-
+            # Set whether we should run in fullscreens or not.
+            if fullscreen == True:
+                emulator.append('--fullscreen')
+        
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
