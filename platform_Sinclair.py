@@ -48,8 +48,8 @@ class Platform_Zxspectrum(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'fuse_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
 
         ext = []
@@ -67,12 +67,12 @@ class Platform_Zxspectrum(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
             if fullscreen == True:
                 emulator.append('--fullscreen')
@@ -98,7 +98,7 @@ class Platform_Zxspectrum(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -111,8 +111,8 @@ class Platform_Zxspectrum(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
 
-        if emulator == 'retroarch':
-            if core == 'fuse_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
         
         ext_files = []
@@ -172,10 +172,10 @@ class Platform_Zx81(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'fuse_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
-            if core == '81_libretro':
+            if core[0] == '81_libretro':
                 extensions = ['p', 'tzx', 't81']
 
         ext = []
@@ -193,14 +193,14 @@ class Platform_Zx81(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             print("Using:" + str(emulator))
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             print("Using:" + str(emulator))
 
 
@@ -225,7 +225,7 @@ class Platform_Zx81(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -238,10 +238,10 @@ class Platform_Zx81(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
 
-        if emulator == 'retroarch':
-            if core == 'fuse_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
-            if core == '81_libretro':
+            if core[0] == '81_libretro':
                 extensions = ['p', 'tzx', 't81']
         
         ext_files = []

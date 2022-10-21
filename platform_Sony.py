@@ -48,16 +48,16 @@ class Platform_Psx(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'duckstation_libretro' or core == 'swanstation_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'duckstation_libretro' or core[0] == 'swanstation_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
-            if core == 'rustation_libretro':
+            if core[0] == 'rustation_libretro':
                 extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe']
-            if core == 'mednafen_psx_libretro' or core == 'mednafen_psx_hw_libretro':
+            if core[0] == 'mednafen_psx_libretro' or core[0] == 'mednafen_psx_hw_libretro':
                 extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe', 'pbp', 'chd']
-            if core == 'pcsx1_libretro':
+            if core[0] == 'pcsx1_libretro':
                 extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u']
-            if core == 'pcsx_rearmed_libretro' or core == 'pcsx_rearmed_neon_libretro':
+            if core[0] == 'pcsx_rearmed_libretro' or core[0] == 'pcsx_rearmed_neon_libretro':
                 extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u', 'ccd', 'chd']
 
         ext = []
@@ -75,12 +75,12 @@ class Platform_Psx(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
             if fullscreen == True:
                 emulator.append('--fullscreen')
@@ -106,7 +106,7 @@ class Platform_Psx(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -119,16 +119,16 @@ class Platform_Psx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
 
-        if emulator == 'retroarch':
-            if core == 'duckstation_libretro' or core == 'swanstation_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'duckstation_libretro' or core[0] == 'swanstation_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
-            if core == 'rustation_libretro':
+            if core[0] == 'rustation_libretro':
                 extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe']
-            if core == 'mednafen_psx_libretro' or core == 'mednafen_psx_hw_libretro':
+            if core[0] == 'mednafen_psx_libretro' or core[0] == 'mednafen_psx_hw_libretro':
                 extensions = ['cue', 'toc', 'm3u', 'ccd', 'exe', 'pbp', 'chd']
-            if core == 'pcsx1_libretro':
+            if core[0] == 'pcsx1_libretro':
                 extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u']
-            if core == 'pcsx_rearmed_libretro' or core == 'pcsx_rearmed_neon_libretro':
+            if core[0] == 'pcsx_rearmed_libretro' or core[0] == 'pcsx_rearmed_neon_libretro':
                 extensions = ['bin', 'cue', 'img', 'mdf', 'pbp', 'toc', 'cbn', 'm3u', 'ccd', 'chd']
         
         ext_files = []
@@ -190,10 +190,10 @@ class Platform_Ps2(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'pcsx2_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'pcsx2_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
-            if core == 'play_libretro':
+            if core[0] == 'play_libretro':
                 extensions = ['chd', 'cso', 'cue', 'elf', 'iso', 'isz']
         
         ext = []
@@ -211,12 +211,12 @@ class Platform_Ps2(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'other':
+        if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
             if fullscreen == True:
                 emulator.append('--fullscreen')
@@ -242,7 +242,7 @@ class Platform_Ps2(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -255,10 +255,10 @@ class Platform_Ps2(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
 
-        if emulator == 'retroarch':
-            if core == 'pcsx2_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'pcsx2_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img', 'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
-            if core == 'play_libretro':
+            if core[0] == 'play_libretro':
                 extensions = ['chd', 'cso', 'cue', 'elf', 'iso', 'isz']
         
         ext_files = []
@@ -320,8 +320,8 @@ class Platform_Psp(PlatformCommon):
                 print('interactive mode is off, using default ' + str(cores[0]))
                 core == cores[0]
 
-        if emulator == 'retroarch':
-            if core == 'ppsspp_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'ppsspp_libretro':
                 extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
 
         ext = []
@@ -339,9 +339,9 @@ class Platform_Psp(PlatformCommon):
             exit(-1)
         
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == 'retroarch':
+        if emulator[0] == 'retroarch':
             emulator.append('-L')
-            emulator.append(core)
+            emulator.append(core[0])
 
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -369,7 +369,7 @@ class Platform_Psp(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator == 'retroarch':
+            if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
             if emulator == 'ppsspp':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -382,8 +382,8 @@ class Platform_Psp(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self,emulator,core,extensions):
 
-        if emulator == 'retroarch':
-            if core == 'ppsspp_libretro':
+        if emulator[0] == 'retroarch':
+            if core[0] == 'ppsspp_libretro':
                 extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
         
         ext_files = []
