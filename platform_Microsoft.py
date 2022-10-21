@@ -24,9 +24,6 @@ class Platform_Xbox(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['directxbox_libretro']
-        
-        emulators = ['retroarch', 'other']
-        cores = ['directxbox_libretro']
         extensions = ['zip', 'iso']
                 
         if emulator[0] == 'retroarch':
@@ -131,9 +128,6 @@ class Platform_Msx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['bluemsx_libretro']
-        
-        emulators = ['retroarch', 'openmsx', 'openmsx-msx2', 'openmsx-msx2-plus', 'openmsx-msx-turbo']
-        cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
         extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
                 
         if emulator[0] == 'retroarch':
@@ -246,29 +240,8 @@ class Platform_Windows(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.        
         emulator = ['wine']
         core = ['wine']
-        
-        emulators = ['wine']
-        cores = ['wine']
         extensions = ['exe']
         wineprefix = self.showetdir + '/wineprefix'
-        
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
 
         ext = []
         for ext in extensions:
