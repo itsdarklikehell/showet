@@ -1,7 +1,7 @@
 #!/bin/bash
 # Showet random demo picker script
 # author: Bauke Molenaar.
-function update(){
+function update() {
     cd ~/showet
     git pull
 }
@@ -13,20 +13,20 @@ MAX_POUETIDS=88915
 if [ -z $1 ]; then
     loop="false"
     random="false"
-    elif [ $1 = "-p" ] && [ $2 !-z ]; then
+elif [ $1 = "-p" ] && [ $2 !-z ]; then
     loop="false"
     random="false"
     pouet_id=$2
-    elif [[ $1 = "-pl" ]]; then
+elif [[ $1 = "-pl" ]]; then
     loop="true"
     random="false"
     pouet_id=$2
-    elif [ $1 = "-r" ]; then
+elif [ $1 = "-r" ]; then
     random="true"
-    elif [ $1 = "-rl" ]; then
+elif [ $1 = "-rl" ]; then
     loop="true"
     random="true"
-    elif [ $1 = "-h" ]; then
+elif [ $1 = "-h" ]; then
     echo "Usage: random_demo.sh [-p <pouet_id>] [-r] [-rl]"
     echo " -p <pouet_id> : select demo from pouet id"
     echo " -pl <pouet_id> : loop and select demo from pouet id"
@@ -39,7 +39,7 @@ else
     exit 1
 fi
 
-play_demo(){
+play_demo() {
     update
     # if random is enabled, then play a random demo
     if [ $random = "true" ]; then
@@ -48,7 +48,7 @@ play_demo(){
         echo "I randomly selected production no: $pouet_id from the massive pouet.net database containting: $MAX_POUETIDS productions...(insert windows TADAA! sfx...)"
     fi
     python3 ~/showet/showet.py $pouet_id && chmod +x ~/.showet/data/$pouet_id/*
-    resoreset
+    #resoreset
     sleep 1
     read -p "Press [q] to quit or [enter] to continue (or wait a few seconds)..." -n1 -s -t $TIMEOUT
     # if q is pressed, then quit
@@ -57,12 +57,10 @@ play_demo(){
         loop="false"
         # Cleanup after script
         rm -rf ~/.showet/data/*
-        resoreset
+        #resoreset
         exit 0
     fi
 }
-
-
 
 # if loop is enabled, then loop forever
 if [ $loop = "true" ]; then
@@ -74,4 +72,3 @@ else
 fi
 # Cleanup after script
 rm -rf ~/.showet/data/* >/dev/null 2>&1
-
