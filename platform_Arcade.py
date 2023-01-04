@@ -7,6 +7,7 @@ from platformcommon import PlatformCommon
 fullscreen = False
 debugging = True
 
+
 class Platform_Arcade(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -15,7 +16,7 @@ class Platform_Arcade(PlatformCommon):
     emulators = ['retroarch', 'MAME', 'MESS']
     cores = ['mame_libretro', 'mamemess_libretro',]
     extensions = ['zip', 'chd', '7z', 'cmd']
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -23,11 +24,8 @@ class Platform_Arcade(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mame_libretro']
-        
-        emulators = ['retroarch', 'MAME', 'MESS']
-        cores = ['mame_libretro', 'mamemess_libretro',]
         extensions = ['zip', 'chd', '7z', 'cmd']
-                
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
                 extensions = ['zip', 'chd', '7z', 'cmd']
@@ -45,7 +43,7 @@ class Platform_Arcade(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -54,7 +52,6 @@ class Platform_Arcade(PlatformCommon):
         if emulator[0] == 'retroarch':
             emulator.append('-L')
             emulator.append(core[0])
-
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == 'mame':
@@ -72,12 +69,12 @@ class Platform_Arcade(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -92,7 +89,7 @@ class Platform_Arcade(PlatformCommon):
         return ['arcade']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mame_libretro' or core[0] == 'mame2015_libretro' or core[0] == 'mame2016_libretro' or core[0] == 'mamearcade_libretro' or core[0] == 'hbmame_libretro':
@@ -101,7 +98,7 @@ class Platform_Arcade(PlatformCommon):
                 extensions = ['zip', 'chd', '7z']
             if core[0] == 'mame2003_libretro' or core[0] == 'mame2003_plus_libretro' or core[0] == 'mame2003_midway_libretro':
                 extensions = ['zip']
-        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

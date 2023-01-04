@@ -7,6 +7,7 @@ from platformcommon import PlatformCommon
 fullscreen = False
 debugging = True
 
+
 class Platform_Commodore64(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -14,7 +15,8 @@ class Platform_Commodore64(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice', 'frodo']
     cores = ['vice_x64sc_libretro', 'frodo_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
     roms_ext = ['prg', 'p00', 'crt', 'bin']
     vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -31,7 +33,8 @@ class Platform_Commodore64(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_x64sc_libretro']
-        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                       'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
         vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -40,12 +43,13 @@ class Platform_Commodore64(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-                
+
         if emulator[0] == 'other':
-            extensions = ['unknown']        
+            extensions = ['unknown']
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x64sc_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -54,7 +58,7 @@ class Platform_Commodore64(PlatformCommon):
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-        
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -64,11 +68,11 @@ class Platform_Commodore64(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
-        
+
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
@@ -79,7 +83,7 @@ class Platform_Commodore64(PlatformCommon):
             # Set whether we should run in fullscreens or not.
             if fullscreen == True:
                 emulator.append('--fullscreen')
-        
+
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -92,12 +96,12 @@ class Platform_Commodore64(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -105,18 +109,19 @@ class Platform_Commodore64(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
-        
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ['commodore64']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x64sc_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -125,7 +130,7 @@ class Platform_Commodore64(PlatformCommon):
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-                        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -145,6 +150,7 @@ class Platform_Commodore64(PlatformCommon):
                         ext_files.append(file)
         return ext_files
 
+
 class Platform_Commodore128(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -152,7 +158,8 @@ class Platform_Commodore128(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_x128_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
     roms_ext = ['prg', 'p00', 'crt', 'bin']
     vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -161,7 +168,7 @@ class Platform_Commodore128(PlatformCommon):
     extensions.extend(tapes_ext)
     extensions.extend(roms_ext)
     extensions.extend(vic20_ext)
-        
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -169,7 +176,8 @@ class Platform_Commodore128(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_x128_libretro']
-        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                       'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
         vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -181,7 +189,8 @@ class Platform_Commodore128(PlatformCommon):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_x128_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -190,7 +199,7 @@ class Platform_Commodore128(PlatformCommon):
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-        
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -200,7 +209,7 @@ class Platform_Commodore128(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -215,7 +224,7 @@ class Platform_Commodore128(PlatformCommon):
             # Set whether we should run in fullscreens or not.
             if fullscreen == True:
                 emulator.append('--fullscreen')
-        
+
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -228,12 +237,12 @@ class Platform_Commodore128(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -248,11 +257,12 @@ class Platform_Commodore128(PlatformCommon):
         return ['commodore128']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
-            if core[0] == 'vice_x128_libretro':    
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+            if core[0] == 'vice_x128_libretro':
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -261,7 +271,7 @@ class Platform_Commodore128(PlatformCommon):
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -281,15 +291,17 @@ class Platform_Commodore128(PlatformCommon):
                         ext_files.append(file)
         return ext_files
 
+
 class Platform_CommodoreAmiga(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'puae', 'fs-uae']
-    cores = ['puae2021_libretro', 'puae_libretro', 'fsuae_libretro', 'uae4arm_libretro']
+    cores = ['puae2021_libretro', 'puae_libretro',
+             'fsuae_libretro', 'uae4arm_libretro']
     floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
-    harddrives_ext = ['hdf', 'hdz', 'datadir' ]
+    harddrives_ext = ['hdf', 'hdz', 'datadir']
     whdload_ext = ['lha', 'slave', 'info']
     cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
     other = ['uae', 'm3u', 'zip', '7z']
@@ -299,7 +311,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
     extensions.append(harddrives_ext)
     extensions.append(whdload_ext)
     extensions.append(cd_ext)
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -321,17 +333,17 @@ class Platform_CommodoreAmiga(PlatformCommon):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
-                    floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
-                    harddrives_ext = ['hdf', 'hdz', 'datadir' ]
-                    whdload_ext = ['lha', 'slave', 'info']
-                    cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
-                    other = ['uae', 'm3u', 'zip', '7z', 'rp9']
-                    extensions = []
-                    extensions.extend(other)
-                    extensions.extend(floppys_ext)
-                    extensions.extend(harddrives_ext)
-                    extensions.extend(whdload_ext)
-                    extensions.extend(cd_ext)
+                floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
+                harddrives_ext = ['hdf', 'hdz', 'datadir']
+                whdload_ext = ['lha', 'slave', 'info']
+                cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
+                other = ['uae', 'm3u', 'zip', '7z', 'rp9']
+                extensions = []
+                extensions.extend(other)
+                extensions.extend(floppys_ext)
+                extensions.extend(harddrives_ext)
+                extensions.extend(whdload_ext)
+                extensions.extend(cd_ext)
 
         ext = []
         for ext in extensions:
@@ -342,14 +354,14 @@ class Platform_CommodoreAmiga(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         # if len(files) == 0:
         #     # Tries to identify files by any magic necessary.
         #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
-        
+
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
@@ -360,7 +372,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
             # Set whether we should run in fullscreens or not.
             if fullscreen == True:
                 emulator.append('--fullscreen')
-        
+
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -375,12 +387,12 @@ class Platform_CommodoreAmiga(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -388,7 +400,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
-            
+
             # if not os.path.exists(self.datadir + "/s"):
             #     os.makedirs(self.datadir + "/s")
             #     # when find_files_with_extension works with paths relative to datadir.
@@ -398,7 +410,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
             #         exename = exename[len(exename) - 1]
             #         f.write(exename + "\n")
             #         f.close()
-        
+
         # if emulator[0] == 'retroarch':
         #     amiga_model = 'A1200'
         #     if self.prod_platform == 'amigaocsecs':
@@ -417,7 +429,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         #     if len(drives) > 3:
         #         print("\tUsing drive 3: ", drives[3])
         #         emulator.append(drives[3])
-            #emulator.append('--model=' + amiga_model)
+            # emulator.append('--model=' + amiga_model)
 
         self.run_process(emulator)
 
@@ -437,22 +449,22 @@ class Platform_CommodoreAmiga(PlatformCommon):
     #     return cookie_files
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
                 floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
-                harddrives_ext = ['hdf', 'hdz', 'datadir' ]
+                harddrives_ext = ['hdf', 'hdz', 'datadir']
                 whdload_ext = ['lha', 'slave', 'info']
                 cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
-                other = ['uae', 'm3u', 'zip', '7z']    
+                other = ['uae', 'm3u', 'zip', '7z']
                 extensions = []
                 extensions.extend(other)
                 extensions.extend(floppys_ext)
                 extensions.extend(harddrives_ext)
                 extensions.extend(whdload_ext)
                 extensions.extend(cd_ext)
-                    
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -472,6 +484,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                         ext_files.append(file)
         return ext_files
 
+
 class Platform_CommodoreCBMII(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -479,7 +492,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xcbm2_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
     roms_ext = ['prg', 'p00', 'crt', 'bin']
     vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -496,7 +510,8 @@ class Platform_CommodoreCBMII(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xcbm2_libretro']
-        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                       'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
         vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -507,10 +522,11 @@ class Platform_CommodoreCBMII(PlatformCommon):
         extensions.extend(vic20_ext)
 
         if emulator[0] == 'other':
-            extensions = ['unknown']        
+            extensions = ['unknown']
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xcbm2_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -529,7 +545,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -544,7 +560,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
             # Set whether we should run in fullscreens or not.
             if fullscreen == True:
                 emulator.append('--fullscreen')
-        
+
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -557,12 +573,12 @@ class Platform_CommodoreCBMII(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -577,11 +593,12 @@ class Platform_CommodoreCBMII(PlatformCommon):
         return ['commodorecbm']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xcbm2_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -610,6 +627,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
                         ext_files.append(file)
         return ext_files
 
+
 class Platform_CommodorePet(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -617,7 +635,8 @@ class Platform_CommodorePet(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xpet_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
     roms_ext = ['prg', 'p00', 'crt', 'bin']
     vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -626,7 +645,7 @@ class Platform_CommodorePet(PlatformCommon):
     extensions.extend(tapes_ext)
     extensions.extend(roms_ext)
     extensions.extend(vic20_ext)
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -634,7 +653,8 @@ class Platform_CommodorePet(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xpet_libretro']
-        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                       'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
         vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -643,21 +663,22 @@ class Platform_CommodorePet(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-                
+
         if emulator[0] == 'other':
-            extensions = ['unknown']        
+            extensions = ['unknown']
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xpet_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
-                vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']    
+                vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
                 extensions = []
                 extensions.extend(floppys_ext)
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-                
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -667,7 +688,7 @@ class Platform_CommodorePet(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -682,7 +703,7 @@ class Platform_CommodorePet(PlatformCommon):
             # Set whether we should run in fullscreens or not.
             if fullscreen == True:
                 emulator.append('--fullscreen')
-        
+
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -695,12 +716,12 @@ class Platform_CommodorePet(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -715,11 +736,12 @@ class Platform_CommodorePet(PlatformCommon):
         return ['commodorepet']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xpet_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -728,7 +750,7 @@ class Platform_CommodorePet(PlatformCommon):
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -748,6 +770,7 @@ class Platform_CommodorePet(PlatformCommon):
                         ext_files.append(file)
         return ext_files
 
+
 class Platform_CommodorePlus4(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -755,7 +778,8 @@ class Platform_CommodorePlus4(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xplus4_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
     roms_ext = ['prg', 'p00', 'crt', 'bin']
     vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -764,7 +788,7 @@ class Platform_CommodorePlus4(PlatformCommon):
     extensions.extend(tapes_ext)
     extensions.extend(roms_ext)
     extensions.extend(vic20_ext)
-        
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -772,7 +796,8 @@ class Platform_CommodorePlus4(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xplus4_libretro']
-        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                       'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
         vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -781,12 +806,13 @@ class Platform_CommodorePlus4(PlatformCommon):
         extensions.extend(tapes_ext)
         extensions.extend(roms_ext)
         extensions.extend(vic20_ext)
-                
+
         if emulator[0] == 'other':
-            extensions = ['unknown']        
+            extensions = ['unknown']
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xplus4_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -795,7 +821,7 @@ class Platform_CommodorePlus4(PlatformCommon):
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-                
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -805,7 +831,7 @@ class Platform_CommodorePlus4(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -833,12 +859,12 @@ class Platform_CommodorePlus4(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -853,11 +879,12 @@ class Platform_CommodorePlus4(PlatformCommon):
         return ['commodoreplus4', 'c16116plus4']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
-    
+    def find_ext_files(self, emulator, core):
+
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xplus4_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -866,7 +893,7 @@ class Platform_CommodorePlus4(PlatformCommon):
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -886,6 +913,7 @@ class Platform_CommodorePlus4(PlatformCommon):
                         ext_files.append(file)
         return ext_files
 
+
 class Platform_CommodoreVIC20(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -893,7 +921,8 @@ class Platform_CommodoreVIC20(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'vice']
     cores = ['vice_xvic_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
     tapes_ext = ['t64', 'tap', 'tcrt']
     roms_ext = ['prg', 'p00', 'crt', 'bin']
     vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -902,7 +931,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
     extensions.extend(tapes_ext)
     extensions.extend(roms_ext)
     extensions.extend(vic20_ext)
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -910,7 +939,8 @@ class Platform_CommodoreVIC20(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vice_xvic_libretro']
-        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                       'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
         tapes_ext = ['t64', 'tap', 'tcrt']
         roms_ext = ['prg', 'p00', 'crt', 'bin']
         vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -921,10 +951,11 @@ class Platform_CommodoreVIC20(PlatformCommon):
         extensions.extend(vic20_ext)
 
         if emulator[0] == 'other':
-            extensions = ['unknown']        
+            extensions = ['unknown']
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xvic_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -933,7 +964,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-                
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -943,7 +974,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -958,7 +989,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
             # Set whether we should run in fullscreens or not.
             if fullscreen == True:
                 emulator.append('--fullscreen')
-        
+
         # print status to console.
         if debugging != False:
             print("\tUsing emulator: " + str(emulator))
@@ -971,12 +1002,12 @@ class Platform_CommodoreVIC20(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -991,11 +1022,12 @@ class Platform_CommodoreVIC20(PlatformCommon):
         return ['vic20']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'vice_xvic_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
                 tapes_ext = ['t64', 'tap', 'tcrt']
                 roms_ext = ['prg', 'p00', 'crt', 'bin']
                 vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -1004,7 +1036,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 extensions.extend(tapes_ext)
                 extensions.extend(roms_ext)
                 extensions.extend(vic20_ext)
-        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

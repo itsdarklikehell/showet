@@ -7,6 +7,7 @@ from platformcommon import PlatformCommon
 fullscreen = False
 debugging = True
 
+
 class Platform_Tic80(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -15,7 +16,7 @@ class Platform_Tic80(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['tic80_libretro']
     extensions = ['zip', 'tic']
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -23,11 +24,11 @@ class Platform_Tic80(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['tic80_libretro']
-        
+
         emulators = ['retroarch', 'other']
         cores = ['tic80_libretro']
         extensions = ['zip', 'tic']
-                
+
         if emulator[0] == 'retroarch':
             if core[0] == 'tic80_libretro':
                 extensions = ['tic']
@@ -41,7 +42,7 @@ class Platform_Tic80(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -69,12 +70,12 @@ class Platform_Tic80(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -82,19 +83,19 @@ class Platform_Tic80(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
-                
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ['tic80']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'tic80_libretro':
                 extensions = ['tic']
-        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -114,6 +115,7 @@ class Platform_Tic80(PlatformCommon):
                         ext_files.append(file)
         return ext_files
 
+
 class Platform_TRS80(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -122,7 +124,7 @@ class Platform_TRS80(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['tic80_libretro']
     extensions = ['zip', 'tic']
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -130,15 +132,15 @@ class Platform_TRS80(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['tic80_libretro']
-        
+
         emulators = ['retroarch', 'other']
         cores = ['tic80_libretro']
         extensions = ['zip', 'tic']
-                
+
         if emulator[0] == 'retroarch':
             if core[0] == 'tic80_libretro':
                 extensions = ['tic']
-        
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -148,7 +150,7 @@ class Platform_TRS80(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -176,12 +178,12 @@ class Platform_TRS80(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -189,19 +191,19 @@ class Platform_TRS80(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
-                
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ['trs80']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'tic80_libretro':
                 extensions = ['tic']
-                        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

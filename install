@@ -3,57 +3,56 @@
 # author: Bauke Molenaar.
 
 cd ~
-inst_emulators(){
+inst_emulators() {
     echo "Installing retroarch Repositories."
     sudo add-apt-repository ppa:libretro/stable
-    sudo add-apt-repository ppa:libretro/extra
+    #sudo add-apt-repository ppa:libretro/extra
     sudo add-apt-repository ppa:libretro/testing
     sudo apt update
     sudo apt install retroarch* libretro*
 }
-inst_deps(){
+inst_deps() {
     echo "Installing dependencies..."
-    deps=( \
-        "python3" \
-        "python3-urllib3" \
-        "unzip" \
-        "fs-uae" \
-        "lhasa" \
-        "vice" \
-        "libqt5gui5-gles" \
-        "libqt5quick5-gles" \
-        "libqt5quickparticles5" \
-        "libqt5quickshapes5" \
-        "libqt5quicktest5" \
-        "qt5-qmltooling-plugins" \
-        "qtbase5-gles-dev" \
-        "qtdeclarative5-dev-tools" \
-        "qml-module-qtquick-controls" \
-        "qml-module-qtgraphicaleffects" \
-        "qml-module-qtquick-layouts" \
-        "qml-module-qtwebengine" \
-        "debhelper" \
-        "qt5-qmake" \
-        "qtbase5-dev" \
-        "qtdeclarative5-dev" \
-        "python3" \
-        "python3-urllib3" \
-        "unrar" \
-        "p7zip-full" \
-        "p7zip-rar" \
-        "gzip" \
-        "unzip" \
+    deps=(
+        "python3"
+        "python3-urllib3"
+        "unzip"
+        "fs-uae"
+        "lhasa"
+        "vice"
+        "libqt5gui5-gles"
+        "libqt5quick5-gles"
+        "libqt5quickparticles5"
+        "libqt5quickshapes5"
+        "libqt5quicktest5"
+        "qt5-qmltooling-plugins"
+        "qtbase5-gles-dev"
+        "qtdeclarative5-dev-tools"
+        "qml-module-qtquick-controls"
+        "qml-module-qtgraphicaleffects"
+        "qml-module-qtquick-layouts"
+        "qml-module-qtwebengine"
+        "debhelper"
+        "qt5-qmake"
+        "qtbase5-dev"
+        "qtdeclarative5-dev"
+        "python3"
+        "python3-urllib3"
+        "unrar"
+        "p7zip-full"
+        "p7zip-rar"
+        "gzip"
+        "unzip"
         "wine"
     )
-    for dep in "${deps[@]}"
-    do
+    for dep in "${deps[@]}"; do
         if ! dpkg -s $dep >/dev/null 2>&1; then
             echo "Installing $dep"
             sudo apt install $dep
         fi
     done
 }
-inst_showet(){
+inst_showet() {
     sudo apt update
     sudo apt upgrade
     echo "Installing Showet..."
@@ -63,7 +62,7 @@ inst_showet(){
     make
     sudo make install
 }
-updt_showet(){
+updt_showet() {
     if [ ! -d ~/showet ]; then
         echo "Directory ~/Showet was not found, please install it first"
     else
@@ -89,7 +88,7 @@ if [[ $1 = "--install-showet" ]]; then
     inst_emulators
     inst_showet
 fi
-if [[ $# -eq 0 ]] ; then
+if [[ $# -eq 0 ]]; then
     echo "Usage:    ./install.sh [OPTION]"
     echo "Options:"
     echo "          --install-showet"

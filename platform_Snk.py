@@ -7,6 +7,7 @@ from platformcommon import PlatformCommon
 fullscreen = False
 debugging = True
 
+
 class Platform_Neogeo(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -15,7 +16,7 @@ class Platform_Neogeo(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -23,15 +24,15 @@ class Platform_Neogeo(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
-        
+
         emulators = ['retroarch', 'other']
         cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
-                
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
-                
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -41,7 +42,7 @@ class Platform_Neogeo(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -69,12 +70,12 @@ class Platform_Neogeo(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -82,19 +83,19 @@ class Platform_Neogeo(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
-                
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ['neogeo']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
-        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -113,6 +114,7 @@ class Platform_Neogeo(PlatformCommon):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
+
 
 class Platform_Neopocket(PlatformCommon):
     # Set up the emulator we want to run.
@@ -122,7 +124,7 @@ class Platform_Neopocket(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -130,15 +132,15 @@ class Platform_Neopocket(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
-        
+
         emulators = ['retroarch', 'other']
         cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
-                
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
-        
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -148,7 +150,7 @@ class Platform_Neopocket(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -176,12 +178,12 @@ class Platform_Neopocket(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -189,19 +191,19 @@ class Platform_Neopocket(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
-                
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ['neogeopocket']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
-        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -220,6 +222,7 @@ class Platform_Neopocket(PlatformCommon):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
+
 
 class Platform_Neopocketcolor(PlatformCommon):
     # Set up the emulator we want to run.
@@ -229,7 +232,7 @@ class Platform_Neopocketcolor(PlatformCommon):
     emulators = ['retroarch', 'other']
     cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
     extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
-    
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -237,15 +240,15 @@ class Platform_Neopocketcolor(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
-        
+
         emulators = ['retroarch', 'other']
         cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
-                
+
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
-        
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -255,11 +258,11 @@ class Platform_Neopocketcolor(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
-        
+
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == 'retroarch':
             emulator.append('-L')
@@ -283,12 +286,12 @@ class Platform_Neopocketcolor(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -296,19 +299,19 @@ class Platform_Neopocketcolor(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
-                
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ['neogeopocketcolor']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
 
         if emulator[0] == 'retroarch':
             if core[0] == 'mednafen_ngp_libretro':
                 extensions = ['ngp', 'ngc', 'ngpc', 'npc']
-        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -327,4 +330,3 @@ class Platform_Neopocketcolor(PlatformCommon):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
-

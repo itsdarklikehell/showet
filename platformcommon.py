@@ -1,12 +1,12 @@
 import os
 import os.path
-from pkgutil import extend_path
 import subprocess
 import inquirer
 
 fullscreen = False
 selective_mode = True
 debugging = True
+
 
 class PlatformCommon:
     prod_files = []
@@ -16,7 +16,7 @@ class PlatformCommon:
     audio = ['true']
     debugging = True
     selective_mode = True
-    
+
     def __init__(self):
         self.showetdir = None
         self.datadir = None
@@ -47,7 +47,8 @@ class PlatformCommon:
         return None
 
     def find_files_with_extension(self, extension):
-        foundfiles = [f for f in self.prod_files if (f.lower().endswith(extension) or f.upper().endswith(extension))]
+        foundfiles = [f for f in self.prod_files if (
+            f.lower().endswith(extension) or f.upper().endswith(extension))]
         return foundfiles
 
     # Input: list of disk images, output: same list sorted by some
@@ -64,11 +65,12 @@ class PlatformCommon:
         if debugging != False:
             print("\tRunning command: ", arguments)
             print("\t================================")
-        
-        process = subprocess.Popen(arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
+        process = subprocess.Popen(
+            arguments, cwd=self.datadir, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         process.wait()
         retcode = process.returncode
-        
+
         for line in process.stdout:
             print(line.decode('utf-8'))
         if retcode:
@@ -77,26 +79,28 @@ class PlatformCommon:
             exit(-1)
         return retcode
     print("\t================================")
-    
-    def multiemu(self,emulators):
-        #emulator = []
+
+    def multiemu(self, emulators):
+        # emulator = []
         if debugging != False:
             print('Info: Multiple emulators are supported: ' + str(emulators))
         prompt = [
-            inquirer.List('emulators', message='Please select one of the supported emulators to continue', choices=emulators),
+            inquirer.List(
+                'emulators', message='Please select one of the supported emulators to continue', choices=emulators),
         ]
         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
         if debugging != False:
             print('You chose the selected emulator: ' + str(emulator))
         return emulator
-    
-    def multicore(self,cores):
-        #core = []
+
+    def multicore(self, cores):
+        # core = []
         if debugging != False:
             print('Info: Multiple cores are supported: ' + str(cores))
         prompt = [
-            inquirer.List('cores', message='Please select one of the supported emulators to continue', choices=cores),
-        ]   
+            inquirer.List(
+                'cores', message='Please select one of the supported emulators to continue', choices=cores),
+        ]
         core = inquirer.prompt(prompt).get('cores').strip().lower()
         if debugging != False:
             print('You chose the selected core: ' + str(core))

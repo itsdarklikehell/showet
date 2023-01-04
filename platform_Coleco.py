@@ -1,4 +1,3 @@
-from cmath import e
 import os
 import os.path
 import stat
@@ -8,6 +7,7 @@ from platformcommon import PlatformCommon
 fullscreen = False
 debugging = True
 
+
 class Platform_Coleco(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -15,8 +15,9 @@ class Platform_Coleco(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ['retroarch', 'bluemsx', 'gearcoleco']
     cores = ['bluemsx_libretro', 'gearcoleco_libretro']
-    extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-    
+    extensions = ['rom', 'ri', 'mx1', 'mx2',
+                  'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -24,14 +25,13 @@ class Platform_Coleco(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['bluemsx_libretro']
-        
-        emulators = ['retroarch', 'bluemsx', 'gearcoleco']
-        cores = ['bluemsx_libretro', 'gearcoleco_libretro']
-        extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-                
+        extensions = ['rom', 'ri', 'mx1', 'mx2',
+                      'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+
         if emulator[0] == 'retroarch':
             if core[0] == 'bluemsx_libretro':
-                extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+                extensions = ['rom', 'ri', 'mx1', 'mx2',
+                              'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
             if core[0] == 'gearcoleco_libretro':
                 extensions = ['col', 'cv', 'bin', 'rom']
 
@@ -44,7 +44,7 @@ class Platform_Coleco(PlatformCommon):
             files = self.find_files_with_extension(ext.upper())
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator,core)
+            files = self.find_ext_files(emulator, core)
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -72,12 +72,12 @@ class Platform_Coleco(PlatformCommon):
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
             with open(flipfile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
             with open(m3ufile, "w") as f:
-                #f.write("UNIT 8\n")
+                # f.write("UNIT 8\n")
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
@@ -85,23 +85,24 @@ class Platform_Coleco(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator[0] == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
-                
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ['Coleco', 'Colecovision']
 
     # Tries to identify files by any magic necessary
-    def find_ext_files(self,emulator,core):
+    def find_ext_files(self, emulator, core):
         if emulator[0] == 'other':
             extensions = ['unknown']
-            
+
         if emulator[0] == 'retroarch':
             if core[0] == 'bluemsx_libretro':
-                extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+                extensions = ['rom', 'ri', 'mx1', 'mx2',
+                              'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
             if core[0] == 'gearcoleco_libretro':
                 extensions = ['col', 'cv', 'bin', 'rom']
-                        
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
