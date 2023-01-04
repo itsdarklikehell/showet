@@ -24,9 +24,6 @@ class Platform_Neogeo(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         if emulator[0] == 'retroarch':
@@ -132,9 +129,6 @@ class Platform_Neopocket(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['mednafen_ngp_libretro', 'fbneo_ngp']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         if emulator[0] == 'retroarch':
@@ -240,9 +234,6 @@ class Platform_Neopocketcolor(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_ngp_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']
         extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
         if emulator[0] == 'retroarch':

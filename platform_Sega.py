@@ -25,9 +25,6 @@ class Platform_32X(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['picodrive_libretro']
-
-        emulators = ['retroarch', 'picodrive']
-        cores = ['picodrive_libretro']
         extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md',
                       '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
 
@@ -137,10 +134,6 @@ class Platform_Dreamcast(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['flycast_libretro']
-
-        emulators = ['retroarch', 'flycast', 'redream']
-        cores = ['flycast_libretro',
-                 'flycast_gles2_libretro', 'retrodream_libretro']
         extensions = ['chd', 'cdi', 'elf', 'bin', 'cue',
                       'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
 
@@ -256,29 +249,7 @@ class Platform_Gamegear(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['genesis_plus_gx_libretro']
-
-        emulators = ['retroarch', 'osmose']
-        cores = ['gearsystem_libretro',
-                 'genesis_plus_gx_libretro', 'fbneo_gg_libretro']
         extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
-
-        # # If multiple emulators are specified (e.g. 'retroarch', 'dosbox') ask the user to specify which one to use.
-        # if len(emulators) > 1:
-        #     emulator == emulators[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multiemu(self,emulators)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(emulators[0]))
-        #         emulator == emulators[0]
-
-        # # If multiple cores are specified (e.g. 'dosbox_libretro', 'dosbox_pure_libretro') ask the user to specify which one to use.
-        # if len(cores) > 1:
-        #     core == cores[0]
-        #     if selective_mode != False:
-        #         PlatformCommon.multicore(self,cores)
-        #     else:
-        #         print('interactive mode is off, using default ' + str(cores[0]))
-        #         core == cores[0]
 
         if emulator[0] == 'retroarch':
             # MS/GG/MD/CD
@@ -395,10 +366,6 @@ class Platform_Mastersystem(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['genesis_plus_gx_libretro']
-
-        emulators = ['retroarch', 'osmose']
-        cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro',
-                 'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',
                       'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
 
@@ -541,10 +508,6 @@ class Platform_Megadrive(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['picodrive_libretro']
-
-        emulators = ['retroarch', 'dgen']
-        cores = ['genesis_plus_gx_libretro',
-                 'fbneo_md_libretro', 'picodrive_libretro']
         extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',
                       'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
 
@@ -665,10 +628,6 @@ class Platform_Saturn(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['yabause_libretro']
-
-        emulators = ['retroarch', 'yabause', 'kronos']
-        cores = ['yabause_libretro', 'kronos_libretro',
-                 'mednafen_saturn_libretro']
         extensions = ['ccd', 'chd', 'cue', 'toc', 'm3u']
 
         if emulator[0] == 'retroarch':
@@ -784,10 +743,6 @@ class Platform_Stv(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['kronos_libretro']
-
-        emulators = ['retroarch', 'yabause', 'kronos']
-        cores = ['yabause_libretro', 'kronos_libretro',
-                 'mednafen_saturn_libretro']
         extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
 
         if emulator[0] == 'retroarch':
@@ -903,9 +858,6 @@ class Platform_Vmu(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vemulator_libretro']
-
-        emulators = ['retroarch', 'vemulator']
-        cores = ['vemulator_libretro']
         extensions = ['zip', 'vms', 'dci', 'bin']
 
         if emulator[0] == 'retroarch':
@@ -1014,9 +966,6 @@ class Platform_SG1000(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['bluemsx_libretro']
-
-        emulators = ['retroarch', 'gearsystem']
-        cores = ['gearsystem_libretro', 'bluemsx_libretro']
         extensions = ['rom', 'ri', 'mx1', 'mx2',
                       'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
