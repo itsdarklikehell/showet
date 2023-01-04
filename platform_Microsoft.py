@@ -1,4 +1,5 @@
 import os
+from os import listdir
 import os.path
 import stat
 
@@ -295,7 +296,7 @@ class Platform_Windows(PlatformCommon):
             os.makedirs(wineprefix)
             print("Creating wine prefix: " + str(wineprefix))
             os.system('WINEARCH="win64" winecfg')
-        self.run_process([emulator[0], exefile])
+        self.run_process([emulator[0], exepath])
 
     def supported_platforms(self):
         return ['windows', 'wild']
