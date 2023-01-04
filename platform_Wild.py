@@ -25,9 +25,6 @@ class Platform_Gamemusic(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['gme_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['gme_libretro']
         extensions = ['zip', 'ay', 'gbs', 'gym', 'hes',
                       'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
 
@@ -137,9 +134,6 @@ class Platform_VideoFFMPEG(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['ffmpeg_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['ffmpeg_libretro']
         extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',
                       '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
@@ -249,9 +243,6 @@ class Platform_VideoMPV(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mpv_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['mpv_libretro']
         extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',
                       '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 

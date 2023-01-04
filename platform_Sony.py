@@ -26,10 +26,6 @@ class Platform_Psx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['swanstation_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['pcsx_rearmed_libretro',
-                 'mednafen_psx_libretro', 'swanstation_libretro']
         extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
@@ -159,9 +155,6 @@ class Platform_Ps2(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['pcsx2_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['pcsx2_libretro', 'play_libretro']
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
@@ -274,9 +267,6 @@ class Platform_Psp(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['ppsspp_libretro']
-
-        emulators = ['retroarch', 'ppsspp']
-        cores = ['ppsspp_libretro']
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
 
         if emulator[0] == 'retroarch':

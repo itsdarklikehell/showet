@@ -24,9 +24,6 @@ class Platform_Tic80(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['tic80_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['tic80_libretro']
         extensions = ['zip', 'tic']
 
         if emulator[0] == 'retroarch':
@@ -132,9 +129,6 @@ class Platform_TRS80(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['tic80_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['tic80_libretro']
         extensions = ['zip', 'tic']
 
         if emulator[0] == 'retroarch':
