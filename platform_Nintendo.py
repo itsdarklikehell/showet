@@ -869,10 +869,6 @@ class Platform_GameboyAdvance(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['vba_next_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['meteor_libretro', 'vba_next_libretro',
-                 'vbam_libretro', 'mgba_libretro', 'gpsp_libretro']
         extensions = ['zip', 'gb', 'gbc', 'gba',
                       'dmg', 'agb', 'bin', 'cgb', 'sgb']
 
@@ -1004,9 +1000,6 @@ class Platform_Gamecube(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['dolphin_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['dolphin_libretro']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
@@ -1115,9 +1108,6 @@ class Platform_Pokemini(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['pokemini_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['pokemini_libretro']
         extensions = ['zip', 'min']
 
         if emulator[0] == 'retroarch':
@@ -1223,9 +1213,6 @@ class Platform_SuperFamicom(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['snes9x_libretro']
-        emulators = ['retroarch', 'other']
-        cores = ['snes9x_libretro']
-
         fullscreen = ['false']
 
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
@@ -1345,9 +1332,6 @@ class Platform_Virtualboy(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['mednafen_vb_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['mednafen_vb_libretro']
         extensions = ['zip', 'vb', 'vboy', 'bin']
 
         if emulator[0] == 'retroarch':
@@ -1452,9 +1436,6 @@ class Platform_Wii(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['dolphin_libretro']
-
-        emulators = ['retroarch', 'other']
-        cores = ['dolphin_libretro']
         extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
                       'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
