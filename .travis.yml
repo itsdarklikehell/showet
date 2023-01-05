@@ -6,7 +6,7 @@ before_install:
 - sudo apt-get install -qq debhelper qtbase5-dev qt5-default qt5-qmake cdbs devscripts
   qtdeclarative5-dev retroarch* libretro-* python3 python3-urllib3 unrar p7zip-full p7zip-rar
   gzip unzip wine fs-uae lhasa vice qml-module-qtquick-controls qml-module-qtgraphicaleffects
-  qml-module-qtquick-layouts qml-module-qtwebengine
+  qml-module-qtquick-layouts qml-module-qtwebengine qtwebengine5-dev
 script: debuild -i -us -uc -b
 branches:
   only:
