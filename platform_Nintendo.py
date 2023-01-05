@@ -4,8 +4,8 @@ import stat
 
 from platformcommon import PlatformCommon
 
-fullscreen = False
-debugging = True
+FULLSCREEN = False
+DEBUGGING = True
 
 
 class Platform_3DS(PlatformCommon):
@@ -53,11 +53,11 @@ class Platform_3DS(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -101,12 +101,12 @@ class Platform_3DS(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -159,11 +159,11 @@ class Platform_N64(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -210,12 +210,12 @@ class Platform_N64(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -266,11 +266,11 @@ class Platform_DS(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -315,12 +315,12 @@ class Platform_DS(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -377,11 +377,11 @@ class Platform_Famicom(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -430,12 +430,12 @@ class Platform_Famicom(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -492,11 +492,11 @@ class Platform_FamicomDisksystem(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -545,12 +545,12 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -573,7 +573,7 @@ class Platform_Gameboy(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
-        fullscreen = ['false']
+        FULLSCREEN = ['False']
         core = ['mesen-s_libretro']
         extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd']
 
@@ -623,11 +623,11 @@ class Platform_Gameboy(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -693,12 +693,12 @@ class Platform_Gameboy(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -770,11 +770,11 @@ class Platform_GameboyColor(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -840,12 +840,12 @@ class Platform_GameboyColor(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -910,11 +910,11 @@ class Platform_GameboyAdvance(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -971,12 +971,12 @@ class Platform_GameboyAdvance(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -1030,11 +1030,11 @@ class Platform_Gamecube(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1080,12 +1080,12 @@ class Platform_Gamecube(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -1136,11 +1136,11 @@ class Platform_Pokemini(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1185,12 +1185,12 @@ class Platform_Pokemini(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -1213,7 +1213,7 @@ class Platform_SuperFamicom(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ['retroarch']
         core = ['snes9x_libretro']
-        fullscreen = ['false']
+        FULLSCREEN = ['False']
 
         extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
 
@@ -1249,11 +1249,11 @@ class Platform_SuperFamicom(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1304,12 +1304,12 @@ class Platform_SuperFamicom(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -1362,7 +1362,7 @@ class Platform_Virtualboy(PlatformCommon):
             print("Using: " + str(emulator))
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1407,12 +1407,12 @@ class Platform_Virtualboy(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -1466,11 +1466,11 @@ class Platform_Wii(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -1516,12 +1516,12 @@ class Platform_Wii(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)

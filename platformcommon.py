@@ -3,19 +3,19 @@ import os.path
 import subprocess
 import inquirer
 
-fullscreen = False
-selective_mode = True
-debugging = True
+FULLSCREEN = False
+SELECTIVE_MODE = True
+DEBUGGING = True
 
 
 class PlatformCommon:
     prod_files = []
-    steam = ['false']
-    fullscreen = ['true']
-    native = ['false']
-    audio = ['true']
-    debugging = True
-    selective_mode = True
+    STEAM = ['False']
+    FULLSCREEN = ['True']
+    NATIVE = ['False']
+    AUDIO = ['True']
+    DEBUGGING = True
+    SELECTIVE_MODE = True
 
     def __init__(self):
         self.showetdir = None
@@ -56,13 +56,13 @@ class PlatformCommon:
     def sort_disks(self, files):
         sorted_list = sorted(files, key=lambda s: (s.lower() or s.upper()))
         if len(sorted_list) > 1:
-            if debugging != False:
+            if DEBUGGING is not False:
                 print("\tGuessing disk order should be: ")
                 print(sorted_list)
         return sorted_list
 
     def run_process(self, arguments):
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tRunning command: ", arguments)
             print("\t================================")
 
@@ -74,7 +74,7 @@ class PlatformCommon:
         for line in process.stdout:
             print(line.decode('utf-8'))
         if retcode:
-            if debugging != False:
+            if DEBUGGING is not False:
                 print(arguments, "\n\tprocess exited with ", retcode)
             exit(-1)
         return retcode
@@ -82,26 +82,26 @@ class PlatformCommon:
 
     def multiemu(self, emulators):
         # emulator = []
-        if debugging != False:
+        if DEBUGGING is not False:
             print('Info: Multiple emulators are supported: ' + str(emulators))
         prompt = [
             inquirer.List(
                 'emulators', message='Please select one of the supported emulators to continue', choices=emulators),
         ]
         emulator = inquirer.prompt(prompt).get('emulators').strip().lower()
-        if debugging != False:
+        if DEBUGGING is not False:
             print('You chose the selected emulator: ' + str(emulator))
         return emulator
 
     def multicore(self, cores):
         # core = []
-        if debugging != False:
+        if DEBUGGING is not False:
             print('Info: Multiple cores are supported: ' + str(cores))
         prompt = [
             inquirer.List(
                 'cores', message='Please select one of the supported emulators to continue', choices=cores),
         ]
         core = inquirer.prompt(prompt).get('cores').strip().lower()
-        if debugging != False:
+        if DEBUGGING is not False:
             print('You chose the selected core: ' + str(core))
         return core

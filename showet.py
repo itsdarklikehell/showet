@@ -4,7 +4,6 @@ import json
 import os
 import argparse
 import patoolib
-import inquirer
 
 from platform_3do import Platform_3do
 from platform_Amstrad import Platform_Cpcplus
@@ -18,7 +17,7 @@ from platform_Atari import (
     Platform_AtariLynx,
     Platform_Atari2600,
     Platform_Atari5200,
-    Platform_Atari7800 
+    Platform_Atari7800
 )
 from platform_Bandai import Platform_Wonderswan
 from platform_Coleco import Platform_Coleco
@@ -51,7 +50,7 @@ from platform_Nintendo import (
     Platform_GameboyColor,
     Platform_GameboyAdvance,
     Platform_Famicom,
-    Platform_SuperFamicom, 
+    Platform_SuperFamicom,
     Platform_Virtualboy,
     Platform_N64,
     Platform_Gamecube,
@@ -69,10 +68,10 @@ from platform_Sega import (
     Platform_Dreamcast,
     Platform_Saturn
 )
-#from platform_Sinclair import (
+# from platform_Sinclair import (
 #    Platform_Zxspectrum,
 #    Platform_Zx81
-#)
+# )
 from platform_Snk import (
     Platform_Neogeo,
     Platform_Neopocket,
@@ -96,12 +95,15 @@ from platform_Wild import (
     Platform_VideoFFMPEG
 )
 
-debugging = True
+DEBUGGING = True
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
-parser.add_argument('pouetid', type=int, nargs='?', help='Pouet ID of the production to show')
-parser.add_argument('--platforms', action="store_true", help='List supported platforms and exit')
-parser.add_argument('--random', action="store_true", help='Play random productions')
+parser.add_argument('pouetid', type=int, nargs='?',
+                    help='Pouet ID of the production to show')
+parser.add_argument('--platforms', action="store_true",
+                    help='List supported platforms and exit')
+parser.add_argument('--random', action="store_true",
+                    help='Play random productions')
 
 args = parser.parse_args()
 
@@ -109,7 +111,7 @@ args = parser.parse_args()
 platform_runners = [
     Platform_CommodoreAmiga(),
     Platform_Commodore128(),
-    Platform_Commodore64(), 
+    Platform_Commodore64(),
     Platform_CommodorePet(),
     Platform_CommodorePlus4(),
     Platform_CommodoreVIC20(),
@@ -156,14 +158,14 @@ platform_runners = [
     Platform_VideoFFMPEG(),
     Platform_Arcade(),
     Platform_3do(),
-    Platform_Wonderswan(), 
+    Platform_Wonderswan(),
     Platform_Coleco(),
     Platform_Channelf(),
     Platform_Odyssey(),
-    Platform_Cdi(), 
+    Platform_Cdi(),
     Platform_Spectravideo(),
     Platform_AtariSTETTFalcon(),
-    Platform_Atarixlxe(), 
+    Platform_Atarixlxe(),
     Platform_AtariJaguar(),
     Platform_AtariLynx(),
     Platform_Atari2600(),
@@ -174,9 +176,9 @@ platform_runners = [
     Platform_Linux(),
     Platform_Msdos(),
     Platform_Windows(),
-    ]
-    #Platform_Zxspectrum(),
-    #Platform_Zx81(),
+]
+# Platform_Zxspectrum(),
+# Platform_Zx81(),
 if args.platforms:
     for r in platform_runners:
         for p in r.supported_platforms():
@@ -197,7 +199,7 @@ else:
 print("Check: if Folder %s exists." % RetroPieEmuDir)
 if not os.path.exists(RetroPieEmuDir):
     print("Warning: %s does not exist" % RetroPieEmuDir)
-    #exit(-1)
+    # exit(-1)
 else:
     print("Info: Folder %s exists." % RetroPieEmuDir)
 
@@ -215,7 +217,7 @@ prod_download_filename = None
 prod_json = None
 prod_json_filename = datadir + "/pouet.json"
 if os.path.exists(prod_json_filename):
-    if debugging != False:
+    if DEBUGGING is not False:
         print("Json already downloaded")
     with open(prod_json_filename, 'r') as f:
         prod_json = f.read()
@@ -248,7 +250,8 @@ if not runner:
     exit(-1)
 
 if len(platforms) > 1:
-    print("Demo supports platforms ", platforms, "of which", prod_platform, "rules the most.")
+    print("Demo supports platforms ", platforms,
+          "of which", prod_platform, "rules the most.")
     # Should be possible to implement a inquirer menu here but this ^ works for now.
 
 # Print fields collected from the data:
@@ -257,7 +260,7 @@ if len(platforms) > 1:
 # Type: " + data['prod']['type']
 # Released: " + data['prod']['releaseDate']
 # Platform: " + prod_platform
-if debugging != False:
+if DEBUGGING is not False:
     print("\tName: " + data['prod']['name'])
     try:
         print("\tBy: " + data['prod']['groups'][0]['name'])
@@ -266,7 +269,7 @@ if debugging != False:
     try:
         print("\tType: " + data['prod']['type'])
     except IndexError:
-        pass    
+        pass
     # try:
     #     print("\tReleased: " + data['prod']['releaseDate'])
     # except IndexError:
@@ -275,22 +278,23 @@ if debugging != False:
 
 # Get necessary fields from the data
 prod_download_url = data['prod']['download']
-prod_download_url = prod_download_url.replace("https://files.scene.org/view", "https://files.scene.org/get")
+prod_download_url = prod_download_url.replace(
+    "https://files.scene.org/view", "https://files.scene.org/get")
 
 # Check if the download is already downloaded, else just download it.
 if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
-        print("\tFile already downloaded")
+    print("\tFile already downloaded")
 else:
-    if debugging != False:
+    if DEBUGGING is not False:
         print("\tDownloading prod file from " + prod_download_url + "...")
-    
+
     filedata = urllib.request.urlopen(prod_download_url)
     filename = os.path.basename(filedata.url)
-    
+
     if len(filename) == 0:
         print("Error downloading file at ", prod_download_url)
         exit(-1)
-    if debugging != False:
+    if DEBUGGING is not False:
         print("\tFilename: ", filename)
 
     prod_download_filename = datadir + "/" + filename
@@ -299,14 +303,15 @@ else:
     with open(prod_download_filename, 'wb') as f:
         f.write(datatowrite)
 
-    if debugging != False:
+    if DEBUGGING is not False:
         print("\tDownloaded: ", prod_download_filename)
         print("\tFilesize: ", os.path.getsize(prod_download_filename))
 
     # extract files depending on the filetype
     def extract_files(prod_download_filename, datadir):
         if not prod_download_filename.endswith("exe") or not prod_download_filename.endswith("EXE"):
-            patoolib.extract_archive(prod_download_filename, outdir=datadir, verbosity=0, interactive=None)
+            patoolib.extract_archive(
+                prod_download_filename, outdir=datadir, verbosity=0, interactive=None)
             os.system("tochd -d " + datadir + " -- " + prod_download_filename)
             os.system("tochd -q -d " + datadir + " " + datadir)
     filetypes = [
@@ -383,30 +388,30 @@ else:
         'txz',
         'zi',
         'zpi',
-        ] 
+    ]
     filetype = []
-    #lowercase
+    # lowercase
     for filetype in filetypes:
         if prod_download_filename.endswith(filetype):
-            if debugging != False:
+            if DEBUGGING is not False:
                 print("\t================================")
                 print("\tDetected archive: " + filetype)
                 print("\t================================")
             extract_files(prod_download_filename, datadir)
-            if debugging != False:
+            if DEBUGGING is not False:
                 print("\t================================")
-    #uppercase
+    # uppercase
     for filetype in filetypes:
         if prod_download_filename.endswith(filetype.upper()):
-            if debugging != False:
+            if DEBUGGING is not False:
 
                 print("\t================================")
                 print("\tDetected archive: " + filetype)
                 print("\t================================")
             extract_files(prod_download_filename, datadir)
-            if debugging != False:
+            if DEBUGGING is not False:
                 print("\t================================")
-    
+
     open(datadir + "/.FILES_DOWNLOADED", 'a').close()
 
 runner.setup(showetdir, datadir, prod_platform)

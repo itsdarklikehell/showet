@@ -4,8 +4,8 @@ import stat
 
 from platformcommon import PlatformCommon
 
-fullscreen = False
-debugging = True
+FULLSCREEN = False
+DEBUGGING = True
 
 
 class Platform_Pico8(PlatformCommon):
@@ -52,11 +52,11 @@ class Platform_Pico8(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'other':
             # Set whether we should run in fullscreens or not.
-            if fullscreen == True:
+            if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
         # print status to console.
-        if debugging != False:
+        if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
@@ -101,12 +101,12 @@ class Platform_Pico8(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if debugging != False:
+                        if DEBUGGING is not False:
                             print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
