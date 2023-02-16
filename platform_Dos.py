@@ -30,6 +30,7 @@ class Platform_Msdos(PlatformCommon):
 
         if emulator[0] == 'other':
             extensions = ['unknown']
+
         if emulator[0] == 'retroarch':
             if core[0] == 'dosbox_core_libretro' or core[0] == 'dosbox_svn_libretro' or core[0] == 'dosbox_svn_ce_libretro':
                 extensions = ['exe', 'com', 'bat', 'conf', 'cue', 'iso']
