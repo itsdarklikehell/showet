@@ -53,7 +53,7 @@ Install the package to get dependencies.
 
 ### 3do / 4do
 
-See: [platform_3do.md](platform_3do.md) for more information.
+See: [Docs/platform_3do.md](Docs/platform_3do.md) for more information.
 
 ### Amstrad Notes
 
