@@ -331,6 +331,9 @@ class Platform_CommodoreAmiga(PlatformCommon):
         extensions.extend(cd_ext)
         extensions.extend(other)
 
+        if emulator[0] == 'other':
+            extensions = ['unknown']
+
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
                 floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
@@ -450,6 +453,8 @@ class Platform_CommodoreAmiga(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
+        if emulator[0] == 'other':
+            extensions = ['unknown']
 
         if emulator[0] == 'retroarch':
             if core[0] == 'puae_libretro':
