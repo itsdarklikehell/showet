@@ -4,6 +4,7 @@ import stat
 
 from platformcommon import PlatformCommon
 
+
 FULLSCREEN = False
 DEBUGGING = True
 
