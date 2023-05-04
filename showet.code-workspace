@@ -328,6 +328,7 @@
 			"zxspectrum"
 		],
 		"editor.tabCompletion": "on",
-		"diffEditor.codeLens": true
+		"diffEditor.codeLens": true,
+		"workbench.view.alwaysShowHeaderActions": true
 	}
 }
