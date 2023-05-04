@@ -329,6 +329,10 @@
 		],
 		"editor.tabCompletion": "on",
 		"diffEditor.codeLens": true,
-		"workbench.view.alwaysShowHeaderActions": true
+		"workbench.view.alwaysShowHeaderActions": true,
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.python"
+		},
+		"python.formatting.provider": "none"
 	}
 }
