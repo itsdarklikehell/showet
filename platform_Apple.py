@@ -26,12 +26,12 @@ class Platform_Apple(PlatformCommon):
         core = ['minivmac_libretro']
         extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
 
-        if emulator[0] == "other":
-            extensions = ["unknown"]
-
         if emulator[0] == 'retroarch':
             if core[0] == 'minivmac_libretro':
                 extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
+
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
         ext = []
         for ext in extensions:
@@ -43,6 +43,9 @@ class Platform_Apple(PlatformCommon):
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -56,12 +59,20 @@ class Platform_Apple(PlatformCommon):
         if emulator[0] == 'linapple':
             print("Using: " + str(emulator))
 
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "other":
+            # Set whether we should run in fullscreens or not.
+            if FULLSCREEN is True:
+                emulator.append("--fullscreen")
+
         # print status to console.
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
+        # drives = []
+        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -81,17 +92,63 @@ class Platform_Apple(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator[0] == 'linapple':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "other":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
+
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
+
+        # if emulator[0] == 'retroarch':
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
 
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ['appleii', 'appleiigs']
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == 'retroarch':
             if core[0] == 'minivmac_libretro':
                 extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
+
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
         ext_files = []
         for file in self.prod_files:

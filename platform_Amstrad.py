@@ -26,15 +26,15 @@ class Platform_Cpcplus(PlatformCommon):
         core = ['cap32_libretro']
         extensions = ['dsk', 'sna', 'zip', 'tap', 'cdt', 'voc', 'cpr', 'm3u']
 
-        if emulator[0] == "other":
-            extensions = ["unknown"]
-
         if emulator[0] == 'retroarch':
             if core[0] == 'crocods_libretro':
                 extensions = ['dsk', 'sna', 'kcr']
             if core[0] == 'cap32_libretro':
                 extensions = ['dsk', 'sna', 'zip',
                               'tap', 'cdt', 'voc', 'cpr', 'm3u']
+
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
         ext = []
         for ext in extensions:
@@ -61,6 +61,12 @@ class Platform_Cpcplus(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == 'zesarux':
             print("Using: " + str(emulator))
+
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "other":
+            # Set whether we should run in fullscreens or not.
+            if FULLSCREEN is True:
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -141,15 +147,15 @@ class Platform_Cpcplus(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-        if emulator[0] == 'other':
-            extensions = ['unknown']
-
         if emulator[0] == 'retroarch':
             if core[0] == 'crocods_libretro':
                 extensions = ['dsk', 'sna', 'kcr']
             if core[0] == 'cap32_libretro':
                 extensions = ['dsk', 'sna', 'zip',
                               'tap', 'cdt', 'voc', 'cpr', 'm3u']
+
+        if emulator[0] == 'other':
+            extensions = ['unknown']
 
         ext_files = []
         for file in self.prod_files:
