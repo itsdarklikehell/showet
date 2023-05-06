@@ -22,11 +22,11 @@ class Platform_Zxspectrum(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
+        emulator = ["retroarch"]
         core = ['fuse_libretro']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk', 'zip']
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80',
                               'rzx', 'scl', 'trd', 'dsk', 'zip']
@@ -46,12 +46,12 @@ class Platform_Zxspectrum(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
                 emulator.append('--fullscreen')
@@ -77,7 +77,7 @@ class Platform_Zxspectrum(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -90,7 +90,7 @@ class Platform_Zxspectrum(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80',
                               'rzx', 'scl', 'trd', 'dsk', 'zip']
@@ -129,11 +129,11 @@ class Platform_Zx81(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
+        emulator = ["retroarch"]
         core = ['81_libretro']
         extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80',
                               'rzx', 'scl', 'trd', 'dsk', 'zip']
@@ -155,13 +155,13 @@ class Platform_Zx81(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             print("Using:" + str(emulator))
             emulator.append('-L')
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator[0] == "other":
             print("Using:" + str(emulator))
 
         # print status to console.
@@ -185,7 +185,7 @@ class Platform_Zx81(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -198,7 +198,7 @@ class Platform_Zx81(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'fuse_libretro':
                 extensions = ['tzx', 'tap', 'z80',
                               'rzx', 'scl', 'trd', 'dsk', 'zip']

@@ -99,7 +99,7 @@ class Platform_3do(PlatformCommon):
             #         f.write(exename + "\n")
             #         f.close()
 
-        # if emulator[0] == 'retroarch':
+        # if emulator[0] == "retroarch":
         #     amiga_model = 'A1200'
         #     if self.prod_platform == 'amigaocsecs':
         #         amiga_model = 'A500'

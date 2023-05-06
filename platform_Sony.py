@@ -24,12 +24,12 @@ class Platform_Psx(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
+        emulator = ["retroarch"]
         core = ['swanstation_libretro']
         extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'duckstation_libretro' or core[0] == 'swanstation_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img',
                               'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
@@ -59,12 +59,12 @@ class Platform_Psx(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
                 emulator.append('--fullscreen')
@@ -90,7 +90,7 @@ class Platform_Psx(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -103,7 +103,7 @@ class Platform_Psx(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'duckstation_libretro' or core[0] == 'swanstation_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img',
                               'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
@@ -153,12 +153,12 @@ class Platform_Ps2(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
+        emulator = ["retroarch"]
         core = ['pcsx2_libretro']
         extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',
                       'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'pcsx2_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img',
                               'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
@@ -180,12 +180,12 @@ class Platform_Ps2(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
                 emulator.append('--fullscreen')
@@ -211,7 +211,7 @@ class Platform_Ps2(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
             if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -224,7 +224,7 @@ class Platform_Ps2(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'pcsx2_libretro':
                 extensions = ['exe', 'psexe', 'cue', 'bin', 'img',
                               'iso', 'chd', 'pbp', 'ecm', 'mds', 'psf', 'm3u']
@@ -265,11 +265,11 @@ class Platform_Psp(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['retroarch']
+        emulator = ["retroarch"]
         core = ['ppsspp_libretro']
         extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'ppsspp_libretro':
                 extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
 
@@ -288,12 +288,12 @@ class Platform_Psp(PlatformCommon):
             exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'other':
+        if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
                 emulator.append('--fullscreen')
@@ -319,9 +319,9 @@ class Platform_Psp(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if emulator[0] == 'retroarch':
+            if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'other':
+            if emulator[0] == "other":
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -332,7 +332,7 @@ class Platform_Psp(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
-        if emulator[0] == 'retroarch':
+        if emulator[0] == "retroarch":
             if core[0] == 'ppsspp_libretro':
                 extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
 
