@@ -81,7 +81,7 @@ class Platform_32X(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -192,7 +192,7 @@ class Platform_Dreamcast(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -308,7 +308,7 @@ class Platform_Gamegear(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -437,7 +437,7 @@ class Platform_Mastersystem(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -569,7 +569,7 @@ class Platform_Megadrive(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -686,7 +686,7 @@ class Platform_Saturn(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -801,7 +801,7 @@ class Platform_Stv(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -912,7 +912,7 @@ class Platform_Vmu(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -1023,7 +1023,7 @@ class Platform_SG1000(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

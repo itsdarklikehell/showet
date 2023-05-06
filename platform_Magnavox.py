@@ -78,7 +78,7 @@ class Platform_Odyssey(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'o2em':
+            if emulator[0] == 'o2em':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

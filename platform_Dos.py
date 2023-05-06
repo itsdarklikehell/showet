@@ -86,7 +86,7 @@ class Platform_Msdos(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'dosbox':
+            if emulator[0] == 'dosbox':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

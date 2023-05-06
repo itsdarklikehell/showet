@@ -107,7 +107,7 @@ class Platform_Commodore64(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -248,7 +248,7 @@ class Platform_Commodore128(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -401,7 +401,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'other':
+            if emulator[0] == 'other':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
             # if not os.path.exists(self.datadir + "/s"):
@@ -589,7 +589,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -732,7 +732,7 @@ class Platform_CommodorePet(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -875,7 +875,7 @@ class Platform_CommodorePlus4(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -1018,7 +1018,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'x64':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

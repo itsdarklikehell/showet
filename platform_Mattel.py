@@ -78,7 +78,7 @@ class Platform_Intellivision(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'freeintv':
+            if emulator[0] == 'freeintv':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

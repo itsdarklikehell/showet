@@ -26,7 +26,7 @@ class Platform_Linux(PlatformCommon):
         core = ['bash']
         extensions = ['elf', 'exe']
 
-        if emulator == 'bash':
+        if emulator[0] == 'bash':
             if core[0] == 'bash':
                 extensions = ['elf', 'exe']
 
@@ -97,7 +97,7 @@ class Platform_Linux(PlatformCommon):
     def find_ext_files(self, emulator, core):
         extensions = ['elf', 'exe']
 
-        if emulator == 'bash':
+        if emulator[0] == 'bash':
             if core[0] == 'bash':
                 extensions = ['elf', 'exe']
 

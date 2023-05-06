@@ -79,7 +79,7 @@ class Platform_Xbox(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -190,7 +190,7 @@ class Platform_Msx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == '3do':
+            if emulator[0] == '3do':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -276,7 +276,7 @@ class Platform_Windows(PlatformCommon):
             if FULLSCREEN is True:
                 emulator.append('--fullscreen')
 
-        if emulator == 'wine':
+        if emulator[0] == 'wine':
             exefile = files
 
         # print status to console.
@@ -304,7 +304,7 @@ class Platform_Windows(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
-        if emulator == 'wine':
+        if emulator[0] == 'wine':
             if core[0] == 'wine':
                 extensions = ['exe']
 

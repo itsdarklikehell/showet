@@ -79,7 +79,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
             files = self.sort_disks(files)
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'hatari':
+            if emulator[0] == 'hatari':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -186,7 +186,7 @@ class Platform_Atarixlxe(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'atari800':
+            if emulator[0] == 'atari800':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -293,7 +293,7 @@ class Platform_AtariJaguar(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'virtualjaguar':
+            if emulator[0] == 'virtualjaguar':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -401,7 +401,7 @@ class Platform_AtariLynx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'mednafen':
+            if emulator[0] == 'mednafen':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
@@ -616,7 +616,7 @@ class Platform_Atari5200(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'atari800':
+            if emulator[0] == 'atari800':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

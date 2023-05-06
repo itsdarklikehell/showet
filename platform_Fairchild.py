@@ -78,7 +78,7 @@ class Platform_Channelf(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'freechaf':
+            if emulator[0] == 'freechaf':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

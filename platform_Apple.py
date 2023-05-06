@@ -26,6 +26,9 @@ class Platform_Apple(PlatformCommon):
         core = ['minivmac_libretro']
         extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
 
+        if emulator[0] == "other":
+            extensions = ["unknown"]
+
         if emulator[0] == 'retroarch':
             if core[0] == 'minivmac_libretro':
                 extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
@@ -50,7 +53,7 @@ class Platform_Apple(PlatformCommon):
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == 'linapple':
+        if emulator[0] == 'linapple':
             print("Using: " + str(emulator))
 
         # print status to console.
@@ -76,7 +79,7 @@ class Platform_Apple(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'linapple':
+            if emulator[0] == 'linapple':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)

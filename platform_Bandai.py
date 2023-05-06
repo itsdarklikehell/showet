@@ -78,7 +78,7 @@ class Platform_Wonderswan(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == 'retroarch':
                 emulator = emulator + [files[0]]
-            if emulator == 'mednafen':
+            if emulator[0] == 'mednafen':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
