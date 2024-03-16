@@ -13,10 +13,23 @@ class Platform_Enterprise(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['ep128emu_libretro']
-    extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com',
-                  'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
+    emulators = ["retroarch", "other"]
+    cores = ["ep128emu_libretro"]
+    extensions = [
+        "zip",
+        "img",
+        "dsk",
+        "tap",
+        "dtf",
+        "com",
+        "trn",
+        "128",
+        "bas",
+        "cas",
+        "cdt",
+        "tzx",
+        ".",
+    ]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -24,14 +37,40 @@ class Platform_Enterprise(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['ep128emu_libretro']
-        extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com',
-                      'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
+        core = ["ep128emu_libretro"]
+        extensions = [
+            "zip",
+            "img",
+            "dsk",
+            "tap",
+            "dtf",
+            "com",
+            "trn",
+            "128",
+            "bas",
+            "cas",
+            "cdt",
+            "tzx",
+            ".",
+        ]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'ep128emu_libretro':
-                extensions = ['img', 'dsk', 'tap', 'dtf', 'com', 'trn',
-                              '128', 'bas', 'cas', 'cdt', 'tzx', 'tvcwav', '.']
+            if core[0] == "ep128emu_libretro":
+                extensions = [
+                    "img",
+                    "dsk",
+                    "tap",
+                    "dtf",
+                    "com",
+                    "trn",
+                    "128",
+                    "bas",
+                    "cas",
+                    "cdt",
+                    "tzx",
+                    "tvcwav",
+                    ".",
+                ]
 
         ext = []
         for ext in extensions:
@@ -49,14 +88,14 @@ class Platform_Enterprise(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -81,21 +120,34 @@ class Platform_Enterprise(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['enterprise']
+        return ["enterprise"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'ep128emu_libretro':
-                extensions = ['img', 'dsk', 'tap', 'dtf', 'com', 'trn',
-                              '128', 'bas', 'cas', 'cdt', 'tzx', 'tvcwav', '.']
+            if core[0] == "ep128emu_libretro":
+                extensions = [
+                    "img",
+                    "dsk",
+                    "tap",
+                    "dtf",
+                    "com",
+                    "trn",
+                    "128",
+                    "bas",
+                    "cas",
+                    "cdt",
+                    "tzx",
+                    "tvcwav",
+                    ".",
+                ]
 
         ext_files = []
         for file in self.prod_files:

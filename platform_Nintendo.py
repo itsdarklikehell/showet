@@ -1,4 +1,4 @@
-import os
+simport os
 import os.path
 import stat
 

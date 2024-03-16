@@ -13,22 +13,22 @@ class Platform_Linux(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['linux']
-    cores = ['linux']
-    extensions = ['elf', 'exe']
+    emulators = ["linux"]
+    cores = ["linux"]
+    extensions = ["elf", "exe"]
 
     def run(self):
         # Set up the emulator we want to run.
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['bash']
-        core = ['bash']
-        extensions = ['elf', 'exe']
+        emulator = ["bash"]
+        core = ["bash"]
+        extensions = ["elf", "exe"]
 
-        if emulator[0] == 'bash':
-            if core[0] == 'bash':
-                extensions = ['elf', 'exe']
+        if emulator[0] == "bash":
+            if core[0] == "bash":
+                extensions = ["elf", "exe"]
 
         ext = []
         for ext in extensions:
@@ -46,14 +46,14 @@ class Platform_Linux(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # cd to the datadir
         os.chdir(self.datadir)
@@ -82,8 +82,9 @@ class Platform_Linux(PlatformCommon):
 
         # check if there are multiple executable files in the datadir
         if len(files) > 1:
-            print("Found multiple executables: ", files,
-                  " - not sure which one to run!")
+            print(
+                "Found multiple executables: ", files, " - not sure which one to run!"
+            )
             exit(-1)
         else:
             print("Running ", files[0])
@@ -91,15 +92,15 @@ class Platform_Linux(PlatformCommon):
             self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['linux', 'freebsd', 'raspberrypi']
+        return ["linux", "freebsd", "raspberrypi"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-        extensions = ['elf', 'exe']
+        extensions = ["elf", "exe"]
 
-        if emulator[0] == 'bash':
-            if core[0] == 'bash':
-                extensions = ['elf', 'exe']
+        if emulator[0] == "bash":
+            if core[0] == "bash":
+                extensions = ["elf", "exe"]
 
         ext_files = []
         for file in self.prod_files:

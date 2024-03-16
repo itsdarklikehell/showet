@@ -13,9 +13,9 @@ class Platform_Vectrex(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'vecx']
-    cores = ['vecx_libretro']
-    extensions = ['zip', 'bin', 'vec']
+    emulators = ["retroarch", "vecx"]
+    cores = ["vecx_libretro"]
+    extensions = ["zip", "bin", "vec"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -23,12 +23,12 @@ class Platform_Vectrex(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['vecx_libretro']
-        extensions = ['zip', 'bin', 'vec']
+        core = ["vecx_libretro"]
+        extensions = ["zip", "bin", "vec"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'vecx_libretro':
-                extensions = ['bin', 'vec']
+            if core[0] == "vecx_libretro":
+                extensions = ["bin", "vec"]
 
         ext = []
         for ext in extensions:
@@ -46,14 +46,14 @@ class Platform_Vectrex(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -78,20 +78,20 @@ class Platform_Vectrex(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'vecx':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "vecx":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['vectrex']
+        return ["vectrex"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'vecx_libretro':
-                extensions = ['bin', 'vec']
+            if core[0] == "vecx_libretro":
+                extensions = ["bin", "vec"]
 
         ext_files = []
         for file in self.prod_files:

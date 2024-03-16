@@ -14,9 +14,9 @@ class Platform_Xbox(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['directxbox_libretro']
-    extensions = ['zip', 'iso']
+    emulators = ["retroarch", "other"]
+    cores = ["directxbox_libretro"]
+    extensions = ["zip", "iso"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -24,12 +24,12 @@ class Platform_Xbox(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['directxbox_libretro']
-        extensions = ['zip', 'iso']
+        core = ["directxbox_libretro"]
+        extensions = ["zip", "iso"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'directxbox_libretro':
-                extensions = ['iso']
+            if core[0] == "directxbox_libretro":
+                extensions = ["iso"]
 
         ext = []
         for ext in extensions:
@@ -47,14 +47,14 @@ class Platform_Xbox(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -79,20 +79,20 @@ class Platform_Xbox(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['xbox']
+        return ["xbox"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'directxbox_libretro':
-                extensions = ['iso']
+            if core[0] == "directxbox_libretro":
+                extensions = ["iso"]
 
         ext_files = []
         for file in self.prod_files:
@@ -119,11 +119,15 @@ class Platform_Msx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'openmsx', 'openmsx-msx2',
-                 'openmsx-msx2-plus', 'openmsx-msx-turbo']
-    cores = ['bluemsx_libretro', 'fbneo_msx_libretro', 'fmsx_libretro']
-    extensions = ['rom', 'ri', 'mx1', 'mx2',
-                  'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+    emulators = [
+        "retroarch",
+        "openmsx",
+        "openmsx-msx2",
+        "openmsx-msx2-plus",
+        "openmsx-msx-turbo",
+    ]
+    cores = ["bluemsx_libretro", "fbneo_msx_libretro", "fmsx_libretro"]
+    extensions = ["rom", "ri", "mx1", "mx2", "col", "dsk", "cas", "sg", "sc", "m3u"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -131,16 +135,25 @@ class Platform_Msx(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['bluemsx_libretro']
-        extensions = ['rom', 'ri', 'mx1', 'mx2',
-                      'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
+        core = ["bluemsx_libretro"]
+        extensions = ["rom", "ri", "mx1", "mx2", "col", "dsk", "cas", "sg", "sc", "m3u"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'bluemsx_libretro':
-                extensions = ['rom', 'ri', 'mx1', 'mx2',
-                              'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-            if core[0] == 'fmsx_libretro':
-                extensions = ['rom', 'mx1', 'mx2', 'dsk', 'fdi', 'cas', 'm3u']
+            if core[0] == "bluemsx_libretro":
+                extensions = [
+                    "rom",
+                    "ri",
+                    "mx1",
+                    "mx2",
+                    "col",
+                    "dsk",
+                    "cas",
+                    "sg",
+                    "sc",
+                    "m3u",
+                ]
+            if core[0] == "fmsx_libretro":
+                extensions = ["rom", "mx1", "mx2", "dsk", "fdi", "cas", "m3u"]
 
         ext = []
         for ext in extensions:
@@ -158,14 +171,14 @@ class Platform_Msx(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -190,25 +203,35 @@ class Platform_Msx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['msx', 'msx2', 'msx2plus', 'msxturbor', 'spectravideo3x8']
+        return ["msx", "msx2", "msx2plus", "msxturbor", "spectravideo3x8"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "other":
-            extensions = ['unknown']
+            extensions = ["unknown"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'bluemsx_libretro':
-                extensions = ['rom', 'ri', 'mx1', 'mx2',
-                              'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
-            if core[0] == 'fmsx_libretro':
-                extensions = ['rom', 'mx1', 'mx2', 'dsk', 'fdi', 'cas', 'm3u']
+            if core[0] == "bluemsx_libretro":
+                extensions = [
+                    "rom",
+                    "ri",
+                    "mx1",
+                    "mx2",
+                    "col",
+                    "dsk",
+                    "cas",
+                    "sg",
+                    "sc",
+                    "m3u",
+                ]
+            if core[0] == "fmsx_libretro":
+                extensions = ["rom", "mx1", "mx2", "dsk", "fdi", "cas", "m3u"]
 
         ext_files = []
         for file in self.prod_files:
@@ -235,9 +258,9 @@ class Platform_Windows(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['wine', 'other']
-    cores = ['wine']
-    extensions = ['exe']
+    emulators = ["wine", "other"]
+    cores = ["wine"]
+    extensions = ["exe"]
 
     # wineprefix = self.showetdir + '/wineprefix'
 
@@ -246,10 +269,10 @@ class Platform_Windows(PlatformCommon):
         # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
-        emulator = ['wine']
-        core = ['wine']
-        extensions = ['exe']
-        wineprefix = self.showetdir + '/wineprefix'
+        emulator = ["wine"]
+        core = ["wine"]
+        extensions = ["exe"]
+        wineprefix = self.showetdir + "/wineprefix"
 
         ext = []
         for ext in extensions:
@@ -267,16 +290,16 @@ class Platform_Windows(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
-        if emulator[0] == 'wine':
+        if emulator[0] == "wine":
             exefile = files
 
         # print status to console.
@@ -299,14 +322,14 @@ class Platform_Windows(PlatformCommon):
         self.run_process([emulator[0], exepath])
 
     def supported_platforms(self):
-        return ['windows', 'wild']
+        return ["windows", "wild"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
-        if emulator[0] == 'wine':
-            if core[0] == 'wine':
-                extensions = ['exe']
+        if emulator[0] == "wine":
+            if core[0] == "wine":
+                extensions = ["exe"]
 
         ext_files = []
         for file in self.prod_files:
