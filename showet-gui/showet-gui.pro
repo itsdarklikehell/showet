@@ -4,19 +4,19 @@ TARGET = showet-gui
 target.path = /usr/bin
 
 SOURCES += \
-    main.cpp \
-    showethelper.cpp
+main.cpp \
+showethelper.cpp
 
 RESOURCES += \
-    qml.qrc
+qml.qrc
 
 DISTFILES += \
-    main.qml \
-    ProdDelegate.qml \
-    SearchView.qml \
-    Header.qml \
-    BrowserView.qml \
-    LoadingOverlay.qml
+main.qml \
+ProdDelegate.qml \
+SearchView.qml \
+Header.qml \
+BrowserView.qml \
+LoadingOverlay.qml
 
 desktop.path = /usr/share/applications/
 desktop.files = showet-gui.desktop
@@ -27,4 +27,4 @@ icon.files = ../showet.svg
 INSTALLS += target desktop icon
 
 HEADERS += \
-    showethelper.h
+showethelper.h
