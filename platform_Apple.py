@@ -13,9 +13,9 @@ class Platform_Apple(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'linapple', 'basilisk']
-    cores = ['minivmac_libretro']
-    extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
+    emulators = ["retroarch", "linapple", "basilisk"]
+    cores = ["minivmac_libretro"]
+    extensions = ["dsk", "img", "zip", "hvf", "cmd"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -23,12 +23,12 @@ class Platform_Apple(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['minivmac_libretro']
-        extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
+        core = ["minivmac_libretro"]
+        extensions = ["dsk", "img", "zip", "hvf", "cmd"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'minivmac_libretro':
-                extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
+            if core[0] == "minivmac_libretro":
+                extensions = ["dsk", "img", "zip", "hvf", "cmd"]
 
         if emulator[0] == "other":
             extensions = ["unknown"]
@@ -52,11 +52,11 @@ class Platform_Apple(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == 'linapple':
+        if emulator[0] == "linapple":
             print("Using: " + str(emulator))
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -90,8 +90,8 @@ class Platform_Apple(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'linapple':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "linapple":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
             if emulator[0] == "other":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
@@ -128,7 +128,8 @@ class Platform_Apple(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['appleii', 'appleiigs']
+        return ["appleii", "appleiigs"]
+
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
     #     cookie_files = []
@@ -144,8 +145,8 @@ class Platform_Apple(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
-            if core[0] == 'minivmac_libretro':
-                extensions = ['dsk', 'img', 'zip', 'hvf', 'cmd']
+            if core[0] == "minivmac_libretro":
+                extensions = ["dsk", "img", "zip", "hvf", "cmd"]
 
         if emulator[0] == "other":
             extensions = ["unknown"]
