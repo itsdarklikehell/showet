@@ -1,4 +1,4 @@
-simport os
+import os
 import os.path
 import stat
 
@@ -13,10 +13,16 @@ class Platform_3DS(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'citra']
-    cores = ['citra_libretro', 'citra2018_libretro', 'citra_canary_libretro',
-             'melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
-    extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
+    emulators = ["retroarch", "citra"]
+    cores = [
+        "citra_libretro",
+        "citra2018_libretro",
+        "citra_canary_libretro",
+        "melonds_libretro",
+        "desmume_libretro",
+        "desmume2015_libretro",
+    ]
+    extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -24,12 +30,16 @@ class Platform_3DS(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['citra_libretro']
-        extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
+        core = ["citra_libretro"]
+        extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
-                extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
+            if (
+                core[0] == "citra_libretro"
+                or core[0] == "citra2018_libretro"
+                or core[0] == "citra_canary_libretro"
+            ):
+                extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]
 
         ext = []
         for ext in extensions:
@@ -47,14 +57,14 @@ class Platform_3DS(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -79,19 +89,23 @@ class Platform_3DS(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['nintendods']
+        return ["nintendods"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
-            if core[0] == 'citra_libretro' or core[0] == 'citra2018_libretro' or core[0] == 'citra_canary_libretro':
-                extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
+            if (
+                core[0] == "citra_libretro"
+                or core[0] == "citra2018_libretro"
+                or core[0] == "citra_canary_libretro"
+            ):
+                extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]
 
         ext_files = []
         for file in self.prod_files:
@@ -118,11 +132,18 @@ class Platform_N64(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'mupen64plus-glide64',
-                 'mupen64plus-glide64-lle', 'mupen64plus-gliden64']
-    cores = ['mupen64plus_libretro',
-             'mupen64plus_next_libretro', 'parallel_n46_libretro']
-    extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+    emulators = [
+        "retroarch",
+        "mupen64plus-glide64",
+        "mupen64plus-glide64-lle",
+        "mupen64plus-gliden64",
+    ]
+    cores = [
+        "mupen64plus_libretro",
+        "mupen64plus_next_libretro",
+        "parallel_n46_libretro",
+    ]
+    extensions = ["n64", "v64", "z64", "bin", "u1", "ndd"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -130,12 +151,12 @@ class Platform_N64(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['mupen64plus_next_libretro']
-        extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+        core = ["mupen64plus_next_libretro"]
+        extensions = ["n64", "v64", "z64", "bin", "u1", "ndd"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mupen64plus_next_libretro':
-                extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+            if core[0] == "mupen64plus_next_libretro":
+                extensions = ["n64", "v64", "z64", "bin", "u1", "ndd"]
 
         ext = []
         for ext in extensions:
@@ -153,14 +174,14 @@ class Platform_N64(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -185,22 +206,22 @@ class Platform_N64(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['nintendo64']
+        return ["nintendo64"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "other":
-            extensions = ['unknown']
+            extensions = ["unknown"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mupen64plus_next_libretro':
-                extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
+            if core[0] == "mupen64plus_next_libretro":
+                extensions = ["n64", "v64", "z64", "bin", "u1", "ndd"]
 
         ext_files = []
         for file in self.prod_files:
@@ -227,9 +248,9 @@ class Platform_DS(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'desmume', 'melonds']
-    cores = ['melonds_libretro', 'desmume_libretro', 'desmume2015_libretro']
-    extensions = ['zip', 'nds', 'dsi']
+    emulators = ["retroarch", "desmume", "melonds"]
+    cores = ["melonds_libretro", "desmume_libretro", "desmume2015_libretro"]
+    extensions = ["zip", "nds", "dsi"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -237,12 +258,12 @@ class Platform_DS(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['desmume_libretro']
-        extensions = ['zip', 'nds', 'dsi']
+        core = ["desmume_libretro"]
+        extensions = ["zip", "nds", "dsi"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'desmume_libretro':
-                extensions = ['nds', 'dsi']
+            if core[0] == "desmume_libretro":
+                extensions = ["nds", "dsi"]
 
         ext = []
         for ext in extensions:
@@ -260,14 +281,14 @@ class Platform_DS(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -292,20 +313,20 @@ class Platform_DS(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['nintendods']
+        return ["nintendods"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'desmume_libretro':
-                extensions = ['nds', 'dsi']
+            if core[0] == "desmume_libretro":
+                extensions = ["nds", "dsi"]
 
         ext_files = []
         for file in self.prod_files:
@@ -332,11 +353,26 @@ class Platform_Famicom(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'higan', 'emux',
-                 'fceumm', 'nestopia', 'quicknes', 'mesen']
-    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
-             'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
-    extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
+    emulators = [
+        "retroarch",
+        "higan",
+        "emux",
+        "fceumm",
+        "nestopia",
+        "quicknes",
+        "mesen",
+    ]
+    cores = [
+        "quicknes_libretro",
+        "nestopia_libretro",
+        "mess_libretro",
+        "mess2016_libretro",
+        "mesen_libretro",
+        "fceumm_libretro",
+        "fceumm_mod_libretro",
+        "fbneo_nes_libretro",
+    ]
+    extensions = ["zip", "nes", "fds", "unf", "unif", "qd", "nsf"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -344,16 +380,20 @@ class Platform_Famicom(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['fceumm_libretro']
-        extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
+        core = ["fceumm_libretro"]
+        extensions = ["zip", "nes", "fds", "unf", "unif", "qd", "nsf"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
-                extensions = ['nes']
-            if core[0] == 'emux_nes_libretro':
-                extensions = ['nes', 'bin', 'rom']
-            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
-                extensions = ['fds', 'nes', 'unif', 'unf']
+            if core[0] == "quicknes_libretro" or core[0] == "bnes_libretro":
+                extensions = ["nes"]
+            if core[0] == "emux_nes_libretro":
+                extensions = ["nes", "bin", "rom"]
+            if (
+                core[0] == "nestopia_libretro"
+                or core[0] == "fceumm_libretro"
+                or core[0] == "mesen_libretro"
+            ):
+                extensions = ["fds", "nes", "unif", "unf"]
 
         ext = []
         for ext in extensions:
@@ -371,14 +411,14 @@ class Platform_Famicom(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -403,24 +443,28 @@ class Platform_Famicom(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['nesfamicom']
+        return ["nesfamicom"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
-                extensions = ['nes']
-            if core[0] == 'emux_nes_libretro':
-                extensions = ['nes', 'bin', 'rom']
-            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
-                extensions = ['fds', 'nes', 'unif', 'unf']
+            if core[0] == "quicknes_libretro" or core[0] == "bnes_libretro":
+                extensions = ["nes"]
+            if core[0] == "emux_nes_libretro":
+                extensions = ["nes", "bin", "rom"]
+            if (
+                core[0] == "nestopia_libretro"
+                or core[0] == "fceumm_libretro"
+                or core[0] == "mesen_libretro"
+            ):
+                extensions = ["fds", "nes", "unif", "unf"]
 
         ext_files = []
         for file in self.prod_files:
@@ -447,11 +491,26 @@ class Platform_FamicomDisksystem(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'higan', 'emux',
-                 'fceumm', 'nestopia', 'quicknes', 'mesen']
-    cores = ['quicknes_libretro', 'nestopia_libretro', 'mess_libretro', 'mess2016_libretro',
-             'mesen_libretro', 'fceumm_libretro', 'fceumm_mod_libretro', 'fbneo_nes_libretro']
-    extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
+    emulators = [
+        "retroarch",
+        "higan",
+        "emux",
+        "fceumm",
+        "nestopia",
+        "quicknes",
+        "mesen",
+    ]
+    cores = [
+        "quicknes_libretro",
+        "nestopia_libretro",
+        "mess_libretro",
+        "mess2016_libretro",
+        "mesen_libretro",
+        "fceumm_libretro",
+        "fceumm_mod_libretro",
+        "fbneo_nes_libretro",
+    ]
+    extensions = ["zip", "nes", "fds", "unf", "unif", "qd", "nsf"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -459,16 +518,20 @@ class Platform_FamicomDisksystem(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['quicknes_libretro']
-        extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
+        core = ["quicknes_libretro"]
+        extensions = ["zip", "nes", "fds", "unf", "unif", "qd", "nsf"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
-                extensions = ['nes']
-            if core[0] == 'emux_nes_libretro':
-                extensions = ['nes', 'bin', 'rom']
-            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
-                extensions = ['fds', 'nes', 'unif', 'unf']
+            if core[0] == "quicknes_libretro" or core[0] == "bnes_libretro":
+                extensions = ["nes"]
+            if core[0] == "emux_nes_libretro":
+                extensions = ["nes", "bin", "rom"]
+            if (
+                core[0] == "nestopia_libretro"
+                or core[0] == "fceumm_libretro"
+                or core[0] == "mesen_libretro"
+            ):
+                extensions = ["fds", "nes", "unif", "unf"]
 
         ext = []
         for ext in extensions:
@@ -486,14 +549,14 @@ class Platform_FamicomDisksystem(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -518,24 +581,28 @@ class Platform_FamicomDisksystem(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['nesfamicom']
+        return ["nesfamicom"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'quicknes_libretro' or core[0] == 'bnes_libretro':
-                extensions = ['nes']
-            if core[0] == 'emux_nes_libretro':
-                extensions = ['nes', 'bin', 'rom']
-            if core[0] == 'nestopia_libretro' or core[0] == 'fceumm_libretro' or core[0] == 'mesen_libretro':
-                extensions = ['fds', 'nes', 'unif', 'unf']
+            if core[0] == "quicknes_libretro" or core[0] == "bnes_libretro":
+                extensions = ["nes"]
+            if core[0] == "emux_nes_libretro":
+                extensions = ["nes", "bin", "rom"]
+            if (
+                core[0] == "nestopia_libretro"
+                or core[0] == "fceumm_libretro"
+                or core[0] == "mesen_libretro"
+            ):
+                extensions = ["fds", "nes", "unif", "unf"]
 
         ext_files = []
         for file in self.prod_files:
@@ -562,10 +629,15 @@ class Platform_Gameboy(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['gambatte_libretro', 'mess2016_libretro',
-             'mess_libretro', 'mgba_libretro', 'tgbdual_libretro']
-    extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
+    emulators = ["retroarch", "other"]
+    cores = [
+        "gambatte_libretro",
+        "mess2016_libretro",
+        "mess_libretro",
+        "mgba_libretro",
+        "tgbdual_libretro",
+    ]
+    extensions = ["zip", "gb", "dmg", "bin", "u1", "ndd", "zip"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -573,33 +645,36 @@ class Platform_Gameboy(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        FULLSCREEN = ['False']
-        core = ['mesen-s_libretro']
-        extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd']
+        FULLSCREEN = ["False"]
+        core = ["mesen-s_libretro"]
+        extensions = ["zip", "gb", "dmg", "bin", "u1", "ndd"]
 
         if emulator[0] == "retroarch":  # gb/c
-            if core[0] == 'emux_gb_libretro':
-                extensions = ['gb', 'bin', 'rom']
-            if core[0] == 'gambatte_libretro':
-                extensions = ['gb', 'gbc', 'dmg']
-            if core[0] == 'gearhub_libretro':
-                extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core[0] == 'sameboy_libretro':
-                extensions = ['gb', 'gbc']
-            if core[0] == 'tgbdual_libretro':
-                extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']
+            if core[0] == "emux_gb_libretro":
+                extensions = ["gb", "bin", "rom"]
+            if core[0] == "gambatte_libretro":
+                extensions = ["gb", "gbc", "dmg"]
+            if core[0] == "gearhub_libretro":
+                extensions = ["gb", "dmg", "gbc", "cgb", "sgb"]
+            if core[0] == "sameboy_libretro":
+                extensions = ["gb", "gbc"]
+            if core[0] == "tgbdual_libretro":
+                extensions = ["cgb", "dmg", "gb", "gbc", "sgb"]
             # gba
-            if core[0] == 'mgba_libretro':
-                extensions = ['gb', 'gbc', 'gba']
-            if core[0] == 'tempgba_libretro':
-                extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core[0] == 'mednafen_gba_libretro':
-                extensions = ['gba', 'agb', 'bin']
+            if core[0] == "mgba_libretro":
+                extensions = ["gb", "gbc", "gba"]
+            if core[0] == "tempgba_libretro":
+                extensions = ["gba", "bin", "agb", "gbz"]
+            if core[0] == "mednafen_gba_libretro":
+                extensions = ["gba", "agb", "bin"]
             # snes
-            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
-                extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core[0] == 'mesen-s_libretro':
-                extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
+            if (
+                core[0] == "higan_sfc_libretro"
+                or core[0] == "higan_sfc balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bml", "rom"]
+            if core[0] == "mesen-s_libretro":
+                extensions = ["sfc", "smc", "fig", "swc", "bs", "gb", "gbc"]
 
         ext = []
         for ext in extensions:
@@ -617,14 +692,14 @@ class Platform_Gameboy(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -649,41 +724,44 @@ class Platform_Gameboy(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['gameboy']
+        return ["gameboy"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
             # gb/c
-            if core[0] == 'emux_gb_libretro':
-                extensions = ['gb', 'bin', 'rom']
-            if core[0] == 'gambatte_libretro':
-                extensions = ['gb', 'gbc', 'dmg']
-            if core[0] == 'gearhub_libretro':
-                extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core[0] == 'sameboy_libretro':
-                extensions = ['gb', 'gbc']
-            if core[0] == 'tgbdual_libretro':
-                extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']
+            if core[0] == "emux_gb_libretro":
+                extensions = ["gb", "bin", "rom"]
+            if core[0] == "gambatte_libretro":
+                extensions = ["gb", "gbc", "dmg"]
+            if core[0] == "gearhub_libretro":
+                extensions = ["gb", "dmg", "gbc", "cgb", "sgb"]
+            if core[0] == "sameboy_libretro":
+                extensions = ["gb", "gbc"]
+            if core[0] == "tgbdual_libretro":
+                extensions = ["cgb", "dmg", "gb", "gbc", "sgb"]
             # gba
-            if core[0] == 'mgba_libretro':
-                extensions = ['gb', 'gbc', 'gba']
-            if core[0] == 'tempgba_libretro':
-                extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core[0] == 'mednafen_gba_libretro':
-                extensions = ['gba', 'agb', 'bin']
+            if core[0] == "mgba_libretro":
+                extensions = ["gb", "gbc", "gba"]
+            if core[0] == "tempgba_libretro":
+                extensions = ["gba", "bin", "agb", "gbz"]
+            if core[0] == "mednafen_gba_libretro":
+                extensions = ["gba", "agb", "bin"]
             # snes
-            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
-                extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core[0] == 'mesen-s_libretro':
-                extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
+            if (
+                core[0] == "higan_sfc_libretro"
+                or core[0] == "higan_sfc balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bml", "rom"]
+            if core[0] == "mesen-s_libretro":
+                extensions = ["sfc", "smc", "fig", "swc", "bs", "gb", "gbc"]
 
         ext_files = []
         for file in self.prod_files:
@@ -710,9 +788,9 @@ class Platform_GameboyColor(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['gambatte_libretro', 'mgba_libretro', 'tgbdual_libretro']
-    extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
+    emulators = ["retroarch", "other"]
+    cores = ["gambatte_libretro", "mgba_libretro", "tgbdual_libretro"]
+    extensions = ["zip", "gbc", "dmg", "bin", "u1", "ndd"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -720,33 +798,36 @@ class Platform_GameboyColor(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['mesen-s_libretro']
-        extensions = ['zip', 'gbc', 'dmg', 'bin', 'u1', 'ndd']
+        core = ["mesen-s_libretro"]
+        extensions = ["zip", "gbc", "dmg", "bin", "u1", "ndd"]
 
         if emulator[0] == "retroarch":
             # gb/c
-            if core[0] == 'emux_gb_libretro':
-                extensions = ['gb', 'bin', 'rom']
-            if core[0] == 'gambatte_libretro':
-                extensions = ['gb', 'gbc', 'dmg']
-            if core[0] == 'gearhub_libretro':
-                extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core[0] == 'sameboy_libretro':
-                extensions = ['gb', 'gbc']
-            if core[0] == 'tgbdual_libretro':
-                extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']
+            if core[0] == "emux_gb_libretro":
+                extensions = ["gb", "bin", "rom"]
+            if core[0] == "gambatte_libretro":
+                extensions = ["gb", "gbc", "dmg"]
+            if core[0] == "gearhub_libretro":
+                extensions = ["gb", "dmg", "gbc", "cgb", "sgb"]
+            if core[0] == "sameboy_libretro":
+                extensions = ["gb", "gbc"]
+            if core[0] == "tgbdual_libretro":
+                extensions = ["cgb", "dmg", "gb", "gbc", "sgb"]
             # gba
-            if core[0] == 'mgba_libretro':
-                extensions = ['gb', 'gbc', 'gba']
-            if core[0] == 'tempgba_libretro':
-                extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core[0] == 'mednafen_gba_libretro':
-                extensions = ['gba', 'agb', 'bin']
+            if core[0] == "mgba_libretro":
+                extensions = ["gb", "gbc", "gba"]
+            if core[0] == "tempgba_libretro":
+                extensions = ["gba", "bin", "agb", "gbz"]
+            if core[0] == "mednafen_gba_libretro":
+                extensions = ["gba", "agb", "bin"]
             # snes
-            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
-                extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core[0] == 'mesen-s_libretro':
-                extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
+            if (
+                core[0] == "higan_sfc_libretro"
+                or core[0] == "higan_sfc balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bml", "rom"]
+            if core[0] == "mesen-s_libretro":
+                extensions = ["sfc", "smc", "fig", "swc", "bs", "gb", "gbc"]
 
         ext = []
         for ext in extensions:
@@ -764,14 +845,14 @@ class Platform_GameboyColor(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -796,41 +877,44 @@ class Platform_GameboyColor(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['gameboy', 'gameboycolor']
+        return ["gameboy", "gameboycolor"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
             # gb/c
-            if core[0] == 'emux_gb_libretro':
-                extensions = ['gb', 'bin', 'rom']
-            if core[0] == 'gambatte_libretro':
-                extensions = ['gb', 'gbc', 'dmg']
-            if core[0] == 'gearhub_libretro':
-                extensions = ['gb', 'dmg', 'gbc', 'cgb', 'sgb']
-            if core[0] == 'sameboy_libretro':
-                extensions = ['gb', 'gbc']
-            if core[0] == 'tgbdual_libretro':
-                extensions = ['cgb', 'dmg', 'gb', 'gbc', 'sgb']
+            if core[0] == "emux_gb_libretro":
+                extensions = ["gb", "bin", "rom"]
+            if core[0] == "gambatte_libretro":
+                extensions = ["gb", "gbc", "dmg"]
+            if core[0] == "gearhub_libretro":
+                extensions = ["gb", "dmg", "gbc", "cgb", "sgb"]
+            if core[0] == "sameboy_libretro":
+                extensions = ["gb", "gbc"]
+            if core[0] == "tgbdual_libretro":
+                extensions = ["cgb", "dmg", "gb", "gbc", "sgb"]
             # gba
-            if core[0] == 'mgba_libretro':
-                extensions = ['gb', 'gbc', 'gba']
-            if core[0] == 'tempgba_libretro':
-                extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core[0] == 'mednafen_gba_libretro':
-                extensions = ['gba', 'agb', 'bin']
+            if core[0] == "mgba_libretro":
+                extensions = ["gb", "gbc", "gba"]
+            if core[0] == "tempgba_libretro":
+                extensions = ["gba", "bin", "agb", "gbz"]
+            if core[0] == "mednafen_gba_libretro":
+                extensions = ["gba", "agb", "bin"]
             # snes
-            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
-                extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core[0] == 'mesen-s_libretro':
-                extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
+            if (
+                core[0] == "higan_sfc_libretro"
+                or core[0] == "higan_sfc balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bml", "rom"]
+            if core[0] == "mesen-s_libretro":
+                extensions = ["sfc", "smc", "fig", "swc", "bs", "gb", "gbc"]
 
         ext_files = []
         for file in self.prod_files:
@@ -857,10 +941,15 @@ class Platform_GameboyAdvance(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['meteor_libretro', 'vba_next_libretro',
-             'vbam_libretro', 'mgba_libretro', 'gpsp_libretro']
-    extensions = ['zip', 'gb', 'gbc', 'gba', 'dmg', 'agb', 'bin', 'cgb', 'sgb']
+    emulators = ["retroarch", "other"]
+    cores = [
+        "meteor_libretro",
+        "vba_next_libretro",
+        "vbam_libretro",
+        "mgba_libretro",
+        "gpsp_libretro",
+    ]
+    extensions = ["zip", "gb", "gbc", "gba", "dmg", "agb", "bin", "cgb", "sgb"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -868,25 +957,24 @@ class Platform_GameboyAdvance(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['vba_next_libretro']
-        extensions = ['zip', 'gb', 'gbc', 'gba',
-                      'dmg', 'agb', 'bin', 'cgb', 'sgb']
+        core = ["vba_next_libretro"]
+        extensions = ["zip", "gb", "gbc", "gba", "dmg", "agb", "bin", "cgb", "sgb"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_gba_libretro':
-                extensions = ['gba', 'agb', 'bin']
-            if core[0] == 'gpsp_libretro':
-                extensions = ['gba', 'bin']
-            if core[0] == 'meteor_libretro':
-                extensions = ['gba']
-            if core[0] == 'mgba_libretro':
-                extensions = ['gb', 'gbc', 'gba']
-            if core[0] == 'tempgba_libretro':
-                extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core[0] == 'vbam_libretro':
-                extensions = ['dmg', 'gb', 'gbc', 'cgb', 'sgb', 'gba']
-            if core[0] == 'vba_next_libretro':
-                extensions = ['gba']
+            if core[0] == "mednafen_gba_libretro":
+                extensions = ["gba", "agb", "bin"]
+            if core[0] == "gpsp_libretro":
+                extensions = ["gba", "bin"]
+            if core[0] == "meteor_libretro":
+                extensions = ["gba"]
+            if core[0] == "mgba_libretro":
+                extensions = ["gb", "gbc", "gba"]
+            if core[0] == "tempgba_libretro":
+                extensions = ["gba", "bin", "agb", "gbz"]
+            if core[0] == "vbam_libretro":
+                extensions = ["dmg", "gb", "gbc", "cgb", "sgb", "gba"]
+            if core[0] == "vba_next_libretro":
+                extensions = ["gba"]
 
         ext = []
         for ext in extensions:
@@ -904,14 +992,14 @@ class Platform_GameboyAdvance(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -936,32 +1024,32 @@ class Platform_GameboyAdvance(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['gameboyadvance', 'gameboycolor', 'gameboy']
+        return ["gameboyadvance", "gameboycolor", "gameboy"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_gba_libretro':
-                extensions = ['gba', 'agb', 'bin']
-            if core[0] == 'gpsp_libretro':
-                extensions = ['gba', 'bin']
-            if core[0] == 'meteor_libretro':
-                extensions = ['gba']
-            if core[0] == 'mgba_libretro':
-                extensions = ['gb', 'gbc', 'gba']
-            if core[0] == 'tempgba_libretro':
-                extensions = ['gba', 'bin', 'agb', 'gbz']
-            if core[0] == 'vbam_libretro':
-                extensions = ['dmg', 'gb', 'gbc', 'cgb', 'sgb', 'gba']
-            if core[0] == 'vba_next_libretro':
-                extensions = ['gba']
+            if core[0] == "mednafen_gba_libretro":
+                extensions = ["gba", "agb", "bin"]
+            if core[0] == "gpsp_libretro":
+                extensions = ["gba", "bin"]
+            if core[0] == "meteor_libretro":
+                extensions = ["gba"]
+            if core[0] == "mgba_libretro":
+                extensions = ["gb", "gbc", "gba"]
+            if core[0] == "tempgba_libretro":
+                extensions = ["gba", "bin", "agb", "gbz"]
+            if core[0] == "vbam_libretro":
+                extensions = ["dmg", "gb", "gbc", "cgb", "sgb", "gba"]
+            if core[0] == "vba_next_libretro":
+                extensions = ["gba"]
 
         ext_files = []
         for file in self.prod_files:
@@ -988,10 +1076,22 @@ class Platform_Gamecube(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['dolphin_libretro']
-    extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                  'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+    emulators = ["retroarch", "other"]
+    cores = ["dolphin_libretro"]
+    extensions = [
+        "gcm",
+        "iso",
+        "wbfs",
+        "ciso",
+        "gcz",
+        "elf",
+        "dol",
+        "dff",
+        "tgc",
+        "wad",
+        "rvz",
+        "m3u",
+    ]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -999,14 +1099,38 @@ class Platform_Gamecube(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['dolphin_libretro']
-        extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        core = ["dolphin_libretro"]
+        extensions = [
+            "gcm",
+            "iso",
+            "wbfs",
+            "ciso",
+            "gcz",
+            "elf",
+            "dol",
+            "dff",
+            "tgc",
+            "wad",
+            "rvz",
+            "m3u",
+        ]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'dolphin_libretro':
-                extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                              'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+            if core[0] == "dolphin_libretro":
+                extensions = [
+                    "gcm",
+                    "iso",
+                    "wbfs",
+                    "ciso",
+                    "gcz",
+                    "elf",
+                    "dol",
+                    "dff",
+                    "tgc",
+                    "wad",
+                    "rvz",
+                    "m3u",
+                ]
 
         ext = []
         for ext in extensions:
@@ -1024,14 +1148,14 @@ class Platform_Gamecube(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -1056,21 +1180,33 @@ class Platform_Gamecube(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['gamecube']
+        return ["gamecube"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'dolphin_libretro':
-                extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                              'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+            if core[0] == "dolphin_libretro":
+                extensions = [
+                    "gcm",
+                    "iso",
+                    "wbfs",
+                    "ciso",
+                    "gcz",
+                    "elf",
+                    "dol",
+                    "dff",
+                    "tgc",
+                    "wad",
+                    "rvz",
+                    "m3u",
+                ]
 
         ext_files = []
         for file in self.prod_files:
@@ -1097,9 +1233,9 @@ class Platform_Pokemini(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['pokemini_libretro']
-    extensions = ['zip', 'min']
+    emulators = ["retroarch", "other"]
+    cores = ["pokemini_libretro"]
+    extensions = ["zip", "min"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1107,12 +1243,12 @@ class Platform_Pokemini(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['pokemini_libretro']
-        extensions = ['zip', 'min']
+        core = ["pokemini_libretro"]
+        extensions = ["zip", "min"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'pokemini_libretro':
-                extensions = ['min']
+            if core[0] == "pokemini_libretro":
+                extensions = ["min"]
 
         ext = []
         for ext in extensions:
@@ -1130,14 +1266,14 @@ class Platform_Pokemini(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -1162,20 +1298,20 @@ class Platform_Pokemini(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['pokemini']
+        return ["pokemini"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'pokemini_libretro':
-                extensions = ['min']
+            if core[0] == "pokemini_libretro":
+                extensions = ["min"]
 
         ext_files = []
         for file in self.prod_files:
@@ -1202,9 +1338,9 @@ class Platform_SuperFamicom(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['snes9x_libretro']
-    extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
+    emulators = ["retroarch", "other"]
+    cores = ["snes9x_libretro"]
+    extensions = ["zip", "sfc", "smc", "fig", "swc", "bs"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1212,20 +1348,39 @@ class Platform_SuperFamicom(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['snes9x_libretro']
-        FULLSCREEN = ['False']
+        core = ["snes9x_libretro"]
+        FULLSCREEN = ["False"]
 
-        extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
+        extensions = ["zip", "sfc", "smc", "fig", "swc", "bs"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'bsnes_libretro' or core[0] == 'bsnes_hd_beta_libretro' or core[0] == 'bsnes_cplusplus98_libretro' or core[0] == 'bsnes2014_accuracy_libretro' or core[0] == 'bsnes2014_balanced_libretro' or core[0] == 'bsnes2014_performance_libretro' or core[0] == 'bsnes_mercury_accuracy_libretro' or core[0] == 'bsnes_mercury_balanced_libretro' or core[0] == 'bsnes_mercury_balanced_libretro':
-                extensions = ['sfc', 'smc', 'gb', 'gbc', 'bs']
-            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
-                extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core[0] == 'mesen-s_libretro':
-                extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
-            if core[0] == 'snes9x_libretro' or core[0] == 'snes9x2002_libretro' or core[0] == 'snes9x2005_libretro' or core[0] == 'snes9x2005_plus_libretro' or core[0] == 'snes9x2010_libretro':
-                extensions = ['smc', 'sfc', 'swc', 'fig', 'bs', 'st']
+            if (
+                core[0] == "bsnes_libretro"
+                or core[0] == "bsnes_hd_beta_libretro"
+                or core[0] == "bsnes_cplusplus98_libretro"
+                or core[0] == "bsnes2014_accuracy_libretro"
+                or core[0] == "bsnes2014_balanced_libretro"
+                or core[0] == "bsnes2014_performance_libretro"
+                or core[0] == "bsnes_mercury_accuracy_libretro"
+                or core[0] == "bsnes_mercury_balanced_libretro"
+                or core[0] == "bsnes_mercury_balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bs"]
+            if (
+                core[0] == "higan_sfc_libretro"
+                or core[0] == "higan_sfc balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bml", "rom"]
+            if core[0] == "mesen-s_libretro":
+                extensions = ["sfc", "smc", "fig", "swc", "bs", "gb", "gbc"]
+            if (
+                core[0] == "snes9x_libretro"
+                or core[0] == "snes9x2002_libretro"
+                or core[0] == "snes9x2005_libretro"
+                or core[0] == "snes9x2005_plus_libretro"
+                or core[0] == "snes9x2010_libretro"
+            ):
+                extensions = ["smc", "sfc", "swc", "fig", "bs", "st"]
 
         ext = []
         for ext in extensions:
@@ -1243,14 +1398,14 @@ class Platform_SuperFamicom(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -1275,26 +1430,45 @@ class Platform_SuperFamicom(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['snessuperfamicom']
+        return ["snessuperfamicom"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'bsnes_libretro' or core[0] == 'bsnes_hd_beta_libretro' or core[0] == 'bsnes_cplusplus98_libretro' or core[0] == 'bsnes2014_accuracy_libretro' or core[0] == 'bsnes2014_balanced_libretro' or core[0] == 'bsnes2014_performance_libretro' or core[0] == 'bsnes_mercury_accuracy_libretro' or core[0] == 'bsnes_mercury_balanced_libretro' or core[0] == 'bsnes_mercury_balanced_libretro':
-                extensions = ['sfc', 'smc', 'gb', 'gbc', 'bs']
-            if core[0] == 'higan_sfc_libretro' or core[0] == 'higan_sfc balanced_libretro':
-                extensions = ['sfc', 'smc', 'gb', 'gbc', 'bml', 'rom']
-            if core[0] == 'mesen-s_libretro':
-                extensions = ['sfc', 'smc', 'fig', 'swc', 'bs', 'gb', 'gbc']
-            if core[0] == 'snes9x_libretro' or core[0] == 'snes9x2002_libretro' or core[0] == 'snes9x2005_libretro' or core[0] == 'snes9x2005_plus_libretro' or core[0] == 'snes9x2010_libretro':
-                extensions = ['smc', 'sfc', 'swc', 'fig', 'bs', 'st']
+            if (
+                core[0] == "bsnes_libretro"
+                or core[0] == "bsnes_hd_beta_libretro"
+                or core[0] == "bsnes_cplusplus98_libretro"
+                or core[0] == "bsnes2014_accuracy_libretro"
+                or core[0] == "bsnes2014_balanced_libretro"
+                or core[0] == "bsnes2014_performance_libretro"
+                or core[0] == "bsnes_mercury_accuracy_libretro"
+                or core[0] == "bsnes_mercury_balanced_libretro"
+                or core[0] == "bsnes_mercury_balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bs"]
+            if (
+                core[0] == "higan_sfc_libretro"
+                or core[0] == "higan_sfc balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bml", "rom"]
+            if core[0] == "mesen-s_libretro":
+                extensions = ["sfc", "smc", "fig", "swc", "bs", "gb", "gbc"]
+            if (
+                core[0] == "snes9x_libretro"
+                or core[0] == "snes9x2002_libretro"
+                or core[0] == "snes9x2005_libretro"
+                or core[0] == "snes9x2005_plus_libretro"
+                or core[0] == "snes9x2010_libretro"
+            ):
+                extensions = ["smc", "sfc", "swc", "fig", "bs", "st"]
 
         ext_files = []
         for file in self.prod_files:
@@ -1321,9 +1495,9 @@ class Platform_Virtualboy(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['mednafen_vb_libretro']
-    extensions = ['zip', 'vb', 'vboy', 'bin']
+    emulators = ["retroarch", "other"]
+    cores = ["mednafen_vb_libretro"]
+    extensions = ["zip", "vb", "vboy", "bin"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1331,12 +1505,12 @@ class Platform_Virtualboy(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['mednafen_vb_libretro']
-        extensions = ['zip', 'vb', 'vboy', 'bin']
+        core = ["mednafen_vb_libretro"]
+        extensions = ["zip", "vb", "vboy", "bin"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_vb_libretro':
-                extensions = ['vb', 'vboy', 'bin']
+            if core[0] == "mednafen_vb_libretro":
+                extensions = ["vb", "vboy", "bin"]
 
         ext = []
         for ext in extensions:
@@ -1354,7 +1528,7 @@ class Platform_Virtualboy(PlatformCommon):
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
@@ -1384,20 +1558,20 @@ class Platform_Virtualboy(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['virtualboy']
+        return ["virtualboy"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_vb_libretro':
-                extensions = ['vb', 'vboy', 'bin']
+            if core[0] == "mednafen_vb_libretro":
+                extensions = ["vb", "vboy", "bin"]
 
         ext_files = []
         for file in self.prod_files:
@@ -1424,10 +1598,22 @@ class Platform_Wii(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['dolphin_libretro']
-    extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                  'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+    emulators = ["retroarch", "other"]
+    cores = ["dolphin_libretro"]
+    extensions = [
+        "gcm",
+        "iso",
+        "wbfs",
+        "ciso",
+        "gcz",
+        "elf",
+        "dol",
+        "dff",
+        "tgc",
+        "wad",
+        "rvz",
+        "m3u",
+    ]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1435,14 +1621,38 @@ class Platform_Wii(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['dolphin_libretro']
-        extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                      'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+        core = ["dolphin_libretro"]
+        extensions = [
+            "gcm",
+            "iso",
+            "wbfs",
+            "ciso",
+            "gcz",
+            "elf",
+            "dol",
+            "dff",
+            "tgc",
+            "wad",
+            "rvz",
+            "m3u",
+        ]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'dolphin_libretro':
-                extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                              'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+            if core[0] == "dolphin_libretro":
+                extensions = [
+                    "gcm",
+                    "iso",
+                    "wbfs",
+                    "ciso",
+                    "gcz",
+                    "elf",
+                    "dol",
+                    "dff",
+                    "tgc",
+                    "wad",
+                    "rvz",
+                    "m3u",
+                ]
 
         ext = []
         for ext in extensions:
@@ -1460,14 +1670,14 @@ class Platform_Wii(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -1492,21 +1702,33 @@ class Platform_Wii(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['wii', 'wiiu', 'nintendowii']
+        return ["wii", "wiiu", "nintendowii"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'dolphin_libretro':
-                extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz',
-                              'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
+            if core[0] == "dolphin_libretro":
+                extensions = [
+                    "gcm",
+                    "iso",
+                    "wbfs",
+                    "ciso",
+                    "gcz",
+                    "elf",
+                    "dol",
+                    "dff",
+                    "tgc",
+                    "wad",
+                    "rvz",
+                    "m3u",
+                ]
 
         ext_files = []
         for file in self.prod_files:

@@ -13,10 +13,15 @@ class Platform_Pcengine(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro',
-             'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
-    extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+    emulators = ["retroarch", "other"]
+    cores = [
+        "mednafen_supergrafx_libretro",
+        "mednafen_pce_fast_libretro",
+        "fbneo_pce_libretro",
+        "fbneo_sgx_libretro",
+        "fbneo_tg_libretro",
+    ]
+    extensions = ["zip", "pce", "sgx", "cue", "ccd", "chd"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -24,12 +29,12 @@ class Platform_Pcengine(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['mednafen_supergrafx_libretro']
-        extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+        core = ["mednafen_supergrafx_libretro"]
+        extensions = ["zip", "pce", "sgx", "cue", "ccd", "chd"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_supergrafx_libretro':
-                extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
+            if core[0] == "mednafen_supergrafx_libretro":
+                extensions = ["pce", "sgx", "cue", "ccd", "chd"]
 
         ext = []
         for ext in extensions:
@@ -47,14 +52,14 @@ class Platform_Pcengine(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -79,22 +84,22 @@ class Platform_Pcengine(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['necturbografxpcengine']
+        return ["necturbografxpcengine"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "other":
-            extensions = ['unknown']
+            extensions = ["unknown"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_supergrafx_libretro':
-                extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
+            if core[0] == "mednafen_supergrafx_libretro":
+                extensions = ["pce", "sgx", "cue", "ccd", "chd"]
 
         ext_files = []
         for file in self.prod_files:
@@ -121,10 +126,15 @@ class Platform_Supergrafx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['mednafen_supergrafx_libretro', 'mednafen_pce_fast_libretro',
-             'fbneo_pce_libretro', 'fbneo_sgx_libretro', 'fbneo_tg_libretro']
-    extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+    emulators = ["retroarch", "other"]
+    cores = [
+        "mednafen_supergrafx_libretro",
+        "mednafen_pce_fast_libretro",
+        "fbneo_pce_libretro",
+        "fbneo_sgx_libretro",
+        "fbneo_tg_libretro",
+    ]
+    extensions = ["zip", "pce", "sgx", "cue", "ccd", "chd"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -132,12 +142,12 @@ class Platform_Supergrafx(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['mednafen_supergrafx_libretro']
-        extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+        core = ["mednafen_supergrafx_libretro"]
+        extensions = ["zip", "pce", "sgx", "cue", "ccd", "chd"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_supergrafx_libretro':
-                extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
+            if core[0] == "mednafen_supergrafx_libretro":
+                extensions = ["pce", "sgx", "cue", "ccd", "chd"]
 
         ext = []
         for ext in extensions:
@@ -155,14 +165,14 @@ class Platform_Supergrafx(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -187,22 +197,22 @@ class Platform_Supergrafx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['necturbografxpcengine']
+        return ["necturbografxpcengine"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "other":
-            extensions = ['unknown']
+            extensions = ["unknown"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_supergrafx_libretro':
-                extensions = ['pce', 'sgx', 'cue', 'ccd', 'chd']
+            if core[0] == "mednafen_supergrafx_libretro":
+                extensions = ["pce", "sgx", "cue", "ccd", "chd"]
 
         ext_files = []
         for file in self.prod_files:
@@ -229,9 +239,9 @@ class Platform_Pc8000(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['quasi88_libretro']
-    extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
+    emulators = ["retroarch", "other"]
+    cores = ["quasi88_libretro"]
+    extensions = ["zip", "pce", "sgx", "cue", "ccd", "chd"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -239,12 +249,12 @@ class Platform_Pc8000(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['quasi88_libretro']
-        extensions = ['d88', 'u88', 'm3u']
+        core = ["quasi88_libretro"]
+        extensions = ["d88", "u88", "m3u"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'quasi88_libretro':
-                extensions = ['d88', 'u88', 'm3u']
+            if core[0] == "quasi88_libretro":
+                extensions = ["d88", "u88", "m3u"]
 
         ext = []
         for ext in extensions:
@@ -262,14 +272,14 @@ class Platform_Pc8000(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -294,22 +304,22 @@ class Platform_Pc8000(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['pc8000', 'pc8800']
+        return ["pc8000", "pc8800"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "other":
-            extensions = ['unknown']
+            extensions = ["unknown"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'quasi88_libretro':
-                extensions = ['d88', 'u88', 'm3u']
+            if core[0] == "quasi88_libretro":
+                extensions = ["d88", "u88", "m3u"]
 
         ext_files = []
         for file in self.prod_files:
@@ -336,9 +346,9 @@ class Platform_Pc8800(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['quasi88_libretro']
-    extensions = ['d88', 'u88', 'm3u']
+    emulators = ["retroarch", "other"]
+    cores = ["quasi88_libretro"]
+    extensions = ["d88", "u88", "m3u"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -346,12 +356,12 @@ class Platform_Pc8800(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['quasi88_libretro']
-        extensions = ['d88', 'u88', 'm3u']
+        core = ["quasi88_libretro"]
+        extensions = ["d88", "u88", "m3u"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'quasi88_libretro':
-                extensions = ['d88', 'u88', 'm3u']
+            if core[0] == "quasi88_libretro":
+                extensions = ["d88", "u88", "m3u"]
 
         ext = []
         for ext in extensions:
@@ -369,14 +379,14 @@ class Platform_Pc8800(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -401,20 +411,20 @@ class Platform_Pc8800(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['pc8800']
+        return ["pc8800"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'quasi88_libretro':
-                extensions = ['d88', 'u88', 'm3u']
+            if core[0] == "quasi88_libretro":
+                extensions = ["d88", "u88", "m3u"]
 
         ext_files = []
         for file in self.prod_files:
@@ -441,10 +451,27 @@ class Platform_Pc98(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['nekop2_libretro']
-    extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88',
-                  '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
+    emulators = ["retroarch", "other"]
+    cores = ["nekop2_libretro"]
+    extensions = [
+        "d98",
+        "zip",
+        "98d",
+        "fdi",
+        "fdd",
+        "2hd",
+        "tfd",
+        "d88",
+        "88d",
+        "hdm",
+        "xdf",
+        "dup",
+        "cmd",
+        "hdi",
+        "thd",
+        "nhd",
+        "hdd",
+    ]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -452,14 +479,48 @@ class Platform_Pc98(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['nekop2_libretro']
-        extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88',
-                      '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
+        core = ["nekop2_libretro"]
+        extensions = [
+            "d98",
+            "zip",
+            "98d",
+            "fdi",
+            "fdd",
+            "2hd",
+            "tfd",
+            "d88",
+            "88d",
+            "hdm",
+            "xdf",
+            "dup",
+            "cmd",
+            "hdi",
+            "thd",
+            "nhd",
+            "hdd",
+        ]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'nekop2_libretro':
-                extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88',
-                              '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
+            if core[0] == "nekop2_libretro":
+                extensions = [
+                    "d98",
+                    "zip",
+                    "98d",
+                    "fdi",
+                    "fdd",
+                    "2hd",
+                    "tfd",
+                    "d88",
+                    "88d",
+                    "hdm",
+                    "xdf",
+                    "dup",
+                    "cmd",
+                    "hdi",
+                    "thd",
+                    "nhd",
+                    "hdd",
+                ]
 
         ext = []
         for ext in extensions:
@@ -477,14 +538,14 @@ class Platform_Pc98(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -509,21 +570,38 @@ class Platform_Pc98(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['pc-98']
+        return ["pc-98"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'nekop2_libretro':
-                extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88',
-                              '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
+            if core[0] == "nekop2_libretro":
+                extensions = [
+                    "d98",
+                    "zip",
+                    "98d",
+                    "fdi",
+                    "fdd",
+                    "2hd",
+                    "tfd",
+                    "d88",
+                    "88d",
+                    "hdm",
+                    "xdf",
+                    "dup",
+                    "cmd",
+                    "hdi",
+                    "thd",
+                    "nhd",
+                    "hdd",
+                ]
 
         ext_files = []
         for file in self.prod_files:
@@ -550,9 +628,9 @@ class Platform_Pcfx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['mednafen_pcfx_libretro']
-    extensions = ['cue', 'ccd', 'toc', 'chd']
+    emulators = ["retroarch", "other"]
+    cores = ["mednafen_pcfx_libretro"]
+    extensions = ["cue", "ccd", "toc", "chd"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -560,12 +638,12 @@ class Platform_Pcfx(PlatformCommon):
         # Set whether we should run in fullscreens or not.
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ['mednafen_pcfx_libretro']
-        extensions = ['cue', 'ccd', 'toc', 'chd']
+        core = ["mednafen_pcfx_libretro"]
+        extensions = ["cue", "ccd", "toc", "chd"]
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_pcfx_libretro':
-                extensions = ['cue', 'ccd', 'toc', 'chd']
+            if core[0] == "mednafen_pcfx_libretro":
+                extensions = ["cue", "ccd", "toc", "chd"]
 
         ext = []
         for ext in extensions:
@@ -583,14 +661,14 @@ class Platform_Pcfx(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -615,20 +693,20 @@ class Platform_Pcfx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == '3do':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['pcfx']
+        return ["pcfx"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
 
         if emulator[0] == "retroarch":
-            if core[0] == 'mednafen_pcfx_libretro':
-                extensions = ['cue', 'ccd', 'toc', 'chd']
+            if core[0] == "mednafen_pcfx_libretro":
+                extensions = ["cue", "ccd", "toc", "chd"]
 
         ext_files = []
         for file in self.prod_files:
