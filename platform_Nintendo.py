@@ -958,7 +958,8 @@ class Platform_GameboyAdvance(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["vba_next_libretro"]
-        extensions = ["zip", "gb", "gbc", "gba", "dmg", "agb", "bin", "cgb", "sgb"]
+        extensions = ["zip", "gb", "gbc", "gba",
+                      "dmg", "agb", "bin", "cgb", "sgb"]
 
         if emulator[0] == "retroarch":
             if core[0] == "mednafen_gba_libretro":

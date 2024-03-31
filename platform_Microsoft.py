@@ -127,7 +127,8 @@ class Platform_Msx(PlatformCommon):
         "openmsx-msx-turbo",
     ]
     cores = ["bluemsx_libretro", "fbneo_msx_libretro", "fmsx_libretro"]
-    extensions = ["rom", "ri", "mx1", "mx2", "col", "dsk", "cas", "sg", "sc", "m3u"]
+    extensions = ["rom", "ri", "mx1", "mx2",
+                  "col", "dsk", "cas", "sg", "sc", "m3u"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -136,7 +137,8 @@ class Platform_Msx(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["bluemsx_libretro"]
-        extensions = ["rom", "ri", "mx1", "mx2", "col", "dsk", "cas", "sg", "sc", "m3u"]
+        extensions = ["rom", "ri", "mx1", "mx2",
+                      "col", "dsk", "cas", "sg", "sc", "m3u"]
 
         if emulator[0] == "retroarch":
             if core[0] == "bluemsx_libretro":
