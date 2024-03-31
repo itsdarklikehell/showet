@@ -68,10 +68,10 @@ from platform_Sega import (
     Platform_Dreamcast,
     Platform_Saturn
 )
-# from platform_Sinclair import (
-#    Platform_Zxspectrum,
-#    Platform_Zx81
-# )
+from platform_Sinclair import (
+   Platform_Zxspectrum,
+   Platform_Zx81
+)
 from platform_Snk import (
     Platform_Neogeo,
     Platform_Neopocket,
