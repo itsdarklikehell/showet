@@ -1,7 +1,7 @@
 import os
-from os import listdir
-import os.path
 import stat
+import os.path
+from os import listdir
 
 from platformcommon import PlatformCommon
 

@@ -1,7 +1,7 @@
 import os
 import os.path
-import subprocess
 import inquirer
+import subprocess
 
 FULLSCREEN = False
 SELECTIVE_MODE = True

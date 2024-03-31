@@ -1,6 +1,6 @@
 import os
-import os.path
 import stat
+import os.path
 
 from platformcommon import PlatformCommon
 
