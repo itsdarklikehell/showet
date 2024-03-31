@@ -14,7 +14,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
 	# Set whether we should run in fullscreens or not.
 	# Supply A list of extensions that the specified emulator supports.
 	emulators = ['retroarch', 'stella', 'hatari']
-	cores = ['hatari_libretro']
+	cores = ['hatari_libretro', 'a5200_libretro']
 	extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
 
 	def run(self):
@@ -23,7 +23,7 @@ class Platform_AtariSTETTFalcon(PlatformCommon):
 		# Set whether we should run in fullscreens or not.
 		# Supply A list of extensions that the specified emulator supports.
 		emulator = ["retroarch"]
-		core = ['hatari_libretro']
+		core = ['hatari_libretro', 'a5200_libretro']
 		extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
 
 		if emulator[0] == "retroarch":

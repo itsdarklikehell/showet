@@ -33,7 +33,7 @@ fi
 echo "Checking for available retroarch cores"
 if [ -d "$RETROARCH_CORES_DIRS" ]; then
     echo "Found: $RETROARCH_CORES_DIRS"
-    ls $RETROARCH_CORES_DIRS
+    ls $RETROARCH_CORES_DIRS/*.so
 else
     echo "$RETROARCH_CORES_DIRS NOT FOUND!"
     exit 1

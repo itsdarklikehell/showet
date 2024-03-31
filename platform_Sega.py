@@ -14,7 +14,7 @@ class Platform_32X(PlatformCommon):
 	# Set whether we should run in fullscreens or not.
 	# Supply A list of extensions that the specified emulator supports.
 	emulators = ['retroarch', 'picodrive']
-	cores = ['picodrive_libretro']
+	cores = ['picodrive_libretro', 'blastem_libretro']
 	extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
 
 	def run(self):
