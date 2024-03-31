@@ -15,8 +15,7 @@ class Platform_Commodore64(PlatformCommon):
 	# Supply A list of extensions that the specified emulator supports.
 	emulators = ['retroarch', 'vice', 'frodo']
 	cores = ['vice_x64sc_libretro', 'frodo_libretro']
-	floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-				   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+	floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
 	tapes_ext = ['t64', 'tap', 'tcrt']
 	roms_ext = ['prg', 'p00', 'crt', 'bin']
 	vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
@@ -33,8 +32,7 @@ class Platform_Commodore64(PlatformCommon):
 		# Supply A list of extensions that the specified emulator supports.
 		emulator = ["retroarch"]
 		core = ['vice_x64sc_libretro']
-		floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-					   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+		floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
 		tapes_ext = ['t64', 'tap', 'tcrt']
 		roms_ext = ['prg', 'p00', 'crt', 'bin']
 		vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
