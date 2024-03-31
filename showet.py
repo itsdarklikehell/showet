@@ -187,23 +187,22 @@ if args.platforms:
     exit(0)
 
 showetdir = os.path.expanduser("~/.showet")
-RetroPieEmuDir = os.path.expanduser("/opt/retropie/emulators")
+# RetroPieEmuDir = os.path.expanduser("/opt/retropie/emulators")
 
-print("Check: If Folder %s exists." % showetdir)
-if not os.path.exists(showetdir):
-    print("Warning: Folder %s does not exist" % showetdir)
-    os.makedirs(showetdir)
-    print("Info: Folder %s Created." % showetdir)
-else:
-    print("Info: Folder %s exists." % showetdir)
+# print("Check: If Folder %s exists." % showetdir)
+# if not os.path.exists(showetdir):
+#     print("Warning: Folder %s does not exist" % showetdir)
+#     os.makedirs(showetdir)
+#     print("Info: Folder %s Created." % showetdir)
+# else:
+#     print("Info: Folder %s exists." % showetdir)
 
-print("Check: if Folder %s exists." % RetroPieEmuDir)
-if not os.path.exists(RetroPieEmuDir):
-    print("Warning: %s does not exist" % RetroPieEmuDir)
-    # exit(-1)
-else:
-    print("Info: Folder %s exists." % RetroPieEmuDir)
-
+# print("Check: if Folder %s exists." % RetroPieEmuDir)
+# if not os.path.exists(RetroPieEmuDir):
+#     print("Warning: %s does not exist" % RetroPieEmuDir)
+#     # exit(-1)
+# else:
+#     print("Info: Folder %s exists." % RetroPieEmuDir)
 
 if not args.pouetid:
     print("No pouet id specified. Use --help to see options.")
@@ -219,7 +218,7 @@ prod_json = None
 prod_json_filename = datadir + "/pouet.json"
 if os.path.exists(prod_json_filename):
     if DEBUGGING is not False:
-        print("Json already downloaded")
+        print("Json already downloaded.")
     with open(prod_json_filename, 'r') as f:
         prod_json = f.read()
 else:
@@ -312,7 +311,7 @@ else:
     def extract_files(prod_download_filename, datadir):
         if not prod_download_filename.endswith("exe") or not prod_download_filename.endswith("EXE"):
             patoolib.extract_archive(
-                prod_download_filename, outdir=datadir, verbosity=0, interactive=None)
+                prod_download_filename, outdir=datadir, verbosity=1, interactive=None)
             os.system("tochd -d " + datadir + " -- " + prod_download_filename)
             os.system("tochd -q -d " + datadir + " " + datadir)
     filetypes = [
@@ -391,6 +390,7 @@ else:
         'zpi',
     ]
     filetype = []
+
     # lowercase
     for filetype in filetypes:
         if prod_download_filename.endswith(filetype):
@@ -401,11 +401,11 @@ else:
             extract_files(prod_download_filename, datadir)
             if DEBUGGING is not False:
                 print("\t================================")
+
     # uppercase
     for filetype in filetypes:
         if prod_download_filename.endswith(filetype.upper()):
             if DEBUGGING is not False:
-
                 print("\t================================")
                 print("\tDetected archive: " + filetype.upper)
                 print("\t================================")
