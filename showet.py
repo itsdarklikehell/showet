@@ -1,8 +1,8 @@
+#!/usr/bin/python3
 import os
 import json
 import argparse
 import patoolib
-#!/usr/bin/python3
 import urllib.request
 
 from platform_3do import Platform_3do
@@ -176,9 +176,10 @@ platform_runners = [
     Platform_Linux(),
     Platform_Msdos(),
     Platform_Windows(),
+    Platform_Zx81(),
+    Platform_Zxspectrum(),
 ]
-# Platform_Zxspectrum(),
-# Platform_Zx81(),
+
 if args.platforms:
     for r in platform_runners:
         for p in r.supported_platforms():
