@@ -406,7 +406,7 @@ else:
             if DEBUGGING is not False:
 
                 print("\t================================")
-                print("\tDetected archive: " + filetype)
+                print("\tDetected archive: " + filetype.upper)
                 print("\t================================")
             extract_files(prod_download_filename, datadir)
             if DEBUGGING is not False:
