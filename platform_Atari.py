@@ -9,1110 +9,1065 @@ DEBUGGING = True
 
 
 class Platform_AtariSTETTFalcon(PlatformCommon):
-	# Set up the emulator we want to run.
-	# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-	# Set whether we should run in fullscreens or not.
-	# Supply A list of extensions that the specified emulator supports.
-	emulators = ['retroarch', 'stella', 'hatari']
-	cores = ['hatari_libretro', 'a5200_libretro']
-	extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set whether we should run in fullscreens or not.
+    # Supply A list of extensions that the specified emulator supports.
+    # emulators = ['retroarch', 'stella', 'hatari']
+    # cores = ['hatari_libretro', 'a5200_libretro']
+    # extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
 
-	def run(self):
-		# Set up the emulator we want to run.
-		# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-		# Set whether we should run in fullscreens or not.
-		# Supply A list of extensions that the specified emulator supports.
-		emulator = ["retroarch"]
-		core = ['hatari_libretro', 'a5200_libretro']
-		extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+    def run(self):
+        emulator = ["retroarch"]
+        core = ['hatari_libretro', 'a5200_libretro']
+        extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+        if emulator[0] == "retroarch":
+            if core[0] == 'hatari_libretro':
+                extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-		if emulator[0] == "retroarch":
-			if core[0] == 'hatari_libretro':
-				extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
-		if emulator[0] == "other":
-			extensions = ["unknown"]
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
+        if emulator[0] == "retroarch":
+            emulator.append('-L')
+            emulator.append(core[0])
 
-		ext = []
-		for ext in extensions:
-			# Tries to identify files by the list of extensions.
-			files = self.find_files_with_extension(ext)
-		if len(files) == 0:
-			# Tries to identify files by the list of extensions in UPPERCASE.
-			files = self.find_files_with_extension(ext.upper())
-		if len(files) == 0:
-			# Tries to identify files by any magic necessary.
-			files = self.find_ext_files(emulator, core)
-		# if len(files) == 0:
-		#     # Tries to identify files by any magic necessary.
-		#     files = self.find_magic_cookies()
-		if len(files) == 0:
-			print("Didn't find any runnable files.")
-			exit(-1)
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "other":
+            # Set whether we should run in fullscreens or not.
+            if FULLSCREEN is True:
+                emulator.append('--fullscreen')
 
-		# in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-		if emulator[0] == "retroarch":
-			emulator.append('-L')
-			emulator.append(core[0])
+        # print status to console.
+        if DEBUGGING is not False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
 
-		# in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-		if emulator[0] == "other":
-			# Set whether we should run in fullscreens or not.
-			if FULLSCREEN is True:
-				emulator.append('--fullscreen')
+        # drives = []
+        # # Support only one for now..
+        if len(files) > 0:
+            # Sort the files.
+            files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
 
-		# print status to console.
-		if DEBUGGING is not False:
-			print("\tUsing emulator: " + str(emulator))
-			print("\tUsing core: " + str(core))
-			print("\tUsing extensions: " + str(extensions))
+            if emulator[0] == "retroarch":
+                emulator = emulator + [files[0]]
+            if emulator[0] == 'hatari':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "other":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
-		# drives = []
-		# # Support only one for now..
-		if len(files) > 0:
-			# Sort the files.
-			files = self.sort_disks(files)
-			flipfile = self.datadir + "/fliplist.vfl"
-			m3ufile = self.datadir + "/fliplist.m3u"
-			with open(flipfile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			with open(m3ufile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
 
-			if emulator[0] == "retroarch":
-				emulator = emulator + [files[0]]
-			if emulator[0] == 'hatari':
-				emulator = emulator + ['-flipname', flipfile, files[0]]
-			if emulator[0] == "other":
-				emulator = emulator + ["-flipname", flipfile, files[0]]
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
 
-			# if not os.path.exists(self.datadir + "/s"):
-			#     os.makedirs(self.datadir + "/s")
-			#     # when find_files_with_extension works with paths relative to datadir.
-			#     # we can simplify this
-			#     with open(self.datadir + "/s/startup-sequence", 'w') as f:
-			#         exename = files[0].split('/')
-			#         exename = exename[len(exename) - 1]
-			#         f.write(exename + "\n")
-			#         f.close()
+        self.run_process(emulator)
 
-		# if emulator[0] == "retroarch":
-		#     amiga_model = 'A1200'
-		#     if self.prod_platform == 'amigaocsecs':
-		#         amiga_model = 'A500'
-		#     # if self.prod_platform == 'amigaaga':
-		#     #     emulator.append('--fast_memory=8192')
-		#     if len(drives) > 0:
-		#         print("\tUsing drive 0: ", drives[0])
-		#         emulator.append(drives[0])
-		#     if len(drives) > 1:
-		#         print("\tUsing drive 1: ", drives[1])
-		#         emulator.append(drives[1])
-		#     if len(drives) > 2:
-		#         print("\tUsing drive 2: ", drives[2])
-		#         emulator.append(drives[2])
-		#     if len(drives) > 3:
-		#         print("\tUsing drive 3: ", drives[3])
-		#         emulator.append(drives[3])
-		# emulator.append('--model=' + amiga_model)
+    def supported_platforms(self):
+        return ['atarifalcon030', 'atarist', 'atariste', 'ataritt030']
 
-		self.run_process(emulator)
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
-	def supported_platforms(self):
-		return ['atarifalcon030', 'atarist', 'atariste', 'ataritt030']
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self, emulator, core):
 
-	# Search demo files for amiga magic cookie (executable file)
-	# def find_magic_cookies(self):
-	#     cookie_files = []
-	#     for file in self.prod_files:
-	#         with open(file, "rb") as fin:
-	#             header = fin.read(4)
-	#             if len(header) == 4:
-	#                 # Signature for Amiga magic cookie
-	#                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-	#                     cookie_files.append(file)
-	#     return cookie_files
+        if emulator[0] == "retroarch":
+            if core[0] == 'hatari_libretro':
+                extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-	# Tries to identify files by any magic necessary
-	def find_ext_files(self, emulator, core):
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
+                ext = []
+                for ext in extensions:
+                    if file.endswith(ext):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+                    if file.endswith(ext.upper()):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+        return ext_files
 
-		if emulator[0] == "retroarch":
-			if core[0] == 'hatari_libretro':
-				extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
 
-		if emulator[0] == "other":
-			extensions = ["unknown"]
-
-		ext_files = []
-		for file in self.prod_files:
-			size = os.path.getsize(file)
-			if size > 0:
-				# Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-				ext = []
-				for ext in extensions:
-					if file.endswith(ext):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-					if file.endswith(ext.upper()):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-		return ext_files
 class Platform_Atarixlxe(PlatformCommon):
-	# Set up the emulator we want to run.
-	# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-	# Set whether we should run in fullscreens or not.
-	# Supply A list of extensions that the specified emulator supports.
-	emulators = ['retroarch', 'other']
-	cores = ['atari800_libretro']
-	extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set whether we should run in fullscreens or not.
+    # Supply A list of extensions that the specified emulator supports.
+    # emulators = ['retroarch', 'other']
+    # cores = ['atari800_libretro']
+    # extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
 
-	def run(self):
-		# Set up the emulator we want to run.
-		# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-		# Set whether we should run in fullscreens or not.
-		# Supply A list of extensions that the specified emulator supports.
-		emulator = ["retroarch"]
-		core = ['atari800_libretro']
-		extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-					  'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+    def run(self):
+        emulator = ["retroarch"]
+        core = ['atari800_libretro']
+        extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
+                      'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        if emulator[0] == "retroarch":
+            if core[0] == 'atari800_libretro':
+                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
+                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-		if emulator[0] == "retroarch":
-			if core[0] == 'atari800_libretro':
-				extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-							  'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
-		if emulator[0] == "other":
-			extensions = ["unknown"]
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
+        if emulator[0] == "retroarch":
+            emulator.append('-L')
+            emulator.append(core[0])
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "other":
+            # Set whether we should run in fullscreens or not.
+            if FULLSCREEN is True:
+                emulator.append('--fullscreen')
 
-		ext = []
-		for ext in extensions:
-			# Tries to identify files by the list of extensions.
-			files = self.find_files_with_extension(ext)
-		if len(files) == 0:
-			# Tries to identify files by the list of extensions in UPPERCASE.
-			files = self.find_files_with_extension(ext.upper())
-		if len(files) == 0:
-			# Tries to identify files by any magic necessary.
-			files = self.find_ext_files(emulator, core)
-		# if len(files) == 0:
-		#     # Tries to identify files by any magic necessary.
-		#     files = self.find_magic_cookies()
-		if len(files) == 0:
-			print("Didn't find any runnable files.")
-			exit(-1)
+        # print status to console.
+        if DEBUGGING is not False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
 
-		# in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-		if emulator[0] == "retroarch":
-			emulator.append('-L')
-			emulator.append(core[0])
+        # drives = []
+        # # Support only one for now..
+        if len(files) > 0:
+            # Sort the files.
+            files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            if emulator[0] == "retroarch":
+                emulator = emulator + [files[0]]
+            if emulator[0] == 'atari800':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "other":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
-		# in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-		if emulator[0] == "other":
-			# Set whether we should run in fullscreens or not.
-			if FULLSCREEN is True:
-				emulator.append('--fullscreen')
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
 
-		# print status to console.
-		if DEBUGGING is not False:
-			print("\tUsing emulator: " + str(emulator))
-			print("\tUsing core: " + str(core))
-			print("\tUsing extensions: " + str(extensions))
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
 
-		# drives = []
-		# # Support only one for now..
-		if len(files) > 0:
-			# Sort the files.
-			files = self.sort_disks(files)
-			flipfile = self.datadir + "/fliplist.vfl"
-			m3ufile = self.datadir + "/fliplist.m3u"
-			with open(flipfile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			with open(m3ufile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			if emulator[0] == "retroarch":
-				emulator = emulator + [files[0]]
-			if emulator[0] == 'atari800':
-				emulator = emulator + ['-flipname', flipfile, files[0]]
-			if emulator[0] == "other":
-				emulator = emulator + ["-flipname", flipfile, files[0]]
+        self.run_process(emulator)
 
-			# if not os.path.exists(self.datadir + "/s"):
-			#     os.makedirs(self.datadir + "/s")
-			#     # when find_files_with_extension works with paths relative to datadir.
-			#     # we can simplify this
-			#     with open(self.datadir + "/s/startup-sequence", 'w') as f:
-			#         exename = files[0].split('/')
-			#         exename = exename[len(exename) - 1]
-			#         f.write(exename + "\n")
-			#         f.close()
+    def supported_platforms(self):
+        return ['atarixlxe']
 
-		# if emulator[0] == "retroarch":
-		#     amiga_model = 'A1200'
-		#     if self.prod_platform == 'amigaocsecs':
-		#         amiga_model = 'A500'
-		#     # if self.prod_platform == 'amigaaga':
-		#     #     emulator.append('--fast_memory=8192')
-		#     if len(drives) > 0:
-		#         print("\tUsing drive 0: ", drives[0])
-		#         emulator.append(drives[0])
-		#     if len(drives) > 1:
-		#         print("\tUsing drive 1: ", drives[1])
-		#         emulator.append(drives[1])
-		#     if len(drives) > 2:
-		#         print("\tUsing drive 2: ", drives[2])
-		#         emulator.append(drives[2])
-		#     if len(drives) > 3:
-		#         print("\tUsing drive 3: ", drives[3])
-		#         emulator.append(drives[3])
-		# emulator.append('--model=' + amiga_model)
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
-		self.run_process(emulator)
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self, emulator, core):
+        if emulator[0] == "retroarch":
+            if core[0] == 'atari800_libretro':
+                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
+                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-	def supported_platforms(self):
-		return ['atarixlxe']
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
+                ext = []
+                for ext in extensions:
+                    if file.endswith(ext):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+                    if file.endswith(ext.upper()):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+        return ext_files
 
-	# Search demo files for amiga magic cookie (executable file)
-	# def find_magic_cookies(self):
-	#     cookie_files = []
-	#     for file in self.prod_files:
-	#         with open(file, "rb") as fin:
-	#             header = fin.read(4)
-	#             if len(header) == 4:
-	#                 # Signature for Amiga magic cookie
-	#                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-	#                     cookie_files.append(file)
-	#     return cookie_files
 
-	# Tries to identify files by any magic necessary
-	def find_ext_files(self, emulator, core):
-
-		if emulator[0] == "retroarch":
-			if core[0] == 'atari800_libretro':
-				extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-							  'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-
-		if emulator[0] == "other":
-			extensions = ["unknown"]
-
-		ext_files = []
-		for file in self.prod_files:
-			size = os.path.getsize(file)
-			if size > 0:
-				# Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-				ext = []
-				for ext in extensions:
-					if file.endswith(ext):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-					if file.endswith(ext.upper()):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-		return ext_files
 class Platform_AtariJaguar(PlatformCommon):
-	# Set up the emulator we want to run.
-	# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-	# Set whether we should run in fullscreens or not.
-	# Supply A list of extensions that the specified emulator supports.
-	emulators = ['retroarch', 'other']
-	cores = ['virtualjaguar_libretro']
-	extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set whether we should run in fullscreens or not.
+    # Supply A list of extensions that the specified emulator supports.
+    # emulators = ['retroarch', 'other']
+    # cores = ['virtualjaguar_libretro']
+    # extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
 
-	def run(self):
-		# Set up the emulator we want to run.
-		# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-		# Set whether we should run in fullscreens or not.
-		# Supply A list of extensions that the specified emulator supports.
-		emulator = ["retroarch"]
-		core = ['virtualjaguar_libretro']
-		extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
+    def run(self):
+        emulator = ["retroarch"]
+        core = ['virtualjaguar_libretro']
+        extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
+        if emulator[0] == "retroarch":
+            if core[0] == 'virtualjaguar_libretro':
+                extensions = ['zip', 'j64', 'jag',
+                              'rom', 'abs', 'cof', 'bin', 'prg']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-		if emulator[0] == "retroarch":
-			if core[0] == 'virtualjaguar_libretro':
-				extensions = ['zip', 'j64', 'jag',
-							  'rom', 'abs', 'cof', 'bin', 'prg']
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
-		if emulator[0] == "other":
-			extensions = ["unknown"]
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
+        if emulator[0] == "retroarch":
+            emulator.append('-L')
+            emulator.append(core[0])
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "other":
+            # Set whether we should run in fullscreens or not.
+            if FULLSCREEN is True:
+                emulator.append('--fullscreen')
 
-		ext = []
-		for ext in extensions:
-			# Tries to identify files by the list of extensions.
-			files = self.find_files_with_extension(ext)
-		if len(files) == 0:
-			# Tries to identify files by the list of extensions in UPPERCASE.
-			files = self.find_files_with_extension(ext.upper())
-		if len(files) == 0:
-			# Tries to identify files by any magic necessary.
-			files = self.find_ext_files(emulator, core)
-		# if len(files) == 0:
-		#     # Tries to identify files by any magic necessary.
-		#     files = self.find_magic_cookies()
-		if len(files) == 0:
-			print("Didn't find any runnable files.")
-			exit(-1)
+        # print status to console.
+        if DEBUGGING is not False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
 
-		# in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-		if emulator[0] == "retroarch":
-			emulator.append('-L')
-			emulator.append(core[0])
+        # drives = []
+        # # Support only one for now..
+        if len(files) > 0:
+            # Sort the files.
+            files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            if emulator[0] == "retroarch":
+                emulator = emulator + [files[0]]
+            if emulator[0] == 'virtualjaguar':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "other":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
-		# in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-		if emulator[0] == "other":
-			# Set whether we should run in fullscreens or not.
-			if FULLSCREEN is True:
-				emulator.append('--fullscreen')
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
 
-		# print status to console.
-		if DEBUGGING is not False:
-			print("\tUsing emulator: " + str(emulator))
-			print("\tUsing core: " + str(core))
-			print("\tUsing extensions: " + str(extensions))
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
 
-		# drives = []
-		# # Support only one for now..
-		if len(files) > 0:
-			# Sort the files.
-			files = self.sort_disks(files)
-			flipfile = self.datadir + "/fliplist.vfl"
-			m3ufile = self.datadir + "/fliplist.m3u"
-			with open(flipfile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			with open(m3ufile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			if emulator[0] == "retroarch":
-				emulator = emulator + [files[0]]
-			if emulator[0] == 'virtualjaguar':
-				emulator = emulator + ['-flipname', flipfile, files[0]]
-			if emulator[0] == "other":
-				emulator = emulator + ["-flipname", flipfile, files[0]]
+        self.run_process(emulator)
 
-			# if not os.path.exists(self.datadir + "/s"):
-			#     os.makedirs(self.datadir + "/s")
-			#     # when find_files_with_extension works with paths relative to datadir.
-			#     # we can simplify this
-			#     with open(self.datadir + "/s/startup-sequence", 'w') as f:
-			#         exename = files[0].split('/')
-			#         exename = exename[len(exename) - 1]
-			#         f.write(exename + "\n")
-			#         f.close()
+    def supported_platforms(self):
+        return ['atarijaguar']
 
-		# if emulator[0] == "retroarch":
-		#     amiga_model = 'A1200'
-		#     if self.prod_platform == 'amigaocsecs':
-		#         amiga_model = 'A500'
-		#     # if self.prod_platform == 'amigaaga':
-		#     #     emulator.append('--fast_memory=8192')
-		#     if len(drives) > 0:
-		#         print("\tUsing drive 0: ", drives[0])
-		#         emulator.append(drives[0])
-		#     if len(drives) > 1:
-		#         print("\tUsing drive 1: ", drives[1])
-		#         emulator.append(drives[1])
-		#     if len(drives) > 2:
-		#         print("\tUsing drive 2: ", drives[2])
-		#         emulator.append(drives[2])
-		#     if len(drives) > 3:
-		#         print("\tUsing drive 3: ", drives[3])
-		#         emulator.append(drives[3])
-		# emulator.append('--model=' + amiga_model)
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
-		self.run_process(emulator)
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self, emulator, core):
+        if emulator[0] == "retroarch":
+            if core[0] == 'virtualjaguar_libretro':
+                extensions = ['zip', 'j64', 'jag',
+                              'rom', 'abs', 'cof', 'bin', 'prg']
+        if emulator[0] == "other":
+            extensions = ['unknown']
 
-	def supported_platforms(self):
-		return ['atarijaguar']
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
+                ext = []
+                for ext in extensions:
+                    if file.endswith(ext):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+                    if file.endswith(ext.upper()):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+        return ext_files
 
-	# Search demo files for amiga magic cookie (executable file)
-	# def find_magic_cookies(self):
-	#     cookie_files = []
-	#     for file in self.prod_files:
-	#         with open(file, "rb") as fin:
-	#             header = fin.read(4)
-	#             if len(header) == 4:
-	#                 # Signature for Amiga magic cookie
-	#                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-	#                     cookie_files.append(file)
-	#     return cookie_files
 
-	# Tries to identify files by any magic necessary
-	def find_ext_files(self, emulator, core):
-		if emulator[0] == "retroarch":
-			if core[0] == 'virtualjaguar_libretro':
-				extensions = ['zip', 'j64', 'jag',
-							  'rom', 'abs', 'cof', 'bin', 'prg']
-
-		if emulator[0] == "other":
-			extensions = ['unknown']
-
-		ext_files = []
-		for file in self.prod_files:
-			size = os.path.getsize(file)
-			if size > 0:
-				# Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-				ext = []
-				for ext in extensions:
-					if file.endswith(ext):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-					if file.endswith(ext.upper()):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-		return ext_files
 class Platform_AtariLynx(PlatformCommon):
-	# Set up the emulator we want to run.
-	# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-	# Set whether we should run in fullscreens or not.
-	# Supply A list of extensions that the specified emulator supports.
-	emulators = ['retroarch', 'mednafen']
-	cores = ['handy_libretro', 'mednafen_lynx_libretro']
-	extensions = ['lnx', 'o']
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set whether we should run in fullscreens or not.
+    # Supply A list of extensions that the specified emulator supports.
+    # emulators = ['retroarch', 'mednafen']
+    # cores = ['handy_libretro', 'mednafen_lynx_libretro']
+    # extensions = ['lnx', 'o']
 
-	def run(self):
-		# Set up the emulator we want to run.
-		# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-		# Set whether we should run in fullscreens or not.
-		# Supply A list of extensions that the specified emulator supports.
-		emulator = ["retroarch"]
-		core = ['mednafen_lynx_libretro']
-		extensions = ['lnx', 'o']
+    def run(self):
+        emulator = ["retroarch"]
+        core = ['mednafen_lynx_libretro']
+        extensions = ['lnx', 'o']
+        if emulator[0] == "retroarch":
+            if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
+                extensions = ['lnx', 'o']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-		if emulator[0] == "retroarch":
-			if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
-				extensions = ['lnx', 'o']
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
-		if emulator[0] == "other":
-			extensions = ["unknown"]
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
+        if emulator[0] == "retroarch":
+            emulator.append('-L')
+            emulator.append(core[0])
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "other":
+            # Set whether we should run in fullscreens or not.
+            if FULLSCREEN is True:
+                emulator.append('--fullscreen')
 
-		ext = []
-		for ext in extensions:
-			# Tries to identify files by the list of extensions.
-			files = self.find_files_with_extension(ext)
-		if len(files) == 0:
-			# Tries to identify files by the list of extensions in UPPERCASE.
-			files = self.find_files_with_extension(ext.upper())
-		if len(files) == 0:
-			# Tries to identify files by any magic necessary.
-			files = self.find_ext_files(emulator, core)
-		# if len(files) == 0:
-		#     # Tries to identify files by any magic necessary.
-		#     files = self.find_magic_cookies()
-		if len(files) == 0:
-			print("Didn't find any runnable files.")
-			exit(-1)
+        # print status to console.
+        if DEBUGGING is not False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
 
-		# in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-		if emulator[0] == "retroarch":
-			emulator.append('-L')
-			emulator.append(core[0])
+        # drives = []
+        # # Support only one for now..
+        if len(files) > 0:
+            # Sort the files.
+            files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            if emulator[0] == "retroarch":
+                emulator = emulator + [files[0]]
+            if emulator[0] == 'mednafen':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "other":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
-		# in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-		if emulator[0] == "other":
-			# Set whether we should run in fullscreens or not.
-			if FULLSCREEN is True:
-				emulator.append('--fullscreen')
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
 
-		# print status to console.
-		if DEBUGGING is not False:
-			print("\tUsing emulator: " + str(emulator))
-			print("\tUsing core: " + str(core))
-			print("\tUsing extensions: " + str(extensions))
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
 
-		# drives = []
-		# # Support only one for now..
-		if len(files) > 0:
-			# Sort the files.
-			files = self.sort_disks(files)
-			flipfile = self.datadir + "/fliplist.vfl"
-			m3ufile = self.datadir + "/fliplist.m3u"
-			with open(flipfile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			with open(m3ufile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			if emulator[0] == "retroarch":
-				emulator = emulator + [files[0]]
-			if emulator[0] == 'mednafen':
-				emulator = emulator + ['-flipname', flipfile, files[0]]
-			if emulator[0] == "other":
-				emulator = emulator + ["-flipname", flipfile, files[0]]
+        self.run_process(emulator)
 
-			# if not os.path.exists(self.datadir + "/s"):
-			#     os.makedirs(self.datadir + "/s")
-			#     # when find_files_with_extension works with paths relative to datadir.
-			#     # we can simplify this
-			#     with open(self.datadir + "/s/startup-sequence", 'w') as f:
-			#         exename = files[0].split('/')
-			#         exename = exename[len(exename) - 1]
-			#         f.write(exename + "\n")
-			#         f.close()
+    def supported_platforms(self):
+        return ['atarilynx']
 
-		# if emulator[0] == "retroarch":
-		#     amiga_model = 'A1200'
-		#     if self.prod_platform == 'amigaocsecs':
-		#         amiga_model = 'A500'
-		#     # if self.prod_platform == 'amigaaga':
-		#     #     emulator.append('--fast_memory=8192')
-		#     if len(drives) > 0:
-		#         print("\tUsing drive 0: ", drives[0])
-		#         emulator.append(drives[0])
-		#     if len(drives) > 1:
-		#         print("\tUsing drive 1: ", drives[1])
-		#         emulator.append(drives[1])
-		#     if len(drives) > 2:
-		#         print("\tUsing drive 2: ", drives[2])
-		#         emulator.append(drives[2])
-		#     if len(drives) > 3:
-		#         print("\tUsing drive 3: ", drives[3])
-		#         emulator.append(drives[3])
-		# emulator.append('--model=' + amiga_model)
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
-		self.run_process(emulator)
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self, emulator, core):
+        if emulator[0] == "retroarch":
+            if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
+                extensions = ['lnx', 'o']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-	def supported_platforms(self):
-		return ['atarilynx']
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
+                ext = []
+                for ext in extensions:
+                    if file.endswith(ext):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+                    if file.endswith(ext.upper()):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+        return ext_files
 
-	# Search demo files for amiga magic cookie (executable file)
-	# def find_magic_cookies(self):
-	#     cookie_files = []
-	#     for file in self.prod_files:
-	#         with open(file, "rb") as fin:
-	#             header = fin.read(4)
-	#             if len(header) == 4:
-	#                 # Signature for Amiga magic cookie
-	#                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-	#                     cookie_files.append(file)
-	#     return cookie_files
 
-	# Tries to identify files by any magic necessary
-	def find_ext_files(self, emulator, core):
-
-		if emulator[0] == "retroarch":
-			if core[0] == 'handy_libretro' or core[0] == 'mednafen_lynx_libretro':
-				extensions = ['lnx', 'o']
-
-		if emulator[0] == "other":
-			extensions = ["unknown"]
-
-		ext_files = []
-		for file in self.prod_files:
-			size = os.path.getsize(file)
-			if size > 0:
-				# Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-				ext = []
-				for ext in extensions:
-					if file.endswith(ext):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-					if file.endswith(ext.upper()):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-		return ext_files
 class Platform_Atari2600(PlatformCommon):
-	# Set up the emulator we want to run.
-	# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-	# Set whether we should run in fullscreens or not.
-	# Supply A list of extensions that the specified emulator supports.
-	emulators = ['retroarch', 'stella']
-	cores = ['stella2014_libretro', 'stella_libretro']
-	extensions = ['zip', 'a26', 'bin']
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set whether we should run in fullscreens or not.
+    # Supply A list of extensions that the specified emulator supports.
+    # emulators = ['retroarch', 'stella']
+    # cores = ['stella2014_libretro', 'stella_libretro']
+    # extensions = ['zip', 'a26', 'bin']
 
-	def run(self):
-		# Set up the emulator we want to run.
-		# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-		# Set whether we should run in fullscreens or not.
-		# Supply A list of extensions that the specified emulator supports.
-		emulator = ["retroarch"]
-		core = ['stella_libretro']
-		extensions = ['zip', 'a26', 'bin']
+    def run(self):
+        emulator = ["retroarch"]
+        core = ['stella_libretro']
+        extensions = ['zip', 'a26', 'bin']
+        if emulator[0] == "retroarch":
+            if core[0] == 'stella_libretro':
+                extensions = ['zip', 'a26', 'bin']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-		if emulator[0] == "retroarch":
-			if core[0] == 'stella_libretro':
-				extensions = ['zip', 'a26', 'bin']
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
-		if emulator[0] == "other":
-			extensions = ["unknown"]
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
+        if emulator[0] == "retroarch":
+            emulator.append('-L')
+            emulator.append(core[0])
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "other":
+            # Set whether we should run in fullscreens or not.
+            if FULLSCREEN is True:
+                emulator.append('--fullscreen')
 
-		ext = []
-		for ext in extensions:
-			# Tries to identify files by the list of extensions.
-			files = self.find_files_with_extension(ext)
-		if len(files) == 0:
-			# Tries to identify files by the list of extensions in UPPERCASE.
-			files = self.find_files_with_extension(ext.upper())
-		if len(files) == 0:
-			# Tries to identify files by any magic necessary.
-			files = self.find_ext_files(emulator, core)
-		# if len(files) == 0:
-		#     # Tries to identify files by any magic necessary.
-		#     files = self.find_magic_cookies()
-		if len(files) == 0:
-			print("Didn't find any runnable files.")
-			exit(-1)
+        # print status to console.
+        if DEBUGGING is not False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
 
-		# in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-		if emulator[0] == "retroarch":
-			emulator.append('-L')
-			emulator.append(core[0])
+        # drives = []
+        # # Support only one for now..
+        if len(files) > 0:
+            # Sort the files.
+            files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            if emulator[0] == "retroarch":
+                emulator = emulator + [files[0]]
+            if emulator[0] == "other":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
-		# in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-		if emulator[0] == "other":
-			# Set whether we should run in fullscreens or not.
-			if FULLSCREEN is True:
-				emulator.append('--fullscreen')
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
 
-		# print status to console.
-		if DEBUGGING is not False:
-			print("\tUsing emulator: " + str(emulator))
-			print("\tUsing core: " + str(core))
-			print("\tUsing extensions: " + str(extensions))
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
 
-		# drives = []
-		# # Support only one for now..
-		if len(files) > 0:
-			# Sort the files.
-			files = self.sort_disks(files)
-			flipfile = self.datadir + "/fliplist.vfl"
-			m3ufile = self.datadir + "/fliplist.m3u"
-			with open(flipfile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			with open(m3ufile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			if emulator[0] == "retroarch":
-				emulator = emulator + [files[0]]
-			if emulator[0] == "other":
-				emulator = emulator + ["-flipname", flipfile, files[0]]
+        self.run_process(emulator)
 
-			# if not os.path.exists(self.datadir + "/s"):
-			#     os.makedirs(self.datadir + "/s")
-			#     # when find_files_with_extension works with paths relative to datadir.
-			#     # we can simplify this
-			#     with open(self.datadir + "/s/startup-sequence", 'w') as f:
-			#         exename = files[0].split('/')
-			#         exename = exename[len(exename) - 1]
-			#         f.write(exename + "\n")
-			#         f.close()
+    def supported_platforms(self):
+        return ['atarivcs']
 
-		# if emulator[0] == "retroarch":
-		#     amiga_model = 'A1200'
-		#     if self.prod_platform == 'amigaocsecs':
-		#         amiga_model = 'A500'
-		#     # if self.prod_platform == 'amigaaga':
-		#     #     emulator.append('--fast_memory=8192')
-		#     if len(drives) > 0:
-		#         print("\tUsing drive 0: ", drives[0])
-		#         emulator.append(drives[0])
-		#     if len(drives) > 1:
-		#         print("\tUsing drive 1: ", drives[1])
-		#         emulator.append(drives[1])
-		#     if len(drives) > 2:
-		#         print("\tUsing drive 2: ", drives[2])
-		#         emulator.append(drives[2])
-		#     if len(drives) > 3:
-		#         print("\tUsing drive 3: ", drives[3])
-		#         emulator.append(drives[3])
-		# emulator.append('--model=' + amiga_model)
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
-		self.run_process(emulator)
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self, emulator, core):
+        if emulator[0] == "retroarch":
+            if core[0] == 'stella_libretro':
+                extensions = ['zip', 'a26', 'bin']
+        if emulator[0] == "other":
+            extensions = ['unknown']
 
-	def supported_platforms(self):
-		return ['atarivcs']
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
+                ext = []
+                for ext in extensions:
+                    if file.endswith(ext):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+                    if file.endswith(ext.upper()):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+        return ext_files
 
-	# Search demo files for amiga magic cookie (executable file)
-	# def find_magic_cookies(self):
-	#     cookie_files = []
-	#     for file in self.prod_files:
-	#         with open(file, "rb") as fin:
-	#             header = fin.read(4)
-	#             if len(header) == 4:
-	#                 # Signature for Amiga magic cookie
-	#                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-	#                     cookie_files.append(file)
-	#     return cookie_files
 
-	# Tries to identify files by any magic necessary
-	def find_ext_files(self, emulator, core):
-		if emulator[0] == "retroarch":
-			if core[0] == 'stella_libretro':
-				extensions = ['zip', 'a26', 'bin']
-
-		if emulator[0] == "other":
-			extensions = ['unknown']
-
-		ext_files = []
-		for file in self.prod_files:
-			size = os.path.getsize(file)
-			if size > 0:
-				# Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-				ext = []
-				for ext in extensions:
-					if file.endswith(ext):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-					if file.endswith(ext.upper()):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-		return ext_files
 class Platform_Atari5200(PlatformCommon):
-	# Set up the emulator we want to run.
-	# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-	# Set whether we should run in fullscreens or not.
-	# Supply A list of extensions that the specified emulator supports.
-	emulators = ['retroarch', 'atari800']
-	cores = ['atari800_libretro']
-	extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',
-				  'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set whether we should run in fullscreens or not.
+    # Supply A list of extensions that the specified emulator supports.
+    # emulators = ['retroarch', 'atari800']
+    # cores = ['atari800_libretro']
+    # extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',
+    #               'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
 
-	def run(self):
-		# Set up the emulator we want to run.
-		# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-		# Set whether we should run in fullscreens or not.
-		# Supply A list of extensions that the specified emulator supports.
-		emulator = ["retroarch"]
-		core = ['atari800_libretro']
-		extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',
-					  'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
+    def run(self):
+        emulator = ["retroarch"]
+        core = ['atari800_libretro']
+        extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',
+                      'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
+        if emulator[0] == "retroarch":
+            if core[0] == 'atari800_libretro':
+                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
+                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-		if emulator[0] == "retroarch":
-			if core[0] == 'atari800_libretro':
-				extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-							  'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
-		if emulator[0] == "other":
-			extensions = ["unknown"]
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
+        if emulator[0] == "retroarch":
+            emulator.append('-L')
+            emulator.append(core[0])
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "other":
+            # Set whether we should run in fullscreens or not.
+            if FULLSCREEN is True:
+                emulator.append('--fullscreen')
 
-		ext = []
-		for ext in extensions:
-			# Tries to identify files by the list of extensions.
-			files = self.find_files_with_extension(ext)
-		if len(files) == 0:
-			# Tries to identify files by the list of extensions in UPPERCASE.
-			files = self.find_files_with_extension(ext.upper())
-		if len(files) == 0:
-			# Tries to identify files by any magic necessary.
-			files = self.find_ext_files(emulator, core)
-		# if len(files) == 0:
-		#     # Tries to identify files by any magic necessary.
-		#     files = self.find_magic_cookies()
-		if len(files) == 0:
-			print("Didn't find any runnable files.")
-			exit(-1)
+        # print status to console.
+        if DEBUGGING is not False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
 
-		# in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-		if emulator[0] == "retroarch":
-			emulator.append('-L')
-			emulator.append(core[0])
+        # drives = []
+        # # Support only one for now..
+        if len(files) > 0:
+            # Sort the files.
+            files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            if emulator[0] == "retroarch":
+                emulator = emulator + [files[0]]
+            if emulator[0] == 'atari800':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "other":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
-		# in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-		if emulator[0] == "other":
-			# Set whether we should run in fullscreens or not.
-			if FULLSCREEN is True:
-				emulator.append('--fullscreen')
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
 
-		# print status to console.
-		if DEBUGGING is not False:
-			print("\tUsing emulator: " + str(emulator))
-			print("\tUsing core: " + str(core))
-			print("\tUsing extensions: " + str(extensions))
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
 
-		# drives = []
-		# # Support only one for now..
-		if len(files) > 0:
-			# Sort the files.
-			files = self.sort_disks(files)
-			flipfile = self.datadir + "/fliplist.vfl"
-			m3ufile = self.datadir + "/fliplist.m3u"
-			with open(flipfile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			with open(m3ufile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			if emulator[0] == "retroarch":
-				emulator = emulator + [files[0]]
-			if emulator[0] == 'atari800':
-				emulator = emulator + ['-flipname', flipfile, files[0]]
-			if emulator[0] == "other":
-				emulator = emulator + ["-flipname", flipfile, files[0]]
+        self.run_process(emulator)
 
-			# if not os.path.exists(self.datadir + "/s"):
-			#     os.makedirs(self.datadir + "/s")
-			#     # when find_files_with_extension works with paths relative to datadir.
-			#     # we can simplify this
-			#     with open(self.datadir + "/s/startup-sequence", 'w') as f:
-			#         exename = files[0].split('/')
-			#         exename = exename[len(exename) - 1]
-			#         f.write(exename + "\n")
-			#         f.close()
+    def supported_platforms(self):
+        return ['atarixlxe']
 
-		# if emulator[0] == "retroarch":
-		#     amiga_model = 'A1200'
-		#     if self.prod_platform == 'amigaocsecs':
-		#         amiga_model = 'A500'
-		#     # if self.prod_platform == 'amigaaga':
-		#     #     emulator.append('--fast_memory=8192')
-		#     if len(drives) > 0:
-		#         print("\tUsing drive 0: ", drives[0])
-		#         emulator.append(drives[0])
-		#     if len(drives) > 1:
-		#         print("\tUsing drive 1: ", drives[1])
-		#         emulator.append(drives[1])
-		#     if len(drives) > 2:
-		#         print("\tUsing drive 2: ", drives[2])
-		#         emulator.append(drives[2])
-		#     if len(drives) > 3:
-		#         print("\tUsing drive 3: ", drives[3])
-		#         emulator.append(drives[3])
-		# emulator.append('--model=' + amiga_model)
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
-		self.run_process(emulator)
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self, emulator, core):
+        if emulator[0] == "retroarch":
+            if core[0] == 'atari800_libretro':
+                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
+                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-	def supported_platforms(self):
-		return ['atarixlxe']
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
+                ext = []
+                for ext in extensions:
+                    if file.endswith(ext):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+                    if file.endswith(ext.upper()):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+        return ext_files
 
-	# Search demo files for amiga magic cookie (executable file)
-	# def find_magic_cookies(self):
-	#     cookie_files = []
-	#     for file in self.prod_files:
-	#         with open(file, "rb") as fin:
-	#             header = fin.read(4)
-	#             if len(header) == 4:
-	#                 # Signature for Amiga magic cookie
-	#                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-	#                     cookie_files.append(file)
-	#     return cookie_files
 
-	# Tries to identify files by any magic necessary
-	def find_ext_files(self, emulator, core):
-
-		if emulator[0] == "retroarch":
-			if core[0] == 'atari800_libretro':
-				extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-
-		if emulator[0] == "other":
-			extensions = ["unknown"]
-
-		ext_files = []
-		for file in self.prod_files:
-			size = os.path.getsize(file)
-			if size > 0:
-				# Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-				ext = []
-				for ext in extensions:
-					if file.endswith(ext):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-					if file.endswith(ext.upper()):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-		return ext_files
 class Platform_Atari7800(PlatformCommon):
-	# Set up the emulator we want to run.
-	# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-	# Set whether we should run in fullscreens or not.
-	# Supply A list of extensions that the specified emulator supports.
-	emulators = ['retroarch', 'prosystem']
-	cores = ['prosystem_libretro']
-	extensions = ['zip', 'a78', 'bin', 'cdf']
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set whether we should run in fullscreens or not.
+    # Supply A list of extensions that the specified emulator supports.
+    # emulators = ['retroarch', 'prosystem']
+    # cores = ['prosystem_libretro']
+    # extensions = ['zip', 'a78', 'bin', 'cdf']
 
-	def run(self):
-		# Set up the emulator we want to run.
-		# in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-		# Set whether we should run in fullscreens or not.
-		# Supply A list of extensions that the specified emulator supports.
-		emulator = ["retroarch"]
-		core = ['prosystem_libretro']
-		extensions = ['zip', 'a78', 'bin', 'cdf']
+    def run(self):
+        emulator = ["retroarch"]
+        core = ['prosystem_libretro']
+        extensions = ['zip', 'a78', 'bin', 'cdf']
+        if emulator[0] == "retroarch":
+            if core[0] == 'prosystem_libretro':
+                extensions = ['zip', 'a78', 'bin', 'cdf']
+        if emulator[0] == "other":
+            extensions = ["unknown"]
 
-		if emulator[0] == "retroarch":
-			if core[0] == 'prosystem_libretro':
-				extensions = ['zip', 'a78', 'bin', 'cdf']
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
-		if emulator[0] == "other":
-			extensions = ["unknown"]
+        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
+        if emulator[0] == "retroarch":
+            emulator.append('-L')
+            emulator.append(core[0])
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "other":
+            # Set whether we should run in fullscreens or not.
+            if FULLSCREEN is True:
+                emulator.append('--fullscreen')
 
-		ext = []
-		for ext in extensions:
-			# Tries to identify files by the list of extensions.
-			files = self.find_files_with_extension(ext)
-		if len(files) == 0:
-			# Tries to identify files by the list of extensions in UPPERCASE.
-			files = self.find_files_with_extension(ext.upper())
-		if len(files) == 0:
-			# Tries to identify files by any magic necessary.
-			files = self.find_ext_files(emulator, core)
-		# if len(files) == 0:
-		#     # Tries to identify files by any magic necessary.
-		#     files = self.find_magic_cookies()
-		if len(files) == 0:
-			print("Didn't find any runnable files.")
-			exit(-1)
+        # print status to console.
+        if DEBUGGING is not False:
+            print("\tUsing emulator: " + str(emulator))
+            print("\tUsing core: " + str(core))
+            print("\tUsing extensions: " + str(extensions))
 
-		# in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-		if emulator[0] == "retroarch":
-			emulator.append('-L')
-			emulator.append(core[0])
+        # drives = []
+        # # Support only one for now..
+        if len(files) > 0:
+            # Sort the files.
+            files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            if emulator[0] == "retroarch":
+                emulator = emulator + [files[0]]
+            if emulator[0] == "other":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
-		# in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-		if emulator[0] == "other":
-			# Set whether we should run in fullscreens or not.
-			if FULLSCREEN is True:
-				emulator.append('--fullscreen')
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
 
-		# print status to console.
-		if DEBUGGING is not False:
-			print("\tUsing emulator: " + str(emulator))
-			print("\tUsing core: " + str(core))
-			print("\tUsing extensions: " + str(extensions))
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
 
-		# drives = []
-		# # Support only one for now..
-		if len(files) > 0:
-			# Sort the files.
-			files = self.sort_disks(files)
-			flipfile = self.datadir + "/fliplist.vfl"
-			m3ufile = self.datadir + "/fliplist.m3u"
-			with open(flipfile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			with open(m3ufile, "w") as f:
-				# f.write("UNIT 8\n")
-				for disk in files:
-					f.write(disk + "\n")
-				f.write("#SAVEDISK:\n")
-			if emulator[0] == "retroarch":
-				emulator = emulator + [files[0]]
-			if emulator[0] == "other":
-				emulator = emulator + ["-flipname", flipfile, files[0]]
+        self.run_process(emulator)
 
-			# if not os.path.exists(self.datadir + "/s"):
-			#     os.makedirs(self.datadir + "/s")
-			#     # when find_files_with_extension works with paths relative to datadir.
-			#     # we can simplify this
-			#     with open(self.datadir + "/s/startup-sequence", 'w') as f:
-			#         exename = files[0].split('/')
-			#         exename = exename[len(exename) - 1]
-			#         f.write(exename + "\n")
-			#         f.close()
+    def supported_platforms(self):
+        return ['atari7800']
 
-		# if emulator[0] == "retroarch":
-		#     amiga_model = 'A1200'
-		#     if self.prod_platform == 'amigaocsecs':
-		#         amiga_model = 'A500'
-		#     # if self.prod_platform == 'amigaaga':
-		#     #     emulator.append('--fast_memory=8192')
-		#     if len(drives) > 0:
-		#         print("\tUsing drive 0: ", drives[0])
-		#         emulator.append(drives[0])
-		#     if len(drives) > 1:
-		#         print("\tUsing drive 1: ", drives[1])
-		#         emulator.append(drives[1])
-		#     if len(drives) > 2:
-		#         print("\tUsing drive 2: ", drives[2])
-		#         emulator.append(drives[2])
-		#     if len(drives) > 3:
-		#         print("\tUsing drive 3: ", drives[3])
-		#         emulator.append(drives[3])
-		# emulator.append('--model=' + amiga_model)
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
-		self.run_process(emulator)
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self, emulator, core):
+        if emulator[0] == "retroarch":
+            if core[0] == 'prosystem_libretro':
+                extensions = ['zip', 'a78', 'bin', 'cdf']
+        if emulator[0] == "other":
+            extensions = ['unknown']
 
-	def supported_platforms(self):
-		return ['atari7800']
-
-	# Search demo files for amiga magic cookie (executable file)
-	# def find_magic_cookies(self):
-	#     cookie_files = []
-	#     for file in self.prod_files:
-	#         with open(file, "rb") as fin:
-	#             header = fin.read(4)
-	#             if len(header) == 4:
-	#                 # Signature for Amiga magic cookie
-	#                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
-	#                     cookie_files.append(file)
-	#     return cookie_files
-
-	# Tries to identify files by any magic necessary
-	def find_ext_files(self, emulator, core):
-		if emulator[0] == "retroarch":
-			if core[0] == 'prosystem_libretro':
-				extensions = ['zip', 'a78', 'bin', 'cdf']
-
-		if emulator[0] == "other":
-			extensions = ['unknown']
-
-		ext_files = []
-		for file in self.prod_files:
-			size = os.path.getsize(file)
-			if size > 0:
-				# Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-				ext = []
-				for ext in extensions:
-					if file.endswith(ext):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-					if file.endswith(ext.upper()):
-						if DEBUGGING is not False:
-							print("\tFound file: " + file)
-						os.chmod(file, stat.S_IEXEC)
-						ext_files.append(file)
-		return ext_files
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
+                ext = []
+                for ext in extensions:
+                    if file.endswith(ext):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+                    if file.endswith(ext.upper()):
+                        if DEBUGGING is not False:
+                            print("\tFound file: " + file)
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+        return ext_files

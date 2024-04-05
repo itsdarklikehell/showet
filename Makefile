@@ -257,7 +257,15 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_Arcade.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Arcade.py
 	$(QINSTALL) /home/rizzo/showet/platform_Archimedes.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Archimedes.py
 	$(QINSTALL) /home/rizzo/showet/platform_Atari.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari.py
+	$(QINSTALL) /home/rizzo/showet/platform_Atari2600.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari2600.py
+	$(QINSTALL) /home/rizzo/showet/platform_Atari5200.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari5200.py
+	$(QINSTALL) /home/rizzo/showet/platform_Atari7800.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari7800.py
+	$(QINSTALL) /home/rizzo/showet/platform_AtariJAGUAR.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariJAGUAR.py
+	$(QINSTALL) /home/rizzo/showet/platform_AtariLynx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariLynx.py
+	$(QINSTALL) /home/rizzo/showet/platform_AtariSTFalcon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariSTFalcon.py
+	$(QINSTALL) /home/rizzo/showet/platform_AtariXLXE.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariXLXE.py
 	$(QINSTALL) /home/rizzo/showet/platform_Bandai.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Bandai.py
+	$(QINSTALL) /home/rizzo/showet/platform_C64.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_C64.py
 	$(QINSTALL) /home/rizzo/showet/platform_Coleco.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Coleco.py
 	$(QINSTALL) /home/rizzo/showet/platform_Commodore.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Commodore.py
 	$(QINSTALL) /home/rizzo/showet/platform_Dos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Dos.py
@@ -317,7 +325,15 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Dos.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Commodore.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Coleco.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_C64.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Bandai.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariXLXE.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariSTFalcon.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariLynx.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariJAGUAR.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari7800.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari5200.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari2600.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Archimedes.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Arcade.py

@@ -8,42 +8,22 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Arcade(PlatformCommon):
+class Platform_Atari2600(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ["retroarch", "MAME", "MESS"]
-    # cores = ["mame_libretro", "mamemess_libretro"]
-    # extensions = ["zip", "chd", "7z", "cmd"]
+    # emulators = ['retroarch', 'stella']
+    # cores = ['stella2014_libretro', 'stella_libretro']
+    # extensions = ['zip', 'a26', 'bin']
 
     def run(self):
         emulator = ["retroarch"]
-        core = ["mame_libretro"]
-        extensions = ["zip", "chd", "7z", "cmd"]
-
+        core = ['stella_libretro']
+        extensions = ['zip', 'a26', 'bin']
         if emulator[0] == "retroarch":
-            if (
-                    core[0] == "mame_libretro"
-                    or core[0] == "mame2015_libretro"
-                    or core[0] == "mame2016_libretro"
-                    or core[0] == "mamearcade_libretro"
-                    or core[0] == "hbmame_libretro"
-            ):
-                extensions = ["zip", "chd", "7z", "cmd"]
-            if (
-                    core[0] == "mame2000_libretro"
-                    or core[0] == "mame2010_libretro"
-                    or core[0] == "mame2009_libretro"
-            ):
-                extensions = ["zip", "chd", "7z"]
-            if (
-                    core[0] == "mame2003_libretro"
-                    or core[0] == "mame2003_plus_libretro"
-                    or core[0] == "mame2003_midway_libretro"
-            ):
-                extensions = ["zip"]
-
+            if core[0] == 'stella_libretro':
+                extensions = ['zip', 'a26', 'bin']
         if emulator[0] == "other":
             extensions = ["unknown"]
 
@@ -66,16 +46,13 @@ class Platform_Arcade(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "mame":
-            print("Using: " + str(emulator))
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append("--fullscreen")
+                emulator.append('--fullscreen')
 
         # print status to console.
         if DEBUGGING is not False:
@@ -102,8 +79,6 @@ class Platform_Arcade(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == "mame":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
             if emulator[0] == "other":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
@@ -140,7 +115,7 @@ class Platform_Arcade(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ["arcade"]
+        return ['atarivcs']
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -157,28 +132,10 @@ class Platform_Arcade(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
-            if (
-                    core[0] == "mame_libretro"
-                    or core[0] == "mame2015_libretro"
-                    or core[0] == "mame2016_libretro"
-                    or core[0] == "mamearcade_libretro"
-                    or core[0] == "hbmame_libretro"
-            ):
-                extensions = ["zip", "chd", "7z", "cmd"]
-            if (
-                    core[0] == "mame2000_libretro"
-                    or core[0] == "mame2010_libretro"
-                    or core[0] == "mame2009_libretro"
-            ):
-                extensions = ["zip", "chd", "7z"]
-            if (
-                    core[0] == "mame2003_libretro"
-                    or core[0] == "mame2003_plus_libretro"
-                    or core[0] == "mame2003_midway_libretro"
-            ):
-                extensions = ["zip"]
+            if core[0] == 'stella_libretro':
+                extensions = ['zip', 'a26', 'bin']
         if emulator[0] == "other":
-            extensions = ["unknown"]
+            extensions = ['unknown']
 
         ext_files = []
         for file in self.prod_files:

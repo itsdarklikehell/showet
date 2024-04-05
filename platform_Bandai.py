@@ -13,23 +13,17 @@ class Platform_Wonderswan(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "mednafen"]
-    cores = ["mednafen_wswan_libretro"]
-    extensions = ["zip", "ws", "wsc", "pc2"]
+    # emulators = ["retroarch", "mednafen"]
+    # cores = ["mednafen_wswan_libretro"]
+    # extensions = ["zip", "ws", "wsc", "pc2"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["mednafen_wswan_libretro"]
         extensions = ["zip", "ws", "wsc", "pc2"]
-
         if emulator[0] == "retroarch":
             if core[0] == "mednafen_wswan_libretro":
                 extensions = ["ws", "wsc", "pc2"]
-
         if emulator[0] == "other":
             extensions = ["unknown"]
 
@@ -54,7 +48,6 @@ class Platform_Wonderswan(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
@@ -143,7 +136,6 @@ class Platform_Wonderswan(PlatformCommon):
         if emulator[0] == "retroarch":
             if core[0] == "mednafen_wswan_libretro":
                 extensions = ["ws", "wsc", "pc2"]
-
         if emulator[0] == "other":
             extensions = ["unknown"]
 

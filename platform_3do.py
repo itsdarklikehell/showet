@@ -13,23 +13,17 @@ class Platform_3do(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["4do_libretro", "opera_libretro"]
-    extensions = ["iso", "bin", "chd", "cue"]
+    # emulators = ["retroarch", "other"]
+    # cores = ["4do_libretro", "opera_libretro"]
+    # extensions = ["iso", "bin", "chd", "cue"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["4do_libretro"]
         extensions = ["iso", "bin", "chd", "cue"]
-
         if emulator[0] == "retroarch":
             if core[0] == "4do_libretro" or core[0] == "opera_libretro":
                 extensions = ["iso", "bin", "chd", "cue"]
-
         if emulator[0] == "other":
             extensions = ["unknown"]
 
@@ -54,7 +48,6 @@ class Platform_3do(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
@@ -141,7 +134,6 @@ class Platform_3do(PlatformCommon):
         if emulator[0] == "retroarch":
             if core[0] == "4do_libretro" or core[0] == "opera_libretro":
                 extensions = ["iso", "bin", "chd", "cue"]
-
         if emulator[0] == "other":
             extensions = ["unknown"]
 

@@ -13,15 +13,11 @@ class Platform_Apple(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "linapple", "basilisk"]
-    cores = ["minivmac_libretro"]
-    extensions = ["dsk", "img", "zip", "hvf", "cmd"]
+    # emulators = ["retroarch", "linapple", "basilisk"]
+    # cores = ["minivmac_libretro"]
+    # extensions = ["dsk", "img", "zip", "hvf", "cmd"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["minivmac_libretro"]
         extensions = ["dsk", "img", "zip", "hvf", "cmd"]
@@ -54,11 +50,9 @@ class Platform_Apple(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "linapple":
             print("Using: " + str(emulator))
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
