@@ -1217,10 +1217,6 @@ class Platform_GameCube(PlatformCommon):
     #               "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["dolphin_libretro"]
         extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
@@ -1370,10 +1366,6 @@ class Platform_Pokemini(PlatformCommon):
     # extensions = ["zip", "min"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["pokemini_libretro"]
         extensions = ["zip", "min"]
@@ -1519,10 +1511,6 @@ class Platform_SuperFamicom(PlatformCommon):
     # extensions = ["zip", "sfc", "smc", "fig", "swc", "bs"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["snes9x_libretro"]
         extensions = ["zip", "sfc", "smc", "fig", "swc", "bs"]
@@ -1718,10 +1706,6 @@ class Platform_Virtualboy(PlatformCommon):
     # extensions = ["zip", "vb", "vboy", "bin"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["mednafen_vb_libretro"]
         extensions = ["zip", "vb", "vboy", "bin"]
@@ -1866,10 +1850,6 @@ class Platform_Wii(PlatformCommon):
     #               "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["dolphin_libretro"]
         extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
