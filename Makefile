@@ -265,9 +265,15 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_AtariSTFalcon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariSTFalcon.py
 	$(QINSTALL) /home/rizzo/showet/platform_AtariXLXE.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariXLXE.py
 	$(QINSTALL) /home/rizzo/showet/platform_Bandai.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Bandai.py
+	$(QINSTALL) /home/rizzo/showet/platform_C128.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_C128.py
 	$(QINSTALL) /home/rizzo/showet/platform_C64.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_C64.py
+	$(QINSTALL) /home/rizzo/showet/platform_CAmiga.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CAmiga.py
+	$(QINSTALL) /home/rizzo/showet/platform_CCBMII.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CCBMII.py
 	$(QINSTALL) /home/rizzo/showet/platform_Coleco.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Coleco.py
 	$(QINSTALL) /home/rizzo/showet/platform_Commodore.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Commodore.py
+	$(QINSTALL) /home/rizzo/showet/platform_CPet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CPet.py
+	$(QINSTALL) /home/rizzo/showet/platform_CPlus4.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CPlus4.py
+	$(QINSTALL) /home/rizzo/showet/platform_CVic20.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CVic20.py
 	$(QINSTALL) /home/rizzo/showet/platform_Dos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Dos.py
 	$(QINSTALL) /home/rizzo/showet/platform_Elektronika.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py
 	$(QINSTALL) /home/rizzo/showet/platform_Enterprise.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
@@ -285,6 +291,7 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_Phillips.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Phillips.py
 	$(QINSTALL) /home/rizzo/showet/platform_Pico8.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Pico8.py
 	$(QINSTALL) /home/rizzo/showet/platform_Sega.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega.py
+	$(QINSTALL) /home/rizzo/showet/platform_Sega32x.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega32x.py
 	$(QINSTALL) /home/rizzo/showet/platform_Sinclair.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sinclair.py
 	$(QINSTALL) /home/rizzo/showet/platform_Snk.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Snk.py
 	$(QINSTALL) /home/rizzo/showet/platform_Sony.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sony.py
@@ -306,6 +313,7 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sony.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Snk.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sinclair.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega32x.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Pico8.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Phillips.py
@@ -323,9 +331,15 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Dos.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CVic20.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CPlus4.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CPet.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Commodore.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Coleco.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CCBMII.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CAmiga.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_C64.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_C128.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Bandai.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariXLXE.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_AtariSTFalcon.py

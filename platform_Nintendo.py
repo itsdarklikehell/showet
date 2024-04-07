@@ -819,19 +819,14 @@ class Platform_GameboyColor(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["gambatte_libretro", "mgba_libretro", "tgbdual_libretro"]
-    extensions = ["zip", "gbc", "dmg", "bin", "u1", "ndd"]
+    # emulators = ["retroarch", "other"]
+    # cores = ["gambatte_libretro", "mgba_libretro", "tgbdual_libretro"]
+    # extensions = ["zip", "gbc", "dmg", "bin", "u1", "ndd"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["mesen-s_libretro"]
         extensions = ["zip", "gbc", "dmg", "bin", "u1", "ndd"]
-
         if emulator[0] == "retroarch":
             # gb/c
             if core[0] == "emux_gb_libretro":
@@ -870,6 +865,9 @@ class Platform_GameboyColor(PlatformCommon):
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -878,7 +876,6 @@ class Platform_GameboyColor(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
@@ -891,6 +888,8 @@ class Platform_GameboyColor(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
+        # drives = []
+        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -911,14 +910,55 @@ class Platform_GameboyColor(PlatformCommon):
             if emulator[0] == "3do":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
+
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ["gameboy", "gameboycolor"]
 
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
+
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-
         if emulator[0] == "retroarch":
             # gb/c
             if core[0] == "emux_gb_libretro":
@@ -972,26 +1012,16 @@ class Platform_GameboyAdvance(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = [
-        "meteor_libretro",
-        "vba_next_libretro",
-        "vbam_libretro",
-        "mgba_libretro",
-        "gpsp_libretro",
-    ]
-    extensions = ["zip", "gb", "gbc", "gba", "dmg", "agb", "bin", "cgb", "sgb"]
+    # emulators = ["retroarch", "other"]
+    # cores = ["meteor_libretro", "vba_next_libretro",
+    #          "vbam_libretro", "mgba_libretro", "gpsp_libretro"]
+    # extensions = ["zip", "gb", "gbc", "gba", "dmg", "agb", "bin", "cgb", "sgb"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["vba_next_libretro"]
         extensions = ["zip", "gb", "gbc", "gba",
                       "dmg", "agb", "bin", "cgb", "sgb"]
-
         if emulator[0] == "retroarch":
             if core[0] == "mednafen_gba_libretro":
                 extensions = ["gba", "agb", "bin"]
@@ -1018,6 +1048,9 @@ class Platform_GameboyAdvance(PlatformCommon):
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1026,7 +1059,6 @@ class Platform_GameboyAdvance(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
@@ -1039,6 +1071,8 @@ class Platform_GameboyAdvance(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
+        # drives = []
+        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1059,14 +1093,55 @@ class Platform_GameboyAdvance(PlatformCommon):
             if emulator[0] == "3do":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
+
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ["gameboyadvance", "gameboycolor", "gameboy"]
 
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
+
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-
         if emulator[0] == "retroarch":
             if core[0] == "mednafen_gba_libretro":
                 extensions = ["gba", "agb", "bin"]
@@ -1108,22 +1183,10 @@ class Platform_Gamecube(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["dolphin_libretro"]
-    extensions = [
-        "gcm",
-        "iso",
-        "wbfs",
-        "ciso",
-        "gcz",
-        "elf",
-        "dol",
-        "dff",
-        "tgc",
-        "wad",
-        "rvz",
-        "m3u",
-    ]
+    # emulators = ["retroarch", "other"]
+    # cores = ["dolphin_libretro"]
+    # extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
+    #               "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1132,37 +1195,12 @@ class Platform_Gamecube(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["dolphin_libretro"]
-        extensions = [
-            "gcm",
-            "iso",
-            "wbfs",
-            "ciso",
-            "gcz",
-            "elf",
-            "dol",
-            "dff",
-            "tgc",
-            "wad",
-            "rvz",
-            "m3u",
-        ]
-
+        extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
+                      "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
         if emulator[0] == "retroarch":
             if core[0] == "dolphin_libretro":
-                extensions = [
-                    "gcm",
-                    "iso",
-                    "wbfs",
-                    "ciso",
-                    "gcz",
-                    "elf",
-                    "dol",
-                    "dff",
-                    "tgc",
-                    "wad",
-                    "rvz",
-                    "m3u",
-                ]
+                extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
+                              "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
 
         ext = []
         for ext in extensions:
@@ -1174,6 +1212,9 @@ class Platform_Gamecube(PlatformCommon):
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1182,7 +1223,6 @@ class Platform_Gamecube(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
@@ -1195,6 +1235,8 @@ class Platform_Gamecube(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
+        # drives = []
+        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1215,30 +1257,60 @@ class Platform_Gamecube(PlatformCommon):
             if emulator[0] == "3do":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
+
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ["gamecube"]
 
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
 
+    # Tries to identify files by any magic necessary
+
+    def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
             if core[0] == "dolphin_libretro":
-                extensions = [
-                    "gcm",
-                    "iso",
-                    "wbfs",
-                    "ciso",
-                    "gcz",
-                    "elf",
-                    "dol",
-                    "dff",
-                    "tgc",
-                    "wad",
-                    "rvz",
-                    "m3u",
-                ]
+                extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
+                              "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
 
         ext_files = []
         for file in self.prod_files:
@@ -1265,9 +1337,9 @@ class Platform_Pokemini(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["pokemini_libretro"]
-    extensions = ["zip", "min"]
+    # emulators = ["retroarch", "other"]
+    # cores = ["pokemini_libretro"]
+    # extensions = ["zip", "min"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1277,7 +1349,6 @@ class Platform_Pokemini(PlatformCommon):
         emulator = ["retroarch"]
         core = ["pokemini_libretro"]
         extensions = ["zip", "min"]
-
         if emulator[0] == "retroarch":
             if core[0] == "pokemini_libretro":
                 extensions = ["min"]
@@ -1292,6 +1363,9 @@ class Platform_Pokemini(PlatformCommon):
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1300,7 +1374,6 @@ class Platform_Pokemini(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
@@ -1313,6 +1386,8 @@ class Platform_Pokemini(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
+        # drives = []
+        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1333,14 +1408,55 @@ class Platform_Pokemini(PlatformCommon):
             if emulator[0] == "3do":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
+
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ["pokemini"]
 
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
+
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-
         if emulator[0] == "retroarch":
             if core[0] == "pokemini_libretro":
                 extensions = ["min"]
@@ -1370,9 +1486,9 @@ class Platform_SuperFamicom(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["snes9x_libretro"]
-    extensions = ["zip", "sfc", "smc", "fig", "swc", "bs"]
+    # emulators = ["retroarch", "other"]
+    # cores = ["snes9x_libretro"]
+    # extensions = ["zip", "sfc", "smc", "fig", "swc", "bs"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1381,10 +1497,7 @@ class Platform_SuperFamicom(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["snes9x_libretro"]
-        FULLSCREEN = ["False"]
-
         extensions = ["zip", "sfc", "smc", "fig", "swc", "bs"]
-
         if emulator[0] == "retroarch":
             if (
                     core[0] == "bsnes_libretro"
@@ -1424,6 +1537,9 @@ class Platform_SuperFamicom(PlatformCommon):
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1432,7 +1548,6 @@ class Platform_SuperFamicom(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
@@ -1445,6 +1560,8 @@ class Platform_SuperFamicom(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
+        # drives = []
+        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1465,14 +1582,55 @@ class Platform_SuperFamicom(PlatformCommon):
             if emulator[0] == "3do":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
+
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ["snessuperfamicom"]
 
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
+
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-
         if emulator[0] == "retroarch":
             if (
                     core[0] == "bsnes_libretro"
@@ -1527,9 +1685,9 @@ class Platform_Virtualboy(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["mednafen_vb_libretro"]
-    extensions = ["zip", "vb", "vboy", "bin"]
+    # emulators = ["retroarch", "other"]
+    # cores = ["mednafen_vb_libretro"]
+    # extensions = ["zip", "vb", "vboy", "bin"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1539,7 +1697,6 @@ class Platform_Virtualboy(PlatformCommon):
         emulator = ["retroarch"]
         core = ["mednafen_vb_libretro"]
         extensions = ["zip", "vb", "vboy", "bin"]
-
         if emulator[0] == "retroarch":
             if core[0] == "mednafen_vb_libretro":
                 extensions = ["vb", "vboy", "bin"]
@@ -1554,6 +1711,9 @@ class Platform_Virtualboy(PlatformCommon):
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1562,7 +1722,6 @@ class Platform_Virtualboy(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             print("Using: " + str(emulator))
@@ -1573,6 +1732,8 @@ class Platform_Virtualboy(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
+        # drives = []
+        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1593,14 +1754,55 @@ class Platform_Virtualboy(PlatformCommon):
             if emulator[0] == "3do":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
+
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ["virtualboy"]
 
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
+
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-
         if emulator[0] == "retroarch":
             if core[0] == "mednafen_vb_libretro":
                 extensions = ["vb", "vboy", "bin"]
@@ -1630,22 +1832,10 @@ class Platform_Wii(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["dolphin_libretro"]
-    extensions = [
-        "gcm",
-        "iso",
-        "wbfs",
-        "ciso",
-        "gcz",
-        "elf",
-        "dol",
-        "dff",
-        "tgc",
-        "wad",
-        "rvz",
-        "m3u",
-    ]
+    # emulators = ["retroarch", "other"]
+    # cores = ["dolphin_libretro"]
+    # extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
+    #               "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
 
     def run(self):
         # Set up the emulator we want to run.
@@ -1654,37 +1844,13 @@ class Platform_Wii(PlatformCommon):
         # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["dolphin_libretro"]
-        extensions = [
-            "gcm",
-            "iso",
-            "wbfs",
-            "ciso",
-            "gcz",
-            "elf",
-            "dol",
-            "dff",
-            "tgc",
-            "wad",
-            "rvz",
-            "m3u",
-        ]
+        extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
+                      "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
 
         if emulator[0] == "retroarch":
             if core[0] == "dolphin_libretro":
-                extensions = [
-                    "gcm",
-                    "iso",
-                    "wbfs",
-                    "ciso",
-                    "gcz",
-                    "elf",
-                    "dol",
-                    "dff",
-                    "tgc",
-                    "wad",
-                    "rvz",
-                    "m3u",
-                ]
+                extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
+                              "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
 
         ext = []
         for ext in extensions:
@@ -1696,6 +1862,9 @@ class Platform_Wii(PlatformCommon):
         if len(files) == 0:
             # Tries to identify files by any magic necessary.
             files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
@@ -1704,7 +1873,6 @@ class Platform_Wii(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
@@ -1717,6 +1885,8 @@ class Platform_Wii(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tUsing extensions: " + str(extensions))
 
+        # drives = []
+        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -1737,30 +1907,59 @@ class Platform_Wii(PlatformCommon):
             if emulator[0] == "3do":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
+            # if not os.path.exists(self.datadir + "/s"):
+            #     os.makedirs(self.datadir + "/s")
+            #     # when find_files_with_extension works with paths relative to datadir.
+            #     # we can simplify this
+            #     with open(self.datadir + "/s/startup-sequence", 'w') as f:
+            #         exename = files[0].split('/')
+            #         exename = exename[len(exename) - 1]
+            #         f.write(exename + "\n")
+            #         f.close()
+
+        # if emulator[0] == "retroarch":
+        #     amiga_model = 'A1200'
+        #     if self.prod_platform == 'amigaocsecs':
+        #         amiga_model = 'A500'
+        #     # if self.prod_platform == 'amigaaga':
+        #     #     emulator.append('--fast_memory=8192')
+        #     if len(drives) > 0:
+        #         print("\tUsing drive 0: ", drives[0])
+        #         emulator.append(drives[0])
+        #     if len(drives) > 1:
+        #         print("\tUsing drive 1: ", drives[1])
+        #         emulator.append(drives[1])
+        #     if len(drives) > 2:
+        #         print("\tUsing drive 2: ", drives[2])
+        #         emulator.append(drives[2])
+        #     if len(drives) > 3:
+        #         print("\tUsing drive 3: ", drives[3])
+        #         emulator.append(drives[3])
+        # emulator.append('--model=' + amiga_model)
+
         self.run_process(emulator)
 
     def supported_platforms(self):
         return ["wii", "wiiu", "nintendowii"]
 
+    # Search demo files for amiga magic cookie (executable file)
+    # def find_magic_cookies(self):
+    #     cookie_files = []
+    #     for file in self.prod_files:
+    #         with open(file, "rb") as fin:
+    #             header = fin.read(4)
+    #             if len(header) == 4:
+    #                 # Signature for Amiga magic cookie
+    #                 if header[0] == 0 and header[1] == 0 and header[2] == 3 and header[3] == 243:
+    #                     cookie_files.append(file)
+    #     return cookie_files
+
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-
         if emulator[0] == "retroarch":
             if core[0] == "dolphin_libretro":
-                extensions = [
-                    "gcm",
-                    "iso",
-                    "wbfs",
-                    "ciso",
-                    "gcz",
-                    "elf",
-                    "dol",
-                    "dff",
-                    "tgc",
-                    "wad",
-                    "rvz",
-                    "m3u",
-                ]
+                extensions = ["gcm", "iso", "wbfs", "ciso", "gcz",
+                              "elf", "dol", "dff", "tgc", "wad", "rvz", "m3u"]
 
         ext_files = []
         for file in self.prod_files:
