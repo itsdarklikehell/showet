@@ -14,9 +14,9 @@ from platform_GCE import Platform_Vectrex
 from platform_Linux import Platform_Linux
 from platform_Pico8 import Platform_Pico8
 from platform_Sega32X import Platform_32X
-from platform_SonyPsx import Platform_Psx
-from platform_SonyPsp import Platform_Psp
 from platform_SonyPs2 import Platform_Ps2
+from platform_SonyPsp import Platform_Psp
+from platform_SonyPsx import Platform_Psx
 from platform_Tic80 import Platform_Tic80
 from platform_Phillips import Platform_Cdi
 from platform_Thomson import Platform_MOTO
@@ -25,11 +25,11 @@ from platform_Coleco import Platform_Coleco
 from platform_NintendoDS import Platform_DS
 from platform_Nec import Platform_Supergrafx
 from platform_Amstrad import Platform_Cpcplus
+from platform_Gamepark2X import Platform_GP2X
+from platform_Gamepark32 import Platform_GP32
 from platform_Nintendo3DS import Platform_3DS
 from platform_NintendoN64 import Platform_N64
 from platform_NintendoWii import Platform_Wii
-from platform_Gamepark3X import Platform_GP3X
-from platform_Gamepark32 import Platform_GP32
 from platform_Archimedes import Platform_Acorn
 from platform_Magnavox import Platform_Odyssey
 from platform_MicrosoftMsx import Platform_Msx
@@ -38,22 +38,22 @@ from platform_Bandai import Platform_Wonderswan
 from platform_Elektronika import Platform_Pdp11
 from platform_SegaSaturn import Platform_Saturn
 from platform_SinclairZx81 import Platform_Zx81
-from platform_MicrosoftXbox import Platform_Xbox
 from platform_Fairchild import Platform_Channelf
-from platform_Atarixlxe import Platform_Atarixlxe
-from platform_AtariLynx import Platform_AtariLynx
+from platform_MicrosoftXbox import Platform_Xbox
 from platform_Atari2600 import Platform_Atari2600
 from platform_Atari5200 import Platform_Atari5200
 from platform_Atari7800 import Platform_Atari7800
+from platform_AtariLynx import Platform_AtariLynx
+from platform_Atarixlxe import Platform_Atarixlxe
 from platform_Mattel import Platform_Intellivision
 from platform_Enterprise import Platform_Enterprise
 from platform_SegaGameGear import Platform_GameGear
 from platform_AtariJaguar import Platform_AtariJaguar
 from platform_Commodore64 import Platform_Commodore64
-from platform_NintendoGameboy import Platform_Gameboy
 from platform_NintendoFamicom import Platform_Famicom
-from platform_SegaMegadrive import Platform_Megadrive
+from platform_NintendoGameboy import Platform_Gameboy
 from platform_SegaDreamcast import Platform_Dreamcast
+from platform_SegaMegadrive import Platform_Megadrive
 from platform_MicrosoftWindows import Platform_Windows
 from platform_Commodore128 import Platform_Commodore128
 from platform_CommodorePet import Platform_CommodorePet
@@ -61,9 +61,9 @@ from platform_NintendoGameCube import Platform_GameCube
 from platform_Spectravideo import Platform_Spectravideo
 from platform_SinclairSpectrum import Platform_Zxspectrum
 from platform_SnkNeogeoPocket import Platform_NeogeoPocket
-from platform_CommodorePlus4 import Platform_CommodorePlus4
-from platform_CommodoreCBMII import Platform_CommodoreCBMII
 from platform_CommodoreAmiga import Platform_CommodoreAmiga
+from platform_CommodoreCBMII import Platform_CommodoreCBMII
+from platform_CommodorePlus4 import Platform_CommodorePlus4
 from platform_CommodoreVic20 import Platform_CommodoreVic20
 from platform_NintendoVirtualboy import Platform_Virtualboy
 from platform_SegaMastersystem import Platform_Mastersystem
@@ -73,6 +73,7 @@ from platform_NintendoGameboyColor import Platform_GameboyColor
 from platform_NintendoSuperFamicom import Platform_SuperFamicom
 from platform_NintendoGameboyAdvance import Platform_GameboyAdvance
 from platform_SnkNeogeoPocketColor import Platform_NeogeoPocketColor
+from platform_NintendoFamicomDisksystem import Platform_FamicomDisksystem
 from platform_Wild import (
     Platform_VideoMPV,
     Platform_Gamemusic,
@@ -108,6 +109,7 @@ platform_runners = [
     Platform_N64(),
     Platform_SuperFamicom(),
     Platform_Famicom(),
+    Platform_FamicomDisksystem(),
     Platform_GameboyAdvance(),
     Platform_GameboyColor(),
     Platform_Gameboy(),
@@ -119,10 +121,10 @@ platform_runners = [
     Platform_Tic80(),
     Platform_MOTO(),
     Platform_GP32(),
-    Platform_GP2x(),
+    Platform_GP2X(),
     Platform_Neogeo(),
-    Platform_Neopocketcolor(),
-    Platform_Neopocket(),
+    Platform_NeogeoPocketColor(),
+    Platform_NeogeoPocket(),
     Platform_Supergrafx(),
     Platform_Msx(),
     Platform_Xbox(),
@@ -131,6 +133,7 @@ platform_runners = [
     Platform_GameGear(),
     Platform_Dreamcast(),
     Platform_Saturn(),
+    Platform_32X(),
     Platform_Intellivision(),
     Platform_Java(),
     Platform_Acorn(),
