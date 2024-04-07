@@ -1,6 +1,7 @@
 import os
 import stat
 import os.path
+from os import listdir
 
 from platformcommon import PlatformCommon
 
@@ -8,51 +9,26 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_CommodoreVIC20(PlatformCommon):
+class Platform_Msx(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'vice']
-    # cores = ['vice_xvic_libretro']
-    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-    #                'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    # tapes_ext = ['t64', 'tap', 'tcrt']
-    # roms_ext = ['prg', 'p00', 'crt', 'bin']
-    # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    # extensions = []
-    # extensions.extend(floppys_ext)
-    # extensions.extend(tapes_ext)
-    # extensions.extend(roms_ext)
-    # extensions.extend(vic20_ext)
+    # emulators = ["retroarch", "openmsx", "openmsx-msx2", "openmsx-msx2-plus", "openmsx-msx-turbo",]    cores = ["bluemsx_libretro", "fbneo_msx_libretro", "fmsx_libretro"]
+    # extensions = ["rom", "ri", "mx1", "mx2",
+    #               "col", "dsk", "cas", "sg", "sc", "m3u"]
 
     def run(self):
         emulator = ["retroarch"]
-        core = ['vice_xvic_libretro']
-        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-                       'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-        tapes_ext = ['t64', 'tap', 'tcrt']
-        roms_ext = ['prg', 'p00', 'crt', 'bin']
-        vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-        extensions = []
-        extensions.extend(floppys_ext)
-        extensions.extend(tapes_ext)
-        extensions.extend(roms_ext)
-        extensions.extend(vic20_ext)
-        if emulator[0] == "other":
-            extensions = ['unknown']
+        core = ["bluemsx_libretro"]
+        extensions = ["rom", "ri", "mx1", "mx2",
+                      "col", "dsk", "cas", "sg", "sc", "m3u"]
         if emulator[0] == "retroarch":
-            if core[0] == 'vice_xvic_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-                tapes_ext = ['t64', 'tap', 'tcrt']
-                roms_ext = ['prg', 'p00', 'crt', 'bin']
-                vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                extensions = []
-                extensions.extend(floppys_ext)
-                extensions.extend(tapes_ext)
-                extensions.extend(roms_ext)
-                extensions.extend(vic20_ext)
+            if core[0] == "bluemsx_libretro":
+                extensions = ["rom", "ri", "mx1", "mx2",
+                              "col", "dsk", "cas", "sg", "sc", "m3u",]
+            if core[0] == "fmsx_libretro":
+                extensions = ["rom", "mx1", "mx2", "dsk", "fdi", "cas", "m3u"]
 
         ext = []
         for ext in extensions:
@@ -73,13 +49,13 @@ class Platform_CommodoreVIC20(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -106,8 +82,8 @@ class Platform_CommodoreVIC20(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'x64':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "3do":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
 
             # if not os.path.exists(self.datadir + "/s"):
             #     os.makedirs(self.datadir + "/s")
@@ -142,7 +118,7 @@ class Platform_CommodoreVIC20(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['vic20']
+        return ["msx", "msx2", "msx2plus", "msxturbor", "spectravideo3x8"]
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -158,18 +134,14 @@ class Platform_CommodoreVIC20(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
+        if emulator[0] == "other":
+            extensions = ["unknown"]
         if emulator[0] == "retroarch":
-            if core[0] == 'vice_xvic_libretro':
-                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-                tapes_ext = ['t64', 'tap', 'tcrt']
-                roms_ext = ['prg', 'p00', 'crt', 'bin']
-                vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-                extensions = []
-                extensions.extend(floppys_ext)
-                extensions.extend(tapes_ext)
-                extensions.extend(roms_ext)
-                extensions.extend(vic20_ext)
+            if core[0] == "bluemsx_libretro":
+                extensions = ["rom", "ri", "mx1", "mx2",
+                              "col", "dsk", "cas", "sg", "sc", "m3u"]
+            if core[0] == "fmsx_libretro":
+                extensions = ["rom", "mx1", "mx2", "dsk", "fdi", "cas", "m3u"]
 
         ext_files = []
         for file in self.prod_files:

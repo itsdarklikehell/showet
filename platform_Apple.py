@@ -21,11 +21,9 @@ class Platform_Apple(PlatformCommon):
         emulator = ["retroarch"]
         core = ["minivmac_libretro"]
         extensions = ["dsk", "img", "zip", "hvf", "cmd"]
-
         if emulator[0] == "retroarch":
             if core[0] == "minivmac_libretro":
                 extensions = ["dsk", "img", "zip", "hvf", "cmd"]
-
         if emulator[0] == "other":
             extensions = ["unknown"]
 

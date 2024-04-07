@@ -21,7 +21,6 @@ class Platform_Arcade(PlatformCommon):
         emulator = ["retroarch"]
         core = ["mame_libretro"]
         extensions = ["zip", "chd", "7z", "cmd"]
-
         if emulator[0] == "retroarch":
             if (
                     core[0] == "mame_libretro"
@@ -43,7 +42,6 @@ class Platform_Arcade(PlatformCommon):
                     or core[0] == "mame2003_midway_libretro"
             ):
                 extensions = ["zip"]
-
         if emulator[0] == "other":
             extensions = ["unknown"]
 

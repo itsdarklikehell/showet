@@ -8,24 +8,31 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Acorn(PlatformCommon):
+class Platform_3DS(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ["retroarch", "other"]
-    # cores = ["mame_libretro", "mame2016_libretro"]
-    # extensions = ["zip", "chd", "7z", "cmd"]
+    # emulators = ["retroarch", "citra"]
+    # cores = ["citra_libretro", "citra2018_libretro", "citra_canary_libretro",
+    #          "melonds_libretro", "desmume_libretro", "desmume2015_libretro",]
+    # extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]
 
     def run(self):
+        # Set up the emulator we want to run.
+        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+        # Set whether we should run in fullscreens or not.
+        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
-        core = ["mame_libretro"]
-        extensions = ["zip", "chd", "7z", "cmd"]
+        core = ["citra_libretro"]
+        extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]
         if emulator[0] == "retroarch":
-            if core[0] == "mame_libretro":
-                extensions = ["zip", "chd", "7z", "cmd"]
-        if emulator[0] == "other":
-            extensions = ["unknown"]
+            if (
+                    core[0] == "citra_libretro"
+                    or core[0] == "citra2018_libretro"
+                    or core[0] == "citra_canary_libretro"
+            ):
+                extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]
 
         ext = []
         for ext in extensions:
@@ -48,9 +55,6 @@ class Platform_Acorn(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "mame":
-            print("Using: " + str(emulator))
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
@@ -82,9 +86,7 @@ class Platform_Acorn(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == "mame":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-            if emulator[0] == "other":
+            if emulator[0] == "3do":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
             # if not os.path.exists(self.datadir + "/s"):
@@ -120,7 +122,7 @@ class Platform_Acorn(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ["acorn"]
+        return ["nintendods"]
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -137,10 +139,12 @@ class Platform_Acorn(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
-            if core[0] == "mame_libretro":
-                extensions = ["zip", "chd", "7z", "cmd"]
-        if emulator[0] == "other":
-            extensions = ["unknown"]
+            if (
+                    core[0] == "citra_libretro"
+                    or core[0] == "citra2018_libretro"
+                    or core[0] == "citra_canary_libretro"
+            ):
+                extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]
 
         ext_files = []
         for file in self.prod_files:

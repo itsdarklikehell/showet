@@ -1109,7 +1109,7 @@ class Platform_CommodorePlus4(PlatformCommon):
         return ext_files
 
 
-class Platform_CommodoreVIC20(PlatformCommon):
+class Platform_CommodoreVic20(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.

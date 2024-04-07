@@ -1178,7 +1178,7 @@ class Platform_GameboyAdvance(PlatformCommon):
         return ext_files
 
 
-class Platform_Gamecube(PlatformCommon):
+class Platform_GameCube(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
