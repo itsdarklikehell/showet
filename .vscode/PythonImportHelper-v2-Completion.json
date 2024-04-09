@@ -41,6 +41,14 @@
         "documentation": {}
     },
     {
+        "label": "listdir",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "stat",
         "kind": 6,
         "isExtraImport": true,
@@ -56,6 +64,14 @@
         "importPath": "os.path",
         "description": "os.path",
         "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
         "documentation": {}
     },
     {
@@ -1713,14 +1729,6 @@
         "documentation": {}
     },
     {
-        "label": "platforms",
-        "importPath": "showet",
-        "description": "showet",
-        "isExtraImport": true,
-        "detail": "showet",
-        "documentation": {}
-    },
-    {
         "label": "Platform_3do",
         "kind": 6,
         "importPath": "platform_3do",
@@ -2807,6 +2815,33 @@
         "description": "platform_Microsoft",
         "peekOfCode": "DEBUGGING = True\nclass Platform_Msx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"openmsx\", \"openmsx-msx2\", \"openmsx-msx2-plus\", \"openmsx-msx-turbo\",]    cores = [\"bluemsx_libretro\", \"fbneo_msx_libretro\", \"fmsx_libretro\"]\n    # extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n    #               \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]\n    def run(self):",
         "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Msdos",
+        "kind": 6,
+        "importPath": "platform_MicrosoftMsdos",
+        "description": "platform_MicrosoftMsdos",
+        "peekOfCode": "class Platform_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"dosbox\"]\n    # cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n    #          \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]\n    # extensions = [\"zip\", \"dosz\", \"exe\", \"com\", \"bat\", \"iso\", \"cue\",\n    #               \"ins\", \"img\", \"ima\", \"vhd\", \"jrc\", \"tc\", \"m3u\", \"m3u8\"]",
+        "detail": "platform_MicrosoftMsdos",
+        "documentation": {}
+    },
+    {
+        "label": "FULLSCREEN",
+        "kind": 5,
+        "importPath": "platform_MicrosoftMsdos",
+        "description": "platform_MicrosoftMsdos",
+        "peekOfCode": "FULLSCREEN = False\nDEBUGGING = True\nclass Platform_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"dosbox\"]\n    # cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n    #          \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]",
+        "detail": "platform_MicrosoftMsdos",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUGGING",
+        "kind": 5,
+        "importPath": "platform_MicrosoftMsdos",
+        "description": "platform_MicrosoftMsdos",
+        "peekOfCode": "DEBUGGING = True\nclass Platform_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"dosbox\"]\n    # cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n    #          \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]\n    # extensions = [\"zip\", \"dosz\", \"exe\", \"com\", \"bat\", \"iso\", \"cue\",",
+        "detail": "platform_MicrosoftMsdos",
         "documentation": {}
     },
     {

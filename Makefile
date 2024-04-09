@@ -274,7 +274,7 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_CommodorePet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodorePet.py
 	$(QINSTALL) /home/rizzo/showet/platform_CommodorePlus4.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodorePlus4.py
 	$(QINSTALL) /home/rizzo/showet/platform_CommodoreVic20.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodoreVic20.py
-	$(QINSTALL) /home/rizzo/showet/platform_Dos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Dos.py
+	$(QINSTALL) /home/rizzo/showet/platform_MicrosoftMsdos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsdos.py
 	$(QINSTALL) /home/rizzo/showet/platform_Elektronika.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py
 	$(QINSTALL) /home/rizzo/showet/platform_Enterprise.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
 	$(QINSTALL) /home/rizzo/showet/platform_Fairchild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Fairchild.py
@@ -392,7 +392,7 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Fairchild.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Dos.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsdos.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodoreVic20.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodorePlus4.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodorePet.py

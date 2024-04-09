@@ -103,7 +103,6 @@ from platform_Wild import (
     Platform_Gamemusic,
     Platform_VideoFFMPEG,
 )
-from showet import platforms
 from platform_Sega import Platform_32X
 
 DEBUGGING = True
