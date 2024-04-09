@@ -59,7 +59,7 @@ class Platform_GameCube(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..

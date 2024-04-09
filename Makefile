@@ -99,6 +99,8 @@ Makefile: showet.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_positioning.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_positioningquick.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
@@ -114,6 +116,10 @@ Makefile: showet.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webchannel.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webengine.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webenginecore.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webenginewidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -177,6 +183,8 @@ Makefile: showet.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_positioning.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_positioningquick.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri:
@@ -192,6 +200,10 @@ Makefile: showet.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webchannel.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webengine.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webenginecore.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webenginewidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
@@ -256,7 +268,6 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_Apple.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Apple.py
 	$(QINSTALL) /home/rizzo/showet/platform_Arcade.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Arcade.py
 	$(QINSTALL) /home/rizzo/showet/platform_Archimedes.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Archimedes.py
-	$(QINSTALL) /home/rizzo/showet/platform_Atari.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari.py
 	$(QINSTALL) /home/rizzo/showet/platform_Atari2600.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari2600.py
 	$(QINSTALL) /home/rizzo/showet/platform_Atari5200.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari5200.py
 	$(QINSTALL) /home/rizzo/showet/platform_Atari7800.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari7800.py
@@ -274,7 +285,6 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_CommodorePet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodorePet.py
 	$(QINSTALL) /home/rizzo/showet/platform_CommodorePlus4.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodorePlus4.py
 	$(QINSTALL) /home/rizzo/showet/platform_CommodoreVic20.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodoreVic20.py
-	$(QINSTALL) /home/rizzo/showet/platform_MicrosoftMsdos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsdos.py
 	$(QINSTALL) /home/rizzo/showet/platform_Elektronika.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py
 	$(QINSTALL) /home/rizzo/showet/platform_Enterprise.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
 	$(QINSTALL) /home/rizzo/showet/platform_Fairchild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Fairchild.py
@@ -286,12 +296,10 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_Linux.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Linux.py
 	$(QINSTALL) /home/rizzo/showet/platform_Magnavox.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Magnavox.py
 	$(QINSTALL) /home/rizzo/showet/platform_Mattel.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Mattel.py
-	$(QINSTALL) /home/rizzo/showet/platform_Microsoft.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Microsoft.py
+	$(QINSTALL) /home/rizzo/showet/platform_MicrosoftMsdos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsdos.py
 	$(QINSTALL) /home/rizzo/showet/platform_MicrosoftMsx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsx.py
 	$(QINSTALL) /home/rizzo/showet/platform_MicrosoftWindows.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftWindows.py
 	$(QINSTALL) /home/rizzo/showet/platform_MicrosoftXbox.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftXbox.py
-	$(QINSTALL) /home/rizzo/showet/platform_Nec.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nec.py
-	$(QINSTALL) /home/rizzo/showet/platform_Nintendo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nintendo.py
 	$(QINSTALL) /home/rizzo/showet/platform_Nintendo3DS.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nintendo3DS.py
 	$(QINSTALL) /home/rizzo/showet/platform_NintendoDS.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_NintendoDS.py
 	$(QINSTALL) /home/rizzo/showet/platform_NintendoFamicom.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_NintendoFamicom.py
@@ -308,57 +316,73 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_Palm.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Palm.py
 	$(QINSTALL) /home/rizzo/showet/platform_Phillips.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Phillips.py
 	$(QINSTALL) /home/rizzo/showet/platform_Pico8.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Pico8.py
-	$(QINSTALL) /home/rizzo/showet/platform_Sega.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega.py
 	$(QINSTALL) /home/rizzo/showet/platform_Sega32X.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega32X.py
 	$(QINSTALL) /home/rizzo/showet/platform_SegaDreamcast.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaDreamcast.py
 	$(QINSTALL) /home/rizzo/showet/platform_SegaGameGear.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaGameGear.py
 	$(QINSTALL) /home/rizzo/showet/platform_SegaMastersystem.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaMastersystem.py
 	$(QINSTALL) /home/rizzo/showet/platform_SegaMegadrive.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaMegadrive.py
 	$(QINSTALL) /home/rizzo/showet/platform_SegaSaturn.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaSaturn.py
+	$(QINSTALL) /home/rizzo/showet/platform_SegaSG1000.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaSG1000.py
+	$(QINSTALL) /home/rizzo/showet/platform_SegaStv.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaStv.py
+	$(QINSTALL) /home/rizzo/showet/platform_SegaVmu.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaVmu.py
 	$(QINSTALL) /home/rizzo/showet/platform_Sinclair.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sinclair.py
 	$(QINSTALL) /home/rizzo/showet/platform_SinclairSpectrum.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SinclairSpectrum.py
 	$(QINSTALL) /home/rizzo/showet/platform_SinclairZx81.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SinclairZx81.py
-	$(QINSTALL) /home/rizzo/showet/platform_Snk.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Snk.py
 	$(QINSTALL) /home/rizzo/showet/platform_SnkNeogeo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SnkNeogeo.py
 	$(QINSTALL) /home/rizzo/showet/platform_SnkNeogeoPocket.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SnkNeogeoPocket.py
 	$(QINSTALL) /home/rizzo/showet/platform_SnkNeogeoPocketColor.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SnkNeogeoPocketColor.py
-	$(QINSTALL) /home/rizzo/showet/platform_Sony.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sony.py
 	$(QINSTALL) /home/rizzo/showet/platform_SonyPs2.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SonyPs2.py
 	$(QINSTALL) /home/rizzo/showet/platform_SonyPsp.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SonyPsp.py
 	$(QINSTALL) /home/rizzo/showet/platform_SonyPsx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SonyPsx.py
 	$(QINSTALL) /home/rizzo/showet/platform_Spectravideo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Spectravideo.py
 	$(QINSTALL) /home/rizzo/showet/platform_Thomson.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Thomson.py
 	$(QINSTALL) /home/rizzo/showet/platform_Tic80.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Tic80.py
-	$(QINSTALL) /home/rizzo/showet/platform_Wild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Wild.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
+	$(QINSTALL) /home/rizzo/showet/platforms_Atari.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Atari.py
+	$(QINSTALL) /home/rizzo/showet/platforms_Commodore.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Commodore.py
+	$(QINSTALL) /home/rizzo/showet/platforms_Microsoft.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Microsoft.py
+	$(QINSTALL) /home/rizzo/showet/platforms_Nec.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Nec.py
+	$(QINSTALL) /home/rizzo/showet/platforms_Nintendo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Nintendo.py
+	$(QINSTALL) /home/rizzo/showet/platforms_Sega.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Sega.py
+	$(QINSTALL) /home/rizzo/showet/platforms_Snk.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Snk.py
+	$(QINSTALL) /home/rizzo/showet/platforms_Sony.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Sony.py
+	$(QINSTALL) /home/rizzo/showet/platforms_Wild.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Wild.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 
 uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Wild.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Sony.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Snk.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Sega.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Nintendo.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Nec.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Microsoft.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Commodore.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Atari.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Wild.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Tic80.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Thomson.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Spectravideo.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SonyPsx.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SonyPsp.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SonyPs2.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sony.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SnkNeogeoPocketColor.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SnkNeogeoPocket.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SnkNeogeo.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Snk.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SinclairZx81.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SinclairSpectrum.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sinclair.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaVmu.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaStv.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaSG1000.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaSaturn.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaMegadrive.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaMastersystem.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaGameGear.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_SegaDreamcast.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega32X.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Sega.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Pico8.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Phillips.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Palm.py
@@ -375,12 +399,10 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_NintendoFamicom.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_NintendoDS.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nintendo3DS.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nintendo.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Nec.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftXbox.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftWindows.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsx.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Microsoft.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsdos.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Mattel.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Magnavox.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Linux.py
@@ -392,7 +414,6 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Fairchild.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Enterprise.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Elektronika.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsdos.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodoreVic20.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodorePlus4.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_CommodorePet.py
@@ -410,7 +431,6 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari7800.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari5200.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari2600.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Atari.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Archimedes.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Arcade.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Apple.py
@@ -430,7 +450,7 @@ dist: distdir FORCE
 
 distdir: sub-showet-gui-distdir FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
-	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/sanitize.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_edid_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_egl_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fb_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fontdatabase_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_glx_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_input_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmlmodels.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmlworkerscript.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xkbcommon_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf .qmake.stash /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qmake_use.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf showet.pro $(DISTDIR)/
+	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/sanitize.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_edid_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_egl_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fb_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fontdatabase_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_glx_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_input_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_positioning.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_positioningquick.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmlmodels.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmlworkerscript.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webchannel.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webengine.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webenginecore.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webenginewidgets.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xkbcommon_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf .qmake.stash /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qmake_use.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf showet.pro $(DISTDIR)/
 
 sub-showet-gui-distdir: FORCE
 	@test -d showet-gui/ || mkdir -p showet-gui/

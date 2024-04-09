@@ -61,7 +61,7 @@ class Platform_3DS(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -210,7 +210,7 @@ class Platform_N64(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         if len(files) > 0:
             # Sort the files.
@@ -313,7 +313,7 @@ class Platform_DS(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         if len(files) > 0:
             # Sort the files.
@@ -425,7 +425,7 @@ class Platform_Famicom(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -587,7 +587,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         if len(files) > 0:
             # Sort the files.
@@ -721,7 +721,7 @@ class Platform_Gameboy(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -914,7 +914,7 @@ class Platform_GameboyColor(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -1097,7 +1097,7 @@ class Platform_GameboyAdvance(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -1257,7 +1257,7 @@ class Platform_GameCube(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -1404,7 +1404,7 @@ class Platform_Pokemini(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -1574,7 +1574,7 @@ class Platform_SuperFamicom(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -1742,7 +1742,7 @@ class Platform_Virtualboy(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -1891,7 +1891,7 @@ class Platform_Wii(PlatformCommon):
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
-            print("\tUsing extensions: " + str(extensions))
+            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
