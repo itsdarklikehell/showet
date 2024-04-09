@@ -10,6 +10,8 @@ from platform_Amstrad import Platform_Cpcplus
 from platform_Apple import Platform_Apple
 from platform_Arcade import Platform_Arcade
 from platform_Archimedes import Platform_Acorn
+
+from platform_Atari import Platform_Atari2600, Platform_Atari5200, Platform_Atari7800, Platform_AtariJaguar, Platform_AtariLynx, Platform_AtariSTETTFalcon, Platform_Atarixlxe
 from platform_Atari2600 import Platform_Atari2600
 from platform_Atari5200 import Platform_Atari5200
 from platform_Atari7800 import Platform_Atari7800
@@ -17,8 +19,11 @@ from platform_AtariJaguar import Platform_AtariJaguar
 from platform_AtariLynx import Platform_AtariLynx
 from platform_AtariSTETTFalcon import Platform_AtariSTETTFalcon
 from platform_Atarixlxe import Platform_Atarixlxe
+
 from platform_Bandai import Platform_Wonderswan
 from platform_Coleco import Platform_Coleco
+
+from platform_Commodore import Platform_Commodore128, Platform_Commodore64, Platform_CommodoreAmiga, Platform_CommodoreCBMII, Platform_CommodorePet, Platform_CommodorePlus4, Platform_CommodoreVic20
 from platform_Commodore128 import Platform_Commodore128
 from platform_Commodore64 import Platform_Commodore64
 from platform_CommodoreAmiga import Platform_CommodoreAmiga
@@ -26,21 +31,30 @@ from platform_CommodoreCBMII import Platform_CommodoreCBMII
 from platform_CommodorePet import Platform_CommodorePet
 from platform_CommodorePlus4 import Platform_CommodorePlus4
 from platform_CommodoreVic20 import Platform_CommodoreVic20
-from platform_Dos import Platform_Msdos
+
 from platform_Elektronika import Platform_Pdp11
 from platform_Enterprise import Platform_Enterprise
 from platform_Fairchild import Platform_Channelf
+
+from platform_Gamepark import Platform_GP2X, Platform_GP32
 from platform_Gamepark2X import Platform_GP2X
 from platform_Gamepark32 import Platform_GP32
+
 from platform_GCE import Platform_Vectrex
 from platform_Java import Platform_Java
 from platform_Linux import Platform_Linux
 from platform_Magnavox import Platform_Odyssey
 from platform_Mattel import Platform_Intellivision
+
+from platform_Microsoft import Platform_Msx, Platform_Windows, Platform_Xbox, Platform_Msdos
 from platform_MicrosoftMsx import Platform_Msx
 from platform_MicrosoftWindows import Platform_Windows
 from platform_MicrosoftXbox import Platform_Xbox
+from platform_Microsoft import Platform_Msdos
+
 from platform_Nec import Platform_Supergrafx
+
+from platform_Nintendo import Platform_3DS, Platform_DS, Platform_Famicom, Platform_FamicomDisksystem, Platform_Gameboy, Platform_GameboyAdvance, Platform_GameboyColor, Platform_GameCube, Platform_N64, Platform_Pokemini, Platform_SuperFamicom, Platform_Virtualboy, Platform_Wii
 from platform_Nintendo3DS import Platform_3DS
 from platform_NintendoDS import Platform_DS
 from platform_NintendoFamicom import Platform_Famicom
@@ -54,23 +68,33 @@ from platform_NintendoPokemini import Platform_Pokemini
 from platform_NintendoSuperFamicom import Platform_SuperFamicom
 from platform_NintendoVirtualboy import Platform_Virtualboy
 from platform_NintendoWii import Platform_Wii
+
 from platform_Palm import Platform_Palm
 from platform_Phillips import Platform_Cdi
 from platform_Pico8 import Platform_Pico8
+
+from platform_Sega import Platform_32X, Platform_Dreamcast, Platform_GameGear, Platform_Vmu, Platform_Mastersystem, Platform_Megadrive, Platform_Saturn, Platform_SG1000, Platform_SG1000, Platform_Stv
 from platform_Sega32X import Platform_32X
 from platform_SegaDreamcast import Platform_Dreamcast
 from platform_SegaGameGear import Platform_GameGear
+from platform_SegaVmu import Platform_Vmu
+from platform_SegaStv import Platform_Stv
 from platform_SegaMastersystem import Platform_Mastersystem
 from platform_SegaMegadrive import Platform_Megadrive
 from platform_SegaSaturn import Platform_Saturn
+from platform_SegaSG1000 import Platform_SG1000
+
 from platform_SinclairSpectrum import Platform_Zxspectrum
 from platform_SinclairZx81 import Platform_Zx81
+
 from platform_SnkNeogeo import Platform_Neogeo
 from platform_SnkNeogeoPocket import Platform_NeogeoPocket
 from platform_SnkNeogeoPocketColor import Platform_NeogeoPocketColor
+
 from platform_SonyPs2 import Platform_Ps2
 from platform_SonyPsp import Platform_Psp
 from platform_SonyPsx import Platform_Psx
+
 from platform_Spectravideo import Platform_Spectravideo
 from platform_Thomson import Platform_MOTO
 from platform_Tic80 import Platform_Tic80
@@ -79,6 +103,8 @@ from platform_Wild import (
     Platform_Gamemusic,
     Platform_VideoFFMPEG,
 )
+from showet import platforms
+from platform_Sega import Platform_32X
 
 DEBUGGING = True
 
@@ -120,8 +146,10 @@ platform_runners = [
     Platform_Apple(),
     Platform_Tic80(),
     Platform_MOTO(),
+    Platform_Vmu(),
     Platform_GP32(),
     Platform_GP2X(),
+    Platform_Stv(),
     Platform_Neogeo(),
     Platform_NeogeoPocketColor(),
     Platform_NeogeoPocket(),
@@ -148,6 +176,7 @@ platform_runners = [
     Platform_3do(),
     Platform_Wonderswan(),
     Platform_Coleco(),
+    Platform_SG1000(),
     Platform_Channelf(),
     Platform_Odyssey(),
     Platform_Cdi(),

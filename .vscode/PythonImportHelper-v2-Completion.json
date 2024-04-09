@@ -33,6 +33,14 @@
         "documentation": {}
     },
     {
+        "label": "listdir",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "stat",
         "kind": 6,
         "isExtraImport": true,
@@ -48,6 +56,30 @@
         "importPath": "os.path",
         "description": "os.path",
         "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
         "documentation": {}
     },
     {
@@ -770,6 +802,62 @@
     },
     {
         "label": "Platform_Atari2600",
+        "importPath": "platform_Atari",
+        "description": "platform_Atari",
+        "isExtraImport": true,
+        "detail": "platform_Atari",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Atari5200",
+        "importPath": "platform_Atari",
+        "description": "platform_Atari",
+        "isExtraImport": true,
+        "detail": "platform_Atari",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Atari7800",
+        "importPath": "platform_Atari",
+        "description": "platform_Atari",
+        "isExtraImport": true,
+        "detail": "platform_Atari",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_AtariJaguar",
+        "importPath": "platform_Atari",
+        "description": "platform_Atari",
+        "isExtraImport": true,
+        "detail": "platform_Atari",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_AtariLynx",
+        "importPath": "platform_Atari",
+        "description": "platform_Atari",
+        "isExtraImport": true,
+        "detail": "platform_Atari",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_AtariSTETTFalcon",
+        "importPath": "platform_Atari",
+        "description": "platform_Atari",
+        "isExtraImport": true,
+        "detail": "platform_Atari",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Atarixlxe",
+        "importPath": "platform_Atari",
+        "description": "platform_Atari",
+        "isExtraImport": true,
+        "detail": "platform_Atari",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Atari2600",
         "importPath": "platform_Atari2600",
         "description": "platform_Atari2600",
         "isExtraImport": true,
@@ -842,6 +930,62 @@
     },
     {
         "label": "Platform_Commodore128",
+        "importPath": "platform_Commodore",
+        "description": "platform_Commodore",
+        "isExtraImport": true,
+        "detail": "platform_Commodore",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Commodore64",
+        "importPath": "platform_Commodore",
+        "description": "platform_Commodore",
+        "isExtraImport": true,
+        "detail": "platform_Commodore",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_CommodoreAmiga",
+        "importPath": "platform_Commodore",
+        "description": "platform_Commodore",
+        "isExtraImport": true,
+        "detail": "platform_Commodore",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_CommodoreCBMII",
+        "importPath": "platform_Commodore",
+        "description": "platform_Commodore",
+        "isExtraImport": true,
+        "detail": "platform_Commodore",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_CommodorePet",
+        "importPath": "platform_Commodore",
+        "description": "platform_Commodore",
+        "isExtraImport": true,
+        "detail": "platform_Commodore",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_CommodorePlus4",
+        "importPath": "platform_Commodore",
+        "description": "platform_Commodore",
+        "isExtraImport": true,
+        "detail": "platform_Commodore",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_CommodoreVic20",
+        "importPath": "platform_Commodore",
+        "description": "platform_Commodore",
+        "isExtraImport": true,
+        "detail": "platform_Commodore",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Commodore128",
         "importPath": "platform_Commodore128",
         "description": "platform_Commodore128",
         "isExtraImport": true,
@@ -897,14 +1041,6 @@
         "documentation": {}
     },
     {
-        "label": "Platform_Msdos",
-        "importPath": "platform_Dos",
-        "description": "platform_Dos",
-        "isExtraImport": true,
-        "detail": "platform_Dos",
-        "documentation": {}
-    },
-    {
         "label": "Platform_Pdp11",
         "importPath": "platform_Elektronika",
         "description": "platform_Elektronika",
@@ -926,6 +1062,22 @@
         "description": "platform_Fairchild",
         "isExtraImport": true,
         "detail": "platform_Fairchild",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_GP2X",
+        "importPath": "platform_Gamepark",
+        "description": "platform_Gamepark",
+        "isExtraImport": true,
+        "detail": "platform_Gamepark",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_GP32",
+        "importPath": "platform_Gamepark",
+        "description": "platform_Gamepark",
+        "isExtraImport": true,
+        "detail": "platform_Gamepark",
         "documentation": {}
     },
     {
@@ -986,6 +1138,46 @@
     },
     {
         "label": "Platform_Msx",
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "isExtraImport": true,
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Windows",
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "isExtraImport": true,
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Xbox",
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "isExtraImport": true,
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Msdos",
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "isExtraImport": true,
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Msdos",
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "isExtraImport": true,
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Msx",
         "importPath": "platform_MicrosoftMsx",
         "description": "platform_MicrosoftMsx",
         "isExtraImport": true,
@@ -1014,6 +1206,110 @@
         "description": "platform_Nec",
         "isExtraImport": true,
         "detail": "platform_Nec",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_3DS",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_DS",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Famicom",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_FamicomDisksystem",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Gameboy",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_GameboyAdvance",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_GameboyColor",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_GameCube",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_N64",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Pokemini",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_SuperFamicom",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Virtualboy",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Wii",
+        "importPath": "platform_Nintendo",
+        "description": "platform_Nintendo",
+        "isExtraImport": true,
+        "detail": "platform_Nintendo",
         "documentation": {}
     },
     {
@@ -1146,6 +1442,94 @@
     },
     {
         "label": "Platform_32X",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Dreamcast",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_GameGear",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Vmu",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Mastersystem",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Megadrive",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Saturn",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_SG1000",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_SG1000",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Stv",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_32X",
+        "importPath": "platform_Sega",
+        "description": "platform_Sega",
+        "isExtraImport": true,
+        "detail": "platform_Sega",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_32X",
         "importPath": "platform_Sega32X",
         "description": "platform_Sega32X",
         "isExtraImport": true,
@@ -1166,6 +1550,22 @@
         "description": "platform_SegaGameGear",
         "isExtraImport": true,
         "detail": "platform_SegaGameGear",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Vmu",
+        "importPath": "platform_SegaVmu",
+        "description": "platform_SegaVmu",
+        "isExtraImport": true,
+        "detail": "platform_SegaVmu",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Stv",
+        "importPath": "platform_SegaStv",
+        "description": "platform_SegaStv",
+        "isExtraImport": true,
+        "detail": "platform_SegaStv",
         "documentation": {}
     },
     {
@@ -1190,6 +1590,14 @@
         "description": "platform_SegaSaturn",
         "isExtraImport": true,
         "detail": "platform_SegaSaturn",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_SG1000",
+        "importPath": "platform_SegaSG1000",
+        "description": "platform_SegaSG1000",
+        "isExtraImport": true,
+        "detail": "platform_SegaSG1000",
         "documentation": {}
     },
     {
@@ -1302,6 +1710,14 @@
         "description": "platform_Wild",
         "isExtraImport": true,
         "detail": "platform_Wild",
+        "documentation": {}
+    },
+    {
+        "label": "platforms",
+        "importPath": "showet",
+        "description": "showet",
+        "isExtraImport": true,
+        "detail": "showet",
         "documentation": {}
     },
     {
@@ -1764,20 +2180,20 @@
         "documentation": {}
     },
     {
-        "label": "Platform_Commodore64",
-        "kind": 6,
-        "importPath": "platform_Commodore",
-        "description": "platform_Commodore",
-        "peekOfCode": "class Platform_Commodore64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\"]\n    # cores = ['vice_x64sc_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',\n    #                'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    # tapes_ext = ['t64', 'tap', 'tcrt']",
-        "detail": "platform_Commodore",
-        "documentation": {}
-    },
-    {
         "label": "Platform_Commodore128",
         "kind": 6,
         "importPath": "platform_Commodore",
         "description": "platform_Commodore",
         "peekOfCode": "class Platform_Commodore128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vice']\n    # cores = ['vice_x128_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n    #                'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    # tapes_ext = ['t64', 'tap', 'tcrt']",
+        "detail": "platform_Commodore",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Commodore64",
+        "kind": 6,
+        "importPath": "platform_Commodore",
+        "description": "platform_Commodore",
+        "peekOfCode": "class Platform_Commodore64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\"]\n    # cores = ['vice_x64sc_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',\n    #                'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    # tapes_ext = ['t64', 'tap', 'tcrt']",
         "detail": "platform_Commodore",
         "documentation": {}
     },
@@ -1831,7 +2247,7 @@
         "kind": 5,
         "importPath": "platform_Commodore",
         "description": "platform_Commodore",
-        "peekOfCode": "FULLSCREEN = False\nDEBUGGING = True\nclass Platform_Commodore64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\"]\n    # cores = ['vice_x64sc_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',",
+        "peekOfCode": "FULLSCREEN = False\nDEBUGGING = True\nclass Platform_Commodore128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vice']\n    # cores = ['vice_x128_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',",
         "detail": "platform_Commodore",
         "documentation": {}
     },
@@ -1840,7 +2256,7 @@
         "kind": 5,
         "importPath": "platform_Commodore",
         "description": "platform_Commodore",
-        "peekOfCode": "DEBUGGING = True\nclass Platform_Commodore64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\"]\n    # cores = ['vice_x64sc_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',\n    #                'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']",
+        "peekOfCode": "DEBUGGING = True\nclass Platform_Commodore128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vice']\n    # cores = ['vice_x128_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n    #                'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']",
         "detail": "platform_Commodore",
         "documentation": {}
     },
@@ -2031,33 +2447,6 @@
         "description": "platform_CommodoreVic20",
         "peekOfCode": "DEBUGGING = True\nclass Platform_CommodoreVic20(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vice']\n    # cores = ['vice_xvic_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n    #                'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']",
         "detail": "platform_CommodoreVic20",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Msdos",
-        "kind": 6,
-        "importPath": "platform_Dos",
-        "description": "platform_Dos",
-        "peekOfCode": "class Platform_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"dosbox\"]\n    # cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n    #          \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]\n    # extensions = [\"zip\", \"dosz\", \"exe\", \"com\", \"bat\", \"iso\", \"cue\",\n    #               \"ins\", \"img\", \"ima\", \"vhd\", \"jrc\", \"tc\", \"m3u\", \"m3u8\"]",
-        "detail": "platform_Dos",
-        "documentation": {}
-    },
-    {
-        "label": "FULLSCREEN",
-        "kind": 5,
-        "importPath": "platform_Dos",
-        "description": "platform_Dos",
-        "peekOfCode": "FULLSCREEN = False\nDEBUGGING = True\nclass Platform_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"dosbox\"]\n    # cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n    #          \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]",
-        "detail": "platform_Dos",
-        "documentation": {}
-    },
-    {
-        "label": "DEBUGGING",
-        "kind": 5,
-        "importPath": "platform_Dos",
-        "description": "platform_Dos",
-        "peekOfCode": "DEBUGGING = True\nclass Platform_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"dosbox\"]\n    # cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n    #          \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]\n    # extensions = [\"zip\", \"dosz\", \"exe\", \"com\", \"bat\", \"iso\", \"cue\",",
-        "detail": "platform_Dos",
         "documentation": {}
     },
     {
@@ -2364,6 +2753,60 @@
         "description": "platform_Mattel",
         "peekOfCode": "DEBUGGING = True\nclass Platform_Intellivision(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"freeintv_libretro\", \"jzintv\", \"jzintv-ecs\"]\n    # extensions = [\"int\", \"bin\", \"rom\"]\n    def run(self):",
         "detail": "platform_Mattel",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Msx",
+        "kind": 6,
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "peekOfCode": "class Platform_Msx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"openmsx\", \"openmsx-msx2\", \"openmsx-msx2-plus\", \"openmsx-msx-turbo\",]    cores = [\"bluemsx_libretro\", \"fbneo_msx_libretro\", \"fmsx_libretro\"]\n    # extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n    #               \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Windows",
+        "kind": 6,
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "peekOfCode": "class Platform_Windows(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"wine\", \"other\"]\n    # cores = [\"wine\"]\n    # extensions = [\"exe\"]\n    # wineprefix = self.showetdir + '/wineprefix'\n    def run(self):",
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Xbox",
+        "kind": 6,
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "peekOfCode": "class Platform_Xbox(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"directxbox_libretro\"]\n    # extensions = [\"zip\", \"iso\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Msdos",
+        "kind": 6,
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "peekOfCode": "class Platform_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"dosbox\"]\n    # cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n    #          \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]\n    # extensions = [\"zip\", \"dosz\", \"exe\", \"com\", \"bat\", \"iso\", \"cue\",\n    #               \"ins\", \"img\", \"ima\", \"vhd\", \"jrc\", \"tc\", \"m3u\", \"m3u8\"]",
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "FULLSCREEN",
+        "kind": 5,
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "peekOfCode": "FULLSCREEN = False\nDEBUGGING = True\nclass Platform_Msx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"openmsx\", \"openmsx-msx2\", \"openmsx-msx2-plus\", \"openmsx-msx-turbo\",]    cores = [\"bluemsx_libretro\", \"fbneo_msx_libretro\", \"fmsx_libretro\"]\n    # extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n    #               \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]",
+        "detail": "platform_Microsoft",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUGGING",
+        "kind": 5,
+        "importPath": "platform_Microsoft",
+        "description": "platform_Microsoft",
+        "peekOfCode": "DEBUGGING = True\nclass Platform_Msx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"openmsx\", \"openmsx-msx2\", \"openmsx-msx2-plus\", \"openmsx-msx-turbo\",]    cores = [\"bluemsx_libretro\", \"fbneo_msx_libretro\", \"fmsx_libretro\"]\n    # extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n    #               \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]\n    def run(self):",
+        "detail": "platform_Microsoft",
         "documentation": {}
     },
     {
@@ -3154,7 +3597,7 @@
         "kind": 6,
         "importPath": "platform_Sega",
         "description": "platform_Sega",
-        "peekOfCode": "class Platform_Vmu(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vemulator']\n    # cores = ['vemulator_libretro']\n    # extensions = ['zip', 'vms', 'dci', 'bin']\n    def run(self):\n        # Set up the emulator we want to run.",
+        "peekOfCode": "class Platform_Vmu(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vemulator']\n    # cores = ['vemulator_libretro']\n    # extensions = ['zip', 'vms', 'dci', 'bin']\n    def run(self):\n        emulator = [\"retroarch\"]",
         "detail": "platform_Sega",
         "documentation": {}
     },
@@ -3321,6 +3764,33 @@
         "documentation": {}
     },
     {
+        "label": "Platform_SG1000",
+        "kind": 6,
+        "importPath": "platform_SegaSG1000",
+        "description": "platform_SegaSG1000",
+        "peekOfCode": "class Platform_SG1000(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'gearsystem']\n    # cores = ['gearsystem_libretro', 'bluemsx_libretro']\n    # extensions = ['rom', 'ri', 'mx1', 'mx2',\n    #               'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']\n    def run(self):",
+        "detail": "platform_SegaSG1000",
+        "documentation": {}
+    },
+    {
+        "label": "FULLSCREEN",
+        "kind": 5,
+        "importPath": "platform_SegaSG1000",
+        "description": "platform_SegaSG1000",
+        "peekOfCode": "FULLSCREEN = False\nDEBUGGING = True\nclass Platform_SG1000(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'gearsystem']\n    # cores = ['gearsystem_libretro', 'bluemsx_libretro']\n    # extensions = ['rom', 'ri', 'mx1', 'mx2',",
+        "detail": "platform_SegaSG1000",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUGGING",
+        "kind": 5,
+        "importPath": "platform_SegaSG1000",
+        "description": "platform_SegaSG1000",
+        "peekOfCode": "DEBUGGING = True\nclass Platform_SG1000(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'gearsystem']\n    # cores = ['gearsystem_libretro', 'bluemsx_libretro']\n    # extensions = ['rom', 'ri', 'mx1', 'mx2',\n    #               'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']",
+        "detail": "platform_SegaSG1000",
+        "documentation": {}
+    },
+    {
         "label": "Platform_Saturn",
         "kind": 6,
         "importPath": "platform_SegaSaturn",
@@ -3345,6 +3815,60 @@
         "description": "platform_SegaSaturn",
         "peekOfCode": "DEBUGGING = True\nclass Platform_Saturn(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'yabause', 'kronos']\n    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']\n    # extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']\n    def run(self):",
         "detail": "platform_SegaSaturn",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Stv",
+        "kind": 6,
+        "importPath": "platform_SegaStv",
+        "description": "platform_SegaStv",
+        "peekOfCode": "class Platform_Stv(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'yabause', 'kronos']\n    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']\n    # extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "detail": "platform_SegaStv",
+        "documentation": {}
+    },
+    {
+        "label": "FULLSCREEN",
+        "kind": 5,
+        "importPath": "platform_SegaStv",
+        "description": "platform_SegaStv",
+        "peekOfCode": "FULLSCREEN = False\nDEBUGGING = True\nclass Platform_Stv(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'yabause', 'kronos']\n    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']\n    # extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']",
+        "detail": "platform_SegaStv",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUGGING",
+        "kind": 5,
+        "importPath": "platform_SegaStv",
+        "description": "platform_SegaStv",
+        "peekOfCode": "DEBUGGING = True\nclass Platform_Stv(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'yabause', 'kronos']\n    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']\n    # extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']\n    def run(self):",
+        "detail": "platform_SegaStv",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Vmu",
+        "kind": 6,
+        "importPath": "platform_SegaVmu",
+        "description": "platform_SegaVmu",
+        "peekOfCode": "class Platform_Vmu(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vemulator']\n    # cores = ['vemulator_libretro']\n    # extensions = ['zip', 'vms', 'dci', 'bin']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "detail": "platform_SegaVmu",
+        "documentation": {}
+    },
+    {
+        "label": "FULLSCREEN",
+        "kind": 5,
+        "importPath": "platform_SegaVmu",
+        "description": "platform_SegaVmu",
+        "peekOfCode": "FULLSCREEN = False\nDEBUGGING = True\nclass Platform_Vmu(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vemulator']\n    # cores = ['vemulator_libretro']\n    # extensions = ['zip', 'vms', 'dci', 'bin']",
+        "detail": "platform_SegaVmu",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUGGING",
+        "kind": 5,
+        "importPath": "platform_SegaVmu",
+        "description": "platform_SegaVmu",
+        "peekOfCode": "DEBUGGING = True\nclass Platform_Vmu(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vemulator']\n    # cores = ['vemulator_libretro']\n    # extensions = ['zip', 'vms', 'dci', 'bin']\n    def run(self):",
+        "detail": "platform_SegaVmu",
         "documentation": {}
     },
     {

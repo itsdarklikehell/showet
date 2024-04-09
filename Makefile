@@ -286,6 +286,7 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/platform_Linux.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Linux.py
 	$(QINSTALL) /home/rizzo/showet/platform_Magnavox.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Magnavox.py
 	$(QINSTALL) /home/rizzo/showet/platform_Mattel.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Mattel.py
+	$(QINSTALL) /home/rizzo/showet/platform_Microsoft.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Microsoft.py
 	$(QINSTALL) /home/rizzo/showet/platform_MicrosoftMsx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsx.py
 	$(QINSTALL) /home/rizzo/showet/platform_MicrosoftWindows.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftWindows.py
 	$(QINSTALL) /home/rizzo/showet/platform_MicrosoftXbox.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftXbox.py
@@ -379,6 +380,7 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftXbox.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftWindows.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_MicrosoftMsx.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Microsoft.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Mattel.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Magnavox.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platform_Linux.py

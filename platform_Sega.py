@@ -1132,10 +1132,6 @@ class Platform_Vmu(PlatformCommon):
     # extensions = ['zip', 'vms', 'dci', 'bin']
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ['vemulator_libretro']
         extensions = ['zip', 'vms', 'dci', 'bin']
@@ -1284,10 +1280,6 @@ class Platform_SG1000(PlatformCommon):
     #               'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ['bluemsx_libretro']
         extensions = ['rom', 'ri', 'mx1', 'mx2',
