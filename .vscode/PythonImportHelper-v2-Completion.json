@@ -1,5 +1,13 @@
 [
     {
+        "label": "QtCore",
+        "importPath": "PySide6",
+        "description": "PySide6",
+        "isExtraImport": true,
+        "detail": "PySide6",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -1734,6 +1742,212 @@
         "description": "platforms_Wild",
         "isExtraImport": true,
         "detail": "platforms_Wild",
+        "documentation": {}
+    },
+    {
+        "label": "qInitResources",
+        "kind": 2,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "def qInitResources():\n    QtCore.qRegisterResourceData(0x03, qt_resource_struct, qt_resource_name, qt_resource_data)\ndef qCleanupResources():\n    QtCore.qUnregisterResourceData(0x03, qt_resource_struct, qt_resource_name, qt_resource_data)\nqInitResources()",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qCleanupResources",
+        "kind": 2,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "def qCleanupResources():\n    QtCore.qUnregisterResourceData(0x03, qt_resource_struct, qt_resource_name, qt_resource_data)\nqInitResources()",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_data",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "qt_resource_data = b\"\\\n\\x00\\x00\\x03\\xff\\\ni\\\nmport QtQuick 2.\\\n0\\x0aimport QtQuick\\\n.Controls 1.4\\x0aRo\\\nw {\\x0a    id: prod\\\nRow\\x0a    anchors.\\\nleft: parent.lef\\\nt\\x0a    anchors.le\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": ".url",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": ".url = \\x22http://p\\\nouet.net\\x22\\x0a      \\\n      }\\x0a        \\\n    Button {\\x0a   \\\n             tex\\\nt: qsTr(\\x22Back\\x22)\\x0a\\\n                \\\nenabled: webengi\\\nneView.canGoBack\\\n\\x0a               \\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "ring",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "ring = url.toStr\\\ning()\\x0a          \\\n  if(urlString.s\\\nearch(\\x22prod.php\\x22\\\n) > 0) {\\x0a       \\\n         var idS\\\ntart = urlString\\\n.lastIndexOf(\\x22=\\x22\\\n) + 1\\x0a          \\\n      var id = u\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "tart",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "tart = urlString\\\n.lastIndexOf(\\x22=\\x22\\\n) + 1\\x0a          \\\n      var id = u\\\nrlString.substri\\\nng(idStart, urlS\\\ntring.length)\\x0a  \\\n              se\\\nlectedId = id\\x0a  \\\n          } else\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "lectedId",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "lectedId = id\\x0a  \\\n          } else\\\n {\\x0a             \\\n   selectedId = \\\n0\\x0a            }\\x0a\\\n        }\\x0a    }\\x0a\\\n}\\x0a\\\n\\x00\\x00\\x03\\xbf\\\ni\\\nmport QtQuick 2.\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "ible",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "ible = !parent.v\\\nisible\\x0a         \\\n   }\\x0a        }\\x0a \\\n   }\\x0a    Button \\\n{\\x0a        text: \\\nqsTr(\\x22Cancel\\x22)\\x0a \\\n       onClicked\\\n: showetHelper.c\\\nancelDemo()\\x0a    \\\n    anchors.righ\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "uest",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "uest = null\\x0a    \\\n        searchIn\\\nProgress = false\\\n\\x0a        }\\x0a    }\\\n\\x0a\\x0a    function s\\\nearchClicked() {\\\n\\x0a        var sea\\\nrchRequest = new\\\n XMLHttpRequest(\\\n);\\x0a        var u\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "Progress",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "Progress = false\\\n\\x0a        }\\x0a    }\\\n\\x0a\\x0a    function s\\\nearchClicked() {\\\n\\x0a        var sea\\\nrchRequest = new\\\n XMLHttpRequest(\\\n);\\x0a        var u\\\nrl = \\x22http://api\\\n.pouet.net/v1/se\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "rchRequest",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "rchRequest = new\\\n XMLHttpRequest(\\\n);\\x0a        var u\\\nrl = \\x22http://api\\\n.pouet.net/v1/se\\\narch/prod/?q=\\x22 +\\\n headerBox.searc\\\nhText\\x0a        if\\\n(headerBox.platf\\\norm.length > 1) \\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "rl",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "rl = \\x22http://api\\\n.pouet.net/v1/se\\\narch/prod/?q=\\x22 +\\\n headerBox.searc\\\nhText\\x0a        if\\\n(headerBox.platf\\\norm.length > 1) \\\n{\\x0a            ur\\\nl += \\x22&platform=\\\n\\x22 + headerBox.pl\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "nProgress",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "nProgress = true\\\n\\x0a        searchR\\\nequest.onreadyst\\\natechange=functi\\\non() {\\x0a         \\\n   if (searchReq\\\nuest.readyState \\\n=== XMLHttpReque\\\nst.DONE) {\\x0a     \\\n           searc\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "nt",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "nt = {\\x0a         \\\n           \\x22name\\\n\\x22: prod[\\x22name\\x22],\\\n\\x0a               \\\n     \\x22id\\x22: prod[\\\n\\x22id\\x22],\\x0a         \\\n           \\x22type\\\n\\x22: prod[\\x22type\\x22],\\\n\\x0a               \\\n     \\x22voteup\\x22: p\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "latform\\x22]",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "latform\\x22] = prod\\\n[\\x22platforms\\x22][pl\\\natform][\\x22slug\\x22]\\x0a\\\n                \\\n    listElement[\\\n\\x22platformicon\\x22] \\\n= prod[\\x22platform\\\ns\\x22][platform][\\x22i\\\ncon\\x22]\\x0a          \\\n          break\\x0a\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "ment[\\x22group\\x22]",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "ment[\\x22group\\x22] = \\\nprod[\\x22groups\\x22][g\\\nroup][\\x22name\\x22]\\x0a  \\\n                \\\n  break\\x0a        \\\n        }\\x0a      \\\n          if(hea\\\nderBox.platform.\\\nlength < 2 || he\\\naderBox.platform\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": {
+            "name": "",
+            "kind": 5,
+            "peekOfCode": " = null\\x0a        \\\nsearchInProgress\\\n = false\\x0a    }\\x0a}\\\n\\x0a\\\n\\x00\\x00\\x05\\x0e\\\ni\\\nmport QtQuick 2.\\\n0\\x0aimport QtQuick\\\n.Controls 1.4\\x0aim\\\nport QtQuick.Lay\\"
+        },
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": " = null\\x0a        \\\nsearchInProgress\\\n = false\\x0a    }\\x0a}\\\n\\x0a\\\n\\x00\\x00\\x05\\x0e\\\ni\\\nmport QtQuick 2.\\\n0\\x0aimport QtQuick\\\n.Controls 1.4\\x0aim\\\nport QtQuick.Lay\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": {
+            "name": "",
+            "kind": 5,
+            "peekOfCode": " = false\\x0a    }\\x0a}\\\n\\x0a\\\n\\x00\\x00\\x05\\x0e\\\ni\\\nmport QtQuick 2.\\\n0\\x0aimport QtQuick\\\n.Controls 1.4\\x0aim\\\nport QtQuick.Lay\\\nouts 1.2\\x0a\\x0aGroupB\\\nox {\\x0a    propert\\"
+        },
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": " = false\\x0a    }\\x0a}\\\n\\x0a\\\n\\x00\\x00\\x05\\x0e\\\ni\\\nmport QtQuick 2.\\\n0\\x0aimport QtQuick\\\n.Controls 1.4\\x0aim\\\nport QtQuick.Lay\\\nouts 1.2\\x0a\\x0aGroupB\\\nox {\\x0a    propert\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": ".text",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": ".text = errorTex\\\nt\\x0a    }\\x0a\\x0a    Dia\\\nlog {\\x0a        id\\\n: launchErrorDia\\\nlog\\x0a        prop\\\nerty alias text:\\\n errorText.text\\x0a\\\n        visible:\\\n text != \\x22\\x22\\x0a    \\\n    title: \\x22Laun\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "text = \\x22\\x22\\x0a    }\\x0a\\\n\\x0a\\x0a\\x0a    function \\\nshowInfo(id) {\\x0a \\\n       Qt.openUr\\\nlExternally(\\x22htt\\\np://www.pouet.ne\\\nt/prod.php?which\\\n=\\x22 + id);\\x0a    }\\x0a\\\n\\x0a    Component.o\\\nnCompleted: show\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_name",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "qt_resource_name = b\"\\\n\\x00\\x10\\\n\\x09\\xe5\\xe6\\xfc\\\n\\x00P\\\n\\x00r\\x00o\\x00d\\x00D\\x00e\\x00l\\x00e\\x00g\\x00a\\x00t\\x00e\\x00.\\x00q\\x00m\\x00l\\\n\\x00\\x0f\\\n\\x02\\x1d\\x01\\xfc\\\n\\x00B\\\n\\x00r\\x00o\\x00w\\x00s\\x00e\\x00r\\x00V\\x00i\\x00e\\x00w\\x00.\\x00q\\x00m\\x00l\\\n\\x00\\x12\\",
+        "detail": "showet-gui.qml_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_struct",
+        "kind": 5,
+        "importPath": "showet-gui.qml_rc",
+        "description": "showet-gui.qml_rc",
+        "peekOfCode": "qt_resource_struct = b\"\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x07\\x00\\x00\\x00\\x01\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00&\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x04\\x03\\\n\\x00\\x00\\x01\\x8e\\x92b\\x1c\\xc5\\\n\\x00\\x00\\x00\\xd4\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x01\\xf2/\\\n\\x00\\x00\\x01\\x8e\\x92a\\xed-\\\n\\x00\\x00\\x00t\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x0eM\\\n\\x00\\x00\\x01\\x8eC]n\\xcc\\\n\\x00\\x00\\x00\\x98\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x01\\xe1\\xc7\\",
+        "detail": "showet-gui.qml_rc",
         "documentation": {}
     },
     {
