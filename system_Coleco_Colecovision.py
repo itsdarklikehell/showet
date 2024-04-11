@@ -3,31 +3,32 @@ import stat
 import os.path
 
 from platformcommon import PlatformCommon
+import system_Coleco_Colecovision
 
 FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Atari_xlxe(PlatformCommon):
+class Platform_Coleco_Colecovision(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['atari800_libretro']
-    # extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+    # emulators = ["retroarch", "bluemsx", "gearcoleco"]
+    # cores = ["bluemsx_libretro", "gearcoleco_libretro"]
+    # extensions = ["rom", "ri", "mx1", "mx2", "col", "dsk", "cas", "sg", "sc", "m3u"]
 
     def run(self):
         emulator = ["retroarch"]
-        core = ['atari800_libretro']
-        extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                      'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        core = ["bluemsx_libretro"]
+        extensions = ["rom", "ri", "mx1", "mx2",
+                      "col", "dsk", "cas", "sg", "sc", "m3u"]
         if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-        if emulator[0] == "other":
-            extensions = ["unknown"]
+            if core[0] == "bluemsx_libretro":
+                extensions = ["rom", "ri", "mx1", "mx2",
+                              "col", "dsk", "cas", "sg", "sc", "m3u"]
+            if core[0] == "gearcoleco_libretro":
+                extensions = ["col", "cv", "bin", "rom"]
 
         ext = []
         for ext in extensions:
@@ -48,13 +49,13 @@ class Platform_Atari_xlxe(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -81,8 +82,6 @@ class Platform_Atari_xlxe(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'atari800':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
             if emulator[0] == "other":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
@@ -119,7 +118,7 @@ class Platform_Atari_xlxe(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['atarixlxe']
+        return ["Coleco", "Colecovision"]
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -135,12 +134,14 @@ class Platform_Atari_xlxe(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-        if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
         if emulator[0] == "other":
             extensions = ["unknown"]
+        if emulator[0] == "retroarch":
+            if core[0] == "bluemsx_libretro":
+                extensions = ["rom", "ri", "mx1", "mx2",
+                              "col", "dsk", "cas", "sg", "sc", "m3u"]
+            if core[0] == "gearcoleco_libretro":
+                extensions = ["col", "cv", "bin", "rom"]
 
         ext_files = []
         for file in self.prod_files:

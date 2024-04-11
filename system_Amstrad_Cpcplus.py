@@ -8,24 +8,27 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Atari_xlxe(PlatformCommon):
+class Platform_Amstrad_Cpcplus(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['atari800_libretro']
-    # extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+    # emulators = ["retroarch", "zesarux"]
+    # cores = ["crocods_libretro", "cap32_libretro"]
+    # extensions = ["dsk", "sna", "zip", "tap", "cdt", "voc", "cpr", "m3u"]
 
     def run(self):
         emulator = ["retroarch"]
-        core = ['atari800_libretro']
-        extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                      'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        core = ["cap32_libretro"]
+        extensions = ["dsk", "sna", "zip", "tap", "cdt", "voc", "cpr", "m3u"]
+
         if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+            if core[0] == "crocods_libretro":
+                extensions = ["dsk", "sna", "kcr"]
+            if core[0] == "cap32_libretro":
+                extensions = ["dsk", "sna", "zip",
+                              "tap", "cdt", "voc", "cpr", "m3u"]
+
         if emulator[0] == "other":
             extensions = ["unknown"]
 
@@ -48,13 +51,16 @@ class Platform_Atari_xlxe(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
+        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
+        if emulator[0] == "zesarux":
+            print("Using: " + str(emulator))
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -81,8 +87,8 @@ class Platform_Atari_xlxe(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'atari800':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator[0] == "zesarux":
+                emulator = emulator + ["-flipname", flipfile, files[0]]
             if emulator[0] == "other":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
@@ -119,7 +125,7 @@ class Platform_Atari_xlxe(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['atarixlxe']
+        return ["amstradplus", "amstradcpc"]
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -136,9 +142,12 @@ class Platform_Atari_xlxe(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+            if core[0] == "crocods_libretro":
+                extensions = ["dsk", "sna", "kcr"]
+            if core[0] == "cap32_libretro":
+                extensions = ["dsk", "sna", "zip",
+                              "tap", "cdt", "voc", "cpr", "m3u"]
+
         if emulator[0] == "other":
             extensions = ["unknown"]
 

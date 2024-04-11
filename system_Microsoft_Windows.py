@@ -1,6 +1,7 @@
 import os
 import stat
 import os.path
+from os import listdir
 
 from platformcommon import PlatformCommon
 
@@ -8,26 +9,21 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Atari_xlxe(PlatformCommon):
+class Platform_Microsoft_Windows(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['atari800_libretro']
-    # extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+    # emulators = ["wine", "other"]
+    # cores = ["wine"]
+    # extensions = ["exe"]
+    # wineprefix = self.showetdir + '/wineprefix'
 
     def run(self):
-        emulator = ["retroarch"]
-        core = ['atari800_libretro']
-        extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                      'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-        if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-        if emulator[0] == "other":
-            extensions = ["unknown"]
+        emulator = ["wine"]
+        core = ["wine"]
+        extensions = ["exe"]
+        wineprefix = self.showetdir + "/wineprefix"
 
         ext = []
         for ext in extensions:
@@ -48,19 +44,33 @@ class Platform_Atari_xlxe(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
+        if emulator[0] == "wine":
+            exefile = files
 
         # print status to console.
         if DEBUGGING is not False:
             print("\tUsing emulator: " + str(emulator))
             print("\tUsing core: " + str(core))
             print("\tSearching for extensions: " + str(extensions))
+
+            print("\tGuessed executable file: " + exefile)
+
+        exepath = self.datadir + "/" + exefile
+
+        # Setup wine if needed
+        os.putenv("WINEPREFIX", wineprefix)
+
+        if not os.path.exists(wineprefix):
+            os.makedirs(wineprefix)
+            print("Creating wine prefix: " + str(wineprefix))
+            os.system('WINEARCH="win64" winecfg')
 
         # drives = []
         # # Support only one for now..
@@ -81,8 +91,6 @@ class Platform_Atari_xlxe(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'atari800':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
             if emulator[0] == "other":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
@@ -116,10 +124,10 @@ class Platform_Atari_xlxe(PlatformCommon):
         #         emulator.append(drives[3])
         # emulator.append('--model=' + amiga_model)
 
-        self.run_process(emulator)
+        self.run_process([emulator[0], exepath])
 
     def supported_platforms(self):
-        return ['atarixlxe']
+        return ["windows", "wild"]
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -135,12 +143,9 @@ class Platform_Atari_xlxe(PlatformCommon):
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
-        if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-        if emulator[0] == "other":
-            extensions = ["unknown"]
+        if emulator[0] == "wine":
+            if core[0] == "wine":
+                extensions = ["exe"]
 
         ext_files = []
         for file in self.prod_files:

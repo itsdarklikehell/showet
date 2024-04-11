@@ -8,26 +8,47 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Atari_xlxe(PlatformCommon):
+class Platform_Nintendo_SuperFamicom(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['atari800_libretro']
-    # extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+    # emulators = ["retroarch", "other"]
+    # cores = ["snes9x_libretro"]
+    # extensions = ["zip", "sfc", "smc", "fig", "swc", "bs"]
 
     def run(self):
         emulator = ["retroarch"]
-        core = ['atari800_libretro']
-        extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                      'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        core = ["snes9x_libretro"]
+        extensions = ["zip", "sfc", "smc", "fig", "swc", "bs"]
         if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-        if emulator[0] == "other":
-            extensions = ["unknown"]
+            if (
+                    core[0] == "bsnes_libretro"
+                    or core[0] == "bsnes_hd_beta_libretro"
+                    or core[0] == "bsnes_cplusplus98_libretro"
+                    or core[0] == "bsnes2014_accuracy_libretro"
+                    or core[0] == "bsnes2014_balanced_libretro"
+                    or core[0] == "bsnes2014_performance_libretro"
+                    or core[0] == "bsnes_mercury_accuracy_libretro"
+                    or core[0] == "bsnes_mercury_balanced_libretro"
+                    or core[0] == "bsnes_mercury_balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bs"]
+            if (
+                    core[0] == "higan_sfc_libretro"
+                    or core[0] == "higan_sfc balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bml", "rom"]
+            if core[0] == "mesen-s_libretro":
+                extensions = ["sfc", "smc", "fig", "swc", "bs", "gb", "gbc"]
+            if (
+                    core[0] == "snes9x_libretro"
+                    or core[0] == "snes9x2002_libretro"
+                    or core[0] == "snes9x2005_libretro"
+                    or core[0] == "snes9x2005_plus_libretro"
+                    or core[0] == "snes9x2010_libretro"
+            ):
+                extensions = ["smc", "sfc", "swc", "fig", "bs", "st"]
 
         ext = []
         for ext in extensions:
@@ -48,13 +69,13 @@ class Platform_Atari_xlxe(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator[0] == "retroarch":
-            emulator.append('-L')
+            emulator.append("-L")
             emulator.append(core[0])
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "other":
             # Set whether we should run in fullscreens or not.
             if FULLSCREEN is True:
-                emulator.append('--fullscreen')
+                emulator.append("--fullscreen")
 
         # print status to console.
         if DEBUGGING is not False:
@@ -81,9 +102,7 @@ class Platform_Atari_xlxe(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'atari800':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
-            if emulator[0] == "other":
+            if emulator[0] == "3do":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
             # if not os.path.exists(self.datadir + "/s"):
@@ -119,7 +138,7 @@ class Platform_Atari_xlxe(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['atarixlxe']
+        return ["snessuperfamicom"]
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -136,11 +155,33 @@ class Platform_Atari_xlxe(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-        if emulator[0] == "other":
-            extensions = ["unknown"]
+            if (
+                    core[0] == "bsnes_libretro"
+                    or core[0] == "bsnes_hd_beta_libretro"
+                    or core[0] == "bsnes_cplusplus98_libretro"
+                    or core[0] == "bsnes2014_accuracy_libretro"
+                    or core[0] == "bsnes2014_balanced_libretro"
+                    or core[0] == "bsnes2014_performance_libretro"
+                    or core[0] == "bsnes_mercury_accuracy_libretro"
+                    or core[0] == "bsnes_mercury_balanced_libretro"
+                    or core[0] == "bsnes_mercury_balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bs"]
+            if (
+                    core[0] == "higan_sfc_libretro"
+                    or core[0] == "higan_sfc balanced_libretro"
+            ):
+                extensions = ["sfc", "smc", "gb", "gbc", "bml", "rom"]
+            if core[0] == "mesen-s_libretro":
+                extensions = ["sfc", "smc", "fig", "swc", "bs", "gb", "gbc"]
+            if (
+                    core[0] == "snes9x_libretro"
+                    or core[0] == "snes9x2002_libretro"
+                    or core[0] == "snes9x2005_libretro"
+                    or core[0] == "snes9x2005_plus_libretro"
+                    or core[0] == "snes9x2010_libretro"
+            ):
+                extensions = ["smc", "sfc", "swc", "fig", "bs", "st"]
 
         ext_files = []
         for file in self.prod_files:

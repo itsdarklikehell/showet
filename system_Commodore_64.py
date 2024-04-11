@@ -8,26 +8,51 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Atari_xlxe(PlatformCommon):
+class Platform_Commodore_64(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'other']
-    # cores = ['atari800_libretro']
-    # extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+    # emulators = ["retroarch"]
+    # cores = ['vice_x64sc_libretro']
+    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',
+    #                'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+    # tapes_ext = ['t64', 'tap', 'tcrt']
+    # roms_ext = ['prg', 'p00', 'crt', 'bin']
+    # vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+    # extensions = []
+    # extensions.extend(floppys_ext)
+    # extensions.extend(tapes_ext)
+    # extensions.extend(roms_ext)
+    # extensions.extend(vic20_ext)
 
     def run(self):
         emulator = ["retroarch"]
-        core = ['atari800_libretro']
-        extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                      'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-        if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+        core = ['vice_x64sc_libretro']
+        floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',
+                       'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+        tapes_ext = ['t64', 'tap', 'tcrt']
+        roms_ext = ['prg', 'p00', 'crt', 'bin']
+        vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+        extensions = []
+        extensions.extend(floppys_ext)
+        extensions.extend(tapes_ext)
+        extensions.extend(roms_ext)
+        extensions.extend(vic20_ext)
         if emulator[0] == "other":
-            extensions = ["unknown"]
+            extensions = ['unknown']
+        if emulator[0] == "retroarch":
+            if core[0] == 'vice_x64sc_libretro':
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+            tapes_ext = ['t64', 'tap', 'tcrt']
+            roms_ext = ['prg', 'p00', 'crt', 'bin']
+            vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+            extensions = []
+            extensions.extend(floppys_ext)
+            extensions.extend(tapes_ext)
+            extensions.extend(roms_ext)
+            extensions.extend(vic20_ext)
 
         ext = []
         for ext in extensions:
@@ -62,8 +87,6 @@ class Platform_Atari_xlxe(PlatformCommon):
             print("\tUsing core: " + str(core))
             print("\tSearching for extensions: " + str(extensions))
 
-        # drives = []
-        # # Support only one for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -81,10 +104,8 @@ class Platform_Atari_xlxe(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'atari800':
+            if emulator[0] == 'x64':
                 emulator = emulator + ['-flipname', flipfile, files[0]]
-            if emulator[0] == "other":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
 
             # if not os.path.exists(self.datadir + "/s"):
             #     os.makedirs(self.datadir + "/s")
@@ -119,7 +140,7 @@ class Platform_Atari_xlxe(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['atarixlxe']
+        return ['commodore64']
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -136,11 +157,17 @@ class Platform_Atari_xlxe(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
-        if emulator[0] == "other":
-            extensions = ["unknown"]
+            if core[0] == 'vice_x64sc_libretro':
+                floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
+                               'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
+            tapes_ext = ['t64', 'tap', 'tcrt']
+            roms_ext = ['prg', 'p00', 'crt', 'bin']
+            vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
+            extensions = []
+            extensions.extend(floppys_ext)
+            extensions.extend(tapes_ext)
+            extensions.extend(roms_ext)
+            extensions.extend(vic20_ext)
 
         ext_files = []
         for file in self.prod_files:
