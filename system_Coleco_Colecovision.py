@@ -3,11 +3,6 @@ import stat
 import os.path
 
 from platformcommon import PlatformCommon
-import system_Coleco_Colecovision
-
-FULLSCREEN = False
-DEBUGGING = True
-
 
 class Platform_Coleco_Colecovision(PlatformCommon):
     # Set up the emulator we want to run.

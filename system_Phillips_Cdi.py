@@ -4,9 +4,6 @@ import os.path
 
 from platformcommon import PlatformCommon
 
-FULLSCREEN = False
-DEBUGGING = True
-
 
 class Platform_Phillips_Cdi(PlatformCommon):
     # Set up the emulator we want to run.

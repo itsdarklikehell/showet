@@ -4,9 +4,6 @@ import os.path
 
 from platformcommon import PlatformCommon
 
-FULLSCREEN = False
-DEBUGGING = True
-
 
 class Platform_Snk_Neogeo(PlatformCommon):
     # Set up the emulator we want to run.

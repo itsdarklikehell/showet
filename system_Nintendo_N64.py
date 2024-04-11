@@ -4,9 +4,6 @@ import os.path
 
 from platformcommon import PlatformCommon
 
-FULLSCREEN = False
-DEBUGGING = True
-
 
 class Platform_Nintendo_N64(PlatformCommon):
     # Set up the emulator we want to run.

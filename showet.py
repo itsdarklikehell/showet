@@ -126,7 +126,8 @@ from systems_Wild import (
 # from system_Wild_VideoMPV import Platform_Wild_VideoMPV
 # from system_Wild_VideoFFMPEG import Platform_Wild_VideoFFMPEG
 
-DEBUGGING = False
+FULLSCREEN = False
+DEBUGGING = True
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
 parser.add_argument('pouetid', type=int, nargs='?',

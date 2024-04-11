@@ -4,11 +4,6 @@ import os.path
 
 from platformcommon import PlatformCommon
 
-FULLSCREEN = False
-DEBUGGING = True
-
-
-
 class Platform_Nec_Pc8000(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
