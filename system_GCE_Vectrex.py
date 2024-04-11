@@ -4,6 +4,7 @@ import os.path
 
 from platformcommon import PlatformCommon
 
+
 class Platform_GCE_Vectrex(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -42,7 +43,6 @@ class Platform_GCE_Vectrex(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..

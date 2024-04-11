@@ -5,6 +5,7 @@ from os import listdir
 
 from platformcommon import PlatformCommon
 
+
 class Platform_Microsoft_Msx(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -47,7 +48,6 @@ class Platform_Microsoft_Msx(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..
@@ -338,7 +338,6 @@ class Platform_Microsoft_Xbox(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -479,7 +478,6 @@ class Platform_Microsoft_Msdos(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..

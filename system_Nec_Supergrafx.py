@@ -45,7 +45,6 @@ class Platform_Nec_Supergrafx(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -137,4 +136,3 @@ class Platform_Nec_Supergrafx(PlatformCommon):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
-

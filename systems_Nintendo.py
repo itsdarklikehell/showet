@@ -4,6 +4,7 @@ import os.path
 
 from platformcommon import PlatformCommon
 
+
 class Platform_Nintendo_3DS(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -47,7 +48,6 @@ class Platform_Nintendo_3DS(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..
@@ -182,8 +182,6 @@ class Platform_Nintendo_N64(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -270,8 +268,6 @@ class Platform_Nintendo_DS(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
-
 
         if len(files) > 0:
             # Sort the files.
@@ -369,7 +365,6 @@ class Platform_Nintendo_Famicom(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..
@@ -517,8 +512,6 @@ class Platform_Nintendo_FamicomDisksystem(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
@@ -637,7 +630,6 @@ class Platform_Nintendo_Gameboy(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..
@@ -817,7 +809,6 @@ class Platform_Nintendo_GameboyColor(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -986,7 +977,6 @@ class Platform_Nintendo_GameboyAdvance(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -1132,7 +1122,6 @@ class Platform_Nintendo_GameCube(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -1264,7 +1253,6 @@ class Platform_Nintendo_Pokemini(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..
@@ -1420,7 +1408,6 @@ class Platform_Nintendo_SuperFamicom(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..
@@ -1719,7 +1706,6 @@ class Platform_Nintendo_Wii(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append("-L")
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..

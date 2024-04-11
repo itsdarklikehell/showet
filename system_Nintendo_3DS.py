@@ -53,7 +53,6 @@ class Platform_Nintendo_3DS(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:

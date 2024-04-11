@@ -67,7 +67,8 @@ from systems_Microsoft import (
 # from system_Microsoft_Windows import Platform_Microsoft_Windows
 # from system_Microsoft_Xbox import Platform_Microsoft_Xbox
 
-from systems_Nec import (Platform_Nec_Pcengine, Platform_Nec_Supergrafx, Platform_Nec_Pc8000, Platform_Nec_Pc8800, Platform_Nec_Pc98, Platform_Nec_Pcfx)
+from systems_Nec import (Platform_Nec_Pcengine, Platform_Nec_Supergrafx,
+                         Platform_Nec_Pc8000, Platform_Nec_Pc8800, Platform_Nec_Pc98, Platform_Nec_Pcfx)
 # from system_Nec_Pcengine import Platform_Nec_Pcengine
 # from system_Nec_Supergrafx import Platform_Nec_Supergrafx
 # from system_Nec_Pc8000 import Platform_Nec_Pc8000
@@ -215,7 +216,7 @@ platform_runners = [
     Platform_Nec_Supergrafx(),
     Platform_Nec_Pc8000(),
     Platform_Nec_Pc8800(),
-    Platform_Nec_Pc98(),    
+    Platform_Nec_Pc98(),
     Platform_FanCon_Tic80(),
     Platform_GCE_Vectrex(),
     Platform_Wild_Gamemusic(),

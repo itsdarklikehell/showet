@@ -44,7 +44,6 @@ class Platform_Nec_Pcfx(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:

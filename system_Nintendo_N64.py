@@ -47,8 +47,6 @@ class Platform_Nintendo_N64(PlatformCommon):
             emulator.append("-L")
             emulator.append(core[0])
 
-
-
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)

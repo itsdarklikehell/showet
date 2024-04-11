@@ -4,6 +4,7 @@ import os.path
 
 from platformcommon import PlatformCommon
 
+
 class Platform_FanCon_Tic80(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -143,4 +144,3 @@ class Platform_FanCon_Tic80(PlatformCommon):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
-
