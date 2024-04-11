@@ -46,7 +46,6 @@ class Platform_Sega_32X(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -182,7 +181,6 @@ class Platform_Sega_Dreamcast(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..
@@ -324,7 +322,6 @@ class Platform_Sega_GameGear(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..
@@ -479,7 +476,6 @@ class Platform_Sega_Mastersystem(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..
@@ -638,7 +634,6 @@ class Platform_Sega_Megadrive(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -781,7 +776,6 @@ class Platform_Sega_Saturn(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -923,7 +917,6 @@ class Platform_Sega_Stv(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -1060,7 +1053,6 @@ class Platform_Sega_Vmu(PlatformCommon):
             emulator.append('-L')
             emulator.append(core[0])
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -1196,7 +1188,6 @@ class Platform_Sega_SG1000(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-
 
         # drives = []
         # # Support only one for now..

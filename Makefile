@@ -351,6 +351,7 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/system_Wild_Gamemusic.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/system_Wild_Gamemusic.py
 	$(QINSTALL) /home/rizzo/showet/system_Wild_VideoFFMPEG.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/system_Wild_VideoFFMPEG.py
 	$(QINSTALL) /home/rizzo/showet/system_Wild_VideoMPV.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/system_Wild_VideoMPV.py
+	$(QINSTALL) /home/rizzo/showet/systems.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems.py
 	$(QINSTALL) /home/rizzo/showet/systems_Apple.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems_Apple.py
 	$(QINSTALL) /home/rizzo/showet/systems_Arcade.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems_Arcade.py
 	$(QINSTALL) /home/rizzo/showet/systems_Atari.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems_Atari.py
@@ -381,6 +382,7 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems_Atari.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems_Arcade.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems_Apple.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/system_Wild_VideoMPV.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/system_Wild_VideoFFMPEG.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/system_Wild_Gamemusic.py
