@@ -174,13 +174,9 @@ class Platform_Commodore_128(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -356,13 +352,9 @@ class Platform_Commodore_64(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -546,13 +538,9 @@ class Platform_Commodore_Amiga(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -727,13 +715,9 @@ class Platform_Commodore_CBMII(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -910,13 +894,9 @@ class Platform_Commodore_Pet(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1093,13 +1073,9 @@ class Platform_Commodore_Plus4(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
@@ -1276,13 +1252,9 @@ class Platform_Commodore_Vic20(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files

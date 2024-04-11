@@ -142,13 +142,9 @@ class Platform_Zx81(PlatformCommon):
                 ext = []
                 for ext in extensions:
                     if file.endswith(ext):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
                     if file.endswith(ext.upper()):
-                        if DEBUGGING is not False:
-                            print("\tFound file: " + file)
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
