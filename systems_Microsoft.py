@@ -9,7 +9,7 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Msx(PlatformCommon):
+class Platform_Microsoft_Msx(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -163,7 +163,7 @@ class Platform_Msx(PlatformCommon):
         return ext_files
 
 
-class Platform_Windows(PlatformCommon):
+class Platform_Microsoft_Windows(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -321,7 +321,7 @@ class Platform_Windows(PlatformCommon):
         return ext_files
 
 
-class Platform_Xbox(PlatformCommon):
+class Platform_Microsoft_Xbox(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -466,7 +466,7 @@ class Platform_Xbox(PlatformCommon):
         return ext_files
 
 
-class Platform_Msdos(PlatformCommon):
+class Platform_Microsoft_Msdos(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.

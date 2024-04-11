@@ -8,7 +8,7 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Gamemusic(PlatformCommon):
+class Platform_Wild_Gamemusic(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -157,7 +157,7 @@ class Platform_Gamemusic(PlatformCommon):
         return ext_files
 
 
-class Platform_VideoFFMPEG(PlatformCommon):
+class Platform_Wild_VideoFFMPEG(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -306,7 +306,7 @@ class Platform_VideoFFMPEG(PlatformCommon):
         return ext_files
 
 
-class Platform_VideoMPV(PlatformCommon):
+class Platform_Wild_VideoMPV(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.

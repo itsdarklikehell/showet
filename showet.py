@@ -5,93 +5,107 @@ import argparse
 import patoolib
 import urllib.request
 
-from platform_3do import Platform_3do
-from platform_Amstrad import Platform_Cpcplus
-from platform_Apple import Platform_Apple
-from platform_Arcade import Platform_Arcade
-from platform_Archimedes import Platform_Acorn
-from platform_Atari2600 import Platform_Atari2600
-from platform_Atari5200 import Platform_Atari5200
-from platform_Atari7800 import Platform_Atari7800
-from platform_AtariJaguar import Platform_AtariJaguar
-from platform_AtariLynx import Platform_AtariLynx
-from platform_AtariSTETTFalcon import Platform_AtariSTETTFalcon
-from platform_Atarixlxe import Platform_Atarixlxe
-from platform_Bandai import Platform_Wonderswan
-from platform_Coleco import Platform_Coleco
-from platform_Commodore128 import Platform_Commodore128
-from platform_Commodore64 import Platform_Commodore64
-from platform_CommodoreAmiga import Platform_CommodoreAmiga
-from platform_CommodoreCBMII import Platform_CommodoreCBMII
-from platform_CommodorePet import Platform_CommodorePet
-from platform_CommodorePlus4 import Platform_CommodorePlus4
-from platform_CommodoreVic20 import Platform_CommodoreVic20
-from platform_Elektronika import Platform_Pdp11
-from platform_Enterprise import Platform_Enterprise
-from platform_Fairchild import Platform_Channelf
-from platform_Gamepark import Platform_GP2X, Platform_GP32
-from platform_Gamepark2X import Platform_GP2X
-from platform_Gamepark32 import Platform_GP32
-from platform_GCE import Platform_Vectrex
-from platform_Java import Platform_Java
-from platform_Linux import Platform_Linux
-from platform_Magnavox import Platform_Odyssey
-from platform_Mattel import Platform_Intellivision
-from platform_MicrosoftMsx import Platform_Msx
-from platform_MicrosoftWindows import Platform_Windows
-from platform_MicrosoftXbox import Platform_Xbox
-from platform_Nintendo3DS import Platform_3DS
-from platform_NintendoDS import Platform_DS
-from platform_NintendoFamicom import Platform_Famicom
-from platform_NintendoFamicomDisksystem import Platform_FamicomDisksystem
-from platform_NintendoGameboy import Platform_Gameboy
-from platform_NintendoGameboyAdvance import Platform_GameboyAdvance
-from platform_NintendoGameboyColor import Platform_GameboyColor
-from platform_NintendoGameCube import Platform_GameCube
-from platform_NintendoN64 import Platform_N64
-from platform_NintendoPokemini import Platform_Pokemini
-from platform_NintendoSuperFamicom import Platform_SuperFamicom
-from platform_NintendoVirtualboy import Platform_Virtualboy
-from platform_NintendoWii import Platform_Wii
-from platform_Palm import Platform_Palm
-from platform_Phillips import Platform_Cdi
-from platform_Pico8 import Platform_Pico8
-from platform_Sega32X import Platform_32X
-from platform_SegaDreamcast import Platform_Dreamcast
-from platform_SegaGameGear import Platform_GameGear
-from platform_SegaMastersystem import Platform_Mastersystem
-from platform_SegaMegadrive import Platform_Megadrive
-from platform_SegaSaturn import Platform_Saturn
-from platform_SegaSG1000 import Platform_SG1000
-from platform_SegaStv import Platform_Stv
-from platform_SegaVmu import Platform_Vmu
-from platform_SinclairSpectrum import Platform_Zxspectrum
-from platform_SinclairZx81 import Platform_Zx81
-from platform_SnkNeogeo import Platform_Neogeo
-from platform_SnkNeogeoPocket import Platform_NeogeoPocket
-from platform_SnkNeogeoPocketColor import Platform_NeogeoPocketColor
-from platform_SonyPs2 import Platform_Ps2
-from platform_SonyPsp import Platform_Psp
-from platform_SonyPsx import Platform_Psx
-from platform_Spectravideo import Platform_Spectravideo
-from platform_Thomson import Platform_MOTO
-from platform_Tic80 import Platform_Tic80
+from system_3do import Platform_3do
+from system_Amstrad import Platform_Cpcplus
+from system_Apple import Platform_Apple
+from system_Arcade import Platform_Arcade
+from system_Archimedes import Platform_Acorn
+from system_Bandai import Platform_Wonderswan
+from system_Coleco import Platform_Coleco
+from system_Elektronika import Platform_Pdp11
+from system_Enterprise import Platform_Enterprise
+from system_Fairchild import Platform_Channelf
+from system_GCE import Platform_Vectrex
+from system_Java import Platform_Java
+from system_Linux import Platform_Linux
+from system_Magnavox import Platform_Odyssey
+from system_Mattel import Platform_Intellivision
+from system_Nec import Platform_Supergrafx
+from system_Palm import Platform_Palm
+from system_Phillips import Platform_Cdi
+from system_Pico8 import Platform_Pico8
+from system_Spectravideo import Platform_Spectravideo
+from system_Thomson import Platform_MOTO
+from system_Tic80 import Platform_Tic80
 
-from platforms_Atari import (Platform_Atari2600, Platform_Atari5200, Platform_Atari7800,
-                             Platform_AtariJaguar, Platform_AtariLynx, Platform_AtariSTETTFalcon, Platform_Atarixlxe)
-from platforms_Commodore import (Platform_Commodore128, Platform_Commodore64, Platform_CommodoreAmiga,
-                                 Platform_CommodoreCBMII, Platform_CommodorePet, Platform_CommodorePlus4, Platform_CommodoreVic20)
-from platform_MicrosoftMsdos import Platform_Msdos
-from platforms_Microsoft import (
-    Platform_Msx, Platform_Windows, Platform_Xbox, Platform_Msdos)
-from platforms_Nec import Platform_Supergrafx
-from platforms_Nintendo import (Platform_3DS, Platform_DS, Platform_Famicom, Platform_FamicomDisksystem, Platform_Gameboy, Platform_GameboyAdvance,
-                                Platform_GameboyColor, Platform_GameCube, Platform_N64, Platform_Pokemini, Platform_SuperFamicom, Platform_Virtualboy, Platform_Wii)
-from platforms_Sega import Platform_32X
-from platforms_Sega import (Platform_32X, Platform_Dreamcast, Platform_GameGear, Platform_Vmu,
-                            Platform_Mastersystem, Platform_Megadrive, Platform_Saturn, Platform_SG1000, Platform_SG1000, Platform_Stv)
-from platforms_Wild import (
-    Platform_VideoMPV, Platform_Gamemusic, Platform_VideoFFMPEG)
+from systems_Atari import (Platform_Atari_2600, Platform_Atari_5200, Platform_Atari_7800,
+                           Platform_Atari_Jaguar, Platform_Atari_Lynx, Platform_Atari_STETTFalcon, Platform_Atari_xlxe)
+# from system_Atari_2600 import Platform_Atari_2600
+# from system_Atari_5200 import Platform_Atari_5200
+# from system_Atari_7800 import Platform_Atari_7800
+# from system_Atari_Jaguar import Platform_Atari_Jaguar
+# from system_Atari_Lynx import Platform_Atari_Lynx
+# from system_Atari_STETTFalcon import Platform_Atari_STETTFalcon
+# from system_Atari_xlxe import Platform_Atari_xlxe
+
+from systems_Commodore import (Platform_Commodore_128, Platform_Commodore_64, Platform_Commodore_Amiga,
+                               Platform_Commodore_CBMII, Platform_Commodore_Pet, Platform_Commodore_Plus4, Platform_Commodore_Vic20)
+# from system_Commodore_128 import Platform_Commodore_128
+# from system_Commodore_64 import Platform_Commodore_64
+# from system_Commodore_Amiga import Platform_Commodore_Amiga
+# from system_Commodore_CBMII import Platform_Commodore_CBMII
+# from system_Commodore_Pet import Platform_Commodore_Pet
+# from system_Commodore_Plus4 import Platform_Commodore_Plus4
+# from system_Commodore_Vic20 import Platform_Commodore_Vic20
+
+from systems_Gamepark import (Platform_Gamepark_2X, Platform_Gamepark_32)
+# from system_Gamepark_2X import Platform_Gamepark_2X
+# from system_Gamepark_32 import Platform_Gamepark_32
+
+from systems_Microsoft import (
+    Platform_Microsoft_Msx, Platform_Microsoft_Windows, Platform_Microsoft_Xbox, Platform_Microsoft_Msdos)
+# from system_Microsoft_Msdos import Platform_Microsoft_Msdos
+# from system_Microsoft_Msx import Platform_Microsoft_Msx
+# from system_Microsoft_Windows import Platform_Microsoft_Windows
+# from system_Microsoft_Xbox import Platform_Microsoft_Xbox
+
+from systems_Nintendo import (Platform_Nintendo_3DS, Platform_Nintendo_DS, Platform_Nintendo_Famicom, Platform_Nintendo_FamicomDisksystem, Platform_Nintendo_Gameboy, Platform_Nintendo_GameboyAdvance,
+                              Platform_Nintendo_GameboyColor, Platform_Nintendo_GameCube, Platform_Nintendo_N64, Platform_Nintendo_Pokemini, Platform_Nintendo_SuperFamicom, Platform_Nintendo_Virtualboy, Platform_Nintendo_Wii)
+# from system_Nintendo_3DS import Platform_Nintendo_3DS
+# from system_Nintendo_DS import Platform_Nintendo_DS
+# from system_Nintendo_Famicom import Platform_Nintendo_Famicom
+# from system_Nintendo_FamicomDisksystem import Platform_Nintendo_FamicomDisksystem
+# from system_Nintendo_Gameboy import Platform_Nintendo_Gameboy
+# from system_Nintendo_GameboyAdvance import Platform_Nintendo_GameboyAdvance
+# from system_Nintendo_GameboyColor import Platform_Nintendo_GameboyColor
+# from system_Nintendo_GameCube import Platform_Nintendo_GameCube
+# from system_Nintendo_N64 import Platform_Nintendo_N64
+# from system_Nintendo_Pokemini import Platform_Nintendo_Pokemini
+# from system_Nintendo_SuperFamicom import Platform_Nintendo_SuperFamicom
+# from system_Nintendo_Virtualboy import Platform_Nintendo_Virtualboy
+# from system_Nintendo_Wii import Platform_Nintendo_Wii
+
+from systems_Sega import (Platform_Sega_32X, Platform_Sega_Dreamcast, Platform_Sega_GameGear, Platform_Sega_Vmu, Platform_Sega_Mastersystem,
+                          Platform_Sega_Megadrive, Platform_Sega_Saturn, Platform_Sega_SG1000, Platform_Sega_Stv)
+# from system_Sega_32X import Platform_Sega_32X
+# from system_Sega_Dreamcast import Platform_Sega_Dreamcast
+# from system_Sega_GameGear import Platform_Sega_GameGear
+# from system_Sega_Mastersystem import Platform_Sega_Mastersystem
+# from system_Sega_Megadrive import Platform_Sega_Megadrive
+# from system_Sega_Saturn import Platform_Sega_Saturn
+# from system_Sega_SG1000 import Platform_Sega_SG1000
+# from system_Sega_Stv import Platform_Sega_Stv
+# from system_Sega_Vmu import Platform_Sega_Vmu
+
+from systems_Sinclair import (Platform_Sinclair_Zxspectrum, Platform_Sinclair_Zx81)
+# from system_Sinclair_ZXSpectrum import Platform_Sinclair_Zxspectrum
+# from system_Sinclair_Zx81 import Platform_Sinclair_Zx81
+
+from systems_Snk import (Platform_Snk_Neogeo, Platform_Snk_NeogeoPocket, Platform_Snk_NeogeoPocketColor)
+# from system_Snk_Neogeo import Platform_Snk_Neogeo
+# from system_Snk_NeogeoPocket import Platform_Snk_NeogeoPocket
+# from system_Snk_NeogeoPocketColor import Platform_Snk_NeogeoPocketColor
+
+from systems_Sony import (Platform_Sony_Ps2, Platform_Sony_Psp, Platform_Sony_Psx)
+# from system_Sony_Ps2 import Platform_Sony_Ps2
+# from system_Sony_Psp import Platform_Sony_Psp
+# from system_Sony_Psx import Platform_Sony_Psx
+
+from systems_Wild import (
+    Platform_Wild_VideoMPV, Platform_Wild_Gamemusic, Platform_Wild_VideoFFMPEG)
+# from system_Wild_Gamemusic import Platform_Wild_Gamemusic
+# from system_Wild_VideoMPV import Platform_Wild_VideoMPV
+# from system_Wild_VideoFFMPEG import Platform_Wild_VideoFFMPEG
 
 DEBUGGING = False
 
@@ -107,81 +121,81 @@ args = parser.parse_args()
 
 # In priority order
 platform_runners = [
-    Platform_CommodoreAmiga(),
-    Platform_Commodore128(),
-    Platform_Commodore64(),
-    Platform_CommodorePet(),
-    Platform_CommodorePlus4(),
-    Platform_CommodoreVic20(),
-    Platform_CommodoreCBMII(),
-    Platform_GameCube(),
-    Platform_Wii(),
-    Platform_Pokemini(),
-    Platform_DS(),
-    Platform_3DS(),
-    Platform_N64(),
-    Platform_SuperFamicom(),
-    Platform_Famicom(),
-    Platform_FamicomDisksystem(),
-    Platform_GameboyAdvance(),
-    Platform_GameboyColor(),
-    Platform_Gameboy(),
-    Platform_Virtualboy(),
-    Platform_Ps2(),
-    Platform_Psp(),
-    Platform_Psx(),
+    Platform_3do(),
+    Platform_Acorn(),
     Platform_Apple(),
-    Platform_Tic80(),
-    Platform_MOTO(),
-    Platform_Vmu(),
-    Platform_GP32(),
-    Platform_GP2X(),
-    Platform_Stv(),
-    Platform_Neogeo(),
-    Platform_NeogeoPocketColor(),
-    Platform_NeogeoPocket(),
-    Platform_Supergrafx(),
-    Platform_Msx(),
-    Platform_Xbox(),
-    Platform_Mastersystem(),
-    Platform_Megadrive(),
-    Platform_GameGear(),
-    Platform_Dreamcast(),
-    Platform_Saturn(),
-    Platform_32X(),
+    Platform_Arcade(),
+    Platform_Atari_2600(),
+    Platform_Atari_5200(),
+    Platform_Atari_7800(),
+    Platform_Atari_Jaguar(),
+    Platform_Atari_Lynx(),
+    Platform_Atari_STETTFalcon(),
+    Platform_Atari_xlxe(),
+    Platform_Cdi(),
+    Platform_Channelf(),
+    Platform_Coleco(),
+    Platform_Commodore_128(),
+    Platform_Commodore_64(),
+    Platform_Commodore_Amiga(),
+    Platform_Commodore_CBMII(),
+    Platform_Commodore_Pet(),
+    Platform_Commodore_Plus4(),
+    Platform_Commodore_Vic20(),
+    Platform_Cpcplus(),
+    Platform_Enterprise(),
+    Platform_Gamepark_2X(),
+    Platform_Gamepark_32(),
     Platform_Intellivision(),
     Platform_Java(),
-    Platform_Acorn(),
-    Platform_Palm(),
-    Platform_Pico8(),
-    Platform_Vectrex(),
-    Platform_Pdp11(),
-    Platform_Gamemusic(),
-    Platform_VideoMPV(),
-    Platform_VideoFFMPEG(),
-    Platform_Arcade(),
-    Platform_3do(),
-    Platform_Wonderswan(),
-    Platform_Coleco(),
-    Platform_SG1000(),
-    Platform_Channelf(),
-    Platform_Odyssey(),
-    Platform_Cdi(),
-    Platform_Spectravideo(),
-    Platform_AtariSTETTFalcon(),
-    Platform_Atarixlxe(),
-    Platform_AtariJaguar(),
-    Platform_AtariLynx(),
-    Platform_Atari2600(),
-    Platform_Atari5200(),
-    Platform_Atari7800(),
-    Platform_Enterprise(),
-    Platform_Cpcplus(),
     Platform_Linux(),
-    Platform_Msdos(),
-    Platform_Windows(),
-    Platform_Zx81(),
-    Platform_Zxspectrum(),
+    Platform_Microsoft_Msdos(),
+    Platform_Microsoft_Msx(),
+    Platform_Microsoft_Windows(),
+    Platform_Microsoft_Xbox(),
+    Platform_MOTO(),
+    Platform_Nintendo_3DS(),
+    Platform_Nintendo_DS(),
+    Platform_Nintendo_Famicom(),
+    Platform_Nintendo_FamicomDisksystem(),
+    Platform_Nintendo_Gameboy(),
+    Platform_Nintendo_GameboyAdvance(),
+    Platform_Nintendo_GameboyColor(),
+    Platform_Nintendo_GameCube(),
+    Platform_Nintendo_N64(),
+    Platform_Nintendo_Pokemini(),
+    Platform_Nintendo_SuperFamicom(),
+    Platform_Nintendo_Virtualboy(),
+    Platform_Nintendo_Wii(),
+    Platform_Odyssey(),
+    Platform_Palm(),
+    Platform_Pdp11(),
+    Platform_Pico8(),
+    Platform_Sega_32X(),
+    Platform_Sega_Dreamcast(),
+    Platform_Sega_GameGear(),
+    Platform_Sega_Mastersystem(),
+    Platform_Sega_Megadrive(),
+    Platform_Sega_Saturn(),
+    Platform_Sega_SG1000(),
+    Platform_Sega_Stv(),
+    Platform_Sega_Vmu(),
+    Platform_Sinclair_Zx81(),
+    Platform_Sinclair_Zxspectrum(),
+    Platform_Snk_Neogeo(),
+    Platform_Snk_NeogeoPocket(),
+    Platform_Snk_NeogeoPocketColor(),
+    Platform_Sony_Ps2(),
+    Platform_Sony_Psp(),
+    Platform_Sony_Psx(),
+    Platform_Spectravideo(),
+    Platform_Supergrafx(),
+    Platform_Tic80(),
+    Platform_Vectrex(),
+    Platform_Wild_Gamemusic(),
+    Platform_Wild_VideoFFMPEG(),
+    Platform_Wild_VideoMPV(),
+    Platform_Wonderswan(),
 ]
 
 if args.platforms:

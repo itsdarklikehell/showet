@@ -8,7 +8,7 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_3DS(PlatformCommon):
+class Platform_Nintendo_3DS(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -162,7 +162,7 @@ class Platform_3DS(PlatformCommon):
         return ext_files
 
 
-class Platform_N64(PlatformCommon):
+class Platform_Nintendo_N64(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -266,7 +266,7 @@ class Platform_N64(PlatformCommon):
         return ext_files
 
 
-class Platform_DS(PlatformCommon):
+class Platform_Nintendo_DS(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -367,7 +367,7 @@ class Platform_DS(PlatformCommon):
         return ext_files
 
 
-class Platform_Famicom(PlatformCommon):
+class Platform_Nintendo_Famicom(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -530,7 +530,7 @@ class Platform_Famicom(PlatformCommon):
         return ext_files
 
 
-class Platform_FamicomDisksystem(PlatformCommon):
+class Platform_Nintendo_FamicomDisksystem(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -649,7 +649,7 @@ class Platform_FamicomDisksystem(PlatformCommon):
         return ext_files
 
 
-class Platform_Gameboy(PlatformCommon):
+class Platform_Nintendo_Gameboy(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -842,7 +842,7 @@ class Platform_Gameboy(PlatformCommon):
         return ext_files
 
 
-class Platform_GameboyColor(PlatformCommon):
+class Platform_Nintendo_GameboyColor(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -1035,7 +1035,7 @@ class Platform_GameboyColor(PlatformCommon):
         return ext_files
 
 
-class Platform_GameboyAdvance(PlatformCommon):
+class Platform_Nintendo_GameboyAdvance(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -1206,7 +1206,7 @@ class Platform_GameboyAdvance(PlatformCommon):
         return ext_files
 
 
-class Platform_GameCube(PlatformCommon):
+class Platform_Nintendo_GameCube(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -1356,7 +1356,7 @@ class Platform_GameCube(PlatformCommon):
         return ext_files
 
 
-class Platform_Pokemini(PlatformCommon):
+class Platform_Nintendo_Pokemini(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -1501,7 +1501,7 @@ class Platform_Pokemini(PlatformCommon):
         return ext_files
 
 
-class Platform_SuperFamicom(PlatformCommon):
+class Platform_Nintendo_SuperFamicom(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -1696,7 +1696,7 @@ class Platform_SuperFamicom(PlatformCommon):
         return ext_files
 
 
-class Platform_Virtualboy(PlatformCommon):
+class Platform_Nintendo_Virtualboy(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -1839,7 +1839,7 @@ class Platform_Virtualboy(PlatformCommon):
         return ext_files
 
 
-class Platform_Wii(PlatformCommon):
+class Platform_Nintendo_Wii(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.

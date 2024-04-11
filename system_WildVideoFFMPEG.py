@@ -7,25 +7,25 @@ from platformcommon import PlatformCommon
 FULLSCREEN = False
 DEBUGGING = True
 
-
-class Platform_Atari2600(PlatformCommon):
+class Platform_VideoFFMPEG(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'stella']
-    # cores = ['stella2014_libretro', 'stella_libretro']
-    # extensions = ['zip', 'a26', 'bin']
+    # emulators = ['retroarch', 'other']
+    # cores = ['ffmpeg_libretro']
+    # extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',
+    #               '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
     def run(self):
         emulator = ["retroarch"]
-        core = ['stella_libretro']
-        extensions = ['zip', 'a26', 'bin']
+        core = ['ffmpeg_libretro']
+        extensions = ['zip', 'mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',
+                      '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
         if emulator[0] == "retroarch":
-            if core[0] == 'stella_libretro':
-                extensions = ['zip', 'a26', 'bin']
-        if emulator[0] == "other":
-            extensions = ["unknown"]
+            if core[0] == 'ffmpeg_libretro':
+                extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',
+                              '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
         ext = []
         for ext in extensions:
@@ -79,8 +79,8 @@ class Platform_Atari2600(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == "other":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            if emulator[0] == 'vlc':
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
             # if not os.path.exists(self.datadir + "/s"):
             #     os.makedirs(self.datadir + "/s")
@@ -115,7 +115,7 @@ class Platform_Atari2600(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['atarivcs']
+        return ['wild', 'animationvideo', 'linux']
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -132,10 +132,9 @@ class Platform_Atari2600(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
-            if core[0] == 'stella_libretro':
-                extensions = ['zip', 'a26', 'bin']
-        if emulator[0] == "other":
-            extensions = ['unknown']
+            if core[0] == 'ffmpeg_libretro':
+                extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',
+                              '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
         ext_files = []
         for file in self.prod_files:

@@ -8,7 +8,7 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Commodore128(PlatformCommon):
+class Platform_Commodore_128(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -190,7 +190,7 @@ class Platform_Commodore128(PlatformCommon):
         return ext_files
 
 
-class Platform_Commodore64(PlatformCommon):
+class Platform_Commodore_64(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -372,7 +372,7 @@ class Platform_Commodore64(PlatformCommon):
         return ext_files
 
 
-class Platform_CommodoreAmiga(PlatformCommon):
+class Platform_Commodore_Amiga(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -562,7 +562,7 @@ class Platform_CommodoreAmiga(PlatformCommon):
         return ext_files
 
 
-class Platform_CommodoreCBMII(PlatformCommon):
+class Platform_Commodore_CBMII(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -743,7 +743,7 @@ class Platform_CommodoreCBMII(PlatformCommon):
         return ext_files
 
 
-class Platform_CommodorePet(PlatformCommon):
+class Platform_Commodore_Pet(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -926,7 +926,7 @@ class Platform_CommodorePet(PlatformCommon):
         return ext_files
 
 
-class Platform_CommodorePlus4(PlatformCommon):
+class Platform_Commodore_Plus4(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
@@ -1109,7 +1109,7 @@ class Platform_CommodorePlus4(PlatformCommon):
         return ext_files
 
 
-class Platform_CommodoreVic20(PlatformCommon):
+class Platform_Commodore_Vic20(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.

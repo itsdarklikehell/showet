@@ -8,25 +8,22 @@ FULLSCREEN = False
 DEBUGGING = True
 
 
-class Platform_Atari5200(PlatformCommon):
+class Platform_Atari_2600(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'atari800']
-    # cores = ['atari800_libretro']
-    # extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',
-    #               'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
+    # emulators = ['retroarch', 'stella']
+    # cores = ['stella2014_libretro', 'stella_libretro']
+    # extensions = ['zip', 'a26', 'bin']
 
     def run(self):
         emulator = ["retroarch"]
-        core = ['atari800_libretro']
-        extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',
-                      'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
+        core = ['stella_libretro']
+        extensions = ['zip', 'a26', 'bin']
         if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+            if core[0] == 'stella_libretro':
+                extensions = ['zip', 'a26', 'bin']
         if emulator[0] == "other":
             extensions = ["unknown"]
 
@@ -82,8 +79,6 @@ class Platform_Atari5200(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator[0] == "retroarch":
                 emulator = emulator + [files[0]]
-            if emulator[0] == 'atari800':
-                emulator = emulator + ['-flipname', flipfile, files[0]]
             if emulator[0] == "other":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
@@ -120,7 +115,7 @@ class Platform_Atari5200(PlatformCommon):
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ['atarixlxe']
+        return ['atarivcs']
 
     # Search demo files for amiga magic cookie (executable file)
     # def find_magic_cookies(self):
@@ -137,11 +132,10 @@ class Platform_Atari5200(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator[0] == "retroarch":
-            if core[0] == 'atari800_libretro':
-                extensions = ['xfd', 'atr', 'cdm', 'cas', 'bin',
-                              'a52', 'zip', 'atx', 'car', 'rom', 'com', 'xex']
+            if core[0] == 'stella_libretro':
+                extensions = ['zip', 'a26', 'bin']
         if emulator[0] == "other":
-            extensions = ["unknown"]
+            extensions = ['unknown']
 
         ext_files = []
         for file in self.prod_files:
