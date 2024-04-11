@@ -10,15 +10,11 @@ class Platform_Nintendo_DS(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "desmume", "melonds"]
-    cores = ["melonds_libretro", "desmume_libretro", "desmume2015_libretro"]
-    extensions = ["zip", "nds", "dsi"]
+    # emulators = ["retroarch", "desmume", "melonds"]
+    # cores = ["melonds_libretro", "desmume_libretro", "desmume2015_libretro"]
+    # extensions = ["zip", "nds", "dsi"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["desmume_libretro"]
         extensions = ["zip", "nds", "dsi"]

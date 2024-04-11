@@ -4,6 +4,7 @@ import os.path
 
 from platformcommon import PlatformCommon
 
+
 class Platform_Amstrad_Cpcplus(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -52,7 +53,6 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "zesarux":
             print("Using: " + str(emulator))
-
 
         # drives = []
         # # Support only one for now..

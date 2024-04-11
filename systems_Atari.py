@@ -45,17 +45,6 @@ class Platform_Atari_2600(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
-
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -193,17 +182,6 @@ class Platform_Atari_5200(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
-
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -341,17 +319,6 @@ class Platform_Atari_7800(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
-
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -487,17 +454,6 @@ class Platform_Atari_Jaguar(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
-
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -635,17 +591,6 @@ class Platform_Atari_Lynx(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
-
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -782,18 +727,6 @@ class Platform_Atari_STETTFalcon(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
-
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -934,17 +867,6 @@ class Platform_Atari_xlxe(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
-
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..

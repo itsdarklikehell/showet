@@ -16,10 +16,6 @@ class Platform_Enterprise_Ep128(PlatformCommon):
     #               "trn", "128", "bas", "cas", "cdt", "tzx", "."]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["ep128emu_libretro"]
         extensions = ["zip", "img", "dsk", "tap", "dtf", "com",

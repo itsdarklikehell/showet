@@ -15,10 +15,6 @@ class Platform_Phillips_Cdi(PlatformCommon):
     # extensions = ["zip", "chd", "iso"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["samecdi_libretro"]
         extensions = ["zip", "chd", "iso"]

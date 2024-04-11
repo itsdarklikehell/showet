@@ -16,10 +16,6 @@ class Platform_Nintendo_3DS(PlatformCommon):
     # extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ["citra_libretro"]
         extensions = ["3ds", "3dsx", "elf", "axf", "cci", "cxi", "app"]

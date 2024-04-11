@@ -4,6 +4,7 @@ import os.path
 
 from platformcommon import PlatformCommon
 
+
 class Platform_Apple_AppleI(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -47,7 +48,6 @@ class Platform_Apple_AppleI(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "linapple":
             print("Using: " + str(emulator))
-
 
         # drives = []
         # # Support only one for now..
@@ -188,7 +188,6 @@ class Platform_Apple_AppleII(PlatformCommon):
         if emulator[0] == "linapple":
             print("Using: " + str(emulator))
 
-
         # drives = []
         # # Support only one for now..
         if len(files) > 0:
@@ -327,7 +326,6 @@ class Platform_Apple_AppleIIGS(PlatformCommon):
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator[0] == "linapple":
             print("Using: " + str(emulator))
-
 
         # drives = []
         # # Support only one for now..

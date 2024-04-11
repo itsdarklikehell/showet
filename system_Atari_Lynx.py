@@ -10,9 +10,9 @@ class Platform_Atari_Lynx(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'mednafen']
-    cores = ['handy_libretro', 'mednafen_lynx_libretro']
-    extensions = ['lnx', 'o']
+    # emulators = ['retroarch', 'mednafen']
+    # cores = ['handy_libretro', 'mednafen_lynx_libretro']
+    # extensions = ['lnx', 'o']
 
     def run(self):
         emulator = ["retroarch"]
@@ -45,17 +45,6 @@ class Platform_Atari_Lynx(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
-
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..

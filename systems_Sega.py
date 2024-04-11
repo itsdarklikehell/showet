@@ -45,17 +45,7 @@ class Platform_Sega_32X(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
 
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -192,17 +182,7 @@ class Platform_Sega_Dreamcast(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
 
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -344,17 +324,7 @@ class Platform_Sega_GameGear(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
 
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -509,17 +479,7 @@ class Platform_Sega_Mastersystem(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
 
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -677,17 +637,7 @@ class Platform_Sega_Megadrive(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
 
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -830,17 +780,7 @@ class Platform_Sega_Saturn(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
 
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -982,17 +922,7 @@ class Platform_Sega_Stv(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
 
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -1129,17 +1059,7 @@ class Platform_Sega_Vmu(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
 
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
@@ -1276,17 +1196,7 @@ class Platform_Sega_SG1000(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
 
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..

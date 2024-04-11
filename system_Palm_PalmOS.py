@@ -15,10 +15,6 @@ class Platform_Palm_PalmOS(PlatformCommon):
     # extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
 
     def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
         emulator = ["retroarch"]
         core = ['mu_libretro']
         extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
@@ -47,17 +43,6 @@ class Platform_Palm_PalmOS(PlatformCommon):
         if emulator[0] == "retroarch":
             emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator[0] == "other":
-            # Set whether we should run in fullscreens or not.
-            if FULLSCREEN is True:
-                emulator.append('--fullscreen')
-
-        # print status to console.
-        if DEBUGGING is not False:
-            print("\tUsing emulator: " + str(emulator))
-            print("\tUsing core: " + str(core))
-            print("\tSearching for extensions: " + str(extensions))
 
         # drives = []
         # # Support only one for now..
