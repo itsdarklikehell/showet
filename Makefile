@@ -264,8 +264,6 @@ uninstall_executable: FORCE
 install_pymodules: FORCE
 	@test -d $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet || mkdir -p $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
-	$(QINSTALL) /home/rizzo/showet/platforms_Snk.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Snk.py
-	$(QINSTALL) /home/rizzo/showet/platforms_Sony.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Sony.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	$(QINSTALL) /home/rizzo/showet/system_Amstrad_Cpcplus.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/system_Amstrad_Cpcplus.py
@@ -467,8 +465,6 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/system_Apple_AppleI.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/system_Amstrad_Cpcplus.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Sony.py
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platforms_Snk.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	-$(DEL_DIR) $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/ 
 
