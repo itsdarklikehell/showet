@@ -16,9 +16,9 @@ def getext(self, emulator, core, extensions):
     if len(files) == 0:
         # Tries to identify files by any magic necessary.
         files = self.find_ext_files(emulator, core)
-    # if len(files) == 0:
-    #     # Tries to identify files by any magic necessary.
-    #     files = self.find_magic_cookies()
+    if len(files) == 0:
+        # Tries to identify files by any magic necessary.
+        files = self.find_magic_cookies()
     if len(files) == 0:
         print("Didn't find any runnable files.")
         exit(-1)
