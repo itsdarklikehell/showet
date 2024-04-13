@@ -1162,7 +1162,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Amstrad_Cpcplus(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"zesarux\"]\n    cores = [\"crocods_libretro\", \"cap32_libretro\"]\n    extensions = [\"dsk\", \"sna\", \"kcr\", \"zip\",\n                  \"tap\", \"cdt\", \"voc\", \"cpr\", \"m3u\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Amstrad_Cpcplus(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"zesarux\"]\n    cores = [\"crocods_libretro\", \"cap32_libretro\"]\n    extensions = [\"dsk\", \"sna\", \"kcr\", \"zip\", \"tap\", \"cdt\", \"voc\", \"cpr\", \"m3u\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },

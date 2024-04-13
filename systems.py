@@ -31,8 +31,7 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ["retroarch", "zesarux"]
     cores = ["crocods_libretro", "cap32_libretro"]
-    extensions = ["dsk", "sna", "kcr", "zip",
-                  "tap", "cdt", "voc", "cpr", "m3u"]
+    extensions = ["dsk", "sna", "kcr", "zip", "tap", "cdt", "voc", "cpr", "m3u"]
 
     def run(self):
         emulator = self.emulators[0]
