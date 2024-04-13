@@ -360,14 +360,6 @@
         "documentation": {}
     },
     {
-        "label": "Platform_Microsoft_Windows",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
         "label": "Platform_Microsoft_Xbox",
         "importPath": "systems",
         "description": "systems",
@@ -1170,7 +1162,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Amstrad_Cpcplus(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"zesarux\"]\n    # cores = [\"crocods_libretro\", \"cap32_libretro\"]\n    # extensions = [\"dsk\", \"sna\", \"zip\", \"tap\", \"cdt\", \"voc\", \"cpr\", \"m3u\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Amstrad_Cpcplus(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"zesarux\"]\n    cores = [\"crocods_libretro\", \"cap32_libretro\"]\n    extensions = [\"dsk\", \"sna\", \"kcr\", \"zip\",\n                  \"tap\", \"cdt\", \"voc\", \"cpr\", \"m3u\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1179,7 +1171,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Apple_AppleI(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    # cores = [\"minivmac_libretro\"]\n    # extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Apple_AppleI(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    cores = [\"minivmac_libretro\"]\n    extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1188,7 +1180,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Apple_AppleII(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    # cores = [\"minivmac_libretro\"]\n    # extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Apple_AppleII(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    cores = [\"minivmac_libretro\"]\n    extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1197,7 +1189,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Apple_AppleIIGS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    # cores = [\"minivmac_libretro\"]\n    # extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Apple_AppleIIGS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    cores = [\"minivmac_libretro\"]\n    extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1206,7 +1198,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Arcade_Arcade(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"MAME\", \"MESS\"]\n    # cores = [\"mame_libretro\", \"mamemess_libretro\"]\n    # extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Arcade_Arcade(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"MAME\", \"MESS\"]\n    cores = [\"mame_libretro\", \"mamemess_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1215,7 +1207,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Archimedes_Acorn(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"mame_libretro\", \"mame2016_libretro\"]\n    # extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Archimedes_Acorn(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mame_libretro\", \"mame2016_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1224,7 +1216,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Atari_2600(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'stella']\n    # cores = ['stella2014_libretro', 'stella_libretro']\n    # extensions = ['zip', 'a26', 'bin']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Atari_2600(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'stella']\n    cores = ['stella2014_libretro', 'stella_libretro']\n    extensions = ['zip', 'a26', 'bin']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1233,7 +1225,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Atari_5200(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'atari800']\n    # cores = ['atari800_libretro']\n    # extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',\n    #               'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']\n    def run(self):",
+        "peekOfCode": "class Platform_Atari_5200(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'atari800']\n    cores = ['atari800_libretro']\n    extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',\n                  'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1242,7 +1234,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Atari_7800(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'prosystem']\n    # cores = ['prosystem_libretro']\n    # extensions = ['zip', 'a78', 'bin', 'cdf']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Atari_7800(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'prosystem']\n    cores = ['prosystem_libretro']\n    extensions = ['zip', 'a78', 'bin', 'cdf']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1251,7 +1243,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Atari_Jaguar(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['virtualjaguar_libretro']\n    # extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Atari_Jaguar(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['virtualjaguar_libretro']\n    extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1260,7 +1252,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Atari_Lynx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'mednafen']\n    # cores = ['handy_libretro', 'mednafen_lynx_libretro']\n    # extensions = ['lnx', 'o']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Atari_Lynx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'mednafen']\n    cores = ['handy_libretro', 'mednafen_lynx_libretro']\n    extensions = ['lnx', 'o']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1269,7 +1261,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Atari_STETTFalcon(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'stella', 'hatari']\n    # cores = ['hatari_libretro', 'a5200_libretro']\n    # extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Atari_STETTFalcon(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'stella', 'hatari']\n    cores = ['hatari_libretro', 'a5200_libretro']\n    extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1278,7 +1270,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Atari_xlxe(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['atari800_libretro']\n    # extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Atari_xlxe(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'atari800']\n    cores = ['atari800_libretro']\n    extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1287,7 +1279,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Bandai_Wonderswan(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"mednafen\"]\n    # cores = [\"mednafen_wswan_libretro\"]\n    # extensions = [\"zip\", \"ws\", \"wsc\", \"pc2\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Bandai_Wonderswan(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mednafen\"]\n    cores = [\"mednafen_wswan_libretro\"]\n    extensions = [\"zip\", \"ws\", \"wsc\", \"pc2\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1296,7 +1288,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Coleco_Colecovision(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"bluemsx\", \"gearcoleco\"]\n    # cores = [\"bluemsx_libretro\", \"gearcoleco_libretro\"]\n    # extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\", \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Coleco_Colecovision(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"bluemsx\", \"gearcoleco\"]\n    cores = [\"bluemsx_libretro\", \"gearcoleco_libretro\"]\n    extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n                  \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1305,7 +1297,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Commodore_64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\"]\n    # cores = ['vice_x64sc_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',\n    #                'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    # tapes_ext = ['t64', 'tap', 'tcrt']",
+        "peekOfCode": "class Platform_Commodore_64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\" \"x64sc\"]\n    cores = ['vice_x64sc_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',\n                   'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1314,7 +1306,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Commodore_128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vice']\n    # cores = ['vice_x128_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n    #                'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    # tapes_ext = ['t64', 'tap', 'tcrt']",
+        "peekOfCode": "class Platform_Commodore_128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_x128_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1323,7 +1315,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Commodore_Amiga(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'puae', 'fs-uae']\n    # cores = ['puae2021_libretro', 'puae_libretro',\n    #          'fsuae_libretro', 'uae4arm_libretro']\n    # floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']\n    # harddrives_ext = ['hdf', 'hdz', 'datadir']",
+        "peekOfCode": "class Platform_Commodore_Amiga(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'puae', 'fs-uae']\n    cores = ['puae2021_libretro', 'puae_libretro',\n             'fsuae_libretro', 'uae4arm_libretro']\n    floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']\n    harddrives_ext = ['hdf', 'hdz', 'datadir']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1332,7 +1324,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Commodore_CBMII(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vice']\n    # cores = ['vice_xcbm2_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n    #                'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    # tapes_ext = ['t64', 'tap', 'tcrt']",
+        "peekOfCode": "class Platform_Commodore_CBMII(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xcbm2_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1341,7 +1333,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Commodore_Pet(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vice']\n    # cores = ['vice_xpet_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n    #                'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    # tapes_ext = ['t64', 'tap', 'tcrt']",
+        "peekOfCode": "class Platform_Commodore_Pet(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xpet_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1350,7 +1342,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Commodore_Plus4(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vice']\n    # cores = ['vice_xplus4_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n    #                'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    # tapes_ext = ['t64', 'tap', 'tcrt']",
+        "peekOfCode": "class Platform_Commodore_Plus4(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xplus4_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1359,7 +1351,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Commodore_Vic20(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vice']\n    # cores = ['vice_xvic_libretro']\n    # floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n    #                'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    # tapes_ext = ['t64', 'tap', 'tcrt']",
+        "peekOfCode": "class Platform_Commodore_Vic20(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xvic_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1368,7 +1360,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Elektronika_Pdp11(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"m\"]\n    # cores = [\"bk_libretro\"]\n    # extensions = [\"bin\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Elektronika_Pdp11(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"bk\", \"m\"]\n    cores = [\"bk_libretro\"]\n    extensions = [\"bin\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1377,7 +1369,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Enterprise_Ep128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"ep128emu_libretro\"]\n    # extensions = [\"zip\", \"img\", \"dsk\", \"tap\", \"dtf\", \"com\",\n    #               \"trn\", \"128\", \"bas\", \"cas\", \"cdt\", \"tzx\", \".\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Enterprise_Ep128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"ep128\"]\n    cores = [\"ep128emu_libretro\"]\n    extensions = [\"zip\", \"img\", \"dsk\", \"tap\", \"dtf\", \"com\",\n                  \"trn\", \"128\", \"bas\", \"cas\", \"cdt\", \"tzx\", \".\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1386,7 +1378,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Fairchild_Channelf(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"freechaf\"]\n    # cores = [\"freechaf_libretro\"]\n    # extensions = [\"zip\", \"bin\", \"chf\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Fairchild_Channelf(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"freechaf\"]\n    cores = [\"freechaf_libretro\"]\n    extensions = [\"zip\", \"bin\", \"chf\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1395,7 +1387,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_FanCon_Pico8(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"retro8_libretro\"]\n    # extensions = [\"zip\", \"p8\", \"png\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_FanCon_Pico8(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"retro8\"]\n    cores = [\"retro8_libretro\"]\n    extensions = [\"zip\", \"p8\", \"png\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1404,7 +1396,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_FanCon_Tic80(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['tic80_libretro']\n    # extensions = ['zip', 'tic']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_FanCon_Tic80(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'tic80']\n    cores = ['tic80_libretro']\n    extensions = ['zip', 'tic']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1413,7 +1405,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Gamepark_32(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"mame_libretro\"]\n    # extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Gamepark_32(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mame\"]\n    cores = [\"mame_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1422,7 +1414,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Gamepark_2X(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mame_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        # Set up the emulator we want to run.",
+        "peekOfCode": "class Platform_Gamepark_2X(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mame\"]\n    cores = [\"mame_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        # Set up the emulator we want to run.",
         "detail": "systems",
         "documentation": {}
     },
@@ -1431,7 +1423,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_GCE_Vectrex(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"vecx\"]\n    # cores = [\"vecx_libretro\"]\n    # extensions = [\"zip\", \"bin\", \"vec\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_GCE_Vectrex(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"vecx\"]\n    cores = [\"vecx_libretro\"]\n    extensions = [\"zip\", \"bin\", \"vec\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1440,7 +1432,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Java_Java(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"squirreljme_libretro\"]\n    # extensions = [\"zip\", \"jar\", \"sqc\", \"jam\", \"jad\", \"kjx\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Java_Java(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"squirreljme\"]\n    cores = [\"squirreljme_libretro\"]\n    extensions = [\"zip\", \"jar\", \"sqc\", \"jam\", \"jad\", \"kjx\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1449,7 +1441,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Linux_Linux(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"linux\"]\n    # cores = [\"linux\"]\n    # extensions = [\"elf\", \"exe\"]\n    def run(self):\n        emulator = [\"bash\"]",
+        "peekOfCode": "class Platform_Linux_Linux(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"linux\"]\n    cores = [\"linux\"]\n    extensions = [\"elf\", \"exe\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1458,7 +1450,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Magnavox_Odyssey(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"o2em_libretro\"]\n    # extensions = [\"zip\", \"bin\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Magnavox_Odyssey(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"o2em\"]\n    cores = [\"o2em_libretro\"]\n    extensions = [\"zip\", \"bin\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1467,7 +1459,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Mattel_Intellivision(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"freeintv_libretro\", \"jzintv\", \"jzintv-ecs\"]\n    # extensions = [\"int\", \"bin\", \"rom\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Mattel_Intellivision(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"freeintv\"]\n    cores = [\"freeintv_libretro\", \"jzintv\", \"jzintv-ecs\"]\n    extensions = [\"int\", \"bin\", \"rom\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1476,16 +1468,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Microsoft_Msx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"openmsx\", \"openmsx-msx2\", \"openmsx-msx2-plus\", \"openmsx-msx-turbo\",]    cores = [\"bluemsx_libretro\", \"fbneo_msx_libretro\", \"fmsx_libretro\"]\n    # extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n    #               \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Microsoft_Windows",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Microsoft_Windows(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"wine\", \"other\"]\n    # cores = [\"wine\"]\n    # extensions = [\"exe\"]\n    # wineprefix = self.showetdir + '/wineprefix'\n    def run(self):",
+        "peekOfCode": "class Platform_Microsoft_Msx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"openmsx\", \"openmsx-msx2\",\n                 \"openmsx-msx2-plus\", \"openmsx-msx-turbo\",]\n    cores = [\"bluemsx_libretro\", \"fbneo_msx_libretro\", \"fmsx_libretro\"]\n    extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n                  \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1494,7 +1477,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Microsoft_Xbox(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"directxbox_libretro\"]\n    # extensions = [\"zip\", \"iso\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Microsoft_Xbox(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"directxbox_libretro\"]\n    extensions = [\"zip\", \"iso\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1503,7 +1486,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Microsoft_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"dosbox\"]\n    # cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n    #          \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]\n    # extensions = [\"zip\", \"dosz\", \"exe\", \"com\", \"bat\", \"iso\", \"cue\",\n    #               \"ins\", \"img\", \"ima\", \"vhd\", \"jrc\", \"tc\", \"m3u\", \"m3u8\"]",
+        "peekOfCode": "class Platform_Microsoft_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"dosbox\"]\n    cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n             \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]\n    extensions = [\"zip\", \"dosz\", \"exe\", \"com\", \"bat\", \"iso\", \"cue\",\n                  \"ins\", \"img\", \"ima\", \"vhd\", \"jrc\", \"tc\", \"m3u\", \"m3u8\"]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1512,7 +1495,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pcengine(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"mednafen_supergrafx_libretro\", \"mednafen_pce_fast_libretro\",\n    #     \"fbneo_pce_libretro\", \"fbneo_sgx_libretro\", \"fbneo_tg_libretro\"]\n    # extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Nec_Pcengine(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_supergrafx_libretro\", \"mednafen_pce_fast_libretro\",\n             \"fbneo_pce_libretro\", \"fbneo_sgx_libretro\", \"fbneo_tg_libretro\"]\n    extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1521,7 +1504,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nec_Supergrafx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"mednafen_supergrafx_libretro\", \"mednafen_pce_fast_libretro\",\n    #          \"fbneo_pce_libretro\", \"fbneo_sgx_libretro\", \"fbneo_tg_libretro\",]\n    # extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Nec_Supergrafx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_supergrafx_libretro\", \"mednafen_pce_fast_libretro\",\n             \"fbneo_pce_libretro\", \"fbneo_sgx_libretro\", \"fbneo_tg_libretro\",]\n    extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1530,7 +1513,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pc8000(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"quasi88_libretro\"]\n    # extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Nec_Pc8000(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"quasi88_libretro\"]\n    extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1539,7 +1522,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pc8800(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"quasi88_libretro\"]\n    # extensions = [\"d88\", \"u88\", \"m3u\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Nec_Pc8800(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"quasi88_libretro\"]\n    extensions = [\"d88\", \"u88\", \"m3u\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1548,7 +1531,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pc98(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"nekop2_libretro\"]\n    # extensions = [\"d98\", \"zip\", \"98d\", \"fdi\", \"fdd\", \"2hd\", \"tfd\", \"d88\",\n    #               \"88d\", \"hdm\", \"xdf\", \"dup\", \"cmd\", \"hdi\", \"thd\", \"nhd\", \"hdd\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Nec_Pc98(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"nekop2_libretro\"]\n    extensions = [\"d98\", \"zip\", \"98d\", \"fdi\", \"fdd\", \"2hd\", \"tfd\", \"d88\",\n                  \"88d\", \"hdm\", \"xdf\", \"dup\", \"cmd\", \"hdi\", \"thd\", \"nhd\", \"hdd\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1557,7 +1540,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pcfx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"mednafen_pcfx_libretro\"]\n    # extensions = [\"cue\", \"ccd\", \"toc\", \"chd\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Nec_Pcfx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_pcfx_libretro\"]\n    extensions = [\"cue\", \"ccd\", \"toc\", \"chd\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1566,7 +1549,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_3DS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"citra\"]\n    # cores = [\"citra_libretro\", \"citra2018_libretro\", \"citra_canary_libretro\",\n    #          \"melonds_libretro\", \"desmume_libretro\", \"desmume2015_libretro\",]\n    # extensions = [\"3ds\", \"3dsx\", \"elf\", \"axf\", \"cci\", \"cxi\", \"app\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Nintendo_3DS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"citra\"]\n    cores = [\"citra_libretro\", \"citra2018_libretro\", \"citra_canary_libretro\",\n             \"melonds_libretro\", \"desmume_libretro\", \"desmume2015_libretro\",]\n    extensions = [\"3ds\", \"3dsx\", \"elf\", \"axf\", \"cci\", \"cxi\", \"app\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1575,7 +1558,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_N64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"mupen64plus-glide64\",\n    #              \"mupen64plus-glide64-lle\", \"mupen64plus-gliden64\"]\n    # cores = [\"mupen64plus_libretro\",\n    #          \"mupen64plus_next_libretro\", \"parallel_n46_libretro\"]\n    # extensions = [\"n64\", \"v64\", \"z64\", \"bin\", \"u1\", \"ndd\"]",
+        "peekOfCode": "class Platform_Nintendo_N64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mupen64plus-glide64\",\n                 \"mupen64plus-glide64-lle\", \"mupen64plus-gliden64\"]\n    cores = [\"mupen64plus_libretro\",\n             \"mupen64plus_next_libretro\", \"parallel_n46_libretro\"]\n    extensions = [\"n64\", \"v64\", \"z64\", \"bin\", \"u1\", \"ndd\"]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1584,7 +1567,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_DS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"desmume\", \"melonds\"]\n    cores = [\"melonds_libretro\", \"desmume_libretro\", \"desmume2015_libretro\"]\n    extensions = [\"zip\", \"nds\", \"dsi\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Nintendo_DS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"desmume\", \"melonds\"]\n    cores = [\"melonds_libretro\", \"desmume_libretro\", \"desmume2015_libretro\"]\n    extensions = [\"zip\", \"nds\", \"dsi\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1593,7 +1576,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_Famicom(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"higan\", \"emux\",\n    #              \"fceumm\", \"nestopia\", \"quicknes\", \"mesen\"]\n    # cores = [\"quicknes_libretro\", \"nestopia_libretro\", \"mess_libretro\", \"mess2016_libretro\",\n    #          \"mesen_libretro\", \"fceumm_libretro\", \"fceumm_mod_libretro\", \"fbneo_nes_libretro\"]\n    # extensions = [\"zip\", \"nes\", \"fds\", \"unf\", \"unif\", \"qd\", \"nsf\"]",
+        "peekOfCode": "class Platform_Nintendo_Famicom(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"higan\", \"emux\",\n                 \"fceumm\", \"nestopia\", \"quicknes\", \"mesen\"]\n    cores = [\"quicknes_libretro\", \"nestopia_libretro\", \"mess_libretro\", \"mess2016_libretro\",\n             \"mesen_libretro\", \"fceumm_libretro\", \"fceumm_mod_libretro\", \"fbneo_nes_libretro\"]\n    extensions = [\"zip\", \"nes\", \"fds\", \"unf\",",
         "detail": "systems",
         "documentation": {}
     },
@@ -1602,7 +1585,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_FamicomDisksystem(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"higan\", \"emux\",\n    #              \"fceumm\", \"nestopia\", \"quicknes\", \"mesen\"]\n    # cores = [\"quicknes_libretro\", \"nestopia_libretro\", \"mess_libretro\", \"mess2016_libretro\",\n    #          \"mesen_libretro\", \"fceumm_libretro\", \"fceumm_mod_libretro\", \"fbneo_nes_libretro\"]\n    # extensions = [\"zip\", \"nes\", \"fds\", \"unf\", \"unif\", \"qd\", \"nsf\"]",
+        "peekOfCode": "class Platform_Nintendo_FamicomDisksystem(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"higan\", \"emux\",\n                 \"fceumm\", \"nestopia\", \"quicknes\", \"mesen\"]\n    cores = [\"quicknes_libretro\", \"nestopia_libretro\", \"mess_libretro\", \"mess2016_libretro\",\n             \"mesen_libretro\", \"fceumm_libretro\", \"fceumm_mod_libretro\", \"fbneo_nes_libretro\"]\n    extensions = [\"zip\", \"nes\", \"fds\", \"unf\", \"unif\", \"qd\", \"nsf\"]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1611,7 +1594,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_Gameboy(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"gambatte_libretro\", \"mess2016_libretro\",\n    #          \"mess_libretro\", \"mgba_libretro\", \"tgbdual_libretro\"]\n    # extensions = [\"zip\", \"gb\", \"dmg\", \"bin\", \"u1\", \"ndd\", \"zip\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Nintendo_Gameboy(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"gambatte_libretro\", \"mess2016_libretro\",\n             \"mess_libretro\", \"mgba_libretro\", \"tgbdual_libretro\"]\n    extensions = [\"zip\", \"gb\", \"dmg\", \"bin\", \"u1\", \"ndd\", \"zip\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1620,7 +1603,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_GameboyColor(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"gambatte_libretro\", \"mgba_libretro\", \"tgbdual_libretro\"]\n    # extensions = [\"zip\", \"gbc\", \"dmg\", \"bin\", \"u1\", \"ndd\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Nintendo_GameboyColor(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"gambatte_libretro\", \"mgba_libretro\", \"tgbdual_libretro\"]\n    extensions = [\"zip\", \"gbc\", \"dmg\", \"bin\", \"u1\", \"ndd\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1629,7 +1612,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_GameboyAdvance(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"meteor_libretro\", \"vba_next_libretro\",\n    #          \"vbam_libretro\", \"mgba_libretro\", \"gpsp_libretro\"]\n    # extensions = [\"zip\", \"gb\", \"gbc\", \"gba\", \"dmg\", \"agb\", \"bin\", \"cgb\", \"sgb\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Nintendo_GameboyAdvance(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"meteor_libretro\", \"vba_next_libretro\",\n             \"vbam_libretro\", \"mgba_libretro\", \"gpsp_libretro\"]\n    extensions = [\"zip\", \"gb\", \"gbc\", \"gba\", \"dmg\", \"agb\", \"bin\", \"cgb\", \"sgb\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1638,7 +1621,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_GameCube(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"dolphin_libretro\"]\n    # extensions = [\"gcm\", \"iso\", \"wbfs\", \"ciso\", \"gcz\",\n    #               \"elf\", \"dol\", \"dff\", \"tgc\", \"wad\", \"rvz\", \"m3u\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Nintendo_GameCube(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"dolphin_libretro\"]\n    extensions = [\"gcm\", \"iso\", \"wbfs\", \"ciso\", \"gcz\",\n                  \"elf\", \"dol\", \"dff\", \"tgc\", \"wad\", \"rvz\", \"m3u\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1647,7 +1630,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_Pokemini(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"pokemini_libretro\"]\n    # extensions = [\"zip\", \"min\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Nintendo_Pokemini(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"pokemini_libretro\"]\n    extensions = [\"zip\", \"min\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1656,7 +1639,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_SuperFamicom(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"snes9x_libretro\"]\n    # extensions = [\"zip\", \"sfc\", \"smc\", \"fig\", \"swc\", \"bs\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Nintendo_SuperFamicom(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"snes9x_libretro\"]\n    extensions = [\"zip\", \"sfc\", \"smc\", \"fig\", \"swc\", \"bs\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1665,7 +1648,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_Virtualboy(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"mednafen_vb_libretro\"]\n    # extensions = [\"zip\", \"vb\", \"vboy\", \"bin\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Nintendo_Virtualboy(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_vb_libretro\"]\n    extensions = [\"zip\", \"vb\", \"vboy\", \"bin\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1674,7 +1657,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Nintendo_Wii(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"dolphin_libretro\"]\n    # extensions = [\"gcm\", \"iso\", \"wbfs\", \"ciso\", \"gcz\",\n    #               \"elf\", \"dol\", \"dff\", \"tgc\", \"wad\", \"rvz\", \"m3u\"]\n    def run(self):",
+        "peekOfCode": "class Platform_Nintendo_Wii(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"dolphin_libretro\"]\n    extensions = [\"gcm\", \"iso\", \"wbfs\", \"ciso\", \"gcz\",\n                  \"elf\", \"dol\", \"dff\", \"tgc\", \"wad\", \"rvz\", \"m3u\"]\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1683,7 +1666,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Palm_PalmOS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['mu_libretro']\n    # extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Palm_PalmOS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['mu_libretro']\n    extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1692,7 +1675,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Panasonic_3do(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"4do_libretro\", \"opera_libretro\"]\n    # extensions = [\"iso\", \"bin\", \"chd\", \"cue\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Panasonic_3do(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"4do_libretro\", \"opera_libretro\"]\n    extensions = [\"iso\", \"bin\", \"chd\", \"cue\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1701,7 +1684,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Phillips_Cdi(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"other\"]\n    # cores = [\"samecdi_libretro\", \"cdi2015_libretro\"]\n    # extensions = [\"zip\", \"chd\", \"iso\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Phillips_Cdi(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"samecdi_libretro\", \"cdi2015_libretro\"]\n    extensions = [\"zip\", \"chd\", \"iso\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1710,7 +1693,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_32X(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'picodrive']\n    # cores = ['picodrive_libretro', 'blastem_libretro']\n    # extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Sega_32X(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'picodrive']\n    cores = ['picodrive_libretro', 'blastem_libretro']\n    extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md',\n                  '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1719,7 +1702,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_Dreamcast(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'flycast', 'redream']\n    # cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']\n    # extensions = ['chd', 'cdi', 'elf', 'bin', 'cue',\n    # \t\t\t  'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']\n    def run(self):",
+        "peekOfCode": "class Platform_Sega_Dreamcast(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'flycast', 'redream']\n    cores = ['flycast_libretro', 'flycast_gles2_libretro', 'retrodream_libretro']\n    extensions = ['chd', 'cdi', 'elf', 'bin', 'cue',\n                  'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1728,7 +1711,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_GameGear(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'osmose']\n    # cores = ['gearsystem_libretro',\n    #          'genesis_plus_gx_libretro', 'fbneo_gg_libretro']\n    # extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']\n    def run(self):",
+        "peekOfCode": "class Platform_Sega_GameGear(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'osmose']\n    cores = ['gearsystem_libretro',\n             'genesis_plus_gx_libretro', 'fbneo_gg_libretro']\n    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1737,7 +1720,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_Mastersystem(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'osmose']\n    # cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro',\n    #          'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']\n    # extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',\n    #               'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']",
+        "peekOfCode": "class Platform_Sega_Mastersystem(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'osmose']\n    cores = ['genesis_plus_gx_libretro', 'fbneo_sms_libretro',\n             'gearsystem_libretro', 'picodrive_libretro', 'smsplus_gx_libreto']\n    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',\n                  'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1746,7 +1729,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_Megadrive(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'dgen']\n    # cores = ['genesis_plus_gx_libretro',\n    #          'fbneo_md_libretro', 'picodrive_libretro']\n    # extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',\n    #               'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']",
+        "peekOfCode": "class Platform_Sega_Megadrive(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'dgen']\n    cores = ['genesis_plus_gx_libretro',\n             'fbneo_md_libretro', 'picodrive_libretro']\n    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',\n                  'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1755,7 +1738,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_Saturn(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'yabause', 'kronos']\n    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']\n    # extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Sega_Saturn(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'yabause', 'kronos']\n    cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']\n    extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1764,7 +1747,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_Stv(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'yabause', 'kronos']\n    # cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']\n    # extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Sega_Stv(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'yabause', 'kronos']\n    cores = ['yabause_libretro', 'kronos_libretro', 'mednafen_saturn_libretro']\n    extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1773,7 +1756,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_Vmu(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'vemulator']\n    # cores = ['vemulator_libretro']\n    # extensions = ['zip', 'vms', 'dci', 'bin']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Sega_Vmu(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vemulator']\n    cores = ['vemulator_libretro']\n    extensions = ['zip', 'vms', 'dci', 'bin']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1782,7 +1765,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_SG1000(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'gearsystem']\n    # cores = ['gearsystem_libretro', 'bluemsx_libretro']\n    # extensions = ['rom', 'ri', 'mx1', 'mx2',\n    #               'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']\n    def run(self):",
+        "peekOfCode": "class Platform_Sega_SG1000(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'gearsystem']\n    cores = ['gearsystem_libretro', 'bluemsx_libretro']\n    extensions = ['rom', 'ri', 'mx1', 'mx2',\n                  'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1791,7 +1774,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sinclair_Zxspectrum(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\"]\n    # cores = [\"fuse_libretro\", \"81_libretro\"]\n    # extensions = [\"tzx\", \"tap\", \"z80\", \"rzx\", \"scl\", \"trd\", \"dsk\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Sinclair_Zxspectrum(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\"]\n    cores = [\"fuse_libretro\", \"81_libretro\"]\n    extensions = [\"tzx\", \"tap\", \"z80\", \"rzx\", \"scl\", \"trd\", \"dsk\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1800,7 +1783,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sinclair_Zx81(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = [\"retroarch\", \"81\"]\n    # cores = [\"fuse_libretro\", \"81_libretro\"]\n    # extensions = [\"tzx\", \"tap\", \"z80\", \"rzx\", \"scl\", \"trd\", \"dsk\"]\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Sinclair_Zx81(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"81\"]\n    cores = [\"fuse_libretro\", \"81_libretro\"]\n    extensions = [\"tzx\", \"tap\", \"z80\", \"rzx\", \"scl\", \"trd\", \"dsk\"]\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1809,7 +1792,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Snk_Neogeo(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']\n    # extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Snk_Neogeo(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['fbneo_libretro', 'neocd_libretro', 'fbalpha2012_libretro']\n    extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1818,7 +1801,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Snk_NeogeoPocket(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['mednafen_ngp_libretro', 'fbneo_ngp']\n    # extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Snk_NeogeoPocket(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['mednafen_ngp_libretro', 'fbneo_ngp']\n    extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1827,7 +1810,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Snk_NeogeoPocketColor(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']\n    # extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Snk_NeogeoPocketColor(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['mednafen_ngp_libretro', 'fbneo_ngpc']\n    extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1836,7 +1819,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sony_Ps2(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['pcsx2_libretro', 'play_libretro']\n    # extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',\n    #               'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']\n    def run(self):",
+        "peekOfCode": "class Platform_Sony_Ps2(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['pcsx2_libretro', 'play_libretro']\n    extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img',\n                  'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1845,7 +1828,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sony_Psp(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'ppsspp']\n    # cores = ['ppsspp_libretro']\n    # extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Sony_Psp(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'ppsspp']\n    cores = ['ppsspp_libretro']\n    extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1854,7 +1837,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sony_Psx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['pcsx_rearmed_libretro',\n    # \t\t 'mednafen_psx_libretro', 'swanstation_libretro']\n    # extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img',\n    # \t\t\t  'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']",
+        "peekOfCode": "class Platform_Sony_Psx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['pcsx_rearmed_libretro',\n             'mednafen_psx_libretro', 'swanstation_libretro']\n    extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img',\n                  'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']",
         "detail": "systems",
         "documentation": {}
     },
@@ -1863,7 +1846,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_SpectraVision_SpectraVideo(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['bluemsx_libretro']\n    # extensions = ['rom', 'ri', 'mx1', 'mx2',\n    # \t\t\t  'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']\n    def run(self):",
+        "peekOfCode": "class Platform_SpectraVision_SpectraVideo(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['bluemsx_libretro']\n    extensions = ['rom', 'ri', 'mx1', 'mx2',\n                  'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1872,7 +1855,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Thomson_MOTO(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['theodore_libretro']\n    # extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']\n    def run(self):\n        emulator = [\"retroarch\"]",
+        "peekOfCode": "class Platform_Thomson_MOTO(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['theodore_libretro']\n    extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']\n    def run(self):\n        emulator = self.emulators[0]",
         "detail": "systems",
         "documentation": {}
     },
@@ -1881,7 +1864,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Wild_Gamemusic(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['gme_libretro']\n    # extensions = ['zip', 'ay', 'gbs', 'gym', 'hes',\n    # \t\t\t  'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']\n    def run(self):",
+        "peekOfCode": "class Platform_Wild_Gamemusic(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['gme_libretro']\n    extensions = ['zip', 'ay', 'gbs', 'gym', 'hes',\n                  'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1890,7 +1873,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Wild_VideoFFMPEG(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['ffmpeg_libretro']\n    # extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',\n    #               '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']\n    def run(self):",
+        "peekOfCode": "class Platform_Wild_VideoFFMPEG(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['ffmpeg_libretro']\n    extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',\n                  '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']\n    def run(self):",
         "detail": "systems",
         "documentation": {}
     },
@@ -1899,7 +1882,16 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Wild_VideoMPV(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'other']\n    # cores = ['mpv_libretro']\n    # extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',\n    #               '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']\n    def run(self):",
+        "peekOfCode": "class Platform_Wild_VideoMPV(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['mpv_libretro']\n    extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',\n                  '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']\n    def run(self):",
+        "detail": "systems",
+        "documentation": {}
+    },
+    {
+        "label": "getext",
+        "kind": 2,
+        "importPath": "systems",
+        "description": "systems",
+        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
         "detail": "systems",
         "documentation": {}
     }
