@@ -39,36 +39,15 @@ class Platform_Arcade_Arcade(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if (
-                    core == "mame_libretro"
-                    or core == "mame2015_libretro"
-                    or core == "mame2016_libretro"
-                    or core == "mamearcade_libretro"
-                    or core == "hbmame_libretro"
-            ):
+            if core == self.cores[0]:
                 extensions = self.extensions
-            if (
-                    core == "mame2000_libretro"
-                    or core == "mame2010_libretro"
-                    or core == "mame2009_libretro"
-            ):
-                extensions = [0, 1, 2]
-            if (
-                    core == "mame2003_libretro"
-                    or core == "mame2003_plus_libretro"
-                    or core == "mame2003_midway_libretro"
-            ):
-                extensions = [0]
 
         getext(emulator, core, extensions)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == "mame":
-            print("Using: " + str(emulator))
 
         # drives = []
         # # Support only one for now..
@@ -89,8 +68,6 @@ class Platform_Arcade_Arcade(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulato == "mame":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
             # if emulator == self.emulators[1]:
             #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
@@ -102,27 +79,9 @@ class Platform_Arcade_Arcade(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if (
-                    core == "mame_libretro"
-                    or core == "mame2015_libretro"
-                    or core == "mame2016_libretro"
-                    or core == "mamearcade_libretro"
-                    or core == "hbmame_libretro"
-            ):
+            if core == self.cores[0]:
                 extensions = self.extensions
-            if (
-                    core == "mame2000_libretro"
-                    or core == "mame2010_libretro"
-                    or core == "mame2009_libretro"
-            ):
-                extensions = [0, 1, 2]
-            if (
-                    core == "mame2003_libretro"
-                    or core == "mame2003_plus_libretro"
-                    or core == "mame2003_midway_libretro"
-            ):
-                extensions = [0]
-
+                
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

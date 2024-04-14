@@ -31,8 +31,7 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ["retroarch", "zesarux"]
     cores = ["crocods_libretro", "cap32_libretro"]
-    extensions = ["dsk", "sna", "kcr", "zip",
-                  "tap", "cdt", "voc", "cpr", "m3u"]
+    extensions = ["dsk", "sna", "kcr", "zip", "tap", "cdt", "voc", "cpr", "m3u"]
 
     def run(self):
         emulator = self.emulators[0]
@@ -47,7 +46,7 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -67,7 +66,7 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if core == self.cores[0]:
+            if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
             # if emulator == self.emulators[1]:
             #     emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -97,4 +96,3 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
-

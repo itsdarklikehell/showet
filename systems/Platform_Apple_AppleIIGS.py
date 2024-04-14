@@ -46,7 +46,7 @@ class Platform_Apple_AppleIIGS(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == "linapple":

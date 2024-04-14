@@ -39,7 +39,7 @@ class Platform_Atari_2600(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         getext(emulator, core, extensions)
@@ -79,7 +79,7 @@ class Platform_Atari_2600(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         ext_files = []

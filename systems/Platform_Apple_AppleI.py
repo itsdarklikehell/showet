@@ -46,7 +46,7 @@ class Platform_Apple_AppleI(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -96,5 +96,4 @@ class Platform_Apple_AppleI(PlatformCommon):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
         return ext_files
-
 

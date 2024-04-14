@@ -29,9 +29,9 @@ class Platform_Archimedes_Acorn(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["mame_libretro", "mame2016_libretro"]
-    extensions = ["zip", "chd", "7z", "cmd"]
+    emulators = ['retroarch', 'other']
+    cores = ['mame_libretro', 'mame2016_libretro']
+    extensions = ['zip', 'chd', '7z', 'cmd']
 
     def run(self):
         emulator = self.emulators[0]
@@ -39,18 +39,15 @@ class Platform_Archimedes_Acorn(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == "mame_libretro":
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         getext(emulator, core, extensions)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == "mame":
-            print("Using: " + str(emulator))
 
         # drives = []
         # # Support only one for now..
@@ -71,22 +68,20 @@ class Platform_Archimedes_Acorn(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == "mame":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
             # if emulator == self.emulators[1]:
             #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
     def supported_platforms(self):
-        return ["acorn"]
+        return ['acorn']
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == "mame_libretro":
+            if core == self.cores[0]:
                 extensions = self.extensions
-
+                
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)

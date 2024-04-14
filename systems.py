@@ -47,7 +47,7 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -67,7 +67,7 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
-            if core == self.cores[0]:
+            if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
             # if emulator == self.emulators[1]:
             #     emulator = emulator + ['-flipname', flipfile, files[0]]
@@ -121,7 +121,7 @@ class Platform_Apple_AppleI(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -195,7 +195,7 @@ class Platform_Apple_AppleII(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -269,7 +269,7 @@ class Platform_Apple_AppleIIGS(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == "linapple":
@@ -366,7 +366,7 @@ class Platform_Arcade_Arcade(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == "mame":
@@ -463,7 +463,7 @@ class Platform_Archimedes_Acorn(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == "mame":
@@ -1063,7 +1063,7 @@ class Platform_Bandai_Wonderswan(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -1140,7 +1140,7 @@ class Platform_Coleco_Colecovision(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -1797,7 +1797,7 @@ class Platform_Elektronika_Pdp11(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -1872,7 +1872,7 @@ class Platform_Enterprise_Ep128(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -1946,7 +1946,7 @@ class Platform_Fairchild_Channelf(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -2020,7 +2020,7 @@ class Platform_FanCon_Pico8(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -2168,7 +2168,7 @@ class Platform_Gamepark_32(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -2246,7 +2246,7 @@ class Platform_Gamepark_2X(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         if len(files) > 0:
@@ -2318,7 +2318,7 @@ class Platform_GCE_Vectrex(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -2392,7 +2392,7 @@ class Platform_Java_Java(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -2468,7 +2468,7 @@ class Platform_Linux_Linux(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # cd to the datadir
@@ -2549,7 +2549,7 @@ class Platform_Magnavox_Odyssey(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -2623,7 +2623,7 @@ class Platform_Mattel_Intellivision(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -2701,7 +2701,7 @@ class Platform_Microsoft_Msx(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -2860,7 +2860,7 @@ class Platform_Microsoft_Xbox(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -2938,7 +2938,7 @@ class Platform_Microsoft_Msdos(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3015,7 +3015,7 @@ class Platform_Nec_Pcengine(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3090,7 +3090,7 @@ class Platform_Nec_Supergrafx(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3164,7 +3164,7 @@ class Platform_Nec_Pc8000(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3238,7 +3238,7 @@ class Platform_Nec_Pc8800(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3313,7 +3313,7 @@ class Platform_Nec_Pc98(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3387,7 +3387,7 @@ class Platform_Nec_Pcfx(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3462,7 +3462,7 @@ class Platform_Nintendo_3DS(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3538,7 +3538,7 @@ class Platform_Nintendo_N64(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         if len(files) > 0:
@@ -3610,7 +3610,7 @@ class Platform_Nintendo_DS(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         if len(files) > 0:
@@ -3685,7 +3685,7 @@ class Platform_Nintendo_Famicom(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3761,7 +3761,7 @@ class Platform_Nintendo_FamicomDisksystem(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         if len(files) > 0:
@@ -3834,7 +3834,7 @@ class Platform_Nintendo_Gameboy(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3908,7 +3908,7 @@ class Platform_Nintendo_GameboyColor(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -3983,7 +3983,7 @@ class Platform_Nintendo_GameboyAdvance(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -4058,7 +4058,7 @@ class Platform_Nintendo_GameCube(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -4132,7 +4132,7 @@ class Platform_Nintendo_Pokemini(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -4206,7 +4206,7 @@ class Platform_Nintendo_SuperFamicom(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -4280,7 +4280,7 @@ class Platform_Nintendo_Virtualboy(PlatformCommon):
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -4355,7 +4355,7 @@ class Platform_Nintendo_Wii(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -4503,7 +4503,7 @@ class Platform_Panasonic_3do(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -4577,7 +4577,7 @@ class Platform_Phillips_Cdi(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -5329,7 +5329,7 @@ class Platform_Sinclair_Zxspectrum(PlatformCommon):
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
-            emulator.append("-L")
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
@@ -5404,7 +5404,7 @@ class Platform_Sinclair_Zx81(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
             print("Using:" + str(emulator))
-            emulator.append("-L")
+emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []
