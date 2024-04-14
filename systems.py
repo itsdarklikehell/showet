@@ -31,7 +31,8 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
     # Supply A list of extensions that the specified emulator supports.
     emulators = ["retroarch", "zesarux"]
     cores = ["crocods_libretro", "cap32_libretro"]
-    extensions = ["dsk", "sna", "kcr", "zip", "tap", "cdt", "voc", "cpr", "m3u"]
+    extensions = ["dsk", "sna", "kcr", "zip",
+                  "tap", "cdt", "voc", "cpr", "m3u"]
 
     def run(self):
         emulator = self.emulators[0]
@@ -40,11 +41,7 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
 
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
-                extensions = [0, 1, 2]
-            if core == self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -52,9 +49,6 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
         if emulator == self.emulators[0]:
             emulator.append("-L")
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == "zesarux":
-            print("Using: " + str(emulator))
 
         # drives = []
         # # Support only one for now..
@@ -75,10 +69,8 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if core == self.cores[0]:
                 emulator = emulator + [files[0]]
-            if core == self.cores[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -89,11 +81,7 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
-                extensions = [0, 1, 2]
-            if core == self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -128,8 +116,6 @@ class Platform_Apple_AppleI(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -157,10 +143,8 @@ class Platform_Apple_AppleI(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -172,8 +156,6 @@ class Platform_Apple_AppleI(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -206,10 +188,8 @@ class Platform_Apple_AppleII(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == "minivmac_libretro":
-                extensions = ["dsk", "img", "zip", "hvf", "cmd"]
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
+            if core == self.cores[0]:
+                extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -217,9 +197,6 @@ class Platform_Apple_AppleII(PlatformCommon):
         if emulator == self.emulators[0]:
             emulator.append("-L")
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == "linapple":
-            print("Using: " + str(emulator))
 
         # drives = []
         # # Support only one for now..
@@ -240,10 +217,8 @@ class Platform_Apple_AppleII(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator[0] == "linapple":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -255,8 +230,6 @@ class Platform_Apple_AppleII(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == "minivmac_libretro":
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -291,8 +264,6 @@ class Platform_Apple_AppleIIGS(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -325,8 +296,8 @@ class Platform_Apple_AppleIIGS(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator == "linapple":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -338,8 +309,6 @@ class Platform_Apple_AppleIIGS(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == "minivmac_libretro":
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -392,8 +361,6 @@ class Platform_Arcade_Arcade(PlatformCommon):
                     or core == "mame2003_midway_libretro"
             ):
                 extensions = [0]
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -426,8 +393,8 @@ class Platform_Arcade_Arcade(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulato == "mame":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -457,8 +424,6 @@ class Platform_Arcade_Arcade(PlatformCommon):
                     or core == "mame2003_midway_libretro"
             ):
                 extensions = [0]
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -493,8 +458,6 @@ class Platform_Archimedes_Acorn(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == "mame_libretro":
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -527,8 +490,8 @@ class Platform_Archimedes_Acorn(PlatformCommon):
                 emulator = emulator + [files[0]]
             if emulator == "mame":
                 emulator = emulator + ["-flipname", flipfile, files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -540,8 +503,6 @@ class Platform_Archimedes_Acorn(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == "mame_libretro":
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -576,8 +537,6 @@ class Platform_Atari_2600(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -605,8 +564,8 @@ class Platform_Atari_2600(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -618,8 +577,6 @@ class Platform_Atari_2600(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -655,8 +612,6 @@ class Platform_Atari_5200(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -684,8 +639,8 @@ class Platform_Atari_5200(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -697,8 +652,6 @@ class Platform_Atari_5200(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -733,8 +686,6 @@ class Platform_Atari_7800(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -762,8 +713,8 @@ class Platform_Atari_7800(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -775,8 +726,6 @@ class Platform_Atari_7800(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -811,8 +760,6 @@ class Platform_Atari_Jaguar(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -840,8 +787,8 @@ class Platform_Atari_Jaguar(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -853,8 +800,6 @@ class Platform_Atari_Jaguar(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -889,8 +834,6 @@ class Platform_Atari_Lynx(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -918,8 +861,8 @@ class Platform_Atari_Lynx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -931,8 +874,6 @@ class Platform_Atari_Lynx(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -967,10 +908,6 @@ class Platform_Atari_STETTFalcon(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
-        if emulator == self.emulators[2]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -998,8 +935,8 @@ class Platform_Atari_STETTFalcon(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
             if emulator == self.emulators[2]:
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
@@ -1013,10 +950,6 @@ class Platform_Atari_STETTFalcon(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
-        if emulator == self.emulators[2]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1051,8 +984,6 @@ class Platform_Atari_xlxe(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1080,8 +1011,8 @@ class Platform_Atari_xlxe(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1093,8 +1024,6 @@ class Platform_Atari_xlxe(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1129,8 +1058,6 @@ class Platform_Bandai_Wonderswan(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1158,8 +1085,8 @@ class Platform_Bandai_Wonderswan(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1171,8 +1098,6 @@ class Platform_Bandai_Wonderswan(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1210,10 +1135,6 @@ class Platform_Coleco_Colecovision(PlatformCommon):
                 extensions = self.extensions
             if core == self.cores[1]:
                 extensions = [0, 4, "cv", "bin"]
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
-        if emulator == self.emulators[2]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1241,8 +1162,8 @@ class Platform_Coleco_Colecovision(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
             if emulator == self.emulators[2]:
                 emulator = emulator + ["-flipname", flipfile, files[0]]
 
@@ -1258,10 +1179,6 @@ class Platform_Coleco_Colecovision(PlatformCommon):
                 extensions = self.extensions
             if core == self.cores[1]:
                 extensions = [0, 4, "cv", "bin"]
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
-        if emulator == self.emulators[2]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1305,8 +1222,6 @@ class Platform_Commodore_64(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1332,8 +1247,8 @@ class Platform_Commodore_64(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1345,8 +1260,6 @@ class Platform_Commodore_64(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1390,8 +1303,6 @@ class Platform_Commodore_128(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1419,8 +1330,8 @@ class Platform_Commodore_128(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1432,8 +1343,6 @@ class Platform_Commodore_128(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1479,10 +1388,6 @@ class Platform_Commodore_Amiga(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
-        if emulator == self.emulators[2]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1510,10 +1415,8 @@ class Platform_Commodore_Amiga(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
-            if emulator == self.emulators[2]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1525,10 +1428,6 @@ class Platform_Commodore_Amiga(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
-        if emulator == self.emulators[2]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1572,8 +1471,6 @@ class Platform_Commodore_CBMII(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1599,8 +1496,8 @@ class Platform_Commodore_CBMII(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1612,8 +1509,6 @@ class Platform_Commodore_CBMII(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1657,8 +1552,6 @@ class Platform_Commodore_Pet(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1686,8 +1579,8 @@ class Platform_Commodore_Pet(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1699,8 +1592,6 @@ class Platform_Commodore_Pet(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1744,8 +1635,6 @@ class Platform_Commodore_Plus4(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1773,8 +1662,8 @@ class Platform_Commodore_Plus4(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1786,8 +1675,6 @@ class Platform_Commodore_Plus4(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1831,8 +1718,6 @@ class Platform_Commodore_Vic20(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1860,8 +1745,8 @@ class Platform_Commodore_Vic20(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1873,8 +1758,6 @@ class Platform_Commodore_Vic20(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1909,10 +1792,6 @@ class Platform_Elektronika_Pdp11(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
-        if emulator == self.emulators[2]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -1940,10 +1819,8 @@ class Platform_Elektronika_Pdp11(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-            if emulator == self.emulators[2]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -1955,10 +1832,6 @@ class Platform_Elektronika_Pdp11(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
-        if emulator == self.emulators[2]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -1994,8 +1867,6 @@ class Platform_Enterprise_Ep128(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2023,8 +1894,8 @@ class Platform_Enterprise_Ep128(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ["-flipname", flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2036,8 +1907,6 @@ class Platform_Enterprise_Ep128(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2072,8 +1941,6 @@ class Platform_Fairchild_Channelf(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2101,8 +1968,8 @@ class Platform_Fairchild_Channelf(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2114,8 +1981,6 @@ class Platform_Fairchild_Channelf(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2150,8 +2015,6 @@ class Platform_FanCon_Pico8(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2179,8 +2042,8 @@ class Platform_FanCon_Pico8(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2192,8 +2055,6 @@ class Platform_FanCon_Pico8(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2228,8 +2089,6 @@ class Platform_FanCon_Tic80(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2257,8 +2116,8 @@ class Platform_FanCon_Tic80(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2270,8 +2129,6 @@ class Platform_FanCon_Tic80(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2306,8 +2163,6 @@ class Platform_Gamepark_32(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2335,8 +2190,8 @@ class Platform_Gamepark_32(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2348,8 +2203,6 @@ class Platform_Gamepark_32(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2388,8 +2241,6 @@ class Platform_Gamepark_2X(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2415,8 +2266,8 @@ class Platform_Gamepark_2X(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2428,8 +2279,6 @@ class Platform_Gamepark_2X(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2464,8 +2313,6 @@ class Platform_GCE_Vectrex(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2493,8 +2340,8 @@ class Platform_GCE_Vectrex(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2506,8 +2353,6 @@ class Platform_GCE_Vectrex(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2542,8 +2387,6 @@ class Platform_Java_Java(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2571,8 +2414,8 @@ class Platform_Java_Java(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2584,8 +2427,6 @@ class Platform_Java_Java(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2622,8 +2463,6 @@ class Platform_Linux_Linux(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2705,8 +2544,6 @@ class Platform_Magnavox_Odyssey(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2734,8 +2571,8 @@ class Platform_Magnavox_Odyssey(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2747,8 +2584,6 @@ class Platform_Magnavox_Odyssey(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2783,8 +2618,6 @@ class Platform_Mattel_Intellivision(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2812,8 +2645,8 @@ class Platform_Mattel_Intellivision(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2825,8 +2658,6 @@ class Platform_Mattel_Intellivision(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2865,8 +2696,6 @@ class Platform_Microsoft_Msx(PlatformCommon):
                 extensions = self.extensions
             if core == self.cores[1]:
                 extensions = [0, 2, 3, 5, "fdi", 6, 9]
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -2894,8 +2723,8 @@ class Platform_Microsoft_Msx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -2909,8 +2738,6 @@ class Platform_Microsoft_Msx(PlatformCommon):
                 extensions = self.extensions
             if core == self.cores[1]:
                 extensions = [0, 2, 3, 5, "fdi", 6, 9]
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -2928,89 +2755,87 @@ class Platform_Microsoft_Msx(PlatformCommon):
         return ext_files
 
 
-# class Platform_Microsoft_Windows(PlatformCommon):
-#     # Set up the emulator we want to run.
-#     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-#     # Set whether we should run in fullscreens or not.
-#     # Supply A list of extensions that the specified emulator supports.
-#     emulators = ["wine", "proton"]
-#     cores = ["wine"]
-#     extensions = ["exe"]
-#     wineprefix = self.showetdir + '/wineprefix'
+class Platform_Microsoft_Windows(PlatformCommon):
+    # Set up the emulator we want to run.
+    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
+    # Set whether we should run in fullscreens or not.
+    # Supply A list of extensions that the specified emulator supports.
+    emulators = ["wine", "proton"]
+    cores = ["wine"]
+    extensions = ["exe"]
+    wineprefix = self.showetdir + '/wineprefix'
 
-#     def run(self):
-#         emulator = self.emulators[0]
-#         core = self.cores[0]
-#         extensions = self.extensions
-#         wineprefix = self.wineprefix
+    def run(self):
+        emulator = self.emulators[0]
+        core = self.cores[0]
+        extensions = self.extensions
+        wineprefix = self.wineprefix
 
-#         getext(emulator, core, extensions)
+        getext(emulator, core, extensions)
 
-#         if emulator == self.emulators[0]:
-#             exefile = files
-#         if emulator == self.emulators[1]:
-#             exefile = files
+        if emulator == self.emulators[0]:
+            exefile = files
+        if emulator == self.emulators[1]:
+            emulator = emulator + ['-flipname', flipfile, files[0]]
 
-#         print("\tGuessed executable file: " + exefile)
+        print("\tGuessed executable file: " + exefile)
 
-#         exepath = self.datadir + "/" + exefile
+        exepath = self.datadir + "/" + exefile
 
-#         # Setup wine if needed
-#         os.putenv("WINEPREFIX", wineprefix)
+        # Setup wine if needed
+        os.putenv("WINEPREFIX", wineprefix)
 
-#         if not os.path.exists(wineprefix):
-#             os.makedirs(wineprefix)
-#             print("Creating wine prefix: " + str(wineprefix))
-#             os.system('WINEARCH="win64" winecfg')
+        if not os.path.exists(wineprefix):
+            os.makedirs(wineprefix)
+            print("Creating wine prefix: " + str(wineprefix))
+            os.system('WINEARCH="win64" winecfg')
 
-#         # drives = []
-#         # # Support only one for now..
-#         if len(files) > 0:
-#             # Sort the files.
-#             files = self.sort_disks(files)
-#             flipfile = self.datadir + "/fliplist.vfl"
-#             m3ufile = self.datadir + "/fliplist.m3u"
-#             with open(flipfile, "w") as f:
-#                 # f.write("UNIT 8\n")
-#                 for disk in files:
-#                     f.write(disk + "\n")
-#                 f.write("#SAVEDISK:\n")
-#             with open(m3ufile, "w") as f:
-#                 # f.write("UNIT 8\n")
-#                 for disk in files:
-#                     f.write(disk + "\n")
-#                 f.write("#SAVEDISK:\n")
-#             if emulator == self.emulators[0]:
-#                 emulator = emulator + [files[0]]
-#             if emulator == self.emulators[1]:
-#                 emulator = emulator + ["-flipname", flipfile, files[0]]
+        # drives = []
+        # # Support only one for now..
+        if len(files) > 0:
+            # Sort the files.
+            files = self.sort_disks(files)
+            flipfile = self.datadir + "/fliplist.vfl"
+            m3ufile = self.datadir + "/fliplist.m3u"
+            with open(flipfile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            with open(m3ufile, "w") as f:
+                # f.write("UNIT 8\n")
+                for disk in files:
+                    f.write(disk + "\n")
+                f.write("#SAVEDISK:\n")
+            if emulator == self.emulators[0]:
+                emulator = emulator + [files[0]]
+        if emulator == self.emulators[1]:
+            emulator = emulator + ['-flipname', flipfile, files[0]]
 
-#         self.run_process([emulator[0], exepath])
+        self.run_process([emulator[0], exepath])
 
-#     def supported_platforms(self):
-#         return ["windows", "wild"]
+    def supported_platforms(self):
+        return ["windows", "wild"]
 
-#     # Tries to identify files by any magic necessary
-#     def find_ext_files(self, emulator, core, extensions):
-#         if emulator == self.emulators[0]:
-#             exefile = files
-#         if emulator == self.emulators[1]:
-#             exefile = files
+    # Tries to identify files by any magic necessary
+    def find_ext_files(self, emulator, core, extensions):
+        if emulator == self.emulators[0]:
+            exefile = files
 
-#         ext_files = []
-#         for file in self.prod_files:
-#             size = os.path.getsize(file)
-#             if size > 0:
-#                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-#                 ext = []
-#                 for ext in extensions:
-#                     if file.endswith(ext):
-#                         os.chmod(file, stat.S_IEXEC)
-#                         ext_files.append(file)
-#                     if file.endswith(ext.upper()):
-#                         os.chmod(file, stat.S_IEXEC)
-#                         ext_files.append(file)
-#         return ext_files
+        ext_files = []
+        for file in self.prod_files:
+            size = os.path.getsize(file)
+            if size > 0:
+                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
+                ext = []
+                for ext in extensions:
+                    if file.endswith(ext):
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+                    if file.endswith(ext.upper()):
+                        os.chmod(file, stat.S_IEXEC)
+                        ext_files.append(file)
+        return ext_files
 
 
 class Platform_Microsoft_Xbox(PlatformCommon):
@@ -3030,8 +2855,6 @@ class Platform_Microsoft_Xbox(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3059,8 +2882,8 @@ class Platform_Microsoft_Xbox(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3072,8 +2895,6 @@ class Platform_Microsoft_Xbox(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3189,8 +3010,6 @@ class Platform_Nec_Pcengine(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3218,8 +3037,8 @@ class Platform_Nec_Pcengine(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3231,8 +3050,6 @@ class Platform_Nec_Pcengine(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3268,8 +3085,6 @@ class Platform_Nec_Supergrafx(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3297,8 +3112,8 @@ class Platform_Nec_Supergrafx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3310,8 +3125,6 @@ class Platform_Nec_Supergrafx(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3346,8 +3159,6 @@ class Platform_Nec_Pc8000(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3375,8 +3186,8 @@ class Platform_Nec_Pc8000(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3388,8 +3199,6 @@ class Platform_Nec_Pc8000(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensionss
 
         ext_files = []
         for file in self.prod_files:
@@ -3424,8 +3233,6 @@ class Platform_Nec_Pc8800(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3453,8 +3260,8 @@ class Platform_Nec_Pc8800(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3466,8 +3273,6 @@ class Platform_Nec_Pc8800(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3503,8 +3308,6 @@ class Platform_Nec_Pc98(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3532,8 +3335,8 @@ class Platform_Nec_Pc98(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3545,8 +3348,6 @@ class Platform_Nec_Pc98(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3581,8 +3382,6 @@ class Platform_Nec_Pcfx(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3610,8 +3409,8 @@ class Platform_Nec_Pcfx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3623,8 +3422,6 @@ class Platform_Nec_Pcfx(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3660,8 +3457,6 @@ class Platform_Nintendo_3DS(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or core == self.cores[1] or core == self.cores[2] or core == self.cores[3] or core == self.cores[4] or core == self.cores[5]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3689,8 +3484,8 @@ class Platform_Nintendo_3DS(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3702,8 +3497,6 @@ class Platform_Nintendo_3DS(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or core == self.cores[1] or core == self.cores[2] or core == self.cores[3] or core == self.cores[4] or core == self.cores[5]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3740,8 +3533,6 @@ class Platform_Nintendo_N64(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3767,8 +3558,8 @@ class Platform_Nintendo_N64(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3780,8 +3571,6 @@ class Platform_Nintendo_N64(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3816,8 +3605,6 @@ class Platform_Nintendo_DS(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3843,8 +3630,8 @@ class Platform_Nintendo_DS(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3856,8 +3643,6 @@ class Platform_Nintendo_DS(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3895,8 +3680,6 @@ class Platform_Nintendo_Famicom(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -3924,8 +3707,8 @@ class Platform_Nintendo_Famicom(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3937,8 +3720,6 @@ class Platform_Nintendo_Famicom(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -3975,8 +3756,6 @@ class Platform_Nintendo_FamicomDisksystem(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4002,8 +3781,8 @@ class Platform_Nintendo_FamicomDisksystem(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4015,8 +3794,6 @@ class Platform_Nintendo_FamicomDisksystem(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4052,8 +3829,6 @@ class Platform_Nintendo_Gameboy(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4081,8 +3856,8 @@ class Platform_Nintendo_Gameboy(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4094,8 +3869,6 @@ class Platform_Nintendo_Gameboy(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4130,8 +3903,6 @@ class Platform_Nintendo_GameboyColor(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4159,8 +3930,8 @@ class Platform_Nintendo_GameboyColor(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4172,8 +3943,6 @@ class Platform_Nintendo_GameboyColor(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4209,8 +3978,6 @@ class Platform_Nintendo_GameboyAdvance(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4238,8 +4005,8 @@ class Platform_Nintendo_GameboyAdvance(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4251,8 +4018,6 @@ class Platform_Nintendo_GameboyAdvance(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4288,8 +4053,6 @@ class Platform_Nintendo_GameCube(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4317,8 +4080,8 @@ class Platform_Nintendo_GameCube(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4330,8 +4093,6 @@ class Platform_Nintendo_GameCube(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4366,8 +4127,6 @@ class Platform_Nintendo_Pokemini(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4395,8 +4154,8 @@ class Platform_Nintendo_Pokemini(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4408,8 +4167,6 @@ class Platform_Nintendo_Pokemini(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4444,8 +4201,6 @@ class Platform_Nintendo_SuperFamicom(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4473,8 +4228,8 @@ class Platform_Nintendo_SuperFamicom(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4486,8 +4241,6 @@ class Platform_Nintendo_SuperFamicom(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4522,8 +4275,6 @@ class Platform_Nintendo_Virtualboy(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4551,8 +4302,8 @@ class Platform_Nintendo_Virtualboy(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4564,8 +4315,6 @@ class Platform_Nintendo_Virtualboy(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4601,8 +4350,6 @@ class Platform_Nintendo_Wii(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4630,8 +4377,8 @@ class Platform_Nintendo_Wii(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4643,8 +4390,6 @@ class Platform_Nintendo_Wii(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4679,8 +4424,6 @@ class Platform_Palm_PalmOS(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4708,8 +4451,8 @@ class Platform_Palm_PalmOS(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4721,8 +4464,6 @@ class Platform_Palm_PalmOS(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4757,8 +4498,6 @@ class Platform_Panasonic_3do(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4786,8 +4525,8 @@ class Platform_Panasonic_3do(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4799,8 +4538,6 @@ class Platform_Panasonic_3do(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4835,8 +4572,6 @@ class Platform_Phillips_Cdi(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4864,8 +4599,8 @@ class Platform_Phillips_Cdi(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4877,8 +4612,6 @@ class Platform_Phillips_Cdi(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -4914,8 +4647,6 @@ class Platform_Sega_32X(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -4943,8 +4674,8 @@ class Platform_Sega_32X(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4956,8 +4687,6 @@ class Platform_Sega_32X(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5022,8 +4751,8 @@ class Platform_Sega_Dreamcast(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5072,8 +4801,6 @@ class Platform_Sega_GameGear(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5101,8 +4828,8 @@ class Platform_Sega_GameGear(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5114,8 +4841,6 @@ class Platform_Sega_GameGear(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5152,8 +4877,6 @@ class Platform_Sega_Mastersystem(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5181,8 +4904,8 @@ class Platform_Sega_Mastersystem(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5194,8 +4917,6 @@ class Platform_Sega_Mastersystem(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5232,8 +4953,6 @@ class Platform_Sega_Megadrive(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5261,8 +4980,8 @@ class Platform_Sega_Megadrive(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5274,8 +4993,6 @@ class Platform_Sega_Megadrive(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5310,8 +5027,6 @@ class Platform_Sega_Saturn(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5339,8 +5054,8 @@ class Platform_Sega_Saturn(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5352,8 +5067,6 @@ class Platform_Sega_Saturn(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5388,8 +5101,6 @@ class Platform_Sega_Stv(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5417,8 +5128,8 @@ class Platform_Sega_Stv(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5430,8 +5141,6 @@ class Platform_Sega_Stv(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5466,8 +5175,6 @@ class Platform_Sega_Vmu(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5495,8 +5202,8 @@ class Platform_Sega_Vmu(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5508,8 +5215,6 @@ class Platform_Sega_Vmu(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5545,8 +5250,6 @@ class Platform_Sega_SG1000(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5574,8 +5277,8 @@ class Platform_Sega_SG1000(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5587,8 +5290,6 @@ class Platform_Sega_SG1000(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5623,8 +5324,6 @@ class Platform_Sinclair_Zxspectrum(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5652,8 +5351,8 @@ class Platform_Sinclair_Zxspectrum(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5665,8 +5364,6 @@ class Platform_Sinclair_Zxspectrum(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5701,8 +5398,6 @@ class Platform_Sinclair_Zx81(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5711,9 +5406,6 @@ class Platform_Sinclair_Zx81(PlatformCommon):
             print("Using:" + str(emulator))
             emulator.append("-L")
             emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == self.emulators[1]:
-            print("Using:" + str(emulator))
 
         # drives = []
         # # Support only one for now..
@@ -5734,8 +5426,8 @@ class Platform_Sinclair_Zx81(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5747,8 +5439,6 @@ class Platform_Sinclair_Zx81(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5783,8 +5473,6 @@ class Platform_Snk_Neogeo(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5812,8 +5500,8 @@ class Platform_Snk_Neogeo(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5825,8 +5513,6 @@ class Platform_Snk_Neogeo(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5861,8 +5547,6 @@ class Platform_Snk_NeogeoPocket(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5890,8 +5574,8 @@ class Platform_Snk_NeogeoPocket(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5903,8 +5587,6 @@ class Platform_Snk_NeogeoPocket(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -5939,8 +5621,6 @@ class Platform_Snk_NeogeoPocketColor(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -5968,8 +5648,8 @@ class Platform_Snk_NeogeoPocketColor(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5981,8 +5661,6 @@ class Platform_Snk_NeogeoPocketColor(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -6018,8 +5696,6 @@ class Platform_Sony_Ps2(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -6047,8 +5723,8 @@ class Platform_Sony_Ps2(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -6060,8 +5736,6 @@ class Platform_Sony_Ps2(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -6096,8 +5770,6 @@ class Platform_Sony_Psp(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -6125,8 +5797,8 @@ class Platform_Sony_Psp(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -6138,8 +5810,6 @@ class Platform_Sony_Psp(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -6176,8 +5846,6 @@ class Platform_Sony_Psx(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -6205,8 +5873,8 @@ class Platform_Sony_Psx(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -6218,8 +5886,6 @@ class Platform_Sony_Psx(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -6255,8 +5921,6 @@ class Platform_SpectraVision_SpectraVideo(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -6284,8 +5948,8 @@ class Platform_SpectraVision_SpectraVideo(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -6297,8 +5961,6 @@ class Platform_SpectraVision_SpectraVideo(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -6333,8 +5995,6 @@ class Platform_Thomson_MOTO(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -6362,8 +6022,8 @@ class Platform_Thomson_MOTO(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -6375,8 +6035,6 @@ class Platform_Thomson_MOTO(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -6412,8 +6070,6 @@ class Platform_Wild_Gamemusic(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -6454,8 +6110,6 @@ class Platform_Wild_Gamemusic(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -6491,8 +6145,6 @@ class Platform_Wild_VideoFFMPEG(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -6533,8 +6185,6 @@ class Platform_Wild_VideoFFMPEG(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
@@ -6570,8 +6220,6 @@ class Platform_Wild_VideoMPV(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         getext(emulator, core, extensions)
 
@@ -6599,8 +6247,8 @@ class Platform_Wild_VideoMPV(PlatformCommon):
                 f.write("#SAVEDISK:\n")
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+            # if emulator == self.emulators[1]:
+            #     emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -6612,8 +6260,6 @@ class Platform_Wild_VideoMPV(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0] or self.cores[1]:
                 extensions = self.extensions
-        if emulator == self.emulators[1]:
-            extensions = self.extensions
 
         ext_files = []
         for file in self.prod_files:
