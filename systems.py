@@ -5404,7 +5404,7 @@ class Platform_Sinclair_Zx81(PlatformCommon):
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
             print("Using:" + str(emulator))
-emulator.append('-L')
+            emulator.append('-L')
             emulator.append(core[0])
 
         # drives = []

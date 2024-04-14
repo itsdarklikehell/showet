@@ -115,6 +115,46 @@
         "documentation": {}
     },
     {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
         "label": "inquirer",
         "kind": 6,
         "isExtraImport": true,
@@ -1182,6 +1222,96 @@
         "description": "systems.Platform_Atari_7800",
         "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
         "detail": "systems.Platform_Atari_7800",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Atari_Jaguar",
+        "kind": 6,
+        "importPath": "systems.Platform_Atari_Jaguar",
+        "description": "systems.Platform_Atari_Jaguar",
+        "peekOfCode": "class Platform_Atari_Jaguar(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['virtualjaguar_libretro']\n    extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "systems.Platform_Atari_Jaguar",
+        "documentation": {}
+    },
+    {
+        "label": "getext",
+        "kind": 2,
+        "importPath": "systems.Platform_Atari_Jaguar",
+        "description": "systems.Platform_Atari_Jaguar",
+        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
+        "detail": "systems.Platform_Atari_Jaguar",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Atari_Lynx",
+        "kind": 6,
+        "importPath": "systems.Platform_Atari_Lynx",
+        "description": "systems.Platform_Atari_Lynx",
+        "peekOfCode": "class Platform_Atari_Lynx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'mednafen']\n    cores = ['handy_libretro', 'mednafen_lynx_libretro']\n    extensions = ['lnx', 'o']\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "systems.Platform_Atari_Lynx",
+        "documentation": {}
+    },
+    {
+        "label": "getext",
+        "kind": 2,
+        "importPath": "systems.Platform_Atari_Lynx",
+        "description": "systems.Platform_Atari_Lynx",
+        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
+        "detail": "systems.Platform_Atari_Lynx",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Atari_STETTFalcon",
+        "kind": 6,
+        "importPath": "systems.Platform_Atari_STETTFalcon",
+        "description": "systems.Platform_Atari_STETTFalcon",
+        "peekOfCode": "class Platform_Atari_STETTFalcon(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'stella', 'hatari']\n    cores = ['hatari_libretro', 'a5200_libretro']\n    extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "systems.Platform_Atari_STETTFalcon",
+        "documentation": {}
+    },
+    {
+        "label": "getext",
+        "kind": 2,
+        "importPath": "systems.Platform_Atari_STETTFalcon",
+        "description": "systems.Platform_Atari_STETTFalcon",
+        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
+        "detail": "systems.Platform_Atari_STETTFalcon",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Atari_xlxe",
+        "kind": 6,
+        "importPath": "systems.Platform_Atari_xlxe",
+        "description": "systems.Platform_Atari_xlxe",
+        "peekOfCode": "class Platform_Atari_xlxe(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'atari800']\n    cores = ['atari800_libretro']\n    extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "systems.Platform_Atari_xlxe",
+        "documentation": {}
+    },
+    {
+        "label": "getext",
+        "kind": 2,
+        "importPath": "systems.Platform_Atari_xlxe",
+        "description": "systems.Platform_Atari_xlxe",
+        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
+        "detail": "systems.Platform_Atari_xlxe",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Bandai_Wonderswan",
+        "kind": 6,
+        "importPath": "systems.Platform_Bandai_Wonderswan",
+        "description": "systems.Platform_Bandai_Wonderswan",
+        "peekOfCode": "class Platform_Bandai_Wonderswan(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mednafen\"]\n    cores = [\"mednafen_wswan_libretro\"]\n    extensions = [\"zip\", \"ws\", \"wsc\", \"pc2\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "systems.Platform_Bandai_Wonderswan",
+        "documentation": {}
+    },
+    {
+        "label": "getext",
+        "kind": 2,
+        "importPath": "systems.Platform_Bandai_Wonderswan",
+        "description": "systems.Platform_Bandai_Wonderswan",
+        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
+        "detail": "systems.Platform_Bandai_Wonderswan",
         "documentation": {}
     },
     {
