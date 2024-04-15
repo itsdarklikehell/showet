@@ -263,6 +263,48 @@ uninstall_executable: FORCE
 
 install_pymodules: FORCE
 	@test -d $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet || mkdir -p $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet
+	$(QINSTALL) /home/rizzo/showet/Platform_Amstrad_Cpcplus.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Amstrad_Cpcplus.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Apple_AppleI.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Apple_AppleI.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Apple_AppleII.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Apple_AppleII.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Apple_AppleIIGS.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Apple_AppleIIGS.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Arcade_Arcade.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Arcade_Arcade.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Archimedes_Acorn.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Archimedes_Acorn.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Atari_2600.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_2600.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Atari_5200.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_5200.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Atari_7800.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_7800.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Atari_Jaguar.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_Jaguar.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Atari_Lynx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_Lynx.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Atari_STETTFalcon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_STETTFalcon.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Atari_xlxe.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_xlxe.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Bandai_Wonderswan.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Bandai_Wonderswan.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Commodore_128.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_128.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Commodore_64.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_64.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Commodore_Amiga.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_Amiga.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Commodore_CBMII.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_CBMII.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Commodore_Pet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_Pet.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Commodore_Plus4.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_Plus4.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Commodore_Vic20.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_Vic20.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Elektronika_Pdp11.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Elektronika_Pdp11.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Enterprise_Ep128.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Enterprise_Ep128.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Fairchild_Channelf.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Fairchild_Channelf.py
+	$(QINSTALL) /home/rizzo/showet/Platform_FanCon_Pico8.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_FanCon_Pico8.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Gamepark_2X.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Gamepark_2X.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Gamepark_32.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Gamepark_32.py
+	$(QINSTALL) /home/rizzo/showet/Platform_GCE_Vectrex.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_GCE_Vectrex.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Java_Java.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Java_Java.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Linux_Linux.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Linux_Linux.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Magnavox_Odyssey.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Magnavox_Odyssey.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Mattel_Intellivision.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Mattel_Intellivision.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Microsoft_Msdos.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Microsoft_Msdos.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Microsoft_Msx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Microsoft_Msx.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Microsoft_Windows.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Microsoft_Windows.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Microsoft_Xbox.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Microsoft_Xbox.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nec_Pc8000.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pc8000.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nec_Pc8800.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pc8800.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nec_Pc98.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pc98.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nec_Pcengine.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pcengine.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nec_Pcfx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pcfx.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nec_Supergrafx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Supergrafx.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
@@ -272,6 +314,48 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Supergrafx.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pcfx.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pcengine.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pc98.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pc8800.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pc8000.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Microsoft_Xbox.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Microsoft_Windows.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Microsoft_Msx.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Microsoft_Msdos.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Mattel_Intellivision.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Magnavox_Odyssey.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Linux_Linux.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Java_Java.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_GCE_Vectrex.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Gamepark_32.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Gamepark_2X.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_FanCon_Pico8.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Fairchild_Channelf.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Enterprise_Ep128.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Elektronika_Pdp11.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_Vic20.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_Plus4.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_Pet.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_CBMII.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_Amiga.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_64.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Commodore_128.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Bandai_Wonderswan.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_xlxe.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_STETTFalcon.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_Lynx.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_Jaguar.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_7800.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_5200.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Atari_2600.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Archimedes_Acorn.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Arcade_Arcade.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Apple_AppleIIGS.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Apple_AppleII.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Apple_AppleI.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Amstrad_Cpcplus.py
 	-$(DEL_DIR) $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/ 
 
 

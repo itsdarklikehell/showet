@@ -6,6 +6,8 @@ import os.path
 import patoolib
 import urllib.request
 
+from Platform_Amstrad_Cpcplus import Platform_Amstrad_Cpcplus
+
 from Platform_Microsoft_Windows import Platform_Microsoft_Windows
 from Platform_Commodore_64 import Platform_Commodore_64
 

@@ -449,6 +449,14 @@
         "documentation": {}
     },
     {
+        "label": "Platform_Amstrad_Cpcplus",
+        "importPath": "Platform_Amstrad_Cpcplus",
+        "description": "Platform_Amstrad_Cpcplus",
+        "isExtraImport": true,
+        "detail": "Platform_Amstrad_Cpcplus",
+        "documentation": {}
+    },
+    {
         "label": "Platform_Microsoft_Windows",
         "importPath": "Platform_Microsoft_Windows",
         "description": "Platform_Microsoft_Windows",
