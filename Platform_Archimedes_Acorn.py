@@ -1,28 +1,6 @@
-import os
-import os.path
-import stat
-
 from platformcommon import PlatformCommon
-
-
-def getext(self, emulator, core, extensions):
-    ext = []
-    for ext in extensions:
-        # Tries to identify files by the list of extensions.
-        files = self.find_files_with_extension(ext)
-    if len(files) == 0:
-        # Tries to identify files by the list of extensions in UPPERCASE.
-        files = self.find_files_with_extension(ext.upper())
-    if len(files) == 0:
-        # Tries to identify files by any magic necessary.
-        files = self.find_ext_files(emulator, core)
-    if len(files) == 0:
-        # Tries to identify files by any magic necessary.
-        files = self.find_magic_cookies()
-    if len(files) == 0:
-        print("Didn't find any runnable files.")
-        exit(-1)
-
+import os
+import stat
 
 class Platform_Archimedes_Acorn(PlatformCommon):
     # Set up the emulator we want to run.
@@ -33,6 +11,7 @@ class Platform_Archimedes_Acorn(PlatformCommon):
     cores = ['mame_libretro', 'mame2016_libretro']
     extensions = ['zip', 'chd', '7z', 'cmd']
 
+
     def run(self):
         emulator = self.emulators[0]
         core = self.cores[0]
@@ -42,7 +21,22 @@ class Platform_Archimedes_Acorn(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -56,6 +50,7 @@ class Platform_Archimedes_Acorn(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -66,10 +61,11 @@ class Platform_Archimedes_Acorn(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -81,7 +77,7 @@ class Platform_Archimedes_Acorn(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-                
+
         ext_files = []
         for file in self.prod_files:
             size = os.path.getsize(file)
@@ -92,6 +88,7 @@ class Platform_Archimedes_Acorn(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)

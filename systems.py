@@ -5,3440 +5,6 @@ import stat
 from platformcommon import PlatformCommon
 
 
-def getext(self, emulator, core, extensions):
-    ext = []
-    for ext in extensions:
-        # Tries to identify files by the list of extensions.
-        files = self.find_files_with_extension(ext)
-    if len(files) == 0:
-        # Tries to identify files by the list of extensions in UPPERCASE.
-        files = self.find_files_with_extension(ext.upper())
-    if len(files) == 0:
-        # Tries to identify files by any magic necessary.
-        files = self.find_ext_files(emulator, core)
-    if len(files) == 0:
-        # Tries to identify files by any magic necessary.
-        files = self.find_magic_cookies()
-    if len(files) == 0:
-        print("Didn't find any runnable files.")
-        exit(-1)
-
-
-class Platform_Amstrad_Cpcplus(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "zesarux"]
-    cores = ["crocods_libretro", "cap32_libretro"]
-    extensions = ["dsk", "sna", "kcr", "zip",
-                  "tap", "cdt", "voc", "cpr", "m3u"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["amstradplus", "amstradcpc"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Apple_AppleI(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "linapple", "basilisk"]
-    cores = ["minivmac_libretro"]
-    extensions = ["dsk", "img", "zip", "hvf", "cmd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["appleii", "appleiigs"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Apple_AppleII(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "linapple", "basilisk"]
-    cores = ["minivmac_libretro"]
-    extensions = ["dsk", "img", "zip", "hvf", "cmd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["appleii", "appleiigs"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == "minivmac_libretro":
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Apple_AppleIIGS(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "linapple", "basilisk"]
-    cores = ["minivmac_libretro"]
-    extensions = ["dsk", "img", "zip", "hvf", "cmd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == "linapple":
-            print("Using: " + str(emulator))
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            if emulator == "linapple":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["appleii", "appleiigs"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == "minivmac_libretro":
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Arcade_Arcade(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "MAME", "MESS"]
-    cores = ["mame_libretro", "mamemess_libretro"]
-    extensions = ["zip", "chd", "7z", "cmd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if (
-                    core == "mame_libretro"
-                    or core == "mame2015_libretro"
-                    or core == "mame2016_libretro"
-                    or core == "mamearcade_libretro"
-                    or core == "hbmame_libretro"
-            ):
-                extensions = self.extensions
-            if (
-                    core == "mame2000_libretro"
-                    or core == "mame2010_libretro"
-                    or core == "mame2009_libretro"
-            ):
-                extensions = [0, 1, 2]
-            if (
-                    core == "mame2003_libretro"
-                    or core == "mame2003_plus_libretro"
-                    or core == "mame2003_midway_libretro"
-            ):
-                extensions = [0]
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == "mame":
-            print("Using: " + str(emulator))
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            if emulato == "mame":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["arcade"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if (
-                    core == "mame_libretro"
-                    or core == "mame2015_libretro"
-                    or core == "mame2016_libretro"
-                    or core == "mamearcade_libretro"
-                    or core == "hbmame_libretro"
-            ):
-                extensions = self.extensions
-            if (
-                    core == "mame2000_libretro"
-                    or core == "mame2010_libretro"
-                    or core == "mame2009_libretro"
-            ):
-                extensions = [0, 1, 2]
-            if (
-                    core == "mame2003_libretro"
-                    or core == "mame2003_plus_libretro"
-                    or core == "mame2003_midway_libretro"
-            ):
-                extensions = [0]
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Archimedes_Acorn(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["mame_libretro", "mame2016_libretro"]
-    extensions = ["zip", "chd", "7z", "cmd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == "mame_libretro":
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-        # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
-        if emulator == "mame":
-            print("Using: " + str(emulator))
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            if emulator == "mame":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["acorn"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == "mame_libretro":
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Atari_2600(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'stella']
-    cores = ['stella2014_libretro', 'stella_libretro']
-    extensions = ['zip', 'a26', 'bin']
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['atarivcs']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Atari_5200(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'atari800']
-    cores = ['atari800_libretro']
-    extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',
-                  'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['atarixlxe']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Atari_7800(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'prosystem']
-    cores = ['prosystem_libretro']
-    extensions = ['zip', 'a78', 'bin', 'cdf']
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['atari7800']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Atari_Jaguar(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['virtualjaguar_libretro']
-    extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['atarijaguar']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Atari_Lynx(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'mednafen']
-    cores = ['handy_libretro', 'mednafen_lynx_libretro']
-    extensions = ['lnx', 'o']
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['atarilynx']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Atari_STETTFalcon(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'stella', 'hatari']
-    cores = ['hatari_libretro', 'a5200_libretro']
-    extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-            if emulator == self.emulators[2]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['atarifalcon030', 'atarist', 'atariste', 'ataritt030']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Atari_xlxe(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'atari800']
-    cores = ['atari800_libretro']
-    extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['atarixlxe']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Bandai_Wonderswan(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "mednafen"]
-    cores = ["mednafen_wswan_libretro"]
-    extensions = ["zip", "ws", "wsc", "pc2"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["wonderswan", "wonderswancolor"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Coleco_Colecovision(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "bluemsx", "gearcoleco"]
-    cores = ["bluemsx_libretro", "gearcoleco_libretro"]
-    extensions = ["rom", "ri", "mx1", "mx2",
-                  "col", "dsk", "cas", "sg", "sc", "m3u"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-            if core == self.cores[1]:
-                extensions = [0, 4, "cv", "bin"]
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-            if emulator == self.emulators[2]:
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["Coleco", "Colecovision"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-            if core == self.cores[1]:
-                extensions = [0, 4, "cv", "bin"]
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Commodore_64(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch" "x64sc"]
-    cores = ['vice_x64sc_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',
-                   'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    tapes_ext = ['t64', 'tap', 'tcrt']
-    roms_ext = ['prg', 'p00', 'crt', 'bin']
-    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    extensions = []
-    extensions.extend(floppys_ext)
-    extensions.extend(tapes_ext)
-    extensions.extend(roms_ext)
-    extensions.extend(vic20_ext)
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['commodore64']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Commodore_128(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'vice']
-    cores = ['vice_x128_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    tapes_ext = ['t64', 'tap', 'tcrt']
-    roms_ext = ['prg', 'p00', 'crt', 'bin']
-    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    extensions = []
-    extensions.extend(floppys_ext)
-    extensions.extend(tapes_ext)
-    extensions.extend(roms_ext)
-    extensions.extend(vic20_ext)
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['commodore128']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Commodore_Amiga(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'puae', 'fs-uae']
-    cores = ['puae2021_libretro', 'puae_libretro',
-             'fsuae_libretro', 'uae4arm_libretro']
-    floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']
-    harddrives_ext = ['hdf', 'hdz', 'datadir']
-    whdload_ext = ['lha', 'slave', 'info']
-    cd_ext = ['cue', 'ccd', 'nrg', 'mds', 'iso']
-    other = ['uae', 'm3u', 'zip', '7z']
-    extensions = []
-    extensions.append(other)
-    extensions.append(floppys_ext)
-    extensions.append(harddrives_ext)
-    extensions.append(whdload_ext)
-    extensions.append(cd_ext)
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['amigaocsecs', 'amigaaga', 'amigappcrtg']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Commodore_CBMII(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'vice']
-    cores = ['vice_xcbm2_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    tapes_ext = ['t64', 'tap', 'tcrt']
-    roms_ext = ['prg', 'p00', 'crt', 'bin']
-    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    extensions = []
-    extensions.extend(floppys_ext)
-    extensions.extend(tapes_ext)
-    extensions.extend(roms_ext)
-    extensions.extend(vic20_ext)
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['commodorecbm']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Commodore_Pet(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'vice']
-    cores = ['vice_xpet_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    tapes_ext = ['t64', 'tap', 'tcrt']
-    roms_ext = ['prg', 'p00', 'crt', 'bin']
-    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    extensions = []
-    extensions.extend(floppys_ext)
-    extensions.extend(tapes_ext)
-    extensions.extend(roms_ext)
-    extensions.extend(vic20_ext)
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['commodorepet']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Commodore_Plus4(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'vice']
-    cores = ['vice_xplus4_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    tapes_ext = ['t64', 'tap', 'tcrt']
-    roms_ext = ['prg', 'p00', 'crt', 'bin']
-    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    extensions = []
-    extensions.extend(floppys_ext)
-    extensions.extend(tapes_ext)
-    extensions.extend(roms_ext)
-    extensions.extend(vic20_ext)
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['commodoreplus4', 'c16116plus4']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Commodore_Vic20(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'vice']
-    cores = ['vice_xvic_libretro']
-    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',
-                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']
-    tapes_ext = ['t64', 'tap', 'tcrt']
-    roms_ext = ['prg', 'p00', 'crt', 'bin']
-    vic20_ext = ['20', '40', '60', 'a0', 'b0', 'rom']
-    extensions = []
-    extensions.extend(floppys_ext)
-    extensions.extend(tapes_ext)
-    extensions.extend(roms_ext)
-    extensions.extend(vic20_ext)
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['vic20']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Elektronika_Pdp11(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "bk", "m"]
-    cores = ["bk_libretro"]
-    extensions = ["bin"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ["-flipname", flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["bk001010", "bk001011m"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Enterprise_Ep128(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "ep128"]
-    cores = ["ep128emu_libretro"]
-    extensions = ["zip", "img", "dsk", "tap", "dtf", "com",
-                  "trn", "128", "bas", "cas", "cdt", "tzx", "."]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ["-flipname", flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["enterprise"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Fairchild_Channelf(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "freechaf"]
-    cores = ["freechaf_libretro"]
-    extensions = ["zip", "bin", "chf"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["fairchild", "channelf"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_FanCon_Pico8(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "retro8"]
-    cores = ["retro8_libretro"]
-    extensions = ["zip", "p8", "png"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["pico8"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_FanCon_Tic80(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'tic80']
-    cores = ['tic80_libretro']
-    extensions = ['zip', 'tic']
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ['tic80']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Gamepark_32(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "mame"]
-    cores = ["mame_libretro"]
-    extensions = ["zip", "chd", "7z", "cmd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["gameparkgp32"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Gamepark_2X(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "mame"]
-    cores = ["mame_libretro"]
-    extensions = ["zip", "chd", "7z", "cmd"]
-
-    def run(self):
-        # Set up the emulator we want to run.
-        # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-        # Set whether we should run in fullscreens or not.
-        # Supply A list of extensions that the specified emulator supports.
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["gameparkgp2x"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_GCE_Vectrex(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "vecx"]
-    cores = ["vecx_libretro"]
-    extensions = ["zip", "bin", "vec"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["vectrex"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Java_Java(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "squirreljme"]
-    cores = ["squirreljme_libretro"]
-    extensions = ["zip", "jar", "sqc", "jam", "jad", "kjx"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["java", "javascript"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Linux_Linux(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["linux"]
-    cores = ["linux"]
-    extensions = ["elf", "exe"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-        emulator = "bash"
-        core = "bash"
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # cd to the datadir
-        os.chdir(self.datadir)
-
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-
-        # check if there are multiple executable files in the datadir
-        if len(files) > 1:
-            print(
-                "Found multiple executables: ", files, " - not sure which one to run!"
-            )
-            exit(-1)
-        else:
-            print("Running ", files[0])
-            emulator = emulator + [files[0]]
-
-            self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["linux", "freebsd", "raspberrypi"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == "bash":
-            if core == "bash":
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Magnavox_Odyssey(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "o2em"]
-    cores = ["o2em_libretro"]
-    extensions = ["zip", "bin"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["intellivision"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Mattel_Intellivision(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "freeintv"]
-    cores = ["freeintv_libretro", "jzintv", "jzintv-ecs"]
-    extensions = ["int", "bin", "rom"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["intellivision"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Microsoft_Msx(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "openmsx", "openmsx-msx2",
-                 "openmsx-msx2-plus", "openmsx-msx-turbo",]
-    cores = ["bluemsx_libretro", "fbneo_msx_libretro", "fmsx_libretro"]
-    extensions = ["rom", "ri", "mx1", "mx2",
-                  "col", "dsk", "cas", "sg", "sc", "m3u"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-            if core == self.cores[1]:
-                extensions = [0, 2, 3, 5, "fdi", 6, 9]
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["msx", "msx2", "msx2plus", "msxturbor", "spectravideo3x8"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-            if core == self.cores[1]:
-                extensions = [0, 2, 3, 5, "fdi", 6, 9]
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Microsoft_Windows(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["wine", "proton"]
-    cores = ["wine"]
-    extensions = ["exe"]
-    wineprefix = self.showetdir + '/wineprefix'
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-        wineprefix = self.wineprefix
-
-        getext(emulator, core, extensions)
-
-        if emulator == self.emulators[0]:
-            exefile = files
-        if emulator == self.emulators[1]:
-            emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        print("\tGuessed executable file: " + exefile)
-
-        exepath = self.datadir + "/" + exefile
-
-        # Setup wine if needed
-        os.putenv("WINEPREFIX", wineprefix)
-
-        if not os.path.exists(wineprefix):
-            os.makedirs(wineprefix)
-            print("Creating wine prefix: " + str(wineprefix))
-            os.system('WINEARCH="win64" winecfg')
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-        if emulator == self.emulators[1]:
-            emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process([emulator[0], exepath])
-
-    def supported_platforms(self):
-        return ["windows", "wild"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core, extensions):
-        if emulator == self.emulators[0]:
-            exefile = files
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Microsoft_Xbox(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["directxbox_libretro"]
-    extensions = ["zip", "iso"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["xbox"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Microsoft_Msdos(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "dosbox"]
-    cores = ["dosbox_core_libretro", "dosbox_pure_libretro",
-             "dosbox_svn_libretro", "dosbox_svn_ce_libretro"]
-    extensions = ["zip", "dosz", "exe", "com", "bat", "iso", "cue",
-                  "ins", "img", "ima", "vhd", "jrc", "tc", "m3u", "m3u8"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[2] or self.cores[3]:
-                extensions = [2, 3, 5, "conf", 5, 6]
-            if core == self.cores[1]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            if emulator == "dosbox":
-                emulator = emulator + ["-flipname", flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["msdos", "msdosgus", "wild"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[2] or self.cores[3]:
-                extensions = [2, 3, 5, "conf", 5, 6]
-            if core == self.cores[1]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Nec_Pcengine(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["mednafen_supergrafx_libretro", "mednafen_pce_fast_libretro",
-             "fbneo_pce_libretro", "fbneo_sgx_libretro", "fbneo_tg_libretro"]
-    extensions = ["zip", "pce", "sgx", "cue", "ccd", "chd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["necturbografxpcengine"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Nec_Supergrafx(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["mednafen_supergrafx_libretro", "mednafen_pce_fast_libretro",
-             "fbneo_pce_libretro", "fbneo_sgx_libretro", "fbneo_tg_libretro",]
-    extensions = ["zip", "pce", "sgx", "cue", "ccd", "chd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["necturbografxpcengine"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Nec_Pc8000(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["quasi88_libretro"]
-    extensions = ["zip", "pce", "sgx", "cue", "ccd", "chd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["pc8000", "pc8800"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Nec_Pc8800(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["quasi88_libretro"]
-    extensions = ["d88", "u88", "m3u"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["pc8800"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Nec_Pc98(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["nekop2_libretro"]
-    extensions = ["d98", "zip", "98d", "fdi", "fdd", "2hd", "tfd", "d88",
-                  "88d", "hdm", "xdf", "dup", "cmd", "hdi", "thd", "nhd", "hdd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["pc-98"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
-class Platform_Nec_Pcfx(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ["retroarch", "other"]
-    cores = ["mednafen_pcfx_libretro"]
-    extensions = ["cue", "ccd", "toc", "chd"]
-
-    def run(self):
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
-
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        getext(emulator, core, extensions)
-
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
-
-        # drives = []
-        # # Support only one for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
-
-        self.run_process(emulator)
-
-    def supported_platforms(self):
-        return ["pcfx"]
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
-
-        ext_files = []
-        for file in self.prod_files:
-            size = os.path.getsize(file)
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
-
-
 class Platform_Nintendo_3DS(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -3458,7 +24,22 @@ class Platform_Nintendo_3DS(PlatformCommon):
             if core == self.cores[0] or core == self.cores[1] or core == self.cores[2] or core == self.cores[3] or core == self.cores[4] or core == self.cores[5]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -3472,6 +53,7 @@ class Platform_Nintendo_3DS(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -3482,10 +64,11 @@ class Platform_Nintendo_3DS(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3508,6 +91,7 @@ class Platform_Nintendo_3DS(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -3534,7 +118,22 @@ class Platform_Nintendo_N64(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -3582,6 +181,7 @@ class Platform_Nintendo_N64(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -3606,7 +206,22 @@ class Platform_Nintendo_DS(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -3654,6 +269,7 @@ class Platform_Nintendo_DS(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -3681,7 +297,22 @@ class Platform_Nintendo_Famicom(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -3695,6 +326,7 @@ class Platform_Nintendo_Famicom(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -3705,10 +337,11 @@ class Platform_Nintendo_Famicom(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3731,6 +364,7 @@ class Platform_Nintendo_Famicom(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -3757,7 +391,22 @@ class Platform_Nintendo_FamicomDisksystem(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -3805,6 +454,7 @@ class Platform_Nintendo_FamicomDisksystem(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -3830,7 +480,22 @@ class Platform_Nintendo_Gameboy(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -3844,6 +509,7 @@ class Platform_Nintendo_Gameboy(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -3854,10 +520,11 @@ class Platform_Nintendo_Gameboy(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3880,6 +547,7 @@ class Platform_Nintendo_Gameboy(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -3904,7 +572,22 @@ class Platform_Nintendo_GameboyColor(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -3918,6 +601,7 @@ class Platform_Nintendo_GameboyColor(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -3928,10 +612,11 @@ class Platform_Nintendo_GameboyColor(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -3954,6 +639,7 @@ class Platform_Nintendo_GameboyColor(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -3979,7 +665,22 @@ class Platform_Nintendo_GameboyAdvance(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -3993,6 +694,7 @@ class Platform_Nintendo_GameboyAdvance(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4003,10 +705,11 @@ class Platform_Nintendo_GameboyAdvance(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4029,6 +732,7 @@ class Platform_Nintendo_GameboyAdvance(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4054,7 +758,22 @@ class Platform_Nintendo_GameCube(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4068,6 +787,7 @@ class Platform_Nintendo_GameCube(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4078,10 +798,11 @@ class Platform_Nintendo_GameCube(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4104,6 +825,7 @@ class Platform_Nintendo_GameCube(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4128,7 +850,22 @@ class Platform_Nintendo_Pokemini(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4142,6 +879,7 @@ class Platform_Nintendo_Pokemini(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4152,10 +890,11 @@ class Platform_Nintendo_Pokemini(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4178,6 +917,7 @@ class Platform_Nintendo_Pokemini(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4202,7 +942,22 @@ class Platform_Nintendo_SuperFamicom(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4216,6 +971,7 @@ class Platform_Nintendo_SuperFamicom(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4226,10 +982,11 @@ class Platform_Nintendo_SuperFamicom(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4252,6 +1009,7 @@ class Platform_Nintendo_SuperFamicom(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4276,7 +1034,22 @@ class Platform_Nintendo_Virtualboy(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are not running retroarch, and we need to provide some arguments to the emulator we can do so here:
         if emulator == self.emulators[0]:
@@ -4290,6 +1063,7 @@ class Platform_Nintendo_Virtualboy(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4300,10 +1074,11 @@ class Platform_Nintendo_Virtualboy(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4326,6 +1101,7 @@ class Platform_Nintendo_Virtualboy(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4351,7 +1127,22 @@ class Platform_Nintendo_Wii(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4365,6 +1156,7 @@ class Platform_Nintendo_Wii(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4375,10 +1167,11 @@ class Platform_Nintendo_Wii(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4401,6 +1194,7 @@ class Platform_Nintendo_Wii(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4425,7 +1219,22 @@ class Platform_Palm_PalmOS(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4439,6 +1248,7 @@ class Platform_Palm_PalmOS(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4449,10 +1259,11 @@ class Platform_Palm_PalmOS(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4475,6 +1286,7 @@ class Platform_Palm_PalmOS(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4496,10 +1308,25 @@ class Platform_Panasonic_3do(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4513,6 +1340,7 @@ class Platform_Panasonic_3do(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4523,10 +1351,11 @@ class Platform_Panasonic_3do(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4536,7 +1365,7 @@ class Platform_Panasonic_3do(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         ext_files = []
@@ -4549,6 +1378,7 @@ class Platform_Panasonic_3do(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4570,10 +1400,25 @@ class Platform_Phillips_Cdi(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4587,6 +1432,7 @@ class Platform_Phillips_Cdi(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4597,10 +1443,11 @@ class Platform_Phillips_Cdi(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4610,7 +1457,7 @@ class Platform_Phillips_Cdi(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         ext_files = []
@@ -4623,6 +1470,7 @@ class Platform_Phillips_Cdi(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4645,10 +1493,25 @@ class Platform_Sega_32X(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4662,6 +1525,7 @@ class Platform_Sega_32X(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4672,10 +1536,11 @@ class Platform_Sega_32X(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4685,7 +1550,7 @@ class Platform_Sega_32X(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         ext_files = []
@@ -4698,6 +1563,7 @@ class Platform_Sega_32X(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4720,12 +1586,25 @@ class Platform_Sega_Dreamcast(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
-            if core == self.cores[1]:
-                extensions = self.extensions[0, 1, 5]
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4739,6 +1618,7 @@ class Platform_Sega_Dreamcast(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4749,10 +1629,11 @@ class Platform_Sega_Dreamcast(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4762,10 +1643,8 @@ class Platform_Sega_Dreamcast(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
-            if core == self.cores[1]:
-                extensions = self.extensions[0, 1, 5]
 
         ext_files = []
         for file in self.prod_files:
@@ -4777,6 +1656,7 @@ class Platform_Sega_Dreamcast(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4802,7 +1682,22 @@ class Platform_Sega_GameGear(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4816,6 +1711,7 @@ class Platform_Sega_GameGear(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4826,10 +1722,11 @@ class Platform_Sega_GameGear(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4852,6 +1749,7 @@ class Platform_Sega_GameGear(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4878,7 +1776,22 @@ class Platform_Sega_Mastersystem(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4892,6 +1805,7 @@ class Platform_Sega_Mastersystem(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4902,10 +1816,11 @@ class Platform_Sega_Mastersystem(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -4928,6 +1843,7 @@ class Platform_Sega_Mastersystem(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -4939,7 +1855,7 @@ class Platform_Sega_Megadrive(PlatformCommon):
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
     # Set whether we should run in fullscreens or not.
     # Supply A list of extensions that the specified emulator supports.
-    # emulators = ['retroarch', 'dgen']
+    emulators = ['retroarch', 'dgen']
     cores = ['genesis_plus_gx_libretro',
              'fbneo_md_libretro', 'picodrive_libretro']
     extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',
@@ -4954,7 +1870,22 @@ class Platform_Sega_Megadrive(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -4968,6 +1899,7 @@ class Platform_Sega_Megadrive(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -4978,10 +1910,11 @@ class Platform_Sega_Megadrive(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5004,6 +1937,7 @@ class Platform_Sega_Megadrive(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5028,7 +1962,22 @@ class Platform_Sega_Saturn(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5042,6 +1991,7 @@ class Platform_Sega_Saturn(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5052,10 +2002,11 @@ class Platform_Sega_Saturn(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5078,6 +2029,7 @@ class Platform_Sega_Saturn(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5102,7 +2054,22 @@ class Platform_Sega_Stv(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5116,6 +2083,7 @@ class Platform_Sega_Stv(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5126,10 +2094,11 @@ class Platform_Sega_Stv(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5152,6 +2121,7 @@ class Platform_Sega_Stv(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5176,7 +2146,22 @@ class Platform_Sega_Vmu(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5190,6 +2175,7 @@ class Platform_Sega_Vmu(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5200,10 +2186,11 @@ class Platform_Sega_Vmu(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5226,6 +2213,7 @@ class Platform_Sega_Vmu(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5251,7 +2239,22 @@ class Platform_Sega_SG1000(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5265,6 +2268,7 @@ class Platform_Sega_SG1000(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5275,10 +2279,11 @@ class Platform_Sega_SG1000(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5301,6 +2306,7 @@ class Platform_Sega_SG1000(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5325,7 +2331,22 @@ class Platform_Sinclair_Zxspectrum(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5339,6 +2360,7 @@ class Platform_Sinclair_Zxspectrum(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5349,10 +2371,11 @@ class Platform_Sinclair_Zxspectrum(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5375,6 +2398,7 @@ class Platform_Sinclair_Zxspectrum(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5399,7 +2423,22 @@ class Platform_Sinclair_Zx81(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5414,6 +2453,7 @@ class Platform_Sinclair_Zx81(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5424,10 +2464,11 @@ class Platform_Sinclair_Zx81(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5450,6 +2491,7 @@ class Platform_Sinclair_Zx81(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5474,7 +2516,22 @@ class Platform_Snk_Neogeo(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5488,6 +2545,7 @@ class Platform_Snk_Neogeo(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5498,10 +2556,11 @@ class Platform_Snk_Neogeo(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5524,6 +2583,7 @@ class Platform_Snk_Neogeo(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5548,7 +2608,22 @@ class Platform_Snk_NeogeoPocket(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5562,6 +2637,7 @@ class Platform_Snk_NeogeoPocket(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5572,10 +2648,11 @@ class Platform_Snk_NeogeoPocket(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5598,6 +2675,7 @@ class Platform_Snk_NeogeoPocket(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5622,7 +2700,22 @@ class Platform_Snk_NeogeoPocketColor(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5636,6 +2729,7 @@ class Platform_Snk_NeogeoPocketColor(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5646,10 +2740,11 @@ class Platform_Snk_NeogeoPocketColor(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5672,6 +2767,7 @@ class Platform_Snk_NeogeoPocketColor(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5697,7 +2793,22 @@ class Platform_Sony_Ps2(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5711,6 +2822,7 @@ class Platform_Sony_Ps2(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5721,10 +2833,11 @@ class Platform_Sony_Ps2(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5747,6 +2860,7 @@ class Platform_Sony_Ps2(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5771,7 +2885,22 @@ class Platform_Sony_Psp(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5785,6 +2914,7 @@ class Platform_Sony_Psp(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5795,10 +2925,11 @@ class Platform_Sony_Psp(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5821,6 +2952,7 @@ class Platform_Sony_Psp(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5847,7 +2979,22 @@ class Platform_Sony_Psx(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5861,6 +3008,7 @@ class Platform_Sony_Psx(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5871,10 +3019,11 @@ class Platform_Sony_Psx(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5897,6 +3046,7 @@ class Platform_Sony_Psx(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5922,7 +3072,22 @@ class Platform_SpectraVision_SpectraVideo(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -5936,6 +3101,7 @@ class Platform_SpectraVision_SpectraVideo(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -5946,10 +3112,11 @@ class Platform_SpectraVision_SpectraVideo(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -5972,6 +3139,7 @@ class Platform_SpectraVision_SpectraVideo(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -5993,10 +3161,25 @@ class Platform_Thomson_MOTO(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -6010,6 +3193,7 @@ class Platform_Thomson_MOTO(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -6020,10 +3204,11 @@ class Platform_Thomson_MOTO(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -6033,7 +3218,7 @@ class Platform_Thomson_MOTO(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         ext_files = []
@@ -6046,6 +3231,7 @@ class Platform_Thomson_MOTO(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -6068,10 +3254,25 @@ class Platform_Wild_Gamemusic(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -6108,7 +3309,7 @@ class Platform_Wild_Gamemusic(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         ext_files = []
@@ -6121,6 +3322,7 @@ class Platform_Wild_Gamemusic(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -6143,10 +3345,25 @@ class Platform_Wild_VideoFFMPEG(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -6183,7 +3400,7 @@ class Platform_Wild_VideoFFMPEG(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         ext_files = []
@@ -6196,6 +3413,7 @@ class Platform_Wild_VideoFFMPEG(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
@@ -6218,10 +3436,25 @@ class Platform_Wild_VideoMPV(PlatformCommon):
         extensions = self.extensions
 
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
-        getext(emulator, core, extensions)
+        ext = []
+        for ext in extensions:
+            # Tries to identify files by the list of extensions.
+            files = self.find_files_with_extension(ext)
+        if len(files) == 0:
+            # Tries to identify files by the list of extensions in UPPERCASE.
+            files = self.find_files_with_extension(ext.upper())
+        if len(files) == 0:
+            # Tries to identify files by any magic necessary.
+            files = self.find_ext_files(emulator, core)
+        # if len(files) == 0:
+        #     # Tries to identify files by any magic necessary.
+        #     files = self.find_magic_cookies()
+        if len(files) == 0:
+            print("Didn't find any runnable files.")
+            exit(-1)
 
         # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
@@ -6235,6 +3468,7 @@ class Platform_Wild_VideoMPV(PlatformCommon):
             files = self.sort_disks(files)
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
+
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -6245,10 +3479,11 @@ class Platform_Wild_VideoMPV(PlatformCommon):
                 for disk in files:
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
+
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
-            # if emulator == self.emulators[1]:
-            #     emulator = emulator + ['-flipname', flipfile, files[0]]
+            if emulator == self.emulators[1]:
+                emulator = emulator + ['-flipname', flipfile, files[0]]
 
         self.run_process(emulator)
 
@@ -6258,7 +3493,7 @@ class Platform_Wild_VideoMPV(PlatformCommon):
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
         if emulator == self.emulators[0]:
-            if core == self.cores[0] or self.cores[1]:
+            if core == self.cores[0]:
                 extensions = self.extensions
 
         ext_files = []
@@ -6271,6 +3506,7 @@ class Platform_Wild_VideoMPV(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)

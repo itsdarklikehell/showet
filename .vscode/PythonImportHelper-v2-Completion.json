@@ -8,6 +8,358 @@
         "documentation": {}
     },
     {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
+        "label": "PlatformCommon",
+        "importPath": "platformcommon",
+        "description": "platformcommon",
+        "isExtraImport": true,
+        "detail": "platformcommon",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -17,12 +369,11 @@
         "documentation": {}
     },
     {
-        "label": "os.path",
-        "kind": 6,
+        "label": "listdir",
+        "importPath": "os",
+        "description": "os",
         "isExtraImport": true,
-        "importPath": "os.path",
-        "description": "os.path",
-        "detail": "os.path",
+        "detail": "os",
         "documentation": {}
     },
     {
@@ -35,123 +386,12 @@
         "documentation": {}
     },
     {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
+        "label": "os.path",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
-        "documentation": {}
-    },
-    {
-        "label": "PlatformCommon",
-        "importPath": "platformcommon",
-        "description": "platformcommon",
-        "isExtraImport": true,
-        "detail": "platformcommon",
+        "importPath": "os.path",
+        "description": "os.path",
+        "detail": "os.path",
         "documentation": {}
     },
     {
@@ -209,651 +449,19 @@
         "documentation": {}
     },
     {
-        "label": "Platform_Amstrad_Cpcplus",
-        "importPath": "systems",
-        "description": "systems",
+        "label": "Platform_Microsoft_Windows",
+        "importPath": "Platform_Microsoft_Windows",
+        "description": "Platform_Microsoft_Windows",
         "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Apple_AppleI",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Apple_AppleII",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Apple_AppleIIGS",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Arcade_Arcade",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Archimedes_Acorn",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_2600",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_5200",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_7800",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_Jaguar",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_Lynx",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_STETTFalcon",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_xlxe",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Bandai_Wonderswan",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Coleco_Colecovision",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
+        "detail": "Platform_Microsoft_Windows",
         "documentation": {}
     },
     {
         "label": "Platform_Commodore_64",
-        "importPath": "systems",
-        "description": "systems",
+        "importPath": "Platform_Commodore_64",
+        "description": "Platform_Commodore_64",
         "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_128",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_Amiga",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_CBMII",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_Pet",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_Plus4",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_Vic20",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Elektronika_Pdp11",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Enterprise_Ep128",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Fairchild_Channelf",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_FanCon_Pico8",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_FanCon_Tic80",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Gamepark_32",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Gamepark_2X",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_GCE_Vectrex",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Java_Java",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Linux_Linux",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Magnavox_Odyssey",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Mattel_Intellivision",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Microsoft_Msx",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Microsoft_Xbox",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Microsoft_Msdos",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pcengine",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Supergrafx",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pc8000",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pc8800",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pc98",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pcfx",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_3DS",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_N64",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_DS",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_Famicom",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_FamicomDisksystem",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_Gameboy",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_GameboyColor",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_GameboyAdvance",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_GameCube",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_Pokemini",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_SuperFamicom",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_Virtualboy",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nintendo_Wii",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Palm_PalmOS",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Panasonic_3do",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Phillips_Cdi",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sega_32X",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sega_Dreamcast",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sega_GameGear",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sega_Mastersystem",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sega_Megadrive",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sega_Saturn",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sega_Stv",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sega_Vmu",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sega_SG1000",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sinclair_Zxspectrum",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sinclair_Zx81",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Snk_Neogeo",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Snk_NeogeoPocket",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Snk_NeogeoPocketColor",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sony_Ps2",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sony_Psp",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Sony_Psx",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_SpectraVision_SpectraVideo",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Thomson_MOTO",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Wild_Gamemusic",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Wild_VideoFFMPEG",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Wild_VideoMPV",
-        "importPath": "systems",
-        "description": "systems",
-        "isExtraImport": true,
-        "detail": "systems",
+        "detail": "Platform_Commodore_64",
         "documentation": {}
     },
     {
@@ -1063,255 +671,390 @@
         "documentation": {}
     },
     {
-        "label": "Platform_Amstrad_Cpcplus",
+        "label": "Platform_Nec_Pcfx",
         "kind": 6,
-        "importPath": "systems.Platform_Amstrad_Cpcplus",
-        "description": "systems.Platform_Amstrad_Cpcplus",
-        "peekOfCode": "class Platform_Amstrad_Cpcplus(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"zesarux\"]\n    cores = [\"crocods_libretro\", \"cap32_libretro\"]\n    extensions = [\"dsk\", \"sna\", \"kcr\", \"zip\", \"tap\", \"cdt\", \"voc\", \"cpr\", \"m3u\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Amstrad_Cpcplus",
+        "importPath": "systems.Platform_Nec_Pcfx",
+        "description": "systems.Platform_Nec_Pcfx",
+        "peekOfCode": "class Platform_Nec_Pcfx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_pcfx_libretro\"]\n    extensions = [\"cue\", \"ccd\", \"toc\", \"chd\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "systems.Platform_Nec_Pcfx",
         "documentation": {}
     },
     {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Amstrad_Cpcplus",
-        "description": "systems.Platform_Amstrad_Cpcplus",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Amstrad_Cpcplus",
+        "label": "Platform_Amstrad_Cpcplus",
+        "kind": 6,
+        "importPath": "Platform_Amstrad_Cpcplus",
+        "description": "Platform_Amstrad_Cpcplus",
+        "peekOfCode": "class Platform_Amstrad_Cpcplus(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"zesarux\"]\n    cores = [\"crocods_libretro\", \"cap32_libretro\"]\n    extensions = [\"dsk\", \"sna\", \"kcr\", \"zip\",\n                  \"tap\", \"cdt\", \"voc\", \"cpr\", \"m3u\"]\n    def run(self):",
+        "detail": "Platform_Amstrad_Cpcplus",
         "documentation": {}
     },
     {
         "label": "Platform_Apple_AppleI",
         "kind": 6,
-        "importPath": "systems.Platform_Apple_AppleI",
-        "description": "systems.Platform_Apple_AppleI",
+        "importPath": "Platform_Apple_AppleI",
+        "description": "Platform_Apple_AppleI",
         "peekOfCode": "class Platform_Apple_AppleI(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    cores = [\"minivmac_libretro\"]\n    extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Apple_AppleI",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Apple_AppleI",
-        "description": "systems.Platform_Apple_AppleI",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Apple_AppleI",
+        "detail": "Platform_Apple_AppleI",
         "documentation": {}
     },
     {
         "label": "Platform_Apple_AppleII",
         "kind": 6,
-        "importPath": "systems.Platform_Apple_AppleII",
-        "description": "systems.Platform_Apple_AppleII",
+        "importPath": "Platform_Apple_AppleII",
+        "description": "Platform_Apple_AppleII",
         "peekOfCode": "class Platform_Apple_AppleII(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    cores = [\"minivmac_libretro\"]\n    extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Apple_AppleII",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Apple_AppleII",
-        "description": "systems.Platform_Apple_AppleII",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Apple_AppleII",
+        "detail": "Platform_Apple_AppleII",
         "documentation": {}
     },
     {
         "label": "Platform_Apple_AppleIIGS",
         "kind": 6,
-        "importPath": "systems.Platform_Apple_AppleIIGS",
-        "description": "systems.Platform_Apple_AppleIIGS",
+        "importPath": "Platform_Apple_AppleIIGS",
+        "description": "Platform_Apple_AppleIIGS",
         "peekOfCode": "class Platform_Apple_AppleIIGS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    cores = [\"minivmac_libretro\"]\n    extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Apple_AppleIIGS",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Apple_AppleIIGS",
-        "description": "systems.Platform_Apple_AppleIIGS",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Apple_AppleIIGS",
+        "detail": "Platform_Apple_AppleIIGS",
         "documentation": {}
     },
     {
         "label": "Platform_Arcade_Arcade",
         "kind": 6,
-        "importPath": "systems.Platform_Arcade_Arcade",
-        "description": "systems.Platform_Arcade_Arcade",
+        "importPath": "Platform_Arcade_Arcade",
+        "description": "Platform_Arcade_Arcade",
         "peekOfCode": "class Platform_Arcade_Arcade(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"MAME\", \"MESS\"]\n    cores = [\"mame_libretro\", \"mamemess_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Arcade_Arcade",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Arcade_Arcade",
-        "description": "systems.Platform_Arcade_Arcade",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Arcade_Arcade",
+        "detail": "Platform_Arcade_Arcade",
         "documentation": {}
     },
     {
         "label": "Platform_Archimedes_Acorn",
         "kind": 6,
-        "importPath": "systems.Platform_Archimedes_Acorn",
-        "description": "systems.Platform_Archimedes_Acorn",
+        "importPath": "Platform_Archimedes_Acorn",
+        "description": "Platform_Archimedes_Acorn",
         "peekOfCode": "class Platform_Archimedes_Acorn(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['mame_libretro', 'mame2016_libretro']\n    extensions = ['zip', 'chd', '7z', 'cmd']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Archimedes_Acorn",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Archimedes_Acorn",
-        "description": "systems.Platform_Archimedes_Acorn",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Archimedes_Acorn",
+        "detail": "Platform_Archimedes_Acorn",
         "documentation": {}
     },
     {
         "label": "Platform_Atari_2600",
         "kind": 6,
-        "importPath": "systems.Platform_Atari_2600",
-        "description": "systems.Platform_Atari_2600",
+        "importPath": "Platform_Atari_2600",
+        "description": "Platform_Atari_2600",
         "peekOfCode": "class Platform_Atari_2600(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'stella']\n    cores = ['stella2014_libretro', 'stella_libretro']\n    extensions = ['zip', 'a26', 'bin']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Atari_2600",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Atari_2600",
-        "description": "systems.Platform_Atari_2600",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Atari_2600",
+        "detail": "Platform_Atari_2600",
         "documentation": {}
     },
     {
         "label": "Platform_Atari_5200",
         "kind": 6,
-        "importPath": "systems.Platform_Atari_5200",
-        "description": "systems.Platform_Atari_5200",
+        "importPath": "Platform_Atari_5200",
+        "description": "Platform_Atari_5200",
         "peekOfCode": "class Platform_Atari_5200(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'atari800']\n    cores = ['atari800_libretro']\n    extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Atari_5200",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Atari_5200",
-        "description": "systems.Platform_Atari_5200",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Atari_5200",
+        "detail": "Platform_Atari_5200",
         "documentation": {}
     },
     {
         "label": "Platform_Atari_7800",
         "kind": 6,
-        "importPath": "systems.Platform_Atari_7800",
-        "description": "systems.Platform_Atari_7800",
+        "importPath": "Platform_Atari_7800",
+        "description": "Platform_Atari_7800",
         "peekOfCode": "class Platform_Atari_7800(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'prosystem']\n    cores = ['prosystem_libretro']\n    extensions = ['zip', 'a78', 'bin', 'cdf']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Atari_7800",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Atari_7800",
-        "description": "systems.Platform_Atari_7800",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Atari_7800",
+        "detail": "Platform_Atari_7800",
         "documentation": {}
     },
     {
         "label": "Platform_Atari_Jaguar",
         "kind": 6,
-        "importPath": "systems.Platform_Atari_Jaguar",
-        "description": "systems.Platform_Atari_Jaguar",
+        "importPath": "Platform_Atari_Jaguar",
+        "description": "Platform_Atari_Jaguar",
         "peekOfCode": "class Platform_Atari_Jaguar(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['virtualjaguar_libretro']\n    extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Atari_Jaguar",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Atari_Jaguar",
-        "description": "systems.Platform_Atari_Jaguar",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Atari_Jaguar",
+        "detail": "Platform_Atari_Jaguar",
         "documentation": {}
     },
     {
         "label": "Platform_Atari_Lynx",
         "kind": 6,
-        "importPath": "systems.Platform_Atari_Lynx",
-        "description": "systems.Platform_Atari_Lynx",
+        "importPath": "Platform_Atari_Lynx",
+        "description": "Platform_Atari_Lynx",
         "peekOfCode": "class Platform_Atari_Lynx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'mednafen']\n    cores = ['handy_libretro', 'mednafen_lynx_libretro']\n    extensions = ['lnx', 'o']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Atari_Lynx",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Atari_Lynx",
-        "description": "systems.Platform_Atari_Lynx",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Atari_Lynx",
+        "detail": "Platform_Atari_Lynx",
         "documentation": {}
     },
     {
         "label": "Platform_Atari_STETTFalcon",
         "kind": 6,
-        "importPath": "systems.Platform_Atari_STETTFalcon",
-        "description": "systems.Platform_Atari_STETTFalcon",
+        "importPath": "Platform_Atari_STETTFalcon",
+        "description": "Platform_Atari_STETTFalcon",
         "peekOfCode": "class Platform_Atari_STETTFalcon(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'stella', 'hatari']\n    cores = ['hatari_libretro', 'a5200_libretro']\n    extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Atari_STETTFalcon",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Atari_STETTFalcon",
-        "description": "systems.Platform_Atari_STETTFalcon",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Atari_STETTFalcon",
+        "detail": "Platform_Atari_STETTFalcon",
         "documentation": {}
     },
     {
         "label": "Platform_Atari_xlxe",
         "kind": 6,
-        "importPath": "systems.Platform_Atari_xlxe",
-        "description": "systems.Platform_Atari_xlxe",
+        "importPath": "Platform_Atari_xlxe",
+        "description": "Platform_Atari_xlxe",
         "peekOfCode": "class Platform_Atari_xlxe(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'atari800']\n    cores = ['atari800_libretro']\n    extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Atari_xlxe",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Atari_xlxe",
-        "description": "systems.Platform_Atari_xlxe",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Atari_xlxe",
+        "detail": "Platform_Atari_xlxe",
         "documentation": {}
     },
     {
         "label": "Platform_Bandai_Wonderswan",
         "kind": 6,
-        "importPath": "systems.Platform_Bandai_Wonderswan",
-        "description": "systems.Platform_Bandai_Wonderswan",
+        "importPath": "Platform_Bandai_Wonderswan",
+        "description": "Platform_Bandai_Wonderswan",
         "peekOfCode": "class Platform_Bandai_Wonderswan(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mednafen\"]\n    cores = [\"mednafen_wswan_libretro\"]\n    extensions = [\"zip\", \"ws\", \"wsc\", \"pc2\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems.Platform_Bandai_Wonderswan",
+        "detail": "Platform_Bandai_Wonderswan",
         "documentation": {}
     },
     {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems.Platform_Bandai_Wonderswan",
-        "description": "systems.Platform_Bandai_Wonderswan",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
-        "detail": "systems.Platform_Bandai_Wonderswan",
+        "label": "Platform_Commodore_128",
+        "kind": 6,
+        "importPath": "Platform_Commodore_128",
+        "description": "Platform_Commodore_128",
+        "peekOfCode": "class Platform_Commodore_128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_x128_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
+        "detail": "Platform_Commodore_128",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Commodore_64",
+        "kind": 6,
+        "importPath": "Platform_Commodore_64",
+        "description": "Platform_Commodore_64",
+        "peekOfCode": "class Platform_Commodore_64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\" \"x64sc\"]\n    cores = ['vice_x64sc_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',\n                   'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
+        "detail": "Platform_Commodore_64",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Commodore_Amiga",
+        "kind": 6,
+        "importPath": "Platform_Commodore_Amiga",
+        "description": "Platform_Commodore_Amiga",
+        "peekOfCode": "class Platform_Commodore_Amiga(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'puae', 'fs-uae']\n    cores = ['puae2021_libretro', 'puae_libretro',\n             'fsuae_libretro', 'uae4arm_libretro']\n    floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']\n    harddrives_ext = ['hdf', 'hdz', 'datadir']",
+        "detail": "Platform_Commodore_Amiga",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Commodore_CBMII",
+        "kind": 6,
+        "importPath": "Platform_Commodore_CBMII",
+        "description": "Platform_Commodore_CBMII",
+        "peekOfCode": "class Platform_Commodore_CBMII(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xcbm2_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
+        "detail": "Platform_Commodore_CBMII",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Commodore_Pet",
+        "kind": 6,
+        "importPath": "Platform_Commodore_Pet",
+        "description": "Platform_Commodore_Pet",
+        "peekOfCode": "class Platform_Commodore_Pet(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xpet_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
+        "detail": "Platform_Commodore_Pet",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Commodore_Plus4",
+        "kind": 6,
+        "importPath": "Platform_Commodore_Plus4",
+        "description": "Platform_Commodore_Plus4",
+        "peekOfCode": "class Platform_Commodore_Plus4(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xplus4_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
+        "detail": "Platform_Commodore_Plus4",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Commodore_Vic20",
+        "kind": 6,
+        "importPath": "Platform_Commodore_Vic20",
+        "description": "Platform_Commodore_Vic20",
+        "peekOfCode": "class Platform_Commodore_Vic20(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xvic_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
+        "detail": "Platform_Commodore_Vic20",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Elektronika_Pdp11",
+        "kind": 6,
+        "importPath": "Platform_Elektronika_Pdp11",
+        "description": "Platform_Elektronika_Pdp11",
+        "peekOfCode": "class Platform_Elektronika_Pdp11(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"bk\", \"m\"]\n    cores = [\"bk_libretro\"]\n    extensions = [\"bin\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Elektronika_Pdp11",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Enterprise_Ep128",
+        "kind": 6,
+        "importPath": "Platform_Enterprise_Ep128",
+        "description": "Platform_Enterprise_Ep128",
+        "peekOfCode": "class Platform_Enterprise_Ep128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"ep128\"]\n    cores = [\"ep128emu_libretro\"]\n    extensions = [\"zip\", \"img\", \"dsk\", \"tap\", \"dtf\", \"com\",\n                  \"trn\", \"128\", \"bas\", \"cas\", \"cdt\", \"tzx\", \".\"]\n    def run(self):",
+        "detail": "Platform_Enterprise_Ep128",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Fairchild_Channelf",
+        "kind": 6,
+        "importPath": "Platform_Fairchild_Channelf",
+        "description": "Platform_Fairchild_Channelf",
+        "peekOfCode": "class Platform_Fairchild_Channelf(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"freechaf\"]\n    cores = [\"freechaf_libretro\"]\n    extensions = [\"zip\", \"bin\", \"chf\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Fairchild_Channelf",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_FanCon_Pico8",
+        "kind": 6,
+        "importPath": "Platform_FanCon_Pico8",
+        "description": "Platform_FanCon_Pico8",
+        "peekOfCode": "class Platform_FanCon_Pico8(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"retro8\"]\n    cores = [\"retro8_libretro\"]\n    extensions = [\"zip\", \"p8\", \"png\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_FanCon_Pico8",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_GCE_Vectrex",
+        "kind": 6,
+        "importPath": "Platform_GCE_Vectrex",
+        "description": "Platform_GCE_Vectrex",
+        "peekOfCode": "class Platform_GCE_Vectrex(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"vecx\"]\n    cores = [\"vecx_libretro\"]\n    extensions = [\"zip\", \"bin\", \"vec\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_GCE_Vectrex",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Gamepark_2X",
+        "kind": 6,
+        "importPath": "Platform_Gamepark_2X",
+        "description": "Platform_Gamepark_2X",
+        "peekOfCode": "class Platform_Gamepark_2X(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mame\"]\n    cores = [\"mame_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Gamepark_2X",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Gamepark_32",
+        "kind": 6,
+        "importPath": "Platform_Gamepark_32",
+        "description": "Platform_Gamepark_32",
+        "peekOfCode": "class Platform_Gamepark_32(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mame\"]\n    cores = [\"mame_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Gamepark_32",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Java_Java",
+        "kind": 6,
+        "importPath": "Platform_Java_Java",
+        "description": "Platform_Java_Java",
+        "peekOfCode": "class Platform_Java_Java(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"squirreljme\"]\n    cores = [\"squirreljme_libretro\"]\n    extensions = [\"zip\", \"jar\", \"sqc\", \"jam\", \"jad\", \"kjx\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Java_Java",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Linux_Linux",
+        "kind": 6,
+        "importPath": "Platform_Linux_Linux",
+        "description": "Platform_Linux_Linux",
+        "peekOfCode": "class Platform_Linux_Linux(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"bash\"]\n    cores = [\"bash\"]\n    extensions = [\"elf\", \"exe\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Linux_Linux",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Magnavox_Odyssey",
+        "kind": 6,
+        "importPath": "Platform_Magnavox_Odyssey",
+        "description": "Platform_Magnavox_Odyssey",
+        "peekOfCode": "class Platform_Magnavox_Odyssey(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"o2em\"]\n    cores = [\"o2em_libretro\"]\n    extensions = [\"zip\", \"bin\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Magnavox_Odyssey",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Mattel_Intellivision",
+        "kind": 6,
+        "importPath": "Platform_Mattel_Intellivision",
+        "description": "Platform_Mattel_Intellivision",
+        "peekOfCode": "class Platform_Mattel_Intellivision(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"freeintv\"]\n    cores = [\"freeintv_libretro\", \"jzintv\", \"jzintv-ecs\"]\n    extensions = [\"int\", \"bin\", \"rom\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Mattel_Intellivision",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Microsoft_Msdos",
+        "kind": 6,
+        "importPath": "Platform_Microsoft_Msdos",
+        "description": "Platform_Microsoft_Msdos",
+        "peekOfCode": "class Platform_Microsoft_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"dosbox\"]\n    cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n             \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]\n    extensions = [\"zip\", \"dosz\", \"exe\", \"com\", \"bat\", \"iso\", \"cue\",\n                  \"ins\", \"img\", \"ima\", \"vhd\", \"jrc\", \"tc\", \"m3u\", \"m3u8\"]",
+        "detail": "Platform_Microsoft_Msdos",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Microsoft_Msx",
+        "kind": 6,
+        "importPath": "Platform_Microsoft_Msx",
+        "description": "Platform_Microsoft_Msx",
+        "peekOfCode": "class Platform_Microsoft_Msx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"openmsx\", \"openmsx-msx2\",\n                 \"openmsx-msx2-plus\", \"openmsx-msx-turbo\",]\n    cores = [\"bluemsx_libretro\", \"fbneo_msx_libretro\", \"fmsx_libretro\"]\n    extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n                  \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]",
+        "detail": "Platform_Microsoft_Msx",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Microsoft_Windows",
+        "kind": 6,
+        "importPath": "Platform_Microsoft_Windows",
+        "description": "Platform_Microsoft_Windows",
+        "peekOfCode": "class Platform_Microsoft_Windows(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"wine\", \"proton\"]\n    cores = [\"wine\"]\n    extensions = [\"exe\"]\n    wineprefix = self.showetdir + '/wineprefix'\n    def run(self, emulator, core, extensions):",
+        "detail": "Platform_Microsoft_Windows",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Microsoft_Xbox",
+        "kind": 6,
+        "importPath": "Platform_Microsoft_Xbox",
+        "description": "Platform_Microsoft_Xbox",
+        "peekOfCode": "class Platform_Microsoft_Xbox(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"directxbox_libretro\"]\n    extensions = [\"zip\", \"iso\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Microsoft_Xbox",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Nec_Pc8000",
+        "kind": 6,
+        "importPath": "Platform_Nec_Pc8000",
+        "description": "Platform_Nec_Pc8000",
+        "peekOfCode": "class Platform_Nec_Pc8000(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"quasi88_libretro\"]\n    extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Nec_Pc8000",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Nec_Pc8800",
+        "kind": 6,
+        "importPath": "Platform_Nec_Pc8800",
+        "description": "Platform_Nec_Pc8800",
+        "peekOfCode": "class Platform_Nec_Pc8800(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"quasi88_libretro\"]\n    extensions = [\"d88\", \"u88\", \"m3u\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Nec_Pc8800",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Nec_Pc98",
+        "kind": 6,
+        "importPath": "Platform_Nec_Pc98",
+        "description": "Platform_Nec_Pc98",
+        "peekOfCode": "class Platform_Nec_Pc98(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"nekop2_libretro\"]\n    extensions = [\"d98\", \"zip\", \"98d\", \"fdi\", \"fdd\", \"2hd\", \"tfd\", \"d88\",\n                  \"88d\", \"hdm\", \"xdf\", \"dup\", \"cmd\", \"hdi\", \"thd\", \"nhd\", \"hdd\"]\n    def run(self):",
+        "detail": "Platform_Nec_Pc98",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Nec_Pcengine",
+        "kind": 6,
+        "importPath": "Platform_Nec_Pcengine",
+        "description": "Platform_Nec_Pcengine",
+        "peekOfCode": "class Platform_Nec_Pcengine(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_supergrafx_libretro\", \"mednafen_pce_fast_libretro\",\n             \"fbneo_pce_libretro\", \"fbneo_sgx_libretro\", \"fbneo_tg_libretro\"]\n    extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):",
+        "detail": "Platform_Nec_Pcengine",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Nec_Pcfx",
+        "kind": 6,
+        "importPath": "Platform_Nec_Pcfx",
+        "description": "Platform_Nec_Pcfx",
+        "peekOfCode": "class Platform_Nec_Pcfx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_pcfx_libretro\"]\n    extensions = [\"cue\", \"ccd\", \"toc\", \"chd\"]\n    def run(self):\n        emulator = self.emulators[0]",
+        "detail": "Platform_Nec_Pcfx",
+        "documentation": {}
+    },
+    {
+        "label": "Platform_Nec_Supergrafx",
+        "kind": 6,
+        "importPath": "Platform_Nec_Supergrafx",
+        "description": "Platform_Nec_Supergrafx",
+        "peekOfCode": "class Platform_Nec_Supergrafx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_supergrafx_libretro\", \"mednafen_pce_fast_libretro\",\n             \"fbneo_pce_libretro\", \"fbneo_sgx_libretro\", \"fbneo_tg_libretro\",]\n    extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):",
+        "detail": "Platform_Nec_Supergrafx",
         "documentation": {}
     },
     {
@@ -1382,7 +1125,7 @@
         "kind": 5,
         "importPath": "showet",
         "description": "showet",
-        "peekOfCode": "args = parser.parse_args()\n# In priority order\nplatform_runners = [\n    Platform_Amstrad_Cpcplus(),\n    Platform_Apple_AppleI(),\n    Platform_Apple_AppleII(),\n    Platform_Apple_AppleIIGS(),\n    Platform_Arcade_Arcade(),\n    Platform_Archimedes_Acorn(),\n    Platform_Atari_2600(),",
+        "peekOfCode": "args = parser.parse_args()\n# In priority order\nplatform_runners = [\n    Platform_Commodore_64(),\n    Platform_Microsoft_Windows(),\n]\nif args.platforms:\n    for r in platform_runners:\n        for p in r.supported_platforms():\n            print(p)",
         "detail": "showet",
         "documentation": {}
     },
@@ -1391,7 +1134,7 @@
         "kind": 5,
         "importPath": "showet",
         "description": "showet",
-        "peekOfCode": "platform_runners = [\n    Platform_Amstrad_Cpcplus(),\n    Platform_Apple_AppleI(),\n    Platform_Apple_AppleII(),\n    Platform_Apple_AppleIIGS(),\n    Platform_Arcade_Arcade(),\n    Platform_Archimedes_Acorn(),\n    Platform_Atari_2600(),\n    Platform_Atari_5200(),\n    Platform_Atari_7800(),",
+        "peekOfCode": "platform_runners = [\n    Platform_Commodore_64(),\n    Platform_Microsoft_Windows(),\n]\nif args.platforms:\n    for r in platform_runners:\n        for p in r.supported_platforms():\n            print(p)\n    exit(0)\nshowetdir = os.path.expanduser(\"~/.showet\")",
         "detail": "showet",
         "documentation": {}
     },
@@ -1519,402 +1262,6 @@
         "description": "showet",
         "peekOfCode": "prod_download_url = prod_download_url.replace(\n    \"https://files.scene.org/view\", \"https://files.scene.org/get\")\n# Check if the download is already downloaded, else just download it.\nif os.path.exists(datadir + \"/.FILES_DOWNLOADED\"):\n    print(\"\\tFile already downloaded\")\nelse:\n    if DEBUGGING is not False:\n        print(\"\\tDownloading prod file from \" + prod_download_url + \"...\")\n    filedata = urllib.request.urlopen(prod_download_url)\n    filename = os.path.basename(filedata.url)",
         "detail": "showet",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Amstrad_Cpcplus",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Amstrad_Cpcplus(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"zesarux\"]\n    cores = [\"crocods_libretro\", \"cap32_libretro\"]\n    extensions = [\"dsk\", \"sna\", \"kcr\", \"zip\",\n                  \"tap\", \"cdt\", \"voc\", \"cpr\", \"m3u\"]\n    def run(self):",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Apple_AppleI",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Apple_AppleI(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    cores = [\"minivmac_libretro\"]\n    extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Apple_AppleII",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Apple_AppleII(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    cores = [\"minivmac_libretro\"]\n    extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Apple_AppleIIGS",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Apple_AppleIIGS(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"linapple\", \"basilisk\"]\n    cores = [\"minivmac_libretro\"]\n    extensions = [\"dsk\", \"img\", \"zip\", \"hvf\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Arcade_Arcade",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Arcade_Arcade(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"MAME\", \"MESS\"]\n    cores = [\"mame_libretro\", \"mamemess_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Archimedes_Acorn",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Archimedes_Acorn(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mame_libretro\", \"mame2016_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_2600",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Atari_2600(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'stella']\n    cores = ['stella2014_libretro', 'stella_libretro']\n    extensions = ['zip', 'a26', 'bin']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_5200",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Atari_5200(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'atari800']\n    cores = ['atari800_libretro']\n    extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas',\n                  'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']\n    def run(self):",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_7800",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Atari_7800(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'prosystem']\n    cores = ['prosystem_libretro']\n    extensions = ['zip', 'a78', 'bin', 'cdf']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_Jaguar",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Atari_Jaguar(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['virtualjaguar_libretro']\n    extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_Lynx",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Atari_Lynx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'mednafen']\n    cores = ['handy_libretro', 'mednafen_lynx_libretro']\n    extensions = ['lnx', 'o']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_STETTFalcon",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Atari_STETTFalcon(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'stella', 'hatari']\n    cores = ['hatari_libretro', 'a5200_libretro']\n    extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Atari_xlxe",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Atari_xlxe(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'atari800']\n    cores = ['atari800_libretro']\n    extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Bandai_Wonderswan",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Bandai_Wonderswan(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mednafen\"]\n    cores = [\"mednafen_wswan_libretro\"]\n    extensions = [\"zip\", \"ws\", \"wsc\", \"pc2\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Coleco_Colecovision",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Coleco_Colecovision(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"bluemsx\", \"gearcoleco\"]\n    cores = [\"bluemsx_libretro\", \"gearcoleco_libretro\"]\n    extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n                  \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]\n    def run(self):",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_64",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Commodore_64(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\" \"x64sc\"]\n    cores = ['vice_x64sc_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82',\n                   'd8z', 'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_128",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Commodore_128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_x128_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_Amiga",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Commodore_Amiga(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'puae', 'fs-uae']\n    cores = ['puae2021_libretro', 'puae_libretro',\n             'fsuae_libretro', 'uae4arm_libretro']\n    floppys_ext = ['adf', 'adz', 'dms', 'fdi', 'ipf']\n    harddrives_ext = ['hdf', 'hdz', 'datadir']",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_CBMII",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Commodore_CBMII(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xcbm2_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_Pet",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Commodore_Pet(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xpet_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_Plus4",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Commodore_Plus4(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xplus4_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Commodore_Vic20",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Commodore_Vic20(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'vice']\n    cores = ['vice_xvic_libretro']\n    floppys_ext = ['d64', 'd6z', 'd71', 'd7z', 'd80', 'd8z', 'd81', 'd82', 'd8z',\n                   'g64', 'g6z', 'g41', 'g4z', 'x64', 'x6z', 'nib', 'nbz', 'd2m', 'd4m']\n    tapes_ext = ['t64', 'tap', 'tcrt']",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Elektronika_Pdp11",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Elektronika_Pdp11(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"bk\", \"m\"]\n    cores = [\"bk_libretro\"]\n    extensions = [\"bin\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Enterprise_Ep128",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Enterprise_Ep128(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"ep128\"]\n    cores = [\"ep128emu_libretro\"]\n    extensions = [\"zip\", \"img\", \"dsk\", \"tap\", \"dtf\", \"com\",\n                  \"trn\", \"128\", \"bas\", \"cas\", \"cdt\", \"tzx\", \".\"]\n    def run(self):",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Fairchild_Channelf",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Fairchild_Channelf(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"freechaf\"]\n    cores = [\"freechaf_libretro\"]\n    extensions = [\"zip\", \"bin\", \"chf\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_FanCon_Pico8",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_FanCon_Pico8(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"retro8\"]\n    cores = [\"retro8_libretro\"]\n    extensions = [\"zip\", \"p8\", \"png\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_FanCon_Tic80",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_FanCon_Tic80(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'tic80']\n    cores = ['tic80_libretro']\n    extensions = ['zip', 'tic']\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Gamepark_32",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Gamepark_32(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mame\"]\n    cores = [\"mame_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Gamepark_2X",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Gamepark_2X(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"mame\"]\n    cores = [\"mame_libretro\"]\n    extensions = [\"zip\", \"chd\", \"7z\", \"cmd\"]\n    def run(self):\n        # Set up the emulator we want to run.",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_GCE_Vectrex",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_GCE_Vectrex(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"vecx\"]\n    cores = [\"vecx_libretro\"]\n    extensions = [\"zip\", \"bin\", \"vec\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Java_Java",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Java_Java(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"squirreljme\"]\n    cores = [\"squirreljme_libretro\"]\n    extensions = [\"zip\", \"jar\", \"sqc\", \"jam\", \"jad\", \"kjx\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Linux_Linux",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Linux_Linux(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"linux\"]\n    cores = [\"linux\"]\n    extensions = [\"elf\", \"exe\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Magnavox_Odyssey",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Magnavox_Odyssey(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"o2em\"]\n    cores = [\"o2em_libretro\"]\n    extensions = [\"zip\", \"bin\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Mattel_Intellivision",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Mattel_Intellivision(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"freeintv\"]\n    cores = [\"freeintv_libretro\", \"jzintv\", \"jzintv-ecs\"]\n    extensions = [\"int\", \"bin\", \"rom\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Microsoft_Msx",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Microsoft_Msx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"openmsx\", \"openmsx-msx2\",\n                 \"openmsx-msx2-plus\", \"openmsx-msx-turbo\",]\n    cores = [\"bluemsx_libretro\", \"fbneo_msx_libretro\", \"fmsx_libretro\"]\n    extensions = [\"rom\", \"ri\", \"mx1\", \"mx2\",\n                  \"col\", \"dsk\", \"cas\", \"sg\", \"sc\", \"m3u\"]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Microsoft_Windows",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Microsoft_Windows(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"wine\", \"proton\"]\n    cores = [\"wine\"]\n    extensions = [\"exe\"]\n    wineprefix = self.showetdir + '/wineprefix'\n    def run(self):",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Microsoft_Xbox",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Microsoft_Xbox(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"directxbox_libretro\"]\n    extensions = [\"zip\", \"iso\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Microsoft_Msdos",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Microsoft_Msdos(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"dosbox\"]\n    cores = [\"dosbox_core_libretro\", \"dosbox_pure_libretro\",\n             \"dosbox_svn_libretro\", \"dosbox_svn_ce_libretro\"]\n    extensions = [\"zip\", \"dosz\", \"exe\", \"com\", \"bat\", \"iso\", \"cue\",\n                  \"ins\", \"img\", \"ima\", \"vhd\", \"jrc\", \"tc\", \"m3u\", \"m3u8\"]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pcengine",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pcengine(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_supergrafx_libretro\", \"mednafen_pce_fast_libretro\",\n             \"fbneo_pce_libretro\", \"fbneo_sgx_libretro\", \"fbneo_tg_libretro\"]\n    extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Supergrafx",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Nec_Supergrafx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_supergrafx_libretro\", \"mednafen_pce_fast_libretro\",\n             \"fbneo_pce_libretro\", \"fbneo_sgx_libretro\", \"fbneo_tg_libretro\",]\n    extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pc8000",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pc8000(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"quasi88_libretro\"]\n    extensions = [\"zip\", \"pce\", \"sgx\", \"cue\", \"ccd\", \"chd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pc8800",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pc8800(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"quasi88_libretro\"]\n    extensions = [\"d88\", \"u88\", \"m3u\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pc98",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pc98(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"nekop2_libretro\"]\n    extensions = [\"d98\", \"zip\", \"98d\", \"fdi\", \"fdd\", \"2hd\", \"tfd\", \"d88\",\n                  \"88d\", \"hdm\", \"xdf\", \"dup\", \"cmd\", \"hdi\", \"thd\", \"nhd\", \"hdd\"]\n    def run(self):",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "Platform_Nec_Pcfx",
-        "kind": 6,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "class Platform_Nec_Pcfx(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = [\"retroarch\", \"other\"]\n    cores = [\"mednafen_pcfx_libretro\"]\n    extensions = [\"cue\", \"ccd\", \"toc\", \"chd\"]\n    def run(self):\n        emulator = self.emulators[0]",
-        "detail": "systems",
         "documentation": {}
     },
     {
@@ -2102,7 +1449,7 @@
         "kind": 6,
         "importPath": "systems",
         "description": "systems",
-        "peekOfCode": "class Platform_Sega_Megadrive(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    # emulators = ['retroarch', 'dgen']\n    cores = ['genesis_plus_gx_libretro',\n             'fbneo_md_libretro', 'picodrive_libretro']\n    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',\n                  'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']",
+        "peekOfCode": "class Platform_Sega_Megadrive(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'dgen']\n    cores = ['genesis_plus_gx_libretro',\n             'fbneo_md_libretro', 'picodrive_libretro']\n    extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue',\n                  'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']",
         "detail": "systems",
         "documentation": {}
     },
@@ -2256,15 +1603,6 @@
         "importPath": "systems",
         "description": "systems",
         "peekOfCode": "class Platform_Wild_VideoMPV(PlatformCommon):\n    # Set up the emulator we want to run.\n    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).\n    # Set whether we should run in fullscreens or not.\n    # Supply A list of extensions that the specified emulator supports.\n    emulators = ['retroarch', 'other']\n    cores = ['mpv_libretro']\n    extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm',\n                  '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']\n    def run(self):",
-        "detail": "systems",
-        "documentation": {}
-    },
-    {
-        "label": "getext",
-        "kind": 2,
-        "importPath": "systems",
-        "description": "systems",
-        "peekOfCode": "def getext(self, emulator, core, extensions):\n    ext = []\n    for ext in extensions:\n        # Tries to identify files by the list of extensions.\n        files = self.find_files_with_extension(ext)\n    if len(files) == 0:\n        # Tries to identify files by the list of extensions in UPPERCASE.\n        files = self.find_files_with_extension(ext.upper())\n    if len(files) == 0:\n        # Tries to identify files by any magic necessary.",
         "detail": "systems",
         "documentation": {}
     }
