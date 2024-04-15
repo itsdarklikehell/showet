@@ -1,8 +1,7 @@
 from platformcommon import PlatformCommon
-from os import listdir
 import os.path
 import os
-
+import stat
 
 class Platform_Microsoft_Windows(PlatformCommon):
     # Set up the emulator we want to run.
@@ -40,6 +39,7 @@ class Platform_Microsoft_Windows(PlatformCommon):
             print("Didn't find any runnable files.")
             exit(-1)
 
+        # in case we are running wine, we need to provide some arguments to set the libretro core (fullpath or shortname).
         if emulator == self.emulators[0]:
             exefile = files
         if emulator == self.emulators[1]:
@@ -102,6 +102,7 @@ class Platform_Microsoft_Windows(PlatformCommon):
                     if file.endswith(ext):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)
+                        
                     if file.endswith(ext.upper()):
                         os.chmod(file, stat.S_IEXEC)
                         ext_files.append(file)

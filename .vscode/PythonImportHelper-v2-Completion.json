@@ -369,14 +369,6 @@
         "documentation": {}
     },
     {
-        "label": "listdir",
-        "importPath": "os",
-        "description": "os",
-        "isExtraImport": true,
-        "detail": "os",
-        "documentation": {}
-    },
-    {
         "label": "stat",
         "kind": 6,
         "isExtraImport": true,
