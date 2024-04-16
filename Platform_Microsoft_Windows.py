@@ -3,6 +3,7 @@ import os.path
 import os
 import stat
 
+
 class Platform_Microsoft_Windows(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -12,7 +13,7 @@ class Platform_Microsoft_Windows(PlatformCommon):
     cores = ["wine"]
     extensions = ["exe"]
     wineprefix = self.showetdir + '/wineprefix'
-           
+
     def run(self, emulator, core, extensions):
         emulator = self.emulators[0]
         core = self.cores[0]
@@ -21,7 +22,7 @@ class Platform_Microsoft_Windows(PlatformCommon):
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
-    
+
         ext = []
         for ext in extensions:
             # Tries to identify files by the list of extensions.
@@ -83,7 +84,17 @@ class Platform_Microsoft_Windows(PlatformCommon):
 
         self.run_process([emulator[0], exepath])
 
+    # Returns the list of supported platforms for this platform.
+    #
+    # Returns:
+    #     List of supported platforms.
     def supported_platforms(self):
+        """
+        Returns the list of supported platforms for this platform.
+
+        Returns:
+            List of supported platforms.
+        """
         return ["windows", "wild"]
 
     # Tries to identify files by any magic necessary
@@ -92,18 +103,18 @@ class Platform_Microsoft_Windows(PlatformCommon):
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        ext_files = []
+        ext_files = []  # List to store files we find
         for file in self.prod_files:
-            size = os.path.getsize(file)
+            size = os.path.getsize(file)  # Get filesize
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-                        
+                for ext in extensions:  # Iterate over extensions
+                    if file.endswith(ext):  # If file ends with extension
+                        os.chmod(file, stat.S_IEXEC)  # Set as executable
+                        ext_files.append(file)  # Add filepath to list
+
+                    # If file ends with uppercase extension
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
+                        os.chmod(file, stat.S_IEXEC)  # Set as executable
+                        ext_files.append(file)  # Add filepath to list
+        return ext_files  # Return list of found files

@@ -12,46 +12,51 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
     cores = ["crocods_libretro", "cap32_libretro"]
     extensions = ["dsk", "sna", "kcr", "zip",
                   "tap", "cdt", "voc", "cpr", "m3u"]
-    
+
     def run(self):
+        """
+        Runs the platform.
+        """
+        # Set up the emulator and core to run.
         emulator = self.emulators[0]
         core = self.cores[0]
         extensions = self.extensions
 
+        # If we are running RetroArch, we need to provide the libretro core.
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
                 extensions = self.extensions
 
-        ext = []
-        for ext in extensions:
-            # Tries to identify files by the list of extensions.
-            files = self.find_files_with_extension(ext)
-        if len(files) == 0:
-            # Tries to identify files by the list of extensions in UPPERCASE.
-            files = self.find_files_with_extension(ext.upper())
-        if len(files) == 0:
-            # Tries to identify files by any magic necessary.
-            files = self.find_ext_files(emulator, core)
-        # if len(files) == 0:
-        #     # Tries to identify files by any magic necessary.
-        #     files = self.find_magic_cookies()
+        # Look for files with the given extensions.
+        # If not found, try to identify files by UPPERCASE extensions.
+        # If not found, try to identify files by any magic necessary.
+        ext_ = []
+        for ext_ in extensions:
+            files = self.find_files_with_extension(ext_)
+            if len(files) == 0:
+                files = self.find_files_with_extension(ext_.upper())
+            if len(files) == 0:
+                files = self.find_ext_files(emulator, core)
+            # if len(files) == 0:
+            #     files = self.find_magic_cookies()
+
         if len(files) == 0:
             print("Didn't find any runnable files.")
             exit(-1)
 
-        # in case we are running retroarch, we need to provide some arguments to set the libretro core (fullpath or shortname).
+        # In case we are running RetroArch, we need to provide some arguments to set the libretro core.
         if emulator == self.emulators[0]:
             emulator.append('-L')
             emulator.append(core[0])
 
-        # drives = []
-        # # Support only one for now..
+        # Support only one disk for now..
         if len(files) > 0:
             # Sort the files.
             files = self.sort_disks(files)
+
+            # Create a fliplist for RetroArch.
             flipfile = self.datadir + "/fliplist.vfl"
             m3ufile = self.datadir + "/fliplist.m3u"
-
             with open(flipfile, "w") as f:
                 # f.write("UNIT 8\n")
                 for disk in files:
@@ -63,6 +68,7 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
                     f.write(disk + "\n")
                 f.write("#SAVEDISK:\n")
 
+            # Set up arguments for running the emulator.
             if emulator == self.emulators[0]:
                 emulator = emulator + [files[0]]
             if emulator == self.emulators[1]:
@@ -70,27 +76,43 @@ class Platform_Amstrad_Cpcplus(PlatformCommon):
 
         self.run_process(emulator)
 
+    # Returns the list of supported platforms for this platform.
+    #
+    # Returns:
+    #     List of supported platforms.
     def supported_platforms(self):
+        """
+        Returns the list of supported platforms for this platform.
+
+        Returns:
+            List of supported platforms.
+        """
         return ["amstradplus", "amstradcpc"]
 
     # Tries to identify files by any magic necessary
     def find_ext_files(self, emulator, core):
+        """
+        Finds all files with supported extensions and sets them as executable.
+
+        Returns:
+            List with filepaths to all found files.
+        """
         if emulator == self.emulators[0]:
             if core == self.cores[0]:
-                extensions = self.extensions
+                extensions = self.extensions  # List of extensions to look for
 
-        ext_files = []
+        ext_files = []  # List to store files we find
         for file in self.prod_files:
-            size = os.path.getsize(file)
+            size = os.path.getsize(file)  # Get filesize
             if size > 0:
                 # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                ext = []
-                for ext in extensions:
-                    if file.endswith(ext):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
+                for ext in extensions:  # Iterate over extensions
+                    if file.endswith(ext):  # If file ends with extension
+                        os.chmod(file, stat.S_IEXEC)  # Set as executable
+                        ext_files.append(file)  # Add filepath to list
 
+                    # If file ends with uppercase extension
                     if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)
-                        ext_files.append(file)
-        return ext_files
+                        os.chmod(file, stat.S_IEXEC)  # Set as executable
+                        ext_files.append(file)  # Add filepath to list
+        return ext_files  # Return list of found files

@@ -84,7 +84,17 @@ class Platform_Linux_Linux(PlatformCommon):
 
             self.run_process(emulator)
 
+    # Returns the list of supported platforms for this platform.
+    #
+    # Returns:
+    #     List of supported platforms.
     def supported_platforms(self):
+        """
+        Returns the list of supported platforms for this platform.
+
+        Returns:
+            List of supported platforms.
+        """
         return ["linux", "freebsd", "raspberrypi"]
 
     # Tries to identify files by any magic necessary

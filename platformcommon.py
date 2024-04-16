@@ -3,6 +3,7 @@ import os.path
 import inquirer
 import subprocess
 
+COREPATH = '/home/rizzo/.config/retroarch/cores'
 FULLSCREEN = False
 SELECTIVE_MODE = True
 DEBUGGING = True
@@ -43,7 +44,17 @@ class PlatformCommon:
         self.prod_platform = prod_platform
         self.find_files_recursively(self.datadir)
 
+    # Returns the list of supported platforms for this platform.
+    #
+    # Returns:
+    #     List of supported platforms.
     def supported_platforms(self):
+        """
+        Returns the list of supported platforms for this platform.
+
+        Returns:
+            List of supported platforms.
+        """
         return None
 
     def find_files_with_extension(self, extension):

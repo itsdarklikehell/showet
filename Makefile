@@ -305,6 +305,24 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/Platform_Nec_Pcengine.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pcengine.py
 	$(QINSTALL) /home/rizzo/showet/Platform_Nec_Pcfx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pcfx.py
 	$(QINSTALL) /home/rizzo/showet/Platform_Nec_Supergrafx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Supergrafx.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_3DS.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_3DS.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_Famicom.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_Famicom.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_FamicomDisksystem.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_FamicomDisksystem.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_Gameboy.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_Gameboy.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_GameboyAdvance.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_GameboyAdvance.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_GameboyColor.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_GameboyColor.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_GameCube.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_GameCube.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_N64.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_N64.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_Pokemini.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_Pokemini.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_SuperFamicom.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_SuperFamicom.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Nintendo_Wii.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_Wii.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Palm_PalmOS.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Palm_PalmOS.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Panasonic_3do.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Panasonic_3do.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Phillips_Cdi.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Phillips_Cdi.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sega_32X.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_32X.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sega_Dreamcast.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Dreamcast.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sega_GameGear.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_GameGear.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sega_Mastersystem.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Mastersystem.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
@@ -314,6 +332,24 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Mastersystem.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_GameGear.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Dreamcast.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_32X.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Phillips_Cdi.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Panasonic_3do.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Palm_PalmOS.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_Wii.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_SuperFamicom.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_Pokemini.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_N64.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_GameCube.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_GameboyColor.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_GameboyAdvance.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_Gameboy.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_FamicomDisksystem.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_Famicom.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nintendo_3DS.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Supergrafx.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pcfx.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Nec_Pcengine.py
