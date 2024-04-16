@@ -323,15 +323,49 @@ install_pymodules: FORCE
 	$(QINSTALL) /home/rizzo/showet/Platform_Sega_Dreamcast.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Dreamcast.py
 	$(QINSTALL) /home/rizzo/showet/Platform_Sega_GameGear.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_GameGear.py
 	$(QINSTALL) /home/rizzo/showet/Platform_Sega_Mastersystem.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Mastersystem.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sega_Megadrive.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Megadrive.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sega_Saturn.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Saturn.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sega_SG1000.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_SG1000.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sega_Stv.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Stv.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sega_Vmu.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Vmu.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sinclair_Zx81.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sinclair_Zx81.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sinclair_Zxspectrum.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sinclair_Zxspectrum.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Snk_Neogeo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Snk_Neogeo.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Snk_NeogeoPocket.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Snk_NeogeoPocket.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Snk_NeogeoPocketColor.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Snk_NeogeoPocketColor.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sony_Ps2.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sony_Ps2.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sony_Psp.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sony_Psp.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Sony_Psx.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sony_Psx.py
+	$(QINSTALL) /home/rizzo/showet/Platform_SpectraVision_SpectraVideo.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_SpectraVision_SpectraVideo.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Thomson_MOTO.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Thomson_MOTO.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Wild_Gamemusic.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Wild_Gamemusic.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Wild_VideoFFMPEG.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Wild_VideoFFMPEG.py
+	$(QINSTALL) /home/rizzo/showet/Platform_Wild_VideoMPV.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Wild_VideoMPV.py
 	$(QINSTALL) /home/rizzo/showet/platformcommon.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
 	$(QINSTALL_PROGRAM) /home/rizzo/showet/showet.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-strip $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
-	$(QINSTALL) /home/rizzo/showet/systems.py $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems.py
 
 uninstall_pymodules: FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/systems.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/showet.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/platformcommon.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Wild_VideoMPV.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Wild_VideoFFMPEG.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Wild_Gamemusic.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Thomson_MOTO.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_SpectraVision_SpectraVideo.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sony_Psx.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sony_Psp.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sony_Ps2.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Snk_NeogeoPocketColor.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Snk_NeogeoPocket.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Snk_Neogeo.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sinclair_Zxspectrum.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sinclair_Zx81.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Vmu.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Stv.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_SG1000.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Saturn.py
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Megadrive.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Mastersystem.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_GameGear.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Sega_Dreamcast.py
