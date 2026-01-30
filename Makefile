@@ -34,6 +34,7 @@ DISTDIR = /media/rizzo/RAIDSTATION/stacks/DATA/testing-stack/showet/.tmp/showet1
 SUBTARGETS    =  \
 		sub-showet-gui
 
+
 sub-showet-gui-qmake_all:  FORCE
 	@test -d showet-gui/ || mkdir -p showet-gui/
 	cd showet-gui/ && $(QMAKE) -o Makefile /media/rizzo/RAIDSTATION/stacks/DATA/testing-stack/showet/showet-gui/showet-gui.pro 'QMAKE_CC = cc' 'QMAKE_CXX = g++' 'QMAKE_CFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_CXXFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_LFLAGS_RELEASE = -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro'
@@ -43,7 +44,7 @@ sub-showet-gui: FORCE
 	cd showet-gui/ && ( test -e Makefile || $(QMAKE) -o Makefile /media/rizzo/RAIDSTATION/stacks/DATA/testing-stack/showet/showet-gui/showet-gui.pro 'QMAKE_CC = cc' 'QMAKE_CXX = g++' 'QMAKE_CFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_CXXFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_LFLAGS_RELEASE = -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro' ) && $(MAKE) -f Makefile
 sub-showet-gui-make_first: FORCE
 	@test -d showet-gui/ || mkdir -p showet-gui/
-	cd showet-gui/ && ( test -e Makefile || $(QMAKE) -o Makefile /media/rizzo/RAIDSTATION/stacks/DATA/testing-stack/showet/showet-gui/showet-gui.pro 'QMAKE_CC = cc' 'QMAKE_CXX = g++' 'QMAKE_CFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_CXXFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_LFLAGS_RELEASE = -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro' ) && $(MAKE) -f Makefile
+	cd showet-gui/ && ( test -e Makefile || $(QMAKE) -o Makefile /media/rizzo/RAIDSTATION/stacks/DATA/testing-stack/showet/showet-gui/showet-gui.pro 'QMAKE_CC = cc' 'QMAKE_CXX = g++' 'QMAKE_CFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_CXXFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_LFLAGS_RELEASE = -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro' ) && $(MAKE) -f Makefile 
 sub-showet-gui-all: FORCE
 	@test -d showet-gui/ || mkdir -p showet-gui/
 	cd showet-gui/ && ( test -e Makefile || $(QMAKE) -o Makefile /media/rizzo/RAIDSTATION/stacks/DATA/testing-stack/showet/showet-gui/showet-gui.pro 'QMAKE_CC = cc' 'QMAKE_CXX = g++' 'QMAKE_CFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_CXXFLAGS_RELEASE = -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -ffile-prefix-map=/home/rizzo/showet=. -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -fdebug-prefix-map=/home/rizzo/showet=/usr/src/showet-0.1-1' 'QMAKE_LFLAGS_RELEASE = -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -Wl,-z,relro' ) && $(MAKE) -f Makefile all
@@ -239,7 +240,8 @@ install_executable: FORCE
 
 uninstall_executable: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/bin/showet
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/bin/
+	-$(DEL_DIR) $(INSTALL_ROOT)/usr/bin/ 
+
 
 install_pymodules: FORCE
 	@test -d $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet || mkdir -p $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet
@@ -408,7 +410,8 @@ uninstall_pymodules: FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Apple_AppleII.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Apple_AppleI.py
 	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/Platform_Amstrad_Cpcplus.py
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/
+	-$(DEL_DIR) $(INSTALL_ROOT)/usr/lib/python3/dist-packages/showet/ 
+
 
 install:install_subtargets install_executable install_pymodules  FORCE
 

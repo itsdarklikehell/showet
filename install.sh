@@ -2,15 +2,21 @@
 # Showet install helper script
 # author: Bauke Molenaar.
 
+sudo apt update
+sudo apt upgrade -y
+
 cd "${HOME}" || exit 1
+
 inst_emulators() {
     echo "Installing retroarch Repositories."
     sudo add-apt-repository ppa:libretro/stable
     # sudo add-apt-repository ppa:libretro/extra
     sudo add-apt-repository ppa:libretro/testing
     sudo apt update
+    sudo apt upgrade -y
     sudo apt install -y retroarch* libretro*
 }
+
 inst_deps() {
     echo "Installing dependencies..."
     deps=(
@@ -52,6 +58,7 @@ inst_deps() {
         fi
     done
 }
+
 inst_showet() {
     sudo apt update
     sudo apt upgrade
@@ -62,6 +69,7 @@ inst_showet() {
     make
     sudo make install
 }
+
 updt_showet() {
     if [[ ! -d "showet" ]]; then
         echo "Directory ${HOME}/Showet was not found, please install it first"
@@ -76,18 +84,22 @@ updt_showet() {
         sudo make install
     fi
 }
+
 if [[ "${1}" = "--update" ]]; then
     inst_emulators
     updt_showet
 fi
+
 if [[ "${1}" = "--install-emulators" ]]; then
     inst_emulators
 fi
+
 if [[ "${1}" = "--install-showet" ]]; then
     inst_deps
     inst_emulators
     inst_showet
 fi
+
 if [[ $# -eq 0 ]]; then
     echo "Usage:    ./install.sh [OPTION]"
     echo "Options:"
@@ -96,4 +108,5 @@ if [[ $# -eq 0 ]]; then
     echo "          --update"
     exit 0
 fi
+
 echo "Done!"

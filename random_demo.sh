@@ -1,6 +1,7 @@
 #!/bin/bash
 # Showet random demo picker script
 # author: Bauke Molenaar.
+
 function update() {
     cd "${HOME}"/showet || exit 1
     git pull
@@ -9,7 +10,7 @@ function update() {
 TIMEOUT=3 # seconds
 MAX_POUETIDS=92957
 
-# if $1 is empty, then dont loop
+# if ${1} is empty, then dont loop
 if [[ -z "${1}" ]]; then
     loop="false"
     random="false"
@@ -40,17 +41,21 @@ else
 fi
 
 play_demo() {
+
     update
+
     # if random is enabled, then play a random demo
     if [[ "${random}" = "true" ]]; then
         echo "Random selection...(insert drumroll...)"
         pouet_id=$(shuf -i0-$MAX_POUETIDS -n1)
         echo "I randomly selected production no: ${pouet_id} from the massive pouet.net database containting: ${MAX_POUETIDS} productions...(insert windows TADAA! sfx...)"
     fi
+
     python3 "${HOME}"/showet/showet.py "${pouet_id}" && chmod +x "${HOME}"/.showet/data/"${pouet_id}"/*
     #resoreset
     sleep 1
     read -p "Press [q] to quit or [enter] to continue (or wait a few seconds)..." -n1 -s -t "${TIMEOUT}"
+
     # if q is pressed, then quit
     if [[ $REPLY = "q" ]]; then
         echo "Quitting..."
@@ -70,5 +75,6 @@ if [[ "${loop}" = "true" ]]; then
 else
     play_demo
 fi
+
 # Cleanup after script
 rm -rf "${HOME}"/.showet/data/* >/dev/null 2>&1
