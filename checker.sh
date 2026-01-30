@@ -22,7 +22,7 @@ USED_CORES=(
 )
 
 echo "Checking for available retroarch executable"
-if [ -f "${RETROARCH_EXEC}" ]; then
+if [[ -f "${RETROARCH_EXEC}" ]]; then
     echo "Found: ${RETROARCH_EXEC}"
     ls "${RETROARCH_EXEC}"
 else
@@ -31,7 +31,7 @@ else
 fi
 
 echo "Checking for available retroarch cores"
-if [ -d "${RETROARCH_CORES_DIRS}" ]; then
+if [[ -d "${RETROARCH_CORES_DIRS}" ]]; then
     echo "Found: ${RETROARCH_CORES_DIRS}"
     ls "${RETROARCH_CORES_DIRS}"/*.so
 else

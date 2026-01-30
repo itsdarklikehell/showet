@@ -63,8 +63,8 @@ inst_showet() {
     sudo make install
 }
 updt_showet() {
-    if [ ! -d "showet" ]; then
-        echo "Directory "${HOME}"/Showet was not found, please install it first"
+    if [[ ! -d "showet" ]]; then
+        echo "Directory ${HOME}/Showet was not found, please install it first"
     else
         echo "Updating..."
         sudo apt update
@@ -76,14 +76,14 @@ updt_showet() {
         sudo make install
     fi
 }
-if [[ $1 = "--update" ]]; then
+if [[ "${1}" = "--update" ]]; then
     inst_emulators
     updt_showet
 fi
-if [[ $1 = "--install-emulators" ]]; then
+if [[ "${1}" = "--install-emulators" ]]; then
     inst_emulators
 fi
-if [[ $1 = "--install-showet" ]]; then
+if [[ "${1}" = "--install-showet" ]]; then
     inst_deps
     inst_emulators
     inst_showet
