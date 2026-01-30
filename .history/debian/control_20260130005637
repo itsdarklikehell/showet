@@ -1,0 +1,39 @@
+Source: showet
+Section: base
+Priority: optional
+Maintainer: Bauke Molenaar <bauke.molenaar@gmail.com>
+Uploaders: Bauke Molenaar <bauke.molenaar@gmail.com>
+Build-Depends: debhelper (>= 9),
+               qt5-qmake,
+               qtbase5-dev,
+               qtdeclarative5-dev
+Standards-Version: 3.9.8
+Homepage: https://github.com/itsdarklikehell/showet
+Vcs-Git: https://github.com/itsdarklikehell/showet.git
+Vcs-Browser: https://github.com/itsdarklikehell/showet
+X-Python3-Version: >= 3.3
+Description: pouet.net demo jukebox
+ Play demos from pouet.net easily.
+
+
+Package: showet
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, 
+         python3, 
+         python3-urllib3,
+         unzip, 
+         wine, 
+         fs-uae, 
+         lhasa,
+         vice,
+         qml-module-qtquick-controls,
+         qml-module-qtgraphicaleffects,
+         qml-module-qtquick-layouts,
+         qml-module-qtwebengine,
+         unrar,
+         p7zip-full,
+         p7zip-rar,
+         gzip,
+         qtwebengine5-dev-tools
+Description: pouet.net demo jukebox
+ Play demos from pouet.net easily.

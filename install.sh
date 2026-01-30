@@ -2,14 +2,14 @@
 # Showet install helper script
 # author: Bauke Molenaar.
 
-cd ~
+cd "${HOME}" || exit 1
 inst_emulators() {
     echo "Installing retroarch Repositories."
     sudo add-apt-repository ppa:libretro/stable
-    #sudo add-apt-repository ppa:libretro/extra
+    # sudo add-apt-repository ppa:libretro/extra
     sudo add-apt-repository ppa:libretro/testing
     sudo apt update
-    sudo apt install retroarch* libretro*
+    sudo apt install -y retroarch* libretro*
 }
 inst_deps() {
     echo "Installing dependencies..."
@@ -46,9 +46,9 @@ inst_deps() {
         "wine"
     )
     for dep in "${deps[@]}"; do
-        if ! dpkg -s $dep >/dev/null 2>&1; then
-            echo "Installing $dep"
-            sudo apt install $dep
+        if ! dpkg -s ${dep} >/dev/null 2>&1; then
+            echo "Installing ${dep}"
+            sudo apt install -y "${dep}"
         fi
     done
 }
@@ -56,20 +56,20 @@ inst_showet() {
     sudo apt update
     sudo apt upgrade
     echo "Installing Showet..."
-    git clone https://github.com/itsdarklikehell/showet
-    cd showet
+    git clone "https://github.com/itsdarklikehell/showet.git" "showet"
+    cd "showet" || exit 1
     debuild -us -uc -b
     make
     sudo make install
 }
 updt_showet() {
-    if [ ! -d ~/showet ]; then
-        echo "Directory ~/Showet was not found, please install it first"
+    if [ ! -d "showet" ]; then
+        echo "Directory "${HOME}"/Showet was not found, please install it first"
     else
         echo "Updating..."
         sudo apt update
         sudo apt upgrade
-        cd ~/showet
+        cd showet || exit 1
         git pull
         debuild -us -uc -b
         make
