@@ -2,7 +2,6 @@ from platformcommon import PlatformCommon
 import os
 import stat
 
-
 class Platform_Magnavox_Odyssey(PlatformCommon):
     # Set up the emulator we want to run.
     # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
@@ -11,7 +10,6 @@ class Platform_Magnavox_Odyssey(PlatformCommon):
     emulators = ["retroarch", "o2em"]
     cores = ["o2em_libretro"]
     extensions = ["zip", "bin"]
-
 
     def run(self):
         """
@@ -116,3 +114,4 @@ class Platform_Magnavox_Odyssey(PlatformCommon):
                         os.chmod(file, stat.S_IEXEC)  # Set as executable
                         ext_files.append(file)  # Add filepath to list
         return ext_files  # Return list of found files
+

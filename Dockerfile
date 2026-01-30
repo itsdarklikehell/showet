@@ -19,3 +19,4 @@ WORKDIR /config
 RUN chown -R abc:abc /config /showet
 
 EXPOSE 3000 3001 16261
+

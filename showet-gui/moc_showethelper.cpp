@@ -202,7 +202,6 @@ QT_INIT_METAOBJECT const QMetaObject ShowetHelper::staticMetaObject = { {
     nullptr
 } };
 
-
 const QMetaObject *ShowetHelper::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
@@ -271,3 +270,4 @@ void ShowetHelper::supportedPlatformsChanged()
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
+
