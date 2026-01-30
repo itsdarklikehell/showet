@@ -16,7 +16,7 @@ if [[ -z "${1}" ]]; then
 elif [[ "${1}" = "-p" ]] && [[ "${2}" != "-z" ]]; then
     loop="false"
     random="false"
-    pouet_id=$2
+    pouet_id="${2}"
 elif [[ "${1}" = "-pl" ]]; then
     loop="true"
     random="false"
