@@ -41,6 +41,20 @@ cd showet
 ./install.sh --install-emulators
 ```
 
+For local Python-only checks:
+
+```bash
+python3 -m compileall .
+```
+
+For the Qt GUI, regenerate qmake output locally instead of committing generated
+build files:
+
+```bash
+qmake showet.pro
+make
+```
+
 To build debian package, run:
 
 ```bash
@@ -1049,4 +1063,3 @@ Pull requests and suggestions are always welcome (if they are not breaking anyth
 Code: Ville Ranki. (Original Author 2004)
 Code: Bauke Molenaar. (Since: 2022)
 Logo & Icon: Manu / Fit
-

@@ -102,3 +102,19 @@ ENV/
 
 .history/
 
+# Local editor state
+.idea/
+.vscode/
+
+# Qt/qmake build outputs
+.qmake.stash
+Makefile
+showet-gui/Makefile
+showet-gui/*.o
+showet-gui/moc_*.cpp
+showet-gui/moc_predefs.h
+showet-gui/qrc_*.cpp
+showet-gui/showet-gui
+
+# Runtime data
+.showet/
