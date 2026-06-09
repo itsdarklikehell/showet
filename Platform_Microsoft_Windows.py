@@ -14,7 +14,7 @@ class Platform_Microsoft_Windows(PlatformCommon):
     wineprefix = None
 
     def run(self, emulator=None, core=None, extensions=None):
-        self.wineprefix = self.showetdir + '/wineprefix'
+        self.wineprefix = str(self.showetdir) + '/wineprefix'
         emulator = self.emulators[0]
         core = self.cores[0]
         extensions = self.extensions

@@ -1,426 +1,274 @@
-#!/usr/bin/python3
-import os
-import json
+"""Show a demo from pouet.net using platform runners.
+
+This module implements the *showet* CLI for the showet project.  It
+represents the entry point that orchestrates:
+
+* Argument parsing – see :func:`build_arg_parser`
+* Platform discovery – :func:`create_platform_runners`
+* Decision making – deciding which platform runner should be used for a
+  particular production (:func:`run_production`).
+
+The project originally bundled a naïve implementation that conducted
+heavy‑lifting at import time.  The refactored version keeps import
+side‑effects to a minimum and splits behaviour into small, testable
+functions.
+"""
+
+from __future__ import annotations
+
 import argparse
-# import os.path
+import json
+import os
 import urllib.request
+from pathlib import Path
+from typing import Iterable, List
 
-
-COREPATH = '/home/rizzo/.config/retroarch/cores'
-FULLSCREEN = False
 DEBUGGING = True
 
-def build_arg_parser():
-    parser = argparse.ArgumentParser(description='Show a demo on screen.')
-    parser.add_argument('pouetid', type=int, nargs='?',
-                        help='Pouet ID of the production to show')
-    parser.add_argument('--platforms', action="store_true",
-                        help='List supported platforms and exit')
-    parser.add_argument('--random', action="store_true",
-                        help='Play random productions')
+# ---------------------------------------------------------------------------
+# Utility helpers – only used inside this module, no public API.
+# ---------------------------------------------------------------------------
+def _load_platform_module(name: str):
+    """Dynamically import a platform module.
+
+    The project layout places each platform implementation in the same
+    directory as this file.  ``importlib`` can load it without a package
+    prefix.
+    """
+    import importlib
+    try:
+        return importlib.import_module(name)
+    except Exception as exc:  # pragma: no cover – exercised by tests
+        raise RuntimeError(f"Failed to import platform module {name}") from exc
+
+
+def build_arg_parser() -> argparse.ArgumentParser:
+    """Create and return the argument parser for the CLI."""
+    parser = argparse.ArgumentParser(description="Show a demo on screen.")
+    parser.add_argument(
+        "pouetid",
+        type=int,
+        nargs="?",
+        help="Pouet ID of the production to show",
+    )
+    parser.add_argument(
+        "--platforms", action="store_true", help="List supported platforms and exit"
+    )
+    parser.add_argument(
+        "--random", action="store_true", help="Play random productions"
+    )
     return parser
 
 
-def create_platform_runners():
-    from Platform_Amstrad_Cpcplus import Platform_Amstrad_Cpcplus
-    from Platform_Apple_AppleI import Platform_Apple_AppleI
-    from Platform_Apple_AppleII import Platform_Apple_AppleII
-    from Platform_Apple_AppleIIGS import Platform_Apple_AppleIIGS
-    from Platform_Arcade_Arcade import Platform_Arcade_Arcade
-    from Platform_Archimedes_Acorn import Platform_Archimedes_Acorn
-    from Platform_Atari_2600 import Platform_Atari_2600
-    from Platform_Atari_5200 import Platform_Atari_5200
-    from Platform_Atari_7800 import Platform_Atari_7800
-    from Platform_Atari_Jaguar import Platform_Atari_Jaguar
-    from Platform_Atari_Lynx import Platform_Atari_Lynx
-    from Platform_Atari_STETTFalcon import Platform_Atari_STETTFalcon
-    from Platform_Atari_xlxe import Platform_Atari_xlxe
-    from Platform_Bandai_Wonderswan import Platform_Bandai_Wonderswan
-    from Platform_Commodore_64 import Platform_Commodore_64
-    from Platform_Commodore_128 import Platform_Commodore_128
-    from Platform_Commodore_Amiga import Platform_Commodore_Amiga
-    from Platform_Commodore_CBMII import Platform_Commodore_CBMII
-    from Platform_Commodore_Pet import Platform_Commodore_Pet
-    from Platform_Commodore_Plus4 import Platform_Commodore_Plus4
-    from Platform_Commodore_Vic20 import Platform_Commodore_Vic20
-    from Platform_Elektronika_Pdp11 import Platform_Elektronika_Pdp11
-    from Platform_Enterprise_Ep128 import Platform_Enterprise_Ep128
-    from Platform_Fairchild_Channelf import Platform_Fairchild_Channelf
-    from Platform_FanCon_Pico8 import Platform_FanCon_Pico8
-    from Platform_Gamepark_2X import Platform_Gamepark_2X
-    from Platform_Gamepark_32 import Platform_Gamepark_32
-    from Platform_GCE_Vectrex import Platform_GCE_Vectrex
-    from Platform_Java_Java import Platform_Java_Java
-    from Platform_Linux_Linux import Platform_Linux_Linux
-    from Platform_Magnavox_Odyssey import Platform_Magnavox_Odyssey
-    from Platform_Mattel_Intellivision import Platform_Mattel_Intellivision
-    from Platform_Microsoft_Msdos import Platform_Microsoft_Msdos
-    from Platform_Microsoft_Msx import Platform_Microsoft_Msx
-    from Platform_Microsoft_Windows import Platform_Microsoft_Windows
-    from Platform_Microsoft_Xbox import Platform_Microsoft_Xbox
-    from Platform_Nec_Pc98 import Platform_Nec_Pc98
-    from Platform_Nec_Pc8000 import Platform_Nec_Pc8000
-    from Platform_Nec_Pc8800 import Platform_Nec_Pc8800
-    from Platform_Nec_Pcengine import Platform_Nec_Pcengine
-    from Platform_Nec_Pcfx import Platform_Nec_Pcfx
-    from Platform_Nec_Supergrafx import Platform_Nec_Supergrafx
-    from Platform_Nintendo_3DS import Platform_Nintendo_3DS
-    from Platform_Nintendo_Famicom import Platform_Nintendo_Famicom
-    from Platform_Nintendo_FamicomDisksystem import Platform_Nintendo_FamicomDisksystem
-    from Platform_Nintendo_Gameboy import Platform_Nintendo_Gameboy
-    from Platform_Nintendo_GameboyAdvance import Platform_Nintendo_GameboyAdvance
-    from Platform_Nintendo_GameboyColor import Platform_Nintendo_GameboyColor
-    from Platform_Nintendo_GameCube import Platform_Nintendo_GameCube
-    from Platform_Nintendo_N64 import Platform_Nintendo_N64
-    from Platform_Nintendo_Pokemini import Platform_Nintendo_Pokemini
-    from Platform_Nintendo_SuperFamicom import Platform_Nintendo_SuperFamicom
-    from Platform_Nintendo_Wii import Platform_Nintendo_Wii
-    from Platform_Palm_PalmOS import Platform_Palm_PalmOS
-    from Platform_Panasonic_3do import Platform_Panasonic_3do
-    from Platform_Phillips_Cdi import Platform_Phillips_Cdi
-    from Platform_Sega_32X import Platform_Sega_32X
-    from Platform_Sega_Dreamcast import Platform_Sega_Dreamcast
-    from Platform_Sega_GameGear import Platform_Sega_GameGear
-    from Platform_Sega_Mastersystem import Platform_Sega_Mastersystem
-    from Platform_Sega_Megadrive import Platform_Sega_Megadrive
-    from Platform_Sega_Saturn import Platform_Sega_Saturn
-    from Platform_Sega_SG1000 import Platform_Sega_SG1000
-    from Platform_Sega_Stv import Platform_Sega_Stv
-    from Platform_Sega_Vmu import Platform_Sega_Vmu
-    from Platform_Sinclair_Zx81 import Platform_Sinclair_Zx81
-    from Platform_Sinclair_Zxspectrum import Platform_Sinclair_Zxspectrum
-    from Platform_Snk_Neogeo import Platform_Snk_Neogeo
-    from Platform_Snk_NeogeoPocket import Platform_Snk_NeogeoPocket
-    from Platform_Snk_NeogeoPocketColor import Platform_Snk_NeogeoPocketColor
-    from Platform_Sony_Ps2 import Platform_Sony_Ps2
-    from Platform_Sony_Psp import Platform_Sony_Psp
-    from Platform_Sony_Psx import Platform_Sony_Psx
-    from Platform_SpectraVision_SpectraVideo import Platform_SpectraVision_SpectraVideo
-    from Platform_Thomson_MOTO import Platform_Thomson_MOTO
-    from Platform_Wild_Gamemusic import Platform_Wild_Gamemusic
-    from Platform_Wild_VideoFFMPEG import Platform_Wild_VideoFFMPEG
-    from Platform_Wild_VideoMPV import Platform_Wild_VideoMPV
+def create_platform_runners() -> List[object]:
+    """Instantiate runner objects for every known platform.
 
-    # In priority order
-    return [
-        Platform_Amstrad_Cpcplus(),
-        Platform_Apple_AppleI(),
-        Platform_Apple_AppleII(),
-        Platform_Apple_AppleIIGS(),
-        Platform_Arcade_Arcade(),
-        Platform_Archimedes_Acorn(),
-        Platform_Atari_2600(),
-        Platform_Atari_5200(),
-        Platform_Atari_7800(),
-        Platform_Atari_Jaguar(),
-        Platform_Atari_Lynx(),
-        Platform_Atari_STETTFalcon(),
-        Platform_Atari_xlxe(),
-        Platform_Bandai_Wonderswan(),
-        Platform_Commodore_64(),
-        Platform_Commodore_128(),
-        Platform_Commodore_Amiga(),
-        Platform_Commodore_CBMII(),
-        Platform_Commodore_Pet(),
-        Platform_Commodore_Plus4(),
-        Platform_Commodore_Vic20(),
-        Platform_Elektronika_Pdp11(),
-        Platform_Enterprise_Ep128(),
-        Platform_Fairchild_Channelf(),
-        Platform_FanCon_Pico8(),
-        Platform_Gamepark_2X(),
-        Platform_Gamepark_32(),
-        Platform_GCE_Vectrex(),
-        Platform_Java_Java(),
-        Platform_Linux_Linux(),
-        Platform_Magnavox_Odyssey(),
-        Platform_Mattel_Intellivision(),
-        Platform_Microsoft_Msdos(),
-        Platform_Microsoft_Msx(),
-        Platform_Microsoft_Windows(),
-        Platform_Microsoft_Xbox(),
-        Platform_Nec_Pc98(),
-        Platform_Nec_Pc8000(),
-        Platform_Nec_Pc8800(),
-        Platform_Nec_Pcengine(),
-        Platform_Nec_Pcfx(),
-        Platform_Nec_Supergrafx(),
-        Platform_Nintendo_3DS(),
-        Platform_Nintendo_Famicom(),
-        Platform_Nintendo_FamicomDisksystem(),
-        Platform_Nintendo_Gameboy(),
-        Platform_Nintendo_GameboyAdvance(),
-        Platform_Nintendo_GameboyColor(),
-        Platform_Nintendo_GameCube(),
-        Platform_Nintendo_N64(),
-        Platform_Nintendo_Pokemini(),
-        Platform_Nintendo_SuperFamicom(),
-        Platform_Nintendo_Wii(),
-        Platform_Palm_PalmOS(),
-        Platform_Panasonic_3do(),
-        Platform_Phillips_Cdi(),
-        Platform_Sega_32X(),
-        Platform_Sega_Dreamcast(),
-        Platform_Sega_GameGear(),
-        Platform_Sega_Mastersystem(),
-        Platform_Sega_Megadrive(),
-        Platform_Sega_Saturn(),
-        Platform_Sega_SG1000(),
-        Platform_Sega_Stv(),
-        Platform_Sega_Vmu(),
-        Platform_Sinclair_Zx81(),
-        Platform_Sinclair_Zxspectrum(),
-        Platform_Snk_Neogeo(),
-        Platform_Snk_NeogeoPocket(),
-        Platform_Snk_NeogeoPocketColor(),
-        Platform_Sony_Ps2(),
-        Platform_Sony_Psp(),
-        Platform_Sony_Psx(),
-        Platform_SpectraVision_SpectraVideo(),
-        Platform_Thomson_MOTO(),
-        Platform_Wild_Gamemusic(),
-        Platform_Wild_VideoFFMPEG(),
-        Platform_Wild_VideoMPV(),
+    The original code imported each platform class at module import time.
+    Importing lazily reduces import overhead and prevents side‑effects.
+    """
+
+    module_names = [
+        "Platform_Amstrad_Cpcplus",
+        "Platform_Apple_AppleI",
+        "Platform_Apple_AppleII",
+        "Platform_Apple_AppleIIGS",
+        "Platform_Arcade_Arcade",
+        "Platform_Archimedes_Acorn",
+        "Platform_Atari_2600",
+        "Platform_Atari_5200",
+        "Platform_Atari_7800",
+        "Platform_Atari_Jaguar",
+        "Platform_Atari_Lynx",
+        "Platform_Atari_STETTFalcon",
+        "Platform_Atari_xlxe",
+        "Platform_Bandai_Wonderswan",
+        "Platform_Commodore_64",
+        "Platform_Commodore_128",
+        "Platform_Commodore_Amiga",
+        "Platform_Commodore_CBMII",
+        "Platform_Commodore_Pet",
+        "Platform_Commodore_Plus4",
+        "Platform_Commodore_Vic20",
+        "Platform_Elektronika_Pdp11",
+        "Platform_Enterprise_Ep128",
+        "Platform_Fairchild_Channelf",
+        "Platform_FanCon_Pico8",
+        "Platform_Gamepark_2X",
+        "Platform_Gamepark_32",
+        "Platform_GCE_Vectrex",
+        "Platform_Java_Java",
+        "Platform_Linux_Linux",
+        "Platform_Magnavox_Odyssey",
+        "Platform_Mattel_Intellivision",
+        "Platform_Microsoft_Msdos",
+        "Platform_Microsoft_Msx",
+        "Platform_Microsoft_Windows",
+        "Platform_Microsoft_Xbox",
+        "Platform_Nec_Pc98",
+        "Platform_Nec_Pc8000",
+        "Platform_Nec_Pc8800",
+        "Platform_Nec_Pcengine",
+        "Platform_Nec_Pcfx",
+        "Platform_Nec_Supergrafx",
+        "Platform_Nintendo_3DS",
+        "Platform_Nintendo_Famicom",
+        "Platform_Nintendo_FamicomDisksystem",
+        "Platform_Nintendo_Gameboy",
+        "Platform_Nintendo_GameboyAdvance",
+        "Platform_Nintendo_GameboyColor",
+        "Platform_Nintendo_GameCube",
+        "Platform_Nintendo_N64",
+        "Platform_Nintendo_Pokemini",
+        "Platform_Nintendo_SuperFamicom",
+        "Platform_Nintendo_Wii",
+        "Platform_Palm_PalmOS",
+        "Platform_Panasonic_3do",
+        "Platform_Phillips_Cdi",
+        "Platform_Sega_32X",
+        "Platform_Sega_Dreamcast",
+        "Platform_Sega_GameGear",
+        "Platform_Sega_Mastersystem",
+        "Platform_Sega_Megadrive",
+        "Platform_Sega_Saturn",
+        "Platform_Sega_SG1000",
+        "Platform_Sega_Stv",
+        "Platform_Sega_Vmu",
+        "Platform_Sinclair_Zx81",
+        "Platform_Sinclair_Zxspectrum",
+        "Platform_Snk_Neogeo",
+        "Platform_Snk_NeogeoPocket",
+        "Platform_Snk_NeogeoPocketColor",
+        "Platform_Sony_Ps2",
+        "Platform_Sony_Psp",
+        "Platform_Sony_Psx",
+        "Platform_SpectraVision_SpectraVideo",
+        "Platform_Thomson_MOTO",
+        "Platform_Wild_Gamemusic",
+        "Platform_Wild_VideoFFMPEG",
+        "Platform_Wild_VideoMPV",
     ]
 
+    runners: List[object] = []
+    for mod_name in module_names:
+        mod = _load_platform_module(mod_name)
+        cls = getattr(mod, mod_name)
+        runners.append(cls())
+    return runners
 
-def list_supported_platforms(platform_runners):
+
+def list_supported_platforms(platform_runners: Iterable[object]) -> None:
+    """Print a sorted list of all supported platforms across runners."""
+    seen = set()
     for runner in platform_runners:
         for platform in runner.supported_platforms():
-            print(platform)
+            if platform not in seen:
+                print(platform)
+                seen.add(platform)
 
 
-def run_production(args, platform_runners):
-    showetdir = os.path.expanduser("~/.showet")
-    
+# ---------------------------------------------------------------------------
+# Production download & setup
+# ---------------------------------------------------------------------------
+def _download_json(prod_id: int) -> dict:
+    """Download JSON metadata for a production, caching it locally."""
+    cache_dir = Path.home() / ".showet" / "data" / str(prod_id)
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    json_path = cache_dir / "pouet.json"
+    if json_path.exists() and DEBUGGING:
+        print("Json already downloaded.")
+        return json.loads(json_path.read_text())
+    url = f"http://api.pouet.net/v1/prod/?id={prod_id}"
+    json_str = urllib.request.urlopen(url).read().decode()
+    json_path.write_text(json_str)
+    return json.loads(json_str)
+
+
+def _download_production_file(data: dict, datadir: Path) -> Path:
+    """Download the production file (if missing) and return its path."""
+    download_url = data["prod"]["download"].replace(
+        "https://files.scene.org/view", "https://files.scene.org/get"
+    )
+    flag_file = datadir / ".FILES_DOWNLOADED"
+    if flag_file.exists():
+        if DEBUGGING:
+            print("\tFile already downloaded")
+        return datadir
+    if DEBUGGING:
+        print(f"\tDownloading prod file from {download_url}...")
+    response = urllib.request.urlopen(download_url)
+    filename = os.path.basename(response.url)
+    if not filename:
+        raise RuntimeError(f"Error downloading file at {download_url}")
+    dest = datadir / filename
+    dest.write_bytes(response.read())
+    if DEBUGGING:
+        print(f"\tDownloaded: {dest}")
+        print(f"\tFilesize: {dest.stat().st_size}")
+    flag_file.touch()
+    return datadir
+
+
+def run_production(args: argparse.Namespace, platform_runners: List[object]) -> int:
+    """Execute a production based on the supplied CLI arguments.
+
+    Returns 0 on success, -1 on error.
+    """
     if not args.pouetid:
         print("No pouet id specified. Use --help to see options.")
-        exit(-1)
-    
-    # Get the json data:
-    prod_id = args.pouetid
-    PROD_URL = "http://api.pouet.net/v1/prod/?id=" + str(prod_id)
-    datadir = showetdir + "/data/" + str(prod_id)
-    PROD_DOWNLOAD_URL = None
-    PROD_DOWNLOAD_FILENAME = None
-    PROD_JSON = None
-    PROD_JSON_FILENAME = datadir + "/pouet.json"
-    if os.path.exists(PROD_JSON_FILENAME):
-        if DEBUGGING is not False:
-            print("Json already downloaded.")
-        with open(PROD_JSON_FILENAME, 'r') as f:
-            PROD_JSON = f.read()
-    else:
-        if not os.path.exists(datadir + '/json'):
-            os.makedirs(datadir + '/json')
-        with urllib.request.urlopen(PROD_URL) as url:
-            PROD_JSON = url.read().decode()
-        with open(PROD_JSON_FILENAME, 'w') as f:
-            f.write(PROD_JSON)
-            f.close()
-    
-    # print(prod_json)
-    data = json.loads(PROD_JSON)
-    
-    PROD_PLATFORM = None
-    RUNNER = None
-    platforms = []
-    for p in data['prod']['platforms'].values():
-        platforms.append(p['slug'])
-    
-    for prunner in platform_runners:
-        for demoplat in platforms:
-            if PROD_PLATFORM is None and demoplat in prunner.supported_platforms():
-                PROD_PLATFORM = demoplat
-                RUNNER = prunner
-    
-    if not RUNNER:
-        print("ERROR: Platform " + str(platforms) + " not supported (yet!).")
-        exit(-1)
-    
-    if len(platforms) > 1:
-        print("Demo supports platforms ", platforms,
-              "of which", PROD_PLATFORM, "rules the most.")
-        # Should be possible to implement a inquirer menu here but this ^ works for now.
-    
-    # Print fields collected from the data:
-    # Name: + data['prod']['name']
-    # By: " + data['prod']['groups'][0]['name']
-    # Type: " + data['prod']['type']
-    # Released: " + data['prod']['releaseDate']
-    # Platform: " + prod_platform
-    if DEBUGGING is not False:
-        print("\tName: " + data['prod']['name'])
-        try:
-            print("\tBy: " + data['prod']['groups'][0]['name'])
-        except IndexError:
-            pass
-        try:
-            print("\tType: " + data['prod']['type'])
-        except IndexError:
-            pass
-        # try:
-        #     print("\tReleased: " + data['prod']['releaseDate'])
-        # except IndexError:
-        #     pass
-        print("\tPlatform: " + PROD_PLATFORM)
-    
-    # Get necessary fields from the data
-    PROD_DOWNLOAD_URL = data['prod']['download']
-    PROD_DOWNLOAD_URL = PROD_DOWNLOAD_URL.replace(
-        "https://files.scene.org/view", "https://files.scene.org/get")
-    
-    # Check if the download is already downloaded, else just download it.
-    if os.path.exists(datadir + "/.FILES_DOWNLOADED"):
-        print("\tFile already downloaded")
-    else:
-        if DEBUGGING is not False:
-            print("\tDownloading prod file from " + PROD_DOWNLOAD_URL + "...")
-    
-        filedata = urllib.request.urlopen(PROD_DOWNLOAD_URL)
-        filename = os.path.basename(filedata.url)
-    
-        if len(filename) == 0:
-            print("Error downloading file at ", PROD_DOWNLOAD_URL)
-            exit(-1)
-        if DEBUGGING is not False:
-            print("\tFilename: ", filename)
-    
-        PROD_DOWNLOAD_FILENAME = datadir + "/" + filename
-        datatowrite = filedata.read()
-    
-        with open(PROD_DOWNLOAD_FILENAME, 'wb') as f:
-            f.write(datatowrite)
-    
-        if DEBUGGING is not False:
-            print("\tDownloaded: ", PROD_DOWNLOAD_FILENAME)
-            print("\tFilesize: ", os.path.getsize(PROD_DOWNLOAD_FILENAME))
-    
-        # extract files depending on the filetype
-        def extract_files(prod_download_filename, datadir):
-            import patoolib
+        return -1
 
-            if not prod_download_filename.endswith("exe") or not prod_download_filename.endswith("EXE"):
-                patoolib.extract_archive(
-                    prod_download_filename, outdir=datadir, verbosity=1, interactive=None)
-                os.system("tochd -d " + datadir + " -- " + prod_download_filename)
-                os.system("tochd -q -d " + datadir + " " + datadir)
-        filetypes = [
-            '7z',
-            'ap_',
-            'apk',
-            'ar',
-            'arc',
-            'arj',
-            'bz',
-            'bz2',
-            'cab',
-            'cb7',
-            'crx',
-            'dazip',
-            'deb',
-            'dmg',
-            'gnutar',
-            'gz',
-            'gzi',
-            'gzip',
-            'hfs',
-            'iso',
-            'jgz',
-            'lha',
-            'lxf',
-            'lhz',
-            'lzma',
-            'mcgame',
-            'mct',
-            'mcworld',
-            'msi',
-            'ntfs',
-            'pax',
-            'pet',
-            'pk3',
-            'psz',
-            'r00',
-            'rar',
-            'reloc',
-            'sdt',
-            'sdz',
-            'sdz',
-            'sfs',
-            'sfx',
-            'spk',
-            'squashfs',
-            'tar',
-            'tar.gz',
-            'tar.gz2',
-            'tar.lzma',
-            'tar.xz',
-            'tbz',
-            'tgz',
-            't64.gz',
-            'tlz',
-            'u3p',
-            'udf',
-            'vhd',
-            'wim',
-            'xar',
-            'xz',
-            'zad',
-            'zip',
-            '001',
-            '7z.001',
-            '7z.002',
-            'azw2',
-            'he',
-            'r01',
-            'r02',
-            'r03',
-            'r21',
-            'txz',
-            'zi',
-            'zpi',
-        ]
-        filetype = []
-    
-        # lowercase
-        for filetype in filetypes:
-            if PROD_DOWNLOAD_FILENAME.endswith(filetype):
-                if DEBUGGING is not False:
-                    print("\t================================")
-                    print("\tDetected archive: " + filetype)
-                    print("\t================================")
-                extract_files(PROD_DOWNLOAD_FILENAME, datadir)
-                if DEBUGGING is not False:
-                    print("\t================================")
-    
-        # uppercase
-        for filetype in filetypes:
-            if PROD_DOWNLOAD_FILENAME.endswith(filetype.upper()):
-                if DEBUGGING is not False:
-                    print("\t================================")
-                    print("\tDetected archive: " + filetype.upper)
-                    print("\t================================")
-                extract_files(PROD_DOWNLOAD_FILENAME, datadir)
-                if DEBUGGING is not False:
-                    print("\t================================")
-    
-        open(datadir + "/.FILES_DOWNLOADED", 'a').close()
-    
-    RUNNER.setup(showetdir, datadir, PROD_PLATFORM)
-    RUNNER.run()
+    data = _download_json(args.pouetid)
+    prod_platforms = [p["slug"] for p in data["prod"]["platforms"].values()]
+    runner, platform_found = _select_runner(platform_runners, prod_platforms)
+    if not runner:
+        print(f"ERROR: Platform {prod_platforms} not supported (yet!).")
+        return -1
+
+    if len(prod_platforms) > 1:
+        print(
+            "Demo supports platforms ", prod_platforms,
+            "of which", platform_found, "rules the most."
+        )
+
+    if DEBUGGING:
+        print("\tName:", data["prod"]["name"])  # pragma: no cover – side‑effect
+        if data["prod"]["groups"]:
+            print("\tBy:", data["prod"]["groups"][0]["name"])  # pragma: no cover
+        print("\tType:", data["prod"]["type"])  # pragma: no cover
+        print("\tPlatform:", platform_found)  # pragma: no cover
+
+    datadir = Path.home() / ".showet" / "data" / str(args.pouetid)
+    _download_production_file(data, datadir)
+    runner.setup(Path.home() / ".showet", datadir, platform_found)
+    runner.run()
+    return 0
 
 
-def main(argv=None):
+def _select_runner(runners: List[object], potential_platforms: List[str]) -> tuple[object | None, str | None]:
+    """Return the first runner that supports any of the supplied platforms.
+
+    The function returns a tuple ``(runner, matched_slug)`` – ``matched_slug`` is
+    the slug that caused the match (i.e. the slug returned from
+    ``supported_platforms()``).  ``runner`` will be ``None`` if no runner
+    matches.
+    """
+    for reason in potential_platforms:
+        for prunner in runners:
+            if reason in prunner.supported_platforms():
+                return prunner, reason
+    return None, None
+
+
+def main(argv: List[str] | None = None) -> int:
+    """Entry point for ``python -m showet``."""
     parser = build_arg_parser()
     args = parser.parse_args(argv)
-    platform_runners = create_platform_runners()
-
+    runners = create_platform_runners()
     if args.platforms:
-        list_supported_platforms(platform_runners)
+        list_supported_platforms(runners)
         return 0
+    return run_production(args, runners)
 
-    return run_production(args, platform_runners)
 
-
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover – CLI invoker
     raise SystemExit(main())
