@@ -6,8 +6,12 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = "GPL-3.0-or-later"
 dependencies = [
+    "inquirer>=3.4",
     "patool>=4.0",
 ]
+
+[project.scripts]
+showet = "showet:main"
 
 [project.urls]
 Homepage = "https://github.com/itsdarklikehell/showet"

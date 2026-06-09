@@ -19,8 +19,9 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 
 ## Current implementation
 
-- Python script that can download, extract and run demos from pouet.net with the right emulator.
+- Python CLI that can download, extract and run demos from pouet.net with the right emulator.
 - GUI frontend
+- Python project metadata in `pyproject.toml` for runtime dependencies, tooling, and the `showet` console entry point.
 
 ## Usage
 
@@ -45,7 +46,19 @@ For local Python-only checks:
 
 ```bash
 python3 -m compileall .
+python3 -m unittest discover -s tests
 ```
+
+For editable local development:
+
+```bash
+python3 -m pip install -e .
+showet --platforms
+```
+
+The CLI entry point is `showet:main`. Importing `showet.py` should not parse
+arguments, download files, or start emulators; side effects should stay behind
+the CLI path so the module can be tested.
 
 For the Qt GUI, regenerate qmake output locally instead of committing generated
 build files:
@@ -54,6 +67,9 @@ build files:
 qmake showet.pro
 make
 ```
+
+Generated qmake files, object files, Python bytecode, editor history, and local
+runtime data are ignored by Git. If they are needed, regenerate them locally.
 
 To build debian package, run:
 

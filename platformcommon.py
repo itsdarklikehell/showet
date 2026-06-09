@@ -1,6 +1,5 @@
 import os
 import os.path
-import inquirer
 import subprocess
 
 COREPATH = '/home/rizzo/.config/retroarch/cores'
@@ -96,9 +95,9 @@ class PlatformCommon:
             exit(-1)
         return retcode
 
-    print("\t================================")
-
     def multiemu(self, emulators):
+        import inquirer
+
         # emulator = []
         if DEBUGGING is not False:
             print("Info: Multiple emulators are supported: " + str(emulators))
@@ -115,6 +114,8 @@ class PlatformCommon:
         return emulator
 
     def multicore(self, cores):
+        import inquirer
+
         # core = []
         if DEBUGGING is not False:
             print("Info: Multiple cores are supported: " + str(cores))
@@ -129,4 +130,3 @@ class PlatformCommon:
         if DEBUGGING is not False:
             print("You chose the selected core: " + str(core))
         return core
-

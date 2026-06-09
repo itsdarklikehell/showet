@@ -11,9 +11,10 @@ class Platform_Microsoft_Windows(PlatformCommon):
     emulators = ["wine", "proton"]
     cores = ["wine"]
     extensions = ["exe"]
-    wineprefix = self.showetdir + '/wineprefix'
+    wineprefix = None
 
-    def run(self, emulator, core, extensions):
+    def run(self, emulator=None, core=None, extensions=None):
+        self.wineprefix = self.showetdir + '/wineprefix'
         emulator = self.emulators[0]
         core = self.cores[0]
         extensions = self.extensions
@@ -117,4 +118,3 @@ class Platform_Microsoft_Windows(PlatformCommon):
                         os.chmod(file, stat.S_IEXEC)  # Set as executable
                         ext_files.append(file)  # Add filepath to list
         return ext_files  # Return list of found files
-
