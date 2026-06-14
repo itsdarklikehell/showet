@@ -43,9 +43,23 @@ class ShowetAPIHandler(SimpleHTTPRequestHandler):
             self._handle_platforms()
         elif self.path.startswith("/api/search"):
             self._handle_search()
+        elif self.path == "/" or self.path == "/index.html":
+            self._serve_index()
         else:
             # Serve static files
             super().do_GET()
+
+    def _serve_index(self) -> None:
+        """Serve the index.html file."""
+        index_path = Path(__file__).parent / "showet-ui" / "index.html"
+        if index_path.exists():
+            content = index_path.read_text()
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html")
+            self.end_headers()
+            self.wfile.write(content.encode())
+            return
+        self._send_error("Index not found", 404)
 
     def do_POST(self) -> None:
         """Handle POST requests."""
