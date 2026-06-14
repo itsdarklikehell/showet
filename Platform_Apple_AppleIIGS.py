@@ -1,26 +1,29 @@
 """Runner for the pouet "apple_appleiigs" platform.
+
+Refactored to use PlatformCommon as base class.
 """
+from __future__ import annotations
 
-import pathlib, subprocess
+from platformcommon import PlatformCommon
 
-class Platform_Apple_AppleIIGS:
-    @staticmethod
-    def supported_platforms() -> list[str]:
+
+class Platform_Apple_AppleIIGS(PlatformCommon):
+    """Platform runner for Apple IIGS demos via RetroArch."""
+
+    emulators = ["retroarch"]
+    cores = ["minivmac_libretro"]
+    extensions = ["dsk", "img", "zip", "hvf", "cmd"]
+
+    def supported_platforms(self) -> list[str]:
+        """Return Apple IIGS platform slugs."""
         return ["apple_appleiigs"]
 
-    CORES = {"apple_appleiigs": "gs_libretro.dll"}
-
-    def setup(self, showet_dir, datadir, platform_slugs):
-        self.showet_dir = pathlib.Path(showet_dir)
-        self.datadir = pathlib.Path(datadir)
-        self.platform = platform_slugs
-
-    def run(self):
-        core_name = self.CORES.get(self.platform)
-        if not core_name:
-            raise RuntimeError(f"No Retro‑Arch core configured for {self.platform}")
-        game_file = self.datadir / "demo.cue"
-        if not game_file.exists():
-            raise RuntimeError(f"Demo file {game_file} not found")
-        cmd = ["retroarch", "-L", f"~/.config/retroarch/cores/{core_name}", str(game_file)]
-        subprocess.run(cmd, check=True)
+    def run(self) -> None:
+        """Execute the Apple IIGS demo using RetroArch."""
+        for ext in self.extensions:
+            files = self.find_files_with_extension(ext)
+            if files:
+                cmd = ["retroarch", "-L", self.cores[0], files[0]]
+                self.run_process(cmd)
+                return
+        raise RuntimeError("No Apple IIGS demo files found")

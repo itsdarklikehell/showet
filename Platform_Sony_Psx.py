@@ -1,119 +1,55 @@
-from platformcommon import PlatformCommon
-import os
-import stat
+"""Platform runner for Sony PlayStation demos via RetroArch.
+
+Supports PSX, PS2 and other PlayStation demo formats.
+"""
+from __future__ import annotations
+
+from platformcommon import PlatformCommon, DEBUGGING
+
 
 class Platform_Sony_Psx(PlatformCommon):
-    # Set up the emulator we want to run.
-    # in case we are running retroarch, we need to set the libretro core (fullpath or shortname).
-    # Set whether we should run in fullscreens or not.
-    # Supply A list of extensions that the specified emulator supports.
-    emulators = ['retroarch', 'other']
-    cores = ['pcsx_rearmed_libretro',
-             'mednafen_psx_libretro', 'swanstation_libretro']
-    extensions = ['zip', 'exe', 'psx', 'psexe', 'cue', 'toc', 'bin', 'img',
-                  'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
+    """Platform runner for PlayStation demos.
 
-    def run(self):
-        """
-        Runs the platform.
-        """
-        # Set up the emulator and core to run.
-        emulator = self.emulators[0]
-        core = self.cores[0]
-        extensions = self.extensions
+    Uses RetroArch with PCSX-ReARMed libretro core.
+    Supports .cue, .bin, .iso, .chd and other PSX formats.
+    """
 
-        # If we are running RetroArch, we need to provide the libretro core.
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions
+    emulators = ["retroarch"]
+    cores = ["pcsx_rearmed_libretro"]
 
-        # Look for files with the given extensions.
-        # If not found, try to identify files by UPPERCASE extensions.
-        # If not found, try to identify files by any magic necessary.
-        ext_ = []
-        for ext_ in extensions:
-            files = self.find_files_with_extension(ext_)
-            if len(files) == 0:
-                files = self.find_files_with_extension(ext_.upper())
-            if len(files) == 0:
-                files = self.find_ext_files(emulator, core)
-            # if len(files) == 0:
-            #     files = self.find_magic_cookies()
+    extensions = ["zip", "exe", "psx", "psexe", "cue", "toc", "bin", "img",
+                  "iso", "chd", "pbp", "ccd", "ecm", "cbn", "mdf", "mds", "psf", "m3u"]
 
-        if len(files) == 0:
+    def supported_platforms(self) -> list[str]:
+        """Return PlayStation platform slugs."""
+        return ["playstation"]
+
+    def run(self) -> None:
+        """Execute the PSX demo using RetroArch."""
+        files = self._find_runnable_files()
+
+        if not files:
             print("Didn't find any runnable files.")
-            exit(-1)
+            return
 
-        # In case we are running RetroArch, we need to provide some arguments to set the libretro core.
-        if emulator == self.emulators[0]:
-            emulator.append('-L')
-            emulator.append(core[0])
+        files = self.sort_disks(files)
 
-        # Support only one disk for now..
-        if len(files) > 0:
-            # Sort the files.
-            files = self.sort_disks(files)
+        core = self.cores[0]
+        cmd = ["retroarch", "-L", core, files[0]]
 
-            # Create a fliplist for RetroArch.
-            flipfile = self.datadir + "/fliplist.vfl"
-            m3ufile = self.datadir + "/fliplist.m3u"
-            with open(flipfile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
-            with open(m3ufile, "w") as f:
-                # f.write("UNIT 8\n")
-                for disk in files:
-                    f.write(disk + "\n")
-                f.write("#SAVEDISK:\n")
+        if DEBUGGING:
+            print(f"Launching PSX demo via RetroArch: {files[0]}")
 
-            # Set up arguments for running the emulator.
-            if emulator == self.emulators[0]:
-                emulator = emulator + [files[0]]
-            if emulator == self.emulators[1]:
-                emulator = emulator + ['-flipname', flipfile, files[0]]
+        self.run_process(cmd)
 
-        self.run_process(emulator)
-
-    # Returns the list of supported platforms for this platform.
-    #
-    # Returns:
-    #     List of supported platforms.
-    def supported_platforms(self):
-        """
-        Returns the list of supported platforms for this platform.
+    def _find_runnable_files(self) -> list[str]:
+        """Find files with supported extensions.
 
         Returns:
-            List of supported platforms.
+            List of matching file paths.
         """
-        return ['playstation']
-
-    # Tries to identify files by any magic necessary
-    def find_ext_files(self, emulator, core):
-        """
-        Finds all files with supported extensions and sets them as executable.
-
-        Returns:
-            List with filepaths to all found files.
-        """
-        if emulator == self.emulators[0]:
-            if core == self.cores[0]:
-                extensions = self.extensions  # List of extensions to look for
-
-        ext_files = []  # List to store files we find
-        for file in self.prod_files:
-            size = os.path.getsize(file)  # Get filesize
-            if size > 0:
-                # Tries to exclude files that end with certain extensions/we dont need.. Grrgrrgll.
-                for ext in extensions:  # Iterate over extensions
-                    if file.endswith(ext):  # If file ends with extension
-                        os.chmod(file, stat.S_IEXEC)  # Set as executable
-                        ext_files.append(file)  # Add filepath to list
-
-                    # If file ends with uppercase extension
-                    if file.endswith(ext.upper()):
-                        os.chmod(file, stat.S_IEXEC)  # Set as executable
-                        ext_files.append(file)  # Add filepath to list
-        return ext_files  # Return list of found files
+        found_files = []
+        for ext in self.extensions:
+            found_files.extend(self.find_files_with_extension(ext))
+        return found_files
 

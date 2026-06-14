@@ -1,0 +1,16 @@
+{
+  "name": "Showet Demo Viewer",
+  "short_name": "Showet",
+  "description": "Browse and run demos from pouet.net",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#4ecca3",
+  "icons": [
+    {
+      "src": "/showet-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

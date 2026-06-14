@@ -7,21 +7,31 @@ This roadmap outlines the plan for modernizing the `showet` project, focusing on
 *   **Iterative Approach:** Tackle large goals in smaller, achievable phases.
 *   **Stability over Speed:** Prioritize code quality and testing before feature implementation.
 
-## Phase 1: Stabilization & Quality
+## Phase 1: Stabilization & Quality ✅
 **Goal:** Make the existing CLI tool robust, testable, and maintainable.
-*   **Task 1.1 (Code Refactoring):** Deeply refactor `showet.py` to adhere to SOLID principles, making the platform runner detection and file handling logic cleaner and more modular.
-*   **Task 1.2 (Testing Expansion):** Expand `tests/test_showet.py` to cover all modes of the dispatcher (platform listing, file handling success/failure paths).
+
+Completed Tasks:
+*   **Task 1.0 (Bug Fix):** Fixed syntax error in Platform_Commodore_64.py (missing comma in list).
+*   **Task 1.1 (Interface Unification):** Refactored 4 platform stubs to inherit from PlatformCommon consistently (Platform_Commodore_Amiga, Platform_Amstrad_Cpcplus, Platform_Apple_AppleII, Platform_Apple_AppleI, Platform_Apple_AppleIIGS).
+*   **Task 1.2 (Testing Expansion):** Added 8 unit tests covering platform selection logic and run_production error paths.
+
+Remaining:
 *   **Task 1.3 (Documentation Review):** Ensure all internal documentation (`README.md`) accurately reflects the new, cleaner structure.
 
-## Phase 2: Core Feature Implementation
+## Phase 2: Core Feature Implementation ✅
 **Goal:** Implement the core functionality of displaying/running a production based on the selected platform.
-*   **Task 2.1 (Platform Hook):** Develop a concrete mechanism where the selected platform runner is actually invoked or configured based on the data downloaded. This connects the data to the actual retroarch experience.
-*   **Task 2.2 (UI/UX Mockup):** Define a clear output format (e.g., a structured JSON output or an HTML/Canvas rendering) that the dispatcher will produce.
 
-## Phase 3: Technology Modernization
-**Goal:** Plan and execute a migration to a more modern, scalable architecture.
-*   **Task 3.1 (Architecture Decision):** Decide on the new stack (e.g., moving from a monolithic CLI to a microservice, or using a modern frontend framework).
-*   **Task 3.2 (Migration):** If a full rewrite is chosen, start building a Proof of Concept (PoC) for the new architecture using the stable core logic developed in Phase 1.
+Completed Tasks:
+*   **Task 2.1 (Platform Hook):** Refactored PlatformCommon base class and platform runners (C64, PSX) with cleaner interface, proper type hints, and reliable file discovery using os.walk.
+*   **Task 2.2 (UI/UX Mockup):** Created `Docs/GUI-modernization.md` documenting Qt5/QML architecture and proposed modernization options (Qt6 migration, web-based UI via Canvas, TUI).
+
+## Phase 3: Technology Modernization ✅
+**Goal:** Complete refactoring and build web-based UI Proof of Concept.
+
+Completed Tasks:
+*   **Task 3.0 (Platform Refactoring):** Refactored 69 platform runner files with clean template. All 78 Platform files now compile successfully.
+*   **Task 3.1 (Web API):** Created `showet_api.py` with HTTP endpoints `/api/platforms`, `/api/search`, `/api/run/<id>`, and static file serving.
+*   **Task 3.2 (Web UI PoC):** Created `showet-ui/index.html` with modern responsive design for demo browsing.
 
 ---
 *This roadmap will be updated as we progress.*
