@@ -13,6 +13,7 @@ dependencies = [
 [project.scripts]
 showet = "showet:main"
 showet-api = "showet_api:main"
+showet-webui = "showet_webui:launch_browser"
 
 [project.urls]
 Homepage = "https://github.com/itsdarklikehell/showet"
