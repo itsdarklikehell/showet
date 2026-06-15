@@ -4,6 +4,7 @@ import io
 import sys
 import types
 import unittest
+from pathlib import Path
 from unittest import mock
 
 sys.modules.setdefault("inquirer", types.SimpleNamespace())
@@ -24,12 +25,28 @@ class DummyRunner:
     def run(self):
         pass
 
+    def set_options(self, fullscreen=False, audio=True, core=None):
+        self.fullscreen = fullscreen
+        self.audio = audio
+        self.core_override = core
+
 
 class NoMatchRunner:
     """Runner that doesn't match any platform."""
 
     def supported_platforms(self):
         return ["nomatch-platform"]
+
+    def setup(self, showetdir, datadir, platform):
+        pass
+
+    def run(self):
+        pass
+
+    def set_options(self, fullscreen=False, audio=True, core=None):
+        self.fullscreen = fullscreen
+        self.audio = audio
+        self.core_override = core
 
 
 class ShowetCliTests(unittest.TestCase):
@@ -167,6 +184,41 @@ class ArgParserTests(unittest.TestCase):
         parser = showet.build_arg_parser()
         args = parser.parse_args(["--random"])
         self.assertTrue(args.random)
+
+    def test_build_arg_parser_has_fullscreen_flag(self):
+        parser = showet.build_arg_parser()
+        args = parser.parse_args(["--fullscreen"])
+        self.assertTrue(args.fullscreen)
+
+    def test_build_arg_parser_has_audio_flag(self):
+        parser = showet.build_arg_parser()
+        args = parser.parse_args(["--no-audio"])
+        self.assertFalse(args.audio)
+
+    def test_build_arg_parser_has_core_flag(self):
+        parser = showet.build_arg_parser()
+        args = parser.parse_args(["--core", "pcsx_rearmed_libretro"])
+        self.assertEqual(args.core, "pcsx_rearmed_libretro")
+
+    def test_fullscreen_enabled_in_retroarch_command(self):
+        """Verify fullscreen option causes --fullscreen to be added to retroarch commands."""
+        import platformcommon
+        runner = platformcommon.PlatformCommon()
+        runner.fullscreen = True
+        runner.datadir = Path("/tmp")
+
+        # Test that when fullscreen is True, --fullscreen is inserted
+        test_cmd = ["retroarch", "-L", "core_libretro", "file.zip"]
+        with mock.patch("subprocess.Popen") as mock_popen:
+            mock_process = mock.Mock()
+            mock_process.stdout = []
+            mock_process.returncode = 0
+            mock_popen.return_value = mock_process
+            runner.run_process(test_cmd)
+
+        # Verify --fullscreen was inserted at position 1
+        self.assertEqual(test_cmd[1], "--fullscreen")
+        self.assertEqual(test_cmd[0], "retroarch")
 
 
 class FlashPlatformTests(unittest.TestCase):

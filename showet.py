@@ -48,7 +48,17 @@ def _load_platform_module(name: str):
 
 def build_arg_parser() -> argparse.ArgumentParser:
     """Create and return the argument parser for the CLI."""
-    parser = argparse.ArgumentParser(description="Show a demo on screen.")
+    parser = argparse.ArgumentParser(
+        description="Show a demo on screen.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  showet 12345              Run demo by pouet.net ID
+  showet 12345 --fullscreen  Run in fullscreen mode
+  showet 12345 --core pcsx_rearmed_libretro  Use specific RetroArch core
+  showet --platforms         List supported platforms
+        """,
+    )
     parser.add_argument(
         "pouetid",
         type=int,
@@ -60,6 +70,22 @@ def build_arg_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--random", action="store_true", help="Play random productions"
+    )
+    parser.add_argument(
+        "--fullscreen", action="store_true",
+        help="Start emulator in fullscreen mode (where supported)"
+    )
+    parser.add_argument(
+        "--audio", action="store_true", default=True,
+        help="Enable audio output (default: True, use --no-audio to disable)"
+    )
+    parser.add_argument(
+        "--no-audio", dest="audio", action="store_false",
+        help="Disable audio output"
+    )
+    parser.add_argument(
+        "--core", type=str,
+        help="Specify libretro core to use (e.g., pcsx_rearmed_libretro)"
     )
     return parser
 
@@ -254,6 +280,11 @@ def run_production(args: argparse.Namespace, platform_runners: List[object]) -> 
     datadir = Path.home() / ".showet" / "data" / str(args.pouetid)
     _download_production_file(data, datadir)
     runner.setup(Path.home() / ".showet", datadir, platform_found)
+    runner.set_options(
+        fullscreen=getattr(args, "fullscreen", False),
+        audio=getattr(args, "audio", True),
+        core=getattr(args, "core", None),
+    )
     runner.run()
     return 0
 

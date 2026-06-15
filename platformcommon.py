@@ -30,6 +30,9 @@ class PlatformCommon:
         self.datadir: Path | None = None
         self.prod_platform: str | None = None
         self.prod_files: list[str] = []
+        self.fullscreen: bool = False
+        self.audio: bool = True
+        self.core_override: str | None = None
 
     def find_files_recursively(self, path: Path | str) -> list[str]:
         """Find all files under the given path recursively.
@@ -61,6 +64,18 @@ class PlatformCommon:
         self.datadir = Path(datadir)
         self.prod_platform = prod_platform
         self.find_files_recursively(self.datadir)
+
+    def set_options(self, fullscreen: bool = False, audio: bool = True, core: str | None = None) -> None:
+        """Set runtime options for the runner.
+
+        Args:
+            fullscreen: Start emulator in fullscreen mode.
+            audio: Enable/disable audio output.
+            core: Override the libretro core to use.
+        """
+        self.fullscreen = fullscreen
+        self.audio = audio
+        self.core_override = core
 
     def supported_platforms(self) -> list[str]:
         """Return list of platform slugs this runner supports.
@@ -107,8 +122,13 @@ class PlatformCommon:
         Returns:
             Process exit code.
         """
+        # Insert fullscreen option for retroarch
+        if self.fullscreen and arguments and arguments[0] == "retroarch":
+            arguments.insert(1, "--fullscreen")
+
         if DEBUGGING:
             print("\tRunning command: ", arguments)
+            print(f"\tFullscreen: {self.fullscreen}, Audio: {self.audio}")
             print("\t================================")
 
         process = subprocess.Popen(

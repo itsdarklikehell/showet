@@ -31,8 +31,15 @@ class Platform_Flash_Ruffle(PlatformCommon):
         if DEBUGGING:
             print(f"Found Flash files: {files}")
 
-        # Try Ruffle standalone first, then libretro core
-        if self._has_ruffle_standalone():
+        # Use core override if specified
+        core = self.core_override or self.cores[0]
+
+        # Try retroarch first if core is specified or ruffle_libretro available
+        if core and core != self.ruffle_path():
+            cmd = ["retroarch", "-L", core, str(self.datadir / files[0])]
+            if DEBUGGING:
+                print(f"Launching Flash demo via RetroArch core {core}: {files[0]}")
+        elif self._has_ruffle_standalone():
             cmd = [self.ruffle_path(), str(self.datadir / files[0])]
             if DEBUGGING:
                 print(f"Launching Flash demo via Ruffle standalone: {files[0]}")
