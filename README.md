@@ -24,7 +24,24 @@ showet 12345           # Run demo by pouet.net ID
 showet-webui           # Starts API + opens browser
 ```
 
-## Idea
+## Architecture
+
+- **showet.py** - Core CLI logic, pouet.net API integration
+- **platformcommon.py** - Base class with file discovery & process execution
+- **Platform_*.py** - Platform-specific runners (67 platforms)
+- **showet_api.py** - HTTP API for web-based access
+- **showet-webui.py** - Convenience launcher for web UI
+
+## Platforms
+
+Currently supports 67 demo platforms including:
+- **Commodore**: C64, C128, VIC20, Plus4, PET, Amiga
+- **Atari**: 2600, 5200, 7800, Jaguar, Lynx, ST/Falcon
+- **Nintendo**: NES, SNES, N64, GB, GBC, GBA, GameCube, Wii, 3DS, DS
+- **Sega**: Genesis, 32X, Saturn, Dreamcast, Game Gear, Master System
+- **Sony**: PlayStation 1/2/PSP
+- **NEC**: PC-8800, PC-98, PC-FX, TurboGrafx
+- **And many more**: MSX, Linux, WebAssembly, Raspberry Pi, Oric...
 
 - Browse and search demos using pouet.net's database
 - Select a demo, it will be downloaded and set up
