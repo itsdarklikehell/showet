@@ -101,6 +101,7 @@ def create_platform_runners() -> List[object]:
         "Platform_Enterprise_Ep128",
         "Platform_Fairchild_Channelf",
         "Platform_FanCon_Pico8",
+        "Platform_Flash_Ruffle",
         "Platform_Gamepark_2X",
         "Platform_Gamepark_32",
         "Platform_GCE_Vectrex",

@@ -8,7 +8,7 @@ This document lists all supported platforms, their emulators, libretro cores, an
 
 | Platform | Emulator | Core | Extensions |
 |----------|----------|------|------------|
-| commodore64 | retroarch | vice_x64sc_libretro | zip |
+| commodore64 | retroarch | vice_x64sc_libretro | zip, d64, d71, d81, t64, tap, prg, p00, g64 |
 | commodore128 | retroarch | vice_x128_libretro | d64, d71, d81, t64, tap, prg, p00 |
 | commodoreamiga | retroarch | puae_libretro, fsuae_libretro, uae4arm_libretro | adf, dms, ipf, adz, lha, zip |
 | commodorecbmii | retroarch | vice_xcbm2_libretro | zip |
@@ -111,6 +111,7 @@ This document lists all supported platforms, their emulators, libretro cores, an
 | pdp11 | retroarch | bk_libretro | bin |
 | channelf | retroarch | freechaf_libretro | zip, bin, chf |
 | pico8 | retroarch | retro8_libretro | zip, p8, png |
+| flash | retroarch, ruffle | ruffle_libretro | swf, spl |
 | gamemusic | retroarch | gme_libretro | zip, ay, gbs, gym, hes, kss, nsf, nsfe, sap, spc, vgm, vgz |
 | video | retroarch | ffmpeg_libretro, mpv_libretro | mkv, avi, f4v, f4f, 3gp, ogm, flv, mp4, mp3, flac, ogg, m4a, webm, 3g2, mov, wmv, mpg, mpeg, vob, asf, divx, m2p, m2ts, ps, ts, mxf, wma, wav |
 
