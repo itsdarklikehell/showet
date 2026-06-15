@@ -78,3 +78,25 @@ platformcommon.py
 tests/test_showet.py
 ROADMAP.md
 ```
+
+## Phase 4: Documentation & Refactoring (Completed)
+
+### Task 4.1 - API Documentation
+**File:** `Docs/API.md`
+- Full endpoint documentation
+- Usage examples (Python, JavaScript, curl)
+- Error handling guide
+
+### Task 4.2 - Bug Fixes
+**Files:** `Platform_Microsoft_Windows.py`, `Platform_Commodore_64.py`
+- Fixed `Platform_Microsoft_Windows.py`: Path concatenation bug using `datadir / exefile`
+- Fixed `Platform_Commodore_64.py`: Added missing extensions (d64, d71, d81, t64, tap, prg, p00, g64)
+
+### Task 4.3 - Testing Expansion
+**File:** `tests/test_showet.py`
+- Added 6 new tests for platform runner creation and argument parsing
+- Total: 14 tests passing
+
+## Current Status
+
+All phases 1-4 core tasks completed. Tests pass (14/14).
