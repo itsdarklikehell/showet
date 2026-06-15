@@ -58,7 +58,31 @@
         }
         .prod-info { flex: 1; }
         .prod-name { font-weight: bold; font-size: 18px; margin-bottom: 5px; }
-        .prod-meta { font-size: 14px; color: #aaa; }
+        .prod-meta { font-size: 14px; color: #aaa; margin-bottom: 8px; }
+        .prod-content { display: flex; align-items: center; }
+        .prod-screenshot {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .no-screenshot {
+            width: 80px;
+            height: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #666;
+        }
+        .prod-content { display: flex; align-items: center; }
         .run-btn {
             padding: 8px 16px;
             background: #e94560;
@@ -131,19 +155,27 @@
                 }
 
                 resultsDiv.innerHTML = results
-                    .map(([id, prod]) => `
+                    .map(([id, prod]) => {
+                        const screenshotUrl = prod.screenshot || '';
+                        const imgHtml = screenshotUrl ? 
+                            `<img class="prod-screenshot" src="${screenshotUrl}" alt="${prod.name}" onerror="this.parentElement.innerHTML='No Preview';" />` :
+                            `<div class="no-screenshot">No Preview</div>`;
+                        return `
                     <div class="prod-card">
-                        <div class="prod-info">
-                            <div class="prod-name">${prod.name}</div>
-                            <div class="prod-meta">
-                                Type: ${prod.type || 'unknown'} | 
-                                Year: ${(prod.releaseDate || '').split('-')[0] || 'N/A'} |
-                                Votes: ${prod.voteup || 0}
+                        <div class="prod-content">
+                            ${imgHtml}
+                            <div class="prod-info">
+                                <div class="prod-name">${prod.name}</div>
+                                <div class="prod-meta">
+                                    Type: ${prod.type || 'unknown'} | 
+                                    Year: ${(prod.releaseDate || '').split('-')[0] || 'N/A'} |
+                                    Votes: ${prod.voteup || 0}
+                                </div>
                             </div>
                         </div>
                         <button class="run-btn" onclick="runDemo(${prod.id})">Run</button>
                     </div>
-                `).join('');
+                `;}).join('');
             } catch (e) {
                 resultsDiv.innerHTML = '<div class="error">Search failed: ' + e.message + ' <br/><small>Make sure showet-api is running on localhost:8765</small></div>';
             }
