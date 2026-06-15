@@ -4,9 +4,25 @@ Demo viewer using Pouet.net's metadata
 
 Consider this "MAME for demos"
 
+**🕹️ 67 platforms supported** including C64, Amiga, Atari, Nintendo, Sega, Sony PlayStation, and more.
+
 ![Web UI](showet-ui/screenshot-web.png?raw=true "Web UI Screenshot")
 
 Developed on Ubuntu (17.10 - 22.10), other platforms may work.
+
+## Quick Start
+
+```bash
+# Install
+python3 -m pip install -e .
+
+# CLI mode
+showet --platforms     # List platforms
+showet 12345           # Run demo by pouet.net ID
+
+# Web UI mode
+showet-webui           # Starts API + opens browser
+```
 
 ## Idea
 

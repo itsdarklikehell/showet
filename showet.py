@@ -25,6 +25,10 @@ from typing import Iterable, List
 
 DEBUGGING = True
 
+# Cache for platform runners to avoid repeated imports
+_runner_cache: List[object] | None = None
+
+
 # ---------------------------------------------------------------------------
 # Utility helpers – only used inside this module, no public API.
 # ---------------------------------------------------------------------------
@@ -63,9 +67,13 @@ def build_arg_parser() -> argparse.ArgumentParser:
 def create_platform_runners() -> List[object]:
     """Instantiate runner objects for every known platform.
 
-    The original code imported each platform class at module import time.
-    Importing lazily reduces import overhead and prevents side‑effects.
+    Uses caching to avoid repeated module imports on subsequent calls.
+    Lazily loads platform modules to reduce import overhead and prevent side‑effects.
     """
+    global _runner_cache
+
+    if _runner_cache is not None:
+        return _runner_cache
 
     module_names = [
         "Platform_Amstrad_Cpcplus",
@@ -156,6 +164,7 @@ def create_platform_runners() -> List[object]:
         mod = _load_platform_module(mod_name)
         cls = getattr(mod, mod_name)
         runners.append(cls())
+    _runner_cache = runners
     return runners
 
 

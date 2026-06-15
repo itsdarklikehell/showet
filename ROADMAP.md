@@ -36,14 +36,25 @@ Completed Tasks:
 ---
 *This roadmap will be updated as we progress.*
 
+## Phase 4: Further Enhancements (Planned)
+**Goal:** Additional platform support, performance improvements, and feature polish.
+
+Planned Tasks:
+*   **Task 4.1 (Missing Platforms):** Add support for Alambik, Flash/SWF (Ruffle), Android
+*   **Task 4.2 (Performance):** Cache platform runners, lazy loading for large platform sets
+*   **Task 4.3 (Feature Polish):** Demo screenshots/previews, playlist support, offline mode
+*   **Task 4.4 (Documentation):** API documentation, platform compatibility matrix
+
+---
+
 ## Notable Missing Platforms (from pouet.net)
 
 Based on pouet.net platform listings, these platforms are not yet implemented:
-- **Oric** - Oric-1/Atmos (added: `Platform_Tangerine_Oric.py`)
-- **WebAssembly** - WASM/HTML5 demos (added: `Platform_WebAssembly_Web.py`)
-- **Raspberry Pi** - Bare-metal Pi demos (added: `Platform_Raspberry_Pi.py`)
+- **Oric** - Oric-1/Atmos ✅ (added: `Platform_Tangerine_Oric.py`)
+- **WebAssembly** - WASM/HTML5 demos ✅ (added: `Platform_WebAssembly_Web.py`)
+- **Raspberry Pi** - Bare-metal Pi demos ✅ (added: `Platform_Raspberry_Pi.py`)
 
 Legacy formats without clear emulation paths:
-- **Alambik** - Proprietary Windows browser plugin format
-- **Flash/SWF** - Deprecated, could use Ruffle emulator
+- **Alambik** - Proprietary Windows browser plugin (low priority)
+- **Flash/SWF** - Could use Ruffle emulator
 - **Android** - Would require Android emulator integration
