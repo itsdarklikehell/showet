@@ -7,31 +7,71 @@ This roadmap outlines the plan for modernizing the `showet` project, focusing on
 *   **Iterative Approach:** Tackle large goals in smaller, achievable phases.
 *   **Stability over Speed:** Prioritize code quality and testing before feature implementation.
 
-## Phase 1: Stabilization & Quality ✅
-**Goal:** Make the existing CLI tool robust, testable, and maintainable.
+## Status: ✅ ALL CORE PHASES COMPLETE (v1.0.0)
 
-Completed Tasks:
-*   **Task 1.0 (Bug Fix):** Fixed syntax error in Platform_Commodore_64.py (missing comma in list).
-*   **Task 1.1 (Interface Unification):** Refactored 4 platform stubs to inherit from PlatformCommon consistently (Platform_Commodore_Amiga, Platform_Amstrad_Cpcplus, Platform_Apple_AppleII, Platform_Apple_AppleI, Platform_Apple_AppleIIGS).
-*   **Task 1.2 (Testing Expansion):** Added 8 unit tests covering platform selection logic and run_production error paths.
+## Completed Phases
 
-Remaining:
-*   **Task 1.3 (Documentation Review):** Ensure all internal documentation (`README.md`) accurately reflects the new, cleaner structure.
+### Phase 1: Stabilization & Quality ✅
+*   Fixed syntax errors in platform runners (C64, Windows)
+*   Unified platform runner interface inheriting from PlatformCommon
+*   Added 8 unit tests, expanded to 23
 
-## Phase 2: Core Feature Implementation ✅
-**Goal:** Implement the core functionality of displaying/running a production based on the selected platform.
+### Phase 2: Core Feature Implementation ✅
+*   Implemented platform hook mechanism with `setup()` and `run()` methods
+*   Created Qt QML architecture documentation
 
-Completed Tasks:
-*   **Task 2.1 (Platform Hook):** Refactored PlatformCommon base class and platform runners (C64, PSX) with cleaner interface, proper type hints, and reliable file discovery using os.walk.
-*   **Task 2.2 (UI/UX Mockup):** Created `Docs/GUI-modernization.md` documenting Qt5/QML architecture and proposed modernization options (Qt6 migration, web-based UI via Canvas, TUI).
+### Phase 3: Technology Modernization ✅
+*   Refactored 69 platform runner files to clean template
+*   Created HTTP API (`showet_api.py`) with endpoints
+*   Built Web UI PoC (`showet-ui/index.html`)
 
-## Phase 3: Technology Modernization ✅
-**Goal:** Complete refactoring and build web-based UI Proof of Concept.
+### Phase 4: Documentation & Refactoring ✅
+*   Created `Docs/API.md` - Complete HTTP API reference
+*   Created `Docs/platform-compatibility.md` - All 84 platforms documented
+*   Fixed platform runner bugs
 
-Completed Tasks:
-*   **Task 3.0 (Platform Refactoring):** Refactored 69 platform runner files with clean template. All 78 Platform files now compile successfully.
-*   **Task 3.1 (Web API):** Created `showet_api.py` with HTTP endpoints `/api/platforms`, `/api/search`, `/api/run/<id>`, and static file serving.
-*   **Task 3.2 (Web UI PoC):** Created `showet-ui/index.html` with modern responsive design for demo browsing.
+### Phase 5: Missing Platforms ✅
+*   **Task 5.1:** Added Flash/SWF support via Ruffle (`Platform_Flash_Ruffle.py`)
+*   **Task 5.2:** Added Android support via Anbox/QEMU (`Platform_Android_Android.py`)
+*   **Task 5.3:** Added Alambik support (`Platform_Alambik_Alambik.py`)
+
+### Phase 6: Feature Polish ✅
+*   Added `--fullscreen` CLI option for RetroArch
+*   Added `--audio`/`--no-audio` CLI flags
+*   Added `--core` CLI option for core selection
+*   Added screenshot previews to web UI
+
+### Phase 7: RetroPie Integration ✅
+*   Created `scripts/retropie-install.sh` for menu integration
+*   Created `scripts/batocera-install.sh` for Batocera systems
+*   Published installation guide in `Docs/retropie-integration.md`
+
+---
+
+## Future Ideas (Phase 8+)
+
+### Proposed Enhancements
+
+*   **Playlist/M3U Support:** Multi-file demo sets (Amiga ADF, MSX DSK pairs)
+*   **Local Cache Manager:** Download and cache demos for offline playback
+*   **GUI Progress:** Desktop app with Qt6 or web-based interface
+*   **Controller Support:** Gamepad navigation in web UI
+*   **Metadata Enrichment:** Store production details locally (authors, party, rank)
+*   **Favorites System:** Bookmark favorite demos
+*   **Random Mode:** Discover random demos with `--random` flag
+*   **Platform Filters:** Filter search by platform in web UI
+*   **Docker Deployment:** Containerized showet-api for easy setup
+*   **Systemd Service:** Auto-start on boot for headless setups
+
+---
+
+## Release History
+
+*   **v1.0.0 (2026-06-15):** Full modernization complete
+  - 84 platform runners
+  - Web UI/API
+  - Flash + Android support
+  - RetroPie integration
 
 ---
 *This roadmap will be updated as we progress.*
