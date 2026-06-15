@@ -4,9 +4,9 @@ Demo viewer using Pouet.net's metadata
 
 Consider this "MAME for demos"
 
-Developed on Ubuntu (17.10 - 22.10), other platforms may work.
+![Web UI](showet-ui/screenshot-web.png?raw=true "Web UI Screenshot")
 
-![Screenshot](screenshot.png?raw=true "Screenshot of the GUI")
+Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 
 ## Idea
 
@@ -25,12 +25,37 @@ Developed on Ubuntu (17.10 - 22.10), other platforms may work.
 
 ## Usage
 
-- Install the debian package (available in github releases page)
-- Launch showet from menu
-- Search for a production and click run to run it
-- Alt-F4 quits from emulators
+### CLI Usage
 
-## Build instructions
+```bash
+# Install (editable mode for development)
+python3 -m pip install -e .
+
+# List supported platforms
+showet --platforms
+
+# Run a demo by pouet.net ID
+showet 12345
+```
+
+### Web UI Usage
+
+```bash
+# Start the web API server (opens browser automatically)
+showet-webui
+
+# Or start just the API server
+showet-api
+
+# Then open http://localhost:8765 in your browser
+```
+
+The web UI provides:
+- Search demos on pouet.net
+- List all supported platforms
+- Run demos directly from the browser interface
+
+### Install instructions
 
 Clone the repo:
 
