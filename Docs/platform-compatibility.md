@@ -101,6 +101,7 @@ This document lists all supported platforms, their emulators, libretro cores, an
 | oric | euphoric, mame | oric_libretro | tap, crt |
 | webassembly | browser | - | wasm, html |
 | raspberry-pi | native | - | img, zip |
+| android | android-emulator, anbox, qemu | - | apk, aab, xapk |
 | vectrex | retroarch | vecx_libretro | zip, bin, vec |
 | palm | retroarch | mu_libretro | prc, pqa, img, pdb, zip |
 | panasonic3do | retroarch | 4do_libretro | iso, bin, chd, cue |

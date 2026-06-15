@@ -187,5 +187,29 @@ class FlashPlatformTests(unittest.TestCase):
         self.assertIn("swfv10", platforms)
 
 
+class AndroidPlatformTests(unittest.TestCase):
+    """Tests for Android platform runner."""
+
+    def test_android_platform_registered(self):
+        """Verify Android platform runner is registered."""
+        runners = showet.create_platform_runners()
+        android_runners = [r for r in runners if "android" in r.supported_platforms()]
+        self.assertEqual(len(android_runners), 1)
+
+    def test_android_supported_platforms(self):
+        """Verify Android runner supports expected platform slugs."""
+        runners = showet.create_platform_runners()
+        android_runners = [r for r in runners if "android" in r.supported_platforms()]
+        platforms = android_runners[0].supported_platforms()
+        self.assertIn("android", platforms)
+        self.assertIn("androidmobile", platforms)
+
+    def test_android_extensions(self):
+        """Verify Android runner has correct extensions."""
+        runners = showet.create_platform_runners()
+        android_runners = [r for r in runners if "android" in r.supported_platforms()]
+        self.assertIn("apk", android_runners[0].extensions)
+
+
 if __name__ == "__main__":
     unittest.main()

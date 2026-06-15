@@ -77,6 +77,7 @@ def create_platform_runners() -> List[object]:
 
     module_names = [
         "Platform_Amstrad_Cpcplus",
+        "Platform_Android_Android",
         "Platform_Apple_AppleI",
         "Platform_Apple_AppleII",
         "Platform_Apple_AppleIIGS",
