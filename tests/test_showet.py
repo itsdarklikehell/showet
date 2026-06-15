@@ -169,5 +169,23 @@ class ArgParserTests(unittest.TestCase):
         self.assertTrue(args.random)
 
 
+class FlashPlatformTests(unittest.TestCase):
+    """Tests for Flash platform runner."""
+
+    def test_flash_platform_registered(self):
+        """Verify Flash platform runner is registered and returns correct platforms."""
+        runners = showet.create_platform_runners()
+        flash_runners = [r for r in runners if "flash" in r.supported_platforms()]
+        self.assertEqual(len(flash_runners), 1)
+
+    def test_flash_supported_platforms(self):
+        """Verify Flash runner supports expected platform slugs."""
+        runners = showet.create_platform_runners()
+        flash_runners = [r for r in runners if "flash" in r.supported_platforms()]
+        platforms = flash_runners[0].supported_platforms()
+        self.assertIn("flash", platforms)
+        self.assertIn("swfv10", platforms)
+
+
 if __name__ == "__main__":
     unittest.main()
