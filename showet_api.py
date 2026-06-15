@@ -109,8 +109,25 @@ class ShowetAPIHandler(SimpleHTTPRequestHandler):
             self._send_error("Invalid production ID")
             return
 
+        # Parse query params for options
+        fullscreen = "fullscreen=true" in self.path
+        no_audio = "no_audio=true" in self.path
+        core = None
+        if "core=" in self.path:
+            import urllib.parse
+            parsed = urllib.parse.urlparse(self.path)
+            params = urllib.parse.parse_qs(parsed.query)
+            core = params.get("core", [None])[0]
+
         import argparse
-        args = argparse.Namespace(pouetid=prod_id, platforms=False, random=False)
+        args = argparse.Namespace(
+            pouetid=prod_id,
+            platforms=False,
+            random=False,
+            fullscreen=fullscreen,
+            no_audio=no_audio,
+            core=core,
+        )
 
         runners = showet.create_platform_runners()
         result = showet.run_production(args, runners)

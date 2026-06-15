@@ -102,6 +102,7 @@ def create_platform_runners() -> List[object]:
         return _runner_cache
 
     module_names = [
+        "Platform_Alambik_Alambik",
         "Platform_Amstrad_Cpcplus",
         "Platform_Android_Android",
         "Platform_Apple_AppleI",
