@@ -1,6 +1,7 @@
 import contextlib
 import importlib
 import io
+import os
 import sys
 import types
 import unittest
@@ -261,6 +262,87 @@ class AndroidPlatformTests(unittest.TestCase):
         runners = showet.create_platform_runners()
         android_runners = [r for r in runners if "android" in r.supported_platforms()]
         self.assertIn("apk", android_runners[0].extensions)
+
+
+class PlaylistManagerTests(unittest.TestCase):
+    """Tests for the PlaylistManager class."""
+
+    def setUp(self):
+        """Create a temporary directory with test playlist."""
+        import tempfile
+        self.temp_dir = Path(tempfile.mkdtemp())
+
+    def tearDown(self):
+        """Clean up temporary directory."""
+        import shutil
+        shutil.rmtree(self.temp_dir, ignore_errors=True)
+
+    def test_load_playlist_loads_entries(self):
+        """Verify playlist loads correctly from file."""
+        from playlist_manager import PlaylistManager
+
+        # Create test files
+        (self.temp_dir / "disk1.dsk").touch()
+        (self.temp_dir / "disk2.dsk").touch()
+
+        # Create playlist
+        playlist = self.temp_dir / "test.m3u"
+        playlist.write_text("disk1.dsk\ndisk2.dsk\n")
+
+        entries = PlaylistManager.load_playlist(playlist)
+        self.assertEqual(len(entries), 2)
+        self.assertTrue(entries[0].exists())
+        self.assertTrue(entries[1].exists())
+
+    def test_load_playlist_skips_comments(self):
+        """Verify comments are skipped in playlist."""
+        from playlist_manager import PlaylistManager
+
+        (self.temp_dir / "disk.dsk").touch()
+
+        playlist = self.temp_dir / "test.m3u"
+        playlist.write_text("# This is a comment\ndisk.dsk\n# Another comment\n")
+
+        entries = PlaylistManager.load_playlist(playlist)
+        self.assertEqual(len(entries), 1)
+
+    def test_create_playlist_writes_file(self):
+        """Verify playlist creation works correctly."""
+        from playlist_manager import PlaylistManager
+
+        files = [self.temp_dir / "a.dsk", self.temp_dir / "b.dsk"]
+        for f in files:
+            f.touch()
+
+        output = self.temp_dir / "output.m3u"
+        PlaylistManager.create_playlist(files, output)
+
+        self.assertTrue(output.exists())
+        content = output.read_text()
+        self.assertIn("a.dsk", content)
+        self.assertIn("b.dsk", content)
+
+    def test_find_playlists_finds_m3u_files(self):
+        """Verify playlist discovery works."""
+        from playlist_manager import PlaylistManager
+
+        (self.temp_dir / "demo1.m3u").touch()
+        (self.temp_dir / "demo2.m3u8").touch()
+        (self.temp_dir / "other.txt").touch()
+
+        found = PlaylistManager.find_playlists(self.temp_dir)
+        self.assertEqual(len(found), 2)
+
+    def test_detect_platform_from_playlist_returns_platform(self):
+        """Verify platform detection from playlist extensions."""
+        from playlist_manager import PlaylistManager
+
+        (self.temp_dir / "game.adf").touch()
+        playlist = self.temp_dir / "game.m3u"
+        playlist.write_text("game.adf\n")
+
+        platform = PlaylistManager.detect_platform_from_playlist(playlist)
+        self.assertEqual(platform, "commodore_amiga")
 
 
 if __name__ == "__main__":
