@@ -70,6 +70,8 @@
         .run-btn:hover { background: #ff6b6b; }
         .loading { text-align: center; padding: 40px; color: #4ecca3; }
         .platforms { margin: 10px 0; font-size: 14px; color: #888; }
+        .error { color: #e94560; padding: 10px; text-align: center; }
+        .run-btn:disabled { opacity: 0.5; cursor: not-allowed; }
     </style>
 </head>
 <body>
@@ -84,10 +86,14 @@
             </div>
         </header>
         <div class="results" id="results"></div>
+        <footer style="text-align: center; margin-top: 40px; color: #666; font-size: 14px;">
+            <p>Showet Demo Viewer • <a href="https://github.com/itsdarklikehell/showet" style="color: #4ecca3;">GitHub</a></p>
+        </footer>
     </div>
 
     <script>
         const API_BASE = window.location.origin + '/api';
+        let currentSearchQuery = '';
 
         // Load platforms on start
         async function loadPlatforms() {
@@ -97,32 +103,41 @@
                 document.getElementById('platforms').textContent = 
                     'Platforms: ' + data.platforms.slice(0, 10).join(', ') + '...';
             } catch (e) {
-                document.getElementById('platforms').textContent = 'API unavailable';
+                document.getElementById('platforms').innerHTML = '<span class="error">API unavailable (is showet-api running?)</span>';
             }
         }
 
         async function search() {
-            const query = document.getElementById('searchInput').value;
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+            currentSearchQuery = query;
             const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = '<div class="loading">Searching...</div>';
+            resultsDiv.innerHTML = '<div class="loading">🔍 Searching pouet.net...</div>';
 
             try {
                 const res = await fetch(API_BASE + '/search?q=' + encodeURIComponent(query));
+                if (!res.ok) throw new Error('API returned ' + res.status);
                 const data = await res.json();
                 
                 if (!data.success || !data.results) {
-                    resultsDiv.innerHTML = '<div class="loading">No results found</div>';
+                    resultsDiv.innerHTML = '<div class="loading">No results found. Try a different search term.</div>';
                     return;
                 }
 
-                resultsDiv.innerHTML = Object.entries(data.results)
+                const results = Object.entries(data.results);
+                if (results.length === 0) {
+                    resultsDiv.innerHTML = '<div class="loading">No demos found for "' + query + '"</div>';
+                    return;
+                }
+
+                resultsDiv.innerHTML = results
                     .map(([id, prod]) => `
                     <div class="prod-card">
                         <div class="prod-info">
                             <div class="prod-name">${prod.name}</div>
                             <div class="prod-meta">
-                                Type: ${prod.type} | 
-                                Year: ${prod.releaseDate?.split('-')[0] || 'N/A'} |
+                                Type: ${prod.type || 'unknown'} | 
+                                Year: ${(prod.releaseDate || '').split('-')[0] || 'N/A'} |
                                 Votes: ${prod.voteup || 0}
                             </div>
                         </div>
@@ -130,24 +145,32 @@
                     </div>
                 `).join('');
             } catch (e) {
-                resultsDiv.innerHTML = '<div class="loading">Search failed: ' + e + '</div>';
+                resultsDiv.innerHTML = '<div class="error">Search failed: ' + e.message + ' <br/><small>Make sure showet-api is running on localhost:8765</small></div>';
             }
         }
 
         async function runDemo(id) {
             const btn = event.target;
-            btn.textContent = 'Running...';
+            btn.textContent = 'Launching...';
             btn.disabled = true;
 
             try {
                 const res = await fetch(API_BASE + '/run/' + id, { method: 'POST' });
+                if (!res.ok) throw new Error('Server returned ' + res.status);
                 const data = await res.json();
-                alert(data.message);
+                if (data.success) {
+                    btn.textContent = '✓ Launched';
+                    setTimeout(() => { btn.textContent = 'Run'; btn.disabled = false; }, 2000);
+                } else {
+                    alert('Could not launch: ' + (data.message || data.error));
+                    btn.textContent = 'Run';
+                    btn.disabled = false;
+                }
             } catch (e) {
-                alert('Failed to run demo: ' + e);
+                alert('Failed to run demo: ' + e.message);
+                btn.textContent = 'Run';
+                btn.disabled = false;
             }
-            btn.textContent = 'Run';
-            btn.disabled = false;
         }
 
         // Enter key to search
