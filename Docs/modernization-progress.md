@@ -100,3 +100,24 @@ ROADMAP.md
 ## Current Status
 
 All phases 1-4 core tasks completed. Tests pass (14/14).
+
+## Phase 5: Missing Platforms (Completed)
+
+### Task 5.1 - Flash/SWF Support
+**File:** `Platform_Flash_Ruffle.py`
+- Added support for SWF/SPL Flash demos
+- Integrates with Ruffle emulator (standalone and libretro)
+- Supports Flash versions v1-v10
+- Added `Docs/API.md` and updated `platform-compatibility.md`
+
+### Task 5.2 - Android Support
+**File:** `Platform_Android_Android.py`
+- Added support for APK/AAB/XAPK Android demos
+- Integrates with Anbox, Android SDK emulator, and QEMU
+- No native libretro core available (yet)
+- Added `Docs/platform_Android.md`
+
+### Phase 5 Tests
+- Added Flash platform tests (2 tests)
+- Added Android platform tests (3 tests)
+- Total: 19 tests passing
