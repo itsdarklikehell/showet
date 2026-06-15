@@ -36,26 +36,46 @@ Completed Tasks:
 ---
 *This roadmap will be updated as we progress.*
 
-## Phase 4: Documentation & Refactoring (In Progress)
+## Phase 4: Documentation & Refactoring ✅
 
 **Goal:** Improve documentation, code quality, and add missing platform support.
 
-Tasks:
+Completed Tasks:
 *   **Task 4.1 (Documentation):** Create API documentation and platform compatibility matrix ✅
 *   **Task 4.2 (Bug Fixes):** Fix platform runner issues (Windows path handling, C64 extensions) ✅
-*   **Task 4.3 (Testing):** Expand test coverage for platform runners
-*   **Task 4.4 (Missing Platforms):** Add support for Alambik, Flash/SWF (Ruffle), Android
+*   **Task 4.3 (Testing):** Expand test coverage for platform runners (14 tests passing) ✅
 
 ---
 
-## Notable Missing Platforms (from pouet.net)
+## Phase 5: Missing Platforms & Feature Enhancement (Planned)
 
-Based on pouet.net platform listings, these platforms are not yet implemented:
-- **Oric** - Oric-1/Atmos ✅ (added: `Platform_Tangerine_Oric.py`)
-- **WebAssembly** - WASM/HTML5 demos ✅ (added: `Platform_WebAssembly_Web.py`)
-- **Raspberry Pi** - Bare-metal Pi demos ✅ (added: `Platform_Raspberry_Pi.py`)
+**Goal:** Add platform support for Alambik, Flash/SWF, and Android.
 
-Legacy formats without clear emulation paths:
-- **Alambik** - Proprietary Windows browser plugin (low priority)
-- **Flash/SWF** - Could use Ruffle emulator
-- **Android** - Would require Android emulator integration
+Planned Tasks:
+*   **Task 5.1 (Flash/SWF):** Add `Platform_Flash_Ruffle.py` using Ruffle emulator
+*   **Task 5.2 (Android):** Add `Platform_Android_Android.py` using Android emulator
+*   **Task 5.3 (Alambik):** Research and add platform support (low priority)
+
+---
+
+## Phase 6: Feature Polish (Planned)
+
+**Goal:** Enhance user experience and add advanced features.
+
+Planned Tasks:
+*   **Task 6.1 (Demo Previews):** Add screenshot/thumbnail support to web UI
+*   **Task 6.2 (Playlist Support):** Support multi-disk demos via M3U playlists
+*   **Task 6.3 (Core Selection):** Allow users to choose which RetroArch core to use
+*   **Task 6.4 (Fullscreen Options):** Add `--fullscreen`, `--audio` CLI flags
+*   **Task 6.5 (Offline Mode):** Cache demos locally for offline playback
+
+---
+
+## Phase 7: RetroPie Integration (Planned)
+
+**Goal:** Make showet work on RetroPie/Batocera/Raspberry Pi.
+
+Planned Tasks:
+*   **Task 7.1 (RetroPie Setup):** Create RetroPie menu integration scripts
+*   **Task 7.2 (Pi Optimization):** Optimize for Raspberry Pi hardware
+*   **Task 7.3 (Controller Support):** Add gamepad navigation to web UI
