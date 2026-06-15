@@ -42,7 +42,7 @@ class Platform_Microsoft_Windows(PlatformCommon):
             print("Creating wine prefix: " + str(wineprefix))
             os.system('WINEARCH="win64" winecfg')
 
-        cmd = ["wine", self.datadir + "/" + exefile]
+        cmd = ["wine", str(self.datadir / exefile)]
         self.run_process(cmd)
 
     def _find_runnable_files(self) -> list[str]:

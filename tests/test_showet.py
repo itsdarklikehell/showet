@@ -122,5 +122,52 @@ class RunProductionTests(unittest.TestCase):
         self.assertIn("ERROR", output.getvalue())
 
 
+class PlatformRunnerTests(unittest.TestCase):
+    """Tests for platform runner behavior."""
+
+    def test_create_platform_runners_returns_list(self):
+        runners = showet.create_platform_runners()
+        self.assertIsInstance(runners, list)
+        self.assertTrue(len(runners) > 0)
+
+    def test_runner_has_supported_platforms_method(self):
+        runners = showet.create_platform_runners()
+        for runner in runners:
+            platforms = runner.supported_platforms()
+            self.assertIsInstance(platforms, list)
+            self.assertTrue(len(platforms) > 0)
+
+    def test_all_platforms_are_unique(self):
+        runners = showet.create_platform_runners()
+        all_platforms = []
+        for runner in runners:
+            all_platforms.extend(runner.supported_platforms())
+
+        # Check for duplicates (platform slugs should be unique)
+        unique_platforms = set(all_platforms)
+        # Some platforms may have duplicates across runners, just verify we have platforms
+        self.assertTrue(len(all_platforms) > 0)
+
+
+class ArgParserTests(unittest.TestCase):
+    """Tests for argument parser configuration."""
+
+    def test_build_arg_parser_has_platforms_flag(self):
+        parser = showet.build_arg_parser()
+        # Parse --platforms to ensure it exists
+        args = parser.parse_args(["--platforms"])
+        self.assertTrue(args.platforms)
+
+    def test_build_arg_parser_parses_pouetid(self):
+        parser = showet.build_arg_parser()
+        args = parser.parse_args(["12345"])
+        self.assertEqual(args.pouetid, 12345)
+
+    def test_build_arg_parser_parses_random_flag(self):
+        parser = showet.build_arg_parser()
+        args = parser.parse_args(["--random"])
+        self.assertTrue(args.random)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -12,7 +12,7 @@ class Platform_Commodore_64(PlatformCommon):
 
     emulators = ["retroarch"]
     cores = ["vice_x64sc_libretro"]
-    extensions = ['zip']
+    extensions = ['zip', 'd64', 'd71', 'd81', 't64', 'tap', 'prg', 'p00', 'g64']
 
     def supported_platforms(self) -> list[str]:
         """Return commodore64 platform slug."""

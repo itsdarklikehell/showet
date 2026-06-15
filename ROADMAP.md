@@ -36,14 +36,15 @@ Completed Tasks:
 ---
 *This roadmap will be updated as we progress.*
 
-## Phase 4: Further Enhancements (Planned)
-**Goal:** Additional platform support, performance improvements, and feature polish.
+## Phase 4: Documentation & Refactoring (In Progress)
 
-Planned Tasks:
-*   **Task 4.1 (Missing Platforms):** Add support for Alambik, Flash/SWF (Ruffle), Android
-*   **Task 4.2 (Performance):** Cache platform runners, lazy loading for large platform sets
-*   **Task 4.3 (Feature Polish):** Demo screenshots/previews, playlist support, offline mode
-*   **Task 4.4 (Documentation):** API documentation, platform compatibility matrix
+**Goal:** Improve documentation, code quality, and add missing platform support.
+
+Tasks:
+*   **Task 4.1 (Documentation):** Create API documentation and platform compatibility matrix ✅
+*   **Task 4.2 (Bug Fixes):** Fix platform runner issues (Windows path handling, C64 extensions) ✅
+*   **Task 4.3 (Testing):** Expand test coverage for platform runners
+*   **Task 4.4 (Missing Platforms):** Add support for Alambik, Flash/SWF (Ruffle), Android
 
 ---
 
