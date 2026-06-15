@@ -121,3 +121,22 @@ All phases 1-4 core tasks completed. Tests pass (14/14).
 - Added Flash platform tests (2 tests)
 - Added Android platform tests (3 tests)
 - Total: 19 tests passing
+
+## Phase 6: Feature Polish (Completed)
+
+### Task 6.1 - Demo Previews
+**File:** `showet-ui/index.html`
+- Added screenshot display for search results
+- CSS styling for preview images with fallback placeholder
+
+### Task 6.2 - CLI Options
+**Files:** `showet.py`, `platformcommon.py`
+- Added `--fullscreen` flag for RetroArch fullscreen mode
+- Added `--audio/--no-audio` flags for audio control
+- Added `--core` flag for libretro core selection
+- Added `set_options()` method to PlatformCommon base class
+
+### Phase 6 Tests
+- Added CLI option tests (4 tests)
+- Added fullscreen integration test (1 test)
+- Total: 23 tests passing
