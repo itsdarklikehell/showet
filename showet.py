@@ -146,6 +146,9 @@ def create_platform_runners() -> List[object]:
         "Platform_Wild_Gamemusic",
         "Platform_Wild_VideoFFMPEG",
         "Platform_Wild_VideoMPV",
+        "Platform_Tangerine_Oric",
+        "Platform_WebAssembly_Web",
+        "Platform_Raspberry_Pi",
     ]
 
     runners: List[object] = []
