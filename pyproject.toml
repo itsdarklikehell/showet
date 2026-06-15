@@ -18,6 +18,7 @@ showet-webui = "showet_webui:launch_browser"
 [project.urls]
 Homepage = "https://github.com/itsdarklikehell/showet"
 Repository = "https://github.com/itsdarklikehell/showet"
+Documentation = "https://github.com/itsdarklikehell/showet#readme"
 
 [tool.ruff]
 line-length = 88
