@@ -160,22 +160,18 @@
                 <option value="crt/crt-easymode">CRT Easy Mode</option>
                 <option value="crt/crt-royale">CRT Royale</option>
                 <option value="crt/crt-pi">CRT Pi</option>
-                <option value="crt/crt-easymode">C64 Green Phosphor</option>
-                <option value="crt/crt-pi">Amiga OCS</option>
-                <option value="crt/crt-royale">NES Composite</option>
-                <option value="crt/crt-easymode">Atari ST</option>
             </select>
         </div>
         <div id="stream-controls" style="margin-top:15px; display:none;">
             <button id="stream-btn" onclick="toggleStream()" style="background:#333; color:white; padding:10px 20px; border:1px solid var(--accent); cursor:pointer;">📺 Start Stream</button>
+            <button onclick="showHallOfFame()" style="background:#333; color:white; padding:10px 20px; margin-left:10px; border:1px solid var(--accent); cursor:pointer;">🏆 Hall of Fame</button>
         </div>
         <div id="demo-info"></div>
     </div>
 
     <script>
         let streamActive = false;
-        let mediaRecorder = null;
-        let recordedChunks = [];
+        let currentPlatform = null;
 
         async function loadPlatforms() {
             try {
@@ -191,13 +187,30 @@
                     div.className = 'platform-item';
                     div.innerHTML = `
                         <span>${formatPlatformName(platform.slug)}</span>
-                        <span class="tag">demo</span>
+                        <span class="tag">${platform.extensions?.[0] || 'demo'}</span>
                     `;
                     div.onclick = () => launchDemo(platform.slug);
                     container.appendChild(div);
                 });
+                
+                // Add hall of fame demos
+                container.addEventListener('mouseenter', () => {
+                    container.title = "Select a platform or use search for specific demos";
+                });
             } catch (err) {
                 console.error('Failed to load platforms:', err);
+                // Fallback to API
+                loadPlatformsFromAPI();
+            }
+        }
+
+        async function loadPlatformsFromAPI() {
+            try {
+                const response = await fetch('/api/platforms');
+                const data = await response.json();
+                console.log('Platforms from API:', data);
+            } catch (err) {
+                console.log('API unavailable, using local configs');
             }
         }
 
@@ -213,6 +226,7 @@
         }
 
         async function launchDemo(platformSlug) {
+            currentPlatform = platformSlug;
             document.getElementById('loading').style.display = 'block';
             document.getElementById('loading').innerHTML = `
                 Loading <strong>${formatPlatformName(platformSlug)}</strong>...<br>
@@ -245,7 +259,7 @@
                 `;
                 
                 document.getElementById('demo-info').innerHTML = `
-                    <h4>${formatPlatformName(platformSlug)}</h4>
+                    <h4>🕹️ ${formatPlatformName(platformSlug)}</h4>
                     <p>Ready to launch demo</p>
                     <p class="scene-info">🎥 Stream button active below!</p>
                 `;
@@ -267,10 +281,14 @@
                 document.getElementById('demo-info').innerHTML += `
                     <p style="color:var(--accent);margin-top:10px;">📺 Streaming active!</p>
                 `;
+                
+                // Show CRT frame with nostalgic effect
+                document.getElementById('crt-frame').style.display = 'block';
             } else {
                 btn.textContent = '📺 Start Stream';
                 btn.style.background = '#333';
                 streamActive = false;
+                document.getElementById('crt-frame').style.display = 'none';
                 document.getElementById('demo-info').innerHTML = document.getElementById('demo-info').innerHTML.replace(
                     '<p style="color:var(--accent);margin-top:10px;">📺 Streaming active!</p>', ''
                 );
@@ -280,6 +298,29 @@
         function changeShader() {
             const shader = document.getElementById('shader-select').value;
             console.log('Shader changed to:', shader);
+            // Re-launch with new shader
+            if (currentPlatform) launchDemo(currentPlatform);
+        }
+
+        // Hall of Fame feature
+        async function showHallOfFame() {
+            const hof = [
+                {name: "Heaven Seven", group: "Conspiracy", party: "Assembly 2003", platform: "commodore_amiga"},
+                {name: "Beyond", group: "Future Crew", party: "Assembly 1993", platform: "commodore_amiga"},
+                {name: "Systematic", group: "Farbrausch", party: "Mekka 2002", platform: "ms-dos"},
+                {name: "Especially for You", group: "Fairlight", party: "Breakpoint 2009", platform: "commodore_64"},
+            ];
+            
+            let hofHtml = '<div style="margin-top:10px;padding:10px;background:#111;border-radius:5px;">';
+            hofHtml += '<h4 style="color:var(--accent);margin-top:0;">🏆 Hall of Fame</h4>';
+            hof.forEach(demo => {
+                hofHtml += `<div style="font-size:0.85em;margin:3px 0;cursor:pointer;color:#aaa;" onclick="launchDemo('${demo.platform}')">
+                    ${demo.name} by ${demo.group} (${demo.party})
+                </div>`;
+            });
+            hofHtml += '</div>';
+            
+            document.getElementById('demo-info').innerHTML = hofHtml;
         }
 
         document.addEventListener('DOMContentLoaded', loadPlatforms);

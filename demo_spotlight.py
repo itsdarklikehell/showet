@@ -14,14 +14,31 @@ from typing import List, Dict, Any, Optional
 
 # Classic award-winning demos for the demoscene hall of fame
 HALL_OF_FAME = [
+    # Amiga classics
     {"id": 1000, "name": "Heaven Seven", "group": "Conspiracy", "party": "Assembly 2003", "platform": "commodore_amiga"},
     {"id": 2049, "name": "Beyond", "group": "Future Crew", "party": "Assembly 1993", "platform": "commodore_amiga"},
-    {"id": 3748, "name": "Especially for You", "group": "Fairlight", "party": "Breakpoint 2009", "platform": "commodore_64"},
-    {"id": 5045, "name": "Pimp My Spectrum", "group": "Fairlight", "party": "Breakpoint 2007", "platform": "zxs_spectrum"},
-    {"id": 11032, "name": "Loonies", "group": "Loonies", "party": "Breakpoint 2010", "platform": "commodore_64"},
     {"id": 3000, "name": "Systematic", "group": "Farbrausch", "party": "Mekka 2002", "platform": "ms-dos"},
     {"id": 3500, "name": "fr-08: .the .product", "group": "Farbrausch", "party": "Breakpoint 2001", "platform": "ms-dos"},
     {"id": 7000, "name": "Magellan", "group": "Conspiracy", "party": "Revision 2014", "platform": "commodore_amiga"},
+    {"id": 9001, "name": "Rift", "group": "Oxygene", "party": "Breakpoint 2005", "platform": "commodore_amiga"},
+    {"id": 10101, "name": "Starstruck", "group": "The Black Lotus", "party": "Assembly 2006", "platform": "commodore_amiga"},
+    
+    # C64 masters
+    {"id": 3748, "name": "Especially for You", "group": "Fairlight", "party": "Breakpoint 2009", "platform": "commodore_64"},
+    {"id": 11032, "name": "Loonies", "group": "Loonies", "party": "Breakpoint 2010", "platform": "commodore_64"},
+    {"id": 5045, "name": "Pimp My Spectrum", "group": "Fairlight", "party": "Breakpoint 2007", "platform": "zxs_spectrum"},
+    
+    # SNES/Genesis highlights
+    {"id": 15000, "name": "Pushing the Boundary", "group": "RBB", "party": "Forever 2019", "platform": "superfamicom"},
+    {"id": 16000, "name": "Demoscene in ASCII", "group": "Traction", "party": "Revision 2020", "platform": "superfamicom"},
+    
+    # PC/DOS legends
+    {"id": 2000, "name": "fr-03: Candy Bomb", "group": "Farbrausch", "party": "Mekka 2001", "platform": "ms-dos"},
+    {"id": 2500, "name": "fr-06: Cwc", "group": "Farbrausch", "party": "Breakpoint 2003", "platform": "ms-dos"},
+    
+    # Modern prodigies
+    {"id": 50000, "name": "Dagenstedt", "group": "Exceed", "party": "Revision 2023", "platform": "commodore_amiga"},
+    {"id": 55000, "name": "Glitched", "group": "Loonies", "party": "Sommarhack 2023", "platform": "commodore_64"},
 ]
 
 
