@@ -15,6 +15,10 @@ class Platform_Nintendo_SuperFamicom(PlatformBase):
         self.cores = ["snes9x_libretro"]
         self.extensions = ['zip', 'sfc', 'smc', 'fig', 'swc', 'bs']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nintendo_superfamicom"]
+
     def initialize(self) -> bool:
         print(f"[Nintendo SuperFamicom] Initializing...")
         self._is_initialized = True

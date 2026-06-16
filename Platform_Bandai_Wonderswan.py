@@ -15,6 +15,10 @@ class Platform_Bandai_Wonderswan(PlatformBase):
         self.cores = ["mednafen_wswan_libretro"]
         self.extensions = ['zip', 'ws', 'wsc', 'pc2']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["bandai_wonderswan"]
+
     def initialize(self) -> bool:
         print(f"[Bandai Wonderswan] Initializing...")
         self._is_initialized = True

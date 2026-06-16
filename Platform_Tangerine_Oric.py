@@ -15,6 +15,10 @@ class Platform_Tangerine_Oric(PlatformBase):
         self.cores = ["oric_libretro"]
         self.extensions = ["tap", "crt"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["tangerine_oric"]
+
     def initialize(self) -> bool:
         print(f"[Tangerine Oric] Initializing...")
         self._is_initialized = True

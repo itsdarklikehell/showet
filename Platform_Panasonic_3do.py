@@ -15,6 +15,10 @@ class Platform_Panasonic_3do(PlatformBase):
         self.cores = ["4do_libretro"]
         self.extensions = ['iso', 'bin', 'chd', 'cue']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["panasonic_3do"]
+
     def initialize(self) -> bool:
         print(f"[Panasonic 3do] Initializing...")
         self._is_initialized = True

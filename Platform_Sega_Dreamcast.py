@@ -15,6 +15,10 @@ class Platform_Sega_Dreamcast(PlatformBase):
         self.cores = ["flycast_libretro"]
         self.extensions = ['chd', 'cdi', 'elf', 'bin', 'cue', 'gdi', 'lst', 'zip', 'dat', '7z', 'm3u']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sega_dreamcast"]
+
     def initialize(self) -> bool:
         print(f"[Sega Dreamcast] Initializing...")
         self._is_initialized = True

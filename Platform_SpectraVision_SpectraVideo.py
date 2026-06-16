@@ -15,6 +15,10 @@ class Platform_SpectraVision_SpectraVideo(PlatformBase):
         self.cores = ["bluemsx_libretro"]
         self.extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["spectravision_spectravideo"]
+
     def initialize(self) -> bool:
         print(f"[SpectraVision SpectraVideo] Initializing...")
         self._is_initialized = True

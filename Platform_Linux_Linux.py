@@ -15,6 +15,10 @@ class Platform_Linux_Linux(PlatformBase):
         self.cores = ["bash"]
         self.extensions = ['elf', 'exe']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["linux_linux"]
+
     def initialize(self) -> bool:
         print(f"[Linux Linux] Initializing...")
         self._is_initialized = True

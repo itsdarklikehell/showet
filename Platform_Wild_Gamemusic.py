@@ -15,6 +15,10 @@ class Platform_Wild_Gamemusic(PlatformBase):
         self.cores = ["gme_libretro"]
         self.extensions = ['zip', 'ay', 'gbs', 'gym', 'hes', 'kss', 'nsf', 'nsfe', 'sap', 'spc', 'vgm', 'vgz']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["wild_gamemusic"]
+
     def initialize(self) -> bool:
         print(f"[Wild Gamemusic] Initializing...")
         self._is_initialized = True

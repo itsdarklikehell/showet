@@ -15,6 +15,10 @@ class Platform_Elektronika_Pdp11(PlatformBase):
         self.cores = ["bk_libretro"]
         self.extensions = ['bin']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["elektronika_pdp11"]
+
     def initialize(self) -> bool:
         print(f"[Elektronika Pdp11] Initializing...")
         self._is_initialized = True

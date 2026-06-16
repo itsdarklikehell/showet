@@ -15,6 +15,10 @@ class Platform_Gamepark_2X(PlatformBase):
         self.cores = ["mame_libretro"]
         self.extensions = ['zip', 'chd', '7z', 'cmd']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["gamepark_2x"]
+
     def initialize(self) -> bool:
         print(f"[Gamepark 2X] Initializing...")
         self._is_initialized = True

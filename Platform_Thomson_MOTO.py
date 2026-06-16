@@ -15,6 +15,10 @@ class Platform_Thomson_MOTO(PlatformBase):
         self.cores = ["theodore_libretro"]
         self.extensions = ['fd', 'sap', 'k7', 'm7', 'm5', 'rom']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["thomson_moto"]
+
     def initialize(self) -> bool:
         print(f"[Thomson MOTO] Initializing...")
         self._is_initialized = True

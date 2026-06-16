@@ -15,6 +15,10 @@ class Platform_Commodore_Pet(PlatformBase):
         self.cores = ["vice_xpet_libretro"]
         self.extensions = ['zip']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["commodore_pet"]
+
     def initialize(self) -> bool:
         print(f"[Commodore Pet] Initializing...")
         self._is_initialized = True

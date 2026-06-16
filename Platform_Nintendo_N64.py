@@ -15,6 +15,10 @@ class Platform_Nintendo_N64(PlatformBase):
         self.cores = ["mupen64plus_libretro"]
         self.extensions = ['n64', 'v64', 'z64', 'bin', 'u1', 'ndd']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nintendo_n64"]
+
     def initialize(self) -> bool:
         print(f"[Nintendo N64] Initializing...")
         self._is_initialized = True

@@ -15,6 +15,10 @@ class Platform_Raspberry_Pi(PlatformBase):
         self.cores = ["libretro_core"]
         self.extensions = ["img", "zip"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["raspberry_pi"]
+
     def initialize(self) -> bool:
         print(f"[Raspberry Pi] Initializing...")
         self._is_initialized = True

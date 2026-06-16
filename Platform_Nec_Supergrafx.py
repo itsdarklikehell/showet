@@ -15,6 +15,10 @@ class Platform_Nec_Supergrafx(PlatformBase):
         self.cores = ["mednafen_supergrafx_libretro"]
         self.extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nec_supergrafx"]
+
     def initialize(self) -> bool:
         print(f"[Nec Supergrafx] Initializing...")
         self._is_initialized = True

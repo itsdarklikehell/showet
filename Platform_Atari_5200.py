@@ -15,6 +15,10 @@ class Platform_Atari_5200(PlatformBase):
         self.cores = ["atari800_libretro"]
         self.extensions = ['zip', 'xfd', 'atr', 'cdm', 'cas', 'bin', 'a52', 'atx', 'car', 'rom', 'com', 'xex']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["atari_5200"]
+
     def initialize(self) -> bool:
         print(f"[Atari 5200] Initializing...")
         self._is_initialized = True

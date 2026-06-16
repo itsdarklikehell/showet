@@ -15,6 +15,10 @@ class Platform_Nintendo_Pokemini(PlatformBase):
         self.cores = ["pokemini_libretro"]
         self.extensions = ['zip', 'min']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nintendo_pokemini"]
+
     def initialize(self) -> bool:
         print(f"[Nintendo Pokemini] Initializing...")
         self._is_initialized = True

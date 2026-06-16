@@ -15,6 +15,10 @@ class Platform_Magnavox_Odyssey(PlatformBase):
         self.cores = ["o2em_libretro"]
         self.extensions = ['zip', 'bin']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["magnavox_odyssey"]
+
     def initialize(self) -> bool:
         print(f"[Magnavox Odyssey] Initializing...")
         self._is_initialized = True

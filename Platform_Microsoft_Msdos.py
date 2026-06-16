@@ -15,6 +15,10 @@ class Platform_Microsoft_Msdos(PlatformBase):
         self.cores = ["dosbox_core_libretro"]
         self.extensions = ['zip', 'dosz', 'exe', 'com', 'bat', 'iso', 'cue', 'ins', 'img', 'ima', 'vhd', 'jrc', 'tc', 'm3u', 'm3u8']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["microsoft_msdos"]
+
     def initialize(self) -> bool:
         print(f"[Microsoft Msdos] Initializing...")
         self._is_initialized = True

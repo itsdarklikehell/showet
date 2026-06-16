@@ -15,6 +15,10 @@ class Platform_Atari_7800(PlatformBase):
         self.cores = ["prosystem_libretro"]
         self.extensions = ['zip', 'a78', 'bin', 'cdf']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["atari_7800"]
+
     def initialize(self) -> bool:
         print(f"[Atari 7800] Initializing...")
         self._is_initialized = True

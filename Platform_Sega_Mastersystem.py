@@ -15,6 +15,10 @@ class Platform_Sega_Mastersystem(PlatformBase):
         self.cores = ["genesis_plus_gx_libretro"]
         self.extensions = ['zip', 'mdx', 'md', 'smd', 'gen', 'bin', 'cue', 'iso', 'sms', 'bms', 'gg', 'sg', '68k', 'sgd', 'chd', 'm3u']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sega_mastersystem"]
+
     def initialize(self) -> bool:
         print(f"[Sega Mastersystem] Initializing...")
         self._is_initialized = True

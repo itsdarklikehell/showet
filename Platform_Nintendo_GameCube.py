@@ -15,6 +15,10 @@ class Platform_Nintendo_GameCube(PlatformBase):
         self.cores = ["dolphin_libretro"]
         self.extensions = ['gcm', 'iso', 'wbfs', 'ciso', 'gcz', 'elf', 'dol', 'dff', 'tgc', 'wad', 'rvz', 'm3u']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nintendo_gamecube"]
+
     def initialize(self) -> bool:
         print(f"[Nintendo GameCube] Initializing...")
         self._is_initialized = True

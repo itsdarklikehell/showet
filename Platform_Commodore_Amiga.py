@@ -15,6 +15,10 @@ class Platform_Commodore_Amiga(PlatformBase):
         self.cores = ["puae_libretro", "fsuae_libretro", "uae4arm_libretro"]
         self.extensions = ["adf", "dms", "ipf", "adz", "lha", "zip"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["commodore_amiga"]
+
     def initialize(self) -> bool:
         print(f"[Commodore Amiga] Initializing...")
         self._is_initialized = True

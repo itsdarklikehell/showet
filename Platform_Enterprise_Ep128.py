@@ -15,6 +15,10 @@ class Platform_Enterprise_Ep128(PlatformBase):
         self.cores = ["ep128emu_libretro"]
         self.extensions = ['zip', 'img', 'dsk', 'tap', 'dtf', 'com', 'trn', '128', 'bas', 'cas', 'cdt', 'tzx', '.']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["enterprise_ep128"]
+
     def initialize(self) -> bool:
         print(f"[Enterprise Ep128] Initializing...")
         self._is_initialized = True

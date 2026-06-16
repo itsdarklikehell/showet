@@ -15,6 +15,10 @@ class Platform_Apple_AppleIIGS(PlatformBase):
         self.cores = ["minivmac_libretro"]
         self.extensions = ["dsk", "img", "zip", "hvf", "cmd"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["apple_appleiigs"]
+
     def initialize(self) -> bool:
         print(f"[Apple AppleIIGS] Initializing...")
         self._is_initialized = True

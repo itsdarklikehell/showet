@@ -15,6 +15,10 @@ class Platform_Amstrad_Cpcplus(PlatformBase):
         self.cores = ["cap32_libretro"]
         self.extensions = ["dsk", "sna", "kcr"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["amstrad_cpcplus"]
+
     def initialize(self) -> bool:
         print(f"[Amstrad Cpcplus] Initializing...")
         self._is_initialized = True

@@ -15,6 +15,10 @@ class Platform_Sony_Ps2(PlatformBase):
         self.cores = ["pcsx2_libretro"]
         self.extensions = ['zip', 'exe', 'psexe', 'cue', 'toc', 'bin', 'img', 'iso', 'chd', 'pbp', 'ccd', 'ecm', 'cbn', 'mdf', 'mds', 'psf', 'm3u']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sony_ps2"]
+
     def initialize(self) -> bool:
         print(f"[Sony Ps2] Initializing...")
         self._is_initialized = True

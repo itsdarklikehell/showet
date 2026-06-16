@@ -15,6 +15,10 @@ class Platform_Mattel_Intellivision(PlatformBase):
         self.cores = ["freeintv_libretro"]
         self.extensions = ['int', 'bin', 'rom']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["mattel_intellivision"]
+
     def initialize(self) -> bool:
         print(f"[Mattel Intellivision] Initializing...")
         self._is_initialized = True

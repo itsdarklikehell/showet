@@ -15,6 +15,10 @@ class Platform_Commodore_Vic20(PlatformBase):
         self.cores = ["vice_xvic_libretro"]
         self.extensions = ['zip']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["commodore_vic20"]
+
     def initialize(self) -> bool:
         print(f"[Commodore Vic20] Initializing...")
         self._is_initialized = True

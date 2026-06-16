@@ -15,6 +15,10 @@ class Platform_Sega_GameGear(PlatformBase):
         self.cores = ["gearsystem_libretro"]
         self.extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sega_gamegear"]
+
     def initialize(self) -> bool:
         print(f"[Sega GameGear] Initializing...")
         self._is_initialized = True

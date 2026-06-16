@@ -15,6 +15,10 @@ class Platform_Alambik_Alambik(PlatformBase):
         self.cores = ["libretro_core"]
         self.extensions = ["sam", "alb"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["alambik_alambik"]
+
     def initialize(self) -> bool:
         print(f"[Alambik Alambik] Initializing...")
         self._is_initialized = True

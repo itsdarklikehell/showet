@@ -15,6 +15,10 @@ class Platform_Atari_Jaguar(PlatformBase):
         self.cores = ["virtualjaguar_libretro"]
         self.extensions = ['zip', 'j64', 'jag', 'rom', 'abs', 'cof', 'bin', 'prg']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["atari_jaguar"]
+
     def initialize(self) -> bool:
         print(f"[Atari Jaguar] Initializing...")
         self._is_initialized = True

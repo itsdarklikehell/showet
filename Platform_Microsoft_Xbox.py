@@ -15,6 +15,10 @@ class Platform_Microsoft_Xbox(PlatformBase):
         self.cores = ["directxbox_libretro"]
         self.extensions = ['zip', 'iso']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["microsoft_xbox"]
+
     def initialize(self) -> bool:
         print(f"[Microsoft Xbox] Initializing...")
         self._is_initialized = True

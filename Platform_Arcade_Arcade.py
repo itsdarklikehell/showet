@@ -15,6 +15,10 @@ class Platform_Arcade_Arcade(PlatformBase):
         self.cores = ["mame_libretro"]
         self.extensions = ['zip', 'chd', '7z', 'cmd']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["arcade_arcade"]
+
     def initialize(self) -> bool:
         print(f"[Arcade Arcade] Initializing...")
         self._is_initialized = True

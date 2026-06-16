@@ -15,6 +15,10 @@ class Platform_Atari_2600(PlatformBase):
         self.cores = ["stella2014_libretro"]
         self.extensions = ['zip', 'a26', 'bin']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["atari_2600"]
+
     def initialize(self) -> bool:
         print(f"[Atari 2600] Initializing...")
         self._is_initialized = True

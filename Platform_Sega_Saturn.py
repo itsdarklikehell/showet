@@ -15,6 +15,10 @@ class Platform_Sega_Saturn(PlatformBase):
         self.cores = ["yabause_libretro"]
         self.extensions = ['zip', 'sms', 'gg', 'sg', 'bin', 'rom']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sega_saturn"]
+
     def initialize(self) -> bool:
         print(f"[Sega Saturn] Initializing...")
         self._is_initialized = True

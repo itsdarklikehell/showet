@@ -15,6 +15,10 @@ class Platform_Atari_STETTFalcon(PlatformBase):
         self.cores = ["hatari_libretro"]
         self.extensions = ['st', 'msa', 'stx', 'dim', 'ipf', 'm3u']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["atari_stettfalcon"]
+
     def initialize(self) -> bool:
         print(f"[Atari STETTFalcon] Initializing...")
         self._is_initialized = True

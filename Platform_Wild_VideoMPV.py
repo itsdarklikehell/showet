@@ -15,6 +15,10 @@ class Platform_Wild_VideoMPV(PlatformBase):
         self.cores = ["mpv_libretro"]
         self.extensions = ['mkv', 'avi', 'f4v', 'f4f', '3gp', 'ogm', 'flv', 'mp4', 'mp3', 'flac', 'ogg', 'm4a', 'webm', '3g2', 'mov', 'wmv', 'mpg', 'mpeg', 'vob', 'asf', 'divx', 'm2p', 'm2ts', 'ps', 'ts', 'mxf', 'wma', 'wav']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["wild_videompv"]
+
     def initialize(self) -> bool:
         print(f"[Wild VideoMPV] Initializing...")
         self._is_initialized = True

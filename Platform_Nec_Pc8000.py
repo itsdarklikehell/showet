@@ -15,6 +15,10 @@ class Platform_Nec_Pc8000(PlatformBase):
         self.cores = ["quasi88_libretro"]
         self.extensions = ['zip', 'pce', 'sgx', 'cue', 'ccd', 'chd']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nec_pc8000"]
+
     def initialize(self) -> bool:
         print(f"[Nec Pc8000] Initializing...")
         self._is_initialized = True

@@ -15,6 +15,10 @@ class Platform_Atari_Lynx(PlatformBase):
         self.cores = ["handy_libretro"]
         self.extensions = ['lnx', 'o']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["atari_lynx"]
+
     def initialize(self) -> bool:
         print(f"[Atari Lynx] Initializing...")
         self._is_initialized = True

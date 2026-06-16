@@ -15,6 +15,10 @@ class Platform_Nec_Pc98(PlatformBase):
         self.cores = ["nekop2_libretro"]
         self.extensions = ['d98', 'zip', '98d', 'fdi', 'fdd', '2hd', 'tfd', 'd88', '88d', 'hdm', 'xdf', 'dup', 'cmd', 'hdi', 'thd', 'nhd', 'hdd']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nec_pc98"]
+
     def initialize(self) -> bool:
         print(f"[Nec Pc98] Initializing...")
         self._is_initialized = True

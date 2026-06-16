@@ -15,6 +15,10 @@ class Platform_Phillips_Cdi(PlatformBase):
         self.cores = ["samecdi_libretro"]
         self.extensions = ['zip', 'chd', 'iso']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["phillips_cdi"]
+
     def initialize(self) -> bool:
         print(f"[Phillips Cdi] Initializing...")
         self._is_initialized = True

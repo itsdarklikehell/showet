@@ -15,6 +15,10 @@ class Platform_Fairchild_Channelf(PlatformBase):
         self.cores = ["freechaf_libretro"]
         self.extensions = ['zip', 'bin', 'chf']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["fairchild_channelf"]
+
     def initialize(self) -> bool:
         print(f"[Fairchild Channelf] Initializing...")
         self._is_initialized = True

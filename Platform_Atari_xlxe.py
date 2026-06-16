@@ -15,6 +15,10 @@ class Platform_Atari_xlxe(PlatformBase):
         self.cores = ["atari800_libretro"]
         self.extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["atari_xlxe"]
+
     def initialize(self) -> bool:
         print(f"[Atari xlxe] Initializing...")
         self._is_initialized = True

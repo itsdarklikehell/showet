@@ -15,6 +15,10 @@ class Platform_Snk_NeogeoPocket(PlatformBase):
         self.cores = ["mednafen_ngp_libretro"]
         self.extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["snk_neogeopocket"]
+
     def initialize(self) -> bool:
         print(f"[Snk NeogeoPocket] Initializing...")
         self._is_initialized = True

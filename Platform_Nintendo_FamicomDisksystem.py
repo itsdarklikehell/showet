@@ -15,6 +15,10 @@ class Platform_Nintendo_FamicomDisksystem(PlatformBase):
         self.cores = ["quicknes_libretro"]
         self.extensions = ['zip', 'nes', 'fds', 'unf', 'unif', 'qd', 'nsf']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nintendo_famicomdisksystem"]
+
     def initialize(self) -> bool:
         print(f"[Nintendo FamicomDisksystem] Initializing...")
         self._is_initialized = True

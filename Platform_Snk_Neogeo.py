@@ -15,6 +15,10 @@ class Platform_Snk_Neogeo(PlatformBase):
         self.cores = ["fbneo_libretro"]
         self.extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["snk_neogeo"]
+
     def initialize(self) -> bool:
         print(f"[Snk Neogeo] Initializing...")
         self._is_initialized = True

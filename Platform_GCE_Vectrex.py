@@ -15,6 +15,10 @@ class Platform_GCE_Vectrex(PlatformBase):
         self.cores = ["vecx_libretro"]
         self.extensions = ['zip', 'bin', 'vec']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["gce_vectrex"]
+
     def initialize(self) -> bool:
         print(f"[GCE Vectrex] Initializing...")
         self._is_initialized = True

@@ -15,6 +15,10 @@ class Platform_Nintendo_Gameboy(PlatformBase):
         self.cores = ["gambatte_libretro"]
         self.extensions = ['zip', 'gb', 'dmg', 'bin', 'u1', 'ndd', 'zip']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nintendo_gameboy"]
+
     def initialize(self) -> bool:
         print(f"[Nintendo Gameboy] Initializing...")
         self._is_initialized = True

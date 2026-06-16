@@ -15,6 +15,10 @@ class Platform_Flash_Ruffle(PlatformBase):
         self.cores = ["ruffle_libretro"]
         self.extensions = ["swf", "spl"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["flash_ruffle"]
+
     def initialize(self) -> bool:
         print(f"[Flash Ruffle] Initializing...")
         self._is_initialized = True

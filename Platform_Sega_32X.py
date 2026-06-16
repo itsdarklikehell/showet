@@ -15,6 +15,10 @@ class Platform_Sega_32X(PlatformBase):
         self.cores = ["picodrive_libretro"]
         self.extensions = ['zip', 'bin', 'gen', 'gg', 'smd', 'pco', 'md', '32x', 'chd', 'cue', 'iso', 'sms', '68k', 'sgd', 'm3u']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sega_32x"]
+
     def initialize(self) -> bool:
         print(f"[Sega 32X] Initializing...")
         self._is_initialized = True

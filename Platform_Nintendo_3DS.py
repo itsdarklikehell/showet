@@ -15,6 +15,10 @@ class Platform_Nintendo_3DS(PlatformBase):
         self.cores = ["citra_libretro"]
         self.extensions = ['3ds', '3dsx', 'elf', 'axf', 'cci', 'cxi', 'app']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nintendo_3ds"]
+
     def initialize(self) -> bool:
         print(f"[Nintendo 3DS] Initializing...")
         self._is_initialized = True

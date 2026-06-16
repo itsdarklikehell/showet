@@ -15,6 +15,10 @@ class Platform_Android_Android(PlatformBase):
         self.cores = ["libretro_core"]
         self.extensions = ["apk", "aab", "xapk"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["android_android"]
+
     def initialize(self) -> bool:
         print(f"[Android Android] Initializing...")
         self._is_initialized = True

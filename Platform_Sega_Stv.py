@@ -15,6 +15,10 @@ class Platform_Sega_Stv(PlatformBase):
         self.cores = ["yabause_libretro"]
         self.extensions = ['zip', 'ccd', 'chd', 'cue', 'iso', 'mds', 'm3u']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sega_stv"]
+
     def initialize(self) -> bool:
         print(f"[Sega Stv] Initializing...")
         self._is_initialized = True

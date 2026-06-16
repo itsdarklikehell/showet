@@ -15,6 +15,10 @@ class Platform_Nec_Pcfx(PlatformBase):
         self.cores = ["mednafen_pcfx_libretro"]
         self.extensions = ["cue", "ccd", "toc", "chd"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["nec_pcfx"]
+
     def initialize(self) -> bool:
         print(f"[Nec Pcfx] Initializing...")
         self._is_initialized = True

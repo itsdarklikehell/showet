@@ -15,6 +15,10 @@ class Platform_Archimedes_Acorn(PlatformBase):
         self.cores = ["mame_libretro"]
         self.extensions = ['zip', 'chd', '7z', 'cmd']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["archimedes_acorn"]
+
     def initialize(self) -> bool:
         print(f"[Archimedes Acorn] Initializing...")
         self._is_initialized = True

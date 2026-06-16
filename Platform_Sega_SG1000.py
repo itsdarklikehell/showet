@@ -15,6 +15,10 @@ class Platform_Sega_SG1000(PlatformBase):
         self.cores = ["gearsystem_libretro"]
         self.extensions = ['rom', 'ri', 'mx1', 'mx2', 'col', 'dsk', 'cas', 'sg', 'sc', 'm3u']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sega_sg1000"]
+
     def initialize(self) -> bool:
         print(f"[Sega SG1000] Initializing...")
         self._is_initialized = True

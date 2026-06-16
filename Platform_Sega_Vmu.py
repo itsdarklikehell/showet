@@ -15,6 +15,10 @@ class Platform_Sega_Vmu(PlatformBase):
         self.cores = ["vemulator_libretro"]
         self.extensions = ['zip', 'vms', 'dci', 'bin']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sega_vmu"]
+
     def initialize(self) -> bool:
         print(f"[Sega Vmu] Initializing...")
         self._is_initialized = True

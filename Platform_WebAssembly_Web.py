@@ -15,6 +15,10 @@ class Platform_WebAssembly_Web(PlatformBase):
         self.cores = ["libretro_core"]
         self.extensions = ["wasm", "html"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["webassembly_web"]
+
     def initialize(self) -> bool:
         print(f"[WebAssembly Web] Initializing...")
         self._is_initialized = True

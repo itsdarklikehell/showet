@@ -15,6 +15,10 @@ class Platform_Java_Java(PlatformBase):
         self.cores = ["squirreljme_libretro"]
         self.extensions = ['zip', 'jar', 'sqc', 'jam', 'jad', 'kjx']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["java_java"]
+
     def initialize(self) -> bool:
         print(f"[Java Java] Initializing...")
         self._is_initialized = True

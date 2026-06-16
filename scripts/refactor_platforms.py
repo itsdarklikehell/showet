@@ -83,6 +83,10 @@ class Platform_{platform_class_name}(PlatformBase):
         self.cores = ["{core_val}"]
         self.extensions = {ext_val}
 
+    def supported_platforms(self) -> List[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["{slug}"]
+
     def initialize(self) -> bool:
         print(f"[{platform_display_name}] Initializing...")
         self._is_initialized = True

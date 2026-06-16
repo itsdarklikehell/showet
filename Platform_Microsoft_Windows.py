@@ -15,6 +15,10 @@ class Platform_Microsoft_Windows(PlatformBase):
         self.cores = ["wine"]
         self.extensions = ["exe"]
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["microsoft_windows"]
+
     def initialize(self) -> bool:
         print(f"[Microsoft Windows] Initializing...")
         self._is_initialized = True

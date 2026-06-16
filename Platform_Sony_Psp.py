@@ -15,6 +15,10 @@ class Platform_Sony_Psp(PlatformBase):
         self.cores = ["ppsspp_libretro"]
         self.extensions = ['elf', 'iso', 'cso', 'prx', 'pbp']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sony_psp"]
+
     def initialize(self) -> bool:
         print(f"[Sony Psp] Initializing...")
         self._is_initialized = True

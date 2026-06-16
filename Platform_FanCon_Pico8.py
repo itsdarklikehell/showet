@@ -15,6 +15,10 @@ class Platform_FanCon_Pico8(PlatformBase):
         self.cores = ["retro8_libretro"]
         self.extensions = ['zip', 'p8', 'png']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["fancon_pico8"]
+
     def initialize(self) -> bool:
         print(f"[FanCon Pico8] Initializing...")
         self._is_initialized = True

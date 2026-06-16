@@ -15,6 +15,10 @@ class Platform_Commodore_128(PlatformBase):
         self.cores = ["vice_x128_libretro"]
         self.extensions = ['d64', 'd71', 'd81', 't64', 'tap', 'prg', 'p00']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["commodore_128"]
+
     def initialize(self) -> bool:
         print(f"[Commodore 128] Initializing...")
         self._is_initialized = True

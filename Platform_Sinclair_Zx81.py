@@ -15,6 +15,10 @@ class Platform_Sinclair_Zx81(PlatformBase):
         self.cores = ["fuse_libretro"]
         self.extensions = ['tzx', 'tap', 'z80', 'rzx', 'scl', 'trd', 'dsk']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["sinclair_zx81"]
+
     def initialize(self) -> bool:
         print(f"[Sinclair Zx81] Initializing...")
         self._is_initialized = True

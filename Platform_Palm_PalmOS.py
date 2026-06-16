@@ -15,6 +15,10 @@ class Platform_Palm_PalmOS(PlatformBase):
         self.cores = ["mu_libretro"]
         self.extensions = ['prc', 'pqa', 'img', 'pdb', 'zip']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["palm_palmos"]
+
     def initialize(self) -> bool:
         print(f"[Palm PalmOS] Initializing...")
         self._is_initialized = True

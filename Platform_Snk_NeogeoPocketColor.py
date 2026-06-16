@@ -15,6 +15,10 @@ class Platform_Snk_NeogeoPocketColor(PlatformBase):
         self.cores = ["mednafen_ngp_libretro"]
         self.extensions = ['zip', 'ngp', 'ngc', 'ngpc', 'npc']
 
+    def supported_platforms(self) -> list[str]:
+        """Return the platform slug(s) this runner supports."""
+        return ["snk_neogeopocketcolor"]
+
     def initialize(self) -> bool:
         print(f"[Snk NeogeoPocketColor] Initializing...")
         self._is_initialized = True
