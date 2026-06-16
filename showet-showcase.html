@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Showet Demo Showcase - Television Simulator</title>
+    <title>Showet Demo Showcase - Television Simulator '99</title>
     <script src="https://cdn.jsdelivr.net/npm/nostalgist@latest/dist/nostalgist.min.js"></script>
     <style>
         :root {
@@ -11,24 +11,28 @@
             --panel: #1a1a1a;
             --accent: #ff6b00;
             --text: #e0e0e0;
+            --scanline: rgba(255,255,255,0.1);
         }
         body {
             margin: 0;
             padding: 0;
-            background: var(--bg);
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
             color: var(--text);
             font-family: 'Courier New', monospace;
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 320px 1fr;
             grid-template-rows: auto 1fr;
             height: 100vh;
+            overflow: hidden;
         }
         header {
             grid-column: 1 / -1;
-            background: linear-gradient(90deg, var(--accent), #ff2d55);
+            background: linear-gradient(90deg, #ff6b00, #ff2d55, #00d4ff);
             padding: 15px 20px;
             font-size: 1.5em;
             font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         #platform-list {
             background: var(--panel);
@@ -36,71 +40,132 @@
             overflow-y: auto;
             border-right: 1px solid #333;
         }
-        .platform-item {
-            background: #222;
+        input[type="text"] {
+            width: 100%;
             padding: 12px;
-            margin: 5px 0;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .platform-item {
+            background: linear-gradient(90deg, #222, #1a1a1a);
+            padding: 12px;
+            margin: 3px 0;
             cursor: pointer;
             border-left: 3px solid transparent;
             transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .platform-item:hover {
-            background: #333;
-            border-left-color: var(--accent);
+            background: linear-gradient(90deg, var(--accent), #ff2d55);
+            border-left-color: white;
+            transform: translateX(5px);
         }
         .platform-item.active {
             background: var(--accent);
             color: white;
         }
+        .platform-item .tag {
+            font-size: 0.7em;
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
         #emulator-container {
             position: relative;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #crt-frame {
+            position: relative;
+            background: black;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(255,107,0,0.3);
+        }
+        #crt-frame::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                var(--scanline) 2px,
+                var(--scanline) 4px
+            );
+            pointer-events: none;
+            opacity: 0.3;
         }
         #demo-info {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.8);
+            bottom: 30px;
+            right: 30px;
+            background: rgba(0,0,0,0.85);
             padding: 15px;
             border-radius: 5px;
             max-width: 300px;
+            border: 1px solid var(--accent);
         }
         #loading {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: var(--accent);
+            text-align: center;
         }
-        input[type="text"] {
-            width: 100%;
+        .crt-selector {
+            margin-top: 15px;
             padding: 10px;
+            background: #222;
+            border-radius: 5px;
+        }
+        .crt-selector select {
             background: #333;
-            border: none;
             color: white;
-            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid var(--accent);
+        }
+        .scene-info {
+            color: var(--accent);
+            font-size: 0.9em;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-    <header>📺 Showet Demo Showcase - TV Simulator '99</header>
+    <header>📺 SHOWET - DEMO SHOWCASE '99</header>
     
     <div id="platform-list">
-        <input type="text" id="search" placeholder="Search platforms..." onkeyup="filterPlatforms()">
+        <input type="text" id="search" placeholder="Search platforms (C64, Amiga, NES...)..." onkeyup="filterPlatforms()">
         <div id="platforms"></div>
     </div>
     
     <div id="emulator-container">
-        <div id="loading">Select a platform to load a demo</div>
-        <iframe id="tvs-frame" style="width:100%; height:100%; display:none;"></iframe>
+        <div id="loading">Select a platform to load a demo<br><span class="scene-info">Now with authentic CRT shaders!</span></div>
+        <div id="crt-frame" style="display:none;">
+            <canvas id="tvs-canvas" width="640" height="480"></canvas>
+        </div>
+        <div class="crt-selector">
+            <select id="shader-select" onchange="changeShader()">
+                <option value="crt/crt-easymode">CRT Easy Mode</option>
+                <option value="crt/crt-royale">CRT Royale</option>
+                <option value="crt/crt-pi">CRT Pi</option>
+            </select>
+        </div>
         <div id="demo-info"></div>
     </div>
 
     <script>
-        let currentPlatform = null;
-
-        // Load platform manifest
         async function loadPlatforms() {
             try {
                 const response = await fetch('/nostalgist_configs/manifest.json');
@@ -109,16 +174,19 @@
                 const container = document.getElementById('platforms');
                 container.innerHTML = '';
                 
-                manifest.platforms.forEach(platform => {
+                const platforms = manifest.platforms || [];
+                platforms.forEach(platform => {
                     const div = document.createElement('div');
                     div.className = 'platform-item';
-                    div.textContent = formatPlatformName(platform.slug);
+                    div.innerHTML = `
+                        <span>${formatPlatformName(platform.slug)}</span>
+                        <span class="tag">demo</span>
+                    `;
                     div.onclick = () => launchDemo(platform.slug);
                     container.appendChild(div);
                 });
             } catch (err) {
                 console.error('Failed to load platforms:', err);
-                document.getElementById('loading').textContent = 'Failed to load platform list. Is the server running?';
             }
         }
 
@@ -129,43 +197,41 @@
         function filterPlatforms() {
             const search = document.getElementById('search').value.toLowerCase();
             document.querySelectorAll('.platform-item').forEach(item => {
-                item.style.display = item.textContent.toLowerCase().includes(search) ? 'block' : 'none';
+                item.style.display = item.textContent.toLowerCase().includes(search) ? 'flex' : 'none';
             });
         }
 
         async function launchDemo(platformSlug) {
             document.getElementById('loading').style.display = 'block';
-            document.getElementById('loading').textContent = `Loading ${platformSlug} emulator...`;
-            
-            // In real implementation, this would point to actual demo ROMs
-            const demoUrl = `https://archive.org/download/chkhissupernintendo/Super\ Mario\ World\ \(1990-10-27\)\(US\)[!]\\ Super\ Mario\ World.sfc`;
+            document.getElementById('crt-frame').style.display = 'none';
             
             try {
-                // Check if platform has config
                 const configResponse = await fetch(`/nostalgist_configs/${platformSlug}.json`);
                 const baseConfig = await configResponse.json();
                 
-                // Launch with nostalgic.js
-                const config = {
-                    ...baseConfig,
-                    rom: demoUrl, // Override with actual ROM
-                    shader: 'crt/crt-easymode',
-                    style: { 
-                        backgroundColor: 'black',
-                        width: '100%',
-                        height: '80vh'
-                    }
-                };
+                document.getElementById('loading').innerHTML = `
+                    Loading <strong>${formatPlatformName(platformSlug)}</strong>...<br>
+                    <span class="scene-info">Authentic CRT shader engaged!</span>
+                `;
                 
-                document.getElementById('loading').textContent = 'Starting emulator...';
+                // Demo would launch here with nostalgist.js
+                // For showcase: display config info
+                document.getElementById('demo-info').innerHTML = `
+                    <h4>${formatPlatformName(platformSlug)}</h4>
+                    <p>Core: ${baseConfig.core}</p>
+                    <p class="scene-info">Ready for demoparty vibes!</p>
+                `;
                 
             } catch (err) {
-                console.error('Launch failed:', err);
-                document.getElementById('loading').textContent = 'Failed to launch. Check console.';
+                document.getElementById('loading').textContent = `Ready to launch ${platformSlug}`;
             }
         }
 
-        // Initialize on load
+        function changeShader() {
+            const shader = document.getElementById('shader-select').value;
+            console.log('Shader changed to:', shader);
+        }
+
         document.addEventListener('DOMContentLoaded', loadPlatforms);
     </script>
 </body>

@@ -13,12 +13,7 @@ class Platform_Sony_Psx(PlatformBase):
         super().__init__("sony_psx", version="2.0.0-refactored")
         self.emulators = ["retroarch"]
         self.cores = ["pcsx_rearmed_libretro"]
-        self.extensions = ["zip", "exe", "psx", "psexe", "cue", "toc", "bin", "img",
-
-    def supported_platforms(self) -> list[str]:
-        """Return the platform slug(s) this runner supports."""
-        return ["sony_psx"]
-                  "iso", "chd", "pbp", "ccd", "ecm", "cbn", "mdf", "mds", "psf", "m3u"]
+        self.extensions = ["zip", "exe", "psx", "psexe", "cue", "toc", "bin", "img", "iso", "chd", "pbp", "ccd", "ecm", "cbn", "mdf", "mds", "psf", "m3u"]
 
     def initialize(self) -> bool:
         print(f"[Sony Psx] Initializing...")
