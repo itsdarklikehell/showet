@@ -71,5 +71,17 @@ docker run -p 8000:8000 showet
 3. Build web UI with demo browser
 4. Add streaming/collaborative features
 
+### 🎮 Demoscene Features (NEW!)
+```bash
+# View upcoming demoparties
+showet-parties
+
+# Stream demos live to Twitch/YouTube
+showet-stream --platform twitch --demo 12345
+
+# Create collaborative viewing session
+python3 -c "from collaborative import create_session; print(create_session('commodore_64', 12345))"
+```
+
 ---
 *The demo-runner of the future is now present-ready. 🎯*
