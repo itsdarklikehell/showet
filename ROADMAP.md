@@ -22,6 +22,11 @@ Modernize Showet from a "collection of scripts" into a cohesive, scalable, produ
 *   Multiplayer/collaborative demo viewing
 *   Streaming integration for live demos
 
+## 🎮 Phase 6: Demoscene Features (NEW)
+*   **Demo Database:** Favorites, history, recommendations
+*   **Party Calendar:** Upcoming demoparty integration
+*   **CRT Presets:** Authentic retro shader configurations
+
 ---
 
 ## 🛠️ Action Items Status

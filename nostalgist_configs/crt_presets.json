@@ -1,0 +1,16 @@
+{
+  "presets": {
+    "commodore_64": ["crt/crt-easymode", "crt/crt-royale", "crt/crt-pi"],
+    "nintendo_famicom": ["crt/crt-easymode", "crt/crt-royale", "crt/crt-pi-vertical"],
+    "commodore_amiga": ["crt/crt-easymode", "crt/crt-royale"],
+    "sega_megadrive": ["crt/crt-easymode", "crt/crt-royale", "crt/crt-pi"],
+    "atari_2600": ["crt/crt-easymode", "crt/crt-royale"],
+    "default": ["crt/crt-easymode", "crt/crt-royale"]
+  },
+  "descriptions": {
+    "crt/crt-easymode": "Authentic CRT with scanlines and curvature",
+    "crt/crt-royale": "High-quality CRT simulation with phosphor bloom",
+    "crt/crt-pi": "RetroPie-style shader for authentic retro feel",
+    "crt/crt-pi-vertical": "Vertical CRT optimized for certain arcade games"
+  }
+}
