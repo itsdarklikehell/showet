@@ -10,6 +10,12 @@ dependencies = [
     "patool>=4.0",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
 [project.scripts]
 showet = "showet:main"
 showet-api = "showet_api:main"
@@ -29,6 +35,10 @@ extend-exclude = [
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
-ignore = [
-    "E501",
-]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

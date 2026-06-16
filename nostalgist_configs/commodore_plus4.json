@@ -1,0 +1,10 @@
+{
+  "core": "vice_xplus4",
+  "rom": "/roms/commodore_plus4/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

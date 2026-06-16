@@ -1,0 +1,10 @@
+{
+  "core": "o2em",
+  "rom": "/roms/magnavox_odyssey/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

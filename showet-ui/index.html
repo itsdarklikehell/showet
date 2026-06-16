@@ -95,6 +95,51 @@
         .platforms { margin: 10px 0; font-size: 14px; color: #888; }
         .error { color: #e94560; padding: 10px; text-align: center; }
         .run-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        .nav-tab {
+            padding: 10px 20px;
+            background: none;
+            color: #888;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px 6px 0 0;
+        }
+        .nav-tab.active {
+            color: #4ecca3;
+            background: rgba(255,255,255,0.05);
+        }
+        .nav-tab:hover:not(.active) {
+            color: #bbb;
+        }
+        .fav-btn {
+            padding: 8px 12px;
+            background: #f1c40f;
+            color: #111;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .fav-btn.favorited {
+            background: #f39c12;
+        }
+        .cache-info {
+            background: rgba(78, 204, 163, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .random-btn {
+            background: #9b59b6;
+            color: white;
+        }
+        .random-btn:hover { background: #8e44ad; }
     </style>
 </head>
 <body>
@@ -106,6 +151,12 @@
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Search for demos..." />
                 <button onclick="search()">Search</button>
+                <button class="random-btn" onclick="randomDemo()">🎲 Random</button>
+            </div>
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="switchTab('search')">🔍 Search</button>
+                <button class="nav-tab" onclick="switchTab('favorites')">⭐ Favorites</button>
+                <button class="nav-tab" onclick="switchTab('cache')">💾 Cache</button>
             </div>
         </header>
         <div class="results" id="results"></div>
@@ -117,6 +168,9 @@
     <script>
         const API_BASE = window.location.origin + '/api';
         let currentSearchQuery = '';
+        let currentTab = 'search';
+        let favorites = new Set();
+        let cachedDemos = new Set();
 
         // Load platforms on start
         async function loadPlatforms() {
@@ -134,6 +188,10 @@
             const query = document.getElementById('searchInput').value.trim();
             if (!query) return;
             currentSearchQuery = query;
+            await performSearch(query);
+        }
+
+        async function performSearch(query) {
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '<div class="loading">🔍 Searching pouet.net...</div>';
 
@@ -153,13 +211,23 @@
                     return;
                 }
 
-                resultsDiv.innerHTML = results
-                    .map(([id, prod]) => {
-                        const screenshotUrl = prod.screenshot || '';
-                        const imgHtml = screenshotUrl ? 
-                            `<img class="prod-screenshot" src="${screenshotUrl}" alt="${prod.name}" onerror="this.parentElement.innerHTML='No Preview';" />` :
-                            `<div class="no-screenshot">No Preview</div>`;
-                        return `
+                await loadFavoritesAndCache();
+                renderResults(results, data.results);
+            } catch (e) {
+                resultsDiv.innerHTML = '<div class="error">Search failed: ' + e.message + ' <br/><small>Make sure showet-api is running on localhost:8765</small></div>';
+            }
+        }
+
+        async function renderResults(results, allResults) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = results.map(([id, prod]) => {
+                const screenshotUrl = prod.screenshot || '';
+                const isFav = favorites.has(parseInt(id));
+                const isCached = cachedDemos.has(parseInt(id));
+                const imgHtml = screenshotUrl ? 
+                    `<img class="prod-screenshot" src="${screenshotUrl}" alt="${prod.name}" onerror="this.parentElement.innerHTML='No Preview';" />` :
+                    `<div class="no-screenshot">No Preview</div>`;
+                return `
                     <div class="prod-card">
                         <div class="prod-content">
                             ${imgHtml}
@@ -168,15 +236,35 @@
                                 <div class="prod-meta">
                                     Type: ${prod.type || 'unknown'} | 
                                     Year: ${(prod.releaseDate || '').split('-')[0] || 'N/A'} |
-                                    Votes: ${prod.voteup || 0}
+                                    Votes: ${prod.voteup || 0} |
+                                    ${isCached ? '💾 Cached' : ''}
                                 </div>
                             </div>
                         </div>
-                        <button class="run-btn" onclick="runDemo(${prod.id})">Run</button>
+                        <div>
+                            <button class="fav-btn ${isFav ? 'favorited' : ''}" onclick="toggleFavorite(${prod.id}, '${prod.name.replace(/'/g, "\\'")}')">⭐</button>
+                            <button class="run-btn" onclick="runDemo(${prod.id})">Run</button>
+                        </div>
                     </div>
-                `;}).join('');
+                `;
+            }).join('');
+        }
+
+        async function loadFavoritesAndCache() {
+            try {
+                const favRes = await fetch(API_BASE + '/favorites');
+                const favData = await favRes.json();
+                if (favData.success) {
+                    favorites = new Set(favData.favorites.map(f => f.id));
+                }
+
+                const cacheRes = await fetch(API_BASE + '/cache');
+                const cacheData = await cacheRes.json();
+                if (cacheData.success) {
+                    cachedDemos = new Set(cacheData.demos.map(d => d.id));
+                }
             } catch (e) {
-                resultsDiv.innerHTML = '<div class="error">Search failed: ' + e.message + ' <br/><small>Make sure showet-api is running on localhost:8765</small></div>';
+                console.log('Could not load favorites/cache:', e);
             }
         }
 
@@ -201,6 +289,151 @@
                 alert('Failed to run demo: ' + e.message);
                 btn.textContent = 'Run';
                 btn.disabled = false;
+            }
+        }
+
+        async function toggleFavorite(id, name) {
+            const btn = event.target;
+            const isFav = favorites.has(id);
+
+            if (isFav) {
+                try {
+                    const res = await fetch(API_BASE + '/favorites/' + id, { method: 'DELETE' });
+                    if (res.ok) {
+                        favorites.delete(id);
+                        btn.classList.remove('favorited');
+                    }
+                } catch (e) {
+                    alert('Failed to remove favorite: ' + e.message);
+                }
+            } else {
+                try {
+                    const res = await fetch(API_BASE + '/favorites/' + id, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: name })
+                    });
+                    if (res.ok) {
+                        favorites.add(id);
+                        btn.classList.add('favorited');
+                    }
+                } catch (e) {
+                    alert('Failed to add favorite: ' + e.message);
+                }
+            }
+        }
+
+        async function randomDemo() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<div class="loading">🎲 Finding a random demo...</div>';
+
+            try {
+                const res = await fetch(API_BASE + '/random');
+                if (!res.ok) throw new Error('API returned ' + res.status);
+                const data = await res.json();
+                if (data.success) {
+                    await loadFavoritesAndCache();
+                    const prod = data;
+                    await renderResults([[data.id, data]], { [data.id]: data });
+                } else {
+                    resultsDiv.innerHTML = '<div class="loading">Could not find a random demo. Try again!</div>';
+                }
+            } catch (e) {
+                resultsDiv.innerHTML = '<div class="error">Failed to get random demo: ' + e.message + '</div>';
+            }
+        }
+
+        async function switchTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector('.nav-tab[onclick="switchTab(\'' + tab + '\')"]').classList.add('active');
+
+            const resultsDiv = document.getElementById('results');
+
+            if (tab === 'search') {
+                resultsDiv.innerHTML = '<div class="loading">Search for demos above...</div>';
+            } else if (tab === 'favorites') {
+                await showFavorites();
+            } else if (tab === 'cache') {
+                await showCache();
+            }
+        }
+
+        async function showFavorites() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<div class="loading">⭐ Loading favorites...</div>';
+
+            try {
+                const res = await fetch(API_BASE + '/favorites');
+                const data = await res.json();
+                
+                if (data.success && data.favorites.length > 0) {
+                    await loadFavoritesAndCache();
+                    renderResults(data.favorites.map(f => [f.id.toString(), {
+                        name: f.name,
+                        type: 'favorite',
+                        releaseDate: f.added_at,
+                        voteup: 0
+                    }]), {});
+                } else {
+                    resultsDiv.innerHTML = '<div class="loading">No favorites yet. Search for demos and star them! ⭐</div>';
+                }
+            } catch (e) {
+                resultsDiv.innerHTML = '<div class="error">Failed to load favorites: ' + e.message + '</div>';
+            }
+        }
+
+        async function showCache() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<div class="loading">💾 Loading cache...</div>';
+
+            try {
+                const res = await fetch(API_BASE + '/cache');
+                const data = await res.json();
+                
+                if (data.success) {
+                    resultsDiv.innerHTML = `
+                        <div class="cache-info">
+                            <strong>📦 Cache Stats:</strong><br/>
+                            Cached demos: ${data.count}<br/>
+                            Total size: ${data.cache_size_human}
+                        </div>
+                    `;
+
+                    if (data.demos.length > 0) {
+                        const demosHtml = data.demos.map(d => `
+                            <div class="prod-card">
+                                <div class="prod-info">
+                                    <div class="prod-name">${d.metadata?.name || 'Demo #' + d.id}</div>
+                                    <div class="prod-meta">
+                                        Size: ${(d.metadata?.cached_at ? 'Cached' : 'Unknown')} |
+                                        ID: ${d.id}
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="run-btn" onclick="runDemo(${d.id})">Run</button>
+                                    <button class="run-btn" style="background:#e74c3c" onclick="clearDemo(${d.id})">Delete</button>
+                                </div>
+                            </div>
+                        `).join('');
+                        resultsDiv.innerHTML += demosHtml;
+                    }
+                }
+            } catch (e) {
+                resultsDiv.innerHTML = '<div class="error">Failed to load cache: ' + e.message + '</div>';
+            }
+        }
+
+        async function clearDemo(id) {
+            if (!confirm('Remove this demo from cache?')) return;
+
+            try {
+                const res = await fetch(API_BASE + '/cache/' + id, { method: 'DELETE' });
+                if (res.ok) {
+                    await showCache();
+                }
+            } catch (e) {
+                alert('Failed to clear demo: ' + e.message);
             }
         }
 

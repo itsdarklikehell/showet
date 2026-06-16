@@ -1,0 +1,10 @@
+{
+  "core": "pcsx2",
+  "rom": "/roms/sony_ps2/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

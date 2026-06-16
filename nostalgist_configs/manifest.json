@@ -1,0 +1,510 @@
+{
+  "generated": "2025-06-16",
+  "total": 84,
+  "platforms": [
+    {
+      "slug": "alambik_alambik",
+      "core": "libretro_core",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "amstrad_cpcplus",
+      "core": "cap32",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "android_android",
+      "core": "libretro_core",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "apple_applei",
+      "core": "minivmac",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "apple_appleii",
+      "core": "minivmac",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "apple_appleiigs",
+      "core": "minivmac",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "arcade_arcade",
+      "core": "mame2003",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "archimedes_acorn",
+      "core": "mame2003",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "atari_2600",
+      "core": "stella",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "atari_5200",
+      "core": "atari800",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "atari_7800",
+      "core": "prosystem",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "atari_jaguar",
+      "core": "virtualjaguar",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "atari_lynx",
+      "core": "handy",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "atari_stettfalcon",
+      "core": "hatari",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "atari_xlxe",
+      "core": "atari800",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "bandai_wonderswan",
+      "core": "mednafen_wswan",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "commodore_128",
+      "core": "vice_x128",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "commodore_64",
+      "core": "vice_x64sc",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "commodore_amiga",
+      "core": "puae\", \"fsuae\", \"uae4arm",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "commodore_cbmii",
+      "core": "vice_xcbm2",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "commodore_pet",
+      "core": "vice_xpet",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "commodore_plus4",
+      "core": "vice_xplus4",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "commodore_vic20",
+      "core": "vice_xvic",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "elektronika_pdp11",
+      "core": "bk",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "enterprise_ep128",
+      "core": "ep128emu",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "fairchild_channelf",
+      "core": "freechaf",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "fancon_pico8",
+      "core": "retro8",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "flash_ruffle",
+      "core": "ruffle",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "gamepark_2x",
+      "core": "mame2003",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "gamepark_32",
+      "core": "mame2003",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "gce_vectrex",
+      "core": "vecx",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "java_java",
+      "core": "squirreljme",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "linux_linux",
+      "core": "bash",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "magnavox_odyssey",
+      "core": "o2em",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "mattel_intellivision",
+      "core": "freeintv",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "microsoft_msdos",
+      "core": "dosbox_core",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "microsoft_msx",
+      "core": "bluemsx",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "microsoft_windows",
+      "core": "wine",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "microsoft_xbox",
+      "core": "directxbox",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nec_pc8000",
+      "core": "quasi88",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nec_pc8800",
+      "core": "quasi88",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nec_pc98",
+      "core": "nekop2",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nec_pcengine",
+      "core": "mednafen_supergrafx",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nec_pcfx",
+      "core": "mednafen_pcfx",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nec_supergrafx",
+      "core": "mednafen_supergrafx",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_3ds",
+      "core": "citra",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_famicom",
+      "core": "quicknes",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_famicomdisksystem",
+      "core": "quicknes",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_gameboy",
+      "core": "gambatte",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_gameboyadvance",
+      "core": "meteor",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_gameboycolor",
+      "core": "gambatte",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_gamecube",
+      "core": "dolphin",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_n64",
+      "core": "mupen64plus",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_pokemini",
+      "core": "pokemini",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_superfamicom",
+      "core": "snes9x",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "nintendo_wii",
+      "core": "dolphin",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "palm_palmos",
+      "core": "mu",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "panasonic_3do",
+      "core": "4do",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "phillips_cdi",
+      "core": "samecdi",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "raspberry_pi",
+      "core": "libretro_core",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sega_32x",
+      "core": "picodrive",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sega_dreamcast",
+      "core": "flycast",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sega_gamegear",
+      "core": "gearsystem",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sega_mastersystem",
+      "core": "genesis_plus_gx",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sega_megadrive",
+      "core": "genesis_plus_gx",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sega_saturn",
+      "core": "yabause",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sega_sg1000",
+      "core": "gearsystem",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sega_stv",
+      "core": "yabause",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sega_vmu",
+      "core": "vemulator",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sinclair_zx81",
+      "core": "fuse",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sinclair_zxspectrum",
+      "core": "fuse",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "snk_neogeo",
+      "core": "fbneo",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "snk_neogeopocket",
+      "core": "mednafen_ngp",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "snk_neogeopocketcolor",
+      "core": "mednafen_ngp",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sony_ps2",
+      "core": "pcsx2",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sony_psp",
+      "core": "ppsspp",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "sony_psx",
+      "core": "pcsx_rearmed",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "spectravision_spectravideo",
+      "core": "bluemsx",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "tangerine_oric",
+      "core": "oric",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "thomson_moto",
+      "core": "theodore",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "webassembly_web",
+      "core": "libretro_core",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "wild_gamemusic",
+      "core": "gme",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "wild_videoffmpeg",
+      "core": "ffmpeg",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    },
+    {
+      "slug": "wild_videompv",
+      "core": "mpv",
+      "extensions": [],
+      "shader": "crt/crt-easymode"
+    }
+  ]
+}

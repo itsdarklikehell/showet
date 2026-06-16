@@ -1,0 +1,10 @@
+{
+  "core": "meteor",
+  "rom": "/roms/nintendo_gameboyadvance/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

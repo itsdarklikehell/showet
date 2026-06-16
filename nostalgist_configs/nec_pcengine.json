@@ -1,0 +1,10 @@
+{
+  "core": "mednafen_supergrafx",
+  "rom": "/roms/nec_pcengine/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

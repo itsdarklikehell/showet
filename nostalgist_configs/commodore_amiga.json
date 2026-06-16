@@ -1,0 +1,10 @@
+{
+  "core": "puae\", \"fsuae\", \"uae4arm",
+  "rom": "/roms/commodore_amiga/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

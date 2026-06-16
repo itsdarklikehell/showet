@@ -1,0 +1,10 @@
+{
+  "core": "vice_xpet",
+  "rom": "/roms/commodore_pet/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

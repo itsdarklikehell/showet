@@ -17,6 +17,12 @@ from typing import Any
 
 # Import showet functionality
 import showet
+from cache_manager import CacheManager
+from favorites_manager import FavoritesManager
+
+# Initialize managers
+cache = CacheManager()
+favorites = FavoritesManager()
 
 
 class ShowetAPIHandler(SimpleHTTPRequestHandler):
@@ -43,6 +49,18 @@ class ShowetAPIHandler(SimpleHTTPRequestHandler):
             self._handle_platforms()
         elif self.path.startswith("/api/search"):
             self._handle_search()
+        elif self.path == "/api/cache":
+            self._handle_cache_list()
+        elif self.path == "/api/favorites":
+            self._handle_favorites_list()
+        elif self.path.startswith("/api/random"):
+            self._handle_random()
+        elif self.path.startswith("/api/cache/"):
+            prod_id = self.path.split("/")[-1]
+            self._handle_cache_get(prod_id)
+        elif self.path.startswith("/api/favorites/"):
+            prod_id = self.path.split("/")[-1]
+            self._handle_favorites_get(prod_id)
         elif self.path == "/" or self.path == "/index.html":
             self._serve_index()
         else:
@@ -65,10 +83,193 @@ class ShowetAPIHandler(SimpleHTTPRequestHandler):
         """Handle POST requests."""
         if self.path.startswith("/api/run/"):
             self._handle_run()
+        elif self.path.startswith("/api/favorites/"):
+            prod_id = self.path.split("/")[-1]
+            self._handle_favorites_add(prod_id)
+        elif self.path.startswith("/api/cache/clear"):
+            self._handle_cache_clear()
         else:
             self._send_error("Not found", 404)
 
-    def _handle_platforms(self) -> None:
+    def do_DELETE(self) -> None:
+        """Handle DELETE requests."""
+        if self.path.startswith("/api/favorites/"):
+            prod_id = self.path.split("/")[-1]
+            self._handle_favorites_remove(prod_id)
+        elif self.path.startswith("/api/cache/"):
+            prod_id = self.path.split("/")[-1]
+            self._handle_cache_remove(prod_id)
+        else:
+            self._send_error("Not found", 404)
+
+    def _handle_cache_list(self) -> None:
+        """List all cached demos."""
+        demos = cache.list_cached_demos()
+        cache_size = cache.get_cache_size()
+        self._send_json({
+            "success": True,
+            "demos": demos,
+            "count": len(demos),
+            "cache_size_bytes": cache_size,
+            "cache_size_human": self._format_bytes(cache_size)
+        })
+
+    def _handle_cache_get(self, prod_id: str) -> None:
+        """Get cache info for a specific demo."""
+        try:
+            prod_id_int = int(prod_id)
+        except ValueError:
+            self._send_error("Invalid production ID")
+            return
+
+        if not cache.is_cached(prod_id_int):
+            self._send_json({"success": False, "cached": False}, 404)
+            return
+
+        path = cache.get_cached_path(prod_id_int)
+        meta = cache.get_metadata(prod_id_int)
+        self._send_json({
+            "success": True,
+            "cached": True,
+            "path": str(path) if path else None,
+            "metadata": meta
+        })
+
+    def _handle_cache_remove(self, prod_id: str) -> None:
+        """Remove a demo from cache."""
+        try:
+            prod_id_int = int(prod_id)
+        except ValueError:
+            self._send_error("Invalid production ID")
+            return
+
+        removed = cache.remove_demo(prod_id_int)
+        self._send_json({
+            "success": removed,
+            "message": "Demo removed from cache" if removed else "Demo not in cache"
+        })
+
+    def _handle_cache_clear(self) -> None:
+        """Clear all cached demos."""
+        cache.clear_cache()
+        self._send_json({
+            "success": True,
+            "message": "Cache cleared"
+        })
+
+    def _handle_favorites_list(self) -> None:
+        """List all favorite demos."""
+        favs = favorites.list_favorites()
+        self._send_json({
+            "success": True,
+            "favorites": favs,
+            "count": len(favs)
+        })
+
+    def _handle_favorites_get(self, prod_id: str) -> None:
+        """Check if a demo is favorited and get its metadata."""
+        try:
+            prod_id_int = int(prod_id)
+        except ValueError:
+            self._send_error("Invalid production ID")
+            return
+
+        if not favorites.is_favorite(prod_id_int):
+            self._send_json({"success": False, "favorited": False}, 404)
+            return
+
+        meta = favorites.get_favorite(prod_id_int)
+        self._send_json({
+            "success": True,
+            "favorited": True,
+            "metadata": meta
+        })
+
+    def _handle_favorites_add(self, prod_id: str) -> None:
+        """Add a demo to favorites (reads JSON body)."""
+        try:
+            prod_id_int = int(prod_id)
+        except ValueError:
+            self._send_error("Invalid production ID")
+            return
+
+        content_length = int(self.headers.get("Content-Length", 0))
+        if content_length == 0:
+            self._send_error("Missing request body")
+            return
+
+        try:
+            data = json.loads(self.rfile.read(content_length).decode())
+        except json.JSONDecodeError:
+            self._send_error("Invalid JSON")
+            return
+
+        name = data.get("name", "")
+        platform = data.get("platform", "")
+        notes = data.get("notes", "")
+
+        if not name:
+            self._send_error("Missing 'name' field")
+            return
+
+        favorites.add_favorite(prod_id_int, name, platform, notes)
+        self._send_json({
+            "success": True,
+            "message": "Added to favorites"
+        })
+
+    def _handle_favorites_remove(self, prod_id: str) -> None:
+        """Remove a demo from favorites."""
+        try:
+            prod_id_int = int(prod_id)
+        except ValueError:
+            self._send_error("Invalid production ID")
+            return
+
+        removed = favorites.remove_favorite(prod_id_int)
+        self._send_json({
+            "success": removed,
+            "message": "Removed from favorites" if removed else "Demo not in favorites"
+        })
+
+    def _handle_random(self) -> None:
+        """Get a random demo from pouet.net."""
+        import random
+        import urllib.parse
+
+        # Search for random terms to get varied results
+        random_terms = ["demo", "intro", "64k", "4k", "music", "animation"]
+        query = random.choice(random_terms)
+
+        url = f"http://api.pouet.net/v1/search/prod/?q={query}"
+        try:
+            with urllib.request.urlopen(url) as response:
+                data = json.loads(response.read().decode())
+            
+            if data.get("success") and data.get("results"):
+                # Pick a random result
+                results = list(data["results"].items())
+                if results:
+                    random_prod = random.choice(results)
+                    prod_id, prod_info = random_prod
+                    self._send_json({
+                        "success": True,
+                        "id": prod_id,
+                        **prod_info
+                    })
+                    return
+        except Exception as e:
+            pass
+
+        self._send_error("Could not find a random demo")
+
+    def _format_bytes(self, bytes_count: int) -> str:
+        """Format bytes as human-readable string."""
+        for unit in ['B', 'KB', 'MB', 'GB']:
+            if bytes_count < 1024.0:
+                return f"{bytes_count:.1f} {unit}"
+            bytes_count /= 1024.0
+        return f"{bytes_count:.1f} TB"
         """Return list of supported platforms."""
         runners = showet.create_platform_runners()
         platforms = []

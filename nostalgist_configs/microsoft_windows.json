@@ -1,0 +1,10 @@
+{
+  "core": "wine",
+  "rom": "/roms/microsoft_windows/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

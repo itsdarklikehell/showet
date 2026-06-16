@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import random
 import urllib.request
 from pathlib import Path
 from typing import Iterable, List
@@ -249,14 +250,36 @@ def _download_production_file(data: dict, datadir: Path) -> Path:
     return datadir
 
 
+def _get_random_production() -> int:
+    """Get a random production ID from pouet.net."""
+    random_terms = ["demo", "intro", "64k", "4k", "music", "animation"]
+    query = random.choice(random_terms)
+    url = f"http://api.pouet.net/v1/search/prod/?q={query}"
+    data = json.loads(urllib.request.urlopen(url).read().decode())
+    
+    if data.get("success") and data.get("results"):
+        results = list(data["results"].items())
+        if results:
+            prod_id, _ = random.choice(results)
+            return prod_id
+    return -1
+
 def run_production(args: argparse.Namespace, platform_runners: List[object]) -> int:
     """Execute a production based on the supplied CLI arguments.
 
     Returns 0 on success, -1 on error.
     """
-    if not args.pouetid:
+    if not args.pouetid and not args.random:
         print("No pouet id specified. Use --help to see options.")
         return -1
+
+    if args.random:
+        prod_id = _get_random_production()
+        if prod_id == -1:
+            print("Could not find a random demo.")
+            return -1
+        print(f"Randomly selected demo ID: {prod_id}")
+        args.pouetid = prod_id
 
     data = _download_json(args.pouetid)
     prod_platforms = [p["slug"] for p in data["prod"]["platforms"].values()]

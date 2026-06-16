@@ -1,0 +1,35 @@
+# Showet Demo Runner
+# Multi-platform emulation framework with nostalgist.js integration
+
+FROM python:3.10-slim
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    unzip \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create app directory
+WORKDIR /app
+
+# Copy project files
+COPY pyproject.toml /app/
+COPY PlatformBase.py /app/
+COPY nostalgist_bridge.py /app/
+COPY showet-webui_nostalgist.py /app/
+COPY showet-viewer.html /app/
+COPY Platform_*.py /app/
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -e .
+
+# Generate nostalgist configs
+RUN python3 nostalgist_bridge.py
+
+# Expose web UI ports
+EXPOSE 8000
+
+# Default command serves nostalgist configs
+CMD ["python3", "-m", "http.server", "8000"]

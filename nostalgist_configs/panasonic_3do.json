@@ -1,0 +1,10 @@
+{
+  "core": "4do",
+  "rom": "/roms/panasonic_3do/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

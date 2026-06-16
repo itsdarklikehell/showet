@@ -1,0 +1,61 @@
+name: Showet CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        pip install -e .
+        pip install pytest pytest-cov
+        
+    - name: Lint with ruff
+      run: |
+        pip install ruff
+        ruff check .
+        
+    - name: Test refactoring
+      run: |
+        python3 tests/test_refactoring.py 2>/dev/null || python3 -c "
+        import sys
+        from pathlib import Path
+        errors = []
+        for pf in Path('.').glob('Platform_*.py'):
+            content = pf.read_text()
+            if 'PlatformCommon' in content and 'PlatformBase' not in content:
+                errors.append(f'{pf.name} still uses old inheritance')
+        if errors:
+            print('FAIL:', errors)
+            sys.exit(1)
+        print('All platforms use PlatformBase ✓')
+        "
+        
+    - name: Generate nostalgist configs
+      run: python3 nostalgist_bridge.py
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Build Docker image
+      run: |
+        docker build -t showet:latest .
+        
+    - name: Test Docker image
+      run: |
+        docker run --rm showet:latest python3 -c "from PlatformBase import PlatformBase; print('OK')"

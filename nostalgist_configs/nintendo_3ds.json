@@ -1,0 +1,10 @@
+{
+  "core": "citra",
+  "rom": "/roms/nintendo_3ds/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

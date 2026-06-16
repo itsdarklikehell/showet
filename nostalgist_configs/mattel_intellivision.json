@@ -1,0 +1,10 @@
+{
+  "core": "freeintv",
+  "rom": "/roms/mattel_intellivision/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

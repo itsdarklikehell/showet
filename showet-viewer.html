@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showet - nostalgist.js Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/nostalgist@latest/dist/nostalgist.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; background: #1a1a1a; color: white; font-family: monospace; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .platform-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+        .platform-item { background: #333; padding: 15px; cursor: pointer; border-radius: 5px; text-align: center; }
+        .platform-item:hover { background: #555; }
+        #emulator-container { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📺 Showet nostalgist.js Viewer</h1>
+        <p>Select a platform to load its demo configuration:</p>
+        <div class="platform-list" id="platform-list"></div>
+        <div id="emulator-container"></div>
+    </div>
+
+    <script>
+        // Load platform configs from Showet
+        const platformConfigs = {}; // Populated by server or static generation
+        
+        // Example: Load a single config
+        async function launchPlatform(slug) {
+            const response = await fetch(`/nostalgist-configs/${slug}.json`);
+            const config = await response.json();
+            
+            // Modify ROM path to use actual demo file
+            const demoUrl = config.rom; // Should point to your demo file
+            
+            try {
+                const nostalgist = await Nostalgist.launch({
+                    core: config.core,
+                    rom: demoUrl,
+                    shader: config.shader || 'crt/crt-easymode',
+                    style: { backgroundColor: 'black', width: '100%', height: '80vh' }
+                });
+                console.log('Emulator launched for:', slug);
+            } catch (err) {
+                console.error('Failed to launch emulator:', err);
+            }
+        }
+        
+        // Generate platform UI from available configs
+        async function initPlatformList() {
+            const platforms = [
+                'nesfamicom', 'atarivcs', 'commodore64', 'segagenesismegadrive',
+                'superfamicom', 'playstation', 'amigap1200'
+                // ... add more as needed
+            ];
+            
+            const list = document.getElementById('platform-list');
+            platforms.forEach(slug => {
+                const item = document.createElement('div');
+                item.className = 'platform-item';
+                item.textContent = slug;
+                item.onclick = () => launchPlatform(slug);
+                list.appendChild(item);
+            });
+        }
+        
+        initPlatformList();
+    </script>
+</body>
+</html>

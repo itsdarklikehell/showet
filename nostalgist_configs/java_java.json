@@ -1,0 +1,10 @@
+{
+  "core": "squirreljme",
+  "rom": "/roms/java_java/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}

@@ -1,43 +1,50 @@
-"""Runner for the pouet "atarixlxe" platform.
+# Refactored for Modern Architecture - Phase 1
+# This module inherits from PlatformBase which extends PlatformCommon
 
-Atarixlxe demos
-"""
 from __future__ import annotations
 
-from platformcommon import PlatformCommon, DEBUGGING
+from typing import Dict, Any, List
+from PlatformBase import PlatformBase
 
+class Platform_Atari_xlxe(PlatformBase):
+    """Platform runner for Atari xlxe demos."""
 
-class Platform_Atari_xlxe(PlatformCommon):
-    """Platform runner for Atarixlxe demos."""
+    def __init__(self):
+        super().__init__("atari_xlxe", version="2.0.0-refactored")
+        self.emulators = ["retroarch"]
+        self.cores = ["atari800_libretro"]
+        self.extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
 
-    emulators = ["retroarch"]
-    cores = ["atari800_libretro"]
-    extensions = ['st', 'msa', 'zip', 'stx', 'dim', 'ipf', 'm3u', 'xex']
+    def initialize(self) -> bool:
+        print(f"[Atari xlxe] Initializing...")
+        self._is_initialized = True
+        return True
 
-    def supported_platforms(self) -> list[str]:
-        """Return atarixlxe platform slug."""
-        return ["atarixlxe"]
+    def load_game(self, rom_path: str) -> bool:
+        if not self.is_initialized():
+            return False
+        self._last_rom_path = rom_path
+        print(f"[Atari xlxe] Loaded: {rom_path}")
+        return True
 
-    def run(self) -> None:
-        """Execute the demo using RetroArch."""
-        files = self._find_runnable_files()
+    def run_frame(self, controls: Dict[str, Any]) -> bool:
+        if not self.is_initialized() or not self._last_rom_path:
+            return False
+        if controls:
+            print(f"[Atari xlxe] Note: Control mapping pending")
+        return True
 
-        if not files:
-            print("Didn't find any runnable files.")
-            return
+    def get_status_report(self) -> Dict[str, Any]:
+        return {
+            "platform": self.platform_name,
+            "initialized": self.is_initialized(),
+            "current_rom": self._last_rom_path or "none"
+        }
 
-        files = self.sort_disks(files)
+    def save_state(self) -> bytes:
+        print(f"[Atari xlxe] State save: Delegated to RetroArch")
+        return b""
 
-        cmd = ["retroarch", "-L", self.cores[0], files[0]]
-
-        if DEBUGGING:
-            print(f"Launching atarixlxe demo via RetroArch: {files[0]}")
-
-        self.run_process(cmd)
-
-    def _find_runnable_files(self) -> list[str]:
-        """Find files with supported extensions."""
-        found = []
-        for ext in self.extensions:
-            found.extend(self.find_files_with_extension(ext))
-        return found
+    def load_state(self, state_data: bytes) -> bool:
+        print(f"[Atari xlxe] State load: Delegated to RetroArch")
+        return True

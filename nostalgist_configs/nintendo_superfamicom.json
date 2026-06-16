@@ -1,0 +1,10 @@
+{
+  "core": "snes9x",
+  "rom": "/roms/nintendo_superfamicom/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  }
+}
