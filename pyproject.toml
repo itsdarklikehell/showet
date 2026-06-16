@@ -5,6 +5,20 @@ description = "Demo viewer using Pouet.net metadata."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "GPL-3.0-or-later"
+authors = [
+    {name = "SgtStroopwafel", email = "itsdarklikehell@users.noreply.github.com"}
+]
+keywords = ["demoscene", "retro", "emulation", "pouet"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Games/Entertainment :: Arcade",
+]
 dependencies = [
     "inquirer>=3.4",
     "patool>=4.0",
@@ -15,7 +29,48 @@ dependencies = [
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
+    "ruff>=0.1.0",
 ]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "showet"
+version = "0.1.0"
+description = "Demo viewer using Pouet.net metadata."
+authors = ["SgtStroopwafel <itsdarklikehell@users.noreply.github.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+packages = [{include = "."}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+inquirer = "^3.4"
+patool = "^4.0"
+websockets = "^12.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0"
+pytest-cov = "^4.0"
+ruff = "^0.1.0"
+
+[tool.poetry.scripts]
+showet = "showet:main"
+showet-api = "showet_api:main"
+showet-webui = "showet_webui:launch_browser"
+showet-parties = "showet_parties:main"
+showet-stream = "showet_stream:main"
+showet-relay = "rtmp_relay:main"
+save-stream-key = "save_stream_key:main"
+showet-launcher = "launcher:main"
+demo-viewer = "demo_viewer:main"
+demo-recorder = "demo_recorder:main"
+showet-status = "showet_status:main"
+showet-spotlight = "demo_spotlight:main"
+showet-notifier = "party_notifier:main"
+chat-overlay = "chat_overlay:main"
 
 [project.scripts]
 showet = "showet:main"
@@ -23,6 +78,15 @@ showet-api = "showet_api:main"
 showet-webui = "showet_webui:launch_browser"
 showet-parties = "showet_parties:main"
 showet-stream = "showet_stream:main"
+showet-relay = "rtmp_relay:main"
+save_stream_key = "save_stream_key:main"
+showet-launcher = "launcher:main"
+demo-viewer = "demo_viewer:main"
+demo-recorder = "demo_recorder:main"
+showet-status = "showet_status:main"
+showet-spotlight = "demo_spotlight:main"
+showet-notifier = "party_notifier:main"
+chat-overlay = "chat_overlay:main"
 
 [project.urls]
 Homepage = "https://github.com/itsdarklikehell/showet"

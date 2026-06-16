@@ -32,11 +32,12 @@ def get_upcoming_parties(days_ahead: int = 90) -> list[dict]:
             })
         return parties
     except Exception:
-        # Fallback to known parties
+        # Fallback to known upcoming parties
         return [
-            {"name": "Revision", "date": "2025-04-17", "location": "Saarbrücken, Germany", "type": "party"},
-            {"name": "Forever", "date": "2025-05-16", "location": "Horní Lideč, Czech Republic", "type": "party"},
-            {"name": "Silly Venture", "date": "2025-11-21", "location": "Gdańsk, Poland", "type": "party"}
+            {"name": "Revision 2026", "date": "2026-04-17", "location": "Saarbrücken, Germany", "type": "party"},
+            {"name": "Forever 2026", "date": "2026-05-16", "location": "Horní Lideč, Czech Republic", "type": "party"},
+            {"name": "Silly Venture 2026", "date": "2026-11-21", "location": "Gdańsk, Poland", "type": "party"},
+            {"name": "Assembly 2026", "date": "2026-08-06", "location": "Helsinki, Finland", "type": "party"},
         ]
 
 

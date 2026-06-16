@@ -1,5 +1,4 @@
-"""
-Tests for PlatformBase and refactored platform modules.
+"""Tests for PlatformBase and refactored platform modules.
 
 Ensures all Platform_* classes properly implement the abstract interface.
 """
@@ -82,6 +81,23 @@ class TestPlatformInstantiation:
                     assert hasattr(instance, 'version')
 
 
+class TestPlatformBaseMethods:
+    """Test PlatformBase abstract class functionality."""
+
+    def test_base_has_is_initialized(self):
+        """Verify PlatformBase has is_initialized method."""
+        from PlatformBase import PlatformBase
+        # PlatformBase is abstract, check the method exists on the class
+        assert hasattr(PlatformBase, 'is_initialized')
+
+    def test_platform_has_run_method(self):
+        """Verify platforms inherit run method from PlatformBase."""
+        from Platform_Commodore_64 import Platform_Commodore_64
+        platform = Platform_Commodore_64()
+        assert hasattr(platform, 'run')
+        assert callable(platform.run)
+
+
 class TestNostalgistBridge:
     """Tests for nostalgist_bridge.py."""
 
@@ -120,3 +136,139 @@ class TestNostalgistBridge:
         )
         
         assert "shader" in config
+
+    def test_parse_platform_module_extracts_slug(self):
+        """Verify parse_platform_module extracts slug correctly."""
+        from nostalgist_bridge import parse_platform_module
+        from Platform_Commodore_64 import Platform_Commodore_64
+        
+        # Get the actual file path
+        platform_file = Path(__file__).parent.parent / "Platform_Commodore_64.py"
+        info = parse_platform_module(platform_file)
+        
+        assert info is not None
+        assert info["slug"] == "commodore_64"
+        assert "vice_x64sc_libretro" in info["core"]
+
+
+class TestRetroEffects:
+    """Tests for retro_effects.py CRT presets."""
+
+    def test_get_preset_returns_valid_preset(self):
+        """Verify get_preset returns a valid preset for known platforms."""
+        from retro_effects import get_preset, CRT_PRESETS
+        
+        preset = get_preset("commodore_64")
+        assert preset is not None
+        assert "shader" in preset
+        assert preset["shader"] in ["crt/crt-easymode", "crt/crt-royale", "crt/crt-pi"]
+
+    def test_generate_shader_config_returns_full_config(self):
+        """Verify generate_shader_config returns complete config."""
+        from retro_effects import generate_shader_config
+        
+        config = generate_shader_config("commodore_64")
+        
+        assert "shader" in config
+        assert "parameters" in config
+        assert "scanline_intensity" in config["parameters"]
+
+    def test_crt_presets_have_required_fields(self):
+        """Verify all CRT presets have required fields."""
+        from retro_effects import CRT_PRESETS
+        
+        for preset_name, preset in CRT_PRESETS.items():
+            assert "name" in preset, f"{preset_name} missing name"
+            assert "shader" in preset, f"{preset_name} missing shader"
+            assert "scanline_intensity" in preset, f"{preset_name} missing scanline_intensity"
+
+
+class TestDemoDatabase:
+    """Tests for demo_database.py."""
+
+    def test_get_db_returns_singleton(self):
+        """Verify get_db returns a singleton DemoDatabase instance."""
+        from demo_database import get_db, DemoDatabase
+        
+        db1 = get_db()
+        db2 = get_db()
+        
+        assert db1 is db2
+        assert isinstance(db1, DemoDatabase)
+
+    def test_search_demos_returns_list(self, tmp_path, monkeypatch):
+        """Verify search_demos returns a list (empty on mock failure)."""
+        from demo_database import DemoDatabase
+        
+        monkeypatch.setattr(Path, "home", lambda: tmp_path)
+        db = DemoDatabase()
+        
+        # Search without network should return empty list
+        results = db.search_demos("test")
+        assert isinstance(results, list)
+
+    def test_create_playlist_returns_id(self, tmp_path, monkeypatch):
+        """Verify create_playlist returns an ID."""
+        from demo_database import DemoDatabase
+        
+        monkeypatch.setattr(Path, "home", lambda: tmp_path)
+        db = DemoDatabase()
+        playlist_id = db.create_playlist("test_playlist", [123, 456])
+        
+        assert playlist_id is not None
+        assert len(playlist_id) > 0
+
+
+class TestShowetAPI:
+    """Tests for showet_api.py."""
+
+    def test_api_singleton(self):
+        """Verify API singleton works correctly."""
+        from showet_api import get_api, ShowetAPI
+        
+        api1 = get_api()
+        api2 = get_api()
+        
+        assert api1 is api2
+        assert isinstance(api1, ShowetAPI)
+
+    def test_api_list_platforms(self):
+        """Verify API can list platforms."""
+        from showet_api import ShowetAPI
+        
+        api = ShowetAPI()
+        platforms = api.list_platforms()
+        
+        assert isinstance(platforms, list)
+        assert len(platforms) > 0
+        # Check that commodore_64 is in the list
+        assert "commodore_64" in platforms
+
+    def test_api_get_status(self):
+        """Verify API status check works."""
+        from showet_api import ShowetAPI
+        
+        api = ShowetAPI()
+        status = api.get_status()
+        
+        assert "platforms_loaded" in status
+        assert "version" in status
+
+
+class TestLauncher:
+    """Tests for launcher.py."""
+
+    def test_launcher_crt_presets(self):
+        """Verify launcher can list CRT presets."""
+        from launcher import DemoLauncher
+        from retro_effects import CRT_PRESETS
+        
+        launcher = DemoLauncher()
+        preset = launcher.get_crt_preset("commodore_64")
+        
+        assert preset is not None
+        assert "name" in preset
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-v"])

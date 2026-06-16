@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""
-Showet API - Modernized to work with PlatformBase architecture.
+"""Showet API - Modernized to work with PlatformBase architecture.
 
-Provides programmatic access to all platform runners.
+Provides programmatic access to all platform runners, demo database,
+and streaming capabilities.
 """
 
 from __future__ import annotations
 
+import json
+import urllib.request
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 from PlatformBase import PlatformBase
 
@@ -29,7 +31,7 @@ class ShowetAPI:
         
         # Discover and load all Platform_* modules
         project_root = Path(__file__).parent
-        for pf in project_root.glob("Platform_*.py"):
+        for pf in sorted(project_root.glob("Platform_*.py")):
             module_name = pf.stem
             if module_name == "PlatformBase":
                 continue
@@ -44,7 +46,7 @@ class ShowetAPI:
         
         self._loaded = True
 
-    def get_platform(self, name: str) -> Optional[PlatformBase]:
+    def get_platform(self, name: str) -> PlatformBase | None:
         """Get a platform runner by name."""
         self._ensure_loaded()
         return self._platforms.get(name)
@@ -64,13 +66,45 @@ class ShowetAPI:
         Returns:
             Status dictionary
         """
-        # This would integrate with showet.py's download logic
-        # For now, return status
-        return {
-            "status": "ready",
-            "platform": platform,
-            "message": f"Demo {pouet_id} prepared for playback"
-        }
+        # Get demo metadata
+        try:
+            url = f"http://api.pouet.net/v1/prod/?id={pouet_id}"
+            data = json.loads(urllib.request.urlopen(url, timeout=10).read().decode())
+            prod = data.get("prod", {})
+            
+            # Determine platform if not specified
+            if not platform:
+                platforms = [p["slug"] for p in prod.get("platforms", {}).values()]
+                platform = platforms[0] if platforms else None
+            
+            return {
+                "status": "ready",
+                "platform": platform,
+                "demo_name": prod.get("name", "Unknown"),
+                "message": f"Demo {pouet_id} prepared for playback"
+            }
+        except Exception as e:
+            return {
+                "status": "error",
+                "error": str(e)
+            }
+
+    def get_demo_info(self, pouet_id: int) -> dict | None:
+        """Get demo metadata from Pouet.net.
+        
+        Args:
+            pouet_id: Pouet.net production ID
+            
+        Returns:
+            Demo metadata dict or None on error
+        """
+        try:
+            url = f"http://api.pouet.net/v1/prod/?id={pouet_id}"
+            response = urllib.request.urlopen(url, timeout=10)
+            data = json.loads(response.read().decode())
+            return data.get("prod")
+        except Exception:
+            return None
 
     def get_status(self) -> dict[str, Any]:
         """Get API status and platform availability."""
@@ -78,8 +112,36 @@ class ShowetAPI:
         return {
             "platforms_loaded": len(self._platforms),
             "platforms": self.list_platforms(),
-            "version": "2.0.0"
+            "version": "2.0.0",
+            "nostalgist_ready": (Path(__file__).parent / "nostalgist_configs" / "manifest.json").exists()
         }
+
+    def search_demos(self, query: str, limit: int = 20) -> list[dict]:
+        """Search demos via Pouet.net API.
+        
+        Args:
+            query: Search term
+            limit: Maximum results to return
+            
+        Returns:
+            List of demo metadata
+        """
+        try:
+            url = f"http://api.pouet.net/v1/search/prod/?q={query}"
+            response = urllib.request.urlopen(url, timeout=10)
+            data = json.loads(response.read().decode())
+            
+            results = []
+            for prod_id, prod in list(data.get("results", {}).items())[:limit]:
+                results.append({
+                    "id": int(prod_id),
+                    "name": prod.get("name", "Unknown"),
+                    "type": prod.get("type", ""),
+                    "score": prod.get("score", 0),
+                })
+            return results
+        except Exception:
+            return []
 
 
 # Create global API instance
@@ -94,12 +156,13 @@ def get_api() -> ShowetAPI:
     return _api
 
 
-def main() -> int:
+def main(port: int = 8765) -> int:
     """CLI entry point for API status."""
     api = get_api()
     status = api.get_status()
     print(f"Showet API v{status['version']}")
     print(f"Platforms loaded: {status['platforms_loaded']}")
+    print(f"nostalgist.js ready: {status['nostalgist_ready']}")
     print("Available platforms:")
     for p in status['platforms'][:10]:
         print(f"  - {p}")

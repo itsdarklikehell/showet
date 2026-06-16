@@ -12,10 +12,10 @@ Supported cores: https://github.com/arianrhodsandlot/retroarch-emscripten-build
 import json
 import re
 from pathlib import Path
-from typing import Dict, Any, Optional, List
+from typing import Any
 
 # Core name mapping from Showet's Platform modules to nostalgist.js core names
-CORE_MAPPING: Dict[str, str] = {
+CORE_MAPPING: dict[str, str] = {
     # Famicom/NES
     "quicknes_libretro": "quicknes",
     "fceumm_libretro": "fceumm",
@@ -54,11 +54,12 @@ CORE_MAPPING: Dict[str, str] = {
 SHADER_MAP = {
     "nes": "crt/crt-easymode",
     "famicom": "crt/crt-easymode",
-    "snes": "crt/crt-easymode", 
+    "snes": "crt/crt-easymode",
     "superfamicom": "crt/crt-easymode",
     "genesis": "crt/crt-easymode",
     "megadrive": "crt/crt-easymode",
     "c64": "crt/crt-easymode",
+    "amiga": "crt/crt-easymode",
     "default": "crt/crt-easymode",
 }
 
@@ -66,10 +67,10 @@ def generate_nostalgist_config(
     platform_slug: str,
     rom_path: str,
     core_name: str,
-    system_bios: Optional[str] = None,
-    shader: Optional[str] = None,
+    system_bios: str | None = None,
+    shader: str | None = None,
     **kwargs: Any
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Generate a nostalgist.js launch configuration.
     
@@ -86,7 +87,7 @@ def generate_nostalgist_config(
     # Map Showet core to nostalgist core
     mapped_core = CORE_MAPPING.get(core_name, core_name.replace("_libretro", "").replace("genesis_plus_gx_libretro", "genesis_plus_gx"))
     
-    config: Dict[str, Any] = {
+    config: dict[str, Any] = {
         "core": mapped_core,
         "rom": rom_path,
     }
@@ -111,7 +112,7 @@ def generate_nostalgist_config(
     
     return config
 
-def parse_platform_module(filepath: Path) -> Optional[Dict[str, Any]]:
+def parse_platform_module(filepath: Path) -> dict[str, Any] | None:
     """Parse a Platform_*.py file to extract configuration."""
     content = filepath.read_text()
     
@@ -135,8 +136,8 @@ def parse_platform_module(filepath: Path) -> Optional[Dict[str, Any]]:
 def generate_batch_configs(
     platforms_dir: Path,
     output_dir: Path,
-    rom_base_url: Optional[str] = None
-) -> List[str]:
+    rom_base_url: str | None = None
+) -> list[str]:
     """
     Generate nostalgist configs for all platform modules.
     
@@ -183,8 +184,8 @@ if __name__ == "__main__":
         output_dir=project_root / "nostalgist_configs",
     )
     
-    print(f"📺 nostalgist.js integration ready!")
+    print("📺 nostalgist.js integration ready!")
     print(f"Generated {len(configs)} configs in nostalgist_configs/")
-    print(f"Point ROM URLs to your demo files and serve these configs to the frontend.")
+    print("Point ROM URLs to your demo files and serve these configs to the frontend.")
     if configs:
         print(f"\nSample configs: {configs[:5]}")

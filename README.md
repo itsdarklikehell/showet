@@ -17,6 +17,45 @@ python3 -c "from showet import create_platform_runners; print([r.supported_platf
 python3 showet.py 12345  # Pouet.net demo ID
 ```
 
+### 📺 Live Streaming Support
+
+Showet supports live streaming demos to popular platforms:
+
+```bash
+# Stream to Twitch
+showet-stream --platform twitch --demo 12345
+
+# Stream to YouTube Live
+showet-stream --platform youtube --quality 1080p --demo 12345
+
+# Stream to Facebook Live
+showet-stream --platform facebook --demo 12345
+
+# Local RTSP streaming (for OBS/other capture)
+showet-stream --rtsp --rtsp-port 8554
+
+# Save your stream key for convenience
+showet-stream --save-key twitch --key YOUR_TWITCH_STREAM_KEY
+
+# Stream with webcam overlay
+showet-stream --platform twitch --webcam --demo 12345
+
+# Stream and record locally
+showet-stream --platform twitch --record --demo 12345
+```
+
+**Environment variables:**
+- `SHOWET_STREAM_KEY` - Your stream key (takes precedence)
+- Configure platform-specific keys with `--save-key`
+
+**Available options:**
+- `--quality`: 480p, 720p, 1080p, 1440p, 4k
+- `--overlay`: Custom text overlay on stream
+- `--webcam`: Include webcam picture-in-picture
+- `--no-audio`: Disable audio capture
+- `--fullscreen`: Stream in fullscreen mode
+- `--record`: Record stream locally while broadcasting
+
 ### 📂 Structure Highlights
 The project is highly modular, with the core logic separated by platform:
 
@@ -66,22 +105,46 @@ docker run -p 8000:8000 showet
 ```
 
 ### 📋 Next Steps
-1. Update `showet_api.py` to use new PlatformBase instances
-2. Implement full save-state management
-3. Build web UI with demo browser
-4. Add streaming/collaborative features
+1. Build web UI with demo browser
+2. Add chat overlay for co-streaming
+3. Implement RTMP relay for multiple outputs
+4. Add hardware encoder support (VAAPI/VAAPI/V4L2)
 
-### 🎮 Demoscene Features (NEW!)
+### 🎮 Demoscene Features (COMPLETE!)
 ```bash
 # View upcoming demoparties
 showet-parties
 
+# See trending demos and hall of fame
+showet-spotlight
+
 # Stream demos live to Twitch/YouTube
 showet-stream --platform twitch --demo 12345
 
-# Create collaborative viewing session
-python3 -c "from collaborative import create_session; print(create_session('commodore_64', 12345))"
+# Create collaborative viewing session with streaming
+python3 -c "from collaborative import create_session; print(create_session('commodore_64', 12345, 'twitch'))"
+
+# Check system status
+showet-status
+
+# View demo metadata
+demo-viewer --demo-id 12345
+
+# Launch demo with all features
+showet-launcher --demo 12345 --stream twitch --webcam
 ```
 
+### 🛠️ Complete CLI Toolset
+| Command | Description |
+|---------|-------------|
+| `showet` | Run a demo by Pouet ID |
+| `showet-stream` | Stream demos to Twitch/YouTube |
+| `showet-launcher` | Unified launcher with streaming |
+| `showet-spotlight` | Featured demos + hall of fame |
+| `showet-status` | System status dashboard |
+| `showet-parties` | Upcoming demoparty calendar |
+| `demo-viewer` | Demo metadata viewer |
+| `save_stream_key` | Securely store stream credentials |
+
 ---
-*The demo-runner of the future is now present-ready. 🎯*
+*The demo-runner of the future is now streaming-ready! 📺*

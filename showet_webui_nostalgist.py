@@ -11,6 +11,8 @@ Usage:
 Then open showet-viewer.html in a browser.
 """
 
+from __future__ import annotations
+
 import json
 import re
 from http.server import HTTPServer, SimpleHTTPRequestHandler
@@ -26,7 +28,10 @@ CORE_MAPPING: Dict[str, str] = {
     "vice_x64sc_libretro": "vice_x64sc",
     "snes9x_libretro": "snes9x",
     "picodrive_libretro": "picodrive",
-    # ... more mappings as needed
+    "mame2003_libretro": "mame2003",
+    "fbalpha2012_libretro": "fbalpha2012",
+    "fceumm_libretro": "fceumm",
+    "stella_libretro": "stella",
 }
 
 
@@ -49,7 +54,7 @@ class NostalgistConfigHandler(SimpleHTTPRequestHandler):
         else:
             super().do_GET()
 
-    def handle_config_request(self, query: Dict[str, str]):
+    def handle_config_request(self, query: Dict[str, list]) -> None:
         """Generate and serve nostalgist config for a platform."""
         platform = query.get("platform", [None])[0]
         
@@ -92,8 +97,23 @@ class NostalgistConfigHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(json.dumps(config).encode())
 
-    def handle_rom_request(self, path: str):
+    def handle_rom_request(self, path: str) -> None:
         """Serve ROM files (placeholder - implement your download logic)."""
         # This would integrate with showet's download system
         # For now, return placeholder
         self.send_error(501, "ROM serving not yet implemented")
+
+
+def main(port: int = 8765) -> None:
+    """Start the nostalgist.js integration server."""
+    server = HTTPServer(("0.0.0.0", port), NostalgistConfigHandler)
+    print(f"📺 Showet nostalgist server running on http://localhost:{port}")
+    print("Open showet-viewer.html in your browser to launch demos!")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\n🛑 Server stopped")
+
+
+if __name__ == "__main__":
+    main()
