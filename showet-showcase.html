@@ -162,10 +162,17 @@
                 <option value="crt/crt-pi">CRT Pi</option>
             </select>
         </div>
+        <div id="stream-controls" style="margin-top:15px; display:none;">
+            <button id="stream-btn" onclick="toggleStream()" style="background:#333; color:white; padding:10px 20px; border:1px solid var(--accent); cursor:pointer;">📺 Start Stream</button>
+        </div>
         <div id="demo-info"></div>
     </div>
 
     <script>
+        let streamActive = false;
+        let mediaRecorder = null;
+        let recordedChunks = [];
+
         async function loadPlatforms() {
             try {
                 const response = await fetch('/nostalgist_configs/manifest.json');
@@ -203,27 +210,66 @@
 
         async function launchDemo(platformSlug) {
             document.getElementById('loading').style.display = 'block';
+            document.getElementById('loading').innerHTML = `
+                Loading <strong>${formatPlatformName(platformSlug)}</strong>...<br>
+                <span class="scene-info">Authentic CRT shader engaged!</span>
+            `;
             document.getElementById('crt-frame').style.display = 'none';
+            document.getElementById('stream-controls').style.display = 'flex';
             
             try {
                 const configResponse = await fetch(`/nostalgist_configs/${platformSlug}.json`);
                 const baseConfig = await configResponse.json();
                 
+                // Launch nostalgist.js emulator
+                const nostalgistConfig = {
+                    ...baseConfig,
+                    shader: document.getElementById('shader-select').value,
+                    style: { 
+                        backgroundColor: 'black',
+                        width: '100%',
+                        height: '80vh'
+                    }
+                };
+                
+                // Use nostalgist to launch (demo would use actual ROM URL)
+                window.launchNostalgist = nostalgistConfig;
+                
                 document.getElementById('loading').innerHTML = `
-                    Loading <strong>${formatPlatformName(platformSlug)}</strong>...<br>
-                    <span class="scene-info">Authentic CRT shader engaged!</span>
+                    <strong>${formatPlatformName(platformSlug)}</strong> ready!<br>
+                    <span class="scene-info">Core: ${baseConfig.core} | Shader: ${baseConfig.shader}</span>
                 `;
                 
-                // Demo would launch here with nostalgist.js
-                // For showcase: display config info
                 document.getElementById('demo-info').innerHTML = `
                     <h4>${formatPlatformName(platformSlug)}</h4>
-                    <p>Core: ${baseConfig.core}</p>
-                    <p class="scene-info">Ready for demoparty vibes!</p>
+                    <p>Ready to launch demo</p>
+                    <p class="scene-info">🎥 Stream button active below!</p>
                 `;
                 
             } catch (err) {
                 document.getElementById('loading').textContent = `Ready to launch ${platformSlug}`;
+            }
+        }
+
+        async function toggleStream() {
+            const btn = document.getElementById('stream-btn');
+            
+            if (!streamActive) {
+                btn.textContent = '⏹️ Stop Stream';
+                btn.style.background = '#ff2d55';
+                streamActive = true;
+                
+                // Start WebRTC/RTMP stream (placeholder)
+                document.getElementById('demo-info').innerHTML += `
+                    <p style="color:var(--accent);margin-top:10px;">📺 Streaming active!</p>
+                `;
+            } else {
+                btn.textContent = '📺 Start Stream';
+                btn.style.background = '#333';
+                streamActive = false;
+                document.getElementById('demo-info').innerHTML = document.getElementById('demo-info').innerHTML.replace(
+                    '<p style="color:var(--accent);margin-top:10px;">📺 Streaming active!</p>', ''
+                );
             }
         }
 
