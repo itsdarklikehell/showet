@@ -37,8 +37,26 @@ extend-exclude = [
 select = ["E", "F", "I", "UP", "B"]
 ignore = ["E501"]
 
+# Pytest configuration
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "tests/*",
+    "nostalgist_configs/*",
+    ".github/*",
+    "scripts/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+]
