@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showet Demo Showcase - Television Simulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/nostalgist@latest/dist/nostalgist.min.js"></script>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --panel: #1a1a1a;
+            --accent: #ff6b00;
+            --text: #e0e0e0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+        }
+        header {
+            grid-column: 1 / -1;
+            background: linear-gradient(90deg, var(--accent), #ff2d55);
+            padding: 15px 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        #platform-list {
+            background: var(--panel);
+            padding: 10px;
+            overflow-y: auto;
+            border-right: 1px solid #333;
+        }
+        .platform-item {
+            background: #222;
+            padding: 12px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .platform-item:hover {
+            background: #333;
+            border-left-color: var(--accent);
+        }
+        .platform-item.active {
+            background: var(--accent);
+            color: white;
+        }
+        #emulator-container {
+            position: relative;
+            padding: 20px;
+        }
+        #demo-info {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+            border-radius: 5px;
+            max-width: 300px;
+        }
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2em;
+            color: var(--accent);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            border: none;
+            color: white;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>📺 Showet Demo Showcase - TV Simulator '99</header>
+    
+    <div id="platform-list">
+        <input type="text" id="search" placeholder="Search platforms..." onkeyup="filterPlatforms()">
+        <div id="platforms"></div>
+    </div>
+    
+    <div id="emulator-container">
+        <div id="loading">Select a platform to load a demo</div>
+        <iframe id="tvs-frame" style="width:100%; height:100%; display:none;"></iframe>
+        <div id="demo-info"></div>
+    </div>
+
+    <script>
+        let currentPlatform = null;
+
+        // Load platform manifest
+        async function loadPlatforms() {
+            try {
+                const response = await fetch('/nostalgist_configs/manifest.json');
+                const manifest = await response.json();
+                
+                const container = document.getElementById('platforms');
+                container.innerHTML = '';
+                
+                manifest.platforms.forEach(platform => {
+                    const div = document.createElement('div');
+                    div.className = 'platform-item';
+                    div.textContent = formatPlatformName(platform.slug);
+                    div.onclick = () => launchDemo(platform.slug);
+                    container.appendChild(div);
+                });
+            } catch (err) {
+                console.error('Failed to load platforms:', err);
+                document.getElementById('loading').textContent = 'Failed to load platform list. Is the server running?';
+            }
+        }
+
+        function formatPlatformName(slug) {
+            return slug.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        function filterPlatforms() {
+            const search = document.getElementById('search').value.toLowerCase();
+            document.querySelectorAll('.platform-item').forEach(item => {
+                item.style.display = item.textContent.toLowerCase().includes(search) ? 'block' : 'none';
+            });
+        }
+
+        async function launchDemo(platformSlug) {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('loading').textContent = `Loading ${platformSlug} emulator...`;
+            
+            // In real implementation, this would point to actual demo ROMs
+            const demoUrl = `https://archive.org/download/chkhissupernintendo/Super\ Mario\ World\ \(1990-10-27\)\(US\)[!]\\ Super\ Mario\ World.sfc`;
+            
+            try {
+                // Check if platform has config
+                const configResponse = await fetch(`/nostalgist_configs/${platformSlug}.json`);
+                const baseConfig = await configResponse.json();
+                
+                // Launch with nostalgic.js
+                const config = {
+                    ...baseConfig,
+                    rom: demoUrl, // Override with actual ROM
+                    shader: 'crt/crt-easymode',
+                    style: { 
+                        backgroundColor: 'black',
+                        width: '100%',
+                        height: '80vh'
+                    }
+                };
+                
+                document.getElementById('loading').textContent = 'Starting emulator...';
+                
+            } catch (err) {
+                console.error('Launch failed:', err);
+                document.getElementById('loading').textContent = 'Failed to launch. Check console.';
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', loadPlatforms);
+    </script>
+</body>
+</html>
