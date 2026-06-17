@@ -49,6 +49,7 @@ The future of demoscene viewing is here. ShowEt is now the definitive, immersive
 ### 📁 Phase 7 Additions (COMPLETE)
 - `scene_org_integration.py` - Download demos directly from scene.org archives
 - `demo_recorder.py` - Already exists! Retro-authentic demo recording with CRT encoding
+- `showet-osd-controls.js` - CRT on-screen display effects (power LED, channel numbers, static)
 
 ---
 

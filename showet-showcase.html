@@ -59,6 +59,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            min-height: 60px;
+            background-size: 40px;
+            background-position: right 10px top 50%;
+            background-repeat: no-repeat;
         }
         .platform-item:hover {
             background: linear-gradient(90deg, var(--accent), #ff2d55);
@@ -178,6 +182,7 @@
         </div>
         <div id="stream-controls" style="margin-top:15px; display:none;">
             <button id="stream-btn" onclick="toggleStream()" style="background:#333; color:white; padding:10px 20px; border:1px solid var(--accent); cursor:pointer;">📺 Start Stream</button>
+            <button onclick="testOsd()" style="background:#333; color:white; padding:10px 20px; margin-left:10px; border:1px solid var(--accent); cursor:pointer;">📺 Test OSD</button>
             <button onclick="showHallOfFame()" style="background:#333; color:white; padding:10px 20px; margin-left:10px; border:1px solid var(--accent); cursor:pointer;">🏆 Hall of Fame</button>
         </div>
         <div id="demo-info"></div>
@@ -186,6 +191,18 @@
     <script>
         let streamActive = false;
         let currentPlatform = null;
+        
+        // Platform icon mapping
+        const PLATFORM_ICONS = {
+            'commodore_64': '🕹️',
+            'commodore_amiga': '🖥️',
+            'nintendo_famicom': '🎮', 
+            'nintendo_superfamicom': '🎮',
+            'sega_megadrive': '🕹️',
+            'sony_psx': '📀',
+            'microsoft_msdos': '💾',
+            'atari_2600': '🏺',
+        };
 
         async function loadPlatforms() {
             try {
@@ -199,8 +216,9 @@
                 platforms.forEach(platform => {
                     const div = document.createElement('div');
                     div.className = 'platform-item';
+                    const icon = PLATFORM_ICONS[platform.slug] || '🎮';
                     div.innerHTML = `
-                        <span>${formatPlatformName(platform.slug)}</span>
+                        <span>${icon} ${formatPlatformName(platform.slug)}</span>
                         <span class="tag">${platform.extensions?.[0] || 'demo'}</span>
                     `;
                     div.onclick = () => launchDemo(platform.slug);
@@ -333,8 +351,16 @@
                 </div>`;
             });
             hofHtml += '</div>';
-            
             document.getElementById('demo-info').innerHTML = hofHtml;
+        }
+
+        // OSD test function - demonstrates CRT on-screen display effects
+        function testOsd() {
+            if (window.ShowetCRTOsd) {
+                ShowetCRTOsd.togglePower();
+                ShowetCRTOsd.showChannel(3);
+                ShowetCRTOsd.addStaticEffect(500);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', loadPlatforms);
@@ -346,6 +372,7 @@
     <script src="showet-crt-shader.js"></script>
     <script src="showet-shader-editor.js"></script>
     <script src="sound_design/showet-sound-theme-manager.js"></script>
+    <script src="showet-osd-controls.js"></script>
     <script src="showet-spectrum.js"></script>
     <script src="showet-timeline.js"></script>
     <script src="showet-tour-player.js"></script>

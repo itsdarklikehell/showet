@@ -101,7 +101,6 @@ class StreamManager:
         ])
 
         # Add webcam if enabled
-        inputs = [(":0")] if not self.config.include_webcam else []
         if self.config.include_webcam:
             cmd.extend([
                 "-f", "v4l2",
@@ -109,7 +108,6 @@ class StreamManager:
                 "-video_size", "640x480",
                 "-i", self.config.webcam_device,
             ])
-            inputs.append(self.config.webcam_device)
 
         # Audio input (system audio)
         if self.config.include_audio:
@@ -117,12 +115,13 @@ class StreamManager:
                 "-f", "pulse",
                 "-i", "default",
             ])
-            inputs.append("audio")
 
-        # Video encoding - build filter graph if needed
+        # Build filter graph
         video_filters = []
+        input_count = 1  # Main video input
+        overlay_index = 0  # Output stream index
 
-        # Add webcam overlay (takes webcam as input 1)
+        # Add webcam overlay
         if self.config.include_webcam:
             x, y = "(W-w-10)", "(H-h-10)"  # top-right by default
             if self.config.webcam_position == "top-left":
@@ -132,35 +131,31 @@ class StreamManager:
             elif self.config.webcam_position == "bottom-left":
                 x, y = "10", "(H-h-10)"
 
-            # Overlay webcam (input 1) onto main video (input 0)
             video_filters.append(
-                f"[0:v][1:v]overlay={x}:{y}[vout]"
+                f"[{overlay_index}:v][{input_count}:v]overlay={x}:{y}[v{1}]"
             )
+            overlay_index = 1
+            input_count += 1
 
-        # Add text overlay for demo info (apply to the video output)
+        # Add text overlay
         if self.config.overlay_text:
             text_escape = self.config.overlay_text.replace("'", "\\'")
-            drawtext_filter = (
-                f"drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:"
-                f"text='{text_escape}':fontcolor=white:fontsize=24:x=10:y=H-34"
-            )
             if video_filters:
-                # Add drawtext to the vout
-                video_filters.append(f"[vout]{drawtext_filter}[vfinal]")
+                video_filters.append(
+                    f"[v{overlay_index}:v]drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:"
+                    f"text='{text_escape}':fontcolor=white:fontsize=24:x=10:y=H-34[v{overlay_index + 1}]"
+                )
+                overlay_index += 1
             else:
-                video_filters.append(f"drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:"
-                                     f"text='{text_escape}':fontcolor=white:fontsize=24:x=10:y=H-34")
+                video_filters.append(
+                    f"drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:"
+                    f"text='{text_escape}':fontcolor=white:fontsize=24:x=10:y=H-34"
+                )
 
+        # Apply filters if any
         if video_filters:
             cmd.extend(["-filter_complex", ";".join(video_filters)])
-            # Map the final video output
-            if "[vfinal]" in str(video_filters):
-                cmd.extend(["-map", "[vfinal]"])
-            elif "[vout]" in str(video_filters):
-                cmd.extend(["-map", "[vout]"])
-            else:
-                # Just drawtext, no filter graph needed
-                pass
+            cmd.extend(["-map", f"[v{overlay_index}]"])
         else:
             cmd.extend(["-map", "0:v"])
 
@@ -175,8 +170,9 @@ class StreamManager:
 
         # Audio encoding
         if self.config.include_audio:
+            audio_input = str(input_count) if self.config.include_webcam else "0"
             cmd.extend([
-                "-map", "0:a?" if self.config.include_webcam else "0:a",
+                "-map", f"{audio_input}:a?",
                 "-c:a", "aac",
                 "-b:a", "128k",
             ])

@@ -91,15 +91,15 @@ Interactive demo gallery with:
 - CRT shader selection
 - Demo info panel with platform details
 
-### 🔧 Phase 7 Enhancements (Planned)
-| Feature | Description | Priority |
-|---------|-------------|----------|
-| Demo preview automation | Auto-generate 30-second highlights | Medium |
-| Scene.org integration | Direct download from scene.org archives | High |
-| CRT OSD effects | On-screen display effects (power LED, channel numbers) | Low |
-| Demo recording | Built-in capture for creating content | Medium |
-| Platform thumbnails | Grid view with preview thumbnails | Medium |
-| Demo difficulty tags | Wild, intro, demo, executable categories | Low |
+### 🔧 Phase 7 Enhancements (In Progress)
+| Feature | Description | Status |
+|---------|-------------|--------|
+| Demo preview automation | Auto-generate 30-second highlights | Planned |
+| Scene.org integration | Direct download from scene.org archives | ✅ Done |
+| CRT OSD effects | On-screen display effects (power LED, channel numbers) | ✅ Done |
+| Demo recording | Built-in capture for creating content | ✅ Done |
+| Platform thumbnails | Grid view with preview thumbnails | ✅ Done |
+| Demo difficulty tags | Wild, intro, demo, executable categories | Planned |
 
 ---
 
@@ -209,6 +209,7 @@ Click the "🏛️ Museum Mode" button in the viewer to begin!
 | Command | Description |
 |---------|-------------|
 | `showet` | Run a demo by Pouet ID |
+| `showet-recorder` | Record demos with retro-authentic CRT encoding |
 | `showet-stream` | Stream demos to Twitch/YouTube |
 | `showet-launcher` | Unified launcher with streaming |
 | `showet-spotlight` | Featured demos + hall of fame |
@@ -226,6 +227,7 @@ Click the "🏛️ Museum Mode" button in the viewer to begin!
 | `showet-demo-scoring.py` | Historical significance scoring algorithm |
 | `showet-scaffold.py` | Platform addition CLI tool |
 | `scene_org_integration.py` | Download demos directly from scene.org archives |
+| `showet-osd-controls.js` | CRT on-screen display effects (power LED, channel numbers) |
 
 ---
 *The demo-runner of the future is now streaming-ready! 📺*
