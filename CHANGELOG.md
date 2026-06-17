@@ -20,8 +20,10 @@
 - **Dependency Installer** (`showet-installer`) - Auto-install Wine, DOSBox, VICE, RetroArch
 
 ### Phase 10: Enhanced Documentation (COMPLETE)
-- **Platform Docs** - C64, Amiga, DOS, NES, Megadrive, Atari ST
+- **Platform Docs** - 8 detailed guides (C64, Amiga, DOS, NES, Megadrive, Atari ST, Spectrum, PC-Engine)
 - **External Sources** - All integrations documented in README
+- **One-Command Runner** (`showet-auto`) - Complete download → install → run pipeline
+- **Consolidated Docs** - Single clean `docs/` folder structure
 
 ## 🚀 Quick Start
 
@@ -41,9 +43,12 @@ showet-ai --predict-rating "Second Reality"
 # Run any demo (auto-detect platform)
 showet-executor /path/to/demo.zip --download-cores
 
+# One-command runner (download + install + run)
+showet-auto "Second Reality"
+showet-auto 12345
+
 # Install emulators
-showet-installer install --platform commodore_64
-```
+showet-installer install
 
 ## 🏆 The Demo-Runner of the Future
 With authentic CRT shaders, immersive soundscapes, AI-powered discovery, and universal execution - Showet is the definitive demoscene experience.
