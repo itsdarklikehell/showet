@@ -79,8 +79,8 @@ The future of demoscene viewing is here. ShowEt is now the definitive, immersive
 ### 📋 Phase 7 Enhancements
 | Feature | Description | Status |
 |---------|-------------|--------|
-| Demo preview automation | Auto-generate 30-second highlights from demos | Planned |
+| Demo preview automation | Auto-generate 30-second highlights from demos | ✅ Done |
 | Scene.org integration | Direct download from scene.org archives | ✅ Done |
 | Demo recording | Built-in capture for creating content | ✅ Done |
 | Sound theme expansion | Additional platform-specific ambience | Planned |
-| CRT OSD effects | On-screen display effects (power LED, channel numbers) | Planned |
+| CRT OSD effects | On-screen display effects (power LED, channel numbers) | ✅ Done |
