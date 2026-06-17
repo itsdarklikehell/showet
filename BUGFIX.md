@@ -22,6 +22,21 @@
 
 **Fix:** Moved Museum Mode button to `top: 20px` to avoid conflicts. Timeline button integration removed in favor of viewer controls.
 
+### Fixed: Knowledge Base Undefined Variable
+**Issue:** `showet-knowledge.js` referenced `streamActive` which was never defined.
+
+**Fix:** Changed to check for `demo-info` and `crt-frame` element existence before showing trivia.
+
+### Fixed: Spectrum Analyzer Null Check
+**Issue:** `showet-spectrum.js` could call `cancelAnimationFrame` or access `visCanvas` when undefined.
+
+**Fix:** Added null checks for `visCanvas` and `animationId` before access.
+
+### Fixed: Tour Player Function Reference
+**Issue:** `showet-tour-player.js` referenced non-existent `launchDemo` function.
+
+**Fix:** Changed to use `launchPlatform` which exists in viewer, or log the intended action.
+
 ## Known Limitations (for future work)
 
 ### Museum Mode
