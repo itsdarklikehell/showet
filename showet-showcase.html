@@ -259,12 +259,21 @@
 
         async function launchDemo(platformSlug) {
             currentPlatform = platformSlug;
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('loading').innerHTML = `
-                Loading <strong>${formatPlatformName(platformSlug)}</strong>...<br>
-                <span class="scene-info">Authentic CRT shader engaged!</span>
-            `;
-            document.getElementById('crt-frame').style.display = 'none';
+            
+            // Show enhanced loading screen
+            if (window.ShowetLoading) {
+                ShowetLoading.show(platformSlug);
+                ShowetLoading.simulateLoading(2000, () => {
+                    document.getElementById('crt-frame').style.display = 'block';
+                });
+            } else {
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('loading').innerHTML = `
+                    Loading <strong>${formatPlatformName(platformSlug)}</strong>...<br>
+                    <span class="scene-info">Authentic CRT shader engaged!</span>
+                `;
+                document.getElementById('crt-frame').style.display = 'none';
+            }
             document.getElementById('stream-controls').style.display = 'flex';
             
             try {
@@ -368,6 +377,7 @@
     
     <!-- Retro Enhancement Modules -->
     <script src="showet-boot-sequence.js"></script>
+    <script src="showet-loading-screen.js"></script>
     <script src="showet-audio.js"></script>
     <script src="showet-crt-shader.js"></script>
     <script src="showet-shader-editor.js"></script>
