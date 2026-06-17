@@ -15,6 +15,7 @@
     <script src="showet-knowledge.js"></script>
     <script src="showet-spectrum.js"></script>
     <script src="showet-tour-player.js"></script>
+    <script src="showet-boot-sequence.js"></script>
     <style>
         body { margin: 0; padding: 0; background: #1a1a1a; color: white; font-family: monospace; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
@@ -27,10 +28,13 @@
         .platform-item:hover { background: #555; transform: translateY(-2px); }
         .platform-item.selected { background: #0066cc; box-shadow: 0 0 10px rgba(0, 102, 204, 0.5); }
         #emulator-container { margin-top: 20px; }
+        .loading-screen { margin-bottom: 20px; padding: 20px; background: #000; border-radius: 8px; min-height: 200px; color: #0f0; font-family: monospace; }
     </style>
 </head>
 <body>
     <div class="container">
+        <div id="loading" class="loading-screen"></div>
+        
         <h1>📺 Showet nostalgist.js Viewer</h1>
         <p>Select a platform to load its demo configuration:</p>
         
@@ -85,9 +89,10 @@
         
         // Generate platform UI from available configs
         async function initPlatformList() {
+            // Config files use underscores: nintendo_famicom, commodore_64, etc.
             const platforms = [
-                'nesfamicom', 'atarivcs', 'commodore64', 'segagenesismegadrive',
-                'superfamicom', 'playstation', 'amigap1200'
+                'nintendo_famicom', 'atari_xlxe', 'commodore_64', 'sega_megadrive',
+                'nintendo_superfamicom', 'sony_psx', 'commodore_amiga'
                 // ... add more as needed
             ];
             
