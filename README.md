@@ -1,6 +1,6 @@
-## Showet Emulation Project
+## 🗺️ ShowEt Demoscene Demo Runner - v2.1 (Phase 7 Complete!)
 
-This repository contains the source code and infrastructure for **Showet**, a comprehensive, multi-platform emulation framework designed to run games and applications across a vast array of vintage and modern gaming consoles and computer systems.
+This repository contains the source code and infrastructure for **Showet**, the definitive, immersive demo-runner for the demoscene with nostalgic flair.
 
 ### 🎯 Project Overview
 Showet aims to be a unified platform for retro gaming enthusiasts, providing a consistent interface for emulating hardware from the Atari 2600 all the way up to more modern systems, alongside a modular architecture to integrate future platforms.
@@ -91,10 +91,10 @@ Interactive demo gallery with:
 - CRT shader selection
 - Demo info panel with platform details
 
-### 🔧 Phase 7 Enhancements (In Progress)
+### 🔧 Phase 7 Enhancements (COMPLETE! ✅)
 | Feature | Description | Status |
 |---------|-------------|--------|
-| Demo preview automation | Auto-generate 30-second highlights | Planned |
+| Demo preview automation | Auto-generate 30-second highlights | ✅ Done |
 | Scene.org integration | Direct download from scene.org archives | ✅ Done |
 | CRT OSD effects | On-screen display effects (power LED, channel numbers) | ✅ Done |
 | Demo recording | Built-in capture for creating content | ✅ Done |
