@@ -63,29 +63,20 @@ The future of demoscene viewing is here. ShowEt is now the definitive, immersive
 
 ---
 
-## 🔮 Phase 6: Next Frontier Features (Planned)
+## 🔮 Phase 7: Advanced Demoscene Features (In Progress)
 
-### 🏛️ Museum Mode - Exhibition-Quality Presentation
-- Automatic demo curation based on historical milestones
-- Curatorial notes and context for each demo
-- Fullscreen kiosk mode for public installations
+### 🎯 Current Focus Areas
+- **Demo Metadata Enrichment 2.0** - Real screenshot capture, automated preview generation
+- **Enhanced Showcase Experience** - Improved demo gallery with ratings, search, and filtering
+- **Advanced Nostalgia Features** - More authentic period experiences (disk drive sounds, keyboard click sounds)
+- **Community Integration** - Pouet.net live sync, scene.org mirror support
 
-### 🎭 Role-Based Collaboration
-- Host/Moderator: Controls playback, selects demos, manages session
-- Player: Can suggest demos, chat, but not interrupt
-- Spectator: View-only mode for large audiences
-
-### 🧪 Live Shader Playground
-- Real-time GLSL shader editing with instant preview
-- Share shader creations via URL
-- Shader competition mode for demoparties
-
-### 🎨 Demo Metadata Enrichment
-- Screenshot capture and thumbnail generation
-- Demo preview clips (30-second highlights)
-- Historical significance scoring
-
----
-
-*The demoscene's definitive showcase is now a reality. Every demo, every era, perfectly authentic.*
-*Launch with:* `python3 -m http.server 8000 && open http://localhost:8000/showet-showcase.html`
+### 📋 Phase 7 Enhancements (Planned)
+| Feature | Description | Status |
+|---------|-------------|--------|
+| Demo preview automation | Auto-generate 30-second highlights from demos | Planned |
+| Scene.org integration | Direct download from scene.org archives | Planned |
+| Historical timeline widget | Interactive era-based demo explorer | ✅ Done |
+| Sound theme expansion | Additional platform-specific ambience | Planned |
+| CRT OSD effects | On-screen display effects (power LED, channel numbers) | Planned |
+| Demo recording | Built-in capture for creating content | Planned |

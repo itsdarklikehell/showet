@@ -83,12 +83,23 @@ Chiptune sound effects for every interaction:
 *   Loading sequences
 *   Success/error chimes
 
-### 🎧 Dynamic Sound Themes (`sound_design/showet-sound-theme-manager.js`) [NEW]
-Immersive ambient soundscapes for enhanced nostalgia:
-*   **C64 Room Tone** - Warm power supply hum with SID chip interference
-*   **Amiga Workbench Hum** - Authentic Amiga power supply and floppy drive ambience
-*   **DOS PC Speaker** - Classic PC internal hum and speaker feedback
-Select your preferred ambience in the viewer's control panel!
+### 🎮 Demo Showcase (`showet-showcase.html`)
+Interactive demo gallery with:
+- Platform search and filtering
+- Hall of Fame with legendary demos
+- One-click streaming to Twitch/YouTube
+- CRT shader selection
+- Demo info panel with platform details
+
+### 🔧 Phase 7 Enhancements (Planned)
+| Feature | Description | Priority |
+|---------|-------------|----------|
+| Demo preview automation | Auto-generate 30-second highlights | Medium |
+| Scene.org integration | Direct download from scene.org archives | High |
+| CRT OSD effects | On-screen display effects (power LED, channel numbers) | Low |
+| Demo recording | Built-in capture for creating content | Medium |
+| Platform thumbnails | Grid view with preview thumbnails | Medium |
+| Demo difficulty tags | Wild, intro, demo, executable categories | Low |
 
 ---
 

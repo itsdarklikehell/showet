@@ -144,6 +144,20 @@
 </head>
 <body>
     <header>📺 SHOWET - DEMO SHOWCASE '99</header>
+
+    <!-- SVG Filters for advanced CRT effects -->
+    <svg width="0" height="0" style="position:absolute;">
+        <filter id="crt-curvature">
+            <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+            <feColorMatrix type="saturate" values="1.2"/>
+            <feComponentTransfer>
+                <feFuncR type="linear" slope="1.1" intercept="-0.05"/>
+                <feFuncG type="linear" slope="1.0" intercept="0"/>
+                <feFuncB type="linear" slope="0.9" intercept="0.05"/>
+            </feComponentTransfer>
+        </filter>
+    </svg>
     
     <div id="platform-list">
         <input type="text" id="search" placeholder="Search platforms (C64, Amiga, NES...)..." onkeyup="filterPlatforms()">
@@ -325,5 +339,21 @@
 
         document.addEventListener('DOMContentLoaded', loadPlatforms);
     </script>
+    
+    <!-- Retro Enhancement Modules -->
+    <script src="showet-boot-sequence.js"></script>
+    <script src="showet-audio.js"></script>
+    <script src="showet-crt-shader.js"></script>
+    <script src="showet-shader-editor.js"></script>
+    <script src="sound_design/showet-sound-theme-manager.js"></script>
+    <script src="showet-spectrum.js"></script>
+    <script src="showet-timeline.js"></script>
+    <script src="showet-tour-player.js"></script>
+    <script src="showet-knowledge.js"></script>
+    <script src="showet-preview-clips.js"></script>
+    <script src="showet-party-client.js"></script>
+    <script src="showet-museum-mode.js"></script>
+    <script src="showet-shader-playground.js"></script>
+    <script src="showet-nostalgist-loader.js"></script>
 </body>
 </html>
