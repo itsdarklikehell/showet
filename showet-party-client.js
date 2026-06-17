@@ -10,21 +10,19 @@ class ShowetPartyMode extends ShowetCollaborative {
         this.currentDemo = null;
     }
 
-    onHostAssigned() {
-        this.isHost = true;
-        this.addHostControls();
-    }
-
     addHostControls() {
         if (!this.isHost) return;
         
         const controls = document.querySelector('.controls');
         if (!controls) return;
         
+        // Check if controls already added
+        if (document.getElementById('party-start-btn')) return;
+        
         const partyDiv = document.createElement('div');
         partyDiv.className = 'control-group';
         partyDiv.innerHTML = `
-            <label>Party Mode</label>
+            <label>Party Mode (Host)</label>
             <button id="party-start-btn" style="background:#ff6b00;color:white;border:none;padding:6px 10px;border-radius:4px;cursor:pointer;">
                 Start Party Session
             </button>
@@ -37,21 +35,10 @@ class ShowetPartyMode extends ShowetCollaborative {
     startPartySession() {
         const sessionId = prompt('Enter/create party session ID:', 'showet-party-' + Date.now());
         if (sessionId) {
+            this.isHost = true;
             this.sessionId = sessionId;
             this.connect();
-            this.onHostAssigned();
         }
-    }
-
-    launchDemoForParty(demoId, demoName) {
-        if (!this.isHost) return;
-        
-        this.send({
-            type: 'launch_demo',
-            demo_id: demoId,
-            demo_name: demoName,
-            timestamp: Date.now()
-        });
     }
 
     handleMessage(data) {

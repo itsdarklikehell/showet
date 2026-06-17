@@ -18,10 +18,9 @@ from PlatformBase import PlatformBase
 
 class Platform{platform_class}(PlatformBase):
     def __init__(self):
-        super().__init__()
-        self.platform_name = "{platform_key}"
-        self.core = "{core}"
-        self.emulator = "{emulator}"
+        super().__init__("{platform_key}", version="1.0.0-scaffold")
+        self.emulators = ["retroarch"]
+        self.cores = ["{core}"]
     
     def get_rom_path(self, demo_info):
         return f"{{demo_info.get('platform_path', 'roms/{platform_key}')}}"

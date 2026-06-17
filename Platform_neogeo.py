@@ -7,10 +7,9 @@ from PlatformBase import PlatformBase
 
 class PlatformNeogeo(PlatformBase):
     def __init__(self):
-        super().__init__()
-        self.platform_name = "neogeo"
-        self.core = "fbneo"
-        self.emulator = "fbneo"
+        super().__init__("neogeo", version="1.0.0-scaffold")
+        self.emulators = ["retroarch"]
+        self.cores = ["fbneo"]
     
     def get_rom_path(self, demo_info):
         return f"{demo_info.get('platform_path', 'roms/neogeo')}"

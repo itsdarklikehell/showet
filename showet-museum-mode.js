@@ -123,7 +123,12 @@ class ShowetMuseumMode {
         
         // Launch demo
         this.launchDemo(demo);
+    }
+
+    nextDemo() {
         this.currentIndex++;
+        if (this.currentIndex >= this.demos.length) this.currentIndex = 0;
+        this.showNextDemo();
     }
 
     launchDemo(demo) {
@@ -139,7 +144,7 @@ class ShowetMuseumMode {
                 fill.style.width = progress + '%';
                 if (progress >= 100) {
                     clearInterval(interval);
-                    setTimeout(() => this.showNextDemo(), 5000); // 5s per demo
+                    setTimeout(() => this.nextDemo(), 500); // Auto-advance to next demo
                 }
             }, 100);
         }
