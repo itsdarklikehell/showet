@@ -27,7 +27,7 @@ class ShowetMuseumMode {
         btn.textContent = '🏛️ Museum Mode';
         btn.style.cssText = `
             position: fixed;
-            bottom: 100px;
+            top: 20px;
             right: 20px;
             background: rgba(123, 67, 255, 0.8);
             color: white;
@@ -36,7 +36,7 @@ class ShowetMuseumMode {
             border-radius: 4px;
             cursor: pointer;
             font-size: 12px;
-            z-index: 999;
+            z-index: 998;
         `;
         btn.onclick = () => this.toggleKiosk();
         document.body.appendChild(btn);

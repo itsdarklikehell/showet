@@ -17,6 +17,11 @@
 
 **Fix:** Updated template to call `super().__init__("platform_key", version="1.0.0-scaffold")` matching the pattern in existing platform files like `Platform_Atari_2600.py`.
 
+### Fixed: UI Button Overlap
+**Issue:** Museum Mode button (`bottom: 100px`) and Timeline button (`bottom: 60px`) would overlap with each other and with the Shader Editor panel.
+
+**Fix:** Moved Museum Mode button to `top: 20px` to avoid conflicts. Timeline button integration removed in favor of viewer controls.
+
 ## Known Limitations (for future work)
 
 ### Museum Mode

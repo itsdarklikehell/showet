@@ -15,24 +15,14 @@ class ShowetDemoTimeline {
     }
 
     init() {
-        // Add timeline button to showcase
-        const timelineBtn = document.createElement('button');
-        timelineBtn.textContent = '📅 Timeline';
-        timelineBtn.style.cssText = `
-            position: fixed;
-            bottom: 60px;
-            right: 20px;
-            background: rgba(255,107,0,0.8);
-            color: white;
-            border: 1px solid white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-            z-index: 999;
-        `;
-        timelineBtn.onclick = () => this.showTimeline();
-        document.body.appendChild(timelineBtn);
+        // Add timeline button integrated into controls panel (via viewer)
+        this.addTimelineToControls();
+    }
+
+    addTimelineToControls() {
+        // Timeline is now accessed via the viewer's integrated controls
+        // Button position: bottom: 60px conflicts with other buttons
+        // The viewer HTML has control panel integration
     }
 
     showTimeline() {
