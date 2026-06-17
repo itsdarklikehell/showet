@@ -57,6 +57,11 @@
 
 **Fix:** Updated platform slugs to match the actual nostalgist_configs file names.
 
+### Fixed: Boot Sequence C64 String Escaping
+**Issue:** `showet-boot-sequence.js` had improperly escaped string `"LOAD "$",8,1"` causing JavaScript syntax error.
+
+**Fix:** Properly escaped the double quotes within the C64 LOAD command string.
+
 ## Known Limitations (for future work)
 
 ### Museum Mode
