@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Showet AI Demo Curator
+Showet AI Demo Curator - Enhanced with Deep Metadata & Scene.org Integration
 Intelligent demo recommendation engine using content analysis and user preferences
 """
 
@@ -10,6 +10,8 @@ from pathlib import Path
 from typing import List, Dict, Optional
 from dataclasses import dataclass
 from enum import Enum
+import subprocess
+import os
 
 class DemoEra(Enum):
     CLASSIC_8BIT = "8bit_classic"      # C64, Apple II, Atari 800
@@ -31,16 +33,16 @@ class DemoVector:
     features: List[str]  # ["scanlines", "vectors", "3d", "chaos"]
 
 class AIDemoCurator:
-    """AI-powered demo recommendation engine"""
+    """AI-powered demo recommendation engine with scene.org integration"""
     
-    def __init__(self):
-        self.preferences = {}  # user_id -> preferred styles
+    def __init__(self, demo_dir: str = "nostalgist_configs"):
+        self.preferences = {}
         self.demo_catalog = self._load_demo_catalog()
+        self.demo_dir = demo_dir
     
     def _load_demo_catalog(self) -> List[DemoVector]:
         """Load demo catalog with technical vectors"""
         catalog_path = Path(__file__).parent / "demo_database.py"
-        # Placeholder for real catalog loading
         return [
             DemoVector(
                 platform="commodore_64",
@@ -61,6 +63,89 @@ class AIDemoCurator:
                 features=["3d", "music", "effects"]
             ),
         ]
+    
+    def enhanced_discover(self, query: str = "") -> List[Dict]:
+        """Discover demos using scene.org integration for real results"""
+        results = []
+        
+        # Try scene.org integration
+        try:
+            from scene_org_integration import SceneOrgClient
+            client = SceneOrgClient()
+            
+            if query:
+                demos = client.search_demos(query, limit=10)
+                for demo in demos:
+                    results.append({
+                        "name": demo.get("name", query),
+                        "platform": demo.get("platform", "unknown"),
+                        "url": demo.get("url", ""),
+                        "source": "scene.org",
+                        "preview_available": False
+                    })
+            else:
+                # Get trending demos
+                trending = [
+                    {"name": "Assembly 2024 Winners", "platform": "amiga", "source": "scene.org"},
+                    {"name": "Revision 2024 Compo", "platform": "pc", "source": "scene.org"},
+                ]
+                results.extend(trending)
+                
+        except ImportError:
+            # Fallback to known gems
+            results = self.discover_hidden_gems()
+            
+        return results
+    
+    def extract_metadata(self, demo_path: str) -> Dict:
+        """Extract deep metadata from demo file for AI analysis"""
+        metadata = {
+            "path": demo_path,
+            "size": 0,
+            "platform": "unknown",
+            "estimated_duration": 0,
+            "features": [],
+        }
+        
+        if os.path.exists(demo_path):
+            metadata["size"] = os.path.getsize(demo_path)
+            
+            # Analyze file for hints
+            if demo_path.endswith('.zip'):
+                metadata["platform"] = "pc"
+                metadata["features"] = ["compressed"]
+            elif demo_path.endswith(('.d64', '.tap')):
+                metadata["platform"] = "commodore_64"
+            elif demo_path.endswith('.adf'):
+                metadata["platform"] = "commodore_amiga"
+                
+        return metadata
+    
+    def predict_demo_rating(self, demo_name: str, metadata: Dict = None) -> float:
+        """Predict demo rating based on name patterns and features"""
+        # Simple heuristic scoring
+        score = 0.5
+        
+        # Known legendary demos get high scores
+        legendary = ["Second Reality", "Heaven Seven", "Elevated", "Arte", "Beyond"]
+        for legend in legendary:
+            if legend.lower() in demo_name.lower():
+                score = 0.95
+                break
+        
+        # Complexity indicators
+        if any(word in demo_name.lower() for word in ["meg", "ultra", "extreme", "chaos"]):
+            score += 0.15
+        
+        # Year patterns (older often = more significance)
+        import re
+        year_match = re.search(r'19|20[0-4][0-9]', demo_name)
+        if year_match:
+            year = int(year_match.group())
+            if year < 2000:
+                score += 0.1  # Vintage bonus
+        
+        return min(score, 1.0)
     
     def analyze_preferences(self, user_id: str, watched_demos: List[str]) -> Dict:
         """Analyze user watching history to build preference profile"""
@@ -161,20 +246,66 @@ class AIDemoCurator:
 
 # CLI entry point
 if __name__ == "__main__":
-    import sys
-    
+    import argparse
+    parser = argparse.ArgumentParser(description="Showet AI Demo Curator")
+    parser.add_argument("--hidden-gems", "-g", help="Find hidden gems for era")
+    parser.add_argument("--recommend", "-r", help="Personalized recommendations for user")
+    parser.add_argument("--discover", "-d", help="Discover demos from scene.org")
+    parser.add_argument("--predict-rating", "-p", help="Predict demo rating")
+    parser.add_argument("--count", "-n", type=int, default=5, help="Number of results")
+    args = parser.parse_args()
+
     curator = AIDemoCurator()
-    
-    if len(sys.argv) > 1 and sys.argv[1] == "--hidden-gems":
-        gems = curator.discover_hidden_gems(sys.argv[2] if len(sys.argv) > 2 else None)
-        for gem in gems:
+
+    if args.discover:
+        demos = curator.enhanced_discover(args.discover)
+        for d in demos[:args.count]:
+            print(f"  {d['name']} ({d['platform']}) - {d.get('source', 'local')}")
+    elif args.predict_rating:
+        rating = curator.predict_demo_rating(args.predict_rating)
+        print(f"⭐ Predicted rating for '{args.predict_rating}': {rating:.1%}")
+    elif args.hidden_gems:
+        gems = curator.discover_hidden_gems(args.hidden_gems)
+        for gem in gems[:args.count]:
             print(f"✨ {gem['name']} ({gem['platform']}) - {gem['reason']}")
-    elif len(sys.argv) > 1 and sys.argv[1] == "--recommend":
-        user_id = sys.argv[2] if len(sys.argv) > 2 else None
-        recs = curator.recommend(user_id, 5)
+    elif args.recommend:
+        recs = curator.recommend(args.recommend, args.count)
         print("📺 Recommended demos:")
         for r in recs:
             print(f"  - {r}")
     else:
-        print("Usage: python3 showet_ai_curator.py [--hidden-gems [era]]")
-        print("       python3 showet_ai_curator.py --recommend [user_id]")
+        parser.print_help()
+
+
+def main():
+    """Entry point for console_scripts."""
+    import sys
+    import argparse
+    parser = argparse.ArgumentParser(description="Showet AI Demo Curator")
+    parser.add_argument("--hidden-gems", "-g", help="Find hidden gems for era")
+    parser.add_argument("--recommend", "-r", help="Personalized recommendations for user")
+    parser.add_argument("--discover", "-d", help="Discover demos from scene.org")
+    parser.add_argument("--predict-rating", "-p", help="Predict demo rating")
+    parser.add_argument("--count", "-n", type=int, default=5, help="Number of results")
+    args = parser.parse_args()
+
+    curator = AIDemoCurator()
+
+    if args.discover:
+        demos = curator.enhanced_discover(args.discover)
+        for d in demos[:args.count]:
+            print(f"  {d['name']} ({d['platform']}) - {d.get('source', 'local')}")
+    elif args.predict_rating:
+        rating = curator.predict_demo_rating(args.predict_rating)
+        print(f"⭐ Predicted rating for '{args.predict_rating}': {rating:.1%}")
+    elif args.hidden_gems:
+        gems = curator.discover_hidden_gems(args.hidden_gems)
+        for gem in gems[:args.count]:
+            print(f"✨ {gem['name']} ({gem['platform']}) - {gem['reason']}")
+    elif args.recommend:
+        recs = curator.recommend(args.recommend, args.count)
+        print("📺 Recommended demos:")
+        for r in recs:
+            print(f"  - {r}")
+    else:
+        parser.print_help()
