@@ -103,20 +103,12 @@ Full universal execution across all pouet.net/scene.org platforms with automatic
 - Emulator selection
 - Runner invocation
 
-### 📋 Phase 9 Enhancements
-| Feature | Description | Status |
-|---------|-------------|--------|
-| Universal Demo Executor | Auto-detect and run any demo through native/emulated | 🔄 In progress |
-| Archive Handler | ZIP/RAR/7z/LHA extraction with password support | 🔄 In progress |
-| RetroArch Integration | Libretro core auto-selection | Planned |
-| Wine Integration | Windows demo execution | Planned |
-| DOSBox Integration | DOS demo execution | Planned |
-| Native Execution | Linux/macOS demos | Planned |
-
 ### ✅ Completed
 - ✅ `showet-executor.py` - Universal platform detection and execution
 - ✅ `showet-archive-handler.py` - Archive extraction for all demoscene formats
 - ✅ CLI entry points in pyproject.toml
+- ✅ RetroArch libretro core auto-selection & download
+- ✅ Platform docs: C64, Amiga, DOS, NES
 
 ---
 
