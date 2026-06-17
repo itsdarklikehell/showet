@@ -100,6 +100,7 @@ Interactive demo gallery with:
 | Demo recording | Built-in capture for creating content | ✅ Done |
 | Platform thumbnails | Grid view with preview thumbnails | ✅ Done |
 | Demo difficulty tags | Wild, intro, demo, executable categories | Planned |
+| AI Curator Enhancement | Scene.org discovery + rating predictions | ✅ Done |
 
 ---
 
@@ -210,6 +211,8 @@ Click the "🏛️ Museum Mode" button in the viewer to begin!
 |---------|-------------|
 | `showet` | Run a demo by Pouet ID |
 | `showet-recorder` | Record demos with retro-authentic CRT encoding |
+| `scene-org` | Search and download demos from scene.org archives |
+| `showet-ai` | AI-powered demo discovery and rating predictions |
 | `showet-stream` | Stream demos to Twitch/YouTube |
 | `showet-launcher` | Unified launcher with streaming |
 | `showet-spotlight` | Featured demos + hall of fame |
