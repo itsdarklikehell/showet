@@ -74,7 +74,58 @@ class SoundThemeManager {
             // Add slight randomness to simulate unstable speaker
             osc.frequency.setValueAtTime(120 + Math.random() * 5, this.ctx.currentTime);
         }
+        // Add subtle hard drive spin (low whoosh noise)
+        this.createAmbientLoop(200, 'noise', 0.007);
         this.currentTheme = 'dos';
+    }
+
+    // Additional nostalgia sounds
+    playFloppySeek() {
+        this.audio.beep(800, 0.02, 'sine');
+        setTimeout(() => this.audio.beep(600, 0.015, 'sine'), 30);
+        setTimeout(() => this.audio.beep(850, 0.01, 'sine'), 50);
+    }
+
+    playKeyboardClick(volume = 0.1) {
+        if (!this.enabled) return;
+        const ctx = this.ctx;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        
+        osc.frequency.value = 2000;
+        osc.type = 'square';
+        gain.gain.value = volume;
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+        
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.05);
+    }
+
+    playDiskInsert() {
+        this.audio.beep(1200, 0.03, 'sine');
+        setTimeout(() => this.audio.beep(800, 0.05, 'sawtooth'), 30);
+    }
+
+    playPowerOn() {
+        // Rising power-on sound
+        if (!this.enabled) return;
+        const ctx = this.ctx;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        
+        osc.frequency.setValueAtTime(100, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 1.0);
+        osc.type = 'sine';
+        
+        gain.gain.value = 0.1;
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.0);
+        
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 1.0);
     }
 
     silentExhibition() {
