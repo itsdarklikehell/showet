@@ -205,7 +205,7 @@ Perfect for demoparties, museums, or public installations:
 
 Click the "🏛️ Museum Mode" button in the viewer to begin!
 
-### 🛠️ Complete CLI Toolset
+### 🔧 Complete CLI Toolset
 | Command | Description |
 |---------|-------------|
 | `showet` | Run a demo by Pouet ID |
@@ -225,6 +225,7 @@ Click the "🏛️ Museum Mode" button in the viewer to begin!
 | `showet-preview-clips.js` | Demo preview clip system |
 | `showet-demo-scoring.py` | Historical significance scoring algorithm |
 | `showet-scaffold.py` | Platform addition CLI tool |
+| `scene_org_integration.py` | Download demos directly from scene.org archives |
 
 ---
 *The demo-runner of the future is now streaming-ready! 📺*

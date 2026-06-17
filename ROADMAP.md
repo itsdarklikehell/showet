@@ -43,8 +43,8 @@ The future of demoscene viewing is here. ShowEt is now the definitive, immersive
 - `showet-shader-playground.js` - Competition mode with URL sharing
 - `showet-preview-clips.js` - Demo preview clip system
 
-### Phase 6 Additions (IN PROGRESS)
-- `showet-demo-scoring.py` - Historical significance scoring algorithm
+### 📁 Phase 7 Additions (IN PROGRESS)
+- `scene_org_integration.py` - Download demos directly from scene.org archives
 
 ---
 
@@ -71,12 +71,11 @@ The future of demoscene viewing is here. ShowEt is now the definitive, immersive
 - **Advanced Nostalgia Features** - More authentic period experiences (disk drive sounds, keyboard click sounds)
 - **Community Integration** - Pouet.net live sync, scene.org mirror support
 
-### 📋 Phase 7 Enhancements (Planned)
+### 📋 Phase 7 Enhancements
 | Feature | Description | Status |
 |---------|-------------|--------|
 | Demo preview automation | Auto-generate 30-second highlights from demos | Planned |
-| Scene.org integration | Direct download from scene.org archives | Planned |
-| Historical timeline widget | Interactive era-based demo explorer | ✅ Done |
+| Scene.org integration | Direct download from scene.org archives | ✅ Done |
 | Sound theme expansion | Additional platform-specific ambience | Planned |
 | CRT OSD effects | On-screen display effects (power LED, channel numbers) | Planned |
 | Demo recording | Built-in capture for creating content | Planned |
