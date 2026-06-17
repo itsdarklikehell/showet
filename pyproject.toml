@@ -74,6 +74,7 @@ chat-overlay = "chat_overlay:main"
 
 [project.scripts]
 showet = "showet:main"
+showet-auto = "showet_auto:main"
 showet-executor = "showet_executor:main"
 showet-archive = "showet_archive_handler:main"
 showet-installer = "showet_dependency_installer:main"
