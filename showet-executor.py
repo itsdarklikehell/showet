@@ -18,57 +18,92 @@ class DemoExecutor:
         '.lzh': ['lha', 'x'],
     }
     
+    # Libretro core paths (RetroArch integration)
+    LIBRETRO_CORES = {
+        'commodore_64': 'x64_libretro.so',
+        'commodore_amiga': 'puae_libretro.so',
+        'dos': 'dosbox_libretro.so',
+        'nintendo_famicom': 'nes_libretro.so',
+        'nintendo_superfamicom': 'snes9x_libretro.so',
+        'sega_megadrive': 'genesis_plus_gx_libretro.so',
+        'atari_2600': 'stella_libretro.so',
+        'sony_psx': 'mednafen_psx_libretro.so',
+    }
+    
+    LIBRETRO_CORE_URLS = {
+        'x64_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/x64_libretro.so',
+        'nes_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/nes_libretro.so',
+        'snes9x_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/snes9x_libretro.so',
+        'genesis_plus_gx_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/genesis_plus_gx_libretro.so',
+        'dosbox_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/dosbox_libretro.so',
+        'puae_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/puae_libretro.so',
+        'stella_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/stella_libretro.so',
+    }
+    
     PLATFORM_RUNNERS = {
-        # Native execution
+        # Priority: RetroArch > Native emulator > Wine/DOSBox
         'windows': {
             'runner': 'wine',
+            'retroarch_core': None,
             'extensions': ['.exe', '.bat', '.com'],
         },
         'dos': {
             'runner': 'dosbox',
+            'retroarch_core': 'dosbox_libretro.so',
             'extensions': ['.exe', '.com', '.bat'],
         },
         'linux': {
             'runner': None,  # Direct execution
+            'retroarch_core': None,
             'extensions': ['.x86', '.x86_64', ''],
         },
         'amiga': {
             'runner': 'fs-uae',
+            'retroarch_core': 'puae_libretro.so',
             'extensions': ['.adf', '.hdf', ''],
         },
         'c64': {
-            'runner': 'vice',
+            'runner': 'x64sc',
+            'retroarch_core': 'x64_libretro.so',
             'extensions': ['.d64', '.t64', '.prg'],
         },
         'zx_spectrum': {
             'runner': 'fuse',
+            'retroarch_core': None,
             'extensions': ['.tap', '.tzx', '.z80'],
         },
         'commodore_amiga': {
             'runner': 'fs-uae',
+            'retroarch_core': 'puae_libretro.so',
             'extensions': ['.adf', '.hdf', ''],
         },
         'commodore_64': {
             'runner': 'x64sc',
+            'retroarch_core': 'x64_libretro.so',
             'extensions': ['.d64', '.t64', '.prg', '.crt'],
         },
         'nintendo_famicom': {
             'runner': 'fceux',
+            'retroarch_core': 'nes_libretro.so',
             'extensions': ['.nes', '.fds'],
         },
         'nintendo_superfamicom': {
             'runner': 'snes9x',
+            'retroarch_core': 'snes9x_libretro.so',
             'extensions': ['.smc', '.sfc'],
         },
         'sega_megadrive': {
             'runner': 'gens',
+            'retroarch_core': 'genesis_plus_gx_libretro.so',
             'extensions': ['.md', '.bin', '.gen'],
         },
     }
     
-    def __init__(self, platform='auto', timeout=300):
+    def __init__(self, platform='auto', timeout=300, prefer_retroarch=False, download_cores=False):
         self.platform = platform
         self.timeout = timeout
+        self.prefer_retroarch = prefer_retroarch
+        self.download_cores = download_cores
     
     def detect_platform(self, demo_path):
         """Auto-detect platform from demo filename/path or executable type."""
@@ -115,20 +150,54 @@ class DemoExecutor:
             return None
     
     def find_runner(self, demo_path):
-        """Find appropriate runner for demo."""
-        runner = None
-        
-        # Check for RetroArch
+        """Find appropriate runner for demo, prioritizing RetroArch cores."""
+        # Check RetroArch first - best compatibility
         if shutil.which('retroarch'):
-            runner = 'retroarch'
+            for plat, config in self.PLATFORM_RUNNERS.items():
+                if config.get('retroarch_core'):
+                    core = config['retroarch_core']
+                    core_path = self._get_core_path(core)
+                    if core_path or self._download_core(core):
+                        return 'retroarch'
         
-        # Check platform-specific
+        # Check platform-specific native emulators
         for plat, config in self.PLATFORM_RUNNERS.items():
             if shutil.which(config['runner']):
                 runner = config['runner']
                 break
         
+        # Check Wine for Windows demos
+        if demo_path.lower().endswith(('.exe', '.bat', '.com')) and shutil.which('wine'):
+            return 'wine'
+        
         return runner
+    
+    def _get_core_path(self, core_name):
+        """Get RetroArch core path."""
+        retroarch_dir = Path.home() / '.config/retroarch/cores'
+        core_path = retroarch_dir / core_name
+        return core_path.exists() and str(core_path) or None
+    
+    def _download_core(self, core_name):
+        """Download libretro core if missing."""
+        import urllib.request
+        
+        retroarch_dir = Path.home() / '.config/retroarch/cores'
+        retroarch_dir.mkdir(parents=True, exist_ok=True)
+        
+        if core_name not in self.LIBRETRO_CORE_URLS:
+            return False
+        
+        url = self.LIBRETRO_CORE_URLS[core_name]
+        core_path = retroarch_dir / core_name
+        
+        print(f"Downloading {core_name}...")
+        try:
+            urllib.request.urlretrieve(url, core_path)
+            return True
+        except Exception as e:
+            print(f"Failed to download core: {e}")
+            return False
     
     def run_demo(self, demo_path, platform=None):
         """Execute a demo with auto-detection."""
@@ -193,25 +262,41 @@ c:
 def main():
     """CLI entry point."""
     if len(sys.argv) < 2:
-        print("Usage: showet-executor <demo_path> [--platform auto|dos|windows|amiga|c64|...] [--timeout SECONDS]")
+        print("Usage: showet-executor <demo_path> [options]")
+        print("\nOptions:")
+        print("  --platform auto|dos|windows|amiga|c64|famicom|snes|megadrive")
+        print("  --timeout SECONDS     Demo runtime timeout (default: 300)")
+        print("  --prefer-retroarch    Use RetroArch even if native emulator exists")
+        print("  --download-cores      Download missing RetroArch cores")
         print("\nAuto-detects platform and uses appropriate runner:")
         print("  Windows: Wine")
-        print("  DOS: DOSBox")
-        print("  C64/Amiga: Native emulators or RetroArch")
-        print("  Other: Native or RetroArch libretro")
+        print("  DOS: DOSBox (or RetroArch libretro)")
+        print("  C64/Amiga/NES/SNES: Native emulator or RetroArch")
+        print("  Other: RetroArch libretro cores")
         sys.exit(1)
     
     demo_path = sys.argv[1]
     platform = 'auto'
     timeout = 300
+    prefer_retroarch = False
+    download_cores = False
     
-    for i, arg in enumerate(sys.argv[2:], 2):
+    i = 2
+    while i < len(sys.argv):
+        arg = sys.argv[i]
         if arg == '--platform' and i + 1 < len(sys.argv):
             platform = sys.argv[i + 1]
-        if arg == '--timeout' and i + 1 < len(sys.argv):
+            i += 1
+        elif arg == '--timeout' and i + 1 < len(sys.argv):
             timeout = int(sys.argv[i + 1])
+            i += 1
+        elif arg == '--prefer-retroarch':
+            prefer_retroarch = True
+        elif arg == '--download-cores':
+            download_cores = True
+        i += 1
     
-    executor = DemoExecutor(platform=platform, timeout=timeout)
+    executor = DemoExecutor(platform=platform, timeout=timeout, prefer_retroarch=prefer_retroarch)
     process = executor.run_demo(demo_path)
     
     if process:
