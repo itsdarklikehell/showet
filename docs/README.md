@@ -1,8 +1,18 @@
-# Platform Documentation
+# Showet Platform Documentation
 
 Detailed guides for each supported platform, including setup, emulators, and demo recommendations.
 
-## Available Documentation
+## 📚 Complete Documentation
+
+| Document | Description |
+|----------|-------------|
+| [SHOWET_GUIDE.md](SHOWET_GUIDE.md) | Complete user guide with streaming, CRT, and tools |
+| [PLATFORM_INDEX.md](PLATFORM_INDEX.md) | All 85 platforms overview |
+| [API.md](API.md) | Python API reference |
+| [streaming-guide.md](streaming-guide.md) | Advanced streaming setup |
+| [platform-compatibility.md](platform-compatibility.md) | Platform support matrix |
+
+## 🎮 Platform-Specific Guides
 
 | Platform | File | Status |
 |----------|------|--------|
@@ -14,23 +24,23 @@ Detailed guides for each supported platform, including setup, emulators, and dem
 | Atari ST | [atari-st.md](atari-st.md) | ✅ Complete |
 | ZX Spectrum | [zx-spectrum.md](zx-spectrum.md) | ✅ Complete |
 | PC-Engine/TurboGrafx | [pc-engine.md](pc-engine.md) | ✅ Complete |
+| Sony PlayStation | [sony-playstation.md](sony-playstation.md) | ✅ Complete |
+| Vectrex | [vectrex.md](vectrex.md) | ✅ Complete |
 
-## Quick Reference
+## 🔧 Quick Reference
 
 ```bash
-# Run any demo (auto-detect)
-showet-executor /path/to/demo.zip
+# One-command runner (download + install + run)
+showet-auto "Second Reality"
+showet-auto 12345                    # Pouet ID
+showet-auto /path/to/demo.zip         # Local file
 
-# Run with explicit platform
-showet-executor /path/to/demo.d64 --platform commodore_64
-showet-executor /path/to/demo.adf --platform commodore_amiga
-showet-executor /path/to/demo.exe --platform microsoft_msdos
-showet-executor /path/to/demo.nes --platform nintendo_famicom
+# Manual workflow
+showet-installer install                    # Install emulators
+showet-archive demo.zip --extract            # Extract archives
+showet-executor demo.d64 --prefer-retroarch  # Run demo
 ```
 
-## Complete Platform Index
-See [PLATFORM_INDEX.md](../PLATFORM_INDEX.md) for all 85 supported platforms.
-
 ## Related
-- [README.md](../../README.md) - Full setup guide
+- [README.md](../../README.md) - Project overview & installation
 - [ROADMAP.md](../../ROADMAP.md) - Future enhancements
