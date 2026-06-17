@@ -93,6 +93,9 @@ Homepage = "https://github.com/itsdarklikehell/showet"
 Repository = "https://github.com/itsdarklikehell/showet"
 Documentation = "https://github.com/itsdarklikehell/showet#readme"
 
+[tool.poetry.scripts]
+scene-org = "scene_org_integration:main"
+
 [tool.ruff]
 line-length = 88
 target-version = "py310"

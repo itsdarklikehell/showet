@@ -174,23 +174,30 @@ class SceneOrgClient:
 
 
 # CLI interface
+def main():
+    """CLI entry point for scene.org integration."""
+    import argparse
+    parser = argparse.ArgumentParser(description="Showet scene.org integration")
+    parser.add_argument("--search", "-s", help="Search demos")
+    parser.add_argument("--party", "-p", help="Get demos from a party")
+    parser.add_argument("--year", "-y", type=int, help="Year for party search")
+    parser.add_argument("--download", "-d", help="Download a demo URL")
+    parser.add_argument("--output", "-o", default="demos", help="Download directory")
+    args = parser.parse_args()
+
+    client = SceneOrgClient(download_dir=args.output)
+
+    if args.search:
+        results = client.search_demos(args.search)
+        for r in results:
+            print(f"  {r.get('name', 'Unknown')} - {r.get('url', 'N/A')}")
+    elif args.party:
+        demos = client.get_party_demos(args.party, args.year)
+        for d in demos:
+            print(f"  {d['name']} - {d.get('url', 'N/A')}")
+    elif args.download:
+        path = client.download_demo(args.download)
+        print(f"Downloaded to: {path}")
+
 if __name__ == "__main__":
-    import sys
-    
-    client = SceneOrgClient()
-    
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "--party" and len(sys.argv) > 2:
-            party = sys.argv[2]
-            year = int(sys.argv[3]) if len(sys.argv) > 3 else None
-            demos = client.get_party_demos(party, year)
-            for d in demos:
-                print(f"  {d['name']} - {d['url']}")
-        elif sys.argv[1] == "--download" and len(sys.argv) > 2:
-            url = sys.argv[2]
-            client.download_demo(url)
-        else:
-            query = sys.argv[1]
-            results = client.search_demos(query)
-            for r in results:
-                print(f"  {r.get('name', 'Unknown')} - {r.get('url', 'N/A')}")
+    main()
