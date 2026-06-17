@@ -112,9 +112,9 @@ All platform configs are in `nostalgist_configs/` as JSON. Each config includes:
 - `originalName` - Display name
 
 ## Related Documentation
-- [README.md](/README.md) - Full setup guide
-- [ROADMAP.md](/ROADMAP.md) - Future enhancements
-- [CHANGELOG.md](/CHANGELOG.md) - Version history
+- [README.md](README.md) - Full setup guide
+- [ROADMAP.md](ROADMAP.md) - Future enhancements
+- [CHANGELOG.md](CHANGELOG.md) - Version history
 
 ---
 *Showet v2.1 - Universal demo-runner with 85 platform support*
