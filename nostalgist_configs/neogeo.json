@@ -1,0 +1,13 @@
+{
+    "platform": "neogeo",
+    "core": "fbneo",
+    "emulator": "fbneo",
+    "shader": "crt/crt-easymode",
+    "display": {
+        "width": 320,
+        "height": 224
+    },
+    "sound": {
+        "type": "8-bit"
+    }
+}
