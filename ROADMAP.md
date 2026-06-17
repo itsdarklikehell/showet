@@ -85,3 +85,9 @@ The future of demoscene viewing is here. ShowEt is now the definitive, immersive
 | Demo recording | Built-in capture for creating content | ✅ Done |
 | Sound theme expansion | Additional platform-specific ambience | Planned |
 | CRT OSD effects | On-screen display effects (power LED, channel numbers) | ✅ Done |
+
+### 📋 Phase 8 Enhancements
+| Feature | Description | Status |
+|---------|-------------|--------|
+| AI Curator Enhancement | Scene.org discovery + rating predictions | ✅ Done |
+| Local Cache Manager | Offline demo playback support | ✅ Done |

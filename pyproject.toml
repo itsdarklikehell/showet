@@ -95,6 +95,7 @@ Documentation = "https://github.com/itsdarklikehell/showet#readme"
 
 [tool.poetry.scripts]
 scene-org = "scene_org_integration:main"
+showet-cache = "showet_cache_manager:main"
 
 [tool.ruff]
 line-length = 88

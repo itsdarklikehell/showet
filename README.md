@@ -212,8 +212,11 @@ Click the "🏛️ Museum Mode" button in the viewer to begin!
 | `showet` | Run a demo by Pouet ID |
 | `showet-recorder` | Record demos with retro-authentic CRT encoding |
 | `scene-org` | Search and download demos from scene.org archives |
+| `showet-cache` | Manage local offline demo cache |
 | `showet-ai` | AI-powered demo discovery and rating predictions |
 | `showet-stream` | Stream demos to Twitch/YouTube |
+| `showet-launcher` | Unified launcher with streaming |
+| `showet-spotlight` | Featured demos + hall of fame |
 | `showet-launcher` | Unified launcher with streaming |
 | `showet-spotlight` | Featured demos + hall of fame |
 | `showet-status` | System status dashboard |
