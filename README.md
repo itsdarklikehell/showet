@@ -206,10 +206,14 @@ Perfect for demoparties, museums, or public installations:
 
 Click the "🏛️ Museum Mode" button in the viewer to begin!
 
-### 🔧 Complete CLI Toolset
+---
+
+## 🔧 Complete CLI Toolset (v2.1)
 | Command | Description |
 |---------|-------------|
 | `showet` | Run a demo by Pouet ID |
+| `showet-executor` | Universal demo executor with auto-detection |
+| `showet-archive` | Extract demo archives (ZIP/RAR/7z/LHA) |
 | `showet-recorder` | Record demos with retro-authentic CRT encoding |
 | `scene-org` | Search and download demos from scene.org archives |
 | `showet-cache` | Manage local offline demo cache |
@@ -217,24 +221,42 @@ Click the "🏛️ Museum Mode" button in the viewer to begin!
 | `showet-stream` | Stream demos to Twitch/YouTube |
 | `showet-launcher` | Unified launcher with streaming |
 | `showet-spotlight` | Featured demos + hall of fame |
-| `showet-launcher` | Unified launcher with streaming |
-| `showet-spotlight` | Featured demos + hall of fame |
 | `showet-status` | System status dashboard |
 | `showet-parties` | Upcoming demoparty calendar |
 | `demo-viewer` | Demo metadata viewer |
-| `save_stream_key` | Securely store stream credentials |
-| `showet_ai_curator.py` | AI-powered demo recommendations |
-| `hardware_bridge.py` | Hardware-accelerated streaming |
-| `showet-lan.py` | LAN multiplayer synchronization |
-| `showet-party-mode.py` | Start Party Mode server for synchronized viewing |
-| `showet-museum-mode.js` | Exhibition-quality fullscreen demo presentation |
-| `showet-shader-playground.js` | Competition mode with URL sharing |
-| `showet-preview-clips.js` | Demo preview clip system |
-| `showet-demo-scoring.py` | Historical significance scoring algorithm |
-| `showet-scaffold.py` | Platform addition CLI tool |
-| `scene_org_integration.py` | Download demos directly from scene.org archives |
-| `showet-osd-controls.js` | CRT on-screen display effects (power LED, channel numbers) |
 
 ---
+
+## 🌐 Integrated Projects & Sources
+
+Showet integrates with the entire demoscene ecosystem:
+
+### Demo Databases
+- **[Pouet.net](https://www.pouet.net)** - Primary demo database, API integration
+- **[Scene.org](https://scene.org)** - Official demoscene archive, direct downloads
+- **[Demozoo.org](https://demozoo.org)** - Extended demoscene metadata
+- **[ArtCity](https://artcity.bitfellas.org)** - Demoscene art and screenshots
+
+### Music Archives
+- **[ModArchive.org](https://modarchive.org)** - Module downloads for synth demos
+- **[HVSC](http://hvsc.c64.org)** - High Voltage SID Collection (C64)
+- **[ASMA](http://asma.scene.org)** - Amiga Scene Music Archive
+
+### Emulation & Runtime
+- **[RetroArch/libretro](https://www.retroarch.com)** - Universal cores
+- **[nostalgist.js](https://nostalgist.js.org)** - Browser-based RetroArch wrapper
+- **[Television Simulator '99](https://github.com/sgtstroopwafel/television-simulator-99)** - CRT TV visual frontend
+- **[Wine](https://www.winehq.org)** - Windows compatibility layer
+- **[DOSBox-X](https://dosbox-x.com)** - Enhanced DOS emulation
+- **[VICE](https://vice-emu.sourceforge.io)** - C64/Amiga/VIC-20 emulator
+- **[FS-UAE](https://fs-uae.net)** - Amiga emulation
+
+### Authentic Experience
+- **[BezelProject](https://www.bezelproject.com)** - Platform-specific screen bezels
+- **[Libretro Shaders](https://github.com/libretro/common-shaders)** - CRT effects
+- **[The Museum of Art & Digital Entertainment](https://themade.org)** - Historical context
+
+---
+
 *The demo-runner of the future is now streaming-ready! 📺*
 *With authentic CRT shaders, real-time collaboration, and AI-powered discovery.*

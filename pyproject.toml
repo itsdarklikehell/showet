@@ -74,6 +74,8 @@ chat-overlay = "chat_overlay:main"
 
 [project.scripts]
 showet = "showet:main"
+showet-executor = "showet_executor:main"
+showet-archive = "showet_archive_handler:main"
 showet-api = "showet_api:main"
 showet-webui = "showet_webui:launch_browser"
 showet-parties = "showet_parties:main"
