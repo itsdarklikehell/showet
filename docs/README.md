@@ -24,6 +24,7 @@ Detailed guides for each supported platform, including setup, emulators, and dem
 | Sega Megadrive/Genesis | [sega-megadrive.md](sega-megadrive.md) | ✅ Complete |
 | Sega Master System | [sega-master-system.md](sega-master-system.md) | ✅ Complete |
 | Nintendo Game Boy | [nintendo-gameboy.md](nintendo-gameboy.md) | ✅ Complete |
+| Atari 2600/VCS | [atari-2600.md](atari-2600.md) | ✅ Complete |
 | Atari ST | [atari-st.md](atari-st.md) | ✅ Complete |
 | ZX Spectrum | [zx-spectrum.md](zx-spectrum.md) | ✅ Complete |
 | PC-Engine/TurboGrafx | [pc-engine.md](pc-engine.md) | ✅ Complete |
