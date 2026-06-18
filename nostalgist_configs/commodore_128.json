@@ -6,5 +6,14 @@
     "backgroundColor": "black",
     "width": "100%",
     "height": "100%"
-  }
+  },
+  "extensions": [
+    "d64",
+    "d71",
+    "d81",
+    "t64",
+    "tap",
+    "prg",
+    "p00"
+  ]
 }

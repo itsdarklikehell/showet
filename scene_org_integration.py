@@ -108,7 +108,7 @@ class SceneOrgClient:
                 parser = LinkExtractor()
                 parser.feed(response.text)
                 
-                for link in parser.links[:limit]:
+                for link in parser.links[:20]:
                     results.append({
                         "name": os.path.basename(link),
                         "url": f"{url}/{link}" if not link.startswith('http') else link,

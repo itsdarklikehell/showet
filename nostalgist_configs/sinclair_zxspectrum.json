@@ -6,5 +6,14 @@
     "backgroundColor": "black",
     "width": "100%",
     "height": "100%"
-  }
+  },
+  "extensions": [
+    "tzx",
+    "tap",
+    "z80",
+    "rzx",
+    "scl",
+    "trd",
+    "dsk"
+  ]
 }

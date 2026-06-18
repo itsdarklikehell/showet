@@ -6,5 +6,23 @@
     "backgroundColor": "black",
     "width": "100%",
     "height": "100%"
-  }
+  },
+  "extensions": [
+    "zip",
+    "mdx",
+    "md",
+    "smd",
+    "gen",
+    "bin",
+    "cue",
+    "iso",
+    "sms",
+    "bms",
+    "gg",
+    "sg",
+    "68k",
+    "sgd",
+    "chd",
+    "m3u"
+  ]
 }
