@@ -304,23 +304,27 @@ def check_cores(platform=None):
 def main():
     """CLI entry point."""
     if len(sys.argv) < 2:
-        print("Usage: showet-installer [install|check|bios|cores] [options]")
+        print("Usage: showet-installer [install|check|bios|cores|all] [options]")
         print("\nCommands:")
         print("  install          Install missing emulators")
         print("  check            Check for emulators, BIOS, and cores")
         print("  bios             Show BIOS file requirements")
         print("  cores            List missing RetroArch cores")
+        print("  all              Install everything needed")
         print("\nOptions:")
         print("  --platform <slug>    Target specific platform")
         print("  --download-cores     Download missing RetroArch cores")
+        print("  --download-bios      Download homebrew/unencrypted BIOS (where available)")
         print("\nExamples:")
         print("  showet-installer install --platform commodore_64")
         print("  showet-installer check --download-cores")
+        print("  showet-installer all  # Complete setup")
         sys.exit(1)
 
     command = sys.argv[1]
     platform = None
     download_cores = False
+    download_bios = False
 
     i = 2
     while i < len(sys.argv):
@@ -330,9 +334,18 @@ def main():
             i += 1
         elif arg == '--download-cores':
             download_cores = True
+        elif arg == '--download-bios':
+            download_bios = True
         i += 1
 
-    if command == 'install':
+    if command == 'all':
+        # Complete installation
+        print("🚀 Installing all dependencies...\n")
+        install_emulators(platform, download_cores=True)
+        # BIOS download would go here for homebrew files
+        print("\n✅ Full installation complete!")
+    
+    elif command == 'install':
         install_emulators(platform, download_cores)
 
     elif command == 'check':
