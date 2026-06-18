@@ -118,3 +118,5 @@ Full universal execution across all pouet.net/scene.org platforms with automatic
 - ✅ **Platform Documentation** - Complete PLATFORM_INDEX.md with 85 platforms
 - ✅ **Integration Sources** - All external projects documented in README
 - ✅ **Archive Format Support** - Detailed extraction methods
+- ✅ **Setup Wizard** - Interactive first-time configuration (`showet-setup-wizard`)
+- ✅ **Startup Sounds** - Authentic platform boot sounds in Sound Theme Manager
