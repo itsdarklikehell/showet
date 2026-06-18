@@ -24,6 +24,7 @@
 - **External Sources** - All integrations documented in README
 - **One-Command Runner** (`showet-auto`) - Complete download → install → run pipeline
 - **Consolidated Docs** - Single clean `docs/` folder structure
+- **Setup Wizard** (`showet-setup-wizard`) - Interactive first-time configuration
 
 ## 🚀 Quick Start
 
@@ -34,6 +35,9 @@ pip install -e .
 # Launch Showcase
 python3 -m http.server 8000
 open http://localhost:8000/showet-showcase.html
+
+# Setup Wizard (first time only)
+showet-setup-wizard
 
 # CLI Tools
 scene-org --search "Assembly 2024"
@@ -49,10 +53,12 @@ showet-auto 12345
 
 # Install emulators
 showet-installer install
+```
 
 ## 🏆 The Demo-Runner of the Future
 With authentic CRT shaders, immersive soundscapes, AI-powered discovery, and universal execution - Showet is the definitive demoscene experience.
 
 ---
-*v2.1 - Where nostalgia meets modern convenience*
+*Showet v2.2 - Nostalgia++ Edition*
+*Setup Wizard + More Platforms*
 *June 2026*

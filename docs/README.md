@@ -20,7 +20,10 @@ Detailed guides for each supported platform, including setup, emulators, and dem
 | Commodore Amiga | [commodore-amiga.md](commodore-amiga.md) | ✅ Complete |
 | MS-DOS PC | [ms-dos.md](ms-dos.md) | ✅ Complete |
 | Nintendo Famicom/NES | [nintendo-famicom.md](nintendo-famicom.md) | ✅ Complete |
+| Super Nintendo/Super Famicom | [super-nintendo.md](super-nintendo.md) | ✅ Complete |
 | Sega Megadrive/Genesis | [sega-megadrive.md](sega-megadrive.md) | ✅ Complete |
+| Sega Master System | [sega-master-system.md](sega-master-system.md) | ✅ Complete |
+| Nintendo Game Boy | [nintendo-gameboy.md](nintendo-gameboy.md) | ✅ Complete |
 | Atari ST | [atari-st.md](atari-st.md) | ✅ Complete |
 | ZX Spectrum | [zx-spectrum.md](zx-spectrum.md) | ✅ Complete |
 | PC-Engine/TurboGrafx | [pc-engine.md](pc-engine.md) | ✅ Complete |

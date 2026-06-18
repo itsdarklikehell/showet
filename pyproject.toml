@@ -12,7 +12,7 @@ keywords = ["demoscene", "retro", "emulation", "pouet"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
-    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -58,6 +58,11 @@ ruff = "^0.1.0"
 
 [tool.poetry.scripts]
 showet = "showet:main"
+showet-auto = "showet_auto:main"
+showet-setup-wizard = "showet_setup_wizard:main"
+showet-executor = "showet_executor:main"
+showet-archive = "showet_archive_handler:main"
+showet-installer = "showet_dependency_installer:main"
 showet-api = "showet_api:main"
 showet-webui = "showet_webui:launch_browser"
 showet-parties = "showet_parties:main"
@@ -71,10 +76,14 @@ showet-status = "showet_status:main"
 showet-spotlight = "demo_spotlight:main"
 showet-notifier = "party_notifier:main"
 chat-overlay = "chat_overlay:main"
+scene-org = "scene_org_integration:main"
+showet-cache = "showet_cache_manager:main"
+showet-ai = "showet_ai_curator:main"
 
 [project.scripts]
 showet = "showet:main"
 showet-auto = "showet_auto:main"
+showet-setup-wizard = "showet_setup_wizard:main"
 showet-executor = "showet_executor:main"
 showet-archive = "showet_archive_handler:main"
 showet-installer = "showet_dependency_installer:main"
@@ -96,10 +105,6 @@ chat-overlay = "chat_overlay:main"
 Homepage = "https://github.com/itsdarklikehell/showet"
 Repository = "https://github.com/itsdarklikehell/showet"
 Documentation = "https://github.com/itsdarklikehell/showet#readme"
-
-[tool.poetry.scripts]
-scene-org = "scene_org_integration:main"
-showet-cache = "showet_cache_manager:main"
 
 [tool.ruff]
 line-length = 88
