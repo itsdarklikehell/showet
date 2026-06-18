@@ -149,6 +149,32 @@ open http://localhost:8000/showet-showcase.html
 - **S** - Shader selection
 - **M** - Mute/Unmute
 - **Space** - Pause emulation
+- **J** - Jukebox mode toggle
+
+## Setup Wizard Integration
+
+TVS99 can be configured via the Showet setup wizard:
+
+```bash
+# Run setup wizard
+showet-setup-wizard
+
+# Or quick Web UI setup
+showet-webui
+```
+
+The wizard detects available emulators and generates appropriate configs for nostalgist.js integration.
+
+## Jukebox Browser Mode
+
+For browser-based jukebox functionality, use the showcase page with auto-advance:
+
+```javascript
+// Auto-play demos in sequence
+setInterval(() => {
+    if (!isPlaying) launchRandomDemo();
+}, 300000); // 5 minutes between demos
+```
 
 ## Troubleshooting
 

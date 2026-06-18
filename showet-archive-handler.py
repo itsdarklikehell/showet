@@ -8,6 +8,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+
 class ArchiveHandler:
     """Handles extraction of common demoscene archive formats."""
     
@@ -37,10 +38,10 @@ class ArchiveHandler:
             cmd = ['unzip', '-o', str(archive), '-d', str(self.work_dir)]
             if password:
                 cmd.extend(['-P', password])
-            subprocess.run(cmd, check=True, capture_output=True)
+            result = subprocess.run(cmd, check=True, capture_output=True, text=True)
             return list(self.work_dir.rglob('*'))
         except subprocess.CalledProcessError as e:
-            print(f"ZIP extraction failed: {e}")
+            print(f"ZIP extraction failed: {e.stderr}")
             return None
     
     def _extract_rar(self, archive, password=None):
@@ -49,9 +50,10 @@ class ArchiveHandler:
             cmd = ['unrar', 'x', '-o+', str(archive), str(self.work_dir) + '/']
             if password:
                 cmd.extend(['-p' + password])
-            subprocess.run(cmd, check=True, capture_output=True)
+            result = subprocess.run(cmd, check=True, capture_output=True, text=True)
             return list(self.work_dir.rglob('*'))
-        except subprocess.CalledProcessError:
+        except subprocess.CalledProcessError as e:
+            print(f"RAR extraction failed: {e.stderr}")
             return None
     
     def _extract_7z(self, archive, password=None):
@@ -60,18 +62,20 @@ class ArchiveHandler:
             cmd = ['7z', 'x', str(archive), f'-o{self.work_dir}']
             if password:
                 cmd.append(f'-p{password}')
-            subprocess.run(cmd, check=True, capture_output=True)
+            result = subprocess.run(cmd, check=True, capture_output=True, text=True)
             return list(self.work_dir.rglob('*'))
-        except subprocess.CalledProcessError:
+        except subprocess.CalledProcessError as e:
+            print(f"7z extraction failed: {e.stderr}")
             return None
     
     def _extract_lha(self, archive, password=None):
         """Extract LHA/LZH archive (common for Amiga/PC-98 demos)."""
         try:
             cmd = ['lha', 'x', str(archive), str(self.work_dir) + '/']
-            subprocess.run(cmd, check=True, capture_output=True)
+            result = subprocess.run(cmd, check=True, capture_output=True, text=True)
             return list(self.work_dir.rglob('*'))
-        except subprocess.CalledProcessError:
+        except subprocess.CalledProcessError as e:
+            print(f"LHA extraction failed: {e.stderr}")
             return None
     
     def cleanup(self):
@@ -90,11 +94,15 @@ def main():
     password = None
     list_only = False
     
-    for i, arg in enumerate(sys.argv[2:], 2):
-        if arg == '--password' and i < len(sys.argv):
+    i = 2
+    while i < len(sys.argv):
+        arg = sys.argv[i]
+        if arg == '--password' and i + 1 < len(sys.argv):
             password = sys.argv[i + 1]
+            i += 1
         if arg == '--list':
             list_only = True
+        i += 1
     
     handler = ArchiveHandler()
     files = handler.extract(archive_path, password)

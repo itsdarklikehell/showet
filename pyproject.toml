@@ -62,6 +62,7 @@ showet-ai = "showet_ai_curator:main"
 showet-browser = "showet_demo_browser:main"
 showet-modarchive = "modarchive_integration:main"
 showet-demozoo = "demozoo_integration:main"
+showet-jukebox = "showet_jukebox:main"
 
 [project.urls]
 Homepage = "https://github.com/itsdarklikehell/showet"

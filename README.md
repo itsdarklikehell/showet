@@ -84,6 +84,7 @@ showet-stream --platform twitch --record --demo 12345
 | `showet-stream` | Stream demos to Twitch/YouTube |
 | `showet-launcher` | Unified launcher with streaming |
 | `showet-spotlight` | Featured demos + hall of fame |
+| `showet-jukebox` | Loop/Shuffle/Repeat demo playback |
 | `showet-status` | System status dashboard |
 | `showet-parties` | Upcoming demoparty calendar |
 | `demo-viewer` | Demo metadata viewer |
@@ -108,34 +109,44 @@ Fullscreen kiosk with automatic demo rotation and curatorial notes.
 
 ## 🌐 Integrated Projects & Sources
 
-Showet connects to the entire demoscene ecosystem:
+Showet connects to the entire demoscene ecosystem, integrating with the following projects and databases:
 
 ### Demo Databases
-- **[Pouet.net](https://www.pouet.net)** - Primary demo database with API integration
-- **[Scene.org](https://scene.org)** - Official demoscene archive, direct downloads
-- **[Demozoo.org](https://demozoo.org)** - Extended demoscene metadata
-- **[ArtCity](https://artcity.bitfellas.org)** - Demoscene art and screenshots
+| Project | URL | Integration |
+|---------|-----|-------------|
+| **Pouet.net** | https://www.pouet.net | Primary demo database with API integration for download links, metadata, ratings |
+| **Scene.org** | https://scene.org | Official demoscene archive since 1997, direct production file downloads |
+| **Demozoo.org** | https://demozoo.org | Extended demoscene metadata, group information, member credits, release dates |
+| **ArtCity** | https://artcity.bitfellas.org | Demoscene art collections, screenshots, visual history |
 
 ### Music Archives
-- **[ModArchive.org](https://modarchive.org)** - Module downloads for synth demos
-- **[HVSC](http://hvsc.c64.org)** - High Voltage SID Collection (C64)
-- **[ASMA](http://asma.scene.org)** - Amiga Scene Music Archive
-- **[VGMParadise](https://vgmparadise.net)** - Video game music archives
+| Project | URL | Integration |
+|---------|-----|-------------|
+| **ModArchive.org** | https://modarchive.org | Module downloads for synth demos, s3m/xm/it/mod formats |
+| **HVSC** | http://hvsc.c64.org | High Voltage SID Collection for authentic C64 music |
+| **ASMA** | http://asma.scene.org | Amiga Scene Music Archive integration |
+| **VGMParadise** | https://vgmparadise.net | Video game music for related demo content |
 
-### Emulation & Runtime
-- **[RetroArch/libretro](https://www.retroarch.com)** - Universal emulation cores
-- **[nostalgist.js](https://nostalgist.js.org)** - Browser-based RetroArch wrapper
-- **[Television Simulator '99](https://github.com/sgtstroopwafel/television-simulator-99)** - CRT TV visual frontend
-- **[Wine](https://www.winehq.org)** - Windows compatibility layer for PC demos
-- **[DOSBox-X](https://dosbox-x.com)** - Enhanced DOS emulation
-- **[VICE](https://vice-emu.sourceforge.io)** - C64/Amiga/VIC-20 emulator
-- **[FS-UAE](https://fs-uae.net)** - Amiga emulation
-- **[Mednafen](https://mednafen.github.io)** - Multi-system emulator
+### Emulation Frameworks
+| Project | URL | Integration |
+|---------|-----|-------------|
+| **RetroArch/libretro** | https://www.retroarch.com | Universal core-based emulation, primary runtime backend |
+| **nostalgist.js** | https://nostalgist.js.org | Browser-based RetroArch wrapper for web demos |
+| **Television Simulator '99** | https://github.com/sgtstroopwafel/television-simulator-99 | CRT TV visual frontend with authentic display effects |
+| **Wine** | https://www.winehq.org | Windows compatibility layer for PC demos |
+| **DOSBox-X** | https://dosbox-x.com | Enhanced DOS emulation for MS-DOS productions |
+| **VICE** | https://vice-emu.sourceforge.io | C64/Amiga/VIC-20 native emulator |
+| **FS-UAE** | https://fs-uae.net | Amiga emulation with WHDLoad support |
+| **Mednafen** | https://mednafen.github.io | Multi-system emulator fallback |
 
-### Authentic Experience
-- **[BezelProject](https://www.bezelproject.com)** - Platform-specific screen bezels
-- **[Libretro Shaders](https://github.com/libretro/common-shaders)** - CRT effects
-- **[The Museum of Art & Digital Entertainment](https://themade.org)** - Historical context
+### Authentic Experience Assets
+| Project | URL | Integration |
+|---------|-----|-------------|
+| **Television Simulator '99** | https://github.com/sgtstroopwafel/television-simulator-99 | CRT TV visual frontend with authentic display effects, OSD controls, jukebox mode |
+| **nostalgist.js** | https://nostalgist.js.org | Browser-based RetroArch wrapper for web demos |
+| **BezelProject** | https://www.bezelproject.com | Platform-specific screen bezels for CRT/cab simulation |
+| **Libretro Shaders** | https://github.com/libretro/common-shaders | CRT effects (Easymode, Royale, Pi, etc.) |
+| **The Made** | https://themade.org | Historical context and demoscene preservation |
 
 ## 📂 Supported Platforms (84+)
 
@@ -263,6 +274,36 @@ docker run -p 8000:8000 showet
 
 ### GitHub Actions
 CI automatically builds on push to main branch.
+
+## 🎵 Jukebox Mode - Loop/Shuffle/Repeat
+
+Showet's jukebox mode provides continuous demo playback with intelligent looping:
+
+```bash
+# Play multiple demos in shuffle mode
+showet-jukebox --ids 12345 67890 11223 --shuffle random --repeat all
+
+# Play looped demos 3 times in shuffle
+showet-jukebox --ids 12345 67890 --loops 3 --shuffle random
+
+# Repeat a single demo
+showet-jukebox --ids 12345 --repeat one
+
+# Custom timeout per demo
+showet-jukebox --ids 12345 67890 --timeout 600
+```
+
+### Loop Detection
+Showet automatically detects looping demos based on:
+- Pouet.net tags (keywords: "loop", "looping")
+- Demo type (64k/4k intros often loop)
+- File metadata
+
+### Shuffle Intelligence
+When shuffling:
+- Non-looping demos play once
+- Looped demos play up to 3 times (configurable)
+- then automatically advance to next demo
 
 ## 📋 Project Status
 

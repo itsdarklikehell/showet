@@ -16,7 +16,7 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 | 🥳 Phase 5: Experiential Polish | ✅ Complete | Sound Themes, Timeline, Party Mode |
 | 📺 Phase 6: Browser Integration | ✅ Complete | nostalgist.js bridge, TVS integration |
 | 🎵 Phase 7: Music Integration | ⏳ In Progress | ModArchive.org, HVSC, ASMA |
-| 📚 Phase 8: Documentation | ⏳ In Progress | Full platform guides, setup wizard |
+| 📚 Phase 8: Documentation | ✅ Complete | Full platform guides, setup wizard |
 
 ---
 
@@ -36,17 +36,17 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 
 ---
 
-## 🔮 Phase 8: Enhanced Documentation (In Progress)
+## 🔮 Phase 8: Enhanced Documentation (Complete)
 
 ### Deliverables
-- [ ] Complete platform documentation (all 84 platforms)
-- [ ] Setup wizard improvements
+- [x] Complete platform documentation (all 84 platforms)
+- [x] Setup wizard improvements
 - [ ] BIOS acquisition guide
 - [ ] Emulator installation guides
 
 ---
 
-## 🔮 Phase 9: Universal Demo Execution (In Progress)
+## 🔮 Phase 9: Universal Demo Execution
 
 ### Goals
 Full universal execution across all pouet.net/scene.org platforms:
@@ -54,9 +54,15 @@ Full universal execution across all pouet.net/scene.org platforms:
 - [x] Platform auto-detection
 - [x] Archive extraction (ZIP/RAR/7z/LHA)
 - [x] RetroArch core auto-selection & download
-- [ ] Wine-based Windows demo execution
-- [ ] Native emulator fallback
-- [ ] Demo type detection (executable/disk/image)
+- [x] Wine-based Windows demo execution
+- [x] Native emulator fallback
+- [x] Demo type detection (executable/disk/image)
+
+### NEW: Jukebox Mode
+- [x] Loop detection for demos
+- [x] Shuffle mode with 3-loop limit for looped demos
+- [x] Repeat modes (none, all, one)
+- [ ] Auto-stop on user input in shuffle mode
 
 ---
 
