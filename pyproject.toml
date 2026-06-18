@@ -64,6 +64,8 @@ showet-modarchive = "modarchive_integration:main"
 showet-demozoo = "demozoo_integration:main"
 showet-modarchive-enhanced = "modarchive_enhanced:main"
 showet-jukebox = "showet_jukebox:main"
+showet-tvs99 = "tvs99_setup:main"
+showet-check = "showet_check:main"
 
 [project.urls]
 Homepage = "https://github.com/itsdarklikehell/showet"
