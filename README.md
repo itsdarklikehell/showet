@@ -193,7 +193,7 @@ showet-installer install
 showet-installer check
 ```
 
-## 🎮 Usage Examples
+### Usage Examples
 
 ### Download & Run Demo
 ```bash
@@ -205,6 +205,21 @@ showet-executor /path/to/demo.zip
 
 # Stream to Twitch with webcam
 showet-stream --platform twitch --webcam --demo 12345
+
+# Run jukebox with multiple demos
+showet-jukebox --ids 12345 67890 --loops 3 --shuffle random --repeat all
+```
+
+### TVS99 Setup
+```bash
+# Setup Television Simulator '99
+showet-tvs99
+
+# Verify all components work
+showet-check
+
+# Install all dependencies at once
+showet-installer all
 ```
 
 ### Browser Integration
@@ -215,10 +230,10 @@ python3 generate_manifest.py
 
 # Serve the configs
 python3 -m http.server 8000
-# Open: http://localhost:8000/showet-viewer.html
+# Open: http://localhost:8000/showet-showcase.html
 ```
 
-### Demo Discovery
+### Demo Discovery & Music
 ```bash
 # View trending demos
 showet-spotlight
@@ -231,6 +246,9 @@ showet-ai
 
 # Search ModArchive for music modules
 showet-modarchive search "future crew"
+
+# Download modules for jukebox
+showet-modarchive-enhanced jukebox-modules commodore_64
 ```
 
 ## 🏛️ Party Mode - Remote Demoparty Viewing

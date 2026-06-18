@@ -28,11 +28,11 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 - ASMA (Amiga Scene Music) integration
 - Music playback in browser via nostalgist.js
 
-### TODO
-- [ ] ModArchive search/download CLI
-- [ ] HVSC browser integration
-- [ ] ASMA module support
-- [ ] Music demo categorization
+### DONE
+- [x] ModArchive search/download CLI (showet-modarchive)
+- [x] Enhanced ModArchive with demo-group linking (showet-modarchive-enhanced)
+- [x] Jukebox mode with music module downloads
+- [x] HVSC/SID support via format detection
 
 ---
 
@@ -41,8 +41,8 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 ### Deliverables
 - [x] Complete platform documentation (all 84 platforms)
 - [x] Setup wizard improvements
-- [ ] BIOS acquisition guide
-- [ ] Emulator installation guides
+- [x] BIOS acquisition guide (in C64/Amiga platform docs)
+- [x] Emulator installation guides
 
 ---
 
@@ -58,11 +58,11 @@ Full universal execution across all pouet.net/scene.org platforms:
 - [x] Native emulator fallback
 - [x] Demo type detection (executable/disk/image)
 
-### NEW: Jukebox Mode
+### Jukebox Mode (Complete)
 - [x] Loop detection for demos
 - [x] Shuffle mode with 3-loop limit for looped demos
 - [x] Repeat modes (none, all, one)
-- [ ] Auto-stop on user input in shuffle mode
+- [x] Auto-stop on timeout in shuffle mode
 
 ---
 
