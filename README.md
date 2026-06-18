@@ -1,6 +1,6 @@
-# 🗺️ ShowEt Demoscene Demo Runner - v2.1
+# 🗺️ ShowEt Demoscene Demo Runner - v2.2
 
-The definitive, immersive demo-runner for the demoscene with nostalgic flair. Showet provides a unified interface for running demos from pouet.net, scene.org, and modarchive.org across 84+ platforms with authentic CRT presentation.
+The definitive, immersive demo-runner for the demoscene with nostalgic flair. Showet provides a unified interface for running demos from pouet.net, scene.org, and modarchive.org across **84+ platforms** with authentic CRT presentation.
 
 ## 🎯 What is Showet?
 
@@ -11,6 +11,7 @@ Showet transforms your computer into a demoscene powerhouse that can:
 - **Install** missing emulators and RetroArch cores
 - **Run** demos natively or through emulation (RetroArch, Wine, DOSBox)
 - **Stream** to Twitch/YouTube/Facebook with real-time CRT effects
+- **Jukebox Mode** - Continuous playback with loop/shuffle/repeat
 - **Experience** authentic retro visuals with Television Simulator '99
 
 ## 🚀 Quick Start
