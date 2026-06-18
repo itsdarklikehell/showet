@@ -36,27 +36,7 @@ dev = [
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry]
-name = "showet"
-version = "0.1.0"
-description = "Demo viewer using Pouet.net metadata."
-authors = ["SgtStroopwafel <itsdarklikehell@users.noreply.github.com>"]
-license = "GPL-3.0-or-later"
-readme = "README.md"
-packages = [{include = "."}]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-inquirer = "^3.4"
-patool = "^4.0"
-websockets = "^12.0"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.0"
-pytest-cov = "^4.0"
-ruff = "^0.1.0"
-
-[tool.poetry.scripts]
+[project.scripts]
 showet = "showet:main"
 showet-auto = "showet_auto:main"
 showet-setup-wizard = "showet_setup_wizard:main"
@@ -79,27 +59,7 @@ chat-overlay = "chat_overlay:main"
 scene-org = "scene_org_integration:main"
 showet-cache = "showet_cache_manager:main"
 showet-ai = "showet_ai_curator:main"
-
-[project.scripts]
-showet = "showet:main"
-showet-auto = "showet_auto:main"
-showet-setup-wizard = "showet_setup_wizard:main"
-showet-executor = "showet_executor:main"
-showet-archive = "showet_archive_handler:main"
-showet-installer = "showet_dependency_installer:main"
-showet-api = "showet_api:main"
-showet-webui = "showet_webui:launch_browser"
-showet-parties = "showet_parties:main"
-showet-stream = "showet_stream:main"
-showet-relay = "rtmp_relay:main"
-save_stream_key = "save_stream_key:main"
-showet-launcher = "launcher:main"
-demo-viewer = "demo_viewer:main"
-demo-recorder = "demo_recorder:main"
-showet-status = "showet_status:main"
-showet-spotlight = "demo_spotlight:main"
-showet-notifier = "party_notifier:main"
-chat-overlay = "chat_overlay:main"
+showet-browser = "showet_demo_browser:main"
 
 [project.urls]
 Homepage = "https://github.com/itsdarklikehell/showet"
@@ -117,7 +77,6 @@ extend-exclude = [
 select = ["E", "F", "I", "UP", "B"]
 ignore = ["E501"]
 
-# Pytest configuration
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
