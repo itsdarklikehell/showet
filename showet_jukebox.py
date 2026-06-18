@@ -200,6 +200,11 @@ class DemoJukebox:
         # Launch the demo file directly via subprocess
         # In a real implementation, this would use the DemoExecutor
         from showet_archive_handler import ArchiveHandler
+        from showet_platform_runner import get_jukebox_loop_count
+        
+        # Get platform-specific loop count
+        platform_loops = get_jukebox_loop_count(track.platform, track.is_looping)
+        actual_loops = max_loops if max_loops > 1 else platform_loops
         
         process = subprocess.Popen(["showet-executor", str(track.path or track.id)])
         

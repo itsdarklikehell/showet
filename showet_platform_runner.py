@@ -23,6 +23,7 @@ PLATFORM_PROFILES = {
             "prg": None,  # Direct execute
         },
         "crt_shader": "crt/crt-easymode",
+        "jukebox_loops": 3,
     },
     "commodore_amiga": {
         "emulators": ["fs-uae", "retroarch"],
@@ -30,7 +31,12 @@ PLATFORM_PROFILES = {
         "native_runner": "fs-uae",
         "extensions": [".adf", ".hdf"],
         "bios_required": ["kick13.rom", "kick31.rom"],
+        "autostart": {
+            "disk": "WHDLoad",  # Use WHDLoad for demos
+            "hdf": "Boot from HDF",
+        },
         "crt_shader": "crt/crt-royale",
+        "jukebox_loops": 3,
     },
     "microsoft_msdos": {
         "emulators": ["dosbox-x", "retroarch"],
@@ -42,7 +48,11 @@ PLATFORM_PROFILES = {
             "memsize": 16,
             "cycles": "max",
         },
+        "autostart": {
+            "executable": "Auto-run from mounted C:",
+        },
         "crt_shader": "crt/crt-easymode",
+        "jukebox_loops": 1,
     },
     "nintendo_famicom": {
         "emulators": ["fceux", "retroarch"],
@@ -50,6 +60,7 @@ PLATFORM_PROFILES = {
         "native_runner": "fceux",
         "extensions": [".nes", ".fds"],
         "crt_shader": "crt/crt-easymode",
+        "jukebox_loops": 2,  # NES intros often loop
     },
     "nintendo_superfamicom": {
         "emulators": ["snes9x", "retroarch"],
@@ -57,6 +68,32 @@ PLATFORM_PROFILES = {
         "native_runner": "snes9x",
         "extensions": [".smc", ".sfc"],
         "crt_shader": "crt/crt-easymode",
+        "jukebox_loops": 3,
+    },
+    "sega_megadrive": {
+        "emulators": ["retroarch"],
+        "retroarch_core": "genesis_plus_gx",
+        "native_runner": None,
+        "extensions": [".md", ".bin", ".smd"],
+        "crt_shader": "crt/crt-easymode",
+        "jukebox_loops": 2,
+    },
+    "sony_psx": {
+        "emulators": ["pcsxr", "retroarch"],
+        "retroarch_core": "pcsx_rearmed",
+        "native_runner": "pcsxr",
+        "extensions": [".bin", ".cue", ".iso"],
+        "bios_required": ["scph1001.bin"],
+        "crt_shader": "crt/crt-royale",
+        "jukebox_loops": 1,
+    },
+    "zx_spectrum": {
+        "emulators": ["fuse", "retroarch"],
+        "retroarch_core": "fuse",
+        "native_runner": "fuse",
+        "extensions": [".tap", ".tzx", ".z80"],
+        "crt_shader": "crt/crt-pi",
+        "jukebox_loops": 3,
     },
 }
 
@@ -161,6 +198,50 @@ def build_dosbox_cmd(demo_path: str, config: dict) -> list[str]:
 def build_fsuae_cmd(demo_path: str) -> list[str]:
     """Build FS-UAE command."""
     return ["fs-uae", "--floppy-drive-0", demo_path]
+
+
+def get_autostart_commands(platform: str, demo_path: Path) -> list[str]:
+    """Get autostart commands for a platform-specific demo.
+    
+    Args:
+        platform: Platform slug
+        demo_path: Path to demo file
+        
+    Returns:
+        List of autostart commands (platform-specific)
+    """
+    if platform not in PLATFORM_PROFILES:
+        return []
+    
+    profile = PLATFORM_PROFILES[platform]
+    ext = demo_path.suffix.lower()
+    
+    # Check for platform-specific autostart
+    if "autostart" in profile:
+        for key, cmd in profile["autostart"].items():
+            if key in ext or key == "executable":
+                return [cmd] if isinstance(cmd, str) else cmd
+    
+    return []
+
+
+def get_jukebox_loop_count(platform: str, is_looping: bool = False) -> int:
+    """Get default loop count for platform in jukebox mode.
+    
+    Args:
+        platform: Platform slug
+        is_looping: Whether the demo itself loops
+        
+    Returns:
+        Number of times to play in jukebox
+    """
+    if platform in PLATFORM_PROFILES:
+        base_loops = PLATFORM_PROFILES[platform].get("jukebox_loops", 1)
+        if is_looping:
+            # Looped demos get platform's default + 2
+            return base_loops + 2
+        return 1
+    return 1
 
 
 if __name__ == "__main__":
