@@ -5,6 +5,7 @@ Creates markdown files in docs/ for each platform with execution instructions,
 emulator setup, and supported formats.
 """
 
+import json
 import re
 from pathlib import Path
 
@@ -110,7 +111,7 @@ showet-museum --platform {slug}
 
 def generate_platform_docs():
     """Generate documentation for all platform modules."""
-    project_root = Path(__file__).parent
+    project_root = Path(__file__).parent.parent  # scripts is in project root
     docs_dir = project_root / "docs"
     docs_dir.mkdir(exist_ok=True)
 
@@ -168,6 +169,7 @@ def generate_platform_docs():
             example_id=str(_get_example_id(internal_slug)),
             example_ext=extensions[0] if extensions else "zip",
             shader="Easymode",
+            format_table=format_table,
             trouble_list=trouble_list,
             hall_of_fame=hall_of_fame,
         )

@@ -1,120 +1,74 @@
-# Showet Platform Documentation Index - v2.1
+# Showet Platform Index
 
-## Overview
-Showet supports **85 platforms** across 5 decades of computing history. Each platform is integrated with period-authentic emulators, shaders, and optional sound themes.
+Complete list of all 84+ supported platforms with links to detailed documentation.
 
-## Platform Categories
+## Home Computers (8-bit & 16-bit Era)
 
-### Home Computers (8-bit & 16-bit Era)
-| Platform | Emulator | Core/Runner | Default Shader | Archive Format |
-|----------|----------|-------------|----------------|----------------|
-| Commodore 64 | VICE | vice_x64sc | CRT-Easymode | D64, T64, PRG, CRT |
-| Commodore 128 | VICE | vice_x128 | CRT-Royale | D64, T64 |
-| Commodore Amiga | FS-UAE/UAE | puae | CRT-Royale | ADF, HDF, WHDLoad |
-| Atari 8-bit | Atari800 | atari800 | CRT-PI | ATR, XEX |
-| Atari ST | Hatari | hatari | CRT-Easymode | ST, MSA |
-| ZX Spectrum | Fuse | fuse | CRT-PI | TAP, TZX, Z80 |
-| Amstrad CPC | Caprice32 | cap32 | CRT-Easymode | DSK, IPF |
-| MSX | blueMSX | bluemsx | CRT-PI | ROM, DSK |
-| PC-Engine/TurboGrafx | Mednafen | mednafen_supergrafx | CRT-Easymode | PCE, ISO |
+| Platform | Docs | Emulator |
+|----------|------|----------|
+| **Commodore 64** | [commodore-64.md](commodore-64.md) | VICE, RetroArch |
+| **Commodore Amiga** | [commodore-amiga.md](commodore-amiga.md) | FS-UAE, RetroArch |
+| **Commodore 128** | [commodore-128.md](docs/commodore-128.md) | VICE |
+| **Commodore VIC-20** | [commodore-vic20.md](docs/commodore-vic20.md) | VICE |
+| **Commodore Plus/4** | [commodore-plus4.md](docs/commodore-plus4.md) | VICE |
+| **Atari 8-bit** | [atari-xlxe.md](docs/atari-xlxe.md) | Atari800 |
+| **Atari ST/Falcon** | [atari-stettfalcon.md](docs/atari-stettfalcon.md) | Hatari |
+| **ZX Spectrum** | [sinclair-zxspectrum.md](docs/sinclair-zxspectrum.md) | Fuse |
+| **ZX81** | [sinclair-zx81.md](docs/sinclair-zx81.md) | Fuse |
+| **Amstrad CPC** | [amstrad-cpcplus.md](docs/amstrad-cpcplus.md) | Cap32 |
+| **MSX** | [microsoft-msx.md](docs/microsoft-msx.md) | BlueMSX |
+| **PC Engine/TurboGrafx** | [nec-pcengine.md](docs/nec-pcengine.md) | Mednafen |
+| **PC-8800/PC-98** | [nec-pc8800.md](docs/nec-pc8800.md), [nec-pc98.md](docs/nec-pc98.md) | Quasi88/Nekop2 |
+| **Apple II/IIGS** | [apple-applei.md](docs/apple-applei.md), [apple-appleiigs.md](docs/apple-appleiigs.md) | MiniVMac |
+| **Enterprise EP128** | [enterprise-ep128.md](docs/enterprise-ep128.md) | EP128Emu |
+| **Oric** | [tangerine-oric.md](docs/tangerine-oric.md) | Oric |
+| **Thomson MO/TO** | [thomson-moto.md](docs/thomson-moto.md) | Theodore |
 
-### Gaming Consoles
-| Platform | Emulator | Default Shader | Archive Format |
-|----------|----------|----------------|----------------|
-| NES/Famicom | FCEUX/QuickNES | CRT-Easymode | NES, FDS |
-| SNES/Super Famicom | Snes9x | CRT-PI | SMC, SFC |
-| Sega Master System | Genesis Plus GX | CRT-PI | SMS |
-| Sega Megadrive/Genesis | Genesis Plus GX | CRT-Easymode | MD, BIN |
-| Sega Saturn | Yabause | CRT-Royale | BIN, ISO |
-| Sony PlayStation | PCSX-ReARMed | CRT-Royale | BIN, ISO, CUE |
-| Nintendo 64 | Mupen64Plus | CRT-Royale | N64, Z64 |
-| Atari 2600 | Stella | CRT-PI | A26, BIN |
-| Atari 7800 | ProSystem | CRT-PI | A78 |
-| Atari Lynx | Handy | CRT-Easymode | LYNX |
-| Nintendo Game Boy | Gambatte | CRT-PI | GB, GBC |
-| Nintendo Game Boy Advance | Meteor | CRT-Royale | GBA |
-| Neo Geo | FinalBurn Neo | CRT-Easymode | NG, ZIP |
-| Neo Geo Pocket | Mednafen | CRT-Easymode | NGP |
-| PC-FX | Mednafen | CRT-Royale | PCFX |
+## Gaming Consoles
 
-### Arcade & Specialized Systems
-| Platform | Emulator | Default Shader | Archive Format |
-|----------|----------|----------------|----------------|
-| Arcade (MAME) | MAME | CRT-Royale | ZIP |
-| Vectrex | VecX | CRT-Easymode | BIN |
-| WonderSwan | Mednafen | CRT-PI | WSR |
-| 3DO | 4DO | CRT-Royale | ISO |
-| Phillips CD-i | Sinden | CRT-Easymode | ISO, CHD |
+| Platform | Docs | Emulator |
+|----------|------|----------|
+| **NES/Famicom** | [nintendo-famicom.md](docs/nintendo-famicom.md) | FCEUX, RetroArch |
+| **SNES/Super Famicom** | [nintendo-superfamicom.md](docs/nintendo-superfamicom.md) | Snes9x, RetroArch |
+| **Nintendo 64** | [nintendo-n64.md](docs/nintendo-n64.md) | Mupen64Plus |
+| **GameCube** | [nintendo-gamecube.md](docs/nintendo-gamecube.md) | Dolphin |
+| **PS1** | [sony-psx.md](sony-psx.md) | PCSX-ReARMed, RetroArch |
+| **PS2** | [sony-ps2.md](docs/sony-ps2.md) | PCSX2 |
+| **Sega Genesis** | [sega-megadrive.md](docs/sega-megadrive.md) | Genesis Plus GX |
+| **Sega Master System** | [sega-mastersystem.md](docs/sega-mastersystem.md) | Gearsystem |
+| **Sega Game Gear** | [sega-gamegear.md](docs/sega-gamegear.md) | Gearsystem |
+| **Sega Dreamcast** | [sega-dreamcast.md](docs/sega-dreamcast.md) | Flycast |
+| **Sega Saturn** | [sega-saturn.md](docs/sega-saturn.md) | Yabause |
+| **Atari 2600** | [atari-2600.md](atari-2600.md) | Stella, RetroArch |
+| **Atari 5200/Lynx** | [atari-5200.md](docs/atari-5200.md), [atari-lynx.md](docs/atari-lynx.md) | Atari800, Handy |
 
-### Modern Platforms
-| Platform | Runner | Notes |
-|----------|--------|-------|
-| Windows PC | Wine + Native | For modern demos |
-| Linux Native | Native | Direct execution |
-| WebGL/DOSBox | Emscripten | Browser-based DOS demos |
+## Arcade & Specialized Systems
 
-## Integration Sources
+| Platform | Docs | Emulator |
+|----------|------|----------|
+| **Arcade (MAME)** | [arcade-arcade.md](docs/arcade-arcade.md) | RetroArch (MAME2003) |
+| **PICO-8** | [fancon-pico8.md](docs/fancon-pico8.md) | Retro8 |
+| **Flash/SWF** | [flash-ruffle.md](docs/flash-ruffle.md) | Ruffle |
+| **Video/FFmpeg** | [wild-videoffmpeg.md](docs/wild-videoffmpeg.md) | FFmpeg via RetroArch |
+| **Game Music** | [wild-gamemusic.md](docs/wild-gamemusic.md) | GME |
 
-### External Platforms & APIs
-- **Pouet.net** - Primary demo database (download links, metadata, ratings)
-- **Scene.org** - Official demoscene archive (production files)
-- **ModArchive.org** - Music module downloads (for synth demos)
-- **Demozoo.org** - Extended demoscene metadata
-- **ArtCity** - Demoscene art and screenshots
-- **HVSC** - High Voltage SID Collection (C64 music)
+## Using Showet with Platforms
 
-### Emulation Frameworks
-- **RetroArch/libretro** - Universal core-based emulation (recommended)
-- **nostalgist.js** - Browser-based RetroArch wrapper
-- **Television Simulator '99** - CRT TV visual frontend
-- **Wine** - Windows compatibility layer
-- **DOSBox-X/Boxer** - DOS emulation with enhanced features
+### Jukebox Mode
+Play demos from specific platforms with loop detection:
+```bash
+showet-jukebox --ids 12345 --platform commodore_64 --loops 3
+```
 
-### Authentic Experience Files
-- **BezelProject** - Platform-specific screen bezels
-- **CRT Shaders** - scanline, curvature, phosphor effects (see shaders/)
-- **HVSC** - Authentic SID chip music for C64 demos
-- **ASMA** - Amiga scene music archive
+### Platform-Specific Features
+- **C64/Amiga**: Full WHDLoad/BIOS support
+- **DOS**: Automatic DOSBox config generation
+- **NES/SNES**: Fast loading with RetroArch cores
+- **Video demos**: Direct FFmpeg playback
 
-## Archive Format Support
+## Contributing
 
-Showet handles all common demoscene archive formats:
-
-| Format | Extension | Tool |
-|--------|-----------|------|
-| ZIP | .zip | unzip |
-| RAR | .rar | unrar |
-| 7-Zip | .7z | 7z |
-| LHA | .lha, .lzh | lha |
-
-Password-protected archives are supported (use `--password` flag).
-
-## Execution Methods
-
-### Auto-Detection Order
-1. **Platform suffix/extension** (e.g., `.d64` → C64)
-2. **Archive internal files** (extracts and inspects)
-3. **Filename patterns** (e.g., `amiga` in path)
-4. **Interactive selection** (if ambiguous)
-
-### Runner Priority
-1. **RetroArch** (if core available) - Best compatibility
-2. **Native emulator** - VICE, FS-UAE, Snes9x (best performance)
-3. **Wine** - For Windows demos
-4. **DOSBox** - For DOS demos
-
-## Configuration
-
-All platform configs are in `nostalgist_configs/` as JSON. Each config includes:
-- `core` - RetroArch core or emulator
-- `shader` - CRT effect to apply
-- `extensions` - Supported file types
-- `originalName` - Display name
-
-## Related Documentation
-- [README.md](README.md) - Full setup guide
-- [ROADMAP.md](ROADMAP.md) - Future enhancements
-- [CHANGELOG.md](CHANGELOG.md) - Version history
+See [CONTRIBUTING.md](../CONTRIBUTING.md) to add new platform support.
 
 ---
-*Showet v2.1 - Universal demo-runner with 85 platform support*
+*Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*
