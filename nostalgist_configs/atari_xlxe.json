@@ -1,7 +1,7 @@
 {
   "core": "atari800",
   "rom": "/roms/atari_xlxe/",
-  "shader": "crt/crt-easymode",
+  "shader": "crt/crt-pi",
   "style": {
     "backgroundColor": "black",
     "width": "100%",

@@ -1,7 +1,7 @@
 {
   "core": "stella",
   "rom": "/roms/atari_2600/",
-  "shader": "crt/crt-easymode",
+  "shader": "crt/crt-pi",
   "style": {
     "backgroundColor": "black",
     "width": "100%",

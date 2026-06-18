@@ -1,7 +1,7 @@
 {
   "core": "puae",
   "rom": "/roms/commodore_amiga/",
-  "shader": "crt/crt-easymode",
+  "shader": "crt/crt-royale",
   "style": {
     "backgroundColor": "black",
     "width": "100%",

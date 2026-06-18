@@ -1,7 +1,7 @@
 {
   "core": "handy",
   "rom": "/roms/atari_lynx/",
-  "shader": "crt/crt-easymode",
+  "shader": "crt/crt-pi",
   "style": {
     "backgroundColor": "black",
     "width": "100%",

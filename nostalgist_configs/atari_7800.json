@@ -1,7 +1,7 @@
 {
   "core": "prosystem",
   "rom": "/roms/atari_7800/",
-  "shader": "crt/crt-easymode",
+  "shader": "crt/crt-pi",
   "style": {
     "backgroundColor": "black",
     "width": "100%",

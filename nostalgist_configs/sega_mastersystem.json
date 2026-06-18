@@ -1,7 +1,7 @@
 {
   "core": "genesis_plus_gx",
   "rom": "/roms/sega_mastersystem/",
-  "shader": "crt/crt-easymode",
+  "shader": "crt/crt-pi",
   "style": {
     "backgroundColor": "black",
     "width": "100%",

@@ -20,48 +20,57 @@ CORE_MAPPING: dict[str, str] = {
     "quicknes_libretro": "quicknes",
     "fceumm_libretro": "fceumm",
     "nestopia_libretro": "nestopia",
-    
+
     # Sega
     "genesis_plus_gx_libretro": "genesis_plus_gx",
     "picodrive_libretro": "picodrive",
-    "gearsystem_libretro": "gearsystem",  # Master System
+    "gearsystem_libretro": "gearsystem",
     "sms_libretro": "gearsystem",
-    
+
     # Nintendo
     "snes9x_libretro": "snes9x",
     "bsnes_libretro": "bsnes",
-    
+    "gambatte_libretro": "gambatte",
+    "meteor_libretro": "meteor",
+
     # Commodore
     "vice_x64_libretro": "vice_x64",
     "vice_x64sc_libretro": "vice_x64sc",
     "vice_x128_libretro": "vice_x128",
-    
+
     # Arcade
     "fbalpha_libretro": "fbalpha2012",
     "mame_libretro": "mame2003",
-    
+
     # Playstation
     "pcsx_rearmed_libretro": "pcsx_rearmed",
-    
+
     # Atari
     "stella_libretro": "stella",
     "stella2014_libretro": "stella",
-    
-    # Fallback: strip _libretro suffix
+    "hatari_libretro": "hatari",
+
+    # Computer
+    "fuse_libretro": "fuse",
+    "mednafen_libretro": "mednafen",
 }
 
 # Default shaders for CRT effect
 SHADER_MAP = {
-    "nes": "crt/crt-easymode",
-    "famicom": "crt/crt-easymode",
-    "snes": "crt/crt-easymode",
-    "superfamicom": "crt/crt-easymode",
-    "genesis": "crt/crt-easymode",
-    "megadrive": "crt/crt-easymode",
-    "c64": "crt/crt-easymode",
-    "amiga": "crt/crt-easymode",
+    "commodore_64": "crt/crt-easymode",
+    "commodore_vic20": "crt/crt-easymode",
+    "commodore_amiga": "crt/crt-royale",
+    "nintendo_famicom": "crt/crt-easymode",
+    "nintendo_gameboy": "crt/crt-pi",
+    "nintendo_superfamicom": "crt/crt-easymode",
+    "sega_megadrive": "crt/crt-easymode",
+    "sega_mastersystem": "crt/crt-pi",
+    "sony_psx": "crt/crt-royale",
+    "atari": "crt/crt-pi",
+    "zx_spectrum": "crt/crt-pi",
     "default": "crt/crt-easymode",
 }
+
 
 def generate_nostalgist_config(
     platform_slug: str,
@@ -71,34 +80,21 @@ def generate_nostalgist_config(
     shader: str | None = None,
     **kwargs: Any
 ) -> dict[str, Any]:
-    """
-    Generate a nostalgist.js launch configuration.
-    
-    Args:
-        platform_slug: The Showet platform identifier (e.g., 'nintendo_famicom')
-        rom_path: Path or URL to the ROM file
-        core_name: The RetroArch core name used by Showet
-        system_bios: Optional path to BIOS file
-        shader: Optional shader preset name
-        
-    Returns:
-        Dictionary suitable for Nostalgist.launch() in JavaScript
-    """
+    """Generate a nostalgist.js launch configuration."""
     # Map Showet core to nostalgist core
-    mapped_core = CORE_MAPPING.get(core_name, core_name.replace("_libretro", "").replace("genesis_plus_gx_libretro", "genesis_plus_gx"))
-    
+    mapped_core = CORE_MAPPING.get(core_name, core_name.replace("_libretro", ""))
+
     config: dict[str, Any] = {
         "core": mapped_core,
         "rom": rom_path,
     }
-    
+
     if system_bios:
         config["systemFiles"] = system_bios
-        
+
     if shader:
         config["shader"] = shader
     else:
-        # Infer shader from platform
         slug_lower = platform_slug.lower()
         for key, shader_name in SHADER_MAP.items():
             if key in slug_lower:
@@ -106,76 +102,79 @@ def generate_nostalgist_config(
                 break
         else:
             config["shader"] = SHADER_MAP["default"]
-    
-    # Add any additional options
+
     config.update(kwargs)
-    
     return config
+
 
 def parse_platform_module(filepath: Path) -> dict[str, Any] | None:
     """Parse a Platform_*.py file to extract configuration."""
     content = filepath.read_text()
-    
-    # Extract platform slug from __init__ call
+
     slug_match = re.search(r'super\(\).__init__\("([^"]+)"', content)
     if not slug_match:
         return None
-    
+
     slug = slug_match.group(1)
-    
-    # Extract core from cores list
+
     cores_match = re.search(r'cores\s*=\s*\[([^\]]+)\]', content)
-    core = cores_match.group(1).strip().strip("'\"") if cores_match else None
-    
+    core = None
+    if cores_match:
+        core_str = cores_match.group(1)
+        cores = [c.strip().strip("'\"") for c in core_str.split(',') if c.strip().strip("'\"")]
+        core = cores[0] if cores else None
+
+    ext_match = re.search(r'extensions\s*=\s*\[([^\]]+)\]', content)
+    extensions = []
+    if ext_match:
+        ext_str = ext_match.group(1)
+        extensions = [e.strip().strip("'\"") for e in ext_str.split(',') if e.strip().strip("'\"")]
+
     return {
         "slug": slug,
         "core": core,
-        "file": filepath.name
+        "extensions": extensions,
+        "file": filepath.name,
     }
+
 
 def generate_batch_configs(
     platforms_dir: Path,
     output_dir: Path,
     rom_base_url: str | None = None
 ) -> list[str]:
-    """
-    Generate nostalgist configs for all platform modules.
-    
-    Args:
-        platforms_dir: Directory containing Platform_*.py files
-        output_dir: Directory to write JSON configs
-        rom_base_url: Optional base URL for ROM files
-        
-    Returns:
-        List of generated config file names
-    """
+    """Generate nostalgist configs for all platform modules."""
     output_dir.mkdir(exist_ok=True)
     generated = []
-    
+
     for platform_file in platforms_dir.glob("Platform_*.py"):
         if platform_file.name == "PlatformBase.py":
             continue
-            
+
         platform_info = parse_platform_module(platform_file)
-        
+
         if not platform_info or not platform_info.get("core"):
             continue
-            
+
         slug = platform_info["slug"]
         core = platform_info["core"]
-        
+        extensions = platform_info.get("extensions", [])
+
         config = generate_nostalgist_config(
             platform_slug=slug,
             rom_path=rom_base_url or f"/roms/{slug}/",
             core_name=core,
-            style={"backgroundColor": "black", "width": "100%", "height": "100%"}
+            style={"backgroundColor": "black", "width": "100%", "height": "100%"},
         )
-        
+
+        config["extensions"] = extensions
+
         config_file = output_dir / f"{slug}.json"
         config_file.write_text(json.dumps(config, indent=2))
         generated.append(config_file.name)
-        
+
     return generated
+
 
 if __name__ == "__main__":
     project_root = Path(__file__).parent
@@ -183,7 +182,7 @@ if __name__ == "__main__":
         platforms_dir=project_root,
         output_dir=project_root / "nostalgist_configs",
     )
-    
+
     print("📺 nostalgist.js integration ready!")
     print(f"Generated {len(configs)} configs in nostalgist_configs/")
     print("Point ROM URLs to your demo files and serve these configs to the frontend.")

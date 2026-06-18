@@ -1,7 +1,7 @@
 {
   "core": "gambatte",
   "rom": "/roms/nintendo_gameboy/",
-  "shader": "crt/crt-easymode",
+  "shader": "crt/crt-pi",
   "style": {
     "backgroundColor": "black",
     "width": "100%",

@@ -1,7 +1,7 @@
 {
   "core": "virtualjaguar",
   "rom": "/roms/atari_jaguar/",
-  "shader": "crt/crt-easymode",
+  "shader": "crt/crt-pi",
   "style": {
     "backgroundColor": "black",
     "width": "100%",

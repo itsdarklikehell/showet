@@ -1,7 +1,7 @@
 {
   "core": "atari800",
   "rom": "/roms/atari_5200/",
-  "shader": "crt/crt-easymode",
+  "shader": "crt/crt-pi",
   "style": {
     "backgroundColor": "black",
     "width": "100%",
