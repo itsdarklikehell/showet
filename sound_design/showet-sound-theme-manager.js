@@ -128,6 +128,35 @@ class SoundThemeManager {
         osc.stop(ctx.currentTime + 1.0);
     }
 
+    // Authentic demo startup sounds
+    playAmigaBootSound() {
+        // Floppy drive tick-tick-tick
+        this.playFloppySeek();
+        setTimeout(() => this.playFloppySeek(), 200);
+        // Early startup chime
+        setTimeout(() => this.audio.beep(1000, 0.1, 'sine'), 150);
+    }
+
+    playC64TapeLoading() {
+        // C64 tape loading sound - rapid beeps ascending
+        for (let i = 0; i < 6; i++) {
+            setTimeout(() => this.audio.beep(400 + i * 100, 0.03, 'square'), i * 40);
+        }
+    }
+
+    playDosBootBeep() {
+        // PC speaker beep - short, sharp
+        this.audio.beep(1200, 0.2, 'square');
+        setTimeout(() => this.audio.beep(800, 0.15, 'square'), 200);
+    }
+
+    playNesPowerOn() {
+        // NES rapid power-on
+        this.audio.beep(1800, 0.01, 'square');
+        setTimeout(() => this.audio.beep(2200, 0.01, 'square'), 15);
+        setTimeout(() => this.audio.beep(1800, 0.02, 'sine'), 30);
+    }
+
     silentExhibition() {
         this.stopAllAmbience();
         this.currentTheme = 'silent';
