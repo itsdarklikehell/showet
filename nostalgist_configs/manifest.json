@@ -242,7 +242,7 @@
     },
     {
       "slug": "commodore_amiga",
-      "core": "puae\", \"fsuae\", \"uae4arm",
+      "core": "puae",
       "extensions": [
         "adf",
         "dms",
