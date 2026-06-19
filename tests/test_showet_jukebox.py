@@ -61,6 +61,50 @@ class TestLoopDetection:
         demo_info = {"name": "story_demo.zip", "url": ""}
         assert is_looped_demo(demo_info, "scene_org") is False
 
+    def test_scene_org_small_file_loops(self):
+        """Test Scene.org small file heuristic."""
+        from showet_jukebox import is_looped_demo
+        
+        # Small file (under 5MB) often loops
+        demo_info = {"name": "demo.zip", "size": 2 * 1024 * 1024}  # 2MB
+        assert is_looped_demo(demo_info, "scene_org") is True
+
+    def test_scene_org_large_file_no_loop(self):
+        """Test Scene.org large file doesn't trigger heuristic."""
+        from showet_jukebox import is_looped_demo
+        
+        demo_info = {"name": "demo.zip", "size": 10 * 1024 * 1024}  # 10MB
+        assert is_looped_demo(demo_info, "scene_org") is False
+
+    def test_pouet_high_rated_intro_loops(self):
+        """Test Pouet high-rated intro loops."""
+        from showet_jukebox import is_looped_demo
+        
+        demo_info = {"type": "intro", "rating": 4.5}
+        assert is_looped_demo(demo_info, "pouet") is True
+
+    def test_pouet_low_rated_intro_no_loop(self):
+        """Test Pouet low-rated intro still detected as loop (intro type)."""
+        from showet_jukebox import is_looped_demo
+        
+        demo_info = {"type": "intro", "rating": 2.5}
+        # Intros are generally looped by type
+        assert is_looped_demo(demo_info, "pouet") is True
+
+    def test_pouet_non_intro_with_rating(self):
+        """Test Pouet non-intro with rating doesn't loop."""
+        from showet_jukebox import is_looped_demo
+        
+        demo_info = {"type": "demo", "rating": 4.5}
+        assert is_looped_demo(demo_info, "pouet") is False
+
+    def test_pouet_low_rated_demo_no_loop(self):
+        """Test Pouet low-rated regular demo doesn't loop."""
+        from showet_jukebox import is_looped_demo
+        
+        demo_info = {"type": "demo", "rating": 3.5}
+        assert is_looped_demo(demo_info, "pouet") is False
+
     def test_modarchive_loop_detection(self):
         """Test ModArchive loop detection for long tracks."""
         from showet_jukebox import is_looped_demo

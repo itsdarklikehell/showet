@@ -124,9 +124,22 @@ def is_looped_demo(demo_info: Optional[dict], source: str = "pouet") -> bool:
 
 
 def _detect_pouet_loop(demo_info: dict) -> bool:
-    """Detect loop status from Pouet.net metadata."""
-    # Check demo type (64k/4k intros often loop)
+    """Detect loop status from Pouet.net metadata.
+    
+    Uses heuristics:
+    - Demo type (64k/4k intros)
+    - Tags/keywords (loop, looping)
+    - Rating (high-rated intros often loop)
+    - Rank position
+    """
+    # Rating heuristic: high-rated intros often loop
+    rating = demo_info.get("rating", 0)
     demo_type = demo_info.get("type", "").lower()
+    
+    if rating and rating > 4.0 and "intro" in demo_type:
+        return True
+    
+    # Check demo type (64k/4k intros)
     if any(t in demo_type for t in LOOPED_DEMO_TYPES):
         return True
 
@@ -148,8 +161,13 @@ def _detect_scene_org_loop(demo_info: dict) -> bool:
     - Filename patterns (loop, endless, replay, forever)
     - Party context (certain parties favor looping intros)
     - Demo type indicators in path
+    - File size heuristics (smaller files often loop)
+    
+    Returns:
+        bool: True if likely looped
     """
     name = demo_info.get("name", "").lower()
+    size = demo_info.get("size", 0)
     
     # Common loop-related patterns in filenames
     loop_patterns = ["loop", "replay", "forever", "endless", "continuous"]
@@ -158,6 +176,10 @@ def _detect_scene_org_loop(demo_info: dict) -> bool:
     
     # Check for intros (often looping)
     if any(p in name for p in ["64k", "4k", "intro"]):
+        return True
+    
+    # Size heuristic: very small demos (<5MB) often loop infinitely
+    if size and size < 5 * 1024 * 1024:  # 5MB
         return True
     
     return False
