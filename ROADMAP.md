@@ -34,6 +34,8 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 - [x] Unified source parameter in jukebox CLI
 - [x] Cross-source demo metadata handling
 - [x] Universal demo executor with Wine/DOSBox integration
+- [x] Cross-source playlist generation (`generate_cross_source_playlist()`)
+- [x] Demo duration estimation (`estimate_demo_duration()`)
 
 ---
 

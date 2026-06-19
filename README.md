@@ -343,6 +343,21 @@ When shuffling:
 - Looped demos play up to 3 times (configurable)
 - Automatically advances to next demo after completion
 
+### Cross-Source Playlist Generation
+
+Generate unified playlists mixing demos from multiple sources:
+
+```bash
+# Generate and display playlist summary (mixed sources)
+showet-jukebox --generate-playlist \
+    --ids 12345 67890 \
+    --scene-org-names "demo1.zip" "demo2.zip" \
+    --modarchive-ids 12345 67890
+
+# With platform filter
+showet-jukebox --generate-playlist --ids 12345 67890 --platform commodore_64
+```
+
 ## 📋 Project Status
 
 | Phase | Status | Description |
