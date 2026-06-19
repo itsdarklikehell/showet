@@ -69,12 +69,13 @@ showet-stream --platform twitch --record --demo 12345
 **Environment variables:**
 - `SHOWET_STREAM_KEY` - Your stream key (takes precedence)
 
-## 🔧 Complete CLI Toolset (v2.1)
+## 🔧 Complete CLI Toolset (v3.0)
 
 | Command | Description |
 |---------|-------------|
 | `showet` | Run a demo by Pouet ID |
-| `showet-executor` | Universal demo executor with auto-detection |
+| `showet-universal` | Universal demo executor with auto-detection (Wine/DOSBox/RetroArch) |
+| `showet-executor` | Legacy universal demo executor |
 | `showet-archive` | Extract demo archives (ZIP/RAR/7z/LHA) |
 | `showet-installer` | Install missing emulators and cores |
 | `showet-recorder` | Record demos with retro-authentic CRT encoding |
