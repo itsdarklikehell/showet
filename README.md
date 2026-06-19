@@ -87,6 +87,7 @@ showet-stream --platform twitch --record --demo 12345
 | `showet-launcher` | Unified launcher with streaming |
 | `showet-spotlight` | Featured demos + hall of fame |
 | `showet-jukebox` | Loop/Shuffle/Repeat demo playback |
+| `showet-thumbnails` | Generate preview thumbnails for demos |
 | `showet-status` | System status dashboard |
 | `showet-parties` | Upcoming demoparty calendar |
 | `demo-viewer` | Demo metadata viewer |
