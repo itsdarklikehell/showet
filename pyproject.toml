@@ -67,6 +67,7 @@ showet-jukebox = "showet_jukebox:main"
 showet-tvs99 = "tvs99_setup:main"
 showet-check = "showet_check:main"
 showet-universal = "showet_executor:main"
+showet-thumbnails = "showet_thumbnails:main"
 
 [project.urls]
 Homepage = "https://github.com/itsdarklikehell/showet"
