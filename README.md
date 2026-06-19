@@ -330,25 +330,52 @@ showet-jukebox --ids 12345 67890 --timeout 600
 ```
 
 ### Intelligent Loop Detection
-Showet automatically detects looping demos based on multiple sources:
+Showet automatically detects looping demos using advanced heuristics:
 
 | Source | Detection Method |
 |--------|-----------------|
-| **Pouet.net** | Tags (loop, looping), Type (64k/4k intros) |
-| **Scene.org** | Filename patterns (loop, endless), Party context |
+| **Pouet.net** | Demo type (64k/4k), Tags (loop), High ratings (>4.0) for intros |
+| **Scene.org** | Filename patterns (loop, endless), Intro detection, Small file heuristic (<5MB) |
 | **ModArchive** | Track patterns (medley, mix, remix) |
 
-### Shuffle Intelligence
-When shuffling:
-- Non-looping demos play once
-- Looped demos play up to 3 times (configurable)
-- Automatically advances to next demo after completion
+### Demo Thumbnails
+
+Generate preview thumbnails for demos:
+
+```bash
+# Generate thumbnail for a single demo
+showet-thumbnails /path/to/demo.zip
+
+# Generate thumbnails for multiple demos by ID
+showet-thumbnails --batch-ids 12345 67890 11223
+
+# With custom time offset for video
+showet-thumbnails /path/to/demo.mp4 --time 10
+```
+
+Thumbnails are cached in `~/.showet/thumbnails/` and used in the web UI.
 
 ### Cross-Source Playlist Generation
 
 Generate unified playlists mixing demos from multiple sources:
 
 ```bash
+# Generate and display playlist summary (mixed sources)
+showet-jukebox --generate-playlist \
+    --ids 12345 67890 \
+    --scene-org-names "demo1.zip" "demo2.zip" \
+    --modarchive-ids 12345 67890
+
+# With platform filter
+showet-jukebox --generate-playlist --ids 12345 67890 --platform commodore_64
+```
+
+### Shuffle Intelligence
+When shuffling:
+- Non-looping demos play once
+- Looped demos play up to 3 times (configurable)
+- Automatically advances to next demo after completion
+- Shows playlist summary with total estimated duration
 # Generate and display playlist summary (mixed sources)
 showet-jukebox --generate-playlist \
     --ids 12345 67890 \
