@@ -1,23 +1,50 @@
 #!/usr/bin/env python3
-"""Showet Archive Handler - Extract demoscene archives for automatic execution."""
+"""Showet Archive Handler - Extract demoscene archives for automatic execution.
 
-import os
-import sys
+Handles extraction of ZIP, RAR, 7z, and LHA archives with password support.
+Auto-detects archive type and extracts to temporary working directory.
+
+Usage:
+    showet-archive <archive_path> [--password PASS] [--list]
+    showet-archive-handler <archive_path> [--list]
+"""
+
+from __future__ import annotations
+
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
+
+# Archive handler commands
+ARCHIVE_COMMANDS = {
+    '.zip': ['unzip', '-o'],
+    '.rar': ['unrar', 'x', '-o+'],
+    '.7z': ['7z', 'x'],
+    '.lha': ['lha', 'x'],
+    '.lzh': ['lha', 'x'],
+}
 
 
 class ArchiveHandler:
     """Handles extraction of common demoscene archive formats."""
     
-    def __init__(self, work_dir=None):
+    def __init__(self, work_dir: str | None = None):
+        """Initialize archive handler with working directory."""
         self.work_dir = Path(work_dir or tempfile.mkdtemp(prefix="showet_demo_"))
         self.work_dir.mkdir(parents=True, exist_ok=True)
     
-    def extract(self, archive_path, password=None):
-        """Extract archive and return list of extracted files."""
+    def extract(self, archive_path: str, password: str | None = None) -> list[Path] | None:
+        """Extract archive and return list of extracted files.
+        
+        Args:
+            archive_path: Path to the archive file
+            password: Optional password for encrypted archives
+            
+        Returns:
+            List of extracted file paths, or None on failure
+        """
         archive = Path(archive_path)
         ext = archive.suffix.lower()
         
@@ -32,10 +59,10 @@ class ArchiveHandler:
         else:
             return None
     
-    def _extract_zip(self, archive, password=None):
+    def _extract_zip(self, archive: Path, password: str | None = None) -> list[Path] | None:
         """Extract ZIP archive."""
         try:
-            cmd = ['unzip', '-o', str(archive), '-d', str(self.work_dir)]
+            cmd = ARCHIVE_COMMANDS['.zip'] + [str(archive), '-d', str(self.work_dir)]
             if password:
                 cmd.extend(['-P', password])
             result = subprocess.run(cmd, check=True, capture_output=True, text=True)
@@ -44,10 +71,11 @@ class ArchiveHandler:
             print(f"ZIP extraction failed: {e.stderr}")
             return None
     
-    def _extract_rar(self, archive, password=None):
+    def _extract_rar(self, archive: Path, password: str | None = None) -> list[Path] | None:
         """Extract RAR archive."""
         try:
-            cmd = ['unrar', 'x', '-o+', str(archive), str(self.work_dir) + '/']
+            cmd = ARCHIVE_COMMANDS['.rar'].copy()
+            cmd.extend([str(archive), str(self.work_dir) + '/'])
             if password:
                 cmd.extend(['-p' + password])
             result = subprocess.run(cmd, check=True, capture_output=True, text=True)
@@ -56,10 +84,11 @@ class ArchiveHandler:
             print(f"RAR extraction failed: {e.stderr}")
             return None
     
-    def _extract_7z(self, archive, password=None):
+    def _extract_7z(self, archive: Path, password: str | None = None) -> list[Path] | None:
         """Extract 7z archive."""
         try:
-            cmd = ['7z', 'x', str(archive), f'-o{self.work_dir}']
+            cmd = ARCHIVE_COMMANDS['.7z'].copy()
+            cmd.extend([str(archive), f'-o{self.work_dir}'])
             if password:
                 cmd.append(f'-p{password}')
             result = subprocess.run(cmd, check=True, capture_output=True, text=True)
@@ -68,26 +97,31 @@ class ArchiveHandler:
             print(f"7z extraction failed: {e.stderr}")
             return None
     
-    def _extract_lha(self, archive, password=None):
+    def _extract_lha(self, archive: Path, password: str | None = None) -> list[Path] | None:
         """Extract LHA/LZH archive (common for Amiga/PC-98 demos)."""
         try:
-            cmd = ['lha', 'x', str(archive), str(self.work_dir) + '/']
+            cmd = ARCHIVE_COMMANDS['.lha'].copy()
+            cmd.extend([str(archive), str(self.work_dir) + '/'])
             result = subprocess.run(cmd, check=True, capture_output=True, text=True)
             return list(self.work_dir.rglob('*'))
         except subprocess.CalledProcessError as e:
             print(f"LHA extraction failed: {e.stderr}")
             return None
     
-    def cleanup(self):
+    def cleanup(self) -> None:
         """Remove extracted files."""
         if self.work_dir.exists():
             shutil.rmtree(self.work_dir)
 
 
-def main():
+def main() -> int:
+    """CLI entry point."""
     if len(sys.argv) < 2:
         print("Usage: showet-archive <archive_path> [--password PASS] [--list]")
         print("\nSupported formats: .zip, .rar, .7z, .lha, .lzh")
+        print("\nOptions:")
+        print("  --password PASS  Password for encrypted archives")
+        print("  --list           List extracted files")
         sys.exit(1)
     
     archive_path = sys.argv[1]
@@ -100,7 +134,7 @@ def main():
         if arg == '--password' and i + 1 < len(sys.argv):
             password = sys.argv[i + 1]
             i += 1
-        if arg == '--list':
+        elif arg == '--list':
             list_only = True
         i += 1
     
@@ -114,6 +148,7 @@ def main():
                 print(f"  {f.relative_to(handler.work_dir)}")
             if len(files) > 20:
                 print(f"  ... and {len(files) - 20} more")
+        return 0
     else:
         print("Extraction failed or unsupported format")
         sys.exit(1)

@@ -1,24 +1,17 @@
-# Sega Megadrive/Genesis Platform Documentation
+# Sega Megadrive Platform Documentation
 
 ## Overview
-The Sega Megadrive/Genesis was a demo scene powerhouse in the 16-bit console wars. Known for impressive pushing of the hardware, including raster effects and FM synthesis.
+Sega Megadrive platform for running retro demos with authentic presentation.
 
 ## Emulation Setup
 
 ### Required Binaries
-- **Genesis Plus GX** - Recommended, libretro version
-- **Picodrive** - Fast with good compatibility
-- **RetroArch** - `genesis_plus_gx_libretro.so` core
-- **Gens** - Windows-focused, good debugger
+- RetroArch
+- Native emulator
 
 ### Installation
 ```bash
-# Ubuntu/Debian
-sudo apt install mednafen
-
-# Using RetroArch
-# Core auto-downloads with --download-cores flag
-showet-executor demo.md --download-cores
+sudo apt install retroarch
 ```
 
 ## Platform Configuration
@@ -26,73 +19,52 @@ Located at: `nostalgist_configs/sega_megadrive.json`
 
 ```json
 {
-  "core": "genesis_plus_gx",
-  "shader": "crt/crt-easymode",
-  "extensions": [".md", ".bin", ".gen", ".cue"]
+  "core": "genesis_plus_gx_libretro",
+  "shader": "crt/crt-easymode"
 }
 ```
-
-## Console Models
-
-| Model | Region | Unique Features |
-|-------|--------|-----------------|
-| Megadrive | Japan/Europe | 50Hz, RGB output |
-| Genesis | USA | 60Hz, lockout chip |
-| WonderMega | Japan | X-ray mode |
-| Sega CD | Add-on | CD audio, extra RAM |
 
 ## Demo Types & Formats
 
 | Format | Description | Runtime |
 |--------|-------------|---------|
-| `.md/.gen/.bin` | Raw ROM - Most common | Cartridge |
-| `.cue/.bin` | CD image - Sega CD demos | Sega CD |
-| `.sms` | Master System - Backward compatible | MS mode |
+| .zip | Supported format | Native emulator |
+| .mdx | Supported format | Native emulator |
+| .md | Supported format | Native emulator |
+| .smd | Supported format | Native emulator |
+| .gen | Supported format | Native emulator |
+| .bin | Supported format | Native emulator |
+| .cue | Supported format | Native emulator |
+| .iso | Supported format | Native emulator |
 
-## Notable Demos
+## Running Demos
 
-### Hall of Fame
-- **Bad Apple!!** - Famous PDM video
-- **Red Zone** by Touko Paraiso - Masterpiece
-- **Overdrive** by Resistance - Technical demo
-- **Overdrive 2** by Resistance - Sequel excellence
-- **Limp Brains** by Hokuto Force - Modern scene
-
-### Running a Demo
+### Using Showet
 ```bash
-# Using Showet executor
-showet-executor /path/to/demo.bin --platform sega_megadrive
+# Run by Pouet ID
+showet 12345
 
-# Using CLI
-showet --demo 12345 --platform sega_megadrive
+# Run local file
+showet-executor /path/to/demo.zip
 
-# Museum mode
+# Run in museum mode
 showet-museum --platform sega_megadrive
 ```
 
-## Sound Integration
-
-### YM2612 FM Synthesis
-- 6 channels + 1 DAC
-- PCM sample playback
-- Stunning for 16-bit console
-
-### Integration with ModArchive
-Sega demos often use MOD format for music - auto-linked via `showet-archive --download`.
-
 ## CRT Settings
-- **Shader**: CRT-Easymode (composite/RGB)
-- **Curvature**: 0.08
-- **Scanlines**: Visible for authentic 90s feel
-- **Composite**: Optional for TV output simulation
+- **Shader**: CRT-Easymode
+- **Curvature**: 0.1 (subtle barrel effect)
+- **Scanlines**: Visible with flicker
+- **Phosphor Bloom**: Enabled for authentic glow
 
-## SRAM & Backup Memory
-Support for save RAM:
-- `.srm` files auto-created
-- Battery-backed SRAM for high scores
-- EEPROM for Sega CD demos
+## Troubleshooting
 
-## Region Considerations
-- **PAL** (Europe) - 50Hz, more borders
-- **NTSC** (USA/Japan) - 60Hz, full screen
-- Auto-detect via `--region ntsc/pal/auto`
+### Common Issues
+Check emulator installation and BIOS files if required.
+
+## Notable Demos
+
+Check pouet.net for top-rated demos on this platform.
+
+---
+*Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*

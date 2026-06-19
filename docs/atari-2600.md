@@ -1,25 +1,17 @@
-# Atari 2600/VCS Platform Documentation
+# Atari 2600 Platform Documentation
 
 ## Overview
-The Atari 2600 (Video Computer System) launched the cartridge-based console era. Demoscene pushed the 6507 CPU to produce impressive raster effects and sound.
+Atari 2600 platform for running retro demos with authentic presentation.
 
 ## Emulation Setup
 
 ### Required Binaries
-- **Stella** - Recommended, accurate
-- **RetroArch** - `stella_libretro.so` core
-- **BizHawk** - Multi-system with debugging
+- RetroArch
+- Native emulator
 
 ### Installation
 ```bash
-# Ubuntu/Debian
-sudo apt install stella
-
-# macOS
-brew install stella
-
-# Using RetroArch
-showet-executor demo.a26 --download-cores
+sudo apt install retroarch
 ```
 
 ## Platform Configuration
@@ -27,47 +19,47 @@ Located at: `nostalgist_configs/atari_2600.json`
 
 ```json
 {
-  "core": "stella",
-  "shader": "crt/crt-pi",
-  "extensions": [".a26", ".bin"]
+  "core": "stella2014_libretro",
+  "shader": "crt/crt-easymode"
 }
 ```
-
-## Console Models
-
-| Model | Year | Notes |
-|-------|------|-------|
-| Atari 2600 | 1977 | Original VCS |
-| Atari 2600 VCS | 1980 | Refreshed design |
-| Atari Jr. | 1986 | Smaller, cost-reduced |
-| 2600 Plug & Play | 2000s | Modern re-releases |
 
 ## Demo Types & Formats
 
 | Format | Description | Runtime |
 |--------|-------------|---------|
-| `.a26` | Atari 2600 ROM - Standard | Cartridge |
-| `.bin` | Raw binary - Homebrew | 2600 format |
+| .zip | Supported format | Native emulator |
+| .a26 | Supported format | Native emulator |
+| .bin | Supported format | Native emulator |
 
-## Notable Demos
+## Running Demos
 
-### Homebrew Scene
-- **Made in Russia** - Modern 2600 democoders
-- **Z280** - Z80-like extensions
-- **Boulder Dash** - Homebrew excellence
-- **Okie Dokie** - Smooth scrolling demo
-
-### Running a Demo
+### Using Showet
 ```bash
-# Using Showet executor
-showet-executor /path/to/demo.a26 --platform atari_2600
+# Run by Pouet ID
+showet 12345
 
-# Using CLI
-showet --demo 12345 --platform atari_2600
+# Run local file
+showet-executor /path/to/demo.zip
+
+# Run in museum mode
+showet-museum --platform atari_2600
 ```
 
 ## CRT Settings
-- **Shader**: CRT-PI (composite NTSC artifacts)
-- **Curvature**: 0.1
-- **Scanlines**: Visible for CRT TV feel
-- **Aspect**: 4:3 with overscan (160x192 resolution)
+- **Shader**: CRT-Easymode
+- **Curvature**: 0.1 (subtle barrel effect)
+- **Scanlines**: Visible with flicker
+- **Phosphor Bloom**: Enabled for authentic glow
+
+## Troubleshooting
+
+### Common Issues
+Check emulator installation and BIOS files if required.
+
+## Notable Demos
+
+Check pouet.net for top-rated demos on this platform.
+
+---
+*Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*

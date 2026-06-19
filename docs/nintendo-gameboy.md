@@ -1,25 +1,17 @@
-# Nintendo Game Boy Platform Documentation
+# Nintendo Gameboy Platform Documentation
 
 ## Overview
-The Game Boy brought monochrome gaming to the masses. Demoscene thrived with Game Boy Color-enhanced demos using the "DMG" sound chip.
+Nintendo Gameboy platform for running retro demos with authentic presentation.
 
 ## Emulation Setup
 
 ### Required Binaries
-- **Gambatte** - Recommended, accurate
-- **SameBoy** - Modern, excellent debugger
-- **RetroArch** - `gambatte_libretro.so` core
+- RetroArch
+- Native emulator
 
 ### Installation
 ```bash
-# Ubuntu/Debian
-sudo apt install mednafen
-
-# macOS
-brew install sameboy
-
-# Using RetroArch
-showet-executor demo.gb --download-cores
+sudo apt install retroarch
 ```
 
 ## Platform Configuration
@@ -27,54 +19,51 @@ Located at: `nostalgist_configs/nintendo_gameboy.json`
 
 ```json
 {
-  "core": "gambatte",
-  "shader": "crt/crt-easymode",
-  "extensions": [".gb", ".gbc", ".cgb"]
+  "core": "gambatte_libretro",
+  "shader": "crt/crt-easymode"
 }
 ```
-## Console Models
-
-| Model | Year | Notes |
-|-------|------|-------|
-| Game Boy | 1989 | Original monochrome |
-| Game Boy Pocket | 1996 | Smaller screen |
-| Game Boy Color | 1998 | Color + enhanced CPU |
-| Game Boy Advance | 2001 | 32-bit successor |
 
 ## Demo Types & Formats
 
 | Format | Description | Runtime |
 |--------|-------------|---------|
-| `.gb` | Original Game Boy - Monochrome demos | Classic |
-| `.gbc` | Game Boy Color - Enhanced colors | Color |
-| `.cgb` | CGB-specific builds | Advanced |
+| .zip | Supported format | Native emulator |
+| .gb | Supported format | Native emulator |
+| .dmg | Supported format | Native emulator |
+| .bin | Supported format | Native emulator |
+| .u1 | Supported format | Native emulator |
+| .ndd | Supported format | Native emulator |
+| .zip | Supported format | Native emulator |
+
+## Running Demos
+
+### Using Showet
+```bash
+# Run by Pouet ID
+showet 12345
+
+# Run local file
+showet-executor /path/to/demo.zip
+
+# Run in museum mode
+showet-museum --platform nintendo_gameboy
+```
+
+## CRT Settings
+- **Shader**: CRT-Easymode
+- **Curvature**: 0.1 (subtle barrel effect)
+- **Scanlines**: Visible with flicker
+- **Phosphor Bloom**: Enabled for authentic glow
+
+## Troubleshooting
+
+### Common Issues
+Check emulator installation and BIOS files if required.
 
 ## Notable Demos
 
-### Game Boy Scene
-- **PGB** - Professional Game Boy demo group
-- **Focus** - European GB demo scene
-- **Dualtris** - Notable GB homebrew
-- **Tetris Effect** - Modern GB demo aesthetics
+Check pouet.net for top-rated demos on this platform.
 
-### Running a Demo
-```bash
-# Using Showet executor
-showet-executor /path/to/demo.gb --platform nintendo_gameboy
-
-# Using CLI
-showet --demo 12345 --platform nintendo_gameboy
-```
-
-## DMG Sound Chip
-
-### Audio Specs
-- 4 channels (2 square, 1 wave, 1 noise)
-- No DAC output (pure chiptune)
-- Tempo tricks via CPU timing
-
-## CRT Settings
-- **Shader**: CRT-Easymode (monochrome)
-- **Curvature**: 0.05
-- **Scanlines**: Dot matrix simulation
-- **Colors**: Green/amber monochrome filter
+---
+*Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*

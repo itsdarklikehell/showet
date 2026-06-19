@@ -22,7 +22,7 @@ class DemoExecutor:
     LIBRETRO_CORES = {
         'commodore_64': 'x64_libretro.so',
         'commodore_amiga': 'puae_libretro.so',
-        'dos': 'dosbox_libretro.so',
+        'dos': 'dosbox_core_libretro.so',
         'nintendo_famicom': 'nes_libretro.so',
         'nintendo_superfamicom': 'snes9x_libretro.so',
         'sega_megadrive': 'genesis_plus_gx_libretro.so',
@@ -35,7 +35,7 @@ class DemoExecutor:
         'nes_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/nes_libretro.so',
         'snes9x_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/snes9x_libretro.so',
         'genesis_plus_gx_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/genesis_plus_gx_libretro.so',
-        'dosbox_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/dosbox_libretro.so',
+        'dosbox_core_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/dosbox_core_libretro.so',
         'puae_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/puae_libretro.so',
         'stella_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/stella_libretro.so',
     }
@@ -45,15 +45,21 @@ class DemoExecutor:
         'windows': {
             'runner': 'wine',
             'retroarch_core': None,
+            'dosbox_alt': 'dosbox-x',
             'extensions': ['.exe', '.bat', '.com'],
         },
         'dos': {
-            'runner': 'dosbox',
-            'retroarch_core': 'dosbox_libretro.so',
+            'runner': 'dosbox-x',
+            'retroarch_core': 'dosbox_core_libretro.so',
+            'extensions': ['.exe', '.com', '.bat'],
+        },
+        'dosbox_x': {
+            'runner': 'dosbox-x',
+            'retroarch_core': 'dosbox_core_libretro.so',
             'extensions': ['.exe', '.com', '.bat'],
         },
         'linux': {
-            'runner': None,  # Direct execution
+            'runner': None,
             'retroarch_core': None,
             'extensions': ['.x86', '.x86_64', ''],
         },
@@ -61,21 +67,18 @@ class DemoExecutor:
             'runner': 'fs-uae',
             'retroarch_core': 'puae_libretro.so',
             'extensions': ['.adf', '.hdf', ''],
+            'bios_required': ['kick13.rom', 'kick31.rom'],
         },
         'c64': {
             'runner': 'x64sc',
             'retroarch_core': 'x64_libretro.so',
             'extensions': ['.d64', '.t64', '.prg'],
         },
-        'zx_spectrum': {
-            'runner': 'fuse',
-            'retroarch_core': None,
-            'extensions': ['.tap', '.tzx', '.z80'],
-        },
         'commodore_amiga': {
             'runner': 'fs-uae',
             'retroarch_core': 'puae_libretro.so',
             'extensions': ['.adf', '.hdf', ''],
+            'bios_required': ['kick13.rom', 'kick31.rom'],
         },
         'commodore_64': {
             'runner': 'x64sc',
@@ -97,6 +100,11 @@ class DemoExecutor:
             'retroarch_core': 'genesis_plus_gx_libretro.so',
             'extensions': ['.md', '.bin', '.gen'],
         },
+        'zx_spectrum': {
+            'runner': 'fuse',
+            'retroarch_core': None,
+            'extensions': ['.tap', '.tzx', '.z80'],
+        },
     }
     
     def __init__(self, platform='auto', timeout=300, prefer_retroarch=False, download_cores=False):
@@ -104,30 +112,51 @@ class DemoExecutor:
         self.timeout = timeout
         self.prefer_retroarch = prefer_retroarch
         self.download_cores = download_cores
-    
+
     def detect_platform(self, demo_path):
         """Auto-detect platform from demo filename/path or executable type."""
         path = Path(demo_path)
         name = path.name.lower()
         
-        if 'amiga' in name or path.suffix in ['.adf', '.hdf']:
-            return 'amiga'
-        if 'c64' in name or 'commodore' in name or path.suffix in ['.d64', '.t64', '.prg']:
-            return 'commodore_64'
-        if 'dos' in name or path.suffix in ['.exe', '.com', '.bat']:
-            return 'dos'
-        if '.nes' in name or 'famicom' in name:
-            return 'nintendo_famicom'
-        if '.smc' in name or '.sfc' in name or 'snes' in name:
-            return 'nintendo_superfamicom'
-        if path.suffix in ['.zip', '.rar', '.7z', '.lha']:
-            # Check internal filenames
+        # Check archives first
+        if path.suffix.lower() in ['.zip', '.rar', '.7z', '.lha']:
             extracted = self.extract_archive(demo_path)
             if extracted:
                 return self.detect_platform(extracted[0])
         
+        # Platform detection
+        if path.suffix in ['.adf', '.hdf']:
+            return 'commodore_amiga'
+        if 'amiga' in name:
+            return 'commodore_amiga'
+        if path.suffix in ['.d64', '.t64', '.prg', '.crt', '.tap']:
+            return 'commodore_64'
+        if 'c64' in name or 'commodore' in name:
+            return 'commodore_64'
+        if path.suffix in ['.exe', '.com', '.bat']:
+            # Check if it's a DOS or Windows executable
+            if shutil.which('dosbox-x') and self._is_dos_exe(demo_path):
+                return 'dos'
+            return 'windows'
+        if path.suffix in ['.nes', '.fds']:
+            return 'nintendo_famicom'
+        if path.suffix in ['.smc', '.sfc']:
+            return 'nintendo_superfamicom'
+        if path.suffix in ['.md', '.bin', '.gen']:
+            return 'sega_megadrive'
+        if path.suffix in ['.tap', '.tzx', '.z80']:
+            return 'zx_spectrum'
+        
         return 'auto'
-    
+
+    def _is_dos_exe(self, demo_path):
+        """Check if executable is DOS (vs Windows) using file command."""
+        try:
+            result = subprocess.run(['file', demo_path], capture_output=True, text=True)
+            return 'DOS' in result.stdout or '16-bit' in result.stdout
+        except:
+            return False
+
     def extract_archive(self, archive_path):
         """Extract demo archive and return list of executables."""
         archive = Path(archive_path)
@@ -139,19 +168,23 @@ class DemoExecutor:
         extract_dir = Path(f"/tmp/showet_demo_{archive.stem}")
         extract_dir.mkdir(parents=True, exist_ok=True)
         
-        cmd = self.ARCHIVE_HANDLERS[ext] + ['-o' if ext != '.zip' else '-o', str(archive), str(extract_dir)]
+        cmd = self.ARCHIVE_HANDLERS[ext].copy()
+        if ext == '.zip':
+            cmd.extend([str(archive), '-d', str(extract_dir)])
+        else:
+            cmd.extend([str(archive), str(extract_dir)])
         
         try:
             subprocess.run(cmd, check=True, capture_output=True)
-            # Find executables
             files = list(extract_dir.rglob('*'))
-            return [f for f in files if f.suffix in ['.exe', '.com', '.adf', '.nes', '.smc']]
+            return [f for f in files if f.suffix.lower() in 
+                    ['.exe', '.com', '.adf', '.nes', '.smc', '.sfc', '.d64', '.prg', '.tap']]
         except subprocess.CalledProcessError:
             return None
-    
+
     def find_runner(self, demo_path):
         """Find appropriate runner for demo, prioritizing RetroArch cores."""
-        # Check RetroArch first - best compatibility
+        # Check RetroArch first
         if shutil.which('retroarch'):
             for plat, config in self.PLATFORM_RUNNERS.items():
                 if config.get('retroarch_core'):
@@ -159,46 +192,45 @@ class DemoExecutor:
                     core_path = self._get_core_path(core)
                     if core_path or self._download_core(core):
                         return 'retroarch'
-        
-        # Check platform-specific native emulators
-        for plat, config in self.PLATFORM_RUNNERS.items():
-            if shutil.which(config['runner']):
-                runner = config['runner']
-                break
-        
         # Check Wine for Windows demos
-        if demo_path.lower().endswith(('.exe', '.bat', '.com')) and shutil.which('wine'):
-            return 'wine'
-        
-        return runner
-    
+        if demo_path.lower().endswith(('.exe', '.bat', '.msi')):
+            if shutil.which('wine'):
+                return 'wine'
+        # Check native emulators
+        for plat, config in self.PLATFORM_RUNNERS.items():
+            runner = config.get('runner')
+            if runner and shutil.which(runner):
+                return runner
+        return None
+
     def _get_core_path(self, core_name):
         """Get RetroArch core path."""
-        retroarch_dir = Path.home() / '.config/retroarch/cores'
-        core_path = retroarch_dir / core_name
-        return core_path.exists() and str(core_path) or None
-    
+        for search_path in [
+            Path.home() / '.config/retroarch/cores' / core_name,
+            Path('/usr/lib/retroarch/cores') / core_name,
+            Path('/usr/lib/libretro') / core_name,
+        ]:
+            if search_path.exists():
+                return str(search_path)
+        return None
+
     def _download_core(self, core_name):
         """Download libretro core if missing."""
-        import urllib.request
+        if core_name not in self.LIBRETRO_CORE_URLS:
+            return False
         
         retroarch_dir = Path.home() / '.config/retroarch/cores'
         retroarch_dir.mkdir(parents=True, exist_ok=True)
         
-        if core_name not in self.LIBRETRO_CORE_URLS:
-            return False
-        
-        url = self.LIBRETRO_CORE_URLS[core_name]
-        core_path = retroarch_dir / core_name
-        
         print(f"Downloading {core_name}...")
         try:
-            urllib.request.urlretrieve(url, core_path)
+            import urllib.request
+            urllib.request.urlretrieve(self.LIBRETRO_CORE_URLS[core_name], retroarch_dir / core_name)
             return True
         except Exception as e:
             print(f"Failed to download core: {e}")
             return False
-    
+
     def run_demo(self, demo_path, platform=None):
         """Execute a demo with auto-detection."""
         if platform is None:
@@ -206,57 +238,64 @@ class DemoExecutor:
         
         runner = self.find_runner(demo_path)
         
-        if runner == 'dosbox':
+        if platform == 'dos' or runner == 'dosbox-x':
             return self._run_dosbox(demo_path)
         elif runner == 'wine':
             return self._run_wine(demo_path)
         elif runner == 'retroarch':
             return self._run_retroarch(demo_path, platform)
+        elif runner in ['x64sc', 'fs-uae', 'fceux', 'snes9x', 'fuse']:
+            return self._run_native(runner, demo_path)
         else:
-            # Try direct execution
-            return self._run_native(demo_path)
-    
+            return self._run_native(None, demo_path)
+
     def _run_dosbox(self, demo_path):
-        """Run demo in DOSBox."""
-        conf = f"""
+        """Run demo in DOSBox-X with optimized config."""
+        conf = f"""[sdl]
+output = opengl
+
+[cpu]
+cycles = max
+core = dynamic
+
 [autoexec]
 mount c /tmp
 c:
-{demo_path}
+{Path(demo_path).stem}.exe
 """
         conf_path = Path("/tmp/showet_dosbox.conf")
         conf_path.write_text(conf)
         
-        cmd = ['dosbox', '-conf', str(conf_path), '-noconsole']
+        cmd = ['dosbox-x', '-conf', str(conf_path)]
         return subprocess.Popen(cmd)
-    
+
     def _run_wine(self, demo_path):
         """Run Windows demo through Wine."""
         cmd = ['wine', str(demo_path)]
-        return subprocess.Popen(cmd)
-    
+        env = os.environ.copy()
+        env['WINEDEBUG'] = '-all'  # Reduce output noise
+        return subprocess.Popen(cmd, env=env)
+
     def _run_retroarch(self, demo_path, platform):
         """Run demo through RetroArch with libretro core."""
-        core = self._get_libretro_core(platform)
-        cmd = ['retroarch', '-L', core, str(demo_path)]
+        core = self.LIBRETRO_CORES.get(platform, 'dosbox_core_libretro.so')
+        core_path = self._get_core_path(core)
+        
+        if not core_path:
+            print(f"RetroArch core not found for {platform}")
+            return None
+            
+        cmd = ['retroarch', '-L', core_path, str(demo_path)]
         return subprocess.Popen(cmd)
-    
-    def _run_native(self, demo_path):
-        """Try native execution."""
+
+    def _run_native(self, emulator, demo_path):
+        """Try native execution or emulator."""
+        if emulator:
+            cmd = [emulator, str(demo_path)]
+            return subprocess.Popen(cmd)
         if os.access(demo_path, os.X_OK):
             return subprocess.Popen([demo_path])
         return None
-    
-    def _get_libretro_core(self, platform):
-        """Get libretro core path for platform."""
-        core_map = {
-            'commodore_64': 'VICE/x64_libretro.so',
-            'nintendo_famicom': 'QuickNES/nes_libretro.so',
-            'nintendo_superfamicom': 'SNES9x/snes_libretro.so',
-            'sega_megadrive': 'Genesis Plus GX/genesis_plus_gx_libretro.so',
-            'dos': 'DOSBOX/dosbox_libretro.so',
-        }
-        return core_map.get(platform, 'DOSBOX/dosbox_libretro.so')
 
 
 def main():
@@ -270,9 +309,9 @@ def main():
         print("  --download-cores      Download missing RetroArch cores")
         print("\nAuto-detects platform and uses appropriate runner:")
         print("  Windows: Wine")
-        print("  DOS: DOSBox (or RetroArch libretro)")
+        print("  DOS: DOSBox-X (or RetroArch libretro)")
         print("  C64/Amiga/NES/SNES: Native emulator or RetroArch")
-        print("  Other: RetroArch libretro cores")
+        print("  Archives: Auto-extracts then runs")
         sys.exit(1)
     
     demo_path = sys.argv[1]

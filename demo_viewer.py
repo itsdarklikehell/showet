@@ -6,6 +6,7 @@ Provides rich information display for demoscene productions.
 
 from __future__ import annotations
 
+import argparse
 import json
 import urllib.request
 from pathlib import Path

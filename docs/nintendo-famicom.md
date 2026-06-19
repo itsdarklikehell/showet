@@ -1,23 +1,17 @@
-# Nintendo Famicom/NES Platform Documentation
+# Nintendo Famicom Platform Documentation
 
 ## Overview
-The Famicom/NES launched the console demoscene with impressive hardware pushing. Showet provides authentic 8-bit experience with period-correct shaders.
+Nintendo Famicom platform for running retro demos with authentic presentation.
 
 ## Emulation Setup
 
 ### Required Binaries
-- **FCEUX** - Recommended with debugger
-- **Nestopia** - Cycle-accurate, macOS
-- **Mesen** - Modern, debug features
-- **RetroArch** - `nes_libretro.so` core
+- RetroArch
+- Native emulator
 
 ### Installation
 ```bash
-# Ubuntu/Debian
 sudo apt install fceux
-
-# macOS
-brew install fceux
 ```
 
 ## Platform Configuration
@@ -25,9 +19,8 @@ Located at: `nostalgist_configs/nintendo_famicom.json`
 
 ```json
 {
-  "core": "quicknes",
-  "shader": "crt/crt-easymode",
-  "extensions": [".nes", ".fds"]
+  "core": "quicknes_libretro",
+  "shader": "crt/crt-easymode"
 }
 ```
 
@@ -35,51 +28,43 @@ Located at: `nostalgist_configs/nintendo_famicom.json`
 
 | Format | Description | Runtime |
 |--------|-------------|---------|
-| `.nes` | iNES format - Standard ROMs | Most common |
-| `.fds` | Famicom Disk System - Original floppies | Famicom only |
-| `.unf` | UNIF format - Extended headers | Modern demos |
+| .zip | Supported format | Native emulator |
+| .nes | Supported format | Native emulator |
+| .fds | Supported format | Native emulator |
+| .unf | Supported format | Native emulator |
+| .unif | Supported format | Native emulator |
+| .qd | Supported format | Native emulator |
+| .nsf | Supported format | Native emulator |
+| .bin | Supported format | Native emulator |
 
-## Notable Demos
+## Running Demos
 
-### Hall of Fame
-- **Bad Apple!!** by Anonymous - Famous PDM video
-- **Super Mario Bros. 1+2** by various - Speedruns
-- **Panda** by something (?) - Classic NES demo
-- **NES Demo** by DCE - Early console scene
-
-### Running a Demo
+### Using Showet
 ```bash
-# Using Showet executor
-showet-executor /path/to/demo.nes --platform nintendo_famicom
+# Run by Pouet ID
+showet 12345
 
-# Using CLI
-showet --demo 12345 --platform nintendo_famicom
+# Run local file
+showet-executor /path/to/demo.zip
 
-# Museum mode
+# Run in museum mode
 showet-museum --platform nintendo_famicom
 ```
 
-## Console Models
-
-| Model | Region | Notes |
-|-------|--------|-------|
-| Famicom | Japan | Original, hardwired controllers |
-| NES | USA/Europe | Lockout chip, different case |
-| Famicom Mini | Japan | Modern recreation |
-| NES Classic | Global | HDMI output |
-
 ## CRT Settings
-- **Shader**: CRT-Easymode (composite TV feel)
-- **Curvature**: 0.1
-- **Scanlines**: Soft, 30% opacity
-- **Noise**: Enabled for RF/CVBS feel
+- **Shader**: CRT-Easymode
+- **Curvature**: 0.1 (subtle barrel effect)
+- **Scanlines**: Visible with flicker
+- **Phosphor Bloom**: Enabled for authentic glow
 
-## mapper (MMC) Support
+## Troubleshooting
 
-### Common Mappers
-- **MMC1** - Castlevania, Mega Man 2
-- **MMC3** - Super Mario Bros. 3
-- **MMC5** - Laser Invasion, advanced features
-- **VRC6/VRC7** - Famicom expansion sound
+### Common Issues
+Check emulator installation and BIOS files if required.
 
-Showet auto-detects mapper requirements from ROM headers.
+## Notable Demos
+
+Check pouet.net for top-rated demos on this platform.
+
+---
+*Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*

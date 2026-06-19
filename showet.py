@@ -1,4 +1,4 @@
-"""Show a demo from pouet.net using platform runners.
+"""Showet Demo Runner - The definitive demoscene demo-runner.
 
 This module implements the *showet* CLI for the showet project.  It
 represents the entry point that orchestrates:
@@ -8,23 +8,27 @@ represents the entry point that orchestrates:
 * Decision making – deciding which platform runner should be used for a
   particular production (:func:`run_production`).
 
-The project originally bundled a naïve implementation that conducted
-heavy‑lifting at import time.  The refactored version keeps import
-side‑effects to a minimum and splits behaviour into small, testable
-functions.
+The project provides a unified interface for running demos from pouet.net,
+scene.org, and modarchive.org across 84+ platforms with authentic CRT presentation.
 """
 
 from __future__ import annotations
 
 import argparse
-import json
-import os
-import random
-import urllib.request
+import logging
+import sys
 from pathlib import Path
 from typing import Iterable, List
 
-DEBUGGING = True
+from showet_config import CACHE_DIR, DEBUG
+from showet_downloader import download_production_json, download_production_file, get_random_production_id
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG if DEBUG else logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+logger = logging.getLogger("showet")
 
 # Cache for platform runners to avoid repeated imports
 _runner_cache: List[object] | None = None
@@ -208,62 +212,6 @@ def list_supported_platforms(platform_runners: Iterable[object]) -> None:
                 seen.add(platform)
 
 
-# ---------------------------------------------------------------------------
-# Production download & setup
-# ---------------------------------------------------------------------------
-def _download_json(prod_id: int) -> dict:
-    """Download JSON metadata for a production, caching it locally."""
-    cache_dir = Path.home() / ".showet" / "data" / str(prod_id)
-    cache_dir.mkdir(parents=True, exist_ok=True)
-    json_path = cache_dir / "pouet.json"
-    if json_path.exists() and DEBUGGING:
-        print("Json already downloaded.")
-        return json.loads(json_path.read_text())
-    url = f"http://api.pouet.net/v1/prod/?id={prod_id}"
-    json_str = urllib.request.urlopen(url).read().decode()
-    json_path.write_text(json_str)
-    return json.loads(json_str)
-
-
-def _download_production_file(data: dict, datadir: Path) -> Path:
-    """Download the production file (if missing) and return its path."""
-    download_url = data["prod"]["download"].replace(
-        "https://files.scene.org/view", "https://files.scene.org/get"
-    )
-    flag_file = datadir / ".FILES_DOWNLOADED"
-    if flag_file.exists():
-        if DEBUGGING:
-            print("\tFile already downloaded")
-        return datadir
-    if DEBUGGING:
-        print(f"\tDownloading prod file from {download_url}...")
-    response = urllib.request.urlopen(download_url)
-    filename = os.path.basename(response.url)
-    if not filename:
-        raise RuntimeError(f"Error downloading file at {download_url}")
-    dest = datadir / filename
-    dest.write_bytes(response.read())
-    if DEBUGGING:
-        print(f"\tDownloaded: {dest}")
-        print(f"\tFilesize: {dest.stat().st_size}")
-    flag_file.touch()
-    return datadir
-
-
-def _get_random_production() -> int:
-    """Get a random production ID from pouet.net."""
-    random_terms = ["demo", "intro", "64k", "4k", "music", "animation"]
-    query = random.choice(random_terms)
-    url = f"http://api.pouet.net/v1/search/prod/?q={query}"
-    data = json.loads(urllib.request.urlopen(url).read().decode())
-    
-    if data.get("success") and data.get("results"):
-        results = list(data["results"].items())
-        if results:
-            prod_id, _ = random.choice(results)
-            return prod_id
-    return -1
-
 def run_production(args: argparse.Namespace, platform_runners: List[object]) -> int:
     """Execute a production based on the supplied CLI arguments.
 
@@ -273,15 +221,15 @@ def run_production(args: argparse.Namespace, platform_runners: List[object]) -> 
         print("No pouet id specified. Use --help to see options.")
         return -1
 
+    prod_id = args.pouetid
     if args.random:
-        prod_id = _get_random_production()
+        prod_id = get_random_production_id()
         if prod_id == -1:
             print("Could not find a random demo.")
             return -1
         print(f"Randomly selected demo ID: {prod_id}")
-        args.pouetid = prod_id
 
-    data = _download_json(args.pouetid)
+    data = download_production_json(prod_id)
     prod_platforms = [p["slug"] for p in data["prod"]["platforms"].values()]
     runner, platform_found = _select_runner(platform_runners, prod_platforms)
     if not runner:
@@ -294,15 +242,15 @@ def run_production(args: argparse.Namespace, platform_runners: List[object]) -> 
             "of which", platform_found, "rules the most."
         )
 
-    if DEBUGGING:
+    if DEBUG:
         print("\tName:", data["prod"]["name"])  # pragma: no cover – side‑effect
         if data["prod"]["groups"]:
             print("\tBy:", data["prod"]["groups"][0]["name"])  # pragma: no cover
         print("\tType:", data["prod"]["type"])  # pragma: no cover
         print("\tPlatform:", platform_found)  # pragma: no cover
 
-    datadir = Path.home() / ".showet" / "data" / str(args.pouetid)
-    _download_production_file(data, datadir)
+    datadir = Path.home() / ".showet" / "data" / str(prod_id)
+    download_production_file(data, datadir)
     runner.setup(Path.home() / ".showet", datadir, platform_found)
     runner.set_options(
         fullscreen=getattr(args, "fullscreen", False),

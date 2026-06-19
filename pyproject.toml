@@ -1,7 +1,7 @@
 [project]
 name = "showet"
-version = "0.1.0"
-description = "Demo viewer using Pouet.net metadata."
+version = "3.0.0"
+description = "Demo viewer using Pouet.net metadata - The definitive demoscene demo-runner with jukebox, streaming, and nostalgic CRT presentation."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "GPL-3.0-or-later"

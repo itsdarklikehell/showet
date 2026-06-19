@@ -100,9 +100,35 @@ class Platform_Nintendo_Switch(PlatformBase):
 4. Push to branch (`git push origin feature/amazing-platform`)
 5. Open a Pull Request
 
+## 💿 BIOS Acquisition Guide
+
+Many platforms require BIOS files for legal emulation. Here's where to obtain them:
+
+### Commodore 64
+- **Kickstart ROMs** - Included in VICE package, no additional BIOS required
+- Just install VICE: `sudo apt install vice` or `brew install vice`
+
+### Commodore Amiga
+- **Kickstart 1.3** (kick13.rom) - Required for most demos
+- **Kickstart 3.1** (kick31.rom) - Required for later demos
+- BIOS location: `~/.config/retroarch/system/` or FS-UAE kickstart directory
+- See individual platform docs for detailed BIOS setup
+
+### Sony PlayStation
+- **PSX BIOS** (scph5500.bin, scph5501.bin, scph5502.bin) - Legally dump your own
+- **Note**: Showet does NOT provide BIOS files - you must obtain them legally
+
+### Nintendo Systems
+- Most Nintendo systems work without BIOS in libretro cores
+- See platform-specific docs for details
+
+### General BIOS Resources
+- [Libretro BIOS Guide](https://docs.libretro.com/library/bios/)
+- [RetroArch BIOS Setup](https://wiki.retroarch.com/index.php?title=Bios)
+
 ## 📞 Questions?
 
 Open an issue on GitHub for discussion.
 
 ---
-*Last updated: 2025-06-16 (Phase 1 modernization)*
+*Last updated: 2026-06-19 (v3.0 modernization)*

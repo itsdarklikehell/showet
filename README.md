@@ -1,4 +1,4 @@
-# 🗺️ ShowEt Demoscene Demo Runner - v2.2
+# 🗺️ ShowEt Demoscene Demo Runner - v3.0
 
 The definitive, immersive demo-runner for the demoscene with nostalgic flair. Showet provides a unified interface for running demos from pouet.net, scene.org, and modarchive.org across **84+ platforms** with authentic CRT presentation.
 
@@ -224,6 +224,9 @@ showet-installer all
 ```
 
 ### Browser Integration
+
+Showet includes complete browser-based demo playback via nostalgist.js:
+
 ```bash
 # Generate nostalgist.js configs
 python3 nostalgist_bridge.py
@@ -233,6 +236,12 @@ python3 generate_manifest.py
 python3 -m http.server 8000
 # Open: http://localhost:8000/showet-showcase.html
 ```
+
+### nostalgist.js Integration
+- **nostalgist_bridge.py** - Generates JSON configs for all 84 platforms
+- **Core mapping** - Automatic translation from Showet cores to nostalgist cores
+- **Shader presets** - CRT effects automatically applied per platform
+- **Browser playback** - Run demos in browser without local emulator install
 
 ### Demo Discovery & Music
 ```bash
@@ -296,7 +305,7 @@ CI automatically builds on push to main branch.
 
 ## 🎵 Jukebox Mode - Loop/Shuffle/Repeat
 
-Showet's jukebox mode provides continuous demo playback with intelligent looping:
+Showet's jukebox mode provides continuous demo playback with intelligent looping across all sources:
 
 ```bash
 # Play multiple demos in shuffle mode
@@ -305,6 +314,12 @@ showet-jukebox --ids 12345 67890 11223 --shuffle random --repeat all
 # Play looped demos 3 times in shuffle
 showet-jukebox --ids 12345 67890 --loops 3 --shuffle random
 
+# From scene.org
+showet-jukebox --source scene_org --ids 12345 --loops 3
+
+# From ModArchive
+showet-jukebox --source modarchive --ids 12345 --loops 3
+
 # Repeat a single demo
 showet-jukebox --ids 12345 --repeat one
 
@@ -312,17 +327,20 @@ showet-jukebox --ids 12345 --repeat one
 showet-jukebox --ids 12345 67890 --timeout 600
 ```
 
-### Loop Detection
-Showet automatically detects looping demos based on:
-- Pouet.net tags (keywords: "loop", "looping")
-- Demo type (64k/4k intros often loop)
-- File metadata
+### Intelligent Loop Detection
+Showet automatically detects looping demos based on multiple sources:
+
+| Source | Detection Method |
+|--------|-----------------|
+| **Pouet.net** | Tags (loop, looping), Type (64k/4k intros) |
+| **Scene.org** | Filename patterns (loop, endless), Party context |
+| **ModArchive** | Track patterns (medley, mix, remix) |
 
 ### Shuffle Intelligence
 When shuffling:
 - Non-looping demos play once
 - Looped demos play up to 3 times (configurable)
-- then automatically advance to next demo
+- Automatically advances to next demo after completion
 
 ## 📋 Project Status
 
