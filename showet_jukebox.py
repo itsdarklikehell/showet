@@ -31,6 +31,31 @@ logger = logging.getLogger("showet.jukebox")
 # Demo type mappings for loop detection
 LOOPED_DEMO_TYPES = frozenset(["64k", "4k", "intro", "wild"])
 
+# Demo type to estimated duration mapping (seconds)
+DEMO_DURATION_ESTIMATES = {
+    "64k": 180,
+    "4k": 120,
+    "intro": 90,
+    "demo": 300,
+    "diskmag": 600,
+    "wild": 120,
+    "zx_spectrum": 150,
+    "commodore_64": 180,
+    "amiga": 240,
+    "nes": 60,
+    "snes": 90,
+    "dos": 200,
+    "windows": 180,
+}
+
+# Module format to estimated duration
+MODULE_DURATION_ESTIMATES = {
+    "mod": 180,
+    "s3m": 120,
+    "xm": 150,
+    "it": 200,
+}
+
 
 def get_demo_info(pouet_id: int) -> Optional[dict]:
     """Fetch demo metadata from Pouet.net.
@@ -150,6 +175,163 @@ def _detect_modarchive_loop(demo_info: dict) -> bool:
         return True
     
     return False
+
+
+def estimate_demo_duration(demo_info: Optional[dict], source: str = "pouet") -> int:
+    """Estimate demo duration based on type, platform, and metadata.
+    
+    Uses multiple heuristics:
+    - Demo type (64k intros are typically 2-3 min)
+    - Platform (C64 demos differ from PC demos)
+    - File size (larger files often mean longer demos)
+    - Ratings (higher rated demos often longer)
+    
+    Args:
+        demo_info: Demo metadata dictionary
+        source: Source identifier (pouet, scene_org, modarchive)
+        
+    Returns:
+        Estimated duration in seconds
+    """
+    if not demo_info:
+        return 180  # Default 3 minutes
+    
+    demo_type = ""
+    platform = ""
+    
+    if source == "pouet":
+        demo_type = demo_info.get("type", "").lower()
+        # Try to extract platform from demo info
+        platform_info = demo_info.get("platform", "")
+        if platform_info:
+            platform = platform_info.lower()
+    elif source == "scene_org":
+        # Extract from filename/path
+        name = demo_info.get("name", "").lower()
+        for p in DEMO_DURATION_ESTIMATES.keys():
+            if p in name:
+                platform = p
+                break
+    elif source == "modarchive":
+        # Module duration based on format
+        module_format = demo_info.get("format", "").lower()
+        return MODULE_DURATION_ESTIMATES.get(module_format, 180)
+    
+    # Check type-based estimates first - but skip "demo" key which is too generic
+    for demo_type_key, duration in DEMO_DURATION_ESTIMATES.items():
+        if demo_type_key != "demo" and demo_type_key in demo_type:
+            return duration
+    
+    # Check platform-based estimates - check platform before generic "demo" type
+    for platform_key, duration in DEMO_DURATION_ESTIMATES.items():
+        if platform_key in platform:
+            return duration
+    
+    # Finally check for generic demo type
+    if "demo" in demo_type:
+        return DEMO_DURATION_ESTIMATES["demo"]
+    
+    return 180  # Default fallback
+
+
+def generate_cross_source_playlist(
+    pouet_ids: Optional[list[int]] = None,
+    scene_org_names: Optional[list[str]] = None,
+    modarchive_ids: Optional[list[int]] = None,
+    platform: Optional[str] = None,
+) -> list[dict]:
+    """Generate a unified playlist from multiple sources.
+    
+    Args:
+        pouet_ids: List of Pouet.net production IDs
+        scene_org_names: List of scene.org demo filenames
+        modarchive_ids: List of ModArchive module IDs
+        platform: Optional platform filter
+        
+    Returns:
+        List of unified demo metadata dictionaries
+    """
+    playlist = []
+    
+    # Fetch Pouet demos
+    if pouet_ids:
+        for pid in pouet_ids:
+            demo_info = get_demo_info(pid)
+            if demo_info:
+                if platform and platform not in str(demo_info.get("platform", "")).lower():
+                    continue
+                playlist.append({
+                    "id": pid,
+                    "source": "pouet",
+                    "title": demo_info.get("name", f"Pouet #{pid}"),
+                    "type": demo_info.get("type", "demo"),
+                    "loops": is_looped_demo(demo_info, "pouet"),
+                    "duration": estimate_demo_duration(demo_info, "pouet"),
+                    "platform": demo_info.get("platform", "unknown"),
+                })
+    
+    # Fetch scene.org demos
+    if scene_org_names:
+        client = SceneOrgClient()
+        for demo_name in scene_org_names:
+            try:
+                results = client.search_demos(demo_name)
+                for result in results[:1]:  # Take first match
+                    if platform and platform not in result.get("name", "").lower():
+                        continue
+                    playlist.append({
+                        "id": result.get("url", demo_name),
+                        "source": "scene_org",
+                        "title": result.get("name", demo_name),
+                        "type": "demo",
+                        "loops": is_looped_demo(result, "scene_org"),
+                        "duration": estimate_demo_duration(result, "scene_org"),
+                        "platform": "unknown",
+                    })
+            except Exception as e:
+                logger.warning("Could not fetch scene.org demo %s: %s", demo_name, e)
+    
+    # Fetch ModArchive modules
+    if modarchive_ids:
+        api = ModArchiveAPI()
+        for mid in modarchive_ids:
+            module = api.get_module(mid)
+            if module:
+                playlist.append({
+                    "id": mid,
+                    "source": "modarchive",
+                    "title": module.get("title", f"Module #{mid}"),
+                    "type": "module",
+                    "format": module.get("format", "mod"),
+                    "loops": is_looped_demo(module, "modarchive"),
+                    "duration": estimate_demo_duration(module, "modarchive"),
+                    "platform": "music",
+                })
+    
+    return playlist
+
+
+def print_playlist_summary(playlist: list[dict]) -> None:
+    """Print a summary of the generated playlist.
+    
+    Args:
+        playlist: List of demo metadata dictionaries
+    """
+    total_duration = sum(d["duration"] for d in playlist)
+    looped_count = sum(1 for d in playlist if d.get("loops"))
+    
+    print(f"\n📋 Playlist Summary:")
+    print(f"  Total demos: {len(playlist)}")
+    print(f"  Looped demos: {looped_count}")
+    print(f"  Estimated total duration: {total_duration // 60}m {total_duration % 60}s")
+    
+    # Group by source
+    by_source = {}
+    for d in playlist:
+        src = d["source"]
+        by_source[src] = by_source.get(src, 0) + 1
+    
+    print(f"  Sources: {', '.join(f'{k}({v})' for k, v in by_source.items())}")
 
 
 def run_demo(pouet_id: int, timeout: int = DEFAULT_TIMEOUT) -> int:
@@ -312,20 +494,39 @@ def main() -> int:
         help="Max seconds per demo (default: 300)",
     )
     parser.add_argument("--platform", type=str, help="Filter by platform slug")
+    # Cross-source playlist options
+    parser.add_argument("--scene-org-names", type=str, nargs="+", help="Scene.org demo filenames")
+    parser.add_argument("--modarchive-ids", type=int, nargs="+", help="ModArchive module IDs")
+    parser.add_argument("--generate-playlist", action="store_true", help="Generate and display playlist without playing")
     args = parser.parse_args()
 
-    if not args.ids:
+    if args.generate_playlist:
+        playlist = generate_cross_source_playlist(
+            pouet_ids=args.ids,
+            scene_org_names=args.scene_org_names,
+            modarchive_ids=args.modarchive_ids,
+            platform=args.platform,
+        )
+        print_playlist_summary(playlist)
+        return 0
+
+    if not args.ids and not args.scene_org_names and not args.modarchive_ids:
         print("Usage: showet-jukebox --ids ID1 ID2 ... [options]")
         print("\nOptions:")
-        print("  --source pouet|scene_org|modarchive  Demo ID source")
-        print("  --mode shuffle|random|sequential     Playback order")
-        print("  --repeat all|one|none              Repeat mode")
-        print("  --loops N                          Loop count for looped demos (default: 3)")
-        print("  --timeout N                        Per-demo timeout in seconds")
+        print("  --ids ID1 ID2 ...                 Pouet.net demo IDs to play")
+        print("  --scene-org-names NAME1 NAME2 ...   Scene.org demo filenames")
+        print("  --modarchive-ids ID1 ID2 ...        ModArchive module IDs")
+        print("  --generate-playlist                 Show playlist summary without playing")
+        print("  --source pouet|scene_org|modarchive Demo ID source")
+        print("  --mode shuffle|random|sequential    Playback order")
+        print("  --repeat all|one|none             Repeat mode")
+        print("  --loops N                         Loop count for looped demos (default: 3)")
+        print("  --timeout N                       Per-demo timeout in seconds")
+        print("  --platform SLUG                   Filter by platform")
         return 1
 
     return jukebox_mode(
-        demo_ids=args.ids,
+        demo_ids=args.ids or [],
         mode=args.mode,
         repeat=args.repeat,
         loop_limit=args.loops,
