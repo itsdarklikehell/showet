@@ -1,17 +1,23 @@
-# Atari 2600 Platform Documentation
+# Atari 2600/VCS Platform Documentation
 
 ## Overview
-Atari 2600 platform for running retro demos with authentic presentation.
+Atari 2600 (VCS - Video Computer System) platform for running retro demos with authentic presentation. The console that started it all with its revolutionary cartridge-based system and TIA graphics chip.
 
 ## Emulation Setup
 
 ### Required Binaries
-- RetroArch
-- Native emulator
+- **Stella** - Primary native emulator (recommended)
+- **RetroArch (stella_libretro)** - Libretro core option
 
 ### Installation
 ```bash
-sudo apt install retroarch
+# Ubuntu/Debian
+sudo apt install stella
+
+# macOS
+brew install stella
+
+# Or download from https://stella.sourceforge.net
 ```
 
 ## Platform Configuration
@@ -20,7 +26,8 @@ Located at: `nostalgist_configs/atari_2600.json`
 ```json
 {
   "core": "stella2014_libretro",
-  "shader": "crt/crt-easymode"
+  "shader": "crt/crt-royale",
+  "extensions": [".a26", ".bin", ".zip"]
 }
 ```
 
@@ -28,9 +35,10 @@ Located at: `nostalgist_configs/atari_2600.json`
 
 | Format | Description | Runtime |
 |--------|-------------|---------|
-| .zip | Supported format | Native emulator |
-| .a26 | Supported format | Native emulator |
-| .bin | Supported format | Native emulator |
+| .a26 | Atari 2600 ROM - Standard format | Stella emulator |
+| .bin | Binary ROM - Alternative extension | Stella emulator |
+| .zip | Compressed archive - Common distribution | Extract then run |
+| .caf | Atari 2600 Advanced Sound Format | Stella with ASF support |
 
 ## Running Demos
 
@@ -39,27 +47,40 @@ Located at: `nostalgist_configs/atari_2600.json`
 # Run by Pouet ID
 showet 12345
 
-# Run local file
-showet-executor /path/to/demo.zip
+# Run local file with auto-detection
+showet-universal /path/to/demo.a26
 
 # Run in museum mode
 showet-museum --platform atari_2600
+
+# Run in jukebox mode
+showet-jukebox --ids 12345 --repeat all
+
+# Extract archive then run
+showet-archive --extract demo.zip && showet-universal demo/
 ```
 
 ## CRT Settings
-- **Shader**: CRT-Easymode
-- **Curvature**: 0.1 (subtle barrel effect)
-- **Scanlines**: Visible with flicker
-- **Phosphor Bloom**: Enabled for authentic glow
+- **Shader**: CRT-Royale (authentic CRT TV look)
+- **Curvature**: 0.15 (moderate barrel effect)
+- **Scanlines**: Visible with chromatic aberration
+- **Phosphor Bloom**: Enabled for fuzzy TV look
+- **Aspect Ratio**: 4:3 (standard TV)
 
 ## Troubleshooting
 
 ### Common Issues
-Check emulator installation and BIOS files if required.
+1. **No scanlines** - Enable CRT-Royale shader in RetroArch
+2. **Fast execution** - Set frame rate to 60Hz NTSC or 50Hz PAL
+3. **Color issues** - Check NTSC/PAL mode matches ROM
 
 ## Notable Demos
 
-Check pouet.net for top-rated demos on this platform.
+- **Oystr!** by DraftMan - Modern 2600 demo scene
+- **Melvin** by Reindeer - Graphics showcase
+- **Robotic Attack** by Out Of The Ashes - Recent production
+- **Tornado** by AtariBlast - Assembly demo
 
 ---
 *Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*
+*Atari 2600 preservation courtesy of the Stella emulator team*
