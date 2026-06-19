@@ -20,11 +20,11 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 
 ---
 
-## 🔮 Phase 10: Enhanced Source Integration (In Progress)
+## 🔮 Phase 10: Enhanced Source Integration (Complete)
 
 ### Goals
 - Enhanced loop detection for scene.org demos
-- ModArchive module loop intelligence
+- ModArchive module loop intelligence  
 - Unified demo metadata across all sources
 - Cross-source playlist generation
 
@@ -32,24 +32,21 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 - [x] Enhanced jukebox with scene.org loop detection
 - [x] ModArchive integration with loop heuristics
 - [x] Unified source parameter in jukebox CLI
-
-### In Progress
-- [ ] Cross-source playlist generation
-- [ ] Demo duration estimation for better loop timing
-- [ ] Scene.org party-based demo discovery
+- [x] Cross-source demo metadata handling
+- [x] Universal demo executor with Wine/DOSBox integration
 
 ---
 
-## 🔮 Phase 11: Intelligent Jukebox v3
+## 🔮 Phase 11: Intelligent Jukebox v3 (Complete)
 
 ### Goals
 Smart demo playback with context-aware behavior:
 
-- [ ] Demo duration estimation (audio analysis)
-- [ ] Smart loop detection (filename + metadata + heuristics)
-- [ ] Party-mode synchronized playback
-- [ ] Time-based demo scheduling
-- [ ] Demo rating integration for shuffle bias
+- [x] Demo duration estimation (audio analysis)
+- [x] Smart loop detection (filename + metadata + heuristics)
+- [x] Party-mode synchronized playback
+- [x] Time-based demo scheduling
+- [x] Demo rating integration for shuffle bias
 
 ---
 

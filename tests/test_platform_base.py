@@ -75,7 +75,7 @@ class TestPlatformInstantiation:
             module = importlib.import_module(module_name)
             for cls_name in dir(module):
                 cls = getattr(module, cls_name)
-                if isinstance(cls, type) and "Platform" in cls_name:
+                if isinstance(cls, type) and "Platform" in cls_name and not getattr(cls, '__abstractmethods__', None):
                     instance = cls()
                     assert hasattr(instance, 'platform_name')
                     assert hasattr(instance, 'version')
