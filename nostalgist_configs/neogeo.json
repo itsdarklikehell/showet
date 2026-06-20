@@ -1,13 +1,1 @@
-{
-    "platform": "neogeo",
-    "core": "fbneo",
-    "emulator": "fbneo",
-    "shader": "crt/crt-easymode",
-    "display": {
-        "width": 320,
-        "height": 224
-    },
-    "sound": {
-        "type": "8-bit"
-    }
-}
+{"core": "fbneo", "rom": "/roms/neogeo/", "shader": "crt/crt-easymode", "style": {"backgroundColor": "black", "width": "100%", "height": "100%"}, "extensions": ["zip", "ngp", "ngc", "ngpc", "npc"]}

@@ -41,7 +41,8 @@ PLATFORM_EXTENSIONS = {
     "snes": [".smc", ".sfc", ".fig"],
     # Sega
     "megadrive": [".md", ".bin", ".gen"],
-    "mastersystem": [".sms", ".gg"],
+    "mastersystem": [".sms", ".gg", ".sg", ".bin"],
+    "gamegear": [".gg", ".sms"],
     # Others
     "zx_spectrum": [".tap", ".tzx", ".z80"],
     "flash": [".swf"],

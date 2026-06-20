@@ -1,0 +1,20 @@
+{
+  "core": "puae",
+  "rom": "http://localhost:8000/demos/BlackWhite2.m3u",
+  "shader": "crt/crt-royale",
+  "extensions": [".adf", ".zip", ".m3u"],
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  },
+  "notes": "Multi-disk demo - M3U playlist for automatic disk swapping",
+  "demo_info": {
+    "name": "Black'n White Slide 2",
+    "year": "1992",
+    "group": "Drifters",
+    "disks": 2,
+    "disk_a": "Drifters-BlackWhite2A.adf",
+    "disk_b": "Drifters-BlackWhite2B.adf"
+  }
+}

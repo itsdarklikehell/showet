@@ -239,11 +239,29 @@ python3 -m http.server 8000
 # Open: http://localhost:8000/showet-showcase.html
 ```
 
-### nostalgist.js Integration
-- **nostalgist_bridge.py** - Generates JSON configs for all 84 platforms
-- **Core mapping** - Automatic translation from Showet cores to nostalgist cores
-- **Shader presets** - CRT effects automatically applied per platform
-- **Browser playback** - Run demos in browser without local emulator install
+## 🌐 Browser Integration (nostalgist.js)
+
+Showet includes complete browser-based demo playback via nostalgist.js:
+
+**Available Cores (CDN Ready):**
+| Platform | Core | Status |
+|----------|------|--------|
+| NES/Famicom | quicknes, fceumm, nestopia | ✅ Available |
+| SNES | snes9x, bsnes | ✅ Available |
+| Genesis/Mega Drive | genesis_plus_gx | ✅ Available |
+| Game Boy | gambatte, mgba | ✅ Available |
+| C64 | vice_x64sc, vice_x64 | ✅ Available |
+| Amiga | puae | ❌ NOT in CDN |
+
+**Browser Testing:**
+- Amiga blocked: puae core files missing from nostalgist CDN
+- C64/NES/SNES ready: cores available, can download single-disk demos for testing
+
+**Multi-Disk Demo Status (Amiga):**
+- ✅ Local: FS-UAE with Disk A + Disk B configured
+- ✅ M3U playlist created: `BlackWhite2.m3u`
+- ✅ ZIP archive created: `BlackWhite2.zip`
+- ❌ Browser: Waiting for puae core
 
 ### Demo Discovery & Music
 ```bash
@@ -376,15 +394,6 @@ When shuffling:
 - Looped demos play up to 3 times (configurable)
 - Automatically advances to next demo after completion
 - Shows playlist summary with total estimated duration
-# Generate and display playlist summary (mixed sources)
-showet-jukebox --generate-playlist \
-    --ids 12345 67890 \
-    --scene-org-names "demo1.zip" "demo2.zip" \
-    --modarchive-ids 12345 67890
-
-# With platform filter
-showet-jukebox --generate-playlist --ids 12345 67890 --platform commodore_64
-```
 
 ## 📋 Project Status
 

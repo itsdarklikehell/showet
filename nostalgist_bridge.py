@@ -37,6 +37,8 @@ CORE_MAPPING: dict[str, str] = {
     "vice_x64_libretro": "vice_x64",
     "vice_x64sc_libretro": "vice_x64sc",
     "vice_x128_libretro": "vice_x128",
+    "puae_libretro": "puae",  # Amiga core (needs to be in nostalgist CDN)
+    "puae2021_libretro": "puae2021",
 
     # Arcade
     "fbalpha_libretro": "fbalpha2012",
