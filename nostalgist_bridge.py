@@ -83,8 +83,8 @@ def generate_nostalgist_config(
     **kwargs: Any
 ) -> dict[str, Any]:
     """Generate a nostalgist.js launch configuration."""
-    # Map Showet core to nostalgist core
-    mapped_core = CORE_MAPPING.get(core_name, core_name.replace("_libretro", ""))
+    # Map Showet core to nostalgist core (strip .so extension for CDN)
+    mapped_core = CORE_MAPPING.get(core_name, core_name.replace("_libretro.so", "").replace("_libretro", ""))
 
     config: dict[str, Any] = {
         "core": mapped_core,

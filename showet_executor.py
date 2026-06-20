@@ -72,17 +72,17 @@ EMULATOR_COMMANDS = {
 
 # RetroArch core mappings per platform
 PLATFORM_CORES = {
-    "commodore_64": "vice_x64sc_libretro",
-    "commodore_128": "vice_x128_libretro",
-    "amiga": "puae_libretro",
-    "dos": "dosbox_core_libretro",
+    "commodore_64": "vice_x64sc_libretro.so",
+    "commodore_128": "vice_x128_libretro.so",
+    "amiga": "puae_libretro.so",
+    "dos": "dosbox_core_libretro.so",
     "windows": None,  # Wine, not RetroArch
-    "nes": "quicknes_libretro",
-    "snes": "snes9x_libretro",
-    "megadrive": "genesis_plus_gx_libretro",
-    "mastersystem": "genesis_plus_gx_libretro",
-    "zx_spectrum": "fuse_libretro",
-    "flash": "ruffle_libretro",
+    "nes": "quicknes_libretro.so",
+    "snes": "snes9x_libretro.so",
+    "megadrive": "genesis_plus_gx_libretro.so",
+    "mastersystem": "genesis_plus_gx_libretro.so",
+    "zx_spectrum": "fuse_libretro.so",
+    "flash": "ruffle_libretro.so",
 }
 
 
@@ -125,6 +125,8 @@ def find_core_path(core_name: str) -> Optional[Path]:
         Path.home() / ".config" / "retroarch" / "cores" / core_name,
         Path("/usr/lib/retroarch/cores") / core_name,
         Path("/usr/local/lib/retroarch/cores") / core_name,
+        Path("/usr/lib/x86_64-linux-gnu/libretro") / core_name,
+        Path("/usr/lib/aarch64-linux-gnu/libretro") / core_name,
     ]
     
     for path in search_paths:
