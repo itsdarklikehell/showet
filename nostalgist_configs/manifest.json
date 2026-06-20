@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-18",
-  "total": 85,
+  "generated": "2026-06-20",
+  "total": 86,
   "platforms": [
     {
       "slug": "alambik_alambik",
@@ -253,6 +253,13 @@
       ],
       "shader": "crt/crt-royale",
       "originalName": "Commodore Amiga"
+    },
+    {
+      "slug": "commodore_amiga_multidisk",
+      "core": "puae",
+      "extensions": [],
+      "shader": "crt/crt-royale",
+      "originalName": "Commodore Amiga Multidisk"
     },
     {
       "slug": "commodore_cbmii",

@@ -1,0 +1,35 @@
+# Showet Docker Compose - Easy Demo Runner Deployment
+# Usage: docker-compose up -d && open http://localhost:8000/showet-showcase.html
+
+version: '3.8'
+
+services:
+  showet:
+    build:
+      context: .
+      dockerfile: Dockerfile.showet
+    container_name: showet-runner
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./demos:/roms
+      - ./nostalgist_configs:/configs
+      - ~/.showet:/config/showet
+    environment:
+      - DISPLAY=${DISPLAY}
+    devices:
+      - /dev/snd:/dev/snd
+    command: ["python3", "-m", "http.server", "8000"]
+
+  # Optional: RetroArch with GUI access
+  retroarch-gui:
+    image: registry.gitlab.com/christopherrogers/retroarch-desktop:latest
+    container_name: showet-retroarch
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./demos:/roms
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+    privileged: true
+    network_mode: host
