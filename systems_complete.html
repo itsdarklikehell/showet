@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Showet - Complete System Testing Matrix</title>
+  <style>
+    body { background: #111; color: white; font-family: monospace; padding: 20px; }
+    .panel { margin: 20px 0; padding: 15px; background: #222; border-radius: 5px; border-left: 4px solid #ff6b00; overflow-x: auto; }
+    .ok { border-left-color: #0f0; }
+    .error { border-left-color: #f55; }
+    .info { border-left-color: #66f; }
+    table { border-collapse: collapse; width: 100%; }
+    td, th { padding: 6px 10px; border: 1px solid #333; font-size: 0.9em; }
+    th { background: #333; }
+    .multi { color: #ff6b00; }
+    .blocked { color: #f55; }
+    .ready { color: #0f0; }
+  </style>
+</head>
+<body>
+  <h1>🕹️ Showet Complete System Testing Matrix</h1>
+  
+  <div class="panel ok">
+    <h2>✅ READY SYSTEMS (Browser Testing Available)</h2>
+    <table>
+      <tr><th>System</th><th>Core</th><th>Extensions</th><th>Multi-Disk</th></tr>
+      <tr><td>Atari 2600</td><td>stella</td><td>.a26 .bin .zip</td><td>None</td></tr>
+      <tr><td>Commodore 64</td><td>vice_x64sc</td><td>.d64 .t64 .prg .tap</td><td class="multi">Tape (.t64/.tap)</td></tr>
+      <tr><td>NES/Famicom</td><td>fceumm</td><td>.nes .fds .zip</td><td class="multi">FDS disks (.fds)</td></tr>
+      <tr><td>Famicom Disk System</td><td>quicknes</td><td>.fds .nes</td><td class="multi">FDS disks</td></tr>
+      <tr><td>Game Boy</td><td>gambatte</td><td>.gb .gbc .zip</td><td>None</td></tr>
+      <tr><td>Game Boy Color</td><td>gambatte</td><td>.gbc .gb .zip</td><td>None</td></tr>
+      <tr><td>SNES/Super Famicom</td><td>snes9x</td><td>.sfc .smc .zip</td><td>None</td></tr>
+      <tr><td>Sega 32X</td><td>picodrive</td><td>.32x .bin .zip</td><td>CD support</td></tr>
+      <tr><td>Sega Master System</td><td>genesis_plus_gx</td><td>.sms .gg .zip</td><td>CD support (.cue)</td></tr>
+      <tr><td>Sega Mega Drive</td><td>genesis_plus_gx</td><td>.md .gen .zip</td><td>CD support (.cue/.bin)</td></tr>
+    </table>
+  </div>
+  
+  <div class="panel error">
+    <h2>❌ BLOCKED SYSTEMS (CDN Issues)</h2>
+    <table>
+      <tr><th>System</th><th>Core</th><th>Issue</th></tr>
+      <tr><td>Commodore Amiga</td><td>puae</td><td>puae_libretro.zip NOT in nostalgist CDN</td></tr>
+      <tr><td>Amiga Multi-Disk</td><td>puae</td><td>Same core issue</td></tr>
+    </table>
+  </div>
+  
+  <div class="panel info">
+    <h2>📋 Multi-Disk Testing Priority</h2>
+    <ol>
+      <li><strong>C64 Tape:</strong> Side A/B loading with .t64/.tap files</li>
+      <li><strong>NES FDS:</strong> Multiple disk .fds files</li>
+      <li><strong>Sega CD:</strong> .cue/.bin swapping</li>
+      <li><strong>Amiga:</strong> Waiting for puae core</li>
+    </ol>
+  </div>
+  
+  <div class="panel">
+    <h2>🔗 Source Links</h2>
+    <ul>
+      <li><a href="https://nostalgist.js.org" style="color:#ff6b00">nostalgist.js Documentation</a></li>
+      <li><a href="https://github.com/libretro/libretro-core-info" style="color:#ff6b00">libretro-core-info</a></li>
+      <li><a href="/nostalgist_configs/manifest.json" style="color:#ff6b00">Platform Manifest</a></li>
+    </ul>
+  </div>
+</body>
+</html>

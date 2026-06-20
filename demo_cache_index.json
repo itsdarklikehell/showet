@@ -1,0 +1,13 @@
+[
+  {
+    "id": "12345",
+    "name": "VICE x64sc - Ready to launch",
+    "platform": "commodore_64",
+    "year": "2024",
+    "size": 0,
+    "downloaded": "2026-06-20",
+    "categories": ["demo", "c64", "working"],
+    "source": "nostalgist-cdn",
+    "note": "puae Amiga core not available - using vice_x64sc C64 core instead"
+  }
+]

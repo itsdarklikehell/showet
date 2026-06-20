@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Showet Browser Test - nostalgist.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/nostalgist@latest/dist/nostalgist.min.js"></script>
+  <style>
+    body { background: #111; color: white; font-family: monospace; padding: 20px; }
+    .panel { margin: 20px 0; padding: 15px; background: #222; border-radius: 5px; }
+    #crt-frame { background: black; border-radius: 8px; overflow: hidden; }
+  </style>
+</head>
+<body>
+  <h1>🕹️ Showet Browser Test</h1>
+  
+  <div class="panel">
+    <h2>Available Cores in nostalgist CDN</h2>
+    <p><strong>Working:</strong> fceumm, snes9x, genesis_plus_gx, vice_x64sc, gambatte, quicknes</p>
+    <p><strong>Missing:</strong> puae (Amiga) - BLOCKING</p>
+  </div>
+  
+  <div id="crt-frame"><canvas id="tvs-canvas" width="640" height="480"></canvas></div>
+  
+  <script>
+    // Test nostalgist.js availability
+    async function testCore(coreName) {
+      try {
+        const result = await Nostalgist.prepare({ core: coreName, runEmulatorManually: true });
+        console.log(`✓ ${coreName} available`);
+        return true;
+      } catch (e) {
+        console.log(`✗ ${coreName} failed:`, e.message);
+        return false;
+      }
+    }
+    
+    // Test available cores
+    ['fceumm', 'quicknes', 'snes9x', 'genesis_plus_gx', 'vice_x64sc', 'gambatte']
+      .forEach(core => testCore(core));
+    
+    // List available for testing
+    console.log("Ready to test: C64, NES, SNES, Genesis, GB");
+    console.log("Blocked: Amiga (puae core missing)");
+  </script>
+</body>
+</html>

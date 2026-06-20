@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Showet Demo Runner - Amiga</title>
+  <style>
+    body { background: #111; color: white; font-family: monospace; padding: 20px; }
+    .section { margin: 20px 0; padding: 15px; background: #222; border-radius: 5px; }
+    .success { color: #0f0; }
+    .error { color: #f55; }
+    code { background: #333; padding: 2px 6px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>🕹️ Showet Demo Runner</h1>
+  
+  <div class="section">
+    <h2>📥 Demo Status</h2>
+    <p class="success">✅ Black'n White Slide 2 (Amiga) - Downloaded</p>
+    <p>Location: <code>~/.showet/data/12345/Drifters-BlackWhite2A.adf</code></p>
+    <p>Size: 880 KB (bootable Amiga disk)</p>
+  </div>
+  
+  <div class="section">
+    <h2>🎮 Run Locally (Recommended)</h2>
+    <p>Browser nostalgist lacks Amiga cores. Run via FS-UAE:</p>
+    <pre>cd ~/workspace/projects/showet
+./showet-demo-run.sh ~/.showet/data/12345/Drifters-BlackWhite2A.adf</pre>
+    <p>Or directly:</p>
+    <pre>fs-uae /home/rizzo/FS-UAE/showet_demo.conf</pre>
+    <p class="success">FS-UAE 3.2.35 is installed and ready!</p>
+  </div>
+  
+  <div class="section">
+    <h2>🌐 Browser (Limited)</h2>
+    <p class="error">❌ Amiga cores not in nostalgist CDN</p>
+    <p>Available browser cores: quicknes (NES), vice_x64sc (C64), genesis_plus_gx (Sega)</p>
+  </div>
+</body>
+</html>

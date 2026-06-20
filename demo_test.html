@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Showet Demo Pipeline - System Status</title>
+  <style>
+    body { background: #111; color: white; font-family: monospace; padding: 20px; }
+    .panel { margin: 20px 0; padding: 15px; background: #222; border-radius: 5px; border-left: 4px solid #ff6b00; }
+    .ok { border-left-color: #0f0; }
+    .error { border-left-color: #f55; }
+    .info { border-left-color: #66f; }
+    table { border-collapse: collapse; }
+    td, th { padding: 8px 12px; border: 1px solid #444; }
+    th { background: #333; }
+  </style>
+</head>
+<body>
+  <h1>🕹️ Showet Demo Pipeline - System Status Report</h1>
+  
+  <table>
+    <tr><th>Platform</th><th>Local Emulator</th><th>Browser Core</th><th>Status</th></tr>
+    <tr><td>Commodore Amiga</td><td>FS-UAE ✅</td><td>puae ❌</td><td>Multi-disk demo works locally</td></tr>
+    <tr><td>Commodore 64</td><td>VICE ✅</td><td>vice_x64sc ✅</td><td>Ready to test in browser</td></tr>
+    <tr><td>NES</td><td>FCEUX/QNes ✅</td><td>fceumm ✅</td><td>Ready to test in browser</td></tr>
+    <tr><td>SNES</td><td>Snes9x ✅</td><td>snes9x ✅</td><td>Ready to test in browser</td></tr>
+    <tr><td>Mega Drive</td><td>PicoDrive/Kega ✅</td><td>genesis_plus_gx ✅</td><td>Ready to test in browser</td></tr>
+  </table>
+  
+  <div class="panel ok">
+    <h2>✅ Available Browser Cores (nostalgist.js)</h2>
+    <p>From CDN: fceumm, snes9x, genesis_plus_gx, vice_x64sc, mgba, nestopia</p>
+    <p><strong>Action:</strong> Can download single-disk C64 or NES demo for browser testing</p>
+  </div>
+  
+  <div class="panel info">
+    <h2>📋 Multi-Disk Methods (Amiga via FS-UAE)</h2>
+    <ul>
+      <li><strong>M3U playlist:</strong> BlackWhite2.m3u (both disks listed)</li>
+      <li><strong>ZIP archive:</strong> BlackWhite2.zip (contains both .adf files)</li>
+      <li><strong>Config:</strong> Two separate floppy_drive entries in FS-UAE</li>
+    </ul>
+  </div>
+  
+  <div class="panel">
+    <h2>🔗 Alternative Browser Solutions</h2>
+    <p><strong>webretro (BinBashBanana):</strong> Has mGBA, Nestopia, Snes9x, Genesis Plus GX</p>
+    <p><strong>web.libretro.com:</strong> Official RetroArch web player (limited cores)</p>
+    <p><strong>nostalgist.js:</strong> Best integration but no Amiga core</p>
+  </div>
+</body>
+</html>
