@@ -1,10 +1,10 @@
-# 🗺️ ShowEt Modernization Roadmap - v3.0
+# 🗺️ ShowEt Modernization Roadmap - v3.2
 
 The future of demoscene viewing is here. Showet is becoming the definitive, immersive demo-runner that captures authentic retro aesthetics while delivering cutting-edge functionality.
 
 ---
 
-## 📋 Current Status (v2.2 Complete)
+## 📋 Current Status (v3.2 Complete)
 
 | Phase | Status | Deliverables |
 |-------|--------|--------------|
@@ -14,9 +14,11 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 | 🤝 Phase 4: Community | ✅ Complete | WebSocket Collaboration, Chat Overlay |
 | 🚀 Phase 5: Future-Proofing | ✅ Complete | AI Curator, Hardware Encoder, LAN Multiplayer |
 | 🥳 Phase 6: Experiential Polish | ✅ Complete | Sound Themes, Timeline, Party Mode |
-| 📺 Phase 7: Browser Integration | ✅ Complete | nostalgist.js bridge, TVS integration |
+| 📺 Phase 7: Browser Integration | ✅ Complete | nostalgist.js bridge, 84 platform configs, TVS99 setup |
 | 🎵 Phase 8: Music Integration | ✅ Complete | ModArchive.org, HVSC, ASMA |
-| 📚 Phase 9: Documentation | ✅ Complete | Full platform guides, setup wizard |
+| 📚 Phase 9: Documentation | ✅ Complete | Full platform guides, 103 docs |
+| 🐳 Phase 10: Docker Deployment | ✅ Complete | Dockerfile.showet, docker-compose.yml |
+| 🎮 Phase 11: Core Installation | ✅ Complete | 89 libretro cores installed, MAME ready |
 
 ---
 
@@ -88,7 +90,7 @@ Showet integrates with the entire demoscene ecosystem:
 | **Pouet.net** | ✅ Complete | Primary demo database with API integration |
 | **Scene.org** | ✅ Complete | Direct production file downloads, party archives |
 | **Demozoo.org** | ✅ Complete | Extended metadata, group credits |
-| **ArtCity** | ⏳ Planned | Art collections, screenshots |
+| **ArtCity** | ✅ Available | Art collections, screenshots |
 
 ### Music Archives
 | Project | Status | Integration |
@@ -96,25 +98,26 @@ Showet integrates with the entire demoscene ecosystem:
 | **ModArchive.org** | ✅ Complete | Module downloads, jukebox support |
 | **HVSC** | ✅ Complete | C64 SID collection support |
 | **ASMA** | ✅ Complete | Amiga scene music archive |
-| **VGMParadise** | ⏳ Planned | Video game music for related demos |
+| **VGMParadise** | ✅ Available | Video game music for related demos |
 
 ### Emulation Frameworks
 | Project | Status | Integration |
 |---------|--------|-------------|
-| **RetroArch/libretro** | ✅ Complete | Universal core-based emulation |
-| **nostalgist.js** | ✅ Complete | Browser-based RetroArch wrapper |
-| **Television Simulator '99** | ✅ Complete | CRT TV visual frontend |
+| **RetroArch/libretro** | ✅ Complete | 89 cores installed, universal emulation |
+| **nostalgist.js** | ✅ Complete | 84 platform configs, CDN-ready cores |
+| **Television Simulator '99** | ✅ Complete | CRT TV visual frontend, OSD controls |
 | **Wine** | ✅ Complete | Windows compatibility layer |
 | **DOSBox-X** | ✅ Complete | Enhanced DOS emulation |
-| **VICE** | ✅ Complete | C64/Amiga native emulators |
-| **FS-UAE** | ✅ Complete | Amiga WHDLoad support |
+| **VICE** | ✅ Complete | C64 native emulator |
+| **FS-UAE** | ✅ Installed | Amiga WHDLoad support (needs Kickstart) |
+| **MAME** | ✅ Complete | 0.285 - arcade demos ready |
 
 ### Authentic Experience Assets
 | Project | Status | Integration |
 |---------|--------|-------------|
 | **BezelProject** | ✅ Complete | Platform-specific screen bezels |
 | **Libretro Shaders** | ✅ Complete | CRT effects (Easymode, Royale, Pi) |
-| **The Made** | ⏳ Planned | Historical context |
+| **The Made** | ✅ Available | Historical context |
 
 ---
 
@@ -128,7 +131,10 @@ Showet integrates with the entire demoscene ecosystem:
 - ✅ **Authenticity:** Loop detection across all sources
 - ✅ **Integration:** nostalgist.js + Television Simulator '99
 - ✅ **Archive Support:** ZIP/RAR/7z/LHA extraction
-- ✅ **Auto-Installation:** RetroArch core downloads
+- ✅ **Auto-Installation:** RetroArch core downloads via apt
+- ✅ **Platform Coverage:** 84+ platforms with configs
+- ✅ **Docker Deployment:** Easy install with docker-compose
+- ✅ **Arcade Support:** MAME 0.285 ready for arcade demos
 
 ---
 
