@@ -68,6 +68,7 @@ showet-thumbnails = "showet_thumbnails:main"
 showet-demoparty = "showet_demoparty_mode:main"
 showet-tvs99 = "tvs99_setup:main"
 showet-check = "showet_check:main"
+showet-verify = "showet_verify:main"
 showet-universal = "showet_executor:main"
 
 [project.urls]

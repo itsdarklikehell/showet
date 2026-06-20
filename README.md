@@ -213,6 +213,27 @@ showet-stream --platform twitch --webcam --demo 12345
 showet-jukebox --ids 12345 67890 --loops 3 --shuffle random --repeat all
 ```
 
+### Verify Installation
+```bash
+# Check all components
+showet-verify
+
+# Check specific component
+showet-installer check --emulator retroarch --core vice_x64sc
+```
+
+### BIOS Requirements
+
+Some platforms require BIOS/firmware files for emulation:
+
+| Platform | Files Needed | Where to Put Them |
+|----------|--------------|------------------|
+| Amiga | `kick13.rom`, `kick20.rom`, `kick30.rom` | `~/.mame/roms/amiga/` or FS-UAE BIOS folder |
+| Atari 8-bit | `ATARI800.ROM` | System libretro path |
+| NES | `bnes.zip`, `fceumm.zip` | `~/.config/retroarch/system/` |
+
+**Note:** BIOS files are copyrighted. Obtain them legally from your own hardware.
+
 ### TVS99 Setup
 ```bash
 # Setup Television Simulator '99
