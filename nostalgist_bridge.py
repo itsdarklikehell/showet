@@ -31,6 +31,7 @@ CORE_MAPPING: dict[str, str] = {
     "snes9x_libretro": "snes9x",
     "bsnes_libretro": "bsnes",
     "gambatte_libretro": "gambatte",
+    "mgba_libretro": "mgba",
     "meteor_libretro": "meteor",
 
     # Commodore

@@ -39,6 +39,9 @@ PLATFORM_EXTENSIONS = {
     # Nintendo
     "nes": [".nes", ".fds"],
     "snes": [".smc", ".sfc", ".fig"],
+    "gameboy": [".gb", ".gbc", ".dmg"],
+    "gameboycolor": [".gbc", ".gb"],
+    "gameboyadvance": [".gba", ".agb"],
     # Sega
     "megadrive": [".md", ".bin", ".gen"],
     "mastersystem": [".sms", ".gg", ".sg", ".bin"],
@@ -79,6 +82,9 @@ PLATFORM_CORES = {
     "windows": None,  # Wine, not RetroArch
     "nes": "quicknes_libretro.so",
     "snes": "snes9x_libretro.so",
+    "gameboy": "gambatte_libretro.so",
+    "gameboycolor": "gambatte_libretro.so",
+    "gameboyadvance": "mgba_libretro.so",
     "megadrive": "genesis_plus_gx_libretro.so",
     "mastersystem": "genesis_plus_gx_libretro.so",
     "zx_spectrum": "fuse_libretro.so",
