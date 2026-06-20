@@ -4,24 +4,23 @@
 from __future__ import annotations
 
 from typing import Dict, Any, List
-
 from PlatformBase import PlatformBase
 
-
-class Platform_Commodore_Amiga_AGA(PlatformBase):
-    """Platform runner for Commodore Amiga AGA demos."""
+class Platform_TI_8x(PlatformBase):
+    """Platform runner for TI-8x calculator demos."""
 
     def __init__(self):
-        super().__init__("commodore_amiga_aga", version="2.0.0-refactored")
-        self.emulators = ["retroarch", "fsuae"]
-        self.cores = ["puae2021_libretro", "puae_libretro"]
-        self.extensions = ["adf", "dms", "ipf", "zip", "lha"]
+        super().__init__("ti_8x", version="2.0.0-refactored")
+        self.emulators = ["retroarch"]
+        self.cores = ["ti83_libretro", "ti83plus_libretro", "ti85_libretro", "ti86_libretro"]
+        self.extensions = ['8xp', '8xg', '8xm', '8xk', '8xl', 'zip']
 
     def supported_platforms(self) -> list[str]:
-        return ["commodore_amiga_aga"]
+        """Return the platform slug(s) this runner supports."""
+        return ["ti_8x"]
 
     def initialize(self) -> bool:
-        print("[Commodore Amiga AGA] Initializing...")
+        print(f"[TI-8x] Initializing...")
         self._is_initialized = True
         return True
 
@@ -29,12 +28,14 @@ class Platform_Commodore_Amiga_AGA(PlatformBase):
         if not self.is_initialized():
             return False
         self._last_rom_path = rom_path
-        print(f"[Commodore Amiga AGA] Loaded: {rom_path}")
+        print(f"[TI-8x] Loaded: {rom_path}")
         return True
 
     def run_frame(self, controls: Dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
+        if controls:
+            print(f"[TI-8x] Note: Control mapping pending")
         return True
 
     def get_status_report(self) -> Dict[str, Any]:
@@ -45,7 +46,9 @@ class Platform_Commodore_Amiga_AGA(PlatformBase):
         }
 
     def save_state(self) -> bytes:
+        print(f"[TI-8x] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
+        print(f"[TI-8x] State load: Delegated to RetroArch")
         return True

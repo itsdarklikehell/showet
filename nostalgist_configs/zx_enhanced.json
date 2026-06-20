@@ -1,0 +1,17 @@
+{
+  "core": "fuse",
+  "rom": "/roms/zx_enhanced/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  },
+  "extensions": [
+    "nex",
+    "tap",
+    "tzx",
+    "z80",
+    "zip"
+  ]
+}

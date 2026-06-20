@@ -29,23 +29,28 @@ logging.basicConfig(
 logger = logging.getLogger("showet.jukebox")
 
 # Demo type mappings for loop detection
-LOOPED_DEMO_TYPES = frozenset(["64k", "4k", "intro", "wild"])
+LOOPED_DEMO_TYPES = frozenset(["64k", "4k", "intro", "wild", "1k", "8k", "dentro", "cracktro"])
+
+# All demo types (from pouet.net)
+ALL_DEMO_TYPES = frozenset([
+    "32b", "64b", "128b", "256b", "512b",
+    "1k", "4k", "8k", "16k", "32k", "40k", "64k", "80k", "96k", "100k", "128k", "256k",
+    "artpack", "bbstro", "cracktro", "demo", "demopack", "demotool", "dentro",
+    "diskmag", "fastdemo", "game", "intro", "invitation", "liveact", "musicdisk",
+    "procedural graphics", "report", "slideshow", "votedisk", "wild",
+])
 
 # Demo type to estimated duration mapping (seconds)
 DEMO_DURATION_ESTIMATES = {
-    "64k": 180,
-    "4k": 120,
-    "intro": 90,
-    "demo": 300,
-    "diskmag": 600,
-    "wild": 120,
-    "zx_spectrum": 150,
-    "commodore_64": 180,
-    "amiga": 240,
-    "nes": 60,
-    "snes": 90,
-    "dos": 200,
-    "windows": 180,
+    # Size categories
+    "32b": 10, "64b": 15, "128b": 20, "256b": 30, "512b": 45,
+    "1k": 60, "4k": 120, "8k": 90, "16k": 120, "32k": 150,
+    "40k": 180, "64k": 180, "80k": 200, "96k": 220, "100k": 240,
+    "128k": 270, "256k": 300,
+    # Content types  
+    "intro": 90, "demo": 300, "diskmag": 600, "wild": 120,
+    "artpack": 180, "slideshow": 150, "cracktro": 60, "dentro": 120,
+    "musicdisk": 480, "demopack": 600, "demotool": 120,
 }
 
 # Module format to estimated duration

@@ -4,24 +4,23 @@
 from __future__ import annotations
 
 from typing import Dict, Any, List
-
 from PlatformBase import PlatformBase
 
-
-class Platform_Commodore_Amiga_AGA(PlatformBase):
-    """Platform runner for Commodore Amiga AGA demos."""
+class Platform_Nintendo_VirtualBoy(PlatformBase):
+    """Platform runner for Nintendo Virtual Boy demos."""
 
     def __init__(self):
-        super().__init__("commodore_amiga_aga", version="2.0.0-refactored")
-        self.emulators = ["retroarch", "fsuae"]
-        self.cores = ["puae2021_libretro", "puae_libretro"]
-        self.extensions = ["adf", "dms", "ipf", "zip", "lha"]
+        super().__init__("nintendo_virtualboy", version="2.0.0-refactored")
+        self.emulators = ["retroarch"]
+        self.cores = ["mednafen_vb_libretro"]
+        self.extensions = ['vb', 'zip']
 
     def supported_platforms(self) -> list[str]:
-        return ["commodore_amiga_aga"]
+        """Return the platform slug(s) this runner supports."""
+        return ["nintendo_virtualboy"]
 
     def initialize(self) -> bool:
-        print("[Commodore Amiga AGA] Initializing...")
+        print(f"[Virtual Boy] Initializing...")
         self._is_initialized = True
         return True
 
@@ -29,12 +28,14 @@ class Platform_Commodore_Amiga_AGA(PlatformBase):
         if not self.is_initialized():
             return False
         self._last_rom_path = rom_path
-        print(f"[Commodore Amiga AGA] Loaded: {rom_path}")
+        print(f"[Virtual Boy] Loaded: {rom_path}")
         return True
 
     def run_frame(self, controls: Dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
+        if controls:
+            print(f"[Virtual Boy] Note: Control mapping pending")
         return True
 
     def get_status_report(self) -> Dict[str, Any]:
@@ -45,7 +46,9 @@ class Platform_Commodore_Amiga_AGA(PlatformBase):
         }
 
     def save_state(self) -> bytes:
+        print(f"[Virtual Boy] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
+        print(f"[Virtual Boy] State load: Delegated to RetroArch")
         return True

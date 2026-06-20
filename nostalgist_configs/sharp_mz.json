@@ -1,0 +1,16 @@
+{
+  "core": "mz",
+  "rom": "/roms/sharp_mz/",
+  "shader": "crt/crt-easymode",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  },
+  "extensions": [
+    "mzt",
+    "mzy",
+    "wav",
+    "zip"
+  ]
+}
