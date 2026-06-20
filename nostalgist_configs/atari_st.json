@@ -1,0 +1,19 @@
+{
+  "core": "hatari",
+  "rom": "/roms/atari_st/",
+  "shader": "crt/crt-pi",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  },
+  "extensions": [
+    "st",
+    "msa",
+    "stx",
+    "dim",
+    "ipf",
+    "m3u",
+    "zip"
+  ]
+}

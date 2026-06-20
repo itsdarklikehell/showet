@@ -1,0 +1,17 @@
+{
+  "core": "puae2021",
+  "rom": "/roms/commodore_amiga_aga/",
+  "shader": "crt/crt-royale",
+  "style": {
+    "backgroundColor": "black",
+    "width": "100%",
+    "height": "100%"
+  },
+  "extensions": [
+    "adf",
+    "dms",
+    "ipf",
+    "zip",
+    "lha"
+  ]
+}
