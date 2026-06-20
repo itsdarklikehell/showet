@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y \
     retroarch libretro-core-info \
     # MAME for arcade demos
     mame \
-    # Wine for Windows demos
-    wine wine32 \
+    # Wine for Windows demos (if available)
+    wine \
     # DOSBox-X for DOS demos
     dosbox-x \
     # Archive tools
@@ -33,7 +33,7 @@ COPY . /app/
 
 # Copy RetroArch cores from system to mounted location
 RUN mkdir -p /config/retroarch/cores \
-    && cp -r /usr/lib/libretro/* /config/retroarch/cores/ 2>/dev/null || true
+    && cp -r /usr/lib/*/libretro/* /config/retroarch/cores/ 2>/dev/null || true
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -e .
