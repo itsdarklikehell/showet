@@ -30,8 +30,8 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 - [x] Create `showet/cli/` - unified command interface
 - [x] Integrate legacy `showet.py` with v4.0 package (backward compatible)
 - [x] Migrate platform modules to `showet/platforms/__init__.py`
-- [ ] Add async download/download manager
-- [ ] Implement SQLite cache layer
+- [x] Add async download/download manager
+- [x] Implement SQLite cache layer with sync capabilities
 - [x] Update pyproject.toml for new structure (fixed duplicate optional-dependencies)
 
 ---
