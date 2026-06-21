@@ -187,6 +187,48 @@ cd showet
 pip install -e .
 ```
 
+### Cross-Platform Installation
+
+Showet auto-detects your operating system and uses the appropriate package manager:
+
+```bash
+# Auto-detect and install for your platform
+showet-installer install
+
+# Or run directly
+python3 showet_dependency_installer.py --install
+
+# Detect your platform
+showet-installer --detect-os
+
+# Steam Deck optimized installation
+showet-installer --steamdeck
+showet-steamdeck --detect
+```
+
+**Supported platforms:**
+- Linux (apt, dnf, pacman)
+- macOS (Homebrew)
+- Steam Deck (flatpak/pacman)
+
+### Steam Deck Support
+
+Showet includes optimized Steam Deck installation with controller support:
+
+```bash
+# Install for Steam Deck
+showet-installer --steamdeck
+
+# Test OSD display
+showet-steamdeck --test-osd
+
+# Controller mappings:
+# A: Select/Run    B: Back         X: Menu/Filter
+# Y: Shader Toggle  Start: Play/Pause  Select: Settings
+# LB: Seek <<       RB: Seek >>
+# Left Stick: Navigate Menu   Right Stick: Quick Demo Switch
+```
+
 ### Runtime Dependencies (Auto-Install)
 ```bash
 # Install all emulators
