@@ -36,6 +36,28 @@ LOOPED_KEYWORDS: Final = frozenset([
     "loop", "looping", "infinite", "64k", "4k", "intro", "cracktro", "dentro"
 ])
 
+# Extended loop indicators
+LOOP_PATTERNS: Final = frozenset([
+    "loop", "endless", "forever", "replay", "continuous", "eternal",
+    "repeat", "cyclic", "cycle", "oscillating"
+])
+
+# Common demoparty names known for looped intros (Assembly, Breakpoint, etc.)
+PARTY_LOOP_INCENTIVE: Final = frozenset([
+    "assembly", "breakpoint", "revision", "evoke", "forever", "spring",
+    "silly", "csdb", "pouet"
+])
+
+# Platform-specific loop tendency (some platforms favor looping demos)
+PLATFORM_LOOP_TENDENCY: Final = {
+    "commodore_64": 0.7,   # C64 demos often loop
+    "commodore_amiga": 0.6, # Amiga intros commonly loop
+    "nintendo_famicom": 0.5, # NES has looping intros
+    "nintendo_gameboy": 0.4, # GB has some looped intros
+    "zx_spectrum": 0.6,    # ZX has many cracktros
+    "atari": 0.5,          # Atari intros loop
+}
+
 # Supported archive extensions
 ARCHIVE_EXTENSIONS: Final = frozenset([".zip", ".rar", ".7z", ".lha", ".lzh"])
 

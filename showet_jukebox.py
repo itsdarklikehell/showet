@@ -28,6 +28,19 @@ logging.basicConfig(
 )
 logger = logging.getLogger("showet.jukebox")
 
+# Extended loop patterns
+LOOP_PATTERNS_EXTENDED = ["loop", "endless", "forever", "replay", "continuous", "eternal", "repeat", "cyclic"]
+
+# Platform loop tendency
+PLATFORM_LOOP_TENDENCY = {
+    "commodore_64": 0.7,
+    "commodore_amiga": 0.6,
+    "nintendo_famicom": 0.5,
+    "nintendo_gameboy": 0.4,
+    "zx_spectrum": 0.6,
+    "atari": 0.5,
+}
+
 # Demo type mappings for loop detection
 LOOPED_DEMO_TYPES = frozenset(["64k", "4k", "intro", "wild", "1k", "8k", "dentro", "cracktro"])
 
@@ -136,10 +149,15 @@ def _detect_pouet_loop(demo_info: dict) -> bool:
     - Tags/keywords (loop, looping)
     - Rating (high-rated intros often loop)
     - Rank position
+    - Party context
+    - Platform tendency
     """
     # Rating heuristic: high-rated intros often loop
     rating = demo_info.get("rating", 0)
     demo_type = demo_info.get("type", "").lower()
+    tags = demo_info.get("tags", "")
+    name = demo_info.get("name", "").lower()
+    platform = demo_info.get("platform", "").lower()
     
     if rating and rating > 4.0 and "intro" in demo_type:
         return True
@@ -149,12 +167,27 @@ def _detect_pouet_loop(demo_info: dict) -> bool:
         return True
 
     # Check tags/keywords
-    tags = demo_info.get("tags", "")
     if tags:
         tags_lower = tags.lower()
         for keyword in LOOPED_KEYWORDS:
             if keyword in tags_lower:
                 return True
+        # Extended patterns
+        for pattern in LOOP_PATTERNS_EXTENDED:
+            if pattern in tags_lower:
+                return True
+
+    # Check name for loop patterns
+    for pattern in LOOP_PATTERNS_EXTENDED:
+        if pattern in name:
+            return True
+    
+    # Platform tendency heuristic
+    for plat_key, tendency in PLATFORM_LOOP_TENDENCY.items():
+        if plat_key in platform:
+            if any(p in name for p in ["intro", "64k", "4k", "cracktro"]):
+                return True
+            break
 
     return False
 
@@ -163,8 +196,7 @@ def _detect_scene_org_loop(demo_info: dict) -> bool:
     """Detect loop status from scene.org demo.
     
     Scene.org demos loop detection based on:
-    - Filename patterns (loop, endless, replay, forever)
-    - Party context (certain parties favor looping intros)
+    - Filename patterns (all loop indicators)
     - Demo type indicators in path
     - File size heuristics (smaller files often loop)
     
@@ -174,9 +206,8 @@ def _detect_scene_org_loop(demo_info: dict) -> bool:
     name = demo_info.get("name", "").lower()
     size = demo_info.get("size", 0)
     
-    # Common loop-related patterns in filenames
-    loop_patterns = ["loop", "replay", "forever", "endless", "continuous"]
-    if any(p in name for p in loop_patterns):
+    # All loop patterns from config
+    if any(p in name for p in LOOP_PATTERNS_EXTENDED):
         return True
     
     # Check for intros (often looping)

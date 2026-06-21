@@ -12,7 +12,10 @@ import urllib.request
 from pathlib import Path
 from typing import Any, Optional
 
-from showet.core.config import DEBUG, DEFAULT_TIMEOUT, DEFAULT_LOOP_LIMIT, LOOPED_KEYWORDS
+from showet.core.config import (
+    DEBUG, DEFAULT_TIMEOUT, DEFAULT_LOOP_LIMIT, LOOPED_KEYWORDS,
+    LOOP_PATTERNS, PLATFORM_LOOP_TENDENCY, PARTY_LOOP_INCENTIVE
+)
 
 logger = logging.getLogger("showet.jukebox")
 
@@ -50,6 +53,7 @@ def is_looped_demo(demo_info: Optional[dict], source: str = "pouet") -> bool:
     - Tags/keywords (loop, looping)
     - Rating (high-rated intros often loop)
     - File size (smaller files often loop infinitely)
+    - Platform tendency (some platforms favor looping demos)
     
     Args:
         demo_info: Demo metadata dictionary
@@ -64,8 +68,9 @@ def is_looped_demo(demo_info: Optional[dict], source: str = "pouet") -> bool:
     rating = demo_info.get("rating", 0)
     demo_type = demo_info.get("type", "").lower()
     tags = demo_info.get("tags", "")
-    filename = demo_info.get("name", "").lower()
+    name = demo_info.get("name", "").lower()
     size = demo_info.get("size", 0)
+    platform = demo_info.get("platform", "").lower()
     
     # High-rated intros often loop
     if rating and rating > 4.0 and "intro" in demo_type:
@@ -78,18 +83,31 @@ def is_looped_demo(demo_info: Optional[dict], source: str = "pouet") -> bool:
     # Check tags
     if tags:
         tags_lower = tags.lower()
+        # More aggressive tag matching
         for keyword in LOOPED_KEYWORDS:
             if keyword in tags_lower:
                 return True
+        # Check for extended loop patterns
+        for pattern in LOOP_PATTERNS:
+            if pattern in tags_lower:
+                return True
     
     # Check filename for loop indicators (scene.org style)
-    loop_patterns = ["loop", "endless", "forever", "replay", "continuous"]
-    if any(p in filename for p in loop_patterns):
-        return True
+    for pattern in LOOP_PATTERNS:
+        if pattern in name:
+            return True
     
     # Size heuristic: very small demos (<5MB) often loop infinitely
     if size and size < 5 * 1024 * 1024:
         return True
+    
+    # Platform tendency heuristic
+    for plat_key, tendency in PLATFORM_LOOP_TENDENCY.items():
+        if plat_key in platform:
+            # Strong loop indicators from platform + name patterns
+            if any(p in name for p in ["intro", "64k", "4k", "cracktro"]):
+                return True
+            break
     
     return False
 

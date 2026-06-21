@@ -91,6 +91,20 @@ class TestLoopDetection:
         # Intros are generally looped by type
         assert is_looped_demo(demo_info, "pouet") is True
 
+    def test_pouet_platform_tendency_loops(self):
+        """Test Pouet loop detection via platform tendency."""
+        from showet_jukebox import is_looped_demo
+        
+        demo_info = {"type": "intro", "rating": 3.0, "platform": "commodore_64"}
+        assert is_looped_demo(demo_info, "pouet") is True
+
+    def test_pouet_extended_pattern_loops(self):
+        """Test Pouet extended loop patterns in name."""
+        from showet_jukebox import is_looped_demo
+        
+        demo_info = {"type": "demo", "tags": "", "name": "cyclic_demo.zip"}
+        assert is_looped_demo(demo_info, "pouet") is True
+
     def test_pouet_non_intro_with_rating(self):
         """Test Pouet non-intro with rating doesn't loop."""
         from showet_jukebox import is_looped_demo
