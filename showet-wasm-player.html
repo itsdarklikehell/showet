@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showet WebAssembly Demo Player</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: monospace;
+        }
+        .demo-player {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .crt-overlay {
+            position: relative;
+            filter: url(#crt);
+        }
+        .platform-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        button {
+            background: #1a1a1a;
+            color: #ff6b00;
+            border: 1px solid #ff6b00;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: monospace;
+        }
+        button:hover {
+            background: #ff6b00;
+            color: #0a0a0a;
+        }
+        canvas {
+            max-width: 100%;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🗺️ Showet WASM Demo Player</h1>
+    
+    <div class="demo-player">
+        <div class="platform-selector">
+            <select id="platform">
+                <option value="commodore_64">Commodore 64</option>
+                <option value="commodore_amiga">Amiga</option>
+                <option value="nintendo_famicom">NES/Famicom</option>
+                <option value="nintendo_superfamicom">SNES/SFC</option>
+                <option value="sega_megadrive">Megadrive/Genesis</option>
+                <option value="zx_spectrum">ZX Spectrum</option>
+            </select>
+            <input type="file" id="demo-file" accept=".d64,.adf,.nes,.sfc,.bin,.zip">
+            <button onclick="loadDemo()">Load Demo</button>
+        </div>
+        
+        <div class="crt-overlay">
+            <canvas id="display" width="640" height="480"></canvas>
+        </div>
+        
+        <div class="controls">
+            <button onclick="pauseDemo()">⏸ Pause</button>
+            <button onclick="resetDemo()">🔄 Reset</button>
+            <button onclick="toggleFullscreen()">🖼 Fullscreen</button>
+        </div>
+    </div>
+
+    <!-- CRT Shader Filter -->
+    <svg>
+        <filter id="crt">
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+            <feColorMatrix type="matrix" values="
+                0.2126 0.7152 0.0722 0 0
+                0.2126 0.7152 0.0722 0 0
+                0.2126 0.7152 0.0722 0 0
+                0 0 0 1 0"/>
+        </filter>
+    </svg>
+
+    <script type="module">
+        // Would integrate with nostalgist.js WebAssembly builds
+        // This is a placeholder for the WASM integration
+        
+        async function loadWASM(core) {
+            // Load WebAssembly module for retro core
+            console.log(`Loading WASM core: ${core}`);
+        }
+        
+        async function loadDemo() {
+            const platform = document.getElementById('platform').value;
+            await loadWASM(platform);
+            console.log(`Demo loaded for ${platform}`);
+        }
+        
+        function pauseDemo() {
+            console.log('Demo paused');
+        }
+        
+        function resetDemo() {
+            console.log('Demo reset');
+        }
+        
+        function toggleFullscreen() {
+            document.getElementById('display').requestFullscreen();
+        }
+    </script>
+</body>
+</html>

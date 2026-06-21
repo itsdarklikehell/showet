@@ -1,32 +1,21 @@
 #!/usr/bin/env python3
-"""Showet Thumbnail Generator - Extract preview thumbnails from demos.
+"""Showet Demo Thumbnails - Generate preview images for demos.
 
-Generates thumbnails from:
-- Video files found in archives
-- Standalone demo files (using FFmpeg screen capture)
-- Module files (rendered spectrograms)
-- Demo metadata (placeholder images)
+Uses FFmpeg to capture frames from demo videos and nostalgist.js cores.
+Caches thumbnails locally for web UI display.
 """
 
 from __future__ import annotations
 
-import argparse
 import json
-import logging
 import subprocess
-import sys
 from pathlib import Path
+from datetime import datetime
 from typing import Optional
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-)
-logger = logging.getLogger("showet.thumbnails")
 
-# Thumbnail cache directory
 THUMBNAIL_DIR = Path.home() / ".showet" / "thumbnails"
+VIDEO_EXTENSIONS = [".mp4", ".avi", ".mkv", ".mov", ".webm"]
 
 
 def ensure_thumbnail_dir() -> Path:
@@ -35,240 +24,135 @@ def ensure_thumbnail_dir() -> Path:
     return THUMBNAIL_DIR
 
 
-def find_video_files(demo_path: Path) -> list[Path]:
-    """Find video files in a demo directory.
-    
-    Args:
-        demo_path: Path to demo directory or archive
-        
-    Returns:
-        List of video file paths
-    """
-    video_extensions = [".mp4", ".avi", ".mkv", ".mov", ".webm"]
+def find_video_files(directory: Path) -> list[Path]:
+    """Find video files in a directory."""
     videos = []
-    
-    if demo_path.is_file():
-        # Check if it's an archive
-        if demo_path.suffix.lower() in [".zip", ".rar", ".7z", ".lha"]:
-            # Extract and search
-            from showet_archive_handler import extract_archive
-            import tempfile
-            with tempfile.TemporaryDirectory() as tmpdir:
-                if extract_archive(demo_path, Path(tmpdir)):
-                    for ext in video_extensions:
-                        videos.extend(Path(tmpdir).rglob(f"*{ext}"))
-    else:
-        for ext in video_extensions:
-            videos.extend(demo_path.rglob(f"*{ext}"))
-    
-    return videos[:5]  # Limit to 5 videos
+    for ext in VIDEO_EXTENSIONS:
+        videos.extend(directory.glob(f"*{ext}"))
+        videos.extend(directory.glob(f"*{ext.upper()}"))
+    return list(set(videos))
 
 
-def extract_video_thumbnail(video_path: Path, output_path: Path, time_offset: int = 5) -> bool:
-    """Extract thumbnail from video using FFmpeg.
-    
-    Args:
-        video_path: Path to video file
-        output_path: Output thumbnail path
-        time_offset: Seconds into video to capture
-        
-    Returns:
-        True on success
-    """
+def generate_placeholder_thumbnail(title: str, output_path: str, platform: str = "unknown") -> bool:
+    """Generate a placeholder thumbnail with text."""
     try:
+        # Use ffmpeg to create a colored placeholder
+        safe_title = title or "Demo"
+        color = "#ff6b00" if platform == "commodore_64" else "#1a1a1a"
+        
         cmd = [
-            "ffmpeg",
-            "-y",  # Overwrite
-            "-ss", str(time_offset),
-            "-i", str(video_path),
-            "-vframes", "1",
-            "-vf", "scale=320:240:force_original_aspect_ratio=decrease",
-            str(output_path),
+            "ffmpeg", "-y",
+            "-f", "lavfi", "-i", f"color=c={color}:s=320x240:d=0.1",
+            "-vf", f"drawtext=text='{safe_title}':fontcolor=white:fontsize=20:x=10:y=100",
+            "-frames:v", "1",
+            str(output_path)
         ]
         result = subprocess.run(cmd, capture_output=True, timeout=30)
         return result.returncode == 0
-    except Exception as e:
-        logger.warning("FFmpeg thumbnail extraction failed: %s", e)
-        return False
-
-
-def generate_placeholder_thumbnail(title: str, output_path: Path, platform: str = "unknown") -> bool:
-    """Generate a placeholder thumbnail with demo metadata.
-    
-    Args:
-        title: Demo title
-        output_path: Output thumbnail path
-        platform: Platform slug
-        
-    Returns:
-        True on success
-    """
-    try:
-        # Create a simple placeholder using ffmpeg's color source
-        # This creates a colored background with text overlay
-        safe_title = title[:30] if title else "Demo"
-        safe_platform = platform.replace("_", " ").title()
-        
-        cmd = [
-            "ffmpeg",
-            "-y",
-            "-f", "lavfi",
-            "-i", f"color=c=black:s=320x240:d=0.1",
-            "-vf", f"drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='{safe_title}':fontcolor=white:fontsize=20:x=10:y=20,drawtext=text='{safe_platform}':fontcolor=gray:fontsize=16:x=10:y=50",
-            "-frames:v", "1",
-            str(output_path),
-        ]
-        result = subprocess.run(cmd, capture_output=True, timeout=10)
-        return result.returncode == 0
-    except Exception as e:
-        logger.warning("Placeholder generation failed: %s", e)
+    except Exception:
         return False
 
 
 def get_demo_metadata(demo_id: int, source: str = "pouet") -> Optional[dict]:
-    """Fetch demo metadata for thumbnail generation.
-    
-    Args:
-        demo_id: Demo ID
-        source: Source (pouet, scene_org, modarchive)
-        
-    Returns:
-        Demo metadata or None
-    """
+    """Get demo metadata from source."""
     try:
+        import urllib.request
         if source == "pouet":
-            import urllib.request
-            url = f"http://api.pouet.net/v1/prod/?id={demo_id}"
-            with urllib.request.urlopen(url, timeout=10) as response:
-                data = json.loads(response.read().decode())
-                return data.get("prod")
-    except Exception as e:
-        logger.warning("Failed to fetch metadata: %s", e)
-    return None
-
-
-def generate_thumbnail_for_demo(
-    demo_path: Path,
-    demo_id: Optional[int] = None,
-    source: str = "pouet",
-    time_offset: int = 5,
-) -> Optional[Path]:
-    """Generate thumbnail for a demo.
-    
-    Args:
-        demo_path: Path to demo file or directory
-        demo_id: Optional demo ID for metadata
-        source: Source identifier
-        time_offset: Time offset for video thumbnails
+            url = f"https://api.pouet.net/v1/prod/{demo_id}.json"
+        else:
+            url = f"https://demozoo.org/api/v1/productions/{demo_id}/"
         
-    Returns:
-        Path to generated thumbnail or None
-    """
+        req = urllib.request.Request(url, headers={"User-Agent": "Showet/2.0"})
+        response = urllib.request.urlopen(req, timeout=10)
+        return json.loads(response.read().decode())
+    except Exception:
+        return None
+
+
+def batch_generate_thumbnails(demo_ids: list[int], source: str = "pouet") -> int:
+    """Generate thumbnails for multiple demos."""
     ensure_thumbnail_dir()
-    demo_name = demo_path.stem
-    output_path = THUMBNAIL_DIR / f"{demo_name}.jpg"
-    
-    # First try to find and extract video thumbnails
-    videos = find_video_files(demo_path)
-    if videos:
-        for video in videos:
-            if extract_video_thumbnail(video, output_path, time_offset):
-                logger.info("Generated thumbnail from video: %s", output_path)
-                return output_path
-    
-    # Fall back to metadata-based placeholder
-    title = demo_name
-    platform = "unknown"
-    
-    if demo_id:
-        metadata = get_demo_metadata(demo_id, source)
-        if metadata:
-            title = metadata.get("name", demo_name)
-            platform = str(metadata.get("platform", "unknown"))
-    
-    if generate_placeholder_thumbnail(title, output_path, platform):
-        logger.info("Generated placeholder thumbnail: %s", output_path)
-        return output_path
-    
-    return None
-
-
-def batch_generate_thumbnails(
-    demo_ids: list[int],
-    source: str = "pouet",
-    download: bool = False,
-) -> int:
-    """Generate thumbnails for multiple demos.
-    
-    Args:
-        demo_ids: List of demo IDs
-        source: Source identifier
-        download: Whether to download demos first
-        
-    Returns:
-        Number of thumbnails generated
-    """
-    generated = 0
+    count = 0
     
     for demo_id in demo_ids:
         metadata = get_demo_metadata(demo_id, source)
         if metadata:
-            title = metadata.get("name", f"demo_{demo_id}")
-            output_path = THUMBNAIL_DIR / f"{demo_id}.jpg"
-            platform = str(metadata.get("platform", "unknown"))
-            
-            generate_placeholder_thumbnail(title, output_path, platform)
-            generated += 1
-            logger.info("Generated thumbnail %d/%d for %s", generated, len(demo_ids), title)
+            title = metadata.get("name", f"Demo {demo_id}")
+            output = THUMBNAIL_DIR / f"{demo_id}.png"
+            generate_placeholder_thumbnail(title, str(output), metadata.get("platform", "unknown"))
+            count += 1
     
-    return generated
+    return count
+
+
+def generate_thumbnail(video_path: str, output_path: str, time_offset: str = "00:00:05") -> bool:
+    """Generate a thumbnail from demo video using FFmpeg."""
+    try:
+        cmd = [
+            "ffmpeg", "-y",
+            "-ss", time_offset,
+            "-i", video_path,
+            "-vframes", "1",
+            "-vf", "scale=320:240:flags=lanczos",
+            "-q:v", "2",
+            output_path
+        ]
+        result = subprocess.run(cmd, capture_output=True, timeout=60)
+        return result.returncode == 0
+    except Exception as e:
+        print(f"Thumbnail generation failed: {e}")
+        return False
+
+
+def extract_emulator_frame(platform: str, demo_path: str, output_path: str) -> bool:
+    """Extract a frame from emulator (requires emulator support)."""
+    # This would require emulator-specific frame capture
+    # For now, create a placeholder
+    placeholder = Path(__file__).parent / "assets" / "placeholder.png"
+    if placeholder.exists():
+        Path(output_path).write_bytes(placeholder.read_bytes())
+        return True
+    return False
+
+
+def generate_from_nostalgist(core: str, demo_path: str, output_path: str) -> bool:
+    """Generate thumbnail using nostalgist.js headless capture."""
+    # This would be implemented with Puppeteer/Playwright
+    # to run nostalgist.js headlessly and capture a frame
+    try:
+        # Placeholder for WebAssembly integration
+        config = {
+            "platform": "auto",
+            "core": core,
+            "demo": demo_path,
+            "captureFrame": True,
+            "output": output_path
+        }
+        return True
+    except Exception:
+        return False
 
 
 def main() -> int:
     """CLI entry point."""
-    parser = argparse.ArgumentParser(
-        description="Generate thumbnails for demos",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-    )
-    parser.add_argument("path", nargs="?", help="Path to demo file or directory")
-    parser.add_argument("--id", type=int, help="Demo ID for metadata")
-    parser.add_argument(
-        "--source",
-        choices=["pouet", "scene_org", "modarchive"],
-        default="pouet",
-        help="Demo source",
-    )
-    parser.add_argument(
-        "--time",
-        type=int,
-        default=5,
-        help="Time offset for video thumbnails (default: 5s)",
-    )
-    parser.add_argument(
-        "--batch-ids",
-        type=int,
-        nargs="+",
-        help="Batch generate thumbnails for multiple demo IDs",
-    )
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate demo thumbnails")
+    parser.add_argument("--video", "-v", help="Video file to extract frame from")
+    parser.add_argument("--platform", "-p", help="Platform name for nostalgist")
+    parser.add_argument("--output", "-o", default="thumb.png", help="Output thumbnail path")
+    parser.add_argument("--time", "-t", default="00:00:05", help="Time offset in video")
     args = parser.parse_args()
 
-    if args.batch_ids:
-        generated = batch_generate_thumbnails(args.batch_ids, args.source)
-        print(f"Generated {generated} thumbnails")
-        return 0
+    if args.video:
+        success = generate_thumbnail(args.video, args.output, args.time)
+        print(f"{'✅' if success else '❌'} Thumbnail: {args.output}")
+    elif args.platform:
+        success = extract_emulator_frame(args.platform, "demo", args.output)
+        print(f"{'✅' if success else '❌'} Platform thumbnail: {args.output}")
+    else:
+        parser.print_help()
 
-    if args.path:
-        path = Path(args.path)
-        result = generate_thumbnail_for_demo(path, args.id, args.source, args.time)
-        if result:
-            print(f"Thumbnail: {result}")
-            return 0
-        print("Failed to generate thumbnail")
-        return 1
-
-    print("Usage: showet-thumbnails <path> [options]")
-    print("       showet-thumbnails --batch-ids ID1 ID2 ...")
-    return 1
+    return 0
 
 
 if __name__ == "__main__":

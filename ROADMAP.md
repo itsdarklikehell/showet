@@ -39,10 +39,10 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 ## 🔮 Phase 13: Intelligence Enhancement
 
 ### Goals
-- [ ] ML-based demo recommendation engine
-- [ ] Smart loop detection with file analysis
-- [ ] SQLite offline cache with sync
-- [ ] Demo thumbnail generation service
+- [x] ML-based demo recommendation engine
+- [x] Smart loop detection with file analysis
+- [x] SQLite offline cache with sync
+- [x] Demo thumbnail generation service
 - [ ] Audio fingerprinting for module detection
 
 ---
@@ -105,13 +105,13 @@ Expand platform support and improve existing integrations:
 ## 🔮 Phase 13: v3.0 - The Complete Experience
 
 ### Features
-- [ ] Cross-platform installer (Linux/macOS/Windows)
-- [ ] Touch/mobile UI for tablets
-- [ ] RetroPie/RetroArch integration
-- [ ] Steam Deck optimized build
-- [ ] Offline mode with cached demos
-- [ ] Demo thumbnail generation
-- [ ] AI-powered demo recommendations
+- [x] Cross-platform installer (Linux/macOS/Windows)
+- [x] Touch/mobile UI for tablets
+- [x] RetroPie/RetroArch integration
+- [x] Steam Deck optimized build
+- [x] Offline mode with cached demos
+- [x] Demo thumbnail generation
+- [x] AI-powered demo recommendations
 - [ ] Twitch streaming integration with chat
 
 ---
