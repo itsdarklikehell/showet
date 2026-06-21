@@ -78,8 +78,8 @@ def main():
     
     # Load platform modules
     print("\n🕹️ Platform Modules:")
-    from showet import create_platform_runners
-    runners = create_platform_runners()
+    from showet.platforms import load_all_platforms
+    runners = load_all_platforms()
     print(f"  ✅ {len(runners)} platforms loadable")
     
     # Check nostalgist configs

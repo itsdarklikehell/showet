@@ -1,17 +1,21 @@
-# Phillips Cdi Platform Documentation
+# Phillips CD-i Platform Documentation
 
 ## Overview
-Phillips Cdi platform for running retro demos with authentic presentation.
+Phillips CD-i (Compact Disc Interactive) is a rare multimedia console from the early 90s. While not traditionally a demoscene platform, it has unique hardware capabilities and some experimental demo productions.
 
 ## Emulation Setup
 
 ### Required Binaries
-- RetroArch
-- Native emulator
+- **RetroArch (bluemsx_libretro)** - Primary emulator
+- **MESS/MAME** - Alternative emulator
 
 ### Installation
 ```bash
-sudo apt install retroarch
+# Ubuntu/Debian
+sudo apt install retroarch mame
+
+# Verify core
+ls /usr/lib/*/libretro/*cdi* 2>/dev/null || echo "CD-i core may need manual install"
 ```
 
 ## Platform Configuration
@@ -19,8 +23,9 @@ Located at: `nostalgist_configs/phillips_cdi.json`
 
 ```json
 {
-  "core": "samecdi_libretro",
-  "shader": "crt/crt-easymode"
+  "core": "bluemsx",
+  "shader": "crt/crt-royale",
+  "extensions": [".cue", ".bin", ".iso", ".zip"]
 }
 ```
 
@@ -28,38 +33,25 @@ Located at: `nostalgist_configs/phillips_cdi.json`
 
 | Format | Description | Runtime |
 |--------|-------------|---------|
-| .zip | Supported format | Native emulator |
-| .chd | Supported format | Native emulator |
-| .iso | Supported format | Native emulator |
+| .cue/.bin | CD-ROM image | RetroArch |
+| .iso | ISO image | RetroArch/MAME |
+| .zip | Archive | Extract then run |
 
 ## Running Demos
 
 ### Using Showet
 ```bash
-# Run by Pouet ID
-showet 12345
-
 # Run local file
-showet-executor /path/to/demo.zip
+showet-executor /path/to/demo.cue --platform phillips_cdi
 
-# Run in museum mode
-showet-museum --platform phillips_cdi
+# Note: Limited demo availability for this platform
 ```
 
 ## CRT Settings
-- **Shader**: CRT-Easymode
-- **Curvature**: 0.1 (subtle barrel effect)
-- **Scanlines**: Visible with flicker
-- **Phosphor Bloom**: Enabled for authentic glow
-
-## Troubleshooting
-
-### Common Issues
-Check emulator installation and BIOS files if required.
-
-## Notable Demos
-
-Check pouet.net for top-rated demos on this platform.
+- **Shader**: CRT-Royale (authentic mid-90s CRT)
+- **Curvature**: Moderate
+- **Scanlines**: Standard NTSC scanlines
+- **Phosphor Bloom**: Light bloom effect
 
 ---
 *Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*

@@ -1,17 +1,21 @@
-# Nec Pc98 Platform Documentation
+# PC-98 Platform Documentation
 
 ## Overview
-Nec Pc98 platform for running retro demos with authentic presentation.
+NEC PC-98 is a Japanese computer platform popular in the demoscene for its unique FM synthesis and portrait screen orientation. Known for distinctive visual styles and chiptune music.
 
 ## Emulation Setup
 
 ### Required Binaries
-- RetroArch
-- Native emulator
+- **RetroArch (mednafen_pc98_libretro)** - Primary emulator
+- **Neko Project II** - Alternative native emulator
 
 ### Installation
 ```bash
+# Ubuntu/Debian
 sudo apt install retroarch
+
+# PC-98 core should be available
+# Check: ls /usr/lib/*/libretro/mednafen_pc98_libretro.so
 ```
 
 ## Platform Configuration
@@ -19,8 +23,9 @@ Located at: `nostalgist_configs/nec_pc98.json`
 
 ```json
 {
-  "core": "nekop2_libretro",
-  "shader": "crt/crt-easymode"
+  "core": "mednafen_pc98",
+  "shader": "crt/crt-pi",
+  "extensions": [".d98", ".zip", ".hdi", ".fdd"]
 }
 ```
 
@@ -28,14 +33,10 @@ Located at: `nostalgist_configs/nec_pc98.json`
 
 | Format | Description | Runtime |
 |--------|-------------|---------|
-| .d98 | Supported format | Native emulator |
-| .zip | Supported format | Native emulator |
-| .98d | Supported format | Native emulator |
-| .fdi | Supported format | Native emulator |
-| .fdd | Supported format | Native emulator |
-| .2hd | Supported format | Native emulator |
-| .tfd | Supported format | Native emulator |
-| .d88 | Supported format | Native emulator |
+| .d98 | PC-98 executable | RetroArch |
+| .zip | Archive | Extract then run |
+| .hdi | Hard disk image | RetroArch |
+| .fdd | Floppy disk image | RetroArch |
 
 ## Running Demos
 
@@ -45,26 +46,31 @@ Located at: `nostalgist_configs/nec_pc98.json`
 showet 12345
 
 # Run local file
-showet-executor /path/to/demo.d98
+showet-executor /path/to/demo.hdi --platform nec_pc98
 
-# Run in museum mode
-showet-museum --platform nec_pc98
+# Run in jukebox mode
+showet-jukebox --ids 12345 --platform nec_pc98
 ```
 
 ## CRT Settings
-- **Shader**: CRT-Easymode
-- **Curvature**: 0.1 (subtle barrel effect)
-- **Scanlines**: Visible with flicker
-- **Phosphor Bloom**: Enabled for authentic glow
+- **Shader**: CRT-Pi (vertical scanlines)
+- **Curvature**: Minimal for modern CRT feel
+- **Scanlines**: Thin horizontal scanlines
+- **Aspect Ratio**: 4:3 (portrait PC-98 mode)
 
 ## Troubleshooting
 
 ### Common Issues
-Check emulator installation and BIOS files if required.
+1. **Japanese text** - PC-98 uses Shift-JIS encoding
+2. **Sound issues** - Enable PC-98 FM synthesis in core settings
+3. **Performance** - Lower CPU clock in RetroArch settings
 
 ## Notable Demos
 
-Check pouet.net for top-rated demos on this platform.
+- **Sorcerian** series
+- **FTML** series by MA project
+- **Hudson** demos
+- Various doujin software productions
 
 ---
 *Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*

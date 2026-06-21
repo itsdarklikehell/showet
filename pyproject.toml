@@ -1,28 +1,13 @@
 [project]
 name = "showet"
-version = "3.0.0"
+version = "4.0.0-dev"
 description = "Demo viewer using Pouet.net metadata - The definitive demoscene demo-runner with jukebox, streaming, and nostalgic CRT presentation."
-readme = "README.md"
-requires-python = ">=3.10"
-license = "GPL-3.0-or-later"
-authors = [
-    {name = "SgtStroopwafel", email = "itsdarklikehell@users.noreply.github.com"}
-]
-keywords = ["demoscene", "retro", "emulation", "pouet"]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Environment :: Console",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Games/Entertainment :: Arcade",
-]
+
 dependencies = [
     "inquirer>=3.4",
     "patool>=4.0",
     "websockets>=12.0",
+    "aiohttp>=3.9",
 ]
 
 [project.optional-dependencies]
@@ -30,6 +15,13 @@ dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
     "ruff>=0.1.0",
+]
+async = [
+    "aiohttp>=3.9",
+]
+web = [
+    "fastapi>=0.100",
+    "uvicorn>=0.23",
 ]
 
 [build-system]

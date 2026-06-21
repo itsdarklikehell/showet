@@ -1,17 +1,17 @@
-# Nec Pcengine Platform Documentation
+# PC-Engine / TurboGrafx-16 Platform Documentation
 
 ## Overview
-Nec Pcengine platform for running retro demos with authentic presentation.
+NEC PC-Engine (TurboGrafx-16 in US) is an 8-bit console with 16-bit capabilities from 1987. Featured in the demoscene for HuC6270 video chip demos.
 
 ## Emulation Setup
 
 ### Required Binaries
-- RetroArch
-- Native emulator
+- **RetroArch (mednafen_pce_fast_libretro)** - Primary emulator
+- **Mednafen** - Native emulator
 
 ### Installation
 ```bash
-sudo apt install retroarch
+sudo apt install retroarch mednafen
 ```
 
 ## Platform Configuration
@@ -19,50 +19,11 @@ Located at: `nostalgist_configs/nec_pcengine.json`
 
 ```json
 {
-  "core": "mednafen_supergrafx_libretro",
-  "shader": "crt/crt-easymode"
+  "core": "mednafen_pce_fast",
+  "shader": "crt/crt-easymode",
+  "extensions": [".pce", ".cue", ".bin", ".zip"]
 }
 ```
 
-## Demo Types & Formats
-
-| Format | Description | Runtime |
-|--------|-------------|---------|
-| .zip | Supported format | Native emulator |
-| .pce | Supported format | Native emulator |
-| .sgx | Supported format | Native emulator |
-| .cue | Supported format | Native emulator |
-| .ccd | Supported format | Native emulator |
-| .chd | Supported format | Native emulator |
-
-## Running Demos
-
-### Using Showet
-```bash
-# Run by Pouet ID
-showet 12345
-
-# Run local file
-showet-executor /path/to/demo.zip
-
-# Run in museum mode
-showet-museum --platform nec_pcengine
-```
-
-## CRT Settings
-- **Shader**: CRT-Easymode
-- **Curvature**: 0.1 (subtle barrel effect)
-- **Scanlines**: Visible with flicker
-- **Phosphor Bloom**: Enabled for authentic glow
-
-## Troubleshooting
-
-### Common Issues
-Check emulator installation and BIOS files if required.
-
-## Notable Demos
-
-Check pouet.net for top-rated demos on this platform.
-
 ---
-*Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*
+*Part of [Showet](https://github.com/itsdarklikehell/showet)*

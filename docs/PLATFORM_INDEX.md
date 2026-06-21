@@ -15,6 +15,12 @@ Complete list of all 84+ supported platforms with links to detailed documentatio
 | [Atari ST](atari-st.md) | ✅ | `.sti`, `.msa` | Hatari, RetroArch |
 | [ZX Spectrum](sinclair-zxspectrum.md) | ✅ | `.tap`, `.tzx`, `.z80` | Fuse, RetroArch |
 | [Amstrad CPC](amstrad-cpcplus.md) | ✅ | `.dsk`, `.cpr` | Caprice32, RetroArch |
+| [PC-98](nec-pc98.md) | ✅ | `.d98`, `.hdi`, `.zip` | Mednafen, RetroArch |
+| [PC-FX](nec-pcfx.md) | ✅ | `.cue`, `.bin`, `.iso` | Mednafen, RetroArch |
+| [Phillips CD-i](phillips-cdi.md) | ✅ | `.cue`, `.bin`, `.iso` | RetroArch, MAME |
+| [Enterprise EP128](enterprise-ep128.md) | 🔄 | `.ep128`, `.tap` | EP128Emu |
+| [Oric](tangerine-oric.md) | 🔄 | `.tap`, `.wav` | Oricutron |
+| [Sharp MZ](sharp-mz.md) | 🔄 | `.mzt`, `.m12` | MZ800Emu |
 
 ## Gaming Consoles
 
@@ -25,6 +31,12 @@ Complete list of all 84+ supported platforms with links to detailed documentatio
 | [Sega Master System](sega-mastersystem.md) | ✅ | `.sms`, `.gg` | Genesis Plus GX |
 | [Sega Genesis/Mega Drive](sega-megadrive.md) | ✅ | `.md`, `.bin` | Gens, RetroArch |
 | [Atari 2600](atari-2600.md) | ✅ | `.a26`, `.bin` | Stella, RetroArch |
+| [Game Boy](nintendo-gameboy.md) | 🔄 | `.gb` | Gambatte, RetroArch |
+| [Game Boy Color](nintendo-gameboycolor.md) | 🔄 | `.gbc` | Gambatte, RetroArch |
+| [Neo Geo](snk-neogeo.md) | 🔄 | `.zip`, `.neo` | FBAlpha, RetroArch |
+| [Neo Geo Pocket](snk-neogeopocket.md) | 🔄 | `.ngp` | Mednafen, RetroArch |
+| [WonderSwan](bandai-wonderswan.md) | 🔄 | `.ws` | Cygne, RetroArch |
+| [Vectrex](gce-vectrex.md) | 🔄 | `.vec` | Vecx, RetroArch |
 
 ## Modern Platforms
 
@@ -33,47 +45,30 @@ Complete list of all 84+ supported platforms with links to detailed documentatio
 | [Flash/Ruffle](flash-ruffle.md) | ✅ | `.swf` | Ruffle/Web |
 | [Android](android-android.md) | ✅ | `.apk` | Android Emulator |
 | [WebAssembly](webassembly-web.md) | Planned | `.wasm` | Browser |
+| [PICO-8](fancon-pico8.md) | 🔄 | `.p8`, `.png` | PICO-8, RetroArch |
 
 ## Demoscene-Specific
 
 | Platform | Documentation | Extensions | Notes |
 |----------|---------------|------------|-------|
-| [DOS/PC](microsoft-msdos.md) | Planned | `.exe`, `.com` | DOSBox-X, Wine |
-| [Windows](microsoft-windows.md) | Planned | `.exe` | Wine, Proton |
-
-## Unknown Platforms (Need Documentation)
-
-These platforms are supported but lack detailed documentation:
-- Enterprise EP128
-- PC-8800, PC-98, PC-FX
-- Neo Geo, Neo Geo Pocket
-- WonderSwan
-- Vectrex
-- Phillips CD-i
-- 3DO
-- Saturn, Dreamcast
-- Nintendo 64, GameCube
-- PlayStation
-- And many more...
+| [DOS/PC](microsoft-msdos.md) | ✅ | `.exe`, `.com` | DOSBox-X, Wine |
+| [Windows](microsoft-windows.md) | 🔄 | `.exe` | Wine, Proton |
+| [Linux](linux-linux.md) | 🔄 | Native executables | Native |
+| [Video](wild-videoffmpeg.md) | 🔄 | `.mp4`, `.avi` | FFmpeg |
+| [Game Music](wild-gamemusic.md) | 🔄 | `.vgz`, `.nsf` | MediaPlayer |
 
 ## Using the Universal Executor
 
 ```bash
 # Run any demo file with auto-detection
-showet-universal /path/to/demo.zip
+showet run /path/to/demo.zip
 
-# Specify platform manually
-showet-universal /path/to/demo.exe --platform windows
+# Play jukebox
+showet jukebox --ids 12345 67890
 
-# Extract and run
-showet-universal --extract /path/to/demo.rar
+# Stream to platform
+showet stream --platform twitch --demo 12345
 ```
 
-## Adding New Platforms
-
-Each platform requires:
-1. `Platform_<Platform>_<System>.py` - Runner class
-2. `docs/<platform>-<system>.md` - Documentation
-3. Entry in `PLATFORM_EXTENSIONS` in `showet_executor.py`
-
-See [CONTRIBUTING.md](../CONTRIBUTING.md) for details.
+---
+*Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*

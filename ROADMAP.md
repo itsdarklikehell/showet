@@ -1,24 +1,60 @@
-# 🗺️ ShowEt Modernization Roadmap - v3.2
+# 🗺️ ShowEt Modernization Roadmap - v4.0
 
 The future of demoscene viewing is here. Showet is becoming the definitive, immersive demo-runner that captures authentic retro aesthetics while delivering cutting-edge functionality.
 
 ---
 
-## 📋 Current Status (v3.2 Complete)
+## 📋 Current Status (v3.2 Complete → v4.0 In Progress)
 
 | Phase | Status | Deliverables |
 |-------|--------|--------------|
-| 🔧 Phase 1: Analysis | ✅ Complete | Codebase mapping, integration audit |
-| 🎨 Phase 2: Retro Immersion | ✅ Complete | CRT Shader Engine, Boot Sequence, Audio Engine |
-| 🕹️ Phase 3: Demoscene Integration | ✅ Complete | Pouet.net API, Shader Pack, Metadata |
-| 🤝 Phase 4: Community | ✅ Complete | WebSocket Collaboration, Chat Overlay |
-| 🚀 Phase 5: Future-Proofing | ✅ Complete | AI Curator, Hardware Encoder, LAN Multiplayer |
-| 🥳 Phase 6: Experiential Polish | ✅ Complete | Sound Themes, Timeline, Party Mode |
-| 📺 Phase 7: Browser Integration | ✅ Complete | nostalgist.js bridge, 84 platform configs, TVS99 setup |
-| 🎵 Phase 8: Music Integration | ✅ Complete | ModArchive.org, HVSC, ASMA |
-| 📚 Phase 9: Documentation | ✅ Complete | Full platform guides, 103 docs |
-| 🐳 Phase 10: Docker Deployment | ✅ Complete | Dockerfile.showet, docker-compose.yml |
-| 🎮 Phase 11: Core Installation | ✅ Complete | 89 libretro cores installed, MAME ready |
+| 🔧 Phase 1-11 | ✅ Complete | All previous phases done |
+| 📦 Phase 12: Package Refactor | 🔄 In Progress | Clean package structure, async I/O, enhanced integrations |
+| 🎵 Phase 13: Intelligence | Pending | ML-based demo discovery, smart caching |
+| 🌐 Phase 14: Web UI | Pending | Full nostalgist.js integration, TVS99 bridge |
+
+---
+
+## 🔮 Phase 12: Clean Package Architecture (In Progress)
+
+### Goals
+- Refactor flat module structure into clean `showet/` package
+- Separate concerns: core, platforms, integrations, cli, utils
+- Async I/O for parallel downloads and cache management
+- Enhanced integration modules
+
+### Progress
+- [x] Create `showet/core/` - config, executor, jukebox
+- [x] Create `showet/integrations/` - pouet, scene_org, modarchive
+- [x] Create `showet/utils/` - archive_handler, stream_manager
+- [x] Create `showet/cli/` - unified command interface
+- [x] Integrate legacy `showet.py` with v4.0 package (backward compatible)
+- [x] Migrate platform modules to `showet/platforms/__init__.py`
+- [ ] Add async download/download manager
+- [ ] Implement SQLite cache layer
+- [x] Update pyproject.toml for new structure (fixed duplicate optional-dependencies)
+
+---
+
+## 🔮 Phase 13: Intelligence Enhancement
+
+### Goals
+- [ ] ML-based demo recommendation engine
+- [ ] Smart loop detection with file analysis
+- [ ] SQLite offline cache with sync
+- [ ] Demo thumbnail generation service
+- [ ] Audio fingerprinting for module detection
+
+---
+
+## 🔮 Phase 14: Web Integration
+
+### Goals
+- [ ] Full nostalgist.js web launcher
+- [ ] Television Simulator '99 integration
+- [ ] Hall of Fame browser
+- [ ] Demo tour guides with storytelling
+- [ ] Party mode synchronized playback
 
 ---
 

@@ -1,13 +1,13 @@
-# Gce Vectrex Platform Documentation
+# Vectrex Platform Documentation
 
 ## Overview
-Gce Vectrex platform for running retro demos with authentic presentation.
+GCE Vectrex is a unique home console from 1982 featuring vector display and built-in screen. Has a cult following in the demoscene for its distinctive monochrome vector graphics.
 
 ## Emulation Setup
 
 ### Required Binaries
-- RetroArch
-- Native emulator
+- **RetroArch (vecx_libretro)** - Primary emulator
+- **VecX** - Native emulator
 
 ### Installation
 ```bash
@@ -19,47 +19,16 @@ Located at: `nostalgist_configs/gce_vectrex.json`
 
 ```json
 {
-  "core": "vecx_libretro",
-  "shader": "crt/crt-easymode"
+  "core": "vecx",
+  "shader": "crt/crt-easymode",
+  "extensions": [".vec", ".bin", ".zip"]
 }
 ```
 
 ## Demo Types & Formats
-
-| Format | Description | Runtime |
-|--------|-------------|---------|
-| .zip | Supported format | Native emulator |
-| .bin | Supported format | Native emulator |
-| .vec | Supported format | Native emulator |
-
-## Running Demos
-
-### Using Showet
-```bash
-# Run by Pouet ID
-showet 12345
-
-# Run local file
-showet-executor /path/to/demo.zip
-
-# Run in museum mode
-showet-museum --platform gce_vectrex
-```
-
-## CRT Settings
-- **Shader**: CRT-Easymode
-- **Curvature**: 0.1 (subtle barrel effect)
-- **Scanlines**: Visible with flicker
-- **Phosphor Bloom**: Enabled for authentic glow
-
-## Troubleshooting
-
-### Common Issues
-Check emulator installation and BIOS files if required.
-
-## Notable Demos
-
-Check pouet.net for top-rated demos on this platform.
+- .vec - Vectrex cartridge ROM
+- .bin - Binary ROM
+- .zip - Archive
 
 ---
-*Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*
+*Part of [Showet](https://github.com/itsdarklikehell/showet)*

@@ -57,8 +57,8 @@ class ShowetCliTests(unittest.TestCase):
         output = io.StringIO()
 
         with (
-            mock.patch.object(showet, "create_platform_runners", return_value=[DummyRunner()]),
-            mock.patch.object(showet, "run_production") as run_production,
+            mock.patch("showet_legacy.create_platform_runners", return_value=[DummyRunner()]),
+            mock.patch("showet_legacy.run_production") as run_production,
             contextlib.redirect_stdout(output),
         ):
             result = showet.main(["--platforms"])
@@ -68,8 +68,8 @@ class ShowetCliTests(unittest.TestCase):
         run_production.assert_not_called()
 
     def test_main_returns_negative_one_without_pouetid(self):
-        with mock.patch.object(showet, "create_platform_runners", return_value=[DummyRunner()]):
-            with mock.patch.object(showet, "run_production", wraps=showet.run_production) as run_prod:
+        with mock.patch("showet_legacy.create_platform_runners", return_value=[DummyRunner()]):
+            with mock.patch("showet_legacy.run_production", wraps=showet.run_production) as run_prod:
                 result = showet.main([])
         self.assertEqual(result, -1)
 

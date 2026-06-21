@@ -1,17 +1,21 @@
-# Enterprise Ep128 Platform Documentation
+# Enterprise EP128 Platform Documentation
 
 ## Overview
-Enterprise Ep128 platform for running retro demos with authentic presentation.
+Enterprise Elan Enterprise 128 is a British 8-bit home computer from the 1980s. Featured in the demoscene for its unique graphics capabilities and Z80-based architecture.
 
 ## Emulation Setup
 
 ### Required Binaries
-- RetroArch
-- Native emulator
+- **RetroArch (ep128emu_libretro)** - Primary emulator
+- **EP128Emu** - Native emulator
 
 ### Installation
 ```bash
+# Ubuntu/Debian
 sudo apt install retroarch
+
+# Check core availability
+ls /usr/lib/*/libretro/ep128* 2>/dev/null || echo "Manual core installation may be needed"
 ```
 
 ## Platform Configuration
@@ -19,8 +23,9 @@ Located at: `nostalgist_configs/enterprise_ep128.json`
 
 ```json
 {
-  "core": "ep128emu_libretro",
-  "shader": "crt/crt-easymode"
+  "core": "ep128emu",
+  "shader": "crt/crt-easymode",
+  "extensions": [".ep128", ".tap", ".wav", ".zip"]
 }
 ```
 
@@ -28,43 +33,23 @@ Located at: `nostalgist_configs/enterprise_ep128.json`
 
 | Format | Description | Runtime |
 |--------|-------------|---------|
-| .zip | Supported format | Native emulator |
-| .img | Supported format | Native emulator |
-| .dsk | Supported format | Native emulator |
-| .tap | Supported format | Native emulator |
-| .dtf | Supported format | Native emulator |
-| .com | Supported format | Native emulator |
-| .trn | Supported format | Native emulator |
-| .128 | Supported format | Native emulator |
+| .ep128 | Enterprise executable | RetroArch/EP128Emu |
+| .tap | Tape image | RetroArch/EP128Emu |
+| .wav | Tape image (audio) | RetroArch/EP128Emu |
+| .zip | Archive | Extract then run |
 
 ## Running Demos
 
 ### Using Showet
 ```bash
-# Run by Pouet ID
-showet 12345
-
-# Run local file
-showet-executor /path/to/demo.zip
-
-# Run in museum mode
-showet-museum --platform enterprise_ep128
+showet run /path/to/demo.ep128 --platform enterprise_ep128
 ```
 
 ## CRT Settings
 - **Shader**: CRT-Easymode
-- **Curvature**: 0.1 (subtle barrel effect)
-- **Scanlines**: Visible with flicker
-- **Phosphor Bloom**: Enabled for authentic glow
-
-## Troubleshooting
-
-### Common Issues
-Check emulator installation and BIOS files if required.
-
-## Notable Demos
-
-Check pouet.net for top-rated demos on this platform.
+- **Curvature**: Standard 8-bit curvature
+- **Scanlines**: 60Hz PAL scanlines
+- **Resolution**: 320x240 (bordered mode)
 
 ---
 *Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*

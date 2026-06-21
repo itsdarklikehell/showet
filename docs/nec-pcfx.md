@@ -1,17 +1,21 @@
-# Nec Pcfx Platform Documentation
+# PC-FX Platform Documentation
 
 ## Overview
-Nec Pcfx platform for running retro demos with authentic presentation.
+NEC PC-FX is a Japanese gaming console released in 1994, featuring advanced 2D graphics capabilities and CD-ROM storage. Popular in the demoscene for its unique visual effects and HuC6270 video chip.
 
 ## Emulation Setup
 
 ### Required Binaries
-- RetroArch
-- Native emulator
+- **RetroArch (mednafen_pcfx_libretro)** - Primary emulator
+- **Mednafen** - Native alternative
 
 ### Installation
 ```bash
-sudo apt install retroarch
+# Ubuntu/Debian
+sudo apt install retroarch mednafen
+
+# Verify core
+ls /usr/lib/*/libretro/mednafen_pcfx_libretro.so
 ```
 
 ## Platform Configuration
@@ -19,8 +23,9 @@ Located at: `nostalgist_configs/nec_pcfx.json`
 
 ```json
 {
-  "core": "mednafen_pcfx_libretro",
-  "shader": "crt/crt-easymode"
+  "core": "mednafen_pcfx",
+  "shader": "crt/crt-easymode",
+  "extensions": [".cue", ".bin", ".iso", ".zip"]
 }
 ```
 
@@ -28,39 +33,33 @@ Located at: `nostalgist_configs/nec_pcfx.json`
 
 | Format | Description | Runtime |
 |--------|-------------|---------|
-| .cue | Supported format | Native emulator |
-| .ccd | Supported format | Native emulator |
-| .toc | Supported format | Native emulator |
-| .chd | Supported format | Native emulator |
+| .cue/.bin | CD-ROM image | RetroArch/Mednafen |
+| .iso | ISO CD image | RetroArch/Mednafen |
+| .zip | Archive | Extract then run |
 
 ## Running Demos
 
 ### Using Showet
 ```bash
-# Run by Pouet ID
-showet 12345
-
 # Run local file
-showet-executor /path/to/demo.cue
+showet-executor /path/to/demo.cue --platform nec_pcfx
 
-# Run in museum mode
-showet-museum --platform nec_pcfx
+# Check for demos
+showet-spotlight --platform nec_pcfx
 ```
 
 ## CRT Settings
-- **Shader**: CRT-Easymode
-- **Curvature**: 0.1 (subtle barrel effect)
-- **Scanlines**: Visible with flicker
-- **Phosphor Bloom**: Enabled for authentic glow
+- **Shader**: CRT-Easymode (authentic 90s CRT)
+- **Curvature**: Moderate barrel effect
+- **Scanlines**: Visible horizontal lines
+- **Phosphor Bloom**: Enabled for glow effect
 
 ## Troubleshooting
 
 ### Common Issues
-Check emulator installation and BIOS files if required.
-
-## Notable Demos
-
-Check pouet.net for top-rated demos on this platform.
+1. **BIOS required** - Place PC-FX ROM in RetroArch system folder
+2. **Slow loading** - Enable fast CD loading in core options
+3. **Audio crackling** - Adjust sound buffer size in RetroArch
 
 ---
 *Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*

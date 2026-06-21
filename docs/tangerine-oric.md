@@ -1,17 +1,21 @@
-# Tangerine Oric Platform Documentation
+# Oric (Tangerine) Platform Documentation
 
 ## Overview
-Tangerine Oric platform for running retro demos with authentic presentation.
+Tangerine Oric is a British 8-bit home computer from 1983. Featured in the demoscene for its distinctive sound and unique graphics mode.
 
 ## Emulation Setup
 
 ### Required Binaries
-- RetroArch
-- Native emulator
+- **RetroArch (oric_libretro)** - Primary emulator
+- **Oricutron** - Native emulator
 
 ### Installation
 ```bash
+# Ubuntu/Debian
 sudo apt install retroarch
+
+# Check core
+ls /usr/lib/*/libretro/oric* 2>/dev/null
 ```
 
 ## Platform Configuration
@@ -19,46 +23,26 @@ Located at: `nostalgist_configs/tangerine_oric.json`
 
 ```json
 {
-  "core": "oric_libretro",
-  "shader": "crt/crt-easymode"
+  "core": "oric",
+  "shader": "crt/crt-pi",
+  "extensions": [".tap", ".wav", ".zip"]
 }
 ```
 
 ## Demo Types & Formats
 
-| Format | Description | Runtime |
-|--------|-------------|---------|
-| .tap | Supported format | Native emulator |
-| .crt | Supported format | Native emulator |
+| Format | Description |
+|--------|-------------|
+| .tap | Tape image format |
+| .wav | Tape audio format |
+| .dsk | Disk image |
 
 ## Running Demos
 
 ### Using Showet
 ```bash
-# Run by Pouet ID
-showet 12345
-
-# Run local file
-showet-executor /path/to/demo.tap
-
-# Run in museum mode
-showet-museum --platform tangerine_oric
+showet run /path/to/demo.tap --platform oric
 ```
-
-## CRT Settings
-- **Shader**: CRT-Easymode
-- **Curvature**: 0.1 (subtle barrel effect)
-- **Scanlines**: Visible with flicker
-- **Phosphor Bloom**: Enabled for authentic glow
-
-## Troubleshooting
-
-### Common Issues
-Check emulator installation and BIOS files if required.
-
-## Notable Demos
-
-Check pouet.net for top-rated demos on this platform.
 
 ---
 *Part of [Showet](https://github.com/itsdarklikehell/showet) - The demoscene demo-runner*
