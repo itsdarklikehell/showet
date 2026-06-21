@@ -8,6 +8,7 @@ dependencies = [
     "patool>=4.0",
     "websockets>=12.0",
     "aiohttp>=3.9",
+    "feedparser>=6.0",
 ]
 
 [project.optional-dependencies]
@@ -48,6 +49,7 @@ demo-recorder = "demo_recorder:main"
 showet-status = "showet_status:main"
 showet-spotlight = "demo_spotlight:main"
 showet-notifier = "party_notifier:main"
+showet-papers = "showet_ml_papers:main"
 chat-overlay = "chat_overlay:main"
 scene-org = "scene_org_integration:main"
 showet-cache = "showet_cache_manager:main"
