@@ -55,6 +55,7 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 - [ ] Hall of Fame browser
 - [ ] Demo tour guides with storytelling
 - [ ] Party mode synchronized playback
+- [ ] Demoscene Timeline Explorer - Interactive historical guide to releases/parties
 
 ---
 
