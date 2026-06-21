@@ -95,10 +95,10 @@ Smart demo playback with context-aware behavior:
 ### Goals
 Expand platform support and improve existing integrations:
 
-- [ ] Raspberry Pi/RetroPie integration improvements
-- [ ] Steam Deck optimized build
+- [x] Raspberry Pi/RetroPie integration improvements
+- [x] Steam Deck optimized build
 - [ ] Android emulator support
-- [ ] WebAssembly compilation targets
+- [x] WebAssembly compilation targets
 
 ---
 
