@@ -63,6 +63,7 @@ class DemoCache:
         self.cache_dir = cache_dir or Path.home() / ".showet" / "cache"
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.db_path = self.cache_dir / "demos.db"
+        self.sync_manifest: Optional[Path] = None
         self._init_db()
 
     def _init_db(self) -> None:
@@ -71,20 +72,41 @@ class DemoCache:
         cursor = conn.cursor()
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS demos (
-                id INTEGER PRIMARY KEY,
-                pouet_id INTEGER,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                pouet_id INTEGER UNIQUE,
+                sceneorg_id INTEGER,
                 source TEXT,
                 title TEXT,
                 platform TEXT,
-                path TEXT UNIQUE,
+                path TEXT,
                 downloaded_at TEXT,
-                size INTEGER
+                size INTEGER,
+                tags TEXT,
+                rating REAL DEFAULT 0.0,
+                play_count INTEGER DEFAULT 0
             )
         """)
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS playlists (
-                id INTEGER PRIMARY KEY,
-                name TEXT,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT UNIQUE,
+                created_at TEXT,
+                demo_ids TEXT
+            )
+        """)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS metadata (
+                key TEXT PRIMARY KEY,
+                value TEXT,
+                updated_at TEXT
+            )
+        """)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS sync_queue (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                demo_id INTEGER,
+                operation TEXT,
+                status TEXT DEFAULT 'pending',
                 created_at TEXT
             )
         """)
@@ -112,6 +134,91 @@ class DemoCache:
         row = cursor.fetchone()
         conn.close()
         return row[0] if row else None
+
+    def add_demo(self, demo_id: int, source: str, title: str,
+                 platform: str, path: str, tags: str = None) -> None:
+        """Add demo to cache with optional tags."""
+        import time
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute(
+            """INSERT OR REPLACE INTO demos 
+               (pouet_id, source, title, platform, path, downloaded_at, tags) 
+               VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            (demo_id, source, title, platform, path, time.strftime("%Y-%m-%d"), tags)
+        )
+        conn.commit()
+        conn.close()
+
+    def create_playlist(self, name: str, demo_ids: list[int]) -> int:
+        """Create a playlist with demo IDs."""
+        import time
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute(
+            "INSERT OR REPLACE INTO playlists (name, created_at, demo_ids) VALUES (?, ?, ?)",
+            (name, time.strftime("%Y-%m-%d"), ",".join(map(str, demo_ids)))
+        )
+        conn.commit()
+        playlist_id = cursor.lastrowid
+        conn.close()
+        return playlist_id
+
+    def get_playlist(self, name: str) -> Optional[list[int]]:
+        """Get demo IDs from a playlist."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("SELECT demo_ids FROM playlists WHERE name = ?", (name,))
+        row = cursor.fetchone()
+        conn.close()
+        if row and row[0]:
+            return [int(x) for x in row[0].split(",")]
+        return None
+
+    def list_all(self, limit: int = 50) -> list[dict]:
+        """List all cached demos."""
+        conn = sqlite3.connect(self.db_path)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM demos ORDER BY downloaded_at DESC LIMIT ?", (limit,))
+        rows = cursor.fetchall()
+        conn.close()
+        return [dict(row) for row in rows]
+
+    def increment_play_count(self, demo_id: int) -> None:
+        """Increment play counter for a demo."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("UPDATE demos SET play_count = play_count + 1 WHERE pouet_id = ?", (demo_id,))
+        conn.commit()
+        conn.close()
+
+    def export_sync_manifest(self, dest: Path) -> int:
+        """Export cache as JSON manifest for sync."""
+        demos = self.list_all(1000)
+        manifest = {
+            "exported": time.strftime("%Y-%m-%d"),
+            "version": "1.0",
+            "demos": demos,
+        }
+        dest.write_text(json.dumps(manifest, indent=2))
+        return len(demos)
+
+    def import_sync_manifest(self, src: Path) -> int:
+        """Import demos from sync manifest."""
+        data = json.loads(src.read_text())
+        count = 0
+        for demo in data.get("demos", []):
+            self.add_demo(
+                demo.get("pouet_id"),
+                demo.get("source", "import"),
+                demo.get("title", "Unknown"),
+                demo.get("platform", "unknown"),
+                demo.get("path"),
+                demo.get("tags")
+            )
+            count += 1
+        return count
 
 
 async def download_demo_async(demo_id: int, dest_dir: Path) -> Optional[Path]:
