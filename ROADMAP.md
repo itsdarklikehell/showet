@@ -43,7 +43,7 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 - [x] Smart loop detection with file analysis
 - [x] SQLite offline cache with sync
 - [x] Demo thumbnail generation service
-- [ ] Audio fingerprinting for module detection
+- [x] Audio fingerprinting for module detection
 
 ---
 
