@@ -174,11 +174,11 @@ Showet integrates with the entire demoscene ecosystem:
 
 ---
 
-## 🔧 Technical Improvements Planned
+## 🔧 Technical Improvements Completed
 
-- [ ] Async I/O for faster downloads
-- [ ] SQLite caching for offline mode
-- [ ] FastAPI backend for web UI
+- [x] Async I/O for faster downloads
+- [x] SQLite caching for offline mode
+- [x] FastAPI backend for web UI
 - [ ] Plugin system for custom platforms
 - [ ] Configuration profiles for different setups
 
