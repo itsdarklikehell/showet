@@ -50,11 +50,11 @@ The future of demoscene viewing is here. Showet is becoming the definitive, imme
 ## 🔮 Phase 14: Web Integration
 
 ### Goals
-- [ ] Full nostalgist.js web launcher
-- [ ] Television Simulator '99 integration
-- [ ] Hall of Fame browser
-- [ ] Demo tour guides with storytelling
-- [ ] Party mode synchronized playback
+- [x] Full nostalgist.js web launcher
+- [x] Television Simulator '99 integration
+- [x] Hall of Fame browser
+- [x] Demo tour guides with storytelling
+- [x] Party mode synchronized playback
 - [ ] Demoscene Timeline Explorer - Interactive historical guide to releases/parties
 
 ---
