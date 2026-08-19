@@ -1,4 +1,4 @@
-# 🗺️ ShowEt Demoscene Demo Runner - v3.0
+# 🗺️ ShowEt Demoscene Demo Runner - v4.0.0-dev
 
 The definitive, immersive demo-runner for the demoscene with nostalgic flair. Showet provides a unified interface for running demos from pouet.net, scene.org, and modarchive.org across **84+ platforms** with authentic CRT presentation.
 

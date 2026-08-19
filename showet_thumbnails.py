@@ -10,9 +10,6 @@ from __future__ import annotations
 import json
 import subprocess
 from pathlib import Path
-from datetime import datetime
-from typing import Optional
-
 
 THUMBNAIL_DIR = Path.home() / ".showet" / "thumbnails"
 VIDEO_EXTENSIONS = [".mp4", ".avi", ".mkv", ".mov", ".webm"]
@@ -53,7 +50,7 @@ def generate_placeholder_thumbnail(title: str, output_path: str, platform: str =
         return False
 
 
-def get_demo_metadata(demo_id: int, source: str = "pouet") -> Optional[dict]:
+def get_demo_metadata(demo_id: int, source: str = "pouet") -> dict | None:
     """Get demo metadata from source."""
     try:
         import urllib.request

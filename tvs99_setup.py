@@ -5,10 +5,8 @@ TVS99 Setup Wizard - Configure Television Simulator '99 for Showet.
 Provides step-by-step setup for browser-based demo playback.
 """
 
-import json
-from pathlib import Path
 import subprocess
-import sys
+from pathlib import Path
 
 
 def check_nostalgist_config() -> bool:
@@ -31,7 +29,7 @@ def check_http_server() -> bool:
         result = subprocess.run(["python3", "-m", "http.server", "--help"], 
                                capture_output=True, timeout=5)
         return result.returncode == 0
-    except:
+    except Exception:
         return False
 
 

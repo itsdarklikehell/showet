@@ -6,8 +6,6 @@ Fetch demos directly from the scene.org file archives.
 from __future__ import annotations
 
 import os
-from pathlib import Path
-from typing import Optional
 from urllib.parse import quote
 
 import requests
@@ -52,7 +50,7 @@ class SceneOrgClient:
                 
         return results
 
-    def get_party_demos(self, party: str, year: Optional[int] = None) -> list[dict]:
+    def get_party_demos(self, party: str, year: int | None = None) -> list[dict]:
         """Get demos from a specific demoparty."""
         results = []
         path = f"/parties/{party}/{year}" if year else f"/parties/{party}"
@@ -85,7 +83,7 @@ class SceneOrgClient:
             
         return results
 
-    def download_demo(self, url: str, filename: Optional[str] = None) -> str:
+    def download_demo(self, url: str, filename: str | None = None) -> str:
         """Download a demo file from scene.org."""
         os.makedirs(self.download_dir, exist_ok=True)
         

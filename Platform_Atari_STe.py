@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
+
 from PlatformBase import PlatformBase
+
 
 class Platform_Atari_STe(PlatformBase):
     """Platform runner for Atari STe demos."""
@@ -19,7 +21,7 @@ class Platform_Atari_STe(PlatformBase):
         return ["atari_ste"]
 
     def initialize(self) -> bool:
-        print(f"[Atari STe] Initializing...")
+        print("[Atari STe] Initializing...")
         self._is_initialized = True
         return True
 
@@ -30,12 +32,12 @@ class Platform_Atari_STe(PlatformBase):
         print(f"[Atari STe] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),
@@ -43,9 +45,9 @@ class Platform_Atari_STe(PlatformBase):
         }
 
     def save_state(self) -> bytes:
-        print(f"[Atari STe] State save: Delegated to RetroArch")
+        print("[Atari STe] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
-        print(f"[Atari STe] State load: Delegated to RetroArch")
+        print("[Atari STe] State load: Delegated to RetroArch")
         return True

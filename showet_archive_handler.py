@@ -65,7 +65,7 @@ class ArchiveHandler:
             cmd = ARCHIVE_COMMANDS['.zip'] + [str(archive), '-d', str(self.work_dir)]
             if password:
                 cmd.extend(['-P', password])
-            result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+            subprocess.run(cmd, check=True, capture_output=True, text=True)
             return list(self.work_dir.rglob('*'))
         except subprocess.CalledProcessError as e:
             print(f"ZIP extraction failed: {e.stderr}")
@@ -78,7 +78,7 @@ class ArchiveHandler:
             cmd.extend([str(archive), str(self.work_dir) + '/'])
             if password:
                 cmd.extend(['-p' + password])
-            result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+            subprocess.run(cmd, check=True, capture_output=True, text=True)
             return list(self.work_dir.rglob('*'))
         except subprocess.CalledProcessError as e:
             print(f"RAR extraction failed: {e.stderr}")
@@ -91,7 +91,7 @@ class ArchiveHandler:
             cmd.extend([str(archive), f'-o{self.work_dir}'])
             if password:
                 cmd.append(f'-p{password}')
-            result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+            subprocess.run(cmd, check=True, capture_output=True, text=True)
             return list(self.work_dir.rglob('*'))
         except subprocess.CalledProcessError as e:
             print(f"7z extraction failed: {e.stderr}")
@@ -102,7 +102,7 @@ class ArchiveHandler:
         try:
             cmd = ARCHIVE_COMMANDS['.lha'].copy()
             cmd.extend([str(archive), str(self.work_dir) + '/'])
-            result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+            subprocess.run(cmd, check=True, capture_output=True, text=True)
             return list(self.work_dir.rglob('*'))
         except subprocess.CalledProcessError as e:
             print(f"LHA extraction failed: {e.stderr}")

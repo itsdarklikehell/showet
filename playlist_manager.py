@@ -4,8 +4,8 @@ Support for .m3u and .m3u8 playlist files used by multi-disk demos.
 """
 from __future__ import annotations
 
+from collections.abc import Iterator
 from pathlib import Path
-from typing import Iterator
 
 
 class PlaylistManager:

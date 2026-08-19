@@ -7,10 +7,9 @@ and featured productions.
 
 from __future__ import annotations
 
-import urllib.request
 import json
+import urllib.request
 from datetime import datetime
-from pathlib import Path
 
 POUET_CALENDAR_API = "https://api.pouet.net/v1/calendar/"
 

@@ -7,10 +7,6 @@ and mobile-friendly web UI for touch devices.
 
 from __future__ import annotations
 
-from pathlib import Path
-from typing import Optional
-
-
 ANDROID_EMULATORS = {
     "dolphin": {
         "name": "Dolphin",
@@ -70,7 +66,7 @@ def get_android_devices() -> list[dict]:
     return devices
 
 
-def get_emulator_package(emu_name: str) -> Optional[dict]:
+def get_emulator_package(emu_name: str) -> dict | None:
     """Get emulator configuration."""
     return ANDROID_EMULATORS.get(emu_name)
 

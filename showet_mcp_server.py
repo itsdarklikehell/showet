@@ -19,13 +19,14 @@ import asyncio
 import json
 from pathlib import Path
 
+import mcp.types as types
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
-import mcp.types as types
 
 # Make showet's own modules importable from this script's directory.
 PROJECT_ROOT = Path(__file__).parent
 import sys
+
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from showet_api import get_api  # the singleton high-level API

@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 """Showet Demo Browser - List/search demos across pouet.net and scene.org."""
 
-import sys
 import subprocess
-import json
-from pathlib import Path
+import sys
 
 
 def search_pouet(query):

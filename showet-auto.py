@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Showet One-Command Demo Runner - Complete 'demo-to-playback' experience."""
 
-import sys
 import subprocess
+import sys
 from pathlib import Path
+
 
 def download_demo(source, demo_id=None, search=None):
     """Download demo from pouet.net or scene.org."""

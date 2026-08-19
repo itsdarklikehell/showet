@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
+
 from PlatformBase import PlatformBase
+
 
 class Platform_Tangerine_Oric(PlatformBase):
     """Platform runner for Tangerine Oric demos."""
@@ -20,7 +22,7 @@ class Platform_Tangerine_Oric(PlatformBase):
         return ["tangerine_oric"]
 
     def initialize(self) -> bool:
-        print(f"[Tangerine Oric] Initializing...")
+        print("[Tangerine Oric] Initializing...")
         self._is_initialized = True
         return True
 
@@ -31,14 +33,14 @@ class Platform_Tangerine_Oric(PlatformBase):
         print(f"[Tangerine Oric] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         if controls:
-            print(f"[Tangerine Oric] Note: Control mapping pending")
+            print("[Tangerine Oric] Note: Control mapping pending")
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),
@@ -46,9 +48,9 @@ class Platform_Tangerine_Oric(PlatformBase):
         }
 
     def save_state(self) -> bytes:
-        print(f"[Tangerine Oric] State save: Delegated to RetroArch")
+        print("[Tangerine Oric] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
-        print(f"[Tangerine Oric] State load: Delegated to RetroArch")
+        print("[Tangerine Oric] State load: Delegated to RetroArch")
         return True

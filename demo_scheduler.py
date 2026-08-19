@@ -12,20 +12,20 @@ from __future__ import annotations
 
 import json
 import time
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
-from typing import Optional, Dict, Any, List
+from typing import Any
 
 
 class DemoScheduler:
     """Schedule and manage demo playback events."""
 
-    def __init__(self, schedule_path: Optional[Path] = None):
+    def __init__(self, schedule_path: Path | None = None):
         self.schedule_path = schedule_path or Path.home() / ".showet" / "schedule.json"
         self.schedule_path.parent.mkdir(parents=True, exist_ok=True)
-        self._events: List[Dict[str, Any]] = self._load_schedule()
+        self._events: list[dict[str, Any]] = self._load_schedule()
 
-    def _load_schedule(self) -> List[Dict[str, Any]]:
+    def _load_schedule(self) -> list[dict[str, Any]]:
         """Load schedule from disk."""
         if self.schedule_path.exists():
             try:
@@ -70,7 +70,7 @@ class DemoScheduler:
         self._save_schedule()
         return event["id"]
 
-    def get_upcoming(self, limit: int = 10) -> List[Dict[str, Any]]:
+    def get_upcoming(self, limit: int = 10) -> list[dict[str, Any]]:
         """Get upcoming scheduled events."""
         now = datetime.now()
         upcoming = [
@@ -79,7 +79,7 @@ class DemoScheduler:
         ]
         return sorted(upcoming, key=lambda x: x["scheduled_at"])[:limit]
 
-    def get_next_event(self) -> Optional[Dict[str, Any]]:
+    def get_next_event(self) -> dict[str, Any] | None:
         """Get the next scheduled event."""
         upcoming = self.get_upcoming(limit=1)
         return upcoming[0] if upcoming else None
@@ -115,7 +115,7 @@ class PartyCountdown:
     }
 
     @classmethod
-    def get_next_party(cls) -> Optional[Dict[str, Any]]:
+    def get_next_party(cls) -> dict[str, Any] | None:
         """Get the next upcoming party."""
         now = datetime.now()
         for name, info in cls.PARTIES.items():

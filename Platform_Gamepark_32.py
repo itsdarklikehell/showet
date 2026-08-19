@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
+
 from PlatformBase import PlatformBase
+
 
 class Platform_Gamepark_32(PlatformBase):
     """Platform runner for Gamepark 32 demos."""
@@ -20,7 +22,7 @@ class Platform_Gamepark_32(PlatformBase):
         return ["gamepark_32"]
 
     def initialize(self) -> bool:
-        print(f"[Gamepark 32] Initializing...")
+        print("[Gamepark 32] Initializing...")
         self._is_initialized = True
         return True
 
@@ -31,14 +33,14 @@ class Platform_Gamepark_32(PlatformBase):
         print(f"[Gamepark 32] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         if controls:
-            print(f"[Gamepark 32] Note: Control mapping pending")
+            print("[Gamepark 32] Note: Control mapping pending")
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),
@@ -46,9 +48,9 @@ class Platform_Gamepark_32(PlatformBase):
         }
 
     def save_state(self) -> bytes:
-        print(f"[Gamepark 32] State save: Delegated to RetroArch")
+        print("[Gamepark 32] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
-        print(f"[Gamepark 32] State load: Delegated to RetroArch")
+        print("[Gamepark 32] State load: Delegated to RetroArch")
         return True

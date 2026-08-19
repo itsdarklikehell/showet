@@ -10,10 +10,7 @@ Allows remote control of OBS for:
 
 from __future__ import annotations
 
-import json
 import socket
-from typing import Optional, Dict, Any
-from pathlib import Path
 
 
 class OBSController:
@@ -30,7 +27,7 @@ class OBSController:
         self.host = host
         self.port = port
         self.password = password
-        self._socket: Optional[socket.socket] = None
+        self._socket: socket.socket | None = None
 
     def connect(self) -> bool:
         """Connect to OBS WebSocket server."""
@@ -49,7 +46,7 @@ class OBSController:
             print(f"OBS connection failed: {e}")
             return False
 
-    def _send(self, message: dict) -> Optional[dict]:
+    def _send(self, message: dict) -> dict | None:
         """Send message to OBS and receive response."""
         # Placeholder - would implement full WebSocket protocol
         return None
@@ -62,7 +59,7 @@ class OBSController:
             return True
         return False
 
-    def capture_screenshot(self, output_path: str) -> Optional[str]:
+    def capture_screenshot(self, output_path: str) -> str | None:
         """Capture screenshot via OBS.
         
         Args:
@@ -76,7 +73,7 @@ class OBSController:
             return self._capture_with_ffmpeg(output_path)
         return None
 
-    def _capture_with_ffmpeg(self, output_path: str) -> Optional[str]:
+    def _capture_with_ffmpeg(self, output_path: str) -> str | None:
         """Fallback screenshot capture using ffmpeg."""
         import subprocess
         try:
@@ -117,13 +114,12 @@ SCENE_TRANSITIONS = {
 }
 
 
-def create_obs_integration(enabled: bool = True) -> Optional[OBSController]:
+def create_obs_integration(enabled: bool = True) -> OBSController | None:
     """Create OBS integration if enabled and available."""
     if not enabled:
         return None
     
     # Check for obs-websocket plugin
-    config_path = Path.home() / ".config" / "obs-studio" / "basic" / "profiles" / "showet.json"
     return OBSController()
 
 

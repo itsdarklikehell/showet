@@ -6,7 +6,6 @@ Unified command-line interface for demo running, streaming, and jukebox modes.
 from __future__ import annotations
 
 import argparse
-import sys
 
 
 def create_main_parser() -> argparse.ArgumentParser:
@@ -43,17 +42,13 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "run":
         from showet.core.executor import execute_demo
-        try:
-            demo_id = int(args.source)
-            # Would need to fetch and run demo
-        except ValueError:
-            return execute_demo(args.source, fullscreen=args.fullscreen)
+        return execute_demo(args.source, fullscreen=args.fullscreen)
     elif args.command == "jukebox":
         from showet.core.jukebox import jukebox_mode
         if args.ids:
             return jukebox_mode(demo_ids=args.ids, loop_limit=args.loops)
     elif args.command == "stream":
-        from showet.utils.stream_manager import StreamManager, StreamConfig, StreamPlatform
+        pass
         # Stream setup
     else:
         parser.print_help()

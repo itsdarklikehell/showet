@@ -6,19 +6,17 @@ Demos are cached by pouet.net ID in ~/.cache/showet/
 """
 from __future__ import annotations
 
-import hashlib
 import json
 import os
 import shutil
 import urllib.request
 from pathlib import Path
-from typing import Optional
 
 
 class CacheManager:
     """Manages local demo cache."""
 
-    def __init__(self, cache_dir: Optional[Path] = None):
+    def __init__(self, cache_dir: Path | None = None):
         """Initialize cache manager.
 
         Args:
@@ -35,9 +33,9 @@ class CacheManager:
         """Load metadata from disk."""
         if self.metadata_file.exists():
             try:
-                with open(self.metadata_file, "r") as f:
+                with open(self.metadata_file) as f:
                     self._metadata = json.load(f)
-            except (json.JSONDecodeError, IOError):
+            except (OSError, json.JSONDecodeError):
                 self._metadata = {}
         else:
             self._metadata = {}
@@ -56,7 +54,7 @@ class CacheManager:
         self._load_metadata()
         return prod_id in self._metadata and self._get_demo_dir(prod_id).exists()
 
-    def get_cached_path(self, prod_id: int) -> Optional[Path]:
+    def get_cached_path(self, prod_id: int) -> Path | None:
         """Get the path to a cached demo file."""
         if not self.is_cached(prod_id):
             return None
@@ -76,7 +74,7 @@ class CacheManager:
         return path if path.exists() else None
 
     def cache_demo(self, prod_id: int, download_url: str, filename: str,
-                   metadata: Optional[dict] = None) -> Optional[Path]:
+                   metadata: dict | None = None) -> Path | None:
         """Download and cache a demo.
 
         Args:
@@ -115,7 +113,7 @@ class CacheManager:
 
         return output_path
 
-    def get_metadata(self, prod_id: int) -> Optional[dict]:
+    def get_metadata(self, prod_id: int) -> dict | None:
         """Get metadata for a cached demo."""
         self._load_metadata()
         return self._metadata.get(prod_id)

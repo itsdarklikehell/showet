@@ -17,12 +17,10 @@ import json
 import re
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
-from typing import Dict, Any, Optional
-from urllib.parse import urlparse, parse_qs
-
+from urllib.parse import parse_qs, urlparse
 
 # Core name mapping (mirrors nostalgist_bridge.py)
-CORE_MAPPING: Dict[str, str] = {
+CORE_MAPPING: dict[str, str] = {
     "quicknes_libretro": "quicknes",
     "genesis_plus_gx_libretro": "genesis_plus_gx",
     "vice_x64sc_libretro": "vice_x64sc",
@@ -54,7 +52,7 @@ class NostalgistConfigHandler(SimpleHTTPRequestHandler):
         else:
             super().do_GET()
 
-    def handle_config_request(self, query: Dict[str, list]) -> None:
+    def handle_config_request(self, query: dict[str, list]) -> None:
         """Generate and serve nostalgist config for a platform."""
         platform = query.get("platform", [None])[0]
         
@@ -80,7 +78,6 @@ class NostalgistConfigHandler(SimpleHTTPRequestHandler):
             slug_match = re.search(r'super\(\).__init__\("([^"]+)"', content)
             
             core = core_match.group(1).strip().strip("'\"") if core_match else "quicknes"
-            slug = slug_match.group(1) if slug_match else platform
             mapped_core = CORE_MAPPING.get(core, core.replace("_libretro", ""))
             
             config = {

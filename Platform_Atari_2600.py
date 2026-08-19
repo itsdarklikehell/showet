@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
+
 from PlatformBase import PlatformBase
+
 
 class Platform_Atari_2600(PlatformBase):
     """Platform runner for Atari 2600 demos."""
@@ -20,7 +22,7 @@ class Platform_Atari_2600(PlatformBase):
         return ["atari_2600"]
 
     def initialize(self) -> bool:
-        print(f"[Atari 2600] Initializing...")
+        print("[Atari 2600] Initializing...")
         self._is_initialized = True
         return True
 
@@ -31,14 +33,14 @@ class Platform_Atari_2600(PlatformBase):
         print(f"[Atari 2600] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         if controls:
-            print(f"[Atari 2600] Note: Control mapping pending")
+            print("[Atari 2600] Note: Control mapping pending")
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),
@@ -46,9 +48,9 @@ class Platform_Atari_2600(PlatformBase):
         }
 
     def save_state(self) -> bytes:
-        print(f"[Atari 2600] State save: Delegated to RetroArch")
+        print("[Atari 2600] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
-        print(f"[Atari 2600] State load: Delegated to RetroArch")
+        print("[Atari 2600] State load: Delegated to RetroArch")
         return True

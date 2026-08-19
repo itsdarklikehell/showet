@@ -10,13 +10,10 @@ Demoscene feature: Broadcast your demo party releases everywhere at once!
 from __future__ import annotations
 
 import subprocess
-import time
 from dataclasses import dataclass, field
 from enum import Enum
-from pathlib import Path
-from typing import Optional, List
 
-from streaming import StreamConfig, StreamPlatform, StreamManager, QUALITY_PRESETS
+from streaming import QUALITY_PRESETS, StreamConfig, StreamManager, StreamPlatform
 
 
 class RelayMode(str, Enum):
@@ -28,7 +25,7 @@ class RelayMode(str, Enum):
 @dataclass
 class MultiStreamConfig:
     """Configuration for streaming to multiple platforms."""
-    targets: List[tuple[StreamPlatform, str]] = field(default_factory=list)  # [(platform, key), ...]
+    targets: list[tuple[StreamPlatform, str]] = field(default_factory=list)  # [(platform, key), ...]
     quality: str = "720p"
     include_audio: bool = True
     include_webcam: bool = False
@@ -40,8 +37,8 @@ class RTMPRelay:
     """Stream to multiple platforms simultaneously."""
 
     def __init__(self) -> None:
-        self.config: Optional[MultiStreamConfig] = None
-        self._processes: List[subprocess.Popen] = []
+        self.config: MultiStreamConfig | None = None
+        self._processes: list[subprocess.Popen] = []
         self.is_relaying: bool = False
 
     def configure(self, config: MultiStreamConfig) -> None:
@@ -134,7 +131,7 @@ class RTMPRelay:
         print("⏹️ All streams stopped")
 
 
-def multi_stream_demo(demo_id: int, platforms_keys: List[tuple[str, str]], quality: str = "720p"):
+def multi_stream_demo(demo_id: int, platforms_keys: list[tuple[str, str]], quality: str = "720p"):
     """Convenience function to stream demo to multiple platforms.
     
     Args:

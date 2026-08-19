@@ -5,7 +5,6 @@ Tests all platforms alphabetically using available browser cores.
 """
 
 import json
-import subprocess
 from pathlib import Path
 
 # Known working cores in nostalgist CDN (confirmed via fetch)

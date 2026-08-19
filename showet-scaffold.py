@@ -4,8 +4,6 @@ Showet Scaffold - Platform Addition CLI Tool
 Generates boilerplate files for new demo platforms
 """
 
-import os
-import sys
 import argparse
 from pathlib import Path
 

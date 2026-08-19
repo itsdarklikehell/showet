@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
+
 from PlatformBase import PlatformBase
+
 
 class Platform_Wild_Gamemusic(PlatformBase):
     """Platform runner for Wild Gamemusic demos."""
@@ -20,7 +22,7 @@ class Platform_Wild_Gamemusic(PlatformBase):
         return ["wild_gamemusic"]
 
     def initialize(self) -> bool:
-        print(f"[Wild Gamemusic] Initializing...")
+        print("[Wild Gamemusic] Initializing...")
         self._is_initialized = True
         return True
 
@@ -31,14 +33,14 @@ class Platform_Wild_Gamemusic(PlatformBase):
         print(f"[Wild Gamemusic] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         if controls:
-            print(f"[Wild Gamemusic] Note: Control mapping pending")
+            print("[Wild Gamemusic] Note: Control mapping pending")
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),
@@ -46,9 +48,9 @@ class Platform_Wild_Gamemusic(PlatformBase):
         }
 
     def save_state(self) -> bytes:
-        print(f"[Wild Gamemusic] State save: Delegated to RetroArch")
+        print("[Wild Gamemusic] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
-        print(f"[Wild Gamemusic] State load: Delegated to RetroArch")
+        print("[Wild Gamemusic] State load: Delegated to RetroArch")
         return True

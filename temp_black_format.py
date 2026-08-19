@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-import os
-import json
 import argparse
+import json
+import os
+
 # import os.path
 import urllib.request
+
 import patoolib
 
 from Platform_Amstrad_Cpcplus import Platform_Amstrad_Cpcplus
@@ -204,7 +206,7 @@ PROD_JSON_FILENAME = datadir + "/pouet.json"
 if os.path.exists(PROD_JSON_FILENAME):
     if DEBUGGING is not False:
         print("Json already downloaded.")
-    with open(PROD_JSON_FILENAME, 'r') as f:
+    with open(PROD_JSON_FILENAME) as f:
         PROD_JSON = f.read()
 else:
     if not os.path.exists(datadir + '/json'):

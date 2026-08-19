@@ -7,10 +7,9 @@ from __future__ import annotations
 
 import asyncio
 import json
-import os
 import sqlite3
+import time
 from pathlib import Path
-from typing import Optional
 
 try:
     import aiohttp
@@ -25,7 +24,7 @@ class AsyncDownloader:
         self.semaphore = asyncio.Semaphore(max_concurrent)
         self.session: aiohttp.ClientSession | None = None
 
-    async def __aenter__(self) -> "AsyncDownloader":
+    async def __aenter__(self) -> AsyncDownloader:
         if aiohttp is None:
             raise ImportError("aiohttp required: pip install aiohttp")
         self.session = aiohttp.ClientSession()
@@ -59,11 +58,11 @@ class AsyncDownloader:
 class DemoCache:
     """SQLite-based offline cache for demos and metadata."""
 
-    def __init__(self, cache_dir: Optional[Path] = None) -> None:
+    def __init__(self, cache_dir: Path | None = None) -> None:
         self.cache_dir = cache_dir or Path.home() / ".showet" / "cache"
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.db_path = self.cache_dir / "demos.db"
-        self.sync_manifest: Optional[Path] = None
+        self.sync_manifest: Path | None = None
         self._init_db()
 
     def _init_db(self) -> None:
@@ -113,20 +112,7 @@ class DemoCache:
         conn.commit()
         conn.close()
 
-    def add_demo(self, demo_id: int, source: str, title: str, 
-                 platform: str, path: str) -> None:
-        """Add demo to cache."""
-        import time
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
-        cursor.execute(
-            "INSERT OR REPLACE INTO demos (pouet_id, source, title, platform, path, downloaded_at) VALUES (?, ?, ?, ?, ?, ?)",
-            (demo_id, source, title, platform, path, time.strftime("%Y-%m-%d"))
-        )
-        conn.commit()
-        conn.close()
-
-    def get_cached(self, demo_id: int) -> Optional[str]:
+    def get_cached(self, demo_id: int) -> str | None:
         """Get cached demo path."""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -164,7 +150,7 @@ class DemoCache:
         conn.close()
         return playlist_id
 
-    def get_playlist(self, name: str) -> Optional[list[int]]:
+    def get_playlist(self, name: str) -> list[int] | None:
         """Get demo IDs from a playlist."""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -221,7 +207,7 @@ class DemoCache:
         return count
 
 
-async def download_demo_async(demo_id: int, dest_dir: Path) -> Optional[Path]:
+async def download_demo_async(demo_id: int, dest_dir: Path) -> Path | None:
     """Download a demo by ID asynchronously."""
     try:
         url = f"http://api.pouet.net/v1/prod/?id={demo_id}"

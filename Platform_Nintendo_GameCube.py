@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
+
 from PlatformBase import PlatformBase
+
 
 class Platform_Nintendo_GameCube(PlatformBase):
     """Platform runner for Nintendo GameCube demos."""
@@ -20,7 +22,7 @@ class Platform_Nintendo_GameCube(PlatformBase):
         return ["nintendo_gamecube"]
 
     def initialize(self) -> bool:
-        print(f"[Nintendo GameCube] Initializing...")
+        print("[Nintendo GameCube] Initializing...")
         self._is_initialized = True
         return True
 
@@ -31,14 +33,14 @@ class Platform_Nintendo_GameCube(PlatformBase):
         print(f"[Nintendo GameCube] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         if controls:
-            print(f"[Nintendo GameCube] Note: Control mapping pending")
+            print("[Nintendo GameCube] Note: Control mapping pending")
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),
@@ -46,9 +48,9 @@ class Platform_Nintendo_GameCube(PlatformBase):
         }
 
     def save_state(self) -> bytes:
-        print(f"[Nintendo GameCube] State save: Delegated to RetroArch")
+        print("[Nintendo GameCube] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
-        print(f"[Nintendo GameCube] State load: Delegated to RetroArch")
+        print("[Nintendo GameCube] State load: Delegated to RetroArch")
         return True

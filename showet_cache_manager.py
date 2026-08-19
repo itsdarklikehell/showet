@@ -5,12 +5,9 @@ Offline demo playback support - download once, play anywhere
 Integrates with scene.org and Pouet.net for caching
 """
 
-import os
-import json
 import hashlib
+import json
 from pathlib import Path
-from typing import Dict, List, Optional
-import subprocess
 
 CACHE_DIR = Path.home() / ".showet" / "cache"
 METADATA_FILE = CACHE_DIR / "cache_metadata.json"
@@ -80,7 +77,7 @@ class ShowetCache:
         
         return cache_path
     
-    def get_cached_demo(self, name: str, platform: str = None) -> Optional[Path]:
+    def get_cached_demo(self, name: str, platform: str = None) -> Path | None:
         """Get cached demo path if available"""
         for file_path, meta in self.metadata.get("files", {}).items():
             if meta["name"].lower() == name.lower():
@@ -90,11 +87,11 @@ class ShowetCache:
                         return path
         return None
     
-    def list_cached(self) -> List[Dict]:
+    def list_cached(self) -> list[dict]:
         """List all cached demos"""
         return list(self.metadata.get("files", {}).values())
     
-    def cache_status(self) -> Dict:
+    def cache_status(self) -> dict:
         """Get cache statistics"""
         return {
             "total_files": len(self.metadata.get("files", {})),

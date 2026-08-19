@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
 
 from PlatformBase import PlatformBase
 
@@ -32,12 +32,12 @@ class Platform_Commodore_Amiga_AGA(PlatformBase):
         print(f"[Commodore Amiga AGA] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),

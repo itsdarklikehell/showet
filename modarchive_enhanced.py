@@ -7,10 +7,8 @@ Provides features:
 - Link modules to productions
 """
 
-import json
-import urllib.request
 from pathlib import Path
-from typing import Optional, List, Dict
+
 from modarchive_integration import ModArchiveAPI
 
 
@@ -26,7 +24,7 @@ class ShowetModArchive(ModArchiveAPI):
         "censor design": ["pain", "titanic"],
     }
 
-    def find_modules_for_demo_group(self, group_name: str) -> List[Dict]:
+    def find_modules_for_demo_group(self, group_name: str) -> list[dict]:
         """Find modules by a demoscene group/artist name.
         
         Args:
@@ -37,7 +35,7 @@ class ShowetModArchive(ModArchiveAPI):
         """
         return self.search_modules(group_name)
 
-    def find_modules_for_production(self, production_name: str) -> List[Dict]:
+    def find_modules_for_production(self, production_name: str) -> list[dict]:
         """Find modules associated with a production.
         
         Searches for modules that might have been used in or 
@@ -60,8 +58,8 @@ class ShowetModArchive(ModArchiveAPI):
         
         return []
 
-    def download_modules_for_jukebox(self, demo_ids: List[int], 
-                                    platform: str = "commodore_64") -> List[Path]:
+    def download_modules_for_jukebox(self, demo_ids: list[int], 
+                                    platform: str = "commodore_64") -> list[Path]:
         """Download modules for use in jukebox playback.
         
         Creates a collection of modules that can be played

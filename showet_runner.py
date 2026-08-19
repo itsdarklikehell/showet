@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Showet local runner - runs demos with available system emulators."""
-import subprocess
-import sys
 import json
+
 
 def run_amiga_demo(demo_path):
     """Run Amiga demo using FS-UAE."""

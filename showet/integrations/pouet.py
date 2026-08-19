@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import urllib.request
-from typing import Optional
 
 
 class PouetClient:
@@ -14,7 +13,7 @@ class PouetClient:
     def __init__(self) -> None:
         pass
 
-    def get_production(self, prod_id: int) -> Optional[dict]:
+    def get_production(self, prod_id: int) -> dict | None:
         """Fetch production metadata."""
         try:
             url = f"{self.API_BASE}/prod/?id={prod_id}"
@@ -25,7 +24,7 @@ class PouetClient:
         except Exception:
             return None
 
-    def get_download_url(self, prod_id: int) -> Optional[str]:
+    def get_download_url(self, prod_id: int) -> str | None:
         """Get download URL for a production."""
         prod = self.get_production(prod_id)
         if prod:

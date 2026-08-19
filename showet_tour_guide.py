@@ -5,8 +5,7 @@ Curated journey through iconic demos and their technical achievements
 """
 
 from dataclasses import dataclass
-from typing import List, Optional
-import asyncio
+
 
 @dataclass
 class TourStop:
@@ -17,7 +16,7 @@ class TourStop:
     party: str
     technical_achievement: str
     cultural_impact: str
-    demo_file: Optional[str] = None
+    demo_file: str | None = None
 
 class ShowetTourGuide:
     """Interactive guided tour through demoscene history"""
@@ -72,7 +71,7 @@ class ShowetTourGuide:
         script += "---\n*Every frame tells a story. Every pixel holds a memory.*\n"
         return script
     
-    def get_next_stop(self) -> Optional[TourStop]:
+    def get_next_stop(self) -> TourStop | None:
         """Get next tour stop"""
         if self.current_stop < len(self.TOUR_STOPS):
             stop = self.TOUR_STOPS[self.current_stop]

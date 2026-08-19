@@ -9,11 +9,9 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Optional
 
 try:
     from fastapi import FastAPI, HTTPException
-    from fastapi.staticfiles import StaticFiles
     from fastapi.responses import JSONResponse
     FASTAPI_AVAILABLE = True
 except ImportError:
@@ -99,6 +97,7 @@ else:
 def main() -> int:
     """CLI entry point."""
     import argparse
+
     import uvicorn
     
     parser = argparse.ArgumentParser(description="Showet Demo Browser")

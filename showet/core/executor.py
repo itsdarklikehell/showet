@@ -7,11 +7,8 @@ from __future__ import annotations
 
 import argparse
 import logging
-import shutil
 import subprocess
-import sys
 from pathlib import Path
-from typing import Optional
 
 logger = logging.getLogger("showet.executor")
 
@@ -66,7 +63,7 @@ def detect_platform(file_path: Path) -> str:
     return "unknown"
 
 
-def find_core_path(core_name: str) -> Optional[Path]:
+def find_core_path(core_name: str) -> Path | None:
     """Find RetroArch core path."""
     search_paths = [
         Path.home() / ".config" / "retroarch" / "cores" / core_name,
@@ -91,7 +88,7 @@ def check_emulator_available(emulator: str) -> bool:
 
 def execute_demo(
     file_path: str,
-    platform: Optional[str] = None,
+    platform: str | None = None,
     fullscreen: bool = False,
 ) -> int:
     """Execute a demo file with auto-detected or specified platform."""

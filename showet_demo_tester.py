@@ -4,9 +4,6 @@
 Creates test demos and verifies emulator execution.
 """
 
-import json
-import subprocess
-import tempfile
 import zipfile
 from pathlib import Path
 

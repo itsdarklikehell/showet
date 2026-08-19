@@ -1,22 +1,22 @@
 # Collaborative session server - join and watch demos together
 from __future__ import annotations
 
+import asyncio
 import json
 import uuid
-import asyncio
-import websockets
 from datetime import datetime
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
-from typing import Optional
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse
+
+import websockets
 
 # In-memory session store with WebSocket connections
 SESSIONS: dict[str, dict] = {}
 WEBSOCKET_CONNECTIONS: dict[str, list] = {}  # session_id -> [websocket_connections]
 
 
-def create_session(platform: str, demo_id: Optional[int] = None, stream_to: Optional[str] = None,
+def create_session(platform: str, demo_id: int | None = None, stream_to: str | None = None,
                    session_name: str = "Demo Session") -> str:
     """Create a new collaborative session.
     
@@ -71,12 +71,12 @@ def update_playback(session_id: str, state: str, time: float = 0) -> dict:
     return {"status": "updated", "state": state}
 
 
-def get_session(session_id: str) -> Optional[dict]:
+def get_session(session_id: str) -> dict | None:
     """Get session details."""
     return SESSIONS.get(session_id)
 
 
-def get_session_with_stream_info(session_id: str) -> Optional[dict]:
+def get_session_with_stream_info(session_id: str) -> dict | None:
     """Get session info including stream status."""
     session = SESSIONS.get(session_id)
     if session and session.get("stream_to"):

@@ -112,7 +112,7 @@ class ShowetAPI:
         return {
             "platforms_loaded": len(self._platforms),
             "platforms": self.list_platforms(),
-            "version": "2.0.0",
+            "version": "4.0.0-dev",
             "nostalgist_ready": (Path(__file__).parent / "nostalgist_configs" / "manifest.json").exists()
         }
 

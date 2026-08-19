@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
+
 from PlatformBase import PlatformBase
+
 
 class Platform_Sharp_MZ(PlatformBase):
     """Platform runner for Sharp MZ family demos."""
@@ -20,7 +22,7 @@ class Platform_Sharp_MZ(PlatformBase):
         return ["sharp_mz"]
 
     def initialize(self) -> bool:
-        print(f"[Sharp MZ] Initializing...")
+        print("[Sharp MZ] Initializing...")
         self._is_initialized = True
         return True
 
@@ -31,14 +33,14 @@ class Platform_Sharp_MZ(PlatformBase):
         print(f"[Sharp MZ] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         if controls:
-            print(f"[Sharp MZ] Note: Control mapping pending")
+            print("[Sharp MZ] Note: Control mapping pending")
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),
@@ -46,9 +48,9 @@ class Platform_Sharp_MZ(PlatformBase):
         }
 
     def save_state(self) -> bytes:
-        print(f"[Sharp MZ] State save: Delegated to RetroArch")
+        print("[Sharp MZ] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
-        print(f"[Sharp MZ] State load: Delegated to RetroArch")
+        print("[Sharp MZ] State load: Delegated to RetroArch")
         return True

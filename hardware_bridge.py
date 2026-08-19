@@ -4,11 +4,10 @@ Showet Hardware Encoder Bridge
 VAAPI/V4L2 integration for low-latency, production-quality streaming
 """
 
-import subprocess
 import asyncio
+import subprocess
 from pathlib import Path
-from typing import Optional, List
-import os
+
 
 class HardwareEncoderBridge:
     """Hardware-accelerated video encoding for demo streaming"""
@@ -40,7 +39,7 @@ class HardwareEncoderBridge:
         output_url: str = "rtmp://localhost/live/stream",
         encoder: str = "vaapi",
         quality: str = "medium"
-    ) -> List[str]:
+    ) -> list[str]:
         """Build ffmpeg command with hardware encoding"""
         
         if encoder == "vaapi" and self.vaapi_available:
@@ -50,7 +49,7 @@ class HardwareEncoderBridge:
         else:
             return self._build_software_fallback(input_source, output_url, quality)
     
-    def _build_vaapi_command(self, input_source: str, output_url: str, quality: str) -> List[str]:
+    def _build_vaapi_command(self, input_source: str, output_url: str, quality: str) -> list[str]:
         """VAAPI Intel/AMD hardware encoding"""
         bitrate_map = {
             "low": "2M",
@@ -72,7 +71,7 @@ class HardwareEncoderBridge:
             output_url
         ]
     
-    def _build_v4l2_command(self, input_source: str, output_url: str, quality: str) -> List[str]:
+    def _build_v4l2_command(self, input_source: str, output_url: str, quality: str) -> list[str]:
         """V4L2 direct camera/video device capture"""
         bitrate_map = {"low": "2000k", "medium": "4000k", "high": "8000k", "ultra": "16000k"}
         bitrate = bitrate_map.get(quality, "4000k")
@@ -88,7 +87,7 @@ class HardwareEncoderBridge:
             output_url
         ]
     
-    def _build_software_fallback(self, input_source: str, output_url: str, quality: str) -> List[str]:
+    def _build_software_fallback(self, input_source: str, output_url: str, quality: str) -> list[str]:
         """Software fallback for systems without hardware encoding"""
         bitrate_map = {"low": "2000k", "medium": "4000k", "high": "8000k", "ultra": "16000k"}
         bitrate = bitrate_map.get(quality, "4000k")
@@ -108,7 +107,7 @@ class HardwareEncoderBridge:
     async def start_stream(
         self,
         platform: str,
-        demo_id: Optional[int] = None,
+        demo_id: int | None = None,
         output_url: str = "rtmp://localhost/live/showet",
         quality: str = "medium"
     ):

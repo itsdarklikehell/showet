@@ -5,14 +5,14 @@ Tests the complete flow: platform detection → core selection → execution rea
 """
 
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 sys.modules.setdefault('inquirer', __import__('types').SimpleNamespace())
 sys.modules.setdefault('patoolib', __import__('types').SimpleNamespace())
 
-from showet_executor import detect_platform, find_core_path, PLATFORM_CORES, PLATFORM_EXTENSIONS
+from showet_executor import detect_platform, find_core_path
 
 
 def test_platform_detection():
@@ -62,7 +62,6 @@ def test_nostalgist_configs():
             continue
         data = json.loads(cfg.read_text())
         has_core = "core" in data
-        has_rom = "rom" in data or data.get("core") != "puae"  # puae needs CDN
         status = "✅" if has_core else "❌"
         if has_core:
             ready_platforms.append(cfg.stem)

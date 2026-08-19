@@ -4,8 +4,6 @@ Multi-system demo tester for Showet/nostalgist integration.
 Tests available platforms with their working browser cores.
 """
 
-import json
-from pathlib import Path
 
 # Systems with working nostalgist.js cores
 WORKING_CORES = {

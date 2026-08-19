@@ -4,13 +4,12 @@ Showet LAN Multiplayer Synchronization
 Synchronized playback across multiple devices for demo parties
 """
 
+import json
 import socket
 import threading
 import time
-import json
 from dataclasses import dataclass
-from typing import Dict, List, Optional
-import struct
+
 
 @dataclass
 class SyncPacket:
@@ -32,7 +31,7 @@ class ShowetLAN:
         self.demo_id = demo_id
         self.is_host = False
         self.is_client = False
-        self.peers: Dict[str, SyncPacket] = {}
+        self.peers: dict[str, SyncPacket] = {}
         self.sync_thread = None
         self.socket = None
     
@@ -85,7 +84,7 @@ class ShowetLAN:
             
             try:
                 self.socket.sendto(data, ('<broadcast>', self.BROADCAST_PORT))
-            except:
+            except Exception:
                 break
             
             time.sleep(self.BROADCAST_INTERVAL)
@@ -105,7 +104,7 @@ class ShowetLAN:
                     playback_state=sync.get('s', 'idle'),
                     frame_count=sync.get('f', 0)
                 ))
-            except:
+            except Exception:
                 continue
     
     def _apply_sync(self, packet: SyncPacket):

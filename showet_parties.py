@@ -5,7 +5,7 @@ Usage:
     showet-parties
 """
 
-from party_calendar import get_upcoming_parties, format_countdown
+from party_calendar import format_countdown, get_upcoming_parties
 
 
 def main() -> int:

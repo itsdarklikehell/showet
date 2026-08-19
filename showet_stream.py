@@ -12,14 +12,13 @@ import argparse
 import os
 import signal
 import sys
-from pathlib import Path
 
 from streaming import (
     StreamConfig,
     StreamManager,
     StreamPlatform,
-    setup_stream_key,
     get_stream_key,
+    setup_stream_key,
 )
 
 
@@ -123,11 +122,10 @@ def main():
         if args.demo:
             print(f"🎮 Fetching demo {args.demo}...")
             # Import and run the demo
-            import showet
-            from showet import create_platform_runners, run_production, build_arg_parser
-
             # Create custom args for the specific demo
             import argparse
+
+            from showet import create_platform_runners, run_production
             demo_ns = argparse.Namespace(
                 pouetid=args.demo,
                 platforms=False,
@@ -140,8 +138,8 @@ def main():
 
             # Get demo info for overlay
             try:
-                import urllib.request
                 import json
+                import urllib.request
                 url = f"http://api.pouet.net/v1/prod/?id={args.demo}"
                 data = json.loads(urllib.request.urlopen(url).read().decode())
                 demo_name = data.get("prod", {}).get("name", "")
@@ -155,7 +153,7 @@ def main():
 
             # Run the demo (will stream while running)
             try:
-                result = run_production(demo_ns, runners)
+                run_production(demo_ns, runners)
             except KeyboardInterrupt:
                 print("\n🛑 Stopping stream...")
             finally:

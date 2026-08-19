@@ -18,16 +18,24 @@ sys.modules["showet_legacy"] = _legacy
 _spec.loader.exec_module(_legacy)
 
 from showet.core import (
-    CACHE_DIR, DEBUG, DEFAULT_TIMEOUT,
-    execute_demo, detect_platform,
+    CACHE_DIR,
+    DEBUG,
+    DEFAULT_TIMEOUT,
+    detect_platform,
+    execute_demo,
 )
 from showet.integrations import (
-    PouetClient, SceneOrgClient, ModArchiveAPI,
-)
-from showet.utils import (
-    ArchiveHandler, StreamManager, AsyncDownloader, DemoCache,
+    ModArchiveAPI,
+    PouetClient,
+    SceneOrgClient,
 )
 from showet.platforms import load_all_platforms as create_platform_runners
+from showet.utils import (
+    ArchiveHandler,
+    AsyncDownloader,
+    DemoCache,
+    StreamManager,
+)
 
 # Forward legacy module functions
 build_arg_parser = _legacy.build_arg_parser

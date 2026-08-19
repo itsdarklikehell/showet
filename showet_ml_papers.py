@@ -8,13 +8,13 @@ summaries, and integrates with Showet for demo-tech crossover research.
 from __future__ import annotations
 
 import json
+import re
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
+
 import feedparser
-import re
 
 
 @dataclass
@@ -25,7 +25,7 @@ class MLPaper:
     summary: str
     published: str
     arxiv_id: str
-    github_repo: Optional[str] = None
+    github_repo: str | None = None
     categories: list[str] = None
     score: float = 0.0
 
@@ -97,7 +97,7 @@ class MLPaperTracker:
 
         return papers
 
-    def _extract_github(self, text: str) -> Optional[str]:
+    def _extract_github(self, text: str) -> str | None:
         """Extract GitHub repo URL from text."""
         patterns = [
             r"github\.com/([a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+)",

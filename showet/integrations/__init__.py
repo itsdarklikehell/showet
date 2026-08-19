@@ -1,8 +1,8 @@
 """Integration modules for Showet."""
 
+from showet.integrations.modarchive import ModArchiveAPI
 from showet.integrations.pouet import PouetClient
 from showet.integrations.scene_org import SceneOrgClient
-from showet.integrations.modarchive import ModArchiveAPI
 
 __all__ = [
     "PouetClient",
