@@ -468,6 +468,51 @@ When shuffling:
 | Phase 4 | ✅ Complete | Future-Proofing (AI, Hardware Encoders, LAN Sync) |
 | Phase 5 | ✅ Complete | Experiential Polish (Sound Themes, Timeline, Party Mode) |
 
+## 📺 CRT ReShade Presets (WebGL)
+
+`showet_crt_reshade.js` ports real ReShade CRT shaders into the existing
+`window.ShowetCRT` engine used by the shader playground. It does **not** modify
+`showet-shader-editor.js` or replace the built-in shader — it augments the live
+`ShowetCRT` instance at runtime with a swappable preset registry.
+
+Each preset is a GLSL ES 1.0 / WebGL1 fragment shader (ReShade-macro-free)
+mapped to the four slider uniforms the editor already drives:
+
+| Uniform | Effect |
+| --- | --- |
+| `curvature` | Barrel / pincushion screen distortion |
+| `scanlineIntensity` | Scanline darkening |
+| `phosphorBloom` | Phosphor glow / bloom |
+| `chromaticAberration` | R/G/B channel split |
+
+### Referenced ReShade shaders (`reshade-shaders/Shaders/`)
+- `crt-royale.fx` → **royale** (primary: geometry + beam bloom)
+- `CRTEasymode.fx` → **easymode** (scanlines + aperture-grille mask)
+- `CRTPi.fx` → **crtpi** (quadratic scanline weight, Raspberry-Pi style)
+- `CRT_Yee64.fx` → **yee64** (chunky nearest-neighbour pixel crush)
+- `TVCRTPixels.fx` → **tvpixels** (R/G/B sub-pixel triads)
+- `BasicCRT.fx` → **basiccrt** (lightweight tinted chromatic CRT)
+
+### How to select a preset
+**From code** (the four slider values are optional overrides):
+```js
+window.ShowetCRT.setPreset('royale');            // turn it on
+window.ShowetCRT.setPreset('easymode', {
+  curvature: 0.35, scanlineIntensity: 0.8,
+  phosphorBloom: 0.5, chromaticAberration: 2.0
+});
+window.ShowetCRT.listPresets();                  // → ['royale','easymode','crtpi','yee64','tvpixels','basiccrt']
+window.ShowetCRT.activePreset();                 // → 'royale'
+window.ShowetCRT.resetToLegacy();                // back to the built-in shader
+```
+**From the UI**: the script auto-injects a `<select id="showet-crt-preset-select">`
+beside `#shader-select` in `showet-showcase.html` — pick a preset (or
+"ReShade: Legacy") from the dropdown. The existing live-tuner sliders in
+`showet-shader-editor.js` keep driving whichever preset is active.
+
+> Note: `#shader-select` itself stays wired to nostalgist.js emulator shaders;
+> the ReShade presets are a separate, additive selector on `ShowetCRT`.
+
 ## 🔮 Roadmap
 
 See [ROADMAP.md](ROADMAP.md) for upcoming enhancements.
