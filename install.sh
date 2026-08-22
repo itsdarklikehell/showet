@@ -52,7 +52,7 @@ inst_deps() {
         "wine"
     )
     for dep in "${deps[@]}"; do
-        if ! dpkg -s ${dep} >/dev/null 2>&1; then
+        if ! dpkg -s "${dep}" >/dev/null 2>&1; then
             echo "Installing ${dep}"
             sudo apt install -y "${dep}"
         fi
