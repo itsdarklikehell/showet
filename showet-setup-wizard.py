@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """Showet First-Time Setup Wizard - Interactive configuration for new users."""
 
-import os
-import sys
 import shutil
 import subprocess
 from pathlib import Path

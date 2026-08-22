@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """Showet Dependency Installer - Auto-install emulators, cores, and BIOS files."""
 
-import sys
-import subprocess
 import shutil
+import subprocess
+import sys
 import urllib.request
-import json
 from pathlib import Path
 
 # Extended platform requirements for all 84 platforms

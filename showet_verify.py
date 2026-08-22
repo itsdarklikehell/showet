@@ -8,7 +8,6 @@ Runs a comprehensive check of the Showet installation including:
 - nostalgist.js integration check
 """
 
-import json
 import subprocess
 import sys
 from pathlib import Path
@@ -33,7 +32,7 @@ def check_command(cmd: str) -> tuple[bool, str]:
             path = result.stdout.decode().strip()
             return True, path
         return False, ""
-    except:
+    except Exception:
         return False, ""
 
 
@@ -86,12 +85,12 @@ def main():
     config_dir = Path("nostalgist_configs")
     configs = list(config_dir.glob("*.json"))
     configs = [c for c in configs if c.name != "manifest.json"]
-    print(f"\n🌐 nostalgist.js Configs:")
+    print("\n🌐 nostalgist.js Configs:")
     print(f"  ✅ {len(configs)} platform configs")
     
     # Check jukebox
     from showet_jukebox import LOOPED_DEMO_TYPES
-    print(f"\n🎵 Jukebox:")
+    print("\n🎵 Jukebox:")
     print(f"  ✅ Loop types: {', '.join(LOOPED_DEMO_TYPES)}")
     
     # Summary

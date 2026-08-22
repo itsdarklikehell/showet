@@ -9,7 +9,7 @@ import json
 import webbrowser
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import parse_qs, urlparse
 
 
 class ShowetWebUI(SimpleHTTPRequestHandler):

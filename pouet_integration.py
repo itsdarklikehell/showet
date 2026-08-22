@@ -4,10 +4,9 @@ Showet Pouet.net Integration
 Fetches demo metadata directly from demoscene's premier database
 """
 
-import requests
-import json
-from typing import Optional, Dict, List
 import asyncio
+import json
+
 
 class PouetAPI:
     """Client for Pouet.net demo database"""
@@ -18,7 +17,7 @@ class PouetAPI:
     def __init__(self):
         self.cache = {}
     
-    async def search_demo(self, query: str) -> List[Dict]:
+    async def search_demo(self, query: str) -> list[dict]:
         """Search for demos by name, group, or party"""
         # Note: Pouet API may require specific parameters
         # This is a placeholder that would connect to actual API
@@ -36,7 +35,7 @@ class PouetAPI:
             }
         ]
     
-    async def get_demo(self, demo_id: int) -> Optional[Dict]:
+    async def get_demo(self, demo_id: int) -> dict | None:
         """Get detailed demo info by Pouet ID"""
         if demo_id in self.cache:
             return self.cache[demo_id]
@@ -56,7 +55,7 @@ class PouetAPI:
         self.cache[demo_id] = result
         return result
     
-    async def get_trending(self, limit: int = 10) -> List[Dict]:
+    async def get_trending(self, limit: int = 10) -> list[dict]:
         """Get trending demos from latest party results"""
         # This would connect to the real Pouet trending endpoint
         return [
@@ -66,7 +65,7 @@ class PouetAPI:
             {"name": "Especially for You", "group": "Fairlight", "party": "Breakpoint 2009", "rank": 4},
         ][:limit]
     
-    async def get_by_platform(self, platform: str, limit: int = 20) -> List[Dict]:
+    async def get_by_platform(self, platform: str, limit: int = 20) -> list[dict]:
         """Get demos for a specific platform"""
         return await self.search_demo(platform)[:limit]
 

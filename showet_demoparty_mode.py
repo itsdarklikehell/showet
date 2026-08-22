@@ -11,12 +11,9 @@ import argparse
 import json
 import logging
 import subprocess
-import sys
 import urllib.request
 from pathlib import Path
-from typing import Optional
 
-from showet_config import DEFAULT_TIMEOUT, CACHE_DIR
 from scene_org_integration import SceneOrgClient
 from showet_jukebox import generate_cross_source_playlist
 
@@ -49,7 +46,7 @@ COMPO_CATEGORIES = [
 ]
 
 
-def search_party_demos(party_name: str, year: Optional[str] = None) -> list[dict]:
+def search_party_demos(party_name: str, year: str | None = None) -> list[dict]:
     """Search for demos from a specific demoparty.
     
     Args:
@@ -89,7 +86,7 @@ def search_party_demos(party_name: str, year: Optional[str] = None) -> list[dict
     return demos
 
 
-def search_pouet_party(party_name: str, year: Optional[str] = None) -> list[dict]:
+def search_pouet_party(party_name: str, year: str | None = None) -> list[dict]:
     """Search Pouet.net for party productions.
     
     Args:
@@ -127,8 +124,8 @@ def search_pouet_party(party_name: str, year: Optional[str] = None) -> list[dict
 
 def demoparty_watch(
     party_name: str,
-    year: Optional[str] = None,
-    category: Optional[str] = None,
+    year: str | None = None,
+    category: str | None = None,
     sequential: bool = True,
     loop_repeat: bool = False,
 ) -> int:

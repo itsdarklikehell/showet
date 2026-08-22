@@ -4,14 +4,10 @@ Showet AI Demo Curator - Enhanced with Deep Metadata & Scene.org Integration
 Intelligent demo recommendation engine using content analysis and user preferences
 """
 
-import json
-import random
-from pathlib import Path
-from typing import List, Dict, Optional
+import os
 from dataclasses import dataclass
 from enum import Enum
-import subprocess
-import os
+
 
 class DemoEra(Enum):
     CLASSIC_8BIT = "8bit_classic"      # C64, Apple II, Atari 800
@@ -30,7 +26,7 @@ class DemoVector:
     complexity: int  # 1-10 scale
     color_depth: int  # bits
     resolution: tuple  # (width, height)
-    features: List[str]  # ["scanlines", "vectors", "3d", "chaos"]
+    features: list[str]  # ["scanlines", "vectors", "3d", "chaos"]
 
 class AIDemoCurator:
     """AI-powered demo recommendation engine with scene.org integration"""
@@ -40,9 +36,8 @@ class AIDemoCurator:
         self.demo_catalog = self._load_demo_catalog()
         self.demo_dir = demo_dir
     
-    def _load_demo_catalog(self) -> List[DemoVector]:
+    def _load_demo_catalog(self) -> list[DemoVector]:
         """Load demo catalog with technical vectors"""
-        catalog_path = Path(__file__).parent / "demo_database.py"
         return [
             DemoVector(
                 platform="commodore_64",
@@ -64,7 +59,7 @@ class AIDemoCurator:
             ),
         ]
     
-    def enhanced_discover(self, query: str = "") -> List[Dict]:
+    def enhanced_discover(self, query: str = "") -> list[dict]:
         """Discover demos using scene.org integration for real results"""
         results = []
         
@@ -97,7 +92,7 @@ class AIDemoCurator:
             
         return results
     
-    def extract_metadata(self, demo_path: str) -> Dict:
+    def extract_metadata(self, demo_path: str) -> dict:
         """Extract deep metadata from demo file for AI analysis"""
         metadata = {
             "path": demo_path,
@@ -121,7 +116,7 @@ class AIDemoCurator:
                 
         return metadata
     
-    def predict_demo_rating(self, demo_name: str, metadata: Dict = None) -> float:
+    def predict_demo_rating(self, demo_name: str, metadata: dict = None) -> float:
         """Predict demo rating based on name patterns and features"""
         # Simple heuristic scoring
         score = 0.5
@@ -147,7 +142,7 @@ class AIDemoCurator:
         
         return min(score, 1.0)
     
-    def analyze_preferences(self, user_id: str, watched_demos: List[str]) -> Dict:
+    def analyze_preferences(self, user_id: str, watched_demos: list[str]) -> dict:
         """Analyze user watching history to build preference profile"""
         features_used = {}
         
@@ -173,7 +168,7 @@ class AIDemoCurator:
         
         return self.preferences.get(user_id, {})
     
-    def recommend(self, user_id: Optional[str] = None, count: int = 10) -> List[str]:
+    def recommend(self, user_id: str | None = None, count: int = 10) -> list[str]:
         """Generate personalized demo recommendations"""
         recommendations = []
         
@@ -196,7 +191,7 @@ class AIDemoCurator:
         
         return list(set(recommendations))[:count]
     
-    def _calculate_match_score(self, demo: DemoVector, prefs: Dict) -> float:
+    def _calculate_match_score(self, demo: DemoVector, prefs: dict) -> float:
         """Calculate recommendation match score"""
         score = 0.5
         
@@ -209,12 +204,12 @@ class AIDemoCurator:
         
         return min(score, 1.0)
     
-    def _find_demo(self, demo_id: str) -> Optional[DemoVector]:
+    def _find_demo(self, demo_id: str) -> DemoVector | None:
         """Find demo by ID in catalog"""
         # Placeholder for real lookup
         return self.demo_catalog[0] if demo_id else None
     
-    def discover_hidden_gems(self, era: Optional[str] = None, limit: int = 5) -> List[Dict]:
+    def discover_hidden_gems(self, era: str | None = None, limit: int = 5) -> list[dict]:
         """Find lesser-known demos matching specified era"""
         hidden_gems = [
             {
@@ -279,7 +274,6 @@ if __name__ == "__main__":
 
 def main():
     """Entry point for console_scripts."""
-    import sys
     import argparse
     parser = argparse.ArgumentParser(description="Showet AI Demo Curator")
     parser.add_argument("--hidden-gems", "-g", help="Find hidden gems for era")

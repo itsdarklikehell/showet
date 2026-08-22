@@ -6,7 +6,7 @@ RTMP/RTSP streaming to Twitch, YouTube, and other platforms with CRT overlays.
 from __future__ import annotations
 
 import subprocess
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum
 
 

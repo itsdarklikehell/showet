@@ -2,10 +2,11 @@
 """Showet Universal Demo Executor - Run any demo through native/emulated execution."""
 
 import os
-import sys
 import shutil
 import subprocess
+import sys
 from pathlib import Path
+
 
 class DemoExecutor:
     """Universal executor for demoscene productions."""
@@ -154,7 +155,7 @@ class DemoExecutor:
         try:
             result = subprocess.run(['file', demo_path], capture_output=True, text=True)
             return 'DOS' in result.stdout or '16-bit' in result.stdout
-        except:
+        except Exception:
             return False
 
     def extract_archive(self, archive_path):

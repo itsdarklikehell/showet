@@ -11,9 +11,6 @@ Provides:
 from __future__ import annotations
 
 import json
-from pathlib import Path
-from typing import Optional, Dict, Any
-from datetime import datetime
 
 # Chat overlay templates
 OVERLAY_TEMPLATES = {

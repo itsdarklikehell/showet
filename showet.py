@@ -16,12 +16,15 @@ from __future__ import annotations
 
 import argparse
 import logging
-import sys
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable, List
 
-from showet_config import CACHE_DIR, DEBUG
-from showet_downloader import download_production_json, download_production_file, get_random_production_id
+from showet_config import DEBUG
+from showet_downloader import (
+    download_production_file,
+    download_production_json,
+    get_random_production_id,
+)
 
 # Configure logging
 logging.basicConfig(
@@ -31,7 +34,7 @@ logging.basicConfig(
 logger = logging.getLogger("showet")
 
 # Cache for platform runners to avoid repeated imports
-_runner_cache: List[object] | None = None
+_runner_cache: list[object] | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -95,7 +98,7 @@ Examples:
     return parser
 
 
-def create_platform_runners() -> List[object]:
+def create_platform_runners() -> list[object]:
     """Instantiate runner objects for every known platform.
 
     Uses caching to avoid repeated module imports on subsequent calls.
@@ -200,7 +203,7 @@ def create_platform_runners() -> List[object]:
         "Platform_Raspberry_Pi",
     ]
 
-    runners: List[object] = []
+    runners: list[object] = []
     for mod_name in module_names:
         mod = _load_platform_module(mod_name)
         cls = getattr(mod, mod_name)
@@ -219,7 +222,7 @@ def list_supported_platforms(platform_runners: Iterable[object]) -> None:
                 seen.add(platform)
 
 
-def run_production(args: argparse.Namespace, platform_runners: List[object]) -> int:
+def run_production(args: argparse.Namespace, platform_runners: list[object]) -> int:
     """Execute a production based on the supplied CLI arguments.
 
     Returns 0 on success, -1 on error.
@@ -268,7 +271,7 @@ def run_production(args: argparse.Namespace, platform_runners: List[object]) -> 
     return 0
 
 
-def _select_runner(runners: List[object], potential_platforms: List[str]) -> tuple[object | None, str | None]:
+def _select_runner(runners: list[object], potential_platforms: list[str]) -> tuple[object | None, str | None]:
     """Return the first runner that supports any of the supplied platforms.
 
     The function returns a tuple ``(runner, matched_slug)`` – ``matched_slug`` is
@@ -283,7 +286,7 @@ def _select_runner(runners: List[object], potential_platforms: List[str]) -> tup
     return None, None
 
 
-def main(argv: List[str] | None = None) -> int:
+def main(argv: list[str] | None = None) -> int:
     """Entry point for ``python -m showet``."""
     parser = build_arg_parser()
     args = parser.parse_args(argv)

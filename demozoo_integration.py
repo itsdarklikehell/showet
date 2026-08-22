@@ -8,7 +8,7 @@ This module enriches Showet with group info, member credits, and release dates.
 import json
 import urllib.request
 from pathlib import Path
-from typing import Optional
+
 
 class DemozooAPI:
     """Client for Demozoo.org demoscene database."""
@@ -38,7 +38,7 @@ class DemozooAPI:
             print(f"Demozoo search failed: {e}")
             return []
 
-    def get_production(self, prod_id: int) -> Optional[dict]:
+    def get_production(self, prod_id: int) -> dict | None:
         """Get extended production info by Demozoo ID."""
         cache_file = self.cache_dir / f"prod_{prod_id}.json"
         if cache_file.exists():
@@ -70,7 +70,7 @@ class DemozooAPI:
             print(f"Demozoo groups search failed: {e}")
             return []
 
-    def get_parties(self, year: Optional[int] = None) -> list[dict]:
+    def get_parties(self, year: int | None = None) -> list[dict]:
         """Get demoparty information."""
         url = f"{self.BASE_URL}/parties/"
         if year:

@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Optional
 
 
 class SteamDeckController:
@@ -53,21 +52,21 @@ class SteamDeckController:
         "fullscreen_default": True,
     }
 
-    def __init__(self, config_path: Optional[Path] = None):
+    def __init__(self, config_path: Path | None = None):
         self.config = self._load_config(config_path)
 
-    def _load_config(self, config_path: Optional[Path]) -> dict:
+    def _load_config(self, config_path: Path | None) -> dict:
         """Load controller configuration."""
         if config_path and config_path.exists():
             with open(config_path) as f:
                 return json.load(f)
         return self.DEFAULT_CONFIG
 
-    def get_action(self, button_code: int) -> Optional[str]:
+    def get_action(self, button_code: int) -> str | None:
         """Get action for button press."""
         return self.config.get("button_mappings", {}).get(str(button_code))
 
-    def get_axis_action(self, axis: str) -> Optional[str]:
+    def get_axis_action(self, axis: str) -> str | None:
         """Get action for axis movement."""
         return self.config.get("axis_mappings", {}).get(axis)
 

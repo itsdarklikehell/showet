@@ -9,13 +9,12 @@ from __future__ import annotations
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
 
 
 class FavoritesManager:
     """Manages favorite demos."""
 
-    def __init__(self, favorites_file: Optional[Path] = None):
+    def __init__(self, favorites_file: Path | None = None):
         """Initialize favorites manager.
 
         Args:
@@ -32,9 +31,9 @@ class FavoritesManager:
         """Load favorites from disk."""
         if self.favorites_file.exists():
             try:
-                with open(self.favorites_file, "r") as f:
+                with open(self.favorites_file) as f:
                     self._favorites = json.load(f)
-            except (json.JSONDecodeError, IOError):
+            except (OSError, json.JSONDecodeError):
                 self._favorites = {}
         else:
             self._favorites = {}
@@ -81,7 +80,7 @@ class FavoritesManager:
         self._load_favorites()
         return prod_id in self._favorites
 
-    def get_favorite(self, prod_id: int) -> Optional[dict]:
+    def get_favorite(self, prod_id: int) -> dict | None:
         """Get favorite metadata."""
         self._load_favorites()
         return self._favorites.get(prod_id)

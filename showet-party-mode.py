@@ -4,16 +4,13 @@ Showet Party Mode Server
 WebSocket server for synchronized demo playback across multiple devices
 """
 
-import asyncio
-import json
-from websockets.server import serve
 from datetime import datetime
-from typing import Dict, Set
+
 
 class PartyModeServer:
     def __init__(self):
-        self.sessions: Dict[str, Dict] = {}
-        self.clients: Dict[str, Set[str]] = {}
+        self.sessions: dict[str, dict] = {}
+        self.clients: dict[str, set[str]] = {}
     
     async def register_client(self, session_id: str, client_id: str):
         if session_id not in self.clients:
@@ -62,7 +59,6 @@ class PartyModeServer:
     async def broadcast(self, session_id: str, message: dict):
         if session_id not in self.clients:
             return
-        msg_str = json.dumps(message)
         # In real implementation, send to all connected clients
         print(f"[PartyMode] Broadcasting to {session_id}: {message.get('type')}")
     

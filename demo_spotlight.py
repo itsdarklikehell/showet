@@ -9,8 +9,7 @@ from __future__ import annotations
 
 import json
 import urllib.request
-from typing import List, Dict, Any, Optional
-
+from typing import Any
 
 # Classic award-winning demos for the demoscene hall of fame
 HALL_OF_FAME = [
@@ -42,7 +41,7 @@ HALL_OF_FAME = [
 ]
 
 
-def get_trending_demos(limit: int = 20) -> List[Dict[str, Any]]:
+def get_trending_demos(limit: int = 20) -> list[dict[str, Any]]:
     """Get trending demos from Pouet.net.
     
     Args:
@@ -71,7 +70,7 @@ def get_trending_demos(limit: int = 20) -> List[Dict[str, Any]]:
         return HALL_OF_FAME[:limit]
 
 
-def get_party_releases(party_name: str, year: int = None) -> List[Dict[str, Any]]:
+def get_party_releases(party_name: str, year: int = None) -> list[dict[str, Any]]:
     """Get releases from a specific party.
     
     Args:
@@ -101,7 +100,7 @@ def get_party_releases(party_name: str, year: int = None) -> List[Dict[str, Any]
         return []
 
 
-def format_spotlight(demos: List[Dict[str, Any]], with_rank: bool = True) -> str:
+def format_spotlight(demos: list[dict[str, Any]], with_rank: bool = True) -> str:
     """Format demos for spotlight display.
     
     Args:
@@ -130,22 +129,21 @@ def format_spotlight(demos: List[Dict[str, Any]], with_rank: bool = True) -> str
     return "\n".join(lines)
 
 
-def get_64k_intros(limit: int = 10) -> List[Dict[str, Any]]:
+def get_64k_intros(limit: int = 10) -> list[dict[str, Any]]:
     """Get trending 64k intros."""
     return get_trending_demos(limit)  # Would filter by size/type
 
 
-def get_4k_intros(limit: int = 10) -> List[Dict[str, Any]]:
+def get_4k_intros(limit: int = 10) -> list[dict[str, Any]]:
     """Get trending 4k intros."""
     return get_trending_demos(limit)  # Would filter by size/type
 
 
 if __name__ == "__main__":
     print("Spotlight: trending demos and hall of fame")
-    from datetime import datetime
     for demo in HALL_OF_FAME[:3]:
         print(f"  • {demo['name']} by {demo['group']} ({demo['party']})")
-    print(f"\nUse in launcher: showet-launcher --spotlight")
+    print("\nUse in launcher: showet-launcher --spotlight")
 
 
 def main() -> None:

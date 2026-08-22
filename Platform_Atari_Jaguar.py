@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
+
 from PlatformBase import PlatformBase
+
 
 class Platform_Atari_Jaguar(PlatformBase):
     """Platform runner for Atari Jaguar demos."""
@@ -20,7 +22,7 @@ class Platform_Atari_Jaguar(PlatformBase):
         return ["atari_jaguar"]
 
     def initialize(self) -> bool:
-        print(f"[Atari Jaguar] Initializing...")
+        print("[Atari Jaguar] Initializing...")
         self._is_initialized = True
         return True
 
@@ -31,14 +33,14 @@ class Platform_Atari_Jaguar(PlatformBase):
         print(f"[Atari Jaguar] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         if controls:
-            print(f"[Atari Jaguar] Note: Control mapping pending")
+            print("[Atari Jaguar] Note: Control mapping pending")
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),
@@ -46,9 +48,9 @@ class Platform_Atari_Jaguar(PlatformBase):
         }
 
     def save_state(self) -> bytes:
-        print(f"[Atari Jaguar] State save: Delegated to RetroArch")
+        print("[Atari Jaguar] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
-        print(f"[Atari Jaguar] State load: Delegated to RetroArch")
+        print("[Atari Jaguar] State load: Delegated to RetroArch")
         return True

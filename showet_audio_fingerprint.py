@@ -9,7 +9,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-
 # Module format magic bytes
 MODULE_SIGNATURES = {
     b"M.K.": "protracker",      # ProTracker MOD

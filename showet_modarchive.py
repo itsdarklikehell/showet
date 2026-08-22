@@ -2,8 +2,8 @@
 """Showet ModArchive CLI wrapper - Enhanced music module integration."""
 
 import sys
-import json
 from pathlib import Path
+
 from modarchive_integration import ModArchiveAPI
 
 

@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
+
 from PlatformBase import PlatformBase
+
 
 class Platform_Sega_Saturn(PlatformBase):
     """Platform runner for Sega Saturn demos."""
@@ -20,7 +22,7 @@ class Platform_Sega_Saturn(PlatformBase):
         return ["sega_saturn"]
 
     def initialize(self) -> bool:
-        print(f"[Sega Saturn] Initializing...")
+        print("[Sega Saturn] Initializing...")
         self._is_initialized = True
         return True
 
@@ -31,14 +33,14 @@ class Platform_Sega_Saturn(PlatformBase):
         print(f"[Sega Saturn] Loaded: {rom_path}")
         return True
 
-    def run_frame(self, controls: Dict[str, Any]) -> bool:
+    def run_frame(self, controls: dict[str, Any]) -> bool:
         if not self.is_initialized() or not self._last_rom_path:
             return False
         if controls:
-            print(f"[Sega Saturn] Note: Control mapping pending")
+            print("[Sega Saturn] Note: Control mapping pending")
         return True
 
-    def get_status_report(self) -> Dict[str, Any]:
+    def get_status_report(self) -> dict[str, Any]:
         return {
             "platform": self.platform_name,
             "initialized": self.is_initialized(),
@@ -46,9 +48,9 @@ class Platform_Sega_Saturn(PlatformBase):
         }
 
     def save_state(self) -> bytes:
-        print(f"[Sega Saturn] State save: Delegated to RetroArch")
+        print("[Sega Saturn] State save: Delegated to RetroArch")
         return b""
 
     def load_state(self, state_data: bytes) -> bool:
-        print(f"[Sega Saturn] State load: Delegated to RetroArch")
+        print("[Sega Saturn] State load: Delegated to RetroArch")
         return True

@@ -8,8 +8,8 @@ Enhanced version that extracts full extension info from platform modules.
 
 import json
 import re
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 
 def get_platform_extensions(slug: str) -> list[str]:

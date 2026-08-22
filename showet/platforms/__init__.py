@@ -7,7 +7,6 @@ from typing import Any
 
 def load_all_platforms() -> list[Any]:
     """Load all Platform_*.py modules from the project root."""
-    project_root = Path(__file__).parent.parent
     runners = []
     
     module_names = [

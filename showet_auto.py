@@ -12,8 +12,6 @@ import argparse
 import json
 import random
 import subprocess
-import sys
-import time
 import urllib.request
 from pathlib import Path
 
@@ -112,7 +110,7 @@ def auto_play(
 
         # Run the demo
         try:
-            result = subprocess.run(
+            subprocess.run(
                 ["python3", "-m", "showet", str(demo_id)],
                 timeout=timeout,
                 cwd=Path(__file__).parent,

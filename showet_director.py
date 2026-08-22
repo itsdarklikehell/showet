@@ -15,25 +15,21 @@ Manages:
 
 from __future__ import annotations
 
-import json
 import time
-from pathlib import Path
-from typing import Optional, List, Dict, Any
+
+from intelligence_curator import DemosceneCurator
 
 # Import core components
 from demo_database import get_db
-from demo_scheduler import DemoScheduler, PartyCountdown
-from intelligence_curator import DemosceneCurator
-from streaming import StreamManager, StreamConfig, StreamPlatform, QUALITY_PRESETS
-from retro_effects import get_preset, CRT_PRESETS
-from obs_integration import OBSController, SCENES
-from chat_overlay import generate_chat_overlay_html
 from demo_recorder import DemoRecorder
+from obs_integration import SCENES, OBSController
+from streaming import StreamConfig, StreamManager, StreamPlatform
+
 
 class ShowDirector:
     """Manages the state and flow of a complete show."""
     
-    def __init__(self, initial_context: str, desired_platform: str = "commodore_64", initial_demo_id: Optional[int] = None):
+    def __init__(self, initial_context: str, desired_platform: str = "commodore_64", initial_demo_id: int | None = None):
         self.db = get_db()
         self.curator = DemosceneCurator(context=initial_context)
         self.obs = OBSController()
@@ -103,8 +99,6 @@ class ShowDirector:
         print("Demo finished. Displaying intermission screen and running chat overlay.")
         
         # Simulate chat/curator running
-        from chat_overlay import generate_chat_overlay_html
-        chat_html = generate_chat_overlay_html("twitch", spectator_mode=True)
         print("🌐 Chat overlay displayed. Awaiting viewer comments...")
         
         # Curate the next suggestion
@@ -121,4 +115,3 @@ if __name__ == "__main__":
     print("✨ Show Flow Director Ready!")
     print("Usage: python3 showet_director.py --demo 12345 --platform commodore_64 --context \"The user loves Amiga sci-fi.\"")
     print("\nNOTE: This script requires all other showet modules to be present and functional.")
-EOF

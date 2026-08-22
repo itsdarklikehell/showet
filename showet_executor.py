@@ -11,14 +11,10 @@ This module provides the showet-executor CLI that:
 from __future__ import annotations
 
 import argparse
-import json
 import logging
-import shutil
 import subprocess
-import sys
 import tempfile
 from pathlib import Path
-from typing import Optional
 
 # Configure logging
 logging.basicConfig(
@@ -118,7 +114,7 @@ def detect_platform(file_path: Path) -> str:
     return "unknown"
 
 
-def find_core_path(core_name: str) -> Optional[Path]:
+def find_core_path(core_name: str) -> Path | None:
     """Find RetroArch core path.
     
     Args:
@@ -159,7 +155,7 @@ def check_emulator_available(emulator: str) -> bool:
         return False
 
 
-def extract_archive(archive_path: Path, dest_dir: Path, password: Optional[str] = None) -> bool:
+def extract_archive(archive_path: Path, dest_dir: Path, password: str | None = None) -> bool:
     """Extract archive to destination directory.
     
     Args:
@@ -202,7 +198,7 @@ def extract_archive(archive_path: Path, dest_dir: Path, password: Optional[str] 
     return False
 
 
-def find_executable(directory: Path, extensions: list[str]) -> Optional[Path]:
+def find_executable(directory: Path, extensions: list[str]) -> Path | None:
     """Find an executable file in a directory.
     
     Args:
@@ -306,8 +302,8 @@ def run_with_dosbox(rom_path: Path, fullscreen: bool = False) -> int:
     # For executables, mount the directory and run
     if rom_path.suffix.lower() == ".exe":
         cmd.extend(["-c", f"mount c {rom_path.parent} --readonly"])
-        cmd.extend(["-c", f"c:"])
-        cmd.extend(["-c", f"dosbox-x"])
+        cmd.extend(["-c", "c:"])
+        cmd.extend(["-c", "dosbox-x"])
         cmd.extend(["-c", f"{rom_path.name}"])
     else:
         # For disk images, just pass the file
@@ -327,7 +323,7 @@ def run_with_dosbox(rom_path: Path, fullscreen: bool = False) -> int:
 
 def execute_demo(
     file_path: str,
-    platform: Optional[str] = None,
+    platform: str | None = None,
     fullscreen: bool = False,
     retroarch_only: bool = False,
     wine_only: bool = False,
@@ -357,7 +353,6 @@ def execute_demo(
         with tempfile.TemporaryDirectory() as tmpdir:
             if extract_archive(path, Path(tmpdir)):
                 # Find executable in extracted contents
-                all_platforms = list(PLATFORM_EXTENSIONS.keys())
                 for plat_exts in [".exe", ".com", ".d64", ".adf", ".nes", ".smc", ".sfc"]:
                     executable = find_executable(Path(tmpdir), [plat_exts])
                     if executable:

@@ -5,10 +5,10 @@ Fetch demos directly from the scene.org file archives
 The definitive demoscene archive since 1997
 """
 
-import requests
-from typing import Optional, Dict, List
-from urllib.parse import quote
 import os
+from urllib.parse import quote
+
+import requests
 
 SCENE_ORG_BASE = "https://files.scene.org"
 SCENE_SEARCH_ENDPOINT = "https://web.archive.org/cdx/search/cdx"
@@ -21,7 +21,7 @@ class SceneOrgClient:
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": "Showet Demo Runner/2.1 (+https://github.com/itsdarklikehell/showet)"})
         
-    def search_demos(self, query: str, limit: int = 50) -> List[Dict]:
+    def search_demos(self, query: str, limit: int = 50) -> list[dict]:
         """Search scene.org for demo files
         
         Args:
@@ -63,12 +63,12 @@ class SceneOrgClient:
                     })
                     if len(results) >= limit:
                         break
-            except:
+            except Exception:
                 continue
                 
         return results
     
-    def get_party_demos(self, party: str, year: Optional[int] = None) -> List[Dict]:
+    def get_party_demos(self, party: str, year: int | None = None) -> list[dict]:
         """Get demos from a specific demoparty
         
         Args:
@@ -119,7 +119,7 @@ class SceneOrgClient:
             
         return results
     
-    def download_demo(self, url: str, filename: Optional[str] = None) -> str:
+    def download_demo(self, url: str, filename: str | None = None) -> str:
         """Download a demo file from scene.org
         
         Args:

@@ -9,11 +9,10 @@ from __future__ import annotations
 import argparse
 import json
 import urllib.request
-from pathlib import Path
-from typing import Optional, Dict, Any
+from typing import Any
 
 
-def fetch_demo_metadata(pouet_id: int) -> Optional[Dict[str, Any]]:
+def fetch_demo_metadata(pouet_id: int) -> dict[str, Any] | None:
     """Fetch complete demo metadata from Pouet.net.
     
     Args:
@@ -32,7 +31,7 @@ def fetch_demo_metadata(pouet_id: int) -> Optional[Dict[str, Any]]:
         return None
 
 
-def format_demo_info(demo: Dict[str, Any]) -> str:
+def format_demo_info(demo: dict[str, Any]) -> str:
     """Format demo information for display.
     
     Args:
@@ -145,7 +144,6 @@ def generate_stream_overlay(demo_id: int) -> str:
 
 if __name__ == "__main__":
     def main():
-        import sys
         parser = argparse.ArgumentParser(description="Showet demo metadata viewer")
         parser.add_argument("--overlay", action="store_true", help="Output streaming overlay text only")
         parser.add_argument("--demo-id", type=int, required=True, help="Pouet.net demo ID")

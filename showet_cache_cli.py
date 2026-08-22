@@ -9,9 +9,9 @@ Commands:
   showet-cache sync import <file>         Import cache manifest
 """
 
-import json
 import sys
 from pathlib import Path
+
 from showet.utils.async_io import DemoCache
 
 

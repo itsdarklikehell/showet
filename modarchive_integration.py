@@ -6,10 +6,9 @@ This module integrates with Showet to fetch and play music modules.
 """
 
 import json
-import urllib.request
 import urllib.parse
+import urllib.request
 from pathlib import Path
-from typing import Optional
 
 
 class ModArchiveAPI:
@@ -23,7 +22,7 @@ class ModArchiveAPI:
         self.cache_dir.mkdir(parents=True, exist_ok=True)
 
     def search_modules(
-        self, query: str, format: Optional[str] = None, artist: Optional[str] = None
+        self, query: str, format: str | None = None, artist: str | None = None
     ) -> list[dict]:
         """Search for music modules.
 
@@ -68,7 +67,7 @@ class ModArchiveAPI:
             print(f"ModArchive search failed: {e}")
             return []
 
-    def get_module(self, module_id: int) -> Optional[dict]:
+    def get_module(self, module_id: int) -> dict | None:
         """Get detailed info for a specific module.
 
         Args:
@@ -112,8 +111,8 @@ class ModArchiveAPI:
         }
 
     def download_module(
-        self, module_id: int, dest_dir: Optional[Path] = None
-    ) -> Optional[Path]:
+        self, module_id: int, dest_dir: Path | None = None
+    ) -> Path | None:
         """Download a music module to local storage.
 
         Args:

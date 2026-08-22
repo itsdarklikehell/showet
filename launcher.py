@@ -14,13 +14,10 @@ from __future__ import annotations
 import argparse
 import json
 import urllib.request
-from pathlib import Path
-from typing import Optional
 
-from demo_database import DemoDatabase, get_db
+from demo_database import get_db
+from retro_effects import CRT_PRESETS, get_preset
 from streaming import StreamConfig, StreamManager, StreamPlatform, setup_stream_key
-from nostalgist_bridge import generate_nostalgist_config
-from retro_effects import get_preset, CRT_PRESETS
 
 
 class DemoLauncher:
@@ -29,7 +26,7 @@ class DemoLauncher:
     def __init__(self):
         self.db = get_db()
         self.stream_manager = StreamManager()
-        self.current_demo: Optional[dict] = None
+        self.current_demo: dict | None = None
 
     def search(self, query: str) -> list[dict]:
         """Search for demos."""
@@ -112,7 +109,7 @@ class DemoLauncher:
         quality: str = "720p",
     ) -> None:
         """Launch demo stream to multiple platforms."""
-        from rtmp_relay import RTMPRelay, MultiStreamConfig
+        from rtmp_relay import MultiStreamConfig, RTMPRelay
 
         demo = self.get_demo_info(pouet_id)
         if "error" in demo:

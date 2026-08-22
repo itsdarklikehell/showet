@@ -5,17 +5,10 @@ Intelligent demo playback with loop/shuffle/repeat functionality.
 
 from __future__ import annotations
 
-import argparse
 import logging
-import subprocess
 import urllib.request
-from pathlib import Path
-from typing import Any, Optional
 
-from showet.core.config import (
-    DEBUG, DEFAULT_TIMEOUT, DEFAULT_LOOP_LIMIT, LOOPED_KEYWORDS,
-    LOOP_PATTERNS, PLATFORM_LOOP_TENDENCY, PARTY_LOOP_INCENTIVE
-)
+from showet.core.config import LOOP_PATTERNS, LOOPED_KEYWORDS, PLATFORM_LOOP_TENDENCY
 
 logger = logging.getLogger("showet.jukebox")
 
@@ -32,7 +25,7 @@ DEMO_DURATION_ESTIMATES = {
 }
 
 
-def get_demo_info(pouet_id: int) -> Optional[dict]:
+def get_demo_info(pouet_id: int) -> dict | None:
     """Fetch demo metadata from Pouet.net."""
     try:
         url = f"http://api.pouet.net/v1/prod/?id={pouet_id}"
@@ -45,7 +38,7 @@ def get_demo_info(pouet_id: int) -> Optional[dict]:
         return None
 
 
-def is_looped_demo(demo_info: Optional[dict], source: str = "pouet") -> bool:
+def is_looped_demo(demo_info: dict | None, source: str = "pouet") -> bool:
     """Detect if a demo loops based on metadata and type.
     
     Uses multiple heuristics:
@@ -112,7 +105,7 @@ def is_looped_demo(demo_info: Optional[dict], source: str = "pouet") -> bool:
     return False
 
 
-def estimate_demo_duration(demo_info: Optional[dict], source: str = "pouet") -> int:
+def estimate_demo_duration(demo_info: dict | None, source: str = "pouet") -> int:
     """Estimate demo duration based on type and metadata.
     
     Uses multiple heuristics:

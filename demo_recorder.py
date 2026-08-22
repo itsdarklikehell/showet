@@ -13,7 +13,6 @@ from __future__ import annotations
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, List
 
 from retro_effects import CRT_PRESETS
 
@@ -26,16 +25,16 @@ class DemoRecording:
     platform: str
     duration: float
     format: str  # mp4, webm, mkv
-    crt_preset: Optional[str] = None
+    crt_preset: str | None = None
 
 
 class DemoRecorder:
     """Record demos with authentic retro encoding."""
 
-    def __init__(self, output_dir: Optional[Path] = None):
+    def __init__(self, output_dir: Path | None = None):
         self.output_dir = output_dir or Path.home() / ".showet" / "recordings"
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        self._process: Optional[subprocess.Popen] = None
+        self._process: subprocess.Popen | None = None
         self.is_recording: bool = False
 
     def record_demo(
@@ -44,7 +43,7 @@ class DemoRecorder:
         platform: str = "unknown",
         quality: str = "720p",
         output_format: str = "mp4",
-        crt_preset: Optional[str] = None,
+        crt_preset: str | None = None,
         duration: int = None,
     ) -> DemoRecording:
         """Record a demo with optional CRT shader baked in.
@@ -85,8 +84,8 @@ class DemoRecorder:
         output_path: str,
         quality: str,
         output_format: str,
-        crt_preset: Optional[str] = None,
-    ) -> List[str]:
+        crt_preset: str | None = None,
+    ) -> list[str]:
         """Build FFmpeg recording command."""
         resolution_map = {
             "480p": "854x480",
@@ -176,7 +175,7 @@ def encode_for_archive(input_path: str, platform: str = "unknown") -> str:
 
 if __name__ == "__main__":
     print("📼 Demo Recorder ready!")
-    print(f"Output: ~/.showet/recordings/")
+    print("Output: ~/.showet/recordings/")
     print("\nUsage in launcher:")
     print("  showet-launcher --demo 12345 --record --crt-preset c64_monitor")
 

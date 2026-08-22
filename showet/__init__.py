@@ -11,23 +11,39 @@ import importlib.util
 import sys
 from pathlib import Path
 
-_legacy_showet_path = Path(__file__).parent.parent / "showet.py"
-_spec = importlib.util.spec_from_file_location("showet_legacy", _legacy_showet_path)
-_legacy = importlib.util.module_from_spec(_spec)
-sys.modules["showet_legacy"] = _legacy
-_spec.loader.exec_module(_legacy)
+def _load_legacy_showet():
+    """Load the vendored legacy showet module (showet/_legacy_showet.py)."""
+    spec = importlib.util.spec_from_file_location(
+        "showet_legacy",
+        Path(__file__).parent / "_legacy_showet.py",
+    )
+    module = importlib.util.module_from_spec(spec)
+    sys.modules["showet_legacy"] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+_legacy = _load_legacy_showet()
 
 from showet.core import (
-    CACHE_DIR, DEBUG, DEFAULT_TIMEOUT,
-    execute_demo, detect_platform,
+    CACHE_DIR,
+    DEBUG,
+    DEFAULT_TIMEOUT,
+    detect_platform,
+    execute_demo,
 )
 from showet.integrations import (
-    PouetClient, SceneOrgClient, ModArchiveAPI,
-)
-from showet.utils import (
-    ArchiveHandler, StreamManager, AsyncDownloader, DemoCache,
+    ModArchiveAPI,
+    PouetClient,
+    SceneOrgClient,
 )
 from showet.platforms import load_all_platforms as create_platform_runners
+from showet.utils import (
+    ArchiveHandler,
+    AsyncDownloader,
+    DemoCache,
+    StreamManager,
+)
 
 # Forward legacy module functions
 build_arg_parser = _legacy.build_arg_parser

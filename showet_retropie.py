@@ -8,10 +8,6 @@ and Pi-specific optimizations (OpenMAX, GPU detection).
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
-import subprocess
-import platform
-
 
 RETROPIE_CONFIG = {
     "emulators": {
@@ -39,7 +35,7 @@ def detect_retropie() -> bool:
     return any(Path(p).exists() for p in paths)
 
 
-def get_pi_model() -> Optional[str]:
+def get_pi_model() -> str | None:
     """Get Raspberry Pi model."""
     try:
         with open("/proc/cpuinfo") as f:

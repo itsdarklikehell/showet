@@ -5,10 +5,9 @@ Showet Platform Runner - Enhanced demo execution with autostart support.
 This module provides the complete execution pipeline for all supported platforms.
 """
 
-import subprocess
 import shutil
+import subprocess
 from pathlib import Path
-from typing import Optional
 
 # Platform execution profiles with autostart configurations
 PLATFORM_PROFILES = {
@@ -98,7 +97,7 @@ PLATFORM_PROFILES = {
 }
 
 
-def check_emulator(platform: str) -> Optional[str]:
+def check_emulator(platform: str) -> str | None:
     """Check for available emulator for platform."""
     if platform not in PLATFORM_PROFILES:
         return None
@@ -120,7 +119,7 @@ def check_emulator(platform: str) -> Optional[str]:
     return None
 
 
-def get_retroarch_core_path(core: str) -> Optional[Path]:
+def get_retroarch_core_path(core: str) -> Path | None:
     """Get RetroArch core path."""
     paths = [
         Path.home() / ".config/retroarch/cores" / f"{core}.so",
@@ -133,7 +132,7 @@ def get_retroarch_core_path(core: str) -> Optional[Path]:
     return None
 
 
-def launch_demo(demo_path: str, platform: str = "auto") -> Optional[subprocess.Popen]:
+def launch_demo(demo_path: str, platform: str = "auto") -> subprocess.Popen | None:
     """Launch demo with appropriate emulator."""
     path = Path(demo_path)
     
@@ -183,7 +182,7 @@ def build_dosbox_cmd(demo_path: str, config: dict) -> list[str]:
     """Build DOSBox command with config."""
     import tempfile
     
-    conf = f"[autoexec]\nmount c /tmp\n"
+    conf = "[autoexec]\nmount c /tmp\n"
     if demo_path.endswith((".exe", ".com", ".bat")):
         name = Path(demo_path).stem
         conf += f"c:\\\n{name}.exe\n"

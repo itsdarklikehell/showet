@@ -9,11 +9,7 @@ Features:
 
 from __future__ import annotations
 
-import json
-import time
-from datetime import datetime
-from pathlib import Path
-from typing import Optional, List, Dict, Any
+from typing import Any
 
 # Classic demoparty release patterns
 PARTY_PATTERNS = {
@@ -23,7 +19,7 @@ PARTY_PATTERNS = {
 }
 
 
-def check_for_new_releases(party: str = None, days: int = 7) -> List[Dict[str, Any]]:
+def check_for_new_releases(party: str = None, days: int = 7) -> list[dict[str, Any]]:
     """Check Pouet for new releases.
     
     Args:

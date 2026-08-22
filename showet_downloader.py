@@ -12,7 +12,7 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-from showet_config import DEBUG, CACHE_DIR
+from showet_config import CACHE_DIR, DEBUG
 
 logger = logging.getLogger("showet.downloader")
 

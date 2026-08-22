@@ -1,8 +1,8 @@
 """Showet utilities module."""
 
 from showet.utils.archive_handler import ArchiveHandler
-from showet.utils.stream_manager import StreamManager, StreamConfig, StreamPlatform
 from showet.utils.async_io import AsyncDownloader, DemoCache
+from showet.utils.stream_manager import StreamConfig, StreamManager, StreamPlatform
 
 __all__ = [
     "ArchiveHandler",

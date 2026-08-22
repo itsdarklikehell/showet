@@ -4,8 +4,7 @@ Showet Demo Historical Significance Scoring
 Ranks demos for Museum Mode curation based on historical impact
 """
 
-from typing import Dict, List
-from datetime import datetime
+
 
 class DemoScorer:
     def __init__(self):
@@ -14,7 +13,7 @@ class DemoScorer:
         self.cultural_weight = 0.2    # Cultural impact
         self.rating_weight = 0.1      # Community ratings
     
-    def score_demo(self, demo: Dict) -> float:
+    def score_demo(self, demo: dict) -> float:
         """Calculate historical significance score (0-100)"""
         year_score = self._score_era(demo.get('year', 2000))
         innovation_score = self._score_innovations(demo.get('tags', []))
@@ -47,7 +46,7 @@ class DemoScorer:
         else:
             return 60.0   # Contemporary work
     
-    def _score_innovations(self, tags: List[str]) -> float:
+    def _score_innovations(self, tags: list[str]) -> float:
         """Score based on technical innovations"""
         innovation_keywords = {
             'raytracing': 100,
@@ -98,7 +97,7 @@ class DemoScorer:
         else:
             return 30.0
     
-    def rank_demos(self, demos: List[Dict]) -> List[Dict]:
+    def rank_demos(self, demos: list[dict]) -> list[dict]:
         """Rank demos by historical significance"""
         scored = []
         for demo in demos:
@@ -108,7 +107,7 @@ class DemoScorer:
         
         return sorted(scored, key=lambda d: d['historical_score'], reverse=True)
     
-    def get_museum_collection(self, demos: List[Dict], limit: int = 50) -> List[Dict]:
+    def get_museum_collection(self, demos: list[dict], limit: int = 50) -> list[dict]:
         """Get top demos for Museum Mode collection"""
         ranked = self.rank_demos(demos)
         return ranked[:limit]
@@ -117,7 +116,6 @@ class DemoScorer:
 # CLI interface
 if __name__ == "__main__":
     import json
-    import sys
     
     scorer = DemoScorer()
     

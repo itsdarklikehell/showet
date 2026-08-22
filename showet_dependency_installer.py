@@ -11,7 +11,6 @@ import json
 import platform
 import shutil
 import subprocess
-import sys
 from pathlib import Path
 
 # Platform requirements
@@ -137,8 +136,8 @@ def check_emulator_installed(platform: str) -> dict:
 def check_all_platforms() -> list[dict]:
     """Check all platform requirements."""
     results = []
-    for platform in PLATFORM_REQUIREMENTS:
-        results.append(check_emulator_installed(platform))
+    for plat in PLATFORM_REQUIREMENTS:
+        results.append(check_emulator_installed(plat))
     return results
 
 

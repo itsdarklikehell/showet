@@ -12,14 +12,12 @@ import argparse
 import json
 import logging
 import subprocess
-import sys
 import urllib.request
 from pathlib import Path
-from typing import Any, Optional
 
-from showet_config import DEBUG, DEFAULT_TIMEOUT, DEFAULT_LOOP_LIMIT, LOOPED_KEYWORDS, CACHE_DIR
-from scene_org_integration import SceneOrgClient
 from modarchive_integration import ModArchiveAPI
+from scene_org_integration import SceneOrgClient
+from showet_config import DEBUG, DEFAULT_LOOP_LIMIT, DEFAULT_TIMEOUT, LOOPED_KEYWORDS
 
 # Configure logging
 logging.basicConfig(
@@ -75,7 +73,7 @@ MODULE_DURATION_ESTIMATES = {
 }
 
 
-def get_demo_info(pouet_id: int) -> Optional[dict]:
+def get_demo_info(pouet_id: int) -> dict | None:
     """Fetch demo metadata from Pouet.net.
     
     Args:
@@ -94,7 +92,7 @@ def get_demo_info(pouet_id: int) -> Optional[dict]:
         return None
 
 
-def get_scene_org_demo(demo_name: str) -> Optional[dict]:
+def get_scene_org_demo(demo_name: str) -> dict | None:
     """Fetch demo metadata from scene.org.
     
     Args:
@@ -112,7 +110,7 @@ def get_scene_org_demo(demo_name: str) -> Optional[dict]:
         return None
 
 
-def is_looped_demo(demo_info: Optional[dict], source: str = "pouet") -> bool:
+def is_looped_demo(demo_info: dict | None, source: str = "pouet") -> bool:
     """Detect if a demo loops based on metadata and type.
     
     Checks multiple sources:
@@ -235,7 +233,7 @@ def _detect_modarchive_loop(demo_info: dict) -> bool:
     return False
 
 
-def estimate_demo_duration(demo_info: Optional[dict], source: str = "pouet") -> int:
+def estimate_demo_duration(demo_info: dict | None, source: str = "pouet") -> int:
     """Estimate demo duration based on type, platform, and metadata.
     
     Uses multiple heuristics:
@@ -293,10 +291,10 @@ def estimate_demo_duration(demo_info: Optional[dict], source: str = "pouet") -> 
 
 
 def generate_cross_source_playlist(
-    pouet_ids: Optional[list[int]] = None,
-    scene_org_names: Optional[list[str]] = None,
-    modarchive_ids: Optional[list[int]] = None,
-    platform: Optional[str] = None,
+    pouet_ids: list[int] | None = None,
+    scene_org_names: list[str] | None = None,
+    modarchive_ids: list[int] | None = None,
+    platform: str | None = None,
 ) -> list[dict]:
     """Generate a unified playlist from multiple sources.
     
@@ -378,7 +376,7 @@ def print_playlist_summary(playlist: list[dict]) -> None:
     total_duration = sum(d["duration"] for d in playlist)
     looped_count = sum(1 for d in playlist if d.get("loops"))
     
-    print(f"\n📋 Playlist Summary:")
+    print("\n📋 Playlist Summary:")
     print(f"  Total demos: {len(playlist)}")
     print(f"  Looped demos: {looped_count}")
     print(f"  Estimated total duration: {total_duration // 60}m {total_duration % 60}s")
