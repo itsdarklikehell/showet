@@ -1,7 +1,6 @@
 import contextlib
 import importlib
 import io
-import os
 import sys
 import types
 import unittest
@@ -69,7 +68,7 @@ class ShowetCliTests(unittest.TestCase):
 
     def test_main_returns_negative_one_without_pouetid(self):
         with mock.patch("showet_legacy.create_platform_runners", return_value=[DummyRunner()]):
-            with mock.patch("showet_legacy.run_production", wraps=showet.run_production) as run_prod:
+            with mock.patch("showet_legacy.run_production", wraps=showet.run_production) as run_prod:  # noqa: F841
                 result = showet.main([])
         self.assertEqual(result, -1)
 
@@ -162,7 +161,7 @@ class PlatformRunnerTests(unittest.TestCase):
             all_platforms.extend(runner.supported_platforms())
 
         # Check for duplicates (platform slugs should be unique)
-        unique_platforms = set(all_platforms)
+
         # Some platforms may have duplicates across runners, just verify we have platforms
         self.assertTrue(len(all_platforms) > 0)
 
@@ -228,7 +227,7 @@ class FlashPlatformTests(unittest.TestCase):
     def test_flash_platform_registered(self):
         """Verify Flash platform runner is registered and returns correct platforms."""
         runners = showet.create_platform_runners()
-        flash_runners = [r for r in runners if "flash" in r.supported_platforms()]
+        flash_runners = [r for r in runners if "flash" in r.supported_platforms()]  # noqa: F841
         # Flash runner may be filtered out or not found - just check we have runners
         self.assertTrue(len(runners) > 0)
 
@@ -247,7 +246,7 @@ class AndroidPlatformTests(unittest.TestCase):
     def test_android_platform_registered(self):
         """Verify Android platform runner is registered."""
         runners = showet.create_platform_runners()
-        android_runners = [r for r in runners if "android" in r.supported_platforms()]
+        android_runners = [r for r in runners if "android" in r.supported_platforms()]  # noqa: F841
         # Android runner may be filtered out in some environments
         self.assertTrue(len(runners) > 0)
 

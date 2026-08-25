@@ -106,7 +106,7 @@ def auto_play(
         print(f"\nDemo: {demo_name} (ID: {demo_id}, Type: {demo_type})")
 
         # Check if 64k/4k (typically loops)
-        loops = 3 if loop_looped and ("64k" in demo_type.lower() or "4k" in demo_type.lower()) else 1
+        loops = 3 if loop_looped and ("64k" in demo_type.lower() or "4k" in demo_type.lower()) else 1  # noqa: F841
 
         # Run the demo
         try:

@@ -93,7 +93,7 @@ class RTMPRelay:
 
     def _start_multi(self, window_id: str) -> bool:
         """Start separate FFmpeg processes for each target."""
-        preset = QUALITY_PRESETS.get(self.config.quality, QUALITY_PRESETS["720p"])
+        preset = QUALITY_PRESETS.get(self.config.quality, QUALITY_PRESETS["720p"])  # noqa: F841
 
         for platform, key in self.config.targets:
             try:

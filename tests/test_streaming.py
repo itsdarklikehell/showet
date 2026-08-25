@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """Tests for the streaming module."""
 
+from pathlib import Path
+
 import pytest
+
 from streaming import (
-    StreamManager,
-    StreamConfig,
-    StreamPlatform,
     QUALITY_PRESETS,
+    StreamConfig,
+    StreamManager,
+    StreamPlatform,
     get_stream_key,
     setup_stream_key,
 )
-from pathlib import Path
 
 
 class TestStreamConfig:

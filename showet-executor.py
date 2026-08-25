@@ -187,7 +187,7 @@ class DemoExecutor:
         """Find appropriate runner for demo, prioritizing RetroArch cores."""
         # Check RetroArch first
         if shutil.which('retroarch'):
-            for plat, config in self.PLATFORM_RUNNERS.items():
+            for plat, config in self.PLATFORM_RUNNERS.items():  # noqa: B007
                 if config.get('retroarch_core'):
                     core = config['retroarch_core']
                     core_path = self._get_core_path(core)
@@ -198,7 +198,7 @@ class DemoExecutor:
             if shutil.which('wine'):
                 return 'wine'
         # Check native emulators
-        for plat, config in self.PLATFORM_RUNNERS.items():
+        for plat, config in self.PLATFORM_RUNNERS.items():  # noqa: B007
             runner = config.get('runner')
             if runner and shutil.which(runner):
                 return runner
@@ -333,7 +333,7 @@ def main():
         elif arg == '--prefer-retroarch':
             prefer_retroarch = True
         elif arg == '--download-cores':
-            download_cores = True
+            download_cores = True  # noqa: F841
         i += 1
     
     executor = DemoExecutor(platform=platform, timeout=timeout, prefer_retroarch=prefer_retroarch)

@@ -91,7 +91,7 @@ class PlaylistManager:
         Yields:
             Tuples of (index, file_path) for each track
         """
-        for i, entry in enumerate(entries):
+        for i, entry in enumerate(entries):  # noqa: UP028
             yield i, entry
 
     @staticmethod

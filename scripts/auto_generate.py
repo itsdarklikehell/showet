@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ruff: noqa: F821  (template f-string below references names that are emitted text, not real symbols)
 """Automated Platform Module Generator for *showet*.
 
 Running this script will:
@@ -32,20 +33,15 @@ After the run you can ``git add`` the new files and commit.
 from __future__ import annotations
 
 import json
-import os
 import pathlib
 import sys
 import urllib.request
-from typing import Dict, List
-
-import subprocess
-
 
 POUET_API_URL = "https://api.pouet.net/v1/platforms"
 RETONARCH_CORE_URL = "https://raw.githubusercontent.com/libretro/RetroArch/master/dl-core-list.txt"
 
 
-def fetch_pouet_platforms() -> List[str]:
+def fetch_pouet_platforms() -> list[str]:
     """Return the list of slugs returned by the pouet API."""
     try:
         raw = urllib.request.urlopen(POUET_API_URL).read().decode()
@@ -56,7 +52,7 @@ def fetch_pouet_platforms() -> List[str]:
         sys.exit(1)
 
 
-def fetch_retroarch_cores() -> List[str]:
+def fetch_retroarch_cores() -> list[str]:
     """Return the list of core file names from the Retro‑Arch repo."""
     try:
         raw = urllib.request.urlopen(RETONARCH_CORE_URL).read().decode()
@@ -78,14 +74,14 @@ def module_name_from_slug(slug: str) -> str:
     return f"Platform_{title}.py"
 
 
-def guess_core_for_slug(slugs: List[str], core_list: List[str]) -> Dict[str, str]:
+def guess_core_for_slug(slugs: list[str], core_list: list[str]) -> dict[str, str]:
     """Return a mapping ``slug -> core_file`` using a simple heuristic.
 
     1. Exact match: ``slug + '_libretro.dll'``.
     2. Fallback: first core that contains ``slug`` as a substring.
     3. If still nothing, empty string.
     """
-    mapping: Dict[str, str] = {}
+    mapping: dict[str, str] = {}
     for slug in slugs:
         exp = f"{slug.lower()}_libretro.dll"
         if exp in core_list:
@@ -100,7 +96,7 @@ def guess_core_for_slug(slugs: List[str], core_list: List[str]) -> Dict[str, str
     return mapping
 
 
-def existing_modules() -> Dict[str, pathlib.Path]:
+def existing_modules() -> dict[str, pathlib.Path]:
     """Return a mapping of slug -> module path for all files that exist."""
     root = pathlib.Path(__file__).resolve().parents[2]
     modules = {}

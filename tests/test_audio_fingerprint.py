@@ -1,7 +1,7 @@
 """Tests for audio fingerprinting module."""
 
+
 import pytest
-from pathlib import Path
 
 
 class TestModuleDetection:

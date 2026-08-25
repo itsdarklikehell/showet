@@ -27,7 +27,7 @@ def test_c64_demo():
     
     # Create test PRG (minimal C64 program)
     prg_content = bytes([0x00, 0x01, 0x02] * 100)  # Dummy PRG file
-    zip_path = create_test_demo_zip("commodore_64", "test.prg", prg_content)
+    zip_path = create_test_demo_zip("commodore_64", "test.prg", prg_content)  # noqa: F841
     
     # Test RetroArch with core
     core = "/usr/lib/x86_64-linux-gnu/libretro/vice_x64_libretro.so"

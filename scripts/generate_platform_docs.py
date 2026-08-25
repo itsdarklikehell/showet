@@ -140,13 +140,13 @@ def generate_platform_docs():
         # Use known info or generate defaults
         info = PLATFORM_INFO.get(internal_slug, {})
         display_name = info.get("displayName", platform_file.stem.replace("Platform_", " ").replace("_", " "))
-        short_name = info.get("shortName", display_name.split()[0])
+
         description = info.get(
             "description",
             f"{display_name} platform for running retro demos with authentic presentation."
         )
         emulators = info.get("emulators", ["RetroArch"])
-        default_roms = info.get("default_roms", ", ".join(extensions))
+        default_roms = info.get("default_roms", ", ".join(extensions))  # noqa: F841
 
         # Generate documentation
         emulator_list = "\n".join(f"- **{e}**" for e in emulators)

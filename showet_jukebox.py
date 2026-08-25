@@ -181,7 +181,7 @@ def _detect_pouet_loop(demo_info: dict) -> bool:
             return True
     
     # Platform tendency heuristic
-    for plat_key, tendency in PLATFORM_LOOP_TENDENCY.items():
+    for plat_key, tendency in PLATFORM_LOOP_TENDENCY.items():  # noqa: B007
         if plat_key in platform:
             if any(p in name for p in ["intro", "64k", "4k", "cracktro"]):
                 return True

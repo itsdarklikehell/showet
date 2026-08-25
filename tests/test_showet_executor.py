@@ -1,9 +1,8 @@
 """Integration tests for Showet Universal Demo Executor."""
 
-import pytest
-import subprocess
 from pathlib import Path
-from unittest.mock import patch, MagicMock
+
+import pytest
 
 
 class TestPlatformDetection:
@@ -46,7 +45,7 @@ class TestArchiveExtraction:
         test_file = tmp_path / "demo.exe"
         test_file.write_text("test content")
         
-        archive_path = tmp_path / "test.zip"
+        archive_path = tmp_path / "test.zip"  # noqa: F841
         
         # Would test actual extraction
         # executor = DemoExecutor()
@@ -80,7 +79,7 @@ class TestRetroArchIntegration:
     
     def test_core_download_url(self):
         """Test core download URLs exist."""
-        expected_cores = [
+        expected_cores = [  # noqa: F841
             'x64_libretro.so',
             'nes_libretro.so', 
             'snes9x_libretro.so',

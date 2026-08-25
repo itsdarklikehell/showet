@@ -1,8 +1,8 @@
 """Tests for RetroPie integration."""
 
-import pytest
-from pathlib import Path
 from unittest.mock import patch
+
+import pytest
 
 
 class TestPiDetection:

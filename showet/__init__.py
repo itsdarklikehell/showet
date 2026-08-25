@@ -11,6 +11,7 @@ import importlib.util
 import sys
 from pathlib import Path
 
+
 def _load_legacy_showet():
     """Load the vendored legacy showet module (showet/_legacy_showet.py)."""
     spec = importlib.util.spec_from_file_location(
@@ -25,20 +26,20 @@ def _load_legacy_showet():
 
 _legacy = _load_legacy_showet()
 
-from showet.core import (
+from showet.core import (  # noqa: E402
     CACHE_DIR,
     DEBUG,
     DEFAULT_TIMEOUT,
     detect_platform,
     execute_demo,
 )
-from showet.integrations import (
+from showet.integrations import (  # noqa: E402
     ModArchiveAPI,
     PouetClient,
     SceneOrgClient,
 )
-from showet.platforms import load_all_platforms as create_platform_runners
-from showet.utils import (
+from showet.platforms import load_all_platforms as create_platform_runners  # noqa: E402
+from showet.utils import (  # noqa: E402
     ArchiveHandler,
     AsyncDownloader,
     DemoCache,

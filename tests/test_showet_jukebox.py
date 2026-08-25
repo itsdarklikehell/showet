@@ -1,11 +1,12 @@
 """Tests for Showet Jukebox with enhanced loop detection."""
 
-import pytest
-from pathlib import Path
-from unittest.mock import patch, MagicMock
-
 # Import the jukebox module
 import sys
+from pathlib import Path
+from unittest.mock import patch
+
+import pytest
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 
@@ -198,7 +199,6 @@ class TestModArchiveIntegration:
     def test_modarchive_search(self, tmp_path):
         """Test ModArchive module search."""
         from modarchive_integration import ModArchiveAPI
-        from unittest.mock import patch
         
         api = ModArchiveAPI()
         assert api.cache_dir is not None
@@ -217,7 +217,6 @@ class TestCrossSourcePlaylist:
     def test_generate_playlist_pouet(self):
         """Test playlist generation from Pouet IDs."""
         from showet_jukebox import generate_cross_source_playlist
-        from unittest.mock import patch, MagicMock
         
         with patch("showet_jukebox.get_demo_info") as mock_get:
             mock_get.return_value = {

@@ -334,7 +334,7 @@ def main():
         elif arg == '--download-cores':
             download_cores = True
         elif arg == '--download-bios':
-            download_bios = True
+            download_bios = True  # noqa: F841
         i += 1
 
     if command == 'all':

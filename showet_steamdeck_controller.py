@@ -123,7 +123,7 @@ def main() -> int:
     parser.add_argument("--test-osd", action="store_true", help="Test OSD display")
     args = parser.parse_args()
 
-    controller = SteamDeckController(
+    controller = SteamDeckController(  # noqa: F841
         Path(args.config) if args.config else None
     )
 

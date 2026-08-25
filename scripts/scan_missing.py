@@ -18,7 +18,6 @@ import json
 import pathlib
 import sys
 import urllib.request
-from collections import defaultdict
 
 
 def pull_pouet_platforms() -> list[str]:

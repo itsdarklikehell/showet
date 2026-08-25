@@ -95,7 +95,7 @@ def is_looped_demo(demo_info: dict | None, source: str = "pouet") -> bool:
         return True
     
     # Platform tendency heuristic
-    for plat_key, tendency in PLATFORM_LOOP_TENDENCY.items():
+    for plat_key, tendency in PLATFORM_LOOP_TENDENCY.items():  # noqa: B007
         if plat_key in platform:
             # Strong loop indicators from platform + name patterns
             if any(p in name for p in ["intro", "64k", "4k", "cracktro"]):

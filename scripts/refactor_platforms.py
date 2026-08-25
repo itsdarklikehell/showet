@@ -11,9 +11,8 @@ This script:
 4. Preserves all logic but enforces the OOP contract
 """
 
-import os
-import re
 import argparse
+import re
 from pathlib import Path
 
 # When run from project root: scripts/refactor_platforms.py
@@ -30,7 +29,7 @@ PLATFORM_PATTERN = re.compile(r'Platform_(.+)\.py$')
 
 def extract_class_info(filepath: Path) -> dict:
     """Extract class-level attributes and methods from a Platform file."""
-    with open(filepath, 'r') as f:
+    with open(filepath) as f:
         content = f.read()
     
     # Check if already refactored (inherits from PlatformBase, not PlatformCommon)

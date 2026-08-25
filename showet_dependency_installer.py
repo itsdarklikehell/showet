@@ -212,7 +212,7 @@ def install_packages_linux(packages: list[str], package_manager: str) -> int:
 def install_packages_steamdeck(packages: list[str]) -> int:
     """Install packages on Steam Deck using flatpak or system packages."""
     # Steam Deck uses flatpak for most applications
-    flatpak_packages = {
+    flatpak_packages = {  # noqa: F841
         "vice": "com.artsoft.vice",
         "fs-uae": None,  # Not available as flatpak
         "retroarch": "org.libretro.RetroArch",

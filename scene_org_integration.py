@@ -101,7 +101,7 @@ class SceneOrgClient:
                         
                     def handle_starttag(self, tag, attrs):
                         if tag == "a":
-                            for attr, value in attrs:
+                            for attr, value in attrs:  # noqa: B007
                                 if value and any(value.endswith(ext) for ext in ['.zip', '.exe', '.lha', '.rar']):
                                     self.links.append(value)
                                     

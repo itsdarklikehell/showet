@@ -160,7 +160,7 @@ def main():
 
     if args.list_presets:
         print("📺 CRT Presets:")
-        for slug, preset in CRT_PRESETS.items():
+        for slug, preset in CRT_PRESETS.items():  # noqa: B007
             print(f"  - {preset['name']}")
         return 0
 

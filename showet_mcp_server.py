@@ -25,11 +25,11 @@ from mcp.server.stdio import stdio_server
 
 # Make showet's own modules importable from this script's directory.
 PROJECT_ROOT = Path(__file__).parent
-import sys
+import sys  # noqa: E402
 
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from showet_api import get_api  # the singleton high-level API
+from showet_api import get_api  # the singleton high-level API  # noqa: E402
 
 server = Server("showet-mcp")
 

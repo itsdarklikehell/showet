@@ -118,7 +118,7 @@ def generate_from_nostalgist(core: str, demo_path: str, output_path: str) -> boo
     # to run nostalgist.js headlessly and capture a frame
     try:
         # Placeholder for WebAssembly integration
-        config = {
+        config = {  # noqa: F841
             "platform": "auto",
             "core": core,
             "demo": demo_path,

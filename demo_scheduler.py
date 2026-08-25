@@ -95,7 +95,7 @@ class DemoScheduler:
 
     def cancel_event(self, event_id: str) -> bool:
         """Cancel a scheduled event."""
-        for i, event in enumerate(self._events):
+        for i, event in enumerate(self._events):  # noqa: B007
             if event["id"] == event_id:
                 event["status"] = "cancelled"
                 self._save_schedule()

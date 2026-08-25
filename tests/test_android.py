@@ -1,7 +1,7 @@
 """Tests for Android integration."""
 
+
 import pytest
-from unittest.mock import patch
 
 
 class TestAndroidDetection:

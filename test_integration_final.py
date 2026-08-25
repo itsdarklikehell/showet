@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 sys.modules.setdefault('inquirer', __import__('types').SimpleNamespace())
 sys.modules.setdefault('patoolib', __import__('types').SimpleNamespace())
 
-from showet_executor import detect_platform, find_core_path
+from showet_executor import detect_platform, find_core_path  # noqa: E402
 
 
 def test_platform_detection():

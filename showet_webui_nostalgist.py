@@ -75,7 +75,7 @@ class NostalgistConfigHandler(SimpleHTTPRequestHandler):
         if platform_file.exists():
             content = platform_file.read_text()
             core_match = re.search(r'cores\s*=\s*\[([^\]]+)\]', content)
-            slug_match = re.search(r'super\(\).__init__\("([^"]+)"', content)
+
             
             core = core_match.group(1).strip().strip("'\"") if core_match else "quicknes"
             mapped_core = CORE_MAPPING.get(core, core.replace("_libretro", ""))
