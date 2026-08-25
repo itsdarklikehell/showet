@@ -54,7 +54,7 @@ jobs:
     
     - name: Build Docker image
       run: |
-        docker build -t showet:latest .
+        docker build -t showet:latest -f Dockerfile.showet .
         
     - name: Test Docker image
       run: |
