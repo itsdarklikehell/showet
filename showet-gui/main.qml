@@ -69,10 +69,11 @@ ApplicationWindow {
         onAccepted: text = ""
     }
 
+
+
     function showInfo(id) {
         Qt.openUrlExternally("http://www.pouet.net/prod.php?which=" + id);
     }
 
     Component.onCompleted: showetHelper.init()
 }
-

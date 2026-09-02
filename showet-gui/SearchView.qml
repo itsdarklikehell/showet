@@ -31,6 +31,7 @@ Item {
         id: prodList
     }
 
+
     function startSearch() {
         prodList.clear()
         if (!searchRequest) {
@@ -91,4 +92,3 @@ Item {
         searchInProgress = false
     }
 }
-

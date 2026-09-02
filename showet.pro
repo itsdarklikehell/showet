@@ -10,4 +10,3 @@ pymodules.files = *.py
 INSTALLS += executable pymodules
 
 OTHER_FILES += debian/control README.md showet-gui.desktop *.py
-
