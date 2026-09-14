@@ -37,4 +37,3 @@ Item {
         anchors.bottom: parent.bottom
     }
 }
-
