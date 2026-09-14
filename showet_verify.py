@@ -42,12 +42,12 @@ def check_retroarch_cores():
         Path.home() / ".config/retroarch/cores",
         Path("/usr/lib/x86_64-linux-gnu/libretro"),
     ]
-    
+
     cores = []
     for cp in core_paths:
         if cp.exists():
             cores.extend(cp.glob("*.so"))
-    
+
     return cores
 
 
@@ -55,7 +55,7 @@ def main():
     print("=" * 60)
     print("📺 SHOWET SYSTEM VERIFICATION v3.2")
     print("=" * 60)
-    
+
     # Check emulators
     emulators = ["retroarch", "wine", "dosbox-x", "mame", "fs-uae"]
     print("\n🔧 Emulators:")
@@ -63,42 +63,42 @@ def main():
         found, path = check_command(emu)
         status = "✅" if found else "⚠️"
         print(f"  {status} {emu}: {path if found else 'not installed'}")
-    
+
     # Check cores
     cores = check_retroarch_cores()
     print(f"\n🎮 RetroArch Cores: {len(cores)} installed")
-    
-    key_cores = ["vice_x64sc_libretro.so", "fceumm_libretro.so", 
+
+    key_cores = ["vice_x64sc_libretro.so", "fceumm_libretro.so",
                  "snes9x_libretro.so", "genesis_plus_gx_libretro.so"]
     print("  Key cores check:")
     for core in key_cores:
         found = any(c.name == core for c in cores)
         print(f"    {'✅' if found else '❌'} {core}")
-    
+
     # Load platform modules
     print("\n🕹️ Platform Modules:")
     from showet.platforms import load_all_platforms
     runners = load_all_platforms()
     print(f"  ✅ {len(runners)} platforms loadable")
-    
+
     # Check nostalgist configs
     config_dir = Path("nostalgist_configs")
     configs = list(config_dir.glob("*.json"))
     configs = [c for c in configs if c.name != "manifest.json"]
     print("\n🌐 nostalgist.js Configs:")
     print(f"  ✅ {len(configs)} platform configs")
-    
+
     # Check jukebox
     from showet_jukebox import LOOPED_DEMO_TYPES
     print("\n🎵 Jukebox:")
     print(f"  ✅ Loop types: {', '.join(LOOPED_DEMO_TYPES)}")
-    
+
     # Summary
     print("\n" + "=" * 60)
     ready = len(cores) >= 5
     print(f"🎮 Showet Status: {'READY FOR DEMOS!' if ready else 'NEEDS SETUP'}")
     print("=" * 60)
-    
+
     return 0 if ready else 1
 
 

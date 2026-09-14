@@ -216,11 +216,11 @@ async def download_demo_async(demo_id: int, dest_dir: Path) -> Path | None:
             data = json.loads(response.read().decode())
             prod = data.get("prod", {})
             download_url = prod.get("download")
-            
+
             if download_url:
                 filename = f"{demo_id}.zip"
                 dest = dest_dir / filename
-                
+
                 if aiohttp:
                     async with AsyncDownloader() as dl:
                         success = await dl.download(download_url, dest)

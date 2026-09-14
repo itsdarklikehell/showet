@@ -20,46 +20,46 @@ class TourStop:
 
 class ShowetTourGuide:
     """Interactive guided tour through demoscene history"""
-    
+
     TOUR_STOPS = [
-        TourStop("Pouet", "commodore_64", 1987, "Bonzai", "Unknown", 
-                 "First cracktro with embedded scroller", 
+        TourStop("Pouet", "commodore_64", 1987, "Bonzai", "Unknown",
+                 "First cracktro with embedded scroller",
                  "Established intro culture on C64"),
-        
+
         TourStop("The Cuddly Demos", "commodore_amiga", 1992, "Fairlight", "The Party",
-                 "Real-time 3D rendered teddy bears", 
+                 "Real-time 3D rendered teddy bears",
                  "Proved Amiga could do Pixar-style graphics in real-time"),
-        
+
         TourStop("Second Reality", "ms-dos", 1993, "Future Crew", "Assembly",
-                 "Revolutionary GUS sound + VGA graphics", 
+                 "Revolutionary GUS sound + VGA graphics",
                  "The demo that inspired a generation of PC coders"),
-        
+
         TourStop("Heaven Seven", "commodore_amiga", 2003, "Conspiracy", "Assembly",
-                 "Real-time raytraced reflections", 
+                 "Real-time raytraced reflections",
                  "Took first place at Assembly 2003"),
-        
+
         TourStop("Loonies", "commodore_64", 2010, "Loonies", "Breakpoint",
-                 "Maximum optimization within 64K", 
+                 "Maximum optimization within 64K",
                  "4K executable demo winner"),
-        
+
         TourStop("Elevated", "ms-dos", 2004, "Conspiracy", "Assembly",
-                 "Software-rendered raytracing", 
+                 "Software-rendered raytracing",
                  "PC demo that pushed boundaries"),
-        
+
         TourStop("Pimp My Spectrum", "spectrum", 2007, "Fairlight", "Breakpoint",
-                 "Creative use of ZX Spectrum limitations", 
+                 "Creative use of ZX Spectrum limitations",
                  "Wild compo winner - pure creativity"),
     ]
-    
+
     def __init__(self):
         self.current_stop = 0
         self.tour_active = False
-    
+
     def generate_tour_script(self) -> str:
         """Generate a narration script for the tour"""
         script = "# 🎞️ SHOWET DEMOSCENE TOUR GUIDE\n\n"
         script += "Embark on a journey through the history of digital art...\n\n"
-        
+
         for i, stop in enumerate(self.TOUR_STOPS):
             script += f"## Stop {i+1}: {stop.demo_name} ({stop.year})\n"
             script += f"**Platform:** {stop.platform.replace('_', ' ').title()}\n"
@@ -67,10 +67,10 @@ class ShowetTourGuide:
             script += f"**Party:** {stop.party}\n"
             script += f"\n**Technical Marvel:** {stop.technical_achievement}\n"
             script += f"**Cultural Impact:** {stop.cultural_impact}\n\n"
-        
+
         script += "---\n*Every frame tells a story. Every pixel holds a memory.*\n"
         return script
-    
+
     def get_next_stop(self) -> TourStop | None:
         """Get next tour stop"""
         if self.current_stop < len(self.TOUR_STOPS):
@@ -78,12 +78,12 @@ class ShowetTourGuide:
             self.current_stop += 1
             return stop
         return None
-    
+
     def reset_tour(self):
         """Reset tour to beginning"""
         self.current_stop = 0
         self.tour_active = True
-    
+
     def get_tour_config(self) -> dict:
         """Generate JavaScript config for in-browser tour"""
         return {

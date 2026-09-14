@@ -323,7 +323,6 @@ def main():
     command = sys.argv[1]
     platform = None
     download_cores = False
-    download_bios = False
 
     i = 2
     while i < len(sys.argv):
@@ -333,17 +332,14 @@ def main():
             i += 1
         elif arg == '--download-cores':
             download_cores = True
-        elif arg == '--download-bios':
-            download_bios = True
         i += 1
 
     if command == 'all':
         # Complete installation
         print("🚀 Installing all dependencies...\n")
         install_emulators(platform, download_cores=True)
-        # BIOS download would go here for homebrew files
         print("\n✅ Full installation complete!")
-    
+
     elif command == 'install':
         install_emulators(platform, download_cores)
 

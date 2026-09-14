@@ -32,13 +32,11 @@ After the run you can ``git add`` the new files and commit.
 from __future__ import annotations
 
 import json
-import os
 import pathlib
 import sys
 import urllib.request
 from typing import Dict, List
 
-import subprocess
 
 
 POUET_API_URL = "https://api.pouet.net/v1/platforms"

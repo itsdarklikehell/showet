@@ -19,7 +19,7 @@ def get_upcoming_parties(days_ahead: int = 90) -> list[dict]:
     try:
         url = f"{POUET_CALENDAR_API}?days={days_ahead}"
         data = json.loads(urllib.request.urlopen(url, timeout=10).read().decode())
-        
+
         parties = []
         for event in data.get("events", []):
             parties.append({

@@ -11,7 +11,6 @@ This script:
 4. Preserves all logic but enforces the OOP contract
 """
 
-import os
 import re
 import argparse
 from pathlib import Path
@@ -32,15 +31,15 @@ def extract_class_info(filepath: Path) -> dict:
     """Extract class-level attributes and methods from a Platform file."""
     with open(filepath, 'r') as f:
         content = f.read()
-    
+
     # Check if already refactored (inherits from PlatformBase, not PlatformCommon)
     if 'PlatformBase' in content and 'PlatformCommon' not in content:
         return None
-    
+
     # Extract class definition - must inherit from PlatformCommon
     if 'PlatformCommon' not in content:
         return None
-    
+
     return {
         'emulators': re.search(r'emulators\s*=\s*\[([^\]]+)\]', content),
         'cores': re.search(r'cores\s*=\s*\[([^\]]+)\]', content),
@@ -53,19 +52,19 @@ def generate_refactored_class(platform_class_name: str, platform_display_name: s
     core_val = "libretro_core"
     emulator_val = '["retroarch"]'
     ext_val = "[]"
-    
+
     if info.get('cores') and info['cores']:
         core_match = info['cores'].group(1).strip()
         core_val = core_match.strip("'\"")
-        
+
     if info.get('emulators') and info['emulators']:
         emulator_val = info['emulators'].group(0).split('=')[1].strip()
-        
+
     if info.get('extensions') and info['extensions']:
         ext_val = info['extensions'].group(0).split('=')[1].strip()
-    
+
     slug = info['slug'].group(1) if info.get('slug') and info['slug'] else platform_class_name.lower()
-    
+
     return f'''# Refactored for Modern Architecture - Phase 1
 # This module inherits from PlatformBase which extends PlatformCommon
 
@@ -125,28 +124,28 @@ class Platform_{platform_class_name}(PlatformBase):
 def main(dry_run=False, target=None):
     """Main refactoring routine."""
     platform_files = [f for f in PROJECT_ROOT.glob("Platform_*.py") if f.name != "PlatformBase.py"]
-    
+
     if target:
         platform_files = [f for f in platform_files if target.lower() in f.name.lower()]
-    
+
     print(f"Found {len(platform_files)} platform files to process")
-    
+
     for pf in sorted(platform_files):
         match = PLATFORM_PATTERN.match(pf.name)
         if not match:
             continue
-            
+
         platform_class_name = match.group(1)
         platform_display_name = platform_class_name.replace("_", " ")
         info = extract_class_info(pf)
-        
+
         if info is None:
             print(f"⏭️ Skipping {pf.name} (already refactored or no match)")
             continue
-            
+
         original = pf.read_text()
         refactored = generate_refactored_class(platform_class_name, platform_display_name, info, original)
-        
+
         if dry_run:
             print(f"\n--- {pf.name} (dry run) ---")
             print(refactored[:600] + "...")

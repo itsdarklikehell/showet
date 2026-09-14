@@ -69,17 +69,17 @@ def optimize_for_pi() -> dict:
     """Get Pi optimization recommendations."""
     model = get_pi_model()
     gpu_mem = get_gpu_memory()
-    
+
     recommendations = {
         "model": model,
         "gpu_mem": gpu_mem,
         "needs_opengl": model in ("rpi4", "rpi5"),
         "core_limit": 3 if model == "rpi3" else 5,
     }
-    
+
     if gpu_mem < 256:
         recommendations["warning"] = f"GPU memory ({gpu_mem}MB) may be low for full-speed demos"
-    
+
     return recommendations
 
 
@@ -88,20 +88,20 @@ def install_retropie_packages(packages: list[str]) -> int:
     if not detect_retropie():
         print("Not running on RetroPie")
         return 0
-    
+
     installed = 0
     for pkg in packages:
         # Would call retropie-setup script
         print(f"Would install: {pkg}")
         installed += 1
-    
+
     return installed
 
 
 def main() -> int:
     """CLI entry point."""
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="RetroPie Integration")
     parser.add_argument("--detect", "-d", action="store_true", help="Detect RetroPie/Pi")
     parser.add_argument("--optimize", "-o", action="store_true", help="Get Pi recommendations")
@@ -113,12 +113,12 @@ def main() -> int:
         model = get_pi_model()
         print(f"RetroPie: {'✅' if is_retropie else '❌'}")
         print(f"Pi Model: {model or 'Not detected'}")
-        
+
     elif args.optimize:
         recs = optimize_for_pi()
         for k, v in recs.items():
             print(f"{k}: {v}")
-            
+
     elif args.install:
         install_retropie_packages(args.install)
 

@@ -10,7 +10,7 @@ from pathlib import Path
 
 class DemoExecutor:
     """Universal executor for demoscene productions."""
-    
+
     ARCHIVE_HANDLERS = {
         '.zip': ['unzip', '-o'],
         '.rar': ['unrar', 'x'],
@@ -18,7 +18,7 @@ class DemoExecutor:
         '.lha': ['lha', 'x'],
         '.lzh': ['lha', 'x'],
     }
-    
+
     # Libretro core paths (RetroArch integration)
     LIBRETRO_CORES = {
         'commodore_64': 'x64_libretro.so',
@@ -30,7 +30,7 @@ class DemoExecutor:
         'atari_2600': 'stella_libretro.so',
         'sony_psx': 'mednafen_psx_libretro.so',
     }
-    
+
     LIBRETRO_CORE_URLS = {
         'x64_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/x64_libretro.so',
         'nes_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/nes_libretro.so',
@@ -40,7 +40,7 @@ class DemoExecutor:
         'puae_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/puae_libretro.so',
         'stella_libretro.so': 'https://buildbot.libretro.com/nightly/linux/x86_64/latest/stella_libretro.so',
     }
-    
+
     PLATFORM_RUNNERS = {
         # Priority: RetroArch > Native emulator > Wine/DOSBox
         'windows': {
@@ -107,7 +107,7 @@ class DemoExecutor:
             'extensions': ['.tap', '.tzx', '.z80'],
         },
     }
-    
+
     def __init__(self, platform='auto', timeout=300, prefer_retroarch=False, download_cores=False):
         self.platform = platform
         self.timeout = timeout
@@ -118,13 +118,13 @@ class DemoExecutor:
         """Auto-detect platform from demo filename/path or executable type."""
         path = Path(demo_path)
         name = path.name.lower()
-        
+
         # Check archives first
         if path.suffix.lower() in ['.zip', '.rar', '.7z', '.lha']:
             extracted = self.extract_archive(demo_path)
             if extracted:
                 return self.detect_platform(extracted[0])
-        
+
         # Platform detection
         if path.suffix in ['.adf', '.hdf']:
             return 'commodore_amiga'
@@ -147,7 +147,7 @@ class DemoExecutor:
             return 'sega_megadrive'
         if path.suffix in ['.tap', '.tzx', '.z80']:
             return 'zx_spectrum'
-        
+
         return 'auto'
 
     def _is_dos_exe(self, demo_path):
@@ -162,23 +162,23 @@ class DemoExecutor:
         """Extract demo archive and return list of executables."""
         archive = Path(archive_path)
         ext = archive.suffix.lower()
-        
+
         if ext not in self.ARCHIVE_HANDLERS:
             return None
-        
+
         extract_dir = Path(f"/tmp/showet_demo_{archive.stem}")
         extract_dir.mkdir(parents=True, exist_ok=True)
-        
+
         cmd = self.ARCHIVE_HANDLERS[ext].copy()
         if ext == '.zip':
             cmd.extend([str(archive), '-d', str(extract_dir)])
         else:
             cmd.extend([str(archive), str(extract_dir)])
-        
+
         try:
             subprocess.run(cmd, check=True, capture_output=True)
             files = list(extract_dir.rglob('*'))
-            return [f for f in files if f.suffix.lower() in 
+            return [f for f in files if f.suffix.lower() in
                     ['.exe', '.com', '.adf', '.nes', '.smc', '.sfc', '.d64', '.prg', '.tap']]
         except subprocess.CalledProcessError:
             return None
@@ -219,10 +219,10 @@ class DemoExecutor:
         """Download libretro core if missing."""
         if core_name not in self.LIBRETRO_CORE_URLS:
             return False
-        
+
         retroarch_dir = Path.home() / '.config/retroarch/cores'
         retroarch_dir.mkdir(parents=True, exist_ok=True)
-        
+
         print(f"Downloading {core_name}...")
         try:
             import urllib.request
@@ -236,9 +236,9 @@ class DemoExecutor:
         """Execute a demo with auto-detection."""
         if platform is None:
             platform = self.detect_platform(demo_path)
-        
+
         runner = self.find_runner(demo_path)
-        
+
         if platform == 'dos' or runner == 'dosbox-x':
             return self._run_dosbox(demo_path)
         elif runner == 'wine':
@@ -266,7 +266,7 @@ c:
 """
         conf_path = Path("/tmp/showet_dosbox.conf")
         conf_path.write_text(conf)
-        
+
         cmd = ['dosbox-x', '-conf', str(conf_path)]
         return subprocess.Popen(cmd)
 
@@ -281,11 +281,11 @@ c:
         """Run demo through RetroArch with libretro core."""
         core = self.LIBRETRO_CORES.get(platform, 'dosbox_core_libretro.so')
         core_path = self._get_core_path(core)
-        
+
         if not core_path:
             print(f"RetroArch core not found for {platform}")
             return None
-            
+
         cmd = ['retroarch', '-L', core_path, str(demo_path)]
         return subprocess.Popen(cmd)
 
@@ -314,13 +314,12 @@ def main():
         print("  C64/Amiga/NES/SNES: Native emulator or RetroArch")
         print("  Archives: Auto-extracts then runs")
         sys.exit(1)
-    
+
     demo_path = sys.argv[1]
     platform = 'auto'
     timeout = 300
     prefer_retroarch = False
-    download_cores = False
-    
+
     i = 2
     while i < len(sys.argv):
         arg = sys.argv[i]
@@ -332,13 +331,11 @@ def main():
             i += 1
         elif arg == '--prefer-retroarch':
             prefer_retroarch = True
-        elif arg == '--download-cores':
-            download_cores = True
         i += 1
-    
+
     executor = DemoExecutor(platform=platform, timeout=timeout, prefer_retroarch=prefer_retroarch)
     process = executor.run_demo(demo_path)
-    
+
     if process:
         print(f"Demo launched! PID: {process.pid}")
         try:

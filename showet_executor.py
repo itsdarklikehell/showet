@@ -98,7 +98,7 @@ def detect_platform(file_path: Path) -> str:
         Platform slug or "unknown"
     """
     ext = file_path.suffix.lower()
-    
+
     for platform, extensions in PLATFORM_EXTENSIONS.items():
         if ext in extensions:
             # Handle DOS/Windows overlap
@@ -106,11 +106,11 @@ def detect_platform(file_path: Path) -> str:
                 # Prefer checking if it's a DOS-specific file
                 return "dos"
             return platform
-    
+
     # Check if it's an archive
     if ext in [".zip", ".rar", ".7z", ".lha", ".lzh"]:
         return "archive"
-    
+
     return "unknown"
 
 
@@ -130,11 +130,11 @@ def find_core_path(core_name: str) -> Path | None:
         Path("/usr/lib/x86_64-linux-gnu/libretro") / core_name,
         Path("/usr/lib/aarch64-linux-gnu/libretro") / core_name,
     ]
-    
+
     for path in search_paths:
         if path.exists():
             return path
-    
+
     return None
 
 
@@ -167,7 +167,7 @@ def extract_archive(archive_path: Path, dest_dir: Path, password: str | None = N
         True on success, False on failure
     """
     ext = archive_path.suffix.lower()
-    
+
     try:
         if ext == ".zip":
             cmd = ["unzip", "-o", str(archive_path), "-d", str(dest_dir)]
@@ -175,26 +175,26 @@ def extract_archive(archive_path: Path, dest_dir: Path, password: str | None = N
                 cmd.extend(["-P", password])
             subprocess.run(cmd, check=True, capture_output=True)
             return True
-            
+
         elif ext == ".rar":
             cmd = ["unrar", "x", "-o+", str(archive_path), f"{dest_dir}/"]
             subprocess.run(cmd, check=True, capture_output=True)
             return True
-            
+
         elif ext == ".7z":
             cmd = ["7z", "x", f"-o{dest_dir}", str(archive_path)]
             subprocess.run(cmd, check=True, capture_output=True)
             return True
-            
+
         elif ext in [".lha", ".lzh"]:
             cmd = ["lha", "x", str(archive_path), str(dest_dir)]
             subprocess.run(cmd, check=True, capture_output=True)
             return True
-            
+
     except subprocess.CalledProcessError as e:
         logger.error("Archive extraction failed: %s", e)
         return False
-    
+
     return False
 
 
@@ -228,19 +228,19 @@ def run_with_retroarch(rom_path: Path, core_name: str, fullscreen: bool = False)
     if not check_emulator_available("retroarch"):
         logger.error("RetroArch not found. Install with: sudo apt install retroarch")
         return -1
-    
+
     core_path = find_core_path(core_name)
     if not core_path:
         logger.warning("Core %s not found, RetroArch may auto-download", core_name)
         core_path = core_name
-    
+
     cmd = ["retroarch", "-L", str(core_path), str(rom_path)]
-    
+
     if fullscreen:
         cmd.insert(1, "--fullscreen")
-    
+
     logger.info("Running: %s", " ".join(cmd))
-    
+
     try:
         result = subprocess.run(cmd, cwd=rom_path.parent if rom_path.is_file() else None)
         return result.returncode
@@ -262,10 +262,10 @@ def run_with_wine(rom_path: Path, fullscreen: bool = False) -> int:
     if not check_emulator_available("wine"):
         logger.error("Wine not found. Install with: sudo apt install wine")
         return -1
-    
+
     cmd = ["wine", str(rom_path)]
     logger.info("Running with Wine: %s", rom_path.name)
-    
+
     try:
         result = subprocess.run(cmd)
         return result.returncode
@@ -293,12 +293,12 @@ def run_with_dosbox(rom_path: Path, fullscreen: bool = False) -> int:
             return -1
     else:
         dosbox_cmd = "dosbox-x"
-    
+
     cmd = [dosbox_cmd]
-    
+
     if fullscreen:
         cmd.append("-fullscreen")
-    
+
     # For executables, mount the directory and run
     if rom_path.suffix.lower() == ".exe":
         cmd.extend(["-c", f"mount c {rom_path.parent} --readonly"])
@@ -308,11 +308,11 @@ def run_with_dosbox(rom_path: Path, fullscreen: bool = False) -> int:
     else:
         # For disk images, just pass the file
         cmd.append(str(rom_path))
-    
+
     cmd.append("-exit")
-    
+
     logger.info("Running with DOSBox: %s", rom_path.name)
-    
+
     try:
         result = subprocess.run(cmd)
         return result.returncode
@@ -343,11 +343,11 @@ def execute_demo(
         Process exit code
     """
     path = Path(file_path)
-    
+
     if not path.exists():
         logger.error("File not found: %s", file_path)
         return -1
-    
+
     # Handle archives
     if path.suffix.lower() in [".zip", ".rar", ".7z", ".lha", ".lzh"]:
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -361,11 +361,11 @@ def execute_demo(
             else:
                 logger.error("Failed to extract archive")
                 return -1
-    
+
     # Detect or use specified platform
     detected_platform = platform or detect_platform(path)
     logger.info("Detected platform: %s", detected_platform)
-    
+
     # Execute based on platform
     if detected_platform == "windows" or detect_platform(path) == "windows":
         if not wine_only:
@@ -375,7 +375,7 @@ def execute_demo(
                 if core:
                     return run_with_retroarch(path, core, fullscreen)
             return run_with_wine(path, fullscreen)
-    
+
     elif detected_platform == "dos" or detect_platform(path) == "dos":
         if not retroarch_only:
             if dosbox_only:
@@ -383,7 +383,7 @@ def execute_demo(
         core = PLATFORM_CORES.get("dos")
         if core:
             return run_with_retroarch(path, core, fullscreen)
-    
+
     else:
         # RetroArch-based platforms
         core = PLATFORM_CORES.get(detected_platform)
@@ -392,7 +392,7 @@ def execute_demo(
         elif detected_platform == "unknown":
             logger.error("Unknown platform, cannot determine how to run")
             return -1
-    
+
     return 0
 
 

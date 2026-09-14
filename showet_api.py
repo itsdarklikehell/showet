@@ -28,7 +28,7 @@ class ShowetAPI:
             return
 
         import importlib
-        
+
         # Discover and load all Platform_* modules
         project_root = Path(__file__).parent
         for pf in sorted(project_root.glob("Platform_*.py")):
@@ -43,7 +43,7 @@ class ShowetAPI:
                     self._platforms[instance.platform_name] = instance
             except Exception as e:
                 print(f"Warning: Could not load {module_name}: {e}")
-        
+
         self._loaded = True
 
     def get_platform(self, name: str) -> PlatformBase | None:
@@ -71,12 +71,12 @@ class ShowetAPI:
             url = f"http://api.pouet.net/v1/prod/?id={pouet_id}"
             data = json.loads(urllib.request.urlopen(url, timeout=10).read().decode())
             prod = data.get("prod", {})
-            
+
             # Determine platform if not specified
             if not platform:
                 platforms = [p["slug"] for p in prod.get("platforms", {}).values()]
                 platform = platforms[0] if platforms else None
-            
+
             return {
                 "status": "ready",
                 "platform": platform,
@@ -130,7 +130,7 @@ class ShowetAPI:
             url = f"http://api.pouet.net/v1/search/prod/?q={query}"
             response = urllib.request.urlopen(url, timeout=10)
             data = json.loads(response.read().decode())
-            
+
             results = []
             for prod_id, prod in list(data.get("results", {}).items())[:limit]:
                 results.append({

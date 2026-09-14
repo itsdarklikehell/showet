@@ -62,7 +62,7 @@ class DemoLauncher:
             return
 
         self.current_demo = demo
-        
+
         # Determine platform if not specified
         if not platform:
             platforms = [p["slug"] for p in demo.get("platforms", {}).values()]

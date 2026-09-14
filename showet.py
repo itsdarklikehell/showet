@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-import urllib.request, json
+import urllib.request
+import json
 import os
-import sys
-from os.path import basename
 from platformwindows import PlatformWindows
 from platformamiga import PlatformAmiga
 from platformcommodore import PlatformCommodore

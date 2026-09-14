@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 """Regenerate all Platform_*.py files with correct supported_platforms() method."""
-import re
 from pathlib import Path
 
 # Read the original unmodified versions from git
-import subprocess
 
 project_root = Path(__file__).parent
 

@@ -1,8 +1,7 @@
 """Tests for showet demo browser API."""
 
 import pytest
-from pathlib import Path
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 
 
 class TestPlatformConfigs:
@@ -11,7 +10,7 @@ class TestPlatformConfigs:
     def test_get_platform_configs_empty(self):
         """Test get_platform_configs with no config directory."""
         from showet_demo_browser import get_platform_configs
-        
+
         with patch("showet_demo_browser.Path.exists", return_value=False):
             result = get_platform_configs()
             assert result == []
@@ -23,7 +22,7 @@ class TestSearchDemos:
     def test_search_demos_empty(self):
         """Test search with no cached demos."""
         from showet_demo_browser import search_demos
-        
+
         with patch("showet_demo_browser.get_cached_demos", return_value=[]):
             result = search_demos("test")
             assert result == []
@@ -31,7 +30,7 @@ class TestSearchDemos:
     def test_search_demos_no_match(self):
         """Test search with no matching demos."""
         from showet_demo_browser import search_demos
-        
+
         with patch("showet_demo_browser.get_cached_demos", return_value=[
             {"title": "Some Demo", "platform": "c64"}
         ]):

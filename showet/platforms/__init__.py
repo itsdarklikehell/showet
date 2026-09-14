@@ -1,14 +1,13 @@
 """Platform modules loader for Showet."""
 
 import importlib
-from pathlib import Path
 from typing import Any
 
 
 def load_all_platforms() -> list[Any]:
     """Load all Platform_*.py modules from the project root."""
     runners = []
-    
+
     module_names = [
         "Platform_Alambik_Alambik",
         "Platform_Amstrad_Cpcplus",
@@ -102,7 +101,7 @@ def load_all_platforms() -> list[Any]:
         "Platform_WebAssembly_Web",
         "Platform_Raspberry_Pi",
     ]
-    
+
     for mod_name in module_names:
         try:
             mod = importlib.import_module(mod_name)
@@ -110,7 +109,7 @@ def load_all_platforms() -> list[Any]:
             runners.append(cls())
         except Exception:
             continue
-    
+
     return runners
 
 

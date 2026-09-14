@@ -13,11 +13,11 @@ from streaming import setup_stream_key
 
 def main():
     parser = argparse.ArgumentParser(description="Save stream key to showet config")
-    parser.add_argument("--platform", required=True, 
+    parser.add_argument("--platform", required=True,
                         choices=["twitch", "youtube", "facebook", "custom"])
     parser.add_argument("--key", required=True, help="Stream key to save")
     args = parser.parse_args()
-    
+
     setup_stream_key(args.platform, args.key)
     return 0
 

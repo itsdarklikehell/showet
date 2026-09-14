@@ -29,12 +29,12 @@ ARCHIVE_COMMANDS = {
 
 class ArchiveHandler:
     """Handles extraction of common demoscene archive formats."""
-    
+
     def __init__(self, work_dir: str | None = None):
         """Initialize archive handler with working directory."""
         self.work_dir = Path(work_dir or tempfile.mkdtemp(prefix="showet_demo_"))
         self.work_dir.mkdir(parents=True, exist_ok=True)
-    
+
     def extract(self, archive_path: str, password: str | None = None) -> list[Path] | None:
         """Extract archive and return list of extracted files.
         
@@ -47,7 +47,7 @@ class ArchiveHandler:
         """
         archive = Path(archive_path)
         ext = archive.suffix.lower()
-        
+
         if ext == '.zip':
             return self._extract_zip(archive, password)
         elif ext == '.rar':
@@ -58,7 +58,7 @@ class ArchiveHandler:
             return self._extract_lha(archive, password)
         else:
             return None
-    
+
     def _extract_zip(self, archive: Path, password: str | None = None) -> list[Path] | None:
         """Extract ZIP archive."""
         try:
@@ -70,7 +70,7 @@ class ArchiveHandler:
         except subprocess.CalledProcessError as e:
             print(f"ZIP extraction failed: {e.stderr}")
             return None
-    
+
     def _extract_rar(self, archive: Path, password: str | None = None) -> list[Path] | None:
         """Extract RAR archive."""
         try:
@@ -83,7 +83,7 @@ class ArchiveHandler:
         except subprocess.CalledProcessError as e:
             print(f"RAR extraction failed: {e.stderr}")
             return None
-    
+
     def _extract_7z(self, archive: Path, password: str | None = None) -> list[Path] | None:
         """Extract 7z archive."""
         try:
@@ -96,7 +96,7 @@ class ArchiveHandler:
         except subprocess.CalledProcessError as e:
             print(f"7z extraction failed: {e.stderr}")
             return None
-    
+
     def _extract_lha(self, archive: Path, password: str | None = None) -> list[Path] | None:
         """Extract LHA/LZH archive (common for Amiga/PC-98 demos)."""
         try:
@@ -107,7 +107,7 @@ class ArchiveHandler:
         except subprocess.CalledProcessError as e:
             print(f"LHA extraction failed: {e.stderr}")
             return None
-    
+
     def cleanup(self) -> None:
         """Remove extracted files."""
         if self.work_dir.exists():
@@ -123,11 +123,11 @@ def main() -> int:
         print("  --password PASS  Password for encrypted archives")
         print("  --list           List extracted files")
         sys.exit(1)
-    
+
     archive_path = sys.argv[1]
     password = None
     list_only = False
-    
+
     i = 2
     while i < len(sys.argv):
         arg = sys.argv[i]
@@ -137,10 +137,10 @@ def main() -> int:
         elif arg == '--list':
             list_only = True
         i += 1
-    
+
     handler = ArchiveHandler()
     files = handler.extract(archive_path, password)
-    
+
     if files:
         print(f"Extracted {len(files)} files to {handler.work_dir}")
         if list_only:

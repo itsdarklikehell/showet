@@ -3,13 +3,18 @@
 The definitive, immersive demo-runner for the demoscene with nostalgic flair.
 """
 
+from __future__ import annotations
+
 __version__ = "4.0.0-dev"
 __author__ = "SgtStroopwafel"
 
-# Import from legacy showet.py for backward compatibility
+# ---------------------------------------------------------------------------
+# Import from legacy showet.py for backward compatibility (must be early).
+# ---------------------------------------------------------------------------
 import importlib.util
 import sys
 from pathlib import Path
+
 
 def _load_legacy_showet():
     """Load the vendored legacy showet module (showet/_legacy_showet.py)."""
@@ -25,32 +30,37 @@ def _load_legacy_showet():
 
 _legacy = _load_legacy_showet()
 
-from showet.core import (
-    CACHE_DIR,
-    DEBUG,
-    DEFAULT_TIMEOUT,
-    detect_platform,
-    execute_demo,
-)
-from showet.integrations import (
-    ModArchiveAPI,
-    PouetClient,
-    SceneOrgClient,
-)
-from showet.platforms import load_all_platforms as create_platform_runners
-from showet.utils import (
-    ArchiveHandler,
-    AsyncDownloader,
-    DemoCache,
-    StreamManager,
-)
-
-# Forward legacy module functions
+# Forward legacy module functions (must come after _load_legacy_showet)
 build_arg_parser = _legacy.build_arg_parser
 run_production = _legacy.run_production
 main = _legacy.main
 _select_runner = _legacy._select_runner
 download_production_json = _legacy.download_production_json
+
+# ---------------------------------------------------------------------------
+# v4.0 package imports — grouped by origin.
+# The legacy loader above MUST run first, so these are exempt from E402.
+# ---------------------------------------------------------------------------
+from showet.core import (  # noqa: E402
+    CACHE_DIR,
+    DEBUG,
+    DEFAULT_TIMEOUT,
+    PlatformCommon,
+    detect_platform,
+    execute_demo,
+)
+from showet.integrations import (  # noqa: E402
+    ModArchiveAPI,
+    PouetClient,
+    SceneOrgClient,
+)
+from showet.platforms import load_all_platforms as create_platform_runners  # noqa: E402
+from showet.utils import (  # noqa: E402
+    ArchiveHandler,
+    AsyncDownloader,
+    DemoCache,
+    StreamManager,
+)
 
 __all__ = [
     "__version__",
@@ -58,6 +68,7 @@ __all__ = [
     "CACHE_DIR",
     "DEBUG",
     "DEFAULT_TIMEOUT",
+    "PlatformCommon",
     "execute_demo",
     "detect_platform",
     "PouetClient",

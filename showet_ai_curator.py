@@ -30,12 +30,12 @@ class DemoVector:
 
 class AIDemoCurator:
     """AI-powered demo recommendation engine with scene.org integration"""
-    
+
     def __init__(self, demo_dir: str = "nostalgist_configs"):
         self.preferences = {}
         self.demo_catalog = self._load_demo_catalog()
         self.demo_dir = demo_dir
-    
+
     def _load_demo_catalog(self) -> list[DemoVector]:
         """Load demo catalog with technical vectors"""
         return [
@@ -58,16 +58,16 @@ class AIDemoCurator:
                 features=["3d", "music", "effects"]
             ),
         ]
-    
+
     def enhanced_discover(self, query: str = "") -> list[dict]:
         """Discover demos using scene.org integration for real results"""
         results = []
-        
+
         # Try scene.org integration
         try:
             from scene_org_integration import SceneOrgClient
             client = SceneOrgClient()
-            
+
             if query:
                 demos = client.search_demos(query, limit=10)
                 for demo in demos:
@@ -85,13 +85,13 @@ class AIDemoCurator:
                     {"name": "Revision 2024 Compo", "platform": "pc", "source": "scene.org"},
                 ]
                 results.extend(trending)
-                
+
         except ImportError:
             # Fallback to known gems
             results = self.discover_hidden_gems()
-            
+
         return results
-    
+
     def extract_metadata(self, demo_path: str) -> dict:
         """Extract deep metadata from demo file for AI analysis"""
         metadata = {
@@ -101,10 +101,10 @@ class AIDemoCurator:
             "estimated_duration": 0,
             "features": [],
         }
-        
+
         if os.path.exists(demo_path):
             metadata["size"] = os.path.getsize(demo_path)
-            
+
             # Analyze file for hints
             if demo_path.endswith('.zip'):
                 metadata["platform"] = "pc"
@@ -113,25 +113,25 @@ class AIDemoCurator:
                 metadata["platform"] = "commodore_64"
             elif demo_path.endswith('.adf'):
                 metadata["platform"] = "commodore_amiga"
-                
+
         return metadata
-    
+
     def predict_demo_rating(self, demo_name: str, metadata: dict = None) -> float:
         """Predict demo rating based on name patterns and features"""
         # Simple heuristic scoring
         score = 0.5
-        
+
         # Known legendary demos get high scores
         legendary = ["Second Reality", "Heaven Seven", "Elevated", "Arte", "Beyond"]
         for legend in legendary:
             if legend.lower() in demo_name.lower():
                 score = 0.95
                 break
-        
+
         # Complexity indicators
         if any(word in demo_name.lower() for word in ["meg", "ultra", "extreme", "chaos"]):
             score += 0.15
-        
+
         # Year patterns (older often = more significance)
         import re
         year_match = re.search(r'19|20[0-4][0-9]', demo_name)
@@ -139,39 +139,39 @@ class AIDemoCurator:
             year = int(year_match.group())
             if year < 2000:
                 score += 0.1  # Vintage bonus
-        
+
         return min(score, 1.0)
-    
+
     def analyze_preferences(self, user_id: str, watched_demos: list[str]) -> dict:
         """Analyze user watching history to build preference profile"""
         features_used = {}
-        
+
         for demo_id in watched_demos:
             demo = self._find_demo(demo_id)
             if demo:
                 # Weight preferences by complexity
                 self.preferences[user_id] = self.preferences.get(user_id, {})
-                
+
                 self.preferences[user_id]['preferred_era'] = self.preferences[user_id].get('preferred_era', demo.era.value)
                 self.preferences[user_id]['avg_complexity'] = (
                     self.preferences[user_id].get('avg_complexity', 0) + demo.complexity
                 ) / 2
-                
+
                 for feature in demo.features:
                     features_used[feature] = features_used.get(feature, 0) + 1
-        
+
         self.preferences[user_id]['favorite_features'] = sorted(
-            features_used.keys(), 
-            key=lambda x: features_used[x], 
+            features_used.keys(),
+            key=lambda x: features_used[x],
             reverse=True
         )[:3]
-        
+
         return self.preferences.get(user_id, {})
-    
+
     def recommend(self, user_id: str | None = None, count: int = 10) -> list[str]:
         """Generate personalized demo recommendations"""
         recommendations = []
-        
+
         if user_id and user_id in self.preferences:
             prefs = self.preferences[user_id]
             # Match user preferences
@@ -188,27 +188,27 @@ class AIDemoCurator:
                 "sega_megadrive",
                 "ms-dos",
             ]
-        
+
         return list(set(recommendations))[:count]
-    
+
     def _calculate_match_score(self, demo: DemoVector, prefs: dict) -> float:
         """Calculate recommendation match score"""
         score = 0.5
-        
+
         if 'preferred_era' in prefs and demo.era.value == prefs['preferred_era']:
             score += 0.3
-        
+
         if 'favorite_features' in prefs:
             overlap = set(demo.features) & set(prefs['favorite_features'])
             score += 0.1 * len(overlap)
-        
+
         return min(score, 1.0)
-    
+
     def _find_demo(self, demo_id: str) -> DemoVector | None:
         """Find demo by ID in catalog"""
         # Placeholder for real lookup
         return self.demo_catalog[0] if demo_id else None
-    
+
     def discover_hidden_gems(self, era: str | None = None, limit: int = 5) -> list[dict]:
         """Find lesser-known demos matching specified era"""
         hidden_gems = [
@@ -234,7 +234,7 @@ class AIDemoCurator:
                 "reason": "Minimalist masterpiece"
             }
         ]
-        
+
         if era:
             return [g for g in hidden_gems if g['era'] == era][:limit]
         return hidden_gems[:limit]

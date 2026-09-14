@@ -1,6 +1,5 @@
 """Showet v4.0 Integration Tests - Core functionality tests."""
 
-import tempfile
 from pathlib import Path
 
 import pytest

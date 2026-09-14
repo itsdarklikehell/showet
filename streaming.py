@@ -285,7 +285,7 @@ class StreamManager:
             "has_webcam": self.config.include_webcam if self.config else False,
             "recording": bool(self.config and self.config.record_locally),
         }
-        
+
         return status
 
 

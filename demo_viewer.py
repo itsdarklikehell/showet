@@ -43,17 +43,17 @@ def format_demo_info(demo: dict[str, Any]) -> str:
     lines = []
     lines.append(f"🎵 {demo.get('name', 'Unknown')}")
     lines.append("═" * 50)
-    
+
     # Byline
     if demo.get("groups"):
         by = ", ".join(g.get("name", "") for g in demo["groups"])
         if by:
             lines.append(f"👥 By: {by}")
-    
+
     # Type and year
     demo_type = demo.get("type", "Unknown")
     lines.append(f"📋 Type: {demo_type}")
-    
+
     # Platform support
     platforms = demo.get("platforms", {})
     if platforms:
@@ -61,33 +61,33 @@ def format_demo_info(demo: dict[str, Any]) -> str:
         lines.append(f"💻 Platforms: {', '.join(platform_names[:3])}")
         if len(platform_names) > 3:
             lines.append(f"              ... and {len(platform_names) - 3} more")
-    
+
     # Party info
     if demo.get("party"):
         party = demo["party"].get("name", "")
         year = demo.get("year", "")
         if party:
             lines.append(f"🏆 Party: {party} {year}")
-    
+
     # Scores
     if demo.get("score"):
         lines.append(f"⭐ Score: {demo['score']}")
-    
+
     # Tags
     tags = demo.get("tags", [])
     if tags:
         tag_names = [t.get("name", "") for t in tags][:5]
         lines.append(f"🔖 Tags: {', '.join(tag_names)}")
-    
+
     # Release date
     if demo.get("release_date"):
         lines.append(f"📅 Released: {demo['release_date']}")
-    
+
     # Download info
     download = demo.get("download", "")
     if download:
         lines.append(f"📥 Download: {download[:60]}...")
-    
+
     return "\n".join(lines)
 
 
@@ -104,9 +104,9 @@ def display_demo_info(pouet_id: int, with_crt: bool = True) -> str:
     demo = fetch_demo_metadata(pouet_id)
     if not demo:
         return f"❌ Could not fetch demo {pouet_id}"
-    
+
     info = format_demo_info(demo)
-    
+
     if with_crt:
         # Add CRT-style borders
         lines = info.split("\n")
@@ -118,7 +118,7 @@ def display_demo_info(pouet_id: int, with_crt: bool = True) -> str:
             bordered.append(f"║ {line.ljust(width)} ║")
         bordered.append(bottom)
         return "\n".join(bordered)
-    
+
     return info
 
 
@@ -134,11 +134,11 @@ def generate_stream_overlay(demo_id: int) -> str:
     demo = fetch_demo_metadata(demo_id)
     if not demo:
         return "Showet Demo Runner"
-    
+
     name = demo.get("name", "Unknown")
     platforms = demo.get("platforms", {})
     platform = list(platforms.values())[0].get("slug", "") if platforms else ""
-    
+
     return f"{name} • {platform.upper()}" if platform else name
 
 
@@ -148,10 +148,10 @@ if __name__ == "__main__":
         parser.add_argument("--overlay", action="store_true", help="Output streaming overlay text only")
         parser.add_argument("--demo-id", type=int, required=True, help="Pouet.net demo ID")
         args = parser.parse_args()
-        
+
         if args.overlay:
             print(generate_stream_overlay(args.demo_id))
         else:
             print(display_demo_info(args.demo_id))
-    
+
     raise SystemExit(main())

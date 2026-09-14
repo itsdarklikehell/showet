@@ -45,10 +45,10 @@ def get_android_devices() -> list[dict]:
     """Get connected Android devices via ADB."""
     import subprocess
     devices = []
-    
+
     if not detect_android_sdk():
         return devices
-    
+
     try:
         result = subprocess.run(
             ["adb", "devices"],
@@ -62,7 +62,7 @@ def get_android_devices() -> list[dict]:
                 devices.append({"serial": serial, "status": "connected"})
     except Exception:
         pass
-    
+
     return devices
 
 
@@ -75,10 +75,10 @@ def install_android_emulator(emu_name: str, method: str = "flatpak") -> bool:
     """Install Android emulator."""
     import subprocess
     config = get_emulator_package(emu_name)
-    
+
     if not config:
         return False
-    
+
     if method == "flatpak" and config.get("flatpak"):
         try:
             subprocess.run(
@@ -88,7 +88,7 @@ def install_android_emulator(emu_name: str, method: str = "flatpak") -> bool:
             return True
         except Exception:
             pass
-    
+
     return False
 
 
@@ -127,7 +127,7 @@ def generate_mobile_html(demos: list[dict]) -> str:
 def main() -> int:
     """CLI entry point."""
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="Android Integration")
     parser.add_argument("--devices", "-d", action="store_true", help="List Android devices")
     parser.add_argument("--install", "-i", help="Install emulator")
@@ -140,7 +140,7 @@ def main() -> int:
             print(f"📱 {dev['serial']} - {dev['status']}")
         if not devices:
             print("No Android devices connected")
-            
+
     elif args.install:
         success = install_android_emulator(args.install)
         print(f"{'✅' if success else '❌'} Installed {args.install}")

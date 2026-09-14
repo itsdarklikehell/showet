@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 KNOWN_WORKING_CORES = {
-    "stella", "vice_x64sc", "vice_x64", "quicknes", "snes9x", 
+    "stella", "vice_x64sc", "vice_x64", "quicknes", "snes9x",
     "genesis_plus_gx", "gambatte", "nestopia", "fceumm"
 }
 
@@ -23,7 +23,7 @@ print("=" * 60)
 print("SHOWET COMPLETE SYSTEM TESTING MATRIX")
 print("=" * 60)
 
-systems = sorted([f.stem for f in configs_dir.glob("*.json") 
+systems = sorted([f.stem for f in configs_dir.glob("*.json")
                   if f.suffix == ".json" and f.stem not in ["manifest", "crt_presets"]])
 
 ready = []
@@ -34,9 +34,9 @@ for slug in systems:
     config_file = configs_dir / f"{slug}.json"
     config = json.loads(config_file.read_text())
     core = config.get("core", "unknown")
-    
+
     multi = MULTI_DISK_SYSTEMS.get(slug)
-    
+
     if core in KNOWN_WORKING_CORES:
         status = "READY"
         ready.append((slug, core, multi))

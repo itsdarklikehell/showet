@@ -38,11 +38,11 @@ def main():
     print("═" * 50)
     print("📺 SHOWET STATUS DASHBOARD")
     print("═" * 50)
-    
+
     print("\n🔧 Dependencies:")
     print(f"   FFmpeg: {'✅ Available' if check_ffmpeg() else '❌ Not found (install for streaming)'}")
     print(f"   RetroArch: {'✅ Available' if check_retroarch() else '❌ Not found'}")
-    
+
     keys = check_stream_keys()
     if keys:
         print("\n🔑 Saved Stream Keys:")
@@ -50,26 +50,26 @@ def main():
             print(f"   - {platform}")
     else:
         print("\n🔑 No stream keys saved (use: showet-stream --save-key twitch --key YOUR_KEY)")
-    
+
     print("\n🚀 Quick Commands:")
     print("   - Run demo: showet 12345")
     print("   - Stream demo: showet-stream --platform twitch --demo 12345")
     print("   - Search demos: showet-launcher --search commodore")
     print("   - View CRT presets: showet-launcher --list-presets")
     print("   - Demo info: demo-viewer --demo-id 12345")
-    
+
     print("\n💾 Cache Location: ~/.cache/showet/")
     cache_dir = Path.home() / ".cache" / "showet"
     if cache_dir.exists():
         demo_count = len([d for d in cache_dir.iterdir() if d.is_dir() and d.name.isdigit()])
         print(f"   Cached demos: {demo_count}")
-    
+
     print("\n🌐 nostalgist Integration:")
     nostalgist_dir = Path(__file__).parent / "nostalgist_configs"
     if nostalgist_dir.exists():
         config_count = len(list(nostalgist_dir.glob("*.json")))
         print(f"   Platform configs: {config_count}")
-    
+
     print("\n" + "═" * 50)
 
 if __name__ == "__main__":

@@ -26,7 +26,7 @@ def generate_configs() -> int:
 def check_http_server() -> bool:
     """Check if a local HTTP server can be started."""
     try:
-        result = subprocess.run(["python3", "-m", "http.server", "--help"], 
+        result = subprocess.run(["python3", "-m", "http.server", "--help"],
                                capture_output=True, timeout=5)
         return result.returncode == 0
     except Exception:
@@ -106,7 +106,7 @@ showetNostalgist.startJukebox();
 3. **No audio** - Click inside browser window first
 4. **Slow loading** - Reduce canvas resolution in config
 """
-    
+
     Path("TVS99_SETUP.md").write_text(readme_content)
 
 
@@ -114,7 +114,7 @@ def main():
     """Run the TVS99 setup wizard."""
     print("📺 Television Simulator '99 Setup Wizard\n")
     print("=" * 40)
-    
+
     # Check configs
     print("\n1. Checking nostalgist configs...")
     if check_nostalgist_config():
@@ -126,19 +126,19 @@ def main():
             print(f"   ✅ Generated {count} configs")
         except Exception as e:
             print(f"   ❌ Failed: {e}")
-    
+
     # Check HTTP server
     print("\n2. Checking HTTP server capability...")
     if check_http_server():
         print("   ✅ HTTP server available (python3 -m http.server)")
     else:
         print("   ❌ HTTP server not available")
-    
+
     # Create setup readme
     print("\n3. Creating setup documentation...")
     create_tvs99_readme()
     print("   ✅ Created TVS99_SETUP.md")
-    
+
     print("\n" + "=" * 40)
     print("\nTo start TVS99:")
     print("  python3 -m http.server 8000")

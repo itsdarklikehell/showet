@@ -58,12 +58,12 @@ def search_party_demos(party_name: str, year: str | None = None) -> list[dict]:
     """
     client = SceneOrgClient()
     demos = []
-    
+
     # Build search pattern
     search_pattern = party_name
     if year:
         search_pattern = f"{party_name}_{year}"
-    
+
     try:
         results = client.search_demos(search_pattern)
         for result in results[:50]:  # Limit to 50
@@ -75,14 +75,14 @@ def search_party_demos(party_name: str, year: str | None = None) -> list[dict]:
             })
     except Exception as e:
         logger.warning("Scene.org search failed: %s", e)
-    
+
     # Also search Pouet for party productions
     try:
         pouet_results = search_pouet_party(party_name, year)
         demos.extend(pouet_results[:20])
     except Exception as e:
         logger.warning("Pouet search failed: %s", e)
-    
+
     return demos
 
 
@@ -97,17 +97,17 @@ def search_pouet_party(party_name: str, year: str | None = None) -> list[dict]:
         List of demo metadata
     """
     demos = []
-    
+
     # Pouet has a prods endpoint we can search
     url = f"http://api.pouet.net/v1/prod/?search={party_name}"
     if year:
         url += f"&year={year}"
-    
+
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Showet/3.0"})
         with urllib.request.urlopen(req, timeout=10) as response:
             data = json.loads(response.read().decode())
-            
+
             for prod in data.get("prods", [])[:20]:
                 demos.append({
                     "id": prod.get("id"),
@@ -118,7 +118,7 @@ def search_pouet_party(party_name: str, year: str | None = None) -> list[dict]:
                 })
     except Exception as e:
         logger.debug("Pouet API error: %s", e)
-    
+
     return demos
 
 
@@ -142,57 +142,57 @@ def demoparty_watch(
         Number of demos found
     """
     demos = search_party_demos(party_name, year)
-    
+
     if not demos:
         print(f"No demos found for {party_name}")
         return 0
-    
+
     print(f"\n🎮 {party_name.upper()} Demoparty Mode")
     print(f"Found {len(demos)} demos\n")
-    
+
     # Separate Pouet and scene.org IDs
     pouet_ids = [d["id"] for d in demos if d.get("source") == "pouet" and d.get("id")]
     scene_names = [d["name"] for d in demos if d.get("source") == "scene_org"]
-    
+
     # Generate playlist summary
     playlist = generate_cross_source_playlist(
         pouet_ids=pouet_ids,
         scene_org_names=scene_names,
     )
-    
+
     # Print the lineup
     for i, demo in enumerate(playlist, 1):
         loops = "🔄" if demo.get("loops") else "▶"
         print(f"  {i:2}. {loops} {demo.get('title', 'Unknown')}")
-    
+
     print()
-    
+
     # Launch jukebox with these demos
     mode = "sequential" if sequential else "shuffle"
     repeat = "one" if loop_repeat else "none"
-    
+
     jukebox_cmd = [
         "showet-jukebox",
         "--source", "mixed",
     ]
-    
+
     if pouet_ids:
         jukebox_cmd.extend(["--ids"] + pouet_ids)
-    
+
     if scene_names:
         jukebox_cmd.extend(["--scene-org-names"] + scene_names)
-    
+
     jukebox_cmd.extend([
         "--mode", mode,
         "--repeat", repeat,
     ])
-    
+
     print("Starting playback...")
     try:
         subprocess.run(jukebox_cmd, cwd=Path(__file__).parent)
     except Exception as e:
         logger.error("Failed to start jukebox: %s", e)
-    
+
     return len(demos)
 
 
@@ -225,7 +225,7 @@ def main() -> int:
     party_name = args.party.lower()
     if party_name in PARTY_KEYWORDS:
         party_name = PARTY_KEYWORDS[party_name]
-    
+
     return demoparty_watch(
         party_name=party_name,
         year=args.year,

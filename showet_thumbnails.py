@@ -36,7 +36,7 @@ def generate_placeholder_thumbnail(title: str, output_path: str, platform: str =
         # Use ffmpeg to create a colored placeholder
         safe_title = title or "Demo"
         color = "#ff6b00" if platform == "commodore_64" else "#1a1a1a"
-        
+
         cmd = [
             "ffmpeg", "-y",
             "-f", "lavfi", "-i", f"color=c={color}:s=320x240:d=0.1",
@@ -58,7 +58,7 @@ def get_demo_metadata(demo_id: int, source: str = "pouet") -> dict | None:
             url = f"https://api.pouet.net/v1/prod/{demo_id}.json"
         else:
             url = f"https://demozoo.org/api/v1/productions/{demo_id}/"
-        
+
         req = urllib.request.Request(url, headers={"User-Agent": "Showet/2.0"})
         response = urllib.request.urlopen(req, timeout=10)
         return json.loads(response.read().decode())
@@ -70,7 +70,7 @@ def batch_generate_thumbnails(demo_ids: list[int], source: str = "pouet") -> int
     """Generate thumbnails for multiple demos."""
     ensure_thumbnail_dir()
     count = 0
-    
+
     for demo_id in demo_ids:
         metadata = get_demo_metadata(demo_id, source)
         if metadata:
@@ -78,7 +78,7 @@ def batch_generate_thumbnails(demo_ids: list[int], source: str = "pouet") -> int
             output = THUMBNAIL_DIR / f"{demo_id}.png"
             generate_placeholder_thumbnail(title, str(output), metadata.get("platform", "unknown"))
             count += 1
-    
+
     return count
 
 
@@ -118,13 +118,6 @@ def generate_from_nostalgist(core: str, demo_path: str, output_path: str) -> boo
     # to run nostalgist.js headlessly and capture a frame
     try:
         # Placeholder for WebAssembly integration
-        config = {
-            "platform": "auto",
-            "core": core,
-            "demo": demo_path,
-            "captureFrame": True,
-            "output": output_path
-        }
         return True
     except Exception:
         return False

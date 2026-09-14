@@ -11,30 +11,30 @@ def extract_platform_info(content: str) -> dict:
     """Extract slug, core, and extensions from a platform file."""
     slug_match = re.search(r'return \[["\']([^"\']+)["\']\]', content)
     core_match = re.search(r"cores = \[[\s\n]*['\"]([^'\"]+)['\"]", content)
-    
+
     # Try to find extensions
     extensions_match = re.search(r"extensions = \[([^\]]+)\]", content, re.DOTALL)
-    
+
     slug = slug_match.group(1) if slug_match else "unknown"
     core = core_match.group(1) if core_match else "libretro"
-    
+
     # Default extensions for common platforms
     default_extensions = {
         "commodore128": ["d64", "d71", "d81", "t64", "tap", "prg", "p00"],
         "commodore_amiga": ["adf", "dms", "ipf", "adz", "lha", "zip"],
         "atarivcs": ["zip", "a26", "bin"],
     }
-    
+
     if extensions_match:
         ext_str = extensions_match.group(1)
         extensions = re.findall(r"['\"]([^'\"]+)['\"]", ext_str)
     else:
         extensions = default_extensions.get(slug, ["zip"])
-    
+
     # Class name
     class_match = re.search(r"class (Platform_\w+)\(", content)
     class_name = class_match.group(1) if class_match else "Platform"
-    
+
     return {
         "slug": slug,
         "core": core,
@@ -49,7 +49,7 @@ def generate_clean_platform(data: dict) -> str:
     core = data["core"]
     extensions = data["extensions"]
     class_name = data["class_name"]
-    
+
     platform_descs = {
         "commodore64": "Commodore 64 demos",
         "commodore128": "Commodore 128 demos",
@@ -57,9 +57,9 @@ def generate_clean_platform(data: dict) -> str:
         "playstation": "Sony PlayStation demos",
         "atarivcs": "Atari VCS (2600) demos",
     }
-    
+
     description = platform_descs.get(slug, f"{slug.replace('_', ' ').title()} demos")
-    
+
     return f'''"""Runner for the pouet "{slug}" platform.
 
 {description}
@@ -109,7 +109,7 @@ class {class_name}(PlatformCommon):
 def main():
     project_dir = Path(__file__).parent.parent
     platform_files = sorted(project_dir.glob("Platform_*.py"))
-    
+
     old_pattern_count = 0
     for pf in platform_files:
         content = pf.read_text()
@@ -119,7 +119,7 @@ def main():
             new_content = generate_clean_platform(info)
             pf.write_text(new_content)
             print(f"Refactored: {pf.name}")
-    
+
     print(f"\\nTotal files refactored: {old_pattern_count}")
 
 

@@ -15,7 +15,7 @@ def test_imports():
         "showet_setup_wizard",
         "showet_dependency_installer",
     ]
-    
+
     results = []
     for m in modules:
         try:
@@ -23,27 +23,27 @@ def test_imports():
             results.append(f"✅ {m}")
         except Exception as e:
             results.append(f"❌ {m}: {e}")
-    
+
     return results
 
 
 def main():
     print("🧪 Showet Component Tests\n")
     print("=" * 40)
-    
+
     print("\n📦 Module Imports:")
     for r in test_imports():
         print(f"  {r}")
-    
+
     print("\n📋 Jukebox Config:")
     from showet_jukebox import DEFAULT_LOOP_LIMIT
     print(f"  Loop limit for shuffle: {DEFAULT_LOOP_LIMIT}")
-    
+
     print("\n📦 ModArchive Check:")
     from modarchive_enhanced import ShowetModArchive
     api = ShowetModArchive()
     print(f"  Loaded demo artists: {len(api.DEMO_ARTISTS)} known groups")
-    
+
     print("\n" + "=" * 40)
     print("\n✅ All systems ready!")
     print("\nNext steps:")

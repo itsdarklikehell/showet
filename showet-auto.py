@@ -14,7 +14,7 @@ def download_demo(source, demo_id=None, search=None):
         cmd = ['scene-org', '--search', search or demo_id, '--download']
     else:
         return None
-    
+
     result = subprocess.run(cmd, capture_output=True, text=True)
     # Parse output to find downloaded file
     for line in result.stdout.split('\n'):
@@ -31,7 +31,7 @@ def install_dependencies(platform):
     """Check and install dependencies for platform."""
     result = subprocess.run(['showet-installer', 'check', '--platform', platform],
                           capture_output=True, text=True)
-    
+
     if 'BIOS' in result.stdout or 'required' in result.stdout:
         print("🔧 Some BIOS files may be required - installing emulators...")
         subprocess.run(['showet-installer', 'install', '--platform', platform])
@@ -40,7 +40,7 @@ def install_dependencies(platform):
 def extract_and_run(demo_path, platform='auto'):
     """Extract archive if needed and run demo."""
     path = Path(demo_path)
-    
+
     # Check if archive
     if path.suffix.lower() in ['.zip', '.rar', '.7z', '.lha', '.lzh']:
         print(f"📦 Extracting {path.name}...")
@@ -51,7 +51,7 @@ def extract_and_run(demo_path, platform='auto'):
             if Path(line.strip()).exists():
                 demo_path = line.strip()
                 break
-    
+
     # Run demo
     print(f"▶️ Running {demo_path}...")
     subprocess.run(['showet-executor', demo_path, '--prefer-retroarch'])
@@ -68,14 +68,14 @@ def run_one_command(demo_ref):
             - Local file path
     """
     path = Path(demo_ref)
-    
+
     # Local file
     if path.exists():
         print(f"📂 Found local demo: {demo_ref}")
         # Detect platform and run
         subprocess.run(['showet-executor', demo_ref, '--prefer-retroarch'])
         return
-    
+
     # Pouet ID (numeric)
     if demo_ref.isdigit():
         print(f"📥 Downloading from Pouet.net ID: {demo_ref}")
@@ -84,7 +84,7 @@ def run_one_command(demo_ref):
             install_dependencies(demo_ref)
             extract_and_run(demo_path)
         return
-    
+
     # Scene.org search or other
     print(f"🔍 Searching scene.org: {demo_ref}")
     demo_path = download_demo('scene-org', search=demo_ref)
@@ -105,7 +105,7 @@ def main():
         print("  showet-auto 'Second Reality'  # Search")
         print("  showet-auto demo.d64       # Local file")
         sys.exit(1)
-    
+
     demo_ref = sys.argv[1]
     run_one_command(demo_ref)
 
