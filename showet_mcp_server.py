@@ -3,7 +3,8 @@
 
 This lets any MCP-capable agent (GLaDOS, Wheatley, jaison-core, airi,
 mcp-this, an LLM IDE, etc.) drive Showet: list platforms, search Pouet.net
-demos, fetch demo metadata, and prepare a demo for playback.
+demos (with optional platform filter), fetch demo metadata, get offline
+recommendations, and prepare a demo for playback.
 
 Transport: stdio (the MCP default). Run with:
     python showet_mcp_server.py
@@ -25,11 +26,11 @@ from mcp.server.stdio import stdio_server
 
 # Make showet's own modules importable from this script's directory.
 PROJECT_ROOT = Path(__file__).parent
-import sys
+import sys  # noqa: E402
 
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from showet_api import get_api  # the singleton high-level API
+from showet_api import get_api  # the singleton high-level API  # noqa: E402
 
 server = Server("showet-mcp")
 
@@ -49,14 +50,18 @@ async def _on_list_tools(context, params):
         types.Tool(
             name="showet_search_demos",
             description="Search Pouet.net demoscene productions by free-text "
-                        "query (e.g. '64k intro 2024', 'amiga'). Returns id, "
-                        "name, type, score.",
+                        "query (e.g. '64k intro 2024', 'amiga'). Supports "
+                        "optional platform filter. Returns id, name, type, "
+                        "score, platform.",
             input_schema={
                 "type": "object",
                 "properties": {
                     "query": {"type": "string", "description": "Search term."},
                     "limit": {"type": "integer", "default": 20,
                               "description": "Max results."},
+                    "platform": {"type": "string", "default": "",
+                                 "description": "Optional platform slug filter "
+                                                "(e.g. 'commodore_64')."},
                 },
                 "required": ["query"],
             },
@@ -92,10 +97,31 @@ async def _on_list_tools(context, params):
             },
         ),
         types.Tool(
+            name="showet_get_recommendations",
+            description="Get offline demo recommendations based on local "
+                        "favorites and viewing history. Returns a ranked list "
+                        "of Pouet.net production IDs. Works without an API key.",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "limit": {"type": "integer", "default": 10,
+                              "description": "Max recommendations."},
+                },
+                "required": [],
+            },
+        ),
+        types.Tool(
             name="showet_get_status",
             description="Showet runtime status: number of platforms loaded, "
                         "the platform list, version, and whether the "
                         "nostalgist.js manifest is present.",
+            input_schema={"type": "object", "properties": {}},
+        ),
+        types.Tool(
+            name="showet_get_status_extended",
+            description="Extended status: includes platforms_loaded, platform "
+                        "count, version, nostalgist status, demo database ready, "
+                        "and streaming backend availability.",
             input_schema={"type": "object", "properties": {}},
         ),
     ]
@@ -109,15 +135,22 @@ async def _on_call_tool(context, params):
         if name == "showet_list_platforms":
             result = _api().list_platforms()
         elif name == "showet_search_demos":
+            platform_filter = args.get("platform") or None
             result = _api().search_demos(
-                args.get("query", ""), int(args.get("limit", 20)))
+                args.get("query", ""), int(args.get("limit", 20)),
+                platform=platform_filter,
+            )
         elif name == "showet_get_demo_info":
             result = _api().get_demo_info(int(args["pouet_id"]))
         elif name == "showet_run_demo":
             plat = args.get("platform") or None
             result = _api().run_demo(int(args["pouet_id"]), plat)
+        elif name == "showet_get_recommendations":
+            result = _api().get_recommendations(int(args.get("limit", 10)))
         elif name == "showet_get_status":
             result = _api().get_status()
+        elif name == "showet_get_status_extended":
+            result = _api().get_status_extended()
         else:
             result = {"error": f"unknown tool: {name}"}
     except Exception as exc:  # surface errors as tool output, never crash

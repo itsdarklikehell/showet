@@ -116,13 +116,41 @@ class ShowetAPI:
             "nostalgist_ready": (Path(__file__).parent / "nostalgist_configs" / "manifest.json").exists()
         }
 
-    def search_demos(self, query: str, limit: int = 20) -> list[dict]:
+    def get_status_extended(self) -> dict[str, Any]:
+        """Get extended API status."""
+        self._ensure_loaded()
+        db_ready = Path.home() / ".showet" / "demo_db.json"
+        return {
+            "platforms_loaded": len(self._platforms),
+            "platforms": self.list_platforms(),
+            "version": "4.0.0-dev",
+            "nostalgist_ready": (Path(__file__).parent / "nostalgist_configs" / "manifest.json").exists(),
+            "demo_db_ready": db_ready.exists(),
+            "db_path": str(db_ready),
+            "platform_count": len(self._platforms),
+        }
+
+    def get_recommendations(self, limit: int = 10) -> list[int]:
+        """Get offline demo recommendations from local demo database.
+
+        Returns a ranked list of Pouet.net production IDs based on
+        local favorites and viewing history. Works without an API key.
+        """
+        try:
+            from demo_database import DemoDatabase
+            db = DemoDatabase()
+            return db.get_recommendations(limit=limit)
+        except Exception:
+            return []
+
+    def search_demos(self, query: str, limit: int = 20, platform: str = None) -> list[dict]:
         """Search demos via Pouet.net API.
-        
+
         Args:
             query: Search term
             limit: Maximum results to return
-            
+            platform: Optional platform slug filter
+
         Returns:
             List of demo metadata
         """
@@ -133,11 +161,17 @@ class ShowetAPI:
 
             results = []
             for prod_id, prod in list(data.get("results", {}).items())[:limit]:
+                prod_platforms = [p["slug"] for p in prod.get("platforms", {}).values()]
+                # Apply platform filter if specified
+                if platform and prod_platforms:
+                    if platform not in prod_platforms:
+                        continue
                 results.append({
                     "id": int(prod_id),
                     "name": prod.get("name", "Unknown"),
                     "type": prod.get("type", ""),
                     "score": prod.get("score", 0),
+                    "platform": prod_platforms[0] if prod_platforms else None,
                 })
             return results
         except Exception:
