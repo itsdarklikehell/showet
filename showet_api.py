@@ -143,6 +143,54 @@ class ShowetAPI:
         except Exception:
             return []
 
+    def list_favorites(self) -> list[dict]:
+        """List all favorite demos with metadata."""
+        try:
+            from favorites_manager import FavoritesManager
+            fm = FavoritesManager()
+            return fm.list_favorites()
+        except Exception:
+            return []
+
+    def add_favorite(self, pouet_id: int, name: str, platform: str = "",
+                     notes: str = "") -> dict:
+        """Add a demo to favorites."""
+        try:
+            from favorites_manager import FavoritesManager
+            fm = FavoritesManager()
+            fm.add_favorite(pouet_id, name, platform, notes)
+            return {"status": "ok", "id": pouet_id, "name": name}
+        except Exception as e:
+            return {"status": "error", "error": str(e)}
+
+    def remove_favorite(self, pouet_id: int) -> dict:
+        """Remove a demo from favorites."""
+        try:
+            from favorites_manager import FavoritesManager
+            fm = FavoritesManager()
+            removed = fm.remove_favorite(pouet_id)
+            return {"status": "ok", "removed": removed}
+        except Exception as e:
+            return {"status": "error", "error": str(e)}
+
+    def get_history(self, limit: int = 50) -> list[dict]:
+        """Get recent viewing history."""
+        try:
+            from demo_database import DemoDatabase
+            db = DemoDatabase()
+            return db.get_history(limit=limit)
+        except Exception:
+            return []
+
+    def get_playlists(self) -> dict:
+        """Get all playlists."""
+        try:
+            from demo_database import DemoDatabase
+            db = DemoDatabase()
+            return db.get_playlists()
+        except Exception:
+            return {}
+
     def search_demos(self, query: str, limit: int = 20, platform: str = None) -> list[dict]:
         """Search demos via Pouet.net API.
 

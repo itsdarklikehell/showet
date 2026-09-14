@@ -32,8 +32,10 @@ class FavoritesManager:
         if self.favorites_file.exists():
             try:
                 with open(self.favorites_file) as f:
-                    self._favorites = json.load(f)
-            except (OSError, json.JSONDecodeError):
+                    loaded = json.load(f)
+                # JSON keys zijn altijd strings; converteer naar int
+                self._favorites = {int(k): v for k, v in loaded.items()}
+            except (OSError, json.JSONDecodeError, ValueError):
                 self._favorites = {}
         else:
             self._favorites = {}

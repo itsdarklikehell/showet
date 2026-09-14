@@ -118,11 +118,50 @@ async def _on_list_tools(context, params):
             input_schema={"type": "object", "properties": {}},
         ),
         types.Tool(
-            name="showet_get_status_extended",
-            description="Extended status: includes platforms_loaded, platform "
-                        "count, version, nostalgist status, demo database ready, "
-                        "and streaming backend availability.",
+            name="showet_get_playlists",
+            description="Get all demo playlists (named collections of Pouet.net IDs).",
             input_schema={"type": "object", "properties": {}},
+        ),
+        types.Tool(
+            name="showet_list_favorites",
+            description="List all favorite demos with metadata (id, name, platform, notes, added_at).",
+            input_schema={"type": "object", "properties": {}},
+        ),
+        types.Tool(
+            name="showet_add_favorite",
+            description="Add a demo to favorites (id, name, platform, notes).",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "pouet_id": {"type": "integer", "description": "Pouet.net production ID."},
+                    "name": {"type": "string", "description": "Demo name."},
+                    "platform": {"type": "string", "default": "", "description": "Platform slug."},
+                    "notes": {"type": "string", "default": "", "description": "User notes."},
+                },
+                "required": ["pouet_id", "name"],
+            },
+        ),
+        types.Tool(
+            name="showet_remove_favorite",
+            description="Remove a demo from favorites by Pouet.net ID.",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "pouet_id": {"type": "integer", "description": "Pouet.net production ID."},
+                },
+                "required": ["pouet_id"],
+            },
+        ),
+        types.Tool(
+            name="showet_get_history",
+            description="Get recent viewing history (demo ID, platform, played_at, score).",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "limit": {"type": "integer", "default": 50, "description": "Max entries."},
+                },
+                "required": [],
+            },
         ),
     ]
     return types.ListToolsResult(tools=tools)
@@ -151,6 +190,21 @@ async def _on_call_tool(context, params):
             result = _api().get_status()
         elif name == "showet_get_status_extended":
             result = _api().get_status_extended()
+        elif name == "showet_get_playlists":
+            result = _api().get_playlists()
+        elif name == "showet_list_favorites":
+            result = _api().list_favorites()
+        elif name == "showet_add_favorite":
+            result = _api().add_favorite(
+                int(args["pouet_id"]),
+                args.get("name", ""),
+                args.get("platform", ""),
+                args.get("notes", ""),
+            )
+        elif name == "showet_remove_favorite":
+            result = _api().remove_favorite(int(args["pouet_id"]))
+        elif name == "showet_get_history":
+            result = _api().get_history(int(args.get("limit", 50)))
         else:
             result = {"error": f"unknown tool: {name}"}
     except Exception as exc:  # surface errors as tool output, never crash
