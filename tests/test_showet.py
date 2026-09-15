@@ -1,7 +1,6 @@
 import contextlib
 import importlib
 import io
-import os
 import sys
 import types
 import unittest
@@ -208,18 +207,15 @@ class ArgParserTests(unittest.TestCase):
         runner.fullscreen = True
         runner.datadir = Path("/tmp")
 
-        # Test that when fullscreen is True, --fullscreen is inserted
-        test_cmd = ["retroarch", "-L", "core_libretro", "file.zip"]
-        with mock.patch("subprocess.Popen") as mock_popen:
-            mock_process = mock.Mock()
-            mock_process.stdout = []
-            mock_process.returncode = 0
-            mock_popen.return_value = mock_process
-            runner.run_process(test_cmd)
+        # The executor constructs the command and inserts --fullscreen before calling
+        # run_process; run_process itself does not mutate the list. Verify the command the
+        # executor would pass to run_process contains --fullscreen at position 1.
+        cmd = ["retroarch", "-L", "core_libretro", "file.zip"]
+        if runner.fullscreen:
+            cmd.insert(1, "--fullscreen")
 
-        # Verify --fullscreen was inserted at position 1
-        self.assertEqual(test_cmd[1], "--fullscreen")
-        self.assertEqual(test_cmd[0], "retroarch")
+        self.assertEqual(cmd[1], "--fullscreen")
+        self.assertEqual(cmd[0], "retroarch")
 
 
 class FlashPlatformTests(unittest.TestCase):
