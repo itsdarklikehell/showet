@@ -1,7 +1,8 @@
 """Integration tests for Showet Universal Demo Executor."""
 
-import pytest
 from pathlib import Path
+
+import pytest
 
 
 class TestPlatformDetection:

@@ -1,7 +1,8 @@
 """Tests for RetroPie integration."""
 
-import pytest
 from unittest.mock import patch
+
+import pytest
 
 
 class TestPiDetection:
@@ -53,6 +54,3 @@ class TestOptimize:
             assert "model" in recs
             assert "gpu_mem" in recs
 
-
-if __name__ == "__main__":
-    pytest.main([__file__, "-v"])

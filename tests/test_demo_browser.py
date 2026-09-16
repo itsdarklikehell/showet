@@ -1,7 +1,8 @@
 """Tests for showet demo browser API."""
 
-import pytest
 from unittest.mock import patch
+
+import pytest
 
 
 class TestPlatformConfigs:
