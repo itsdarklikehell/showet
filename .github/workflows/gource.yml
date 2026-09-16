@@ -26,6 +26,11 @@ jobs:
           gource_filename_time: 3
           gource_hide_items: 'mouse,date,filenames'
 
+      - name: Install ffmpeg (runner)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+
       - name: Upscale + re-encode
         run: |
           ffmpeg -y -i ./gource/gource.mp4 \
