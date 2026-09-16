@@ -123,3 +123,8 @@ showet-gui/showet-gui
 .chalk/context/
 .chalk/skills/*.enabled
 gource.mp4\nuv.lock\n__pycache__/\n*.pyc
+<<<<<<< HEAD
+=======
+gource.mp4
+uv.lock
+>>>>>>> 8297ea9 (chore: add gource artifacts and uv.lock to gitignore)
