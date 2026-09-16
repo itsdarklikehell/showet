@@ -114,7 +114,7 @@ def get_preset(platform_slug: str) -> dict[str, Any]:
         CRT preset configuration
     """
     slug_lower = platform_slug.lower()
-    
+
     # Map platforms to presets
     platform_map = {
         "commodore_64": "c64_monitor",
@@ -133,16 +133,16 @@ def get_preset(platform_slug: str) -> dict[str, Any]:
         "ms-dos": "vga_vesa",
         "microsoft_msdos": "vga_vesa",
     }
-    
+
     # Try exact match first
     for platform, preset_name in platform_map.items():
         if platform in slug_lower:
             return CRT_PRESETS.get(preset_name, CRT_PRESETS["amiga_ocs"])
-    
+
     # Try direct preset match
     if slug_lower in CRT_PRESETS:
         return CRT_PRESETS[slug_lower]
-    
+
     # Default fallback
     return CRT_PRESETS["amiga_ocs"]
 
@@ -157,7 +157,7 @@ def generate_shader_config(platform_slug: str) -> dict[str, Any]:
         Configuration dict for nostalgist.js shader system
     """
     preset = get_preset(platform_slug)
-    
+
     return {
         "shader": preset["shader"],
         "parameters": {
@@ -193,7 +193,7 @@ if __name__ == "__main__":
     print("📺 Available CRT Presets:")
     for _slug, preset in CRT_PRESETS.items():
         print(f"  - {preset['name']}: {preset['description']}")
-    
+
     print("\n🎯 Platform mappings:")
     for platform, preset in {
         "c64": "c64_monitor",

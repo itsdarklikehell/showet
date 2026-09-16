@@ -26,7 +26,7 @@ def test_platform_detection():
         ".adf": "amiga",
         ".gb": "gameboy",
     }
-    
+
     print("Testing platform detection...")
     for ext, expected in tests.items():
         result = detect_platform(Path(f"test{ext}"))
@@ -44,7 +44,7 @@ def test_core_availability():
         "mastersystem": "genesis_plus_gx_libretro.so",
         "dos": "dosbox_core_libretro.so",
     }
-    
+
     for platform, core in cores.items():
         path = find_core_path(core)
         status = "✅" if path else "❌"
@@ -55,7 +55,7 @@ def test_nostalgist_configs():
     """Test nostalgist config validity."""
     print("\nTesting nostalgist configs...")
     config_dir = Path("nostalgist_configs")
-    
+
     ready_platforms = []
     for cfg in config_dir.glob("*.json"):
         if cfg.name == "manifest.json":
@@ -66,7 +66,7 @@ def test_nostalgist_configs():
         if has_core:
             ready_platforms.append(cfg.stem)
         print(f"  {status} {cfg.name}")
-    
+
     return ready_platforms
 
 
@@ -74,11 +74,11 @@ if __name__ == "__main__":
     print("=" * 60)
     print("SHOWET INTEGRATION TEST")
     print("=" * 60)
-    
+
     test_platform_detection()
     test_core_availability()
     ready = test_nostalgist_configs()
-    
+
     print("\n" + "=" * 60)
     print(f"Platforms ready for testing: {len(ready)}")
     print("=" * 60)

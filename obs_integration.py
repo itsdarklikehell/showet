@@ -108,7 +108,7 @@ SCENES = {
 # Scene transition timing (seconds)
 SCENE_TRANSITIONS = {
     "fade": "Fade",
-    "cut": "Cut", 
+    "cut": "Cut",
     "wipe": "Wipe",
     "sting": "Sting",
 }
@@ -118,7 +118,7 @@ def create_obs_integration(enabled: bool = True) -> OBSController | None:
     """Create OBS integration if enabled and available."""
     if not enabled:
         return None
-    
+
     # Check for obs-websocket plugin
     return OBSController()
 

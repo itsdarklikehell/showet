@@ -28,7 +28,7 @@ class ShowetAPI:
             return
 
         import importlib
-        
+
         # Discover and load all Platform_* modules
         project_root = Path(__file__).parent
         for pf in sorted(project_root.glob("Platform_*.py")):
@@ -43,7 +43,7 @@ class ShowetAPI:
                     self._platforms[instance.platform_name] = instance
             except Exception as e:
                 print(f"Warning: Could not load {module_name}: {e}")
-        
+
         self._loaded = True
 
     def get_platform(self, name: str) -> PlatformBase | None:
@@ -71,12 +71,12 @@ class ShowetAPI:
             url = f"http://api.pouet.net/v1/prod/?id={pouet_id}"
             data = json.loads(urllib.request.urlopen(url, timeout=10).read().decode())
             prod = data.get("prod", {})
-            
+
             # Determine platform if not specified
             if not platform:
                 platforms = [p["slug"] for p in prod.get("platforms", {}).values()]
                 platform = platforms[0] if platforms else None
-            
+
             return {
                 "status": "ready",
                 "platform": platform,
@@ -116,13 +116,89 @@ class ShowetAPI:
             "nostalgist_ready": (Path(__file__).parent / "nostalgist_configs" / "manifest.json").exists()
         }
 
-    def search_demos(self, query: str, limit: int = 20) -> list[dict]:
+    def get_status_extended(self) -> dict[str, Any]:
+        """Get extended API status."""
+        self._ensure_loaded()
+        db_ready = Path.home() / ".showet" / "demo_db.json"
+        return {
+            "platforms_loaded": len(self._platforms),
+            "platforms": self.list_platforms(),
+            "version": "4.0.0-dev",
+            "nostalgist_ready": (Path(__file__).parent / "nostalgist_configs" / "manifest.json").exists(),
+            "demo_db_ready": db_ready.exists(),
+            "db_path": str(db_ready),
+            "platform_count": len(self._platforms),
+        }
+
+    def get_recommendations(self, limit: int = 10) -> list[int]:
+        """Get offline demo recommendations from local demo database.
+
+        Returns a ranked list of Pouet.net production IDs based on
+        local favorites and viewing history. Works without an API key.
+        """
+        try:
+            from demo_database import DemoDatabase
+            db = DemoDatabase()
+            return db.get_recommendations(limit=limit)
+        except Exception:
+            return []
+
+    def list_favorites(self) -> list[dict]:
+        """List all favorite demos with metadata."""
+        try:
+            from favorites_manager import FavoritesManager
+            fm = FavoritesManager()
+            return fm.list_favorites()
+        except Exception:
+            return []
+
+    def add_favorite(self, pouet_id: int, name: str, platform: str = "",
+                     notes: str = "") -> dict:
+        """Add a demo to favorites."""
+        try:
+            from favorites_manager import FavoritesManager
+            fm = FavoritesManager()
+            fm.add_favorite(pouet_id, name, platform, notes)
+            return {"status": "ok", "id": pouet_id, "name": name}
+        except Exception as e:
+            return {"status": "error", "error": str(e)}
+
+    def remove_favorite(self, pouet_id: int) -> dict:
+        """Remove a demo from favorites."""
+        try:
+            from favorites_manager import FavoritesManager
+            fm = FavoritesManager()
+            removed = fm.remove_favorite(pouet_id)
+            return {"status": "ok", "removed": removed}
+        except Exception as e:
+            return {"status": "error", "error": str(e)}
+
+    def get_history(self, limit: int = 50) -> list[dict]:
+        """Get recent viewing history."""
+        try:
+            from demo_database import DemoDatabase
+            db = DemoDatabase()
+            return db.get_history(limit=limit)
+        except Exception:
+            return []
+
+    def get_playlists(self) -> dict:
+        """Get all playlists."""
+        try:
+            from demo_database import DemoDatabase
+            db = DemoDatabase()
+            return db.get_playlists()
+        except Exception:
+            return {}
+
+    def search_demos(self, query: str, limit: int = 20, platform: str = None) -> list[dict]:
         """Search demos via Pouet.net API.
-        
+
         Args:
             query: Search term
             limit: Maximum results to return
-            
+            platform: Optional platform slug filter
+
         Returns:
             List of demo metadata
         """
@@ -130,14 +206,20 @@ class ShowetAPI:
             url = f"http://api.pouet.net/v1/search/prod/?q={query}"
             response = urllib.request.urlopen(url, timeout=10)
             data = json.loads(response.read().decode())
-            
+
             results = []
             for prod_id, prod in list(data.get("results", {}).items())[:limit]:
+                prod_platforms = [p["slug"] for p in prod.get("platforms", {}).values()]
+                # Apply platform filter if specified
+                if platform and prod_platforms:
+                    if platform not in prod_platforms:
+                        continue
                 results.append({
                     "id": int(prod_id),
                     "name": prod.get("name", "Unknown"),
                     "type": prod.get("type", ""),
                     "score": prod.get("score", 0),
+                    "platform": prod_platforms[0] if prod_platforms else None,
                 })
             return results
         except Exception:

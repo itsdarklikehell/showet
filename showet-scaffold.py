@@ -82,14 +82,14 @@ def create_platform_runner(platform_key: str, output_dir: str):
         print(f"❌ Unknown platform: {platform_key}")
         print(f"Available platforms: {', '.join(PLATFORM_CONFIGS.keys())}")
         return False
-    
+
     config = PLATFORM_CONFIGS[platform_key]
     platform_name = platform_key.replace('_', ' ').title()
     platform_class = ''.join(word.capitalize() for word in platform_key.split('_'))
-    
+
     # Get base directory
     base = Path(output_dir)
-    
+
     # Create platform runner
     runner_content = PLATFORM_TEMPLATE.format(
         platform_name=platform_name,
@@ -101,18 +101,18 @@ def create_platform_runner(platform_key: str, output_dir: str):
         width=config["width"],
         height=config["height"]
     )
-    
+
     runner_path = base / f"Platform_{platform_key}.py"
     runner_path.write_text(runner_content)
     print(f"✅ Created: {runner_path}")
-    
+
     # Create nostalgist config
     config_content = CONFIG_TEMPLATE.format(platform_key=platform_key, **config)
     config_path = base / "nostalgist_configs" / f"{platform_key}.json"
     config_path.parent.mkdir(exist_ok=True)
     config_path.write_text(config_content)
     print(f"✅ Created: {config_path}")
-    
+
     # Create shader stub
     shader_content = SHADER_TEMPLATE.format(
         platform_name=platform_name,
@@ -123,7 +123,7 @@ def create_platform_runner(platform_key: str, output_dir: str):
     shader_path.parent.mkdir(exist_ok=True)
     shader_path.write_text(shader_content)
     print(f"✅ Created: {shader_path}")
-    
+
     return True
 
 def main():
@@ -137,24 +137,24 @@ Examples:
   python3 showet-scaffold.py --list
         """
     )
-    
+
     parser.add_argument('platform', nargs='?', help='Platform key to scaffold')
     parser.add_argument('--list', action='store_true', help='List available platforms')
     parser.add_argument('--dir', default='.', help='Output directory')
-    
+
     args = parser.parse_args()
-    
+
     if args.list:
         print("📋 Available platform templates:")
         for key in PLATFORM_CONFIGS:
             config = PLATFORM_CONFIGS[key]
             print(f"  {key:12} - core: {config['core']}, resolution: {config['width']}x{config['height']}")
         return
-    
+
     if not args.platform:
         parser.print_help()
         return
-    
+
     print(f"🚀 Scaffolding platform: {args.platform}")
     if create_platform_runner(args.platform, args.dir):
         print(f"\n🎉 {args.platform} platform added successfully!")

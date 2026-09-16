@@ -74,7 +74,7 @@ class RTMPRelay:
         # Add encoding and tee output
         cmd.extend([
             "-c:v", "libx264", "-preset", "fast", "-b:v", preset["bitrate"],
-            "-f", "tee", "-map", "0:v", 
+            "-f", "tee", "-map", "0:v",
             f"[{'|'.join(tee_parts)}]"
         ])
 
@@ -93,7 +93,6 @@ class RTMPRelay:
 
     def _start_multi(self, window_id: str) -> bool:
         """Start separate FFmpeg processes for each target."""
-        preset = QUALITY_PRESETS.get(self.config.quality, QUALITY_PRESETS["720p"])
 
         for platform, key in self.config.targets:
             try:

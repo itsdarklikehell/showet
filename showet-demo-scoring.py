@@ -12,23 +12,23 @@ class DemoScorer:
         self.innovation_weight = 0.3  # Technical innovations
         self.cultural_weight = 0.2    # Cultural impact
         self.rating_weight = 0.1      # Community ratings
-    
+
     def score_demo(self, demo: dict) -> float:
         """Calculate historical significance score (0-100)"""
         year_score = self._score_era(demo.get('year', 2000))
         innovation_score = self._score_innovations(demo.get('tags', []))
         cultural_score = self._score_cultural(demo.get('group', ''))
         rating_score = self._score_rating(demo.get('rank', 0))
-        
+
         total = (
             year_score * self.historical_weight +
             innovation_score * self.innovation_weight +
             cultural_score * self.cultural_weight +
             rating_score * self.rating_weight
         )
-        
+
         return round(total, 2)
-    
+
     def _score_era(self, year: int) -> float:
         """Score based on historical era"""
         if year < 1985:
@@ -45,7 +45,7 @@ class DemoScorer:
             return 70.0   # Shader emergence
         else:
             return 60.0   # Contemporary work
-    
+
     def _score_innovations(self, tags: list[str]) -> float:
         """Score based on technical innovations"""
         innovation_keywords = {
@@ -58,15 +58,15 @@ class DemoScorer:
             'realtime': 85,
             'procedural_generation': 90
         }
-        
+
         max_score = 50.0  # Base score
         for tag in tags:
             for keyword, score in innovation_keywords.items():
                 if keyword in tag.lower():
                     max_score = max(max_score, score)
-        
+
         return max_score
-    
+
     def _score_cultural(self, group: str) -> float:
         """Score based on group cultural impact"""
         legendary_groups = {
@@ -78,14 +78,14 @@ class DemoScorer:
             'booze design': 75,
             'sanctuary': 70
         }
-        
+
         group_lower = group.lower()
         for name, score in legendary_groups.items():
             if name in group_lower:
                 return score
-        
+
         return 40.0
-    
+
     def _score_rating(self, rank: int) -> float:
         """Score based on competition ranking (0-10)"""
         if rank <= 1:
@@ -96,7 +96,7 @@ class DemoScorer:
             return 60.0
         else:
             return 30.0
-    
+
     def rank_demos(self, demos: list[dict]) -> list[dict]:
         """Rank demos by historical significance"""
         scored = []
@@ -104,9 +104,9 @@ class DemoScorer:
             score = self.score_demo(demo)
             demo['historical_score'] = score
             scored.append(demo)
-        
+
         return sorted(scored, key=lambda d: d['historical_score'], reverse=True)
-    
+
     def get_museum_collection(self, demos: list[dict], limit: int = 50) -> list[dict]:
         """Get top demos for Museum Mode collection"""
         ranked = self.rank_demos(demos)
@@ -116,9 +116,9 @@ class DemoScorer:
 # CLI interface
 if __name__ == "__main__":
     import json
-    
+
     scorer = DemoScorer()
-    
+
     # Sample demo list
     sample_demos = [
         {"name": "Second Reality", "year": 1993, "group": "Future Crew", "rank": 1, "tags": ["raytracing", "3d"]},
@@ -126,13 +126,13 @@ if __name__ == "__main__":
         {"name": "Arte", "year": 1991, "group": "Sanctuary", "rank": 2, "tags": ["3d"]},
         {"name": "Elevated", "year": 2004, "group": "Conspiracy", "rank": 1, "tags": ["neural", "glsl"]}
     ]
-    
+
     ranked = scorer.rank_demos(sample_demos)
-    
+
     print("🏛️ Museum Mode Demo Rankings:")
     for demo in ranked:
         print(f"  {demo['historical_score']:>5.1f} - {demo['name']} ({demo['year']}) [{demo['group']}]")
-    
+
     # Output Museum Mode ready JSON
     museum_collection = scorer.get_museum_collection(sample_demos)
     print("\n📋 Museum Mode Collection (top 10):")

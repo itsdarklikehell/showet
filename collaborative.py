@@ -30,7 +30,7 @@ def create_session(platform: str, demo_id: int | None = None, stream_to: str | N
         Session ID for joining
     """
     session_id = str(uuid.uuid4())[:8]
-    
+
     SESSIONS[session_id] = {
         "platform": platform,
         "demo_id": demo_id,
@@ -42,7 +42,7 @@ def create_session(platform: str, demo_id: int | None = None, stream_to: str | N
         "playback_time": 0,
         "session_name": session_name,
     }
-    
+
     return session_id
 
 
@@ -51,7 +51,7 @@ def join_session(session_id: str, client_id: str) -> dict:
     session = SESSIONS.get(session_id)
     if not session:
         return {"error": "Session not found"}
-    
+
     session["peers"].append(client_id)
     return {
         "session": session,
@@ -64,10 +64,10 @@ def update_playback(session_id: str, state: str, time: float = 0) -> dict:
     session = SESSIONS.get(session_id)
     if not session:
         return {"error": "Session not found"}
-    
+
     session["playback_state"] = state
     session["playback_time"] = time
-    
+
     return {"status": "updated", "state": state}
 
 
@@ -118,7 +118,7 @@ ws.onmessage = (event) => {
 };
 </script>
 '''
-    
+
     chat_overlay = ""
     if spectator_mode:
         chat_overlay = '''
@@ -139,7 +139,7 @@ document.getElementById('chat-input').addEventListener('keypress', (e) => {
 });
 </script>
 '''
-    
+
     return f'''
 <div id="showet-session-{session_id}">
   <script>
@@ -177,7 +177,7 @@ class CollaborativeHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urlparse(self.path)
-        
+
         if parsed.path == "/api/sessions":
             self._handle_list_sessions()
         elif parsed.path.startswith("/api/session/"):
@@ -208,7 +208,7 @@ class CollaborativeHandler(SimpleHTTPRequestHandler):
         if not session:
             self.send_error(404, "Session not found")
             return
-        
+
         html = f'''
 <!DOCTYPE html>
 <html>
@@ -266,10 +266,10 @@ async def websocket_handler(websocket, path):
     try:
         # Extract session ID from path
         session_id = path.split("/")[-1]
-        
+
         # Register connection
         await register_connection(session_id, websocket)
-        
+
         # Send initial state
         session = get_session(session_id)
         if session:
@@ -277,7 +277,7 @@ async def websocket_handler(websocket, path):
                 "type": "session_info",
                 "session": session
             }))
-        
+
         # Listen for messages
         async for message in websocket:
             try:
@@ -303,7 +303,7 @@ def start_websocket_server(port: int = 8765):
         print(f"🤝 WebSocket server on ws://localhost:{port}")
         async with websockets.serve(websocket_handler, "0.0.0.0", port):
             await asyncio.Future()  # run forever
-    
+
     asyncio.run(run())
 
 

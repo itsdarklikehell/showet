@@ -31,10 +31,12 @@ def check_for_new_releases(party: str = None, days: int = 7) -> list[dict[str, A
     """
     try:
         if party:
-            search = PARTY_PATTERNS.get(party, {}).get("search", f"{party} 2026")
-            url = f"http://api.pouet.net/v1/search/prod/?q={search}&days={days}"
+            # party_search = PARTY_PATTERNS.get(party, {}).get("search", f"{party} 2026")
+            # url = f"http://api.pouet.net/v1/search/prod/?q={party_search}&days={days}"  # placeholder
+            pass
         else:
             _ = "http://api.pouet.net/v1/prod/?order=released"
+            pass  # placeholder for released-order URL
 
         # Placeholder - would connect to actual API
         return []
@@ -54,9 +56,9 @@ def generate_party_overlay(party_name: str, next_release: str = None) -> str:
     """
     from demo_scheduler import PartyCountdown
     party = PartyCountdown.get_next_party()
-    
+
     days = party.get("days_remaining", 0) if party else 0
-    
+
     return f'''
 <div id="party-overlay" style="
     position: fixed;
@@ -100,5 +102,5 @@ if __name__ == "__main__":
         print(f"   Location: {party['location']}")
     else:
         print("No upcoming parties")
-    
+
     print("\n📡 Check for new releases before streaming a party!")

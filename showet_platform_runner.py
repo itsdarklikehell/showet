@@ -103,7 +103,7 @@ def check_emulator(platform: str) -> str | None:
         return None
 
     profile = PLATFORM_PROFILES[platform]
-    
+
     # Check native emulator first
     for emu in profile.get("native_runner", "").split(","):
         if emu and shutil.which(emu):
@@ -135,7 +135,7 @@ def get_retroarch_core_path(core: str) -> Path | None:
 def launch_demo(demo_path: str, platform: str = "auto") -> subprocess.Popen | None:
     """Launch demo with appropriate emulator."""
     path = Path(demo_path)
-    
+
     # Auto-detect if needed
     if platform == "auto":
         for plat, prof in PLATFORM_PROFILES.items():
@@ -160,18 +160,18 @@ def launch_demo(demo_path: str, platform: str = "auto") -> subprocess.Popen | No
     if runner == "retroarch":
         core = profile.get("retroarch_core")
         core_path = get_retroarch_core_path(core)
-        
+
         cmd = ["retroarch", "-L", str(core_path), str(demo_path)]
-        
+
     elif runner == "dosbox-x" or runner == "dosbox":
         cmd = build_dosbox_cmd(demo_path, profile.get("dosbox_config", {}))
-        
+
     elif runner == "x64sc":
         cmd = ["x64sc", "-autostart", str(demo_path)]
-        
+
     elif runner == "fs-uae":
         cmd = build_fsuae_cmd(demo_path)
-        
+
     else:
         cmd = [runner, str(demo_path)]
 
@@ -181,16 +181,16 @@ def launch_demo(demo_path: str, platform: str = "auto") -> subprocess.Popen | No
 def build_dosbox_cmd(demo_path: str, config: dict) -> list[str]:
     """Build DOSBox command with config."""
     import tempfile
-    
+
     conf = "[autoexec]\nmount c /tmp\n"
     if demo_path.endswith((".exe", ".com", ".bat")):
         name = Path(demo_path).stem
         conf += f"c:\\\n{name}.exe\n"
-    
+
     with tempfile.NamedTemporaryFile(mode='w', suffix='.conf', delete=False) as f:
         f.write(conf)
         conf_path = f.name
-    
+
     return ["dosbox", "-conf", conf_path, "-noconsole"]
 
 
@@ -211,16 +211,16 @@ def get_autostart_commands(platform: str, demo_path: Path) -> list[str]:
     """
     if platform not in PLATFORM_PROFILES:
         return []
-    
+
     profile = PLATFORM_PROFILES[platform]
     ext = demo_path.suffix.lower()
-    
+
     # Check for platform-specific autostart
     if "autostart" in profile:
         for key, cmd in profile["autostart"].items():
             if key in ext or key == "executable":
                 return [cmd] if isinstance(cmd, str) else cmd
-    
+
     return []
 
 
@@ -248,12 +248,12 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: showet-platform-runner <demo_path> [--platform <platform>]")
         sys.exit(1)
-    
+
     platform = "auto"
     if "--platform" in sys.argv:
         idx = sys.argv.index("--platform")
         platform = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else "auto"
-    
+
     process = launch_demo(sys.argv[1], platform)
     if process:
         print(f"Demo launched with PID: {process.pid}")

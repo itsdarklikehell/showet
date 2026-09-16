@@ -57,22 +57,22 @@ def is_looped_demo(demo_info: dict | None, source: str = "pouet") -> bool:
     """
     if not demo_info:
         return False
-    
+
     rating = demo_info.get("rating", 0)
     demo_type = demo_info.get("type", "").lower()
     tags = demo_info.get("tags", "")
     name = demo_info.get("name", "").lower()
     size = demo_info.get("size", 0)
     platform = demo_info.get("platform", "").lower()
-    
+
     # High-rated intros often loop
     if rating and rating > 4.0 and "intro" in demo_type:
         return True
-    
+
     # Check demo type (64k/4k intros)
     if any(t in demo_type for t in LOOPED_DEMO_TYPES):
         return True
-    
+
     # Check tags
     if tags:
         tags_lower = tags.lower()
@@ -84,16 +84,16 @@ def is_looped_demo(demo_info: dict | None, source: str = "pouet") -> bool:
         for pattern in LOOP_PATTERNS:
             if pattern in tags_lower:
                 return True
-    
+
     # Check filename for loop indicators (scene.org style)
     for pattern in LOOP_PATTERNS:
         if pattern in name:
             return True
-    
+
     # Size heuristic: very small demos (<5MB) often loop infinitely
     if size and size < 5 * 1024 * 1024:
         return True
-    
+
     # Platform tendency heuristic
     for plat_key, _tendency in PLATFORM_LOOP_TENDENCY.items():
         if plat_key in platform:
@@ -101,7 +101,7 @@ def is_looped_demo(demo_info: dict | None, source: str = "pouet") -> bool:
             if any(p in name for p in ["intro", "64k", "4k", "cracktro"]):
                 return True
             break
-    
+
     return False
 
 
@@ -122,11 +122,11 @@ def estimate_demo_duration(demo_info: dict | None, source: str = "pouet") -> int
     """
     if not demo_info:
         return 180
-    
+
     demo_type = demo_info.get("type", "").lower()
     size = demo_info.get("size", 0)
     rating = demo_info.get("rating", 0)
-    
+
     # Check type-based estimates
     for demo_type_key, duration in DEMO_DURATION_ESTIMATES.items():
         if demo_type_key in demo_type:
@@ -137,5 +137,5 @@ def estimate_demo_duration(demo_info: dict | None, source: str = "pouet") -> int
             if size and size > 100 * 1024 * 1024:  # > 100MB
                 duration = int(duration * 1.5)  # Probably a full demo
             return duration
-    
+
     return 180

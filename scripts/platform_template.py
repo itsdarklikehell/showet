@@ -58,10 +58,10 @@ def generate_platform_runner(class_name: str, slug: str, core: str, extensions: 
         "playstation": "Sony PlayStation demos",
         "atarivcs": "Atari VCS (2600) demos",
     }
-    
+
     docstring = f"Runner for the pouet '{slug}' platform.\n\n{platforms.get(slug, description)}"
     class_docstring = platforms.get(slug, description) or f"{slug.replace('_', ' ').title()} platform runner"
-    
+
     return PLATFORM_TEMPLATE.format(
         docstring=docstring,
         class_name=class_name,

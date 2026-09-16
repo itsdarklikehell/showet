@@ -58,7 +58,7 @@ DEMO_DURATION_ESTIMATES = {
     "1k": 60, "4k": 120, "8k": 90, "16k": 120, "32k": 150,
     "40k": 180, "64k": 180, "80k": 200, "96k": 220, "100k": 240,
     "128k": 270, "256k": 300,
-    # Content types  
+    # Content types
     "intro": 90, "demo": 300, "diskmag": 600, "wild": 120,
     "artpack": 180, "slideshow": 150, "cracktro": 60, "dentro": 120,
     "musicdisk": 480, "demopack": 600, "demotool": 120,
@@ -135,7 +135,7 @@ def is_looped_demo(demo_info: dict | None, source: str = "pouet") -> bool:
         return _detect_scene_org_loop(demo_info)
     elif source == "modarchive":
         return _detect_modarchive_loop(demo_info)
-    
+
     return False
 
 
@@ -156,10 +156,10 @@ def _detect_pouet_loop(demo_info: dict) -> bool:
     tags = demo_info.get("tags", "")
     name = demo_info.get("name", "").lower()
     platform = demo_info.get("platform", "").lower()
-    
+
     if rating and rating > 4.0 and "intro" in demo_type:
         return True
-    
+
     # Check demo type (64k/4k intros)
     if any(t in demo_type for t in LOOPED_DEMO_TYPES):
         return True
@@ -179,7 +179,7 @@ def _detect_pouet_loop(demo_info: dict) -> bool:
     for pattern in LOOP_PATTERNS_EXTENDED:
         if pattern in name:
             return True
-    
+
     # Platform tendency heuristic
     for plat_key, tendency in PLATFORM_LOOP_TENDENCY.items():
         if plat_key in platform:
@@ -203,19 +203,19 @@ def _detect_scene_org_loop(demo_info: dict) -> bool:
     """
     name = demo_info.get("name", "").lower()
     size = demo_info.get("size", 0)
-    
+
     # All loop patterns from config
     if any(p in name for p in LOOP_PATTERNS_EXTENDED):
         return True
-    
+
     # Check for intros (often looping)
     if any(p in name for p in ["64k", "4k", "intro"]):
         return True
-    
+
     # Size heuristic: very small demos (<5MB) often loop infinitely
     if size and size < 5 * 1024 * 1024:  # 5MB
         return True
-    
+
     return False
 
 
@@ -225,11 +225,11 @@ def _detect_modarchive_loop(demo_info: dict) -> bool:
     Modules with longer durations or mix/remix patterns are good for looping.
     """
     name = demo_info.get("title", "").lower()
-    
+
     # Common patterns for long tracks
     if any(p in name for p in ["medley", "mix", "megamix", "remix"]):
         return True
-    
+
     return False
 
 
@@ -251,10 +251,10 @@ def estimate_demo_duration(demo_info: dict | None, source: str = "pouet") -> int
     """
     if not demo_info:
         return 180  # Default 3 minutes
-    
+
     demo_type = ""
     platform = ""
-    
+
     if source == "pouet":
         demo_type = demo_info.get("type", "").lower()
         # Try to extract platform from demo info
@@ -272,21 +272,21 @@ def estimate_demo_duration(demo_info: dict | None, source: str = "pouet") -> int
         # Module duration based on format
         module_format = demo_info.get("format", "").lower()
         return MODULE_DURATION_ESTIMATES.get(module_format, 180)
-    
+
     # Check type-based estimates first - but skip "demo" key which is too generic
     for demo_type_key, duration in DEMO_DURATION_ESTIMATES.items():
         if demo_type_key != "demo" and demo_type_key in demo_type:
             return duration
-    
+
     # Check platform-based estimates - check platform before generic "demo" type
     for platform_key, duration in DEMO_DURATION_ESTIMATES.items():
         if platform_key in platform:
             return duration
-    
+
     # Finally check for generic demo type
     if "demo" in demo_type:
         return DEMO_DURATION_ESTIMATES["demo"]
-    
+
     return 180  # Default fallback
 
 
@@ -308,7 +308,7 @@ def generate_cross_source_playlist(
         List of unified demo metadata dictionaries
     """
     playlist = []
-    
+
     # Fetch Pouet demos
     if pouet_ids:
         for pid in pouet_ids:
@@ -325,7 +325,7 @@ def generate_cross_source_playlist(
                     "duration": estimate_demo_duration(demo_info, "pouet"),
                     "platform": demo_info.get("platform", "unknown"),
                 })
-    
+
     # Fetch scene.org demos
     if scene_org_names:
         client = SceneOrgClient()
@@ -346,7 +346,7 @@ def generate_cross_source_playlist(
                     })
             except Exception as e:
                 logger.warning("Could not fetch scene.org demo %s: %s", demo_name, e)
-    
+
     # Fetch ModArchive modules
     if modarchive_ids:
         api = ModArchiveAPI()
@@ -363,7 +363,7 @@ def generate_cross_source_playlist(
                     "duration": estimate_demo_duration(module, "modarchive"),
                     "platform": "music",
                 })
-    
+
     return playlist
 
 
@@ -375,18 +375,18 @@ def print_playlist_summary(playlist: list[dict]) -> None:
     """
     total_duration = sum(d["duration"] for d in playlist)
     looped_count = sum(1 for d in playlist if d.get("loops"))
-    
+
     print("\n📋 Playlist Summary:")
     print(f"  Total demos: {len(playlist)}")
     print(f"  Looped demos: {looped_count}")
     print(f"  Estimated total duration: {total_duration // 60}m {total_duration % 60}s")
-    
+
     # Group by source
     by_source = {}
     for d in playlist:
         src = d["source"]
         by_source[src] = by_source.get(src, 0) + 1
-    
+
     print(f"  Sources: {', '.join(f'{k}({v})' for k, v in by_source.items())}")
 
 
@@ -466,7 +466,7 @@ def jukebox_mode(
         return 1
 
     import random
-    
+
     # Get demo metadata for loop detection
     demo_loop_status = {}
     for pid in demo_ids:
@@ -495,11 +495,11 @@ def jukebox_mode(
         # Looped demos play up to loop_limit times in shuffle
         # Non-looping demos play once
         if mode == "shuffle" and demo_loop_status.get(pid, False):
-            loops = min(loop_limit, 3)  # Cap at 3 for shuffle
+            loop_count = min(loop_limit, 3)  # Cap at 3 for shuffle
         else:
-            loops = 1
+            loop_count = 1
 
-        play_demo_with_loops(pid, loops, timeout)
+        play_demo_with_loops(pid, loop_count, timeout)
 
         # Handle repeat "one"
         if repeat == "one":

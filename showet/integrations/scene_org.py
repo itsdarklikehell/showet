@@ -26,12 +26,12 @@ class SceneOrgClient:
     def search_demos(self, query: str, limit: int = 50) -> list[dict]:
         """Search scene.org for demo files."""
         results = []
-        
+
         known_paths = [
             "/parties/assembly", "/parties/breakpoint", "/parties/revision",
             "/parties/synchronicity", "/parties/theparty", "/demos",
         ]
-        
+
         for path in known_paths[:10]:
             try:
                 url = f"{SCENE_ORG_BASE}{path}/{quote(query)}.zip"
@@ -47,55 +47,55 @@ class SceneOrgClient:
                         break
             except Exception:
                 continue
-                
+
         return results
 
     def get_party_demos(self, party: str, year: int | None = None) -> list[dict]:
         """Get demos from a specific demoparty."""
         results = []
         path = f"/parties/{party}/{year}" if year else f"/parties/{party}"
-        
+
         try:
             url = f"{SCENE_ORG_BASE}{path}"
             response = self.session.get(url, timeout=5)
-            
+
             if response.status_code == 200:
                 from html.parser import HTMLParser
-                
+
                 class LinkExtractor(HTMLParser):
                     def __init__(self):
                         super().__init__()
                         self.links = []
-                        
+
                     def handle_starttag(self, tag, attrs):
                         if tag == "a":
                             for _attr, value in attrs:
                                 if value and any(value.endswith(ext) for ext in ['.zip', '.exe', '.lha', '.rar']):
                                     self.links.append(value)
-                                    
+
                 parser = LinkExtractor()
                 parser.feed(response.text)
-                
+
                 for link in parser.links[:20]:
                     results.append({"name": os.path.basename(link), "url": f"{url}/{link}"})
         except Exception:
             pass
-            
+
         return results
 
     def download_demo(self, url: str, filename: str | None = None) -> str:
         """Download a demo file from scene.org."""
         os.makedirs(self.download_dir, exist_ok=True)
-        
+
         if not filename:
             filename = url.split("/")[-1]
-            
+
         local_path = os.path.join(self.download_dir, filename)
-        
+
         try:
             response = self.session.get(url, stream=True, timeout=30)
             response.raise_for_status()
-            
+
             with open(local_path, "wb") as f:
                 for chunk in response.iter_content(chunk_size=8192):
                     f.write(chunk)

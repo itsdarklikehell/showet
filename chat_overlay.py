@@ -42,7 +42,7 @@ def generate_chat_overlay_html(platform: str = "twitch", with_hall_of_fame: bool
         HTML/CSS for chat overlay
     """
     template = OVERLAY_TEMPLATES.get(platform, OVERLAY_TEMPLATES["twitch"])
-    
+
     # Hall of fame randomizer
     hof_js = ""
     if with_hall_of_fame:
@@ -58,7 +58,7 @@ setInterval(() => {{
 }}, 8000);
 </script>
 '''
-    
+
     return f'''
 <div id="showet-chat-overlay" style="
     position: fixed;
@@ -151,12 +151,12 @@ def add_demo_info_overlay(demo_id: int) -> str:
         url = f"http://api.pouet.net/v1/prod/?id={demo_id}"
         data = json.loads(urllib.request.urlopen(url, timeout=5).read().decode())
         prod = data.get("prod", {})
-        
+
         name = prod.get("name", "Unknown")
         group = ", ".join([g.get("name", "") for g in prod.get("groups", [])[:2]])
         party = prod.get("party", {}).get("name", "")
         year = prod.get("year", "")
-        
+
         return f'''
 <div id="demo-info-overlay" style="
     position: fixed;

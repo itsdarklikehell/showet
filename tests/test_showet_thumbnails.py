@@ -1,12 +1,11 @@
 """Tests for Showet thumbnail generation."""
 
-# Import the thumbnails module
-import sys
+import pytest
 from pathlib import Path
 from unittest.mock import patch
 
-import pytest
-
+# Import the thumbnails module
+import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 
@@ -16,7 +15,7 @@ class TestThumbnailDirectory:
     def test_ensure_thumbnail_dir(self, tmp_path):
         """Test thumbnail directory creation."""
         from showet_thumbnails import ensure_thumbnail_dir
-        
+
         # Patch the home directory
         with patch("showet_thumbnails.Path.home", return_value=tmp_path):
             ensure_thumbnail_dir()
@@ -30,18 +29,18 @@ class TestVideoFileFinding:
     def test_find_video_files_empty(self, tmp_path):
         """Test finding videos in empty directory."""
         from showet_thumbnails import find_video_files
-        
+
         result = find_video_files(tmp_path)
         assert result == []
 
     def test_find_video_files_extensions(self, tmp_path):
         """Test video extension detection."""
         from showet_thumbnails import find_video_files
-        
+
         # Create dummy video files
         for ext in [".mp4", ".avi", ".mkv"]:
             (tmp_path / f"demo{ext}").touch()
-        
+
         result = find_video_files(tmp_path)
         assert len(result) == 3
 
@@ -52,18 +51,18 @@ class TestPlaceholderGeneration:
     def test_generate_placeholder_thumbnail(self, tmp_path):
         """Test placeholder thumbnail creation."""
         from showet_thumbnails import generate_placeholder_thumbnail
-        
+
         output = tmp_path / "test.jpg"
-        result = generate_placeholder_thumbnail("Test Demo", output, "commodore_64")
+        generate_placeholder_thumbnail("Test Demo", output, "commodore_64")
         # Will fail if ffmpeg not installed, which is expected
         # The function handles this gracefully
 
     def test_generate_placeholder_null_title(self, tmp_path):
         """Test placeholder with null title."""
         from showet_thumbnails import generate_placeholder_thumbnail
-        
+
         output = tmp_path / "test.jpg"
-        result = generate_placeholder_thumbnail("", output, "unknown")
+        generate_placeholder_thumbnail("", output, "unknown")
         # Should use "Demo" as fallback
 
 
@@ -85,14 +84,14 @@ class TestBatchGeneration:
     def test_batch_generate_thumbnails_empty(self):
         """Test batch generation with no IDs."""
         from showet_thumbnails import batch_generate_thumbnails
-        
+
         result = batch_generate_thumbnails([])
         assert result == 0
 
     def test_batch_generate_thumbnails_mock(self):
         """Test batch generation with mocked metadata."""
         from showet_thumbnails import batch_generate_thumbnails
-        
+
         with patch("showet_thumbnails.get_demo_metadata") as mock_meta:
             mock_meta.return_value = {
                 "name": "Test Demo",

@@ -114,15 +114,15 @@ class PlatformBase(PlatformCommon, abc.ABC):
             core_path = Path("/usr/lib/retroarch/cores") / f"{core}.so"
 
         cmd = ["retroarch"]
-        
+
         # Add fullscreen option
         if self.fullscreen:
             cmd.append("--fullscreen")
-        
+
         # Add audio option
         if not self.audio:
             cmd.append("--audio-null")
-        
+
         # Add core and ROM
         cmd.extend([
             "--libretro", core_path if core_path.exists() else f"/usr/lib/retroarch/cores/{core}.so",
@@ -131,5 +131,5 @@ class PlatformBase(PlatformCommon, abc.ABC):
 
         # Run RetroArch
         retcode = self.run_process(cmd)
-        
+
         return 0 if retcode == 0 else -1

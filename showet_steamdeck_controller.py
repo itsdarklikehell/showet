@@ -123,10 +123,6 @@ def main() -> int:
     parser.add_argument("--test-osd", action="store_true", help="Test OSD display")
     args = parser.parse_args()
 
-    controller = SteamDeckController(
-        Path(args.config) if args.config else None
-    )
-
     if args.detect:
         print("🎮 Checking for Steam Deck gamepad...")
         config = load_steamdeck_config()

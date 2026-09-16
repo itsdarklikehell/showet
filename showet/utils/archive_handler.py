@@ -22,7 +22,7 @@ ARCHIVE_COMMANDS = {
 
 class ArchiveHandler:
     """Handles extraction of common demoscene archive formats."""
-    
+
     def __init__(self, work_dir: str | None = None):
         self.work_dir = Path(work_dir or tempfile.mkdtemp(prefix="showet_demo_"))
         self.work_dir.mkdir(parents=True, exist_ok=True)
@@ -31,13 +31,13 @@ class ArchiveHandler:
         """Extract archive and return list of extracted files."""
         archive = Path(archive_path)
         ext = archive.suffix.lower()
-        
+
         extractors = {
             '.zip': lambda: self._extract_zip(archive, password),
             '.rar': lambda: self._extract_rar(archive, password),
             '.7z': lambda: self._extract_7z(archive, password),
         }
-        
+
         if ext in extractors:
             return extractors[ext]()
         return None

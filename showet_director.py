@@ -28,7 +28,7 @@ from streaming import StreamConfig, StreamManager, StreamPlatform
 
 class ShowDirector:
     """Manages the state and flow of a complete show."""
-    
+
     def __init__(self, initial_context: str, desired_platform: str = "commodore_64", initial_demo_id: int | None = None):
         self.db = get_db()
         self.curator = DemosceneCurator(context=initial_context)
@@ -37,21 +37,21 @@ class ShowDirector:
         self.recorder = DemoRecorder()
         self.current_platform = desired_platform
         self.current_demo_id = initial_demo_id
-        
+
     def setup_show(self, demo_id: int, platform: str, initial_context: str):
         """Initial setup phase: preparing the OBS and metadata."""
         print("--- [STATE]: SETUP ---")
-        
+
         # 1. Setup OBS
         self.obs.switch_scene(SCENES["setup"])
         print("OBS scene set to 'Setup'. Waiting for visual confirmation...")
-        
+
         # 2. Initialize Stream State
         demo = self.db.get_demo_info(demo_id)
         if "error" in demo:
             print(f"ERROR: Cannot start show. Could not fetch demo info: {demo['error']}")
             return False
-            
+
         # 3. Setup Stream/Graphics
         stream_key = input(f"Enter streaming key for {StreamPlatform(platform).value}: ")
         config = StreamConfig(
@@ -62,7 +62,7 @@ class ShowDirector:
             overlay_text=f"Showet Demo: {demo['name']} ({platform.upper()})",
         )
         self.stream_manager.configure(config)
-        
+
         # 4. Display Pre-show Info
         self.obs.update_stream_info(demo['name'], platform)
         print("Setup complete. Now transitioning to Warmup...")
@@ -73,7 +73,7 @@ class ShowDirector:
         print("\n=============================================================================")
         print("🎬 STARTING SHOW FLOW DIRECTOR")
         print("=============================================================================")
-        
+
         if not self.setup_show(demo_id, self.current_platform, "The show focuses on pre-1995 tech."):
             return False
 
@@ -82,34 +82,34 @@ class ShowDirector:
         self.obs.switch_scene(SCENES["waiting"])
         print("OBS scene set to 'Waiting Room'. Playing Hall of Fame Ticker.")
         # Simulation of WebRTC/Chat Overlay running...
-        
+
         # 2. MAIN ACT
         print("\n--- [STATE]: MAIN ACT ---")
         self.obs.switch_scene(SCENES["demo"])
         print("OBS scene transitioned to 'Demo Playback'. Beginning stream.")
-        
+
         # Stream the demo
         self.stream_manager.start(window_id="0")
         print("Streaming active. Playing demo for 30 seconds...")
         time.sleep(30) # Simulate demo playback time
-        
+
         # 3. POST-DEMO (INTERMISSION & CURATION)
         print("\n--- [STATE]: INTERMISSION ---")
         self.obs.switch_scene(SCENES["intermission"])
         print("Demo finished. Displaying intermission screen and running chat overlay.")
-        
+
         # Simulate chat/curator running
         print("🌐 Chat overlay displayed. Awaiting viewer comments...")
-        
+
         # Curate the next suggestion
         self.curator.suggest_next_demo(self.current_platform, self.current_demo_id)
-        
+
         # Final cleanup
         self.stream_manager.stop()
         self.obs.switch_scene(SCENES["credits"])
         print("SHOW ENDED. Crew credits shown. Session complete.")
 
-        
+
 # === CLI ENTRY POINT FOR TESTING ===
 if __name__ == "__main__":
     print("✨ Show Flow Director Ready!")

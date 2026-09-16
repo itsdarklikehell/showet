@@ -1,6 +1,5 @@
-import os.path
-
 from platformcommon import PlatformCommon
+import os.path
 
 
 class PlatformWindows(PlatformCommon):
@@ -17,7 +16,7 @@ class PlatformWindows(PlatformCommon):
 
         print("Guessed executable file: " + exefile)
 
-        exepath = self.datadir + "/" + exefile
+        # exepath = self.datadir + "/" + exefile  # unused, exefile used directly
 
         # Setup wine if needed
 

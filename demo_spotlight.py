@@ -21,20 +21,20 @@ HALL_OF_FAME = [
     {"id": 7000, "name": "Magellan", "group": "Conspiracy", "party": "Revision 2014", "platform": "commodore_amiga"},
     {"id": 9001, "name": "Rift", "group": "Oxygene", "party": "Breakpoint 2005", "platform": "commodore_amiga"},
     {"id": 10101, "name": "Starstruck", "group": "The Black Lotus", "party": "Assembly 2006", "platform": "commodore_amiga"},
-    
+
     # C64 masters
     {"id": 3748, "name": "Especially for You", "group": "Fairlight", "party": "Breakpoint 2009", "platform": "commodore_64"},
     {"id": 11032, "name": "Loonies", "group": "Loonies", "party": "Breakpoint 2010", "platform": "commodore_64"},
     {"id": 5045, "name": "Pimp My Spectrum", "group": "Fairlight", "party": "Breakpoint 2007", "platform": "zxs_spectrum"},
-    
+
     # SNES/Genesis highlights
     {"id": 15000, "name": "Pushing the Boundary", "group": "RBB", "party": "Forever 2019", "platform": "superfamicom"},
     {"id": 16000, "name": "Demoscene in ASCII", "group": "Traction", "party": "Revision 2020", "platform": "superfamicom"},
-    
+
     # PC/DOS legends
     {"id": 2000, "name": "fr-03: Candy Bomb", "group": "Farbrausch", "party": "Mekka 2001", "platform": "ms-dos"},
     {"id": 2500, "name": "fr-06: Cwc", "group": "Farbrausch", "party": "Breakpoint 2003", "platform": "ms-dos"},
-    
+
     # Modern prodigies
     {"id": 50000, "name": "Dagenstedt", "group": "Exceed", "party": "Revision 2023", "platform": "commodore_amiga"},
     {"id": 55000, "name": "Glitched", "group": "Loonies", "party": "Sommarhack 2023", "platform": "commodore_64"},
@@ -53,7 +53,7 @@ def get_trending_demos(limit: int = 20) -> list[dict[str, Any]]:
     try:
         url = "http://api.pouet.net/v1/prod/?order=score&limit={limit}"
         data = json.loads(urllib.request.urlopen(url, timeout=10).read().decode())
-        
+
         demos = []
         for prod_id, prod in data.get("results", {}).items():
             demos.append({
@@ -86,7 +86,7 @@ def get_party_releases(party_name: str, year: int = None) -> list[dict[str, Any]
             search_term += f" year:{year}"
         url = f"http://api.pouet.net/v1/search/prod/?q={search_term}"
         data = json.loads(urllib.request.urlopen(url, timeout=10).read().decode())
-        
+
         releases = []
         for prod_id, prod in data.get("results", {}).items():
             releases.append({
@@ -111,20 +111,20 @@ def format_spotlight(demos: list[dict[str, Any]], with_rank: bool = True) -> str
         Formatted string
     """
     lines = ["╔" + "═" * 60 + "╗", "║ 🎨 DEMOSCENE SPOTLIGHT ║"]
-    
+
     for i, demo in enumerate(demos[:10]):
         rank = f"{i+1}." if with_rank else "•"
         name = demo.get("name", "Unknown")[:40]
         score = demo.get("score", "N/A")
         year = demo.get("year", "?")
-        
+
         line = f"║ {rank} {name:<40} ║"
         lines.append(line)
-        
+
         if demo.get("score"):
             subline = f"║     ⭐{score} • {year} ║".replace("?", "")
             lines.append(subline)
-    
+
     lines.append("╚" + "═" * 60 + "╝")
     return "\n".join(lines)
 

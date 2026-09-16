@@ -21,15 +21,15 @@ def main():
         print("  showet-modarchive download 12345")
         print("  showet-modarchive demo-search 'second reality'")
         sys.exit(1)
-    
+
     api = ModArchiveAPI()
     command = sys.argv[1]
-    
+
     if command == "search":
         query = sys.argv[2] if len(sys.argv) > 2 else ""
         format_filter = None
         artist_filter = None
-        
+
         # Parse optional filters
         i = 3
         while i < len(sys.argv):
@@ -40,30 +40,30 @@ def main():
                 artist_filter = sys.argv[i + 1]
                 i += 1
             i += 1
-        
+
         modules = api.search_modules(query, format=format_filter, artist=artist_filter)
         print(f"Found {len(modules)} modules:")
         for m in modules[:15]:
             print(f"  [{m['id']}] {m['title']} by {m['artist']} ({m['format']})")
-    
+
     elif command == "download":
         if len(sys.argv) < 3:
             print("Error: Module ID required")
             sys.exit(1)
         dest = None
         module_id = int(sys.argv[2])
-        
+
         i = 3
         while i < len(sys.argv):
             if sys.argv[i] == "--output" and i + 1 < len(sys.argv):
                 dest = Path(sys.argv[i + 1])
                 i += 1
             i += 1
-        
+
         path = api.download_module(module_id, dest)
         if path:
             print(f"Module downloaded to: {path}")
-    
+
     elif command == "scan":
         if len(sys.argv) < 3:
             print("Error: Directory path required")
@@ -73,7 +73,7 @@ def main():
         print(f"Found {len(modules)} modules in {demo_path}:")
         for m in modules:
             print(f"  {m.name}")
-    
+
     elif command == "demo-search":
         # Search for modules associated with a demo
         demo_query = sys.argv[2] if len(sys.argv) > 2 else ""

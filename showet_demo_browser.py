@@ -32,13 +32,13 @@ def get_platform_configs() -> list[dict]:
     """Get all nostalgist.js platform configs."""
     config_dir = Path(__file__).parent / "nostalgist_configs"
     manifest_path = config_dir / "manifest.json"
-    
+
     if not manifest_path.exists():
         return []
-    
+
     with open(manifest_path) as f:
         manifest = json.load(f)
-    
+
     return manifest.get("platforms", [])
 
 
@@ -46,46 +46,46 @@ def search_demos(query: str, limit: int = 20) -> list[dict]:
     """Search demos by title or platform."""
     demos = get_cached_demos()
     query_lower = query.lower()
-    
+
     results = []
     for demo in demos:
         title = demo.get("title", "").lower()
         platform = demo.get("platform", "").lower()
         if query_lower in title or query_lower in platform:
             results.append(demo)
-    
+
     return results[:limit]
 
 
 if FASTAPI_AVAILABLE:
     app = FastAPI(title="Showet Demo Browser API")
-    
+
     @app.get("/api/platforms")
     async def api_platforms():
         """List all supported platforms."""
         return JSONResponse(get_platform_configs())
-    
+
     @app.get("/api/demos")
     async def api_demos(limit: int = 50):
         """Get cached demos."""
         return JSONResponse(get_cached_demos()[:limit])
-    
+
     @app.get("/api/demos/{demo_id}")
     async def api_demo(demo_id: int):
         """Get specific demo info."""
         from showet.utils.async_io import DemoCache
         cache = DemoCache()
         path = cache.get_cached(demo_id)
-        
+
         if not path:
             raise HTTPException(status_code=404, detail="Demo not found")
-        
+
         return JSONResponse({
             "id": demo_id,
             "path": path,
             "exists": Path(path).exists() if path else False
         })
-    
+
     @app.get("/api/search")
     async def api_search(q: str, limit: int = 20):
         """Search demos."""
@@ -99,7 +99,7 @@ def main() -> int:
     import argparse
 
     import uvicorn
-    
+
     parser = argparse.ArgumentParser(description="Showet Demo Browser")
     parser.add_argument("--serve", "-s", action="store_true", help="Start web server")
     parser.add_argument("--port", "-p", type=int, default=8000, help="Server port")
@@ -111,7 +111,7 @@ def main() -> int:
         print(f"Loaded {len(configs)} platform configs")
         for c in configs[:5]:
             print(f"  - {c.get('slug')}: {c.get('core')}")
-            
+
     if args.serve:
         if app is None:
             print("FastAPI not installed. Install with: pip install fastapi uvicorn")

@@ -68,7 +68,7 @@ class ShowetCliTests(unittest.TestCase):
 
     def test_main_returns_negative_one_without_pouetid(self):
         with mock.patch("showet_legacy.create_platform_runners", return_value=[DummyRunner()]):
-            with mock.patch("showet_legacy.run_production", wraps=showet.run_production) as run_prod:
+            with mock.patch("showet_legacy.run_production", wraps=showet.run_production):
                 result = showet.main([])
         self.assertEqual(result, -1)
 
@@ -161,8 +161,6 @@ class PlatformRunnerTests(unittest.TestCase):
             all_platforms.extend(runner.supported_platforms())
 
         # Check for duplicates (platform slugs should be unique)
-        unique_platforms = set(all_platforms)
-        # Some platforms may have duplicates across runners, just verify we have platforms
         self.assertTrue(len(all_platforms) > 0)
 
 
@@ -202,20 +200,22 @@ class ArgParserTests(unittest.TestCase):
 
     def test_fullscreen_enabled_in_retroarch_command(self):
         """Verify fullscreen option causes --fullscreen to be added to retroarch commands."""
-        import platformcommon
-        runner = platformcommon.PlatformCommon()
-        runner.fullscreen = True
-        runner.datadir = Path("/tmp")
+        from showet.core.executor import execute_demo
+        import tempfile
+        import subprocess
 
-        # The executor constructs the command and inserts --fullscreen before calling
-        # run_process; run_process itself does not mutate the list. Verify the command the
-        # executor would pass to run_process contains --fullscreen at position 1.
-        cmd = ["retroarch", "-L", "core_libretro", "file.zip"]
-        if runner.fullscreen:
-            cmd.insert(1, "--fullscreen")
+        with tempfile.NamedTemporaryFile(suffix=".nes", delete=False) as f:
+            demo_path = f.name
 
-        self.assertEqual(cmd[1], "--fullscreen")
-        self.assertEqual(cmd[0], "retroarch")
+        try:
+            with mock.patch("showet.core.executor.detect_platform", return_value="nes"),                  mock.patch("showet.core.executor.find_core_path", return_value=Path("/usr/lib/retroarch/cores/quicknes_libretro.so")),                  mock.patch("subprocess.run") as mock_run:
+                mock_run.return_value = mock.Mock(returncode=0)
+                execute_demo(demo_path, fullscreen=True)
+                cmd = mock_run.call_args[0][0]
+                self.assertIn("--fullscreen", cmd)
+                self.assertEqual(cmd[0], "retroarch")
+        finally:
+            Path(demo_path).unlink(missing_ok=True)
 
 
 class FlashPlatformTests(unittest.TestCase):
@@ -224,7 +224,6 @@ class FlashPlatformTests(unittest.TestCase):
     def test_flash_platform_registered(self):
         """Verify Flash platform runner is registered and returns correct platforms."""
         runners = showet.create_platform_runners()
-        flash_runners = [r for r in runners if "flash" in r.supported_platforms()]
         # Flash runner may be filtered out or not found - just check we have runners
         self.assertTrue(len(runners) > 0)
 
@@ -243,7 +242,6 @@ class AndroidPlatformTests(unittest.TestCase):
     def test_android_platform_registered(self):
         """Verify Android platform runner is registered."""
         runners = showet.create_platform_runners()
-        android_runners = [r for r in runners if "android" in r.supported_platforms()]
         # Android runner may be filtered out in some environments
         self.assertTrue(len(runners) > 0)
 

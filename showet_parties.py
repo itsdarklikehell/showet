@@ -11,17 +11,17 @@ from party_calendar import format_countdown, get_upcoming_parties
 def main() -> int:
     """Display upcoming demoparty calendar."""
     parties = get_upcoming_parties(180)  # Next 6 months
-    
+
     print("🎮 UPCOMING DEMOPARTIES")
     print("=" * 50)
-    
+
     for party in parties[:5]:
         countdown = format_countdown(party)
         print(f"\n{party['name']}")
         print(f"  📅 {party['date']}")
         print(f"  📍 {party['location']}")
         print(f"  ⏰ {countdown}")
-    
+
     return 0
 
 

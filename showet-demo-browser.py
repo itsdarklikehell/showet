@@ -44,10 +44,10 @@ def list_platform_demos(platform):
         "snes": ["snes", "super famicom"],
         "megadrive": ["megadrive", "genesis", "sega"],
     }
-    
+
     search_term = " ".join(platform_groups.get(platform.lower(), [platform]))
     print(f"🔍 Searching for {platform} demos...")
-    
+
     # Use scene-org to search
     search_scene_org(search_term)
 
@@ -61,7 +61,7 @@ def show_hall_of_fame():
         {"name": "Especially for You", "group": "Fairlight", "year": 2009, "platform": "C64"},
         {"name": "Bad Apple!!", "group": "ZUN", "year": 2007, "platform": "NES"},
     ]
-    
+
     print("🏆 SHOWET HALL OF FAME")
     print("=" * 50)
     for demo in hof:
@@ -82,9 +82,9 @@ def main():
         print("  showet-browser platform commodore_64")
         print("  showet-browser hof")
         sys.exit(0)
-    
+
     cmd = sys.argv[1]
-    
+
     if cmd == "hof":
         show_hall_of_fame()
     elif cmd == "search" and len(sys.argv) > 2:

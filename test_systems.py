@@ -26,15 +26,15 @@ MULTI_DISK_FORMATS = {
 def generate_test_matrix():
     """Generate test matrix for all systems."""
     print("=== SHOWET BROWSER TEST MATRIX ===\n")
-    
+
     print("Working nostalgist.js cores:")
     for slug, info in WORKING_CORES.items():
         print(f"  {slug}: {info['core']} → {info['extensions']}")
-    
+
     print("\nMulti-disk formats to test:")
     for system, formats in MULTI_DISK_FORMATS.items():
         print(f"  {system}: {formats}")
-    
+
     print("\nRecommended test order:")
     print("  1. Amiga (multi-disk) - FS-UAE working, nostalgist waiting for puae core")
     print("  2. C64 - vice_x64sc available, download PRG/T64 for testing")

@@ -43,7 +43,7 @@ class NostalgistConfigHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         """Handle GET requests for config endpoints."""
         parsed = urlparse(self.path)
-        
+
         if parsed.path == "/nostalgist/config":
             self.handle_config_request(parse_qs(parsed.query))
         elif parsed.path.startswith("/nostalgist/rom/"):
@@ -55,31 +55,30 @@ class NostalgistConfigHandler(SimpleHTTPRequestHandler):
     def handle_config_request(self, query: dict[str, list]) -> None:
         """Generate and serve nostalgist config for a platform."""
         platform = query.get("platform", [None])[0]
-        
+
         if not platform:
             self.send_error(400, "Missing platform parameter")
             return
-        
+
         # Find the platform module
         platform_file = self.project_root / f"Platform_{platform}.py"
         if not platform_file.exists():
             # Try underscore format
             platform_file = self.project_root / f"Platform_{platform.replace('-', '_')}.py"
-        
+
         if not platform_file.exists():
             # Search for matching platform
             for pf in self.project_root.glob(f"Platform_*{platform}*.py"):
                 platform_file = pf
                 break
-        
+
         if platform_file.exists():
             content = platform_file.read_text()
             core_match = re.search(r'cores\s*=\s*\[([^\]]+)\]', content)
-            slug_match = re.search(r'super\(\).__init__\("([^"]+)"', content)
-            
+
             core = core_match.group(1).strip().strip("'\"") if core_match else "quicknes"
             mapped_core = CORE_MAPPING.get(core, core.replace("_libretro", ""))
-            
+
             config = {
                 "core": mapped_core,
                 "rom": f"/nostalgist/rom/{platform}/",
@@ -87,7 +86,7 @@ class NostalgistConfigHandler(SimpleHTTPRequestHandler):
             }
         else:
             config = {"error": f"Platform {platform} not found"}
-        
+
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
         self.send_header("Access-Control-Allow-Origin", "*")

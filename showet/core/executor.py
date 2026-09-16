@@ -51,15 +51,15 @@ PLATFORM_CORES = {
 def detect_platform(file_path: Path) -> str:
     """Detect platform from file extension."""
     ext = file_path.suffix.lower()
-    
+
     # Check archive types first
     if ext in [".zip", ".rar", ".7z", ".lha", ".lzh"]:
         return "archive"
-    
+
     for platform, extensions in PLATFORM_EXTENSIONS.items():
         if ext in extensions:
             return platform
-    
+
     return "unknown"
 
 
@@ -70,7 +70,7 @@ def find_core_path(core_name: str) -> Path | None:
         Path("/usr/lib/retroarch/cores") / core_name,
         Path("/usr/lib/x86_64-linux-gnu/libretro") / core_name,
     ]
-    
+
     for path in search_paths:
         if path.exists():
             return path
@@ -93,16 +93,16 @@ def execute_demo(
 ) -> int:
     """Execute a demo file with auto-detected or specified platform."""
     from showet.utils.archive_handler import ArchiveHandler
-    
+
     path = Path(file_path)
-    
+
     if not path.exists():
         logger.error("File not found: %s", file_path)
         return -1
-    
+
     detected_platform = platform or detect_platform(path)
     logger.info("Detected platform: %s", detected_platform)
-    
+
     if detected_platform == "archive":
         handler = ArchiveHandler()
         files = handler.extract(str(path))
@@ -112,20 +112,20 @@ def execute_demo(
                 if f.suffix.lower() in [".exe", ".d64", ".nes", ".adf"]:
                     return execute_demo(str(f), detect_platform(f), fullscreen)
         return -1
-    
+
     core = PLATFORM_CORES.get(detected_platform)
     if not core:
         logger.error("No core found for platform: %s", detected_platform)
         return -1
-    
+
     core_path = find_core_path(core)
     if not core_path:
         logger.warning("Core %s not found", core)
-    
+
     cmd = ["retroarch", "-L", str(core_path or core), str(path)]
     if fullscreen:
         cmd.insert(1, "--fullscreen")
-    
+
     try:
         result = subprocess.run(cmd)
         return result.returncode
@@ -141,7 +141,7 @@ def cli_main() -> int:
     parser.add_argument("--platform", "-p", help="Platform override")
     parser.add_argument("--fullscreen", "-f", action="store_true")
     args = parser.parse_args()
-    
+
     return execute_demo(args.file, args.platform, args.fullscreen)
 
 

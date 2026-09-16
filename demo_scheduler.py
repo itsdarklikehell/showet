@@ -153,7 +153,7 @@ def generate_scheduled_overlay() -> str:
 if __name__ == "__main__":
     print("📺 Showet Demo Scheduler")
     print(PartyCountdown.format_countdown())
-    
+
     scheduler = DemoScheduler()
     next_demo = scheduler.get_next_event()
     if next_demo:

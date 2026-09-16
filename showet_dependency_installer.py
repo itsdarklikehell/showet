@@ -164,14 +164,14 @@ def install_retroarch_cores(cores: list[str], download_cores: bool = True) -> in
 def detect_platform() -> str:
     """Detect the current operating system."""
     system = platform.system().lower()
-    
+
     # Check for Steam Deck
     if Path("/etc/os-release").exists():
         with open("/etc/os-release") as f:
             content = f.read()
             if "steam" in content.lower() or "deck" in content.lower():
                 return "steamdeck"
-    
+
     if system == "linux":
         return "linux"
     elif system == "darwin":
@@ -194,13 +194,13 @@ def install_packages_linux(packages: list[str], package_manager: str) -> int:
     if package_manager == "unknown":
         print("❌ No supported package manager found")
         return 0
-    
+
     cmd_args = PACKAGE_MANAGER_COMMANDS[package_manager]
     if package_manager == "brew":
         cmd = cmd_args + packages
     else:
         cmd = cmd_args + packages
-    
+
     try:
         subprocess.run(cmd, check=True)
         return len(packages)
@@ -212,12 +212,12 @@ def install_packages_linux(packages: list[str], package_manager: str) -> int:
 def install_packages_steamdeck(packages: list[str]) -> int:
     """Install packages on Steam Deck using flatpak or system packages."""
     # Steam Deck uses flatpak for most applications
-    flatpak_packages = {
-        "vice": "com.artsoft.vice",
-        "fs-uae": None,  # Not available as flatpak
-        "retroarch": "org.libretro.RetroArch",
-    }
-    
+    # flatpak_packages = {
+    #     "vice": "com.artsoft.vice",
+    #     "fs-uae": None,  # Not available as flatpak
+    #     "retroarch": "org.libretro.RetroArch",
+    # }
+
     installed = 0
     for pkg in packages:
         steam_pkg = STEAM_DECK_PACKAGES.get(pkg)
@@ -242,7 +242,7 @@ def install_packages_macos(packages: list[str]) -> int:
     if not shutil.which("brew"):
         print("❌ Homebrew not found")
         return 0
-    
+
     installed = 0
     for pkg in packages:
         try:
@@ -256,17 +256,17 @@ def install_packages_macos(packages: list[str]) -> int:
 def install_steamdeck_dependencies(platform_filter: str = None) -> int:
     """Install Showet dependencies on Steam Deck with optimized settings."""
     print("🎮 Steam Deck detected - installing optimized dependencies...")
-    
+
     # Essential packages for Steam Deck
     packages = ["vice", "dosbox-x"]
-    
+
     # Install via flatpak/pacman
     installed = install_packages_steamdeck(packages)
-    
+
     # Configure for Steam Deck controller
     config_dir = Path.home() / ".config" / "showet"
     config_dir.mkdir(parents=True, exist_ok=True)
-    
+
     steamdeck_config = {
         "controller_mode": True,
         "deck_optimized": True,
@@ -284,10 +284,10 @@ def install_steamdeck_dependencies(platform_filter: str = None) -> int:
             "r": "seek_forward",
         }
     }
-    
+
     with open(config_dir / "deck_config.json", "w") as f:
         json.dump(steamdeck_config, f, indent=2)
-    
+
     print(f"✅ Installed {installed}/{len(packages)} packages")
     print("✅ Created Steam Deck controller configuration")
     return installed
