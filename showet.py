@@ -3,6 +3,7 @@ import argparse
 import json
 import os
 import urllib.request
+
 from platformamiga import PlatformAmiga
 from platformcommodore import PlatformCommodore
 from platformlinux import PlatformLinux

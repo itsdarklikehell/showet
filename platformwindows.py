@@ -1,5 +1,6 @@
-from platformcommon import PlatformCommon
 import os.path
+
+from platformcommon import PlatformCommon
 
 
 class PlatformWindows(PlatformCommon):
