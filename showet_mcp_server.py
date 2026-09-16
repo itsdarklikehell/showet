@@ -31,6 +31,7 @@ import sys  # noqa: E402
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from showet_api import get_api  # the singleton high-level API  # noqa: E402
+from party_calendar import get_upcoming_parties, get_party_winners  # noqa: E402
 
 server = Server("showet-mcp")
 
@@ -163,6 +164,41 @@ async def _on_list_tools(context, params):
                 "required": [],
             },
         ),
+        types.Tool(
+            name="showet_get_upcoming_parties",
+            description="Get upcoming demoscene parties from Pouet.net calendar "
+                        "(or fallback list). Returns name, date, location, type, link.",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "days_ahead": {
+                        "type": "integer",
+                        "default": 90,
+                        "description": "How many days ahead to look.",
+                    },
+                },
+                "required": [],
+            },
+        ),
+        types.Tool(
+            name="showet_get_party_winners",
+            description="Get known winning demos from a specific demoparty "
+                        "(e.g. 'revision', 'breakpoint').",
+            input_schema={
+                "type": "object",
+                "properties": {
+                    "party_name": {
+                        "type": "string",
+                        "description": "Party name (case-insensitive, e.g. 'revision').",
+                    },
+                    "year": {
+                        "type": "integer",
+                        "description": "Optional year filter.",
+                    },
+                },
+                "required": ["party_name"],
+            },
+        ),
     ]
     return types.ListToolsResult(tools=tools)
 
@@ -205,6 +241,13 @@ async def _on_call_tool(context, params):
             result = _api().remove_favorite(int(args["pouet_id"]))
         elif name == "showet_get_history":
             result = _api().get_history(int(args.get("limit", 50)))
+        elif name == "showet_get_upcoming_parties":
+            result = get_upcoming_parties(int(args.get("days_ahead", 90)))
+        elif name == "showet_get_party_winners":
+            party_name = args["party_name"]
+            year_raw = args.get("year")
+            year = int(year_raw) if year_raw is not None else None
+            result = get_party_winners(party_name, year)
         else:
             result = {"error": f"unknown tool: {name}"}
     except Exception as exc:  # surface errors as tool output, never crash

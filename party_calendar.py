@@ -40,7 +40,7 @@ def get_upcoming_parties(days_ahead: int = 90) -> list[dict]:
         ]
 
 
-def get_party_winners(party_name: str, year: int = None) -> list[dict]:
+def get_party_winners(party_name: str, year: int | None = None) -> list[dict]:
     """Get winning demos from a specific party."""
     try:
         # This would query Pouet for actual winners
