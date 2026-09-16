@@ -27,7 +27,7 @@ for pf in sorted(project_root.glob("Platform_*.py")):
                 # Insert after this line
                 lines.insert(i + 1, '')
                 lines.insert(i + 2, '    def supported_platforms(self) -> list[str]:')
-                lines.insert(i + 3, f'        """Return the platform slug(s) this runner supports."""')
+                lines.insert(i + 3, '        """Return the platform slug(s) this runner supports."""')
                 lines.insert(i + 4, f'        return ["{slug}"]')
                 break
         

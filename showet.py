@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-import urllib.request, json
+import argparse
+import json
 import os
-import sys
-from os.path import basename
-from platformwindows import PlatformWindows
+import urllib.request
+
 from platformamiga import PlatformAmiga
 from platformcommodore import PlatformCommodore
 from platformlinux import PlatformLinux
-import argparse
+from platformwindows import PlatformWindows
 
 parser = argparse.ArgumentParser(description='Show a demo on screen.')
 parser.add_argument('pouetid', type=int, nargs='?', help='Pouet ID of the production to show')
@@ -44,7 +44,7 @@ prod_json_filename = datadir + "/pouet.json"
 # Get the json data:
 if os.path.exists(prod_json_filename):
     print("Json already downloaded")
-    with open(prod_json_filename, 'r') as f:
+    with open(prod_json_filename) as f:
         prod_json = f.read()
 else:
     if not os.path.exists(datadir):

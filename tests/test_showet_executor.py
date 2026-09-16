@@ -1,9 +1,8 @@
 """Integration tests for Showet Universal Demo Executor."""
 
-import pytest
-import subprocess
 from pathlib import Path
-from unittest.mock import patch, MagicMock
+
+import pytest
 
 
 class TestPlatformDetection:

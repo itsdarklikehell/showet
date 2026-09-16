@@ -1,11 +1,12 @@
 """Tests for Showet thumbnail generation."""
 
-import pytest
-from pathlib import Path
-from unittest.mock import patch, MagicMock
-
 # Import the thumbnails module
 import sys
+from pathlib import Path
+from unittest.mock import patch
+
+import pytest
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 
@@ -14,7 +15,7 @@ class TestThumbnailDirectory:
 
     def test_ensure_thumbnail_dir(self, tmp_path):
         """Test thumbnail directory creation."""
-        from showet_thumbnails import ensure_thumbnail_dir, THUMBNAIL_DIR
+        from showet_thumbnails import ensure_thumbnail_dir
         
         # Patch the home directory
         with patch("showet_thumbnails.Path.home", return_value=tmp_path):

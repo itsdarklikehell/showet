@@ -158,8 +158,6 @@ def encode_for_archive(input_path: str, platform: str = "unknown") -> str:
     Returns:
         Path to encoded file
     """
-    import time
-    timestamp = int(time.time())
     output = f"{input_path.rsplit('.', 1)[0]}_archive.mp4"
 
     cmd = [

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Bulk fix all Platform_*.py files to add supported_platforms() method."""
-from pathlib import Path
 import re
+from pathlib import Path
 
 project_root = Path(__file__).parent
 
@@ -34,7 +34,7 @@ for pf in sorted(project_root.glob("Platform_*.py")):
             new_lines = lines[:insert_idx] + [
                 '',
                 '    def supported_platforms(self) -> list[str]:',
-                f'        """Return the platform slug(s) this runner supports."""',
+                '        """Return the platform slug(s) this runner supports."""',
                 f'        return ["{slug}"]'
             ] + lines[insert_idx:]
             

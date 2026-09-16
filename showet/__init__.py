@@ -11,6 +11,7 @@ import importlib.util
 import sys
 from pathlib import Path
 
+
 def _load_legacy_showet():
     """Load the vendored legacy showet module (showet/_legacy_showet.py)."""
     spec = importlib.util.spec_from_file_location(

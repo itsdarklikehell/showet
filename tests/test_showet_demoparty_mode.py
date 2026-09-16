@@ -1,11 +1,12 @@
 """Tests for Showet Demoparty Mode."""
 
-import pytest
-from pathlib import Path
-from unittest.mock import patch, MagicMock
-
 # Import the demoparty module
 import sys
+from pathlib import Path
+from unittest.mock import MagicMock, patch
+
+import pytest
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 

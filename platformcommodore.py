@@ -1,5 +1,7 @@
-from platformcommon import PlatformCommon
 import os
+
+from platformcommon import PlatformCommon
+
 
 class PlatformCommodore(PlatformCommon):
     def run(self):

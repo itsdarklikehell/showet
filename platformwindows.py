@@ -1,6 +1,7 @@
-from platformcommon import PlatformCommon
-from os import listdir
 import os.path
+
+from platformcommon import PlatformCommon
+
 
 class PlatformWindows(PlatformCommon):
     def run(self):

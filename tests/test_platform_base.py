@@ -4,7 +4,6 @@ Ensures all Platform_* classes properly implement the abstract interface.
 """
 
 import importlib
-import re
 import sys
 from pathlib import Path
 from unittest import mock
@@ -140,7 +139,6 @@ class TestNostalgistBridge:
     def test_parse_platform_module_extracts_slug(self):
         """Verify parse_platform_module extracts slug correctly."""
         from nostalgist_bridge import parse_platform_module
-        from Platform_Commodore_64 import Platform_Commodore_64
         
         # Get the actual file path
         platform_file = Path(__file__).parent.parent / "Platform_Commodore_64.py"
@@ -156,7 +154,7 @@ class TestRetroEffects:
 
     def test_get_preset_returns_valid_preset(self):
         """Verify get_preset returns a valid preset for known platforms."""
-        from retro_effects import get_preset, CRT_PRESETS
+        from retro_effects import get_preset
         
         preset = get_preset("commodore_64")
         assert preset is not None
@@ -188,7 +186,7 @@ class TestDemoDatabase:
 
     def test_get_db_returns_singleton(self):
         """Verify get_db returns a singleton DemoDatabase instance."""
-        from demo_database import get_db, DemoDatabase
+        from demo_database import DemoDatabase, get_db
         
         db1 = get_db()
         db2 = get_db()
@@ -224,7 +222,7 @@ class TestShowetAPI:
 
     def test_api_singleton(self):
         """Verify API singleton works correctly."""
-        from showet_api import get_api, ShowetAPI
+        from showet_api import ShowetAPI, get_api
         
         api1 = get_api()
         api2 = get_api()
@@ -261,7 +259,6 @@ class TestLauncher:
     def test_launcher_crt_presets(self):
         """Verify launcher can list CRT presets."""
         from launcher import DemoLauncher
-        from retro_effects import CRT_PRESETS
         
         launcher = DemoLauncher()
         preset = launcher.get_crt_preset("commodore_64")

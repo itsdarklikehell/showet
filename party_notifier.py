@@ -34,7 +34,7 @@ def check_for_new_releases(party: str = None, days: int = 7) -> list[dict[str, A
             search = PARTY_PATTERNS.get(party, {}).get("search", f"{party} 2026")
             url = f"http://api.pouet.net/v1/search/prod/?q={search}&days={days}"
         else:
-            url = "http://api.pouet.net/v1/prod/?order=released"
+            _ = "http://api.pouet.net/v1/prod/?order=released"
 
         # Placeholder - would connect to actual API
         return []

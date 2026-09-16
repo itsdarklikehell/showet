@@ -2,7 +2,8 @@
 """Tests for ML Paper Reading List."""
 
 import pytest
-from showet_ml_papers import MLPaperTracker, MLPaper
+
+from showet_ml_papers import MLPaper, MLPaperTracker
 
 
 class TestMLPaperTracker:

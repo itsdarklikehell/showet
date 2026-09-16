@@ -1,6 +1,8 @@
-from platformcommon import PlatformCommon
 import os
 import stat
+
+from platformcommon import PlatformCommon
+
 
 class PlatformLinux(PlatformCommon):
     def run(self):
