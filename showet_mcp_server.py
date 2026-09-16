@@ -30,8 +30,8 @@ import sys  # noqa: E402
 
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from party_calendar import get_party_winners, get_upcoming_parties  # noqa: E402
 from showet_api import get_api  # the singleton high-level API  # noqa: E402
-from party_calendar import get_upcoming_parties, get_party_winners  # noqa: E402
 
 server = Server("showet-mcp")
 
