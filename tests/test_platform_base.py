@@ -1,6 +1,7 @@
 """Tests for Showet platform base classes and integrations."""
 
 import importlib
+import sys
 from pathlib import Path
 from unittest.mock import patch
 
