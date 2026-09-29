@@ -15,7 +15,7 @@ the WebGL shader playground (`showet_crt_reshade.js`).
 | `showet_list_platforms` | List all platform runners (91+, e.g. `commodore_64`, `amiga`, `nes`). |
 | `showet_search_demos` | Search Pouet.net by query (+ optional platform filter); returns id/name/type/score/platform. |
 | `showet_get_demo_info` | Full metadata for a Pouet production by numeric ID. |
-| `showet_run_demo` | Prepare a demo for playback (resolve metadata, detect/force platform). |
+| `showet_run_demo` | Prepare a demo for playback (resolve metadata, detect/force platform, optionally download + extract file). |
 | `showet_get_recommendations` | Offline demo recommendations from local favorites/history. |
 | `showet_get_status` | Runtime status: platforms loaded, version, nostalgist manifest. |
 | `showet_get_status_extended` | Extended status: + demo_db ready, db_path, platform_count, streaming backend. |
@@ -25,7 +25,7 @@ the WebGL shader playground (`showet_crt_reshade.js`).
 | `showet_get_history` | Get recent viewing history (demo ID, platform, played_at, score). |
 | `showet_get_playlists` | Get all demo playlists (named collections of Pouet.net IDs). |
 
-**Totaal: 12 tools.**
+**Totaal: 14 tools.**
 
 ## Run
 
@@ -55,6 +55,7 @@ jaison-core / airi settings):
 
 De server is read/prepare-only — het modifyt geen bestanden en start geen
 emulatie unsupervised; `showet_run_demo` returned alleen een prepared status dict.
+Met `download: true` wordt het demo-bestand gedownload en uitgepakt (optioneel).
 
 ## Notes
 

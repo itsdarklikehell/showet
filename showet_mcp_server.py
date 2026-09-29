@@ -226,7 +226,8 @@ async def _on_call_tool(context, params):
             result = _api().get_demo_info(int(args["pouet_id"]))
         elif name == "showet_run_demo":
             plat = args.get("platform") or None
-            result = _api().run_demo(int(args["pouet_id"]), plat)
+            download = args.get("download", False)
+            result = _api().run_demo(int(args["pouet_id"]), plat, download=download)
         elif name == "showet_get_recommendations":
             result = _api().get_recommendations(int(args.get("limit", 10)))
         elif name == "showet_get_status":

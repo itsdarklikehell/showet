@@ -56,15 +56,16 @@ class ShowetAPI:
         self._ensure_loaded()
         return sorted(self._platforms.keys())
 
-    def run_demo(self, pouet_id: int, platform: str = None, **options) -> dict[str, Any]:
+    def run_demo(self, pouet_id: int, platform: str = None, download: bool = False, **options) -> dict[str, Any]:
         """Run a demo by Pouet ID.
-        
+
         Args:
             pouet_id: The Pouet.net production ID
             platform: Optional platform name (auto-detected if None)
-            
+            download: If True, download and extract the demo file
+
         Returns:
-            Status dictionary
+            Status dictionary with file path when downloaded
         """
         # Get demo metadata
         try:
@@ -77,12 +78,76 @@ class ShowetAPI:
                 platforms = [p["slug"] for p in prod.get("platforms", {}).values()]
                 platform = platforms[0] if platforms else None
 
-            return {
+            result = {
                 "status": "ready",
                 "platform": platform,
                 "demo_name": prod.get("name", "Unknown"),
-                "message": f"Demo {pouet_id} prepared for playback"
+                "pouet_id": pouet_id,
             }
+
+            # Download + extract if requested
+            if download and prod.get("download"):
+                try:
+                    import tempfile
+                    from pathlib import Path
+
+                    from showet_downloader import (
+                        download_production_file,
+                        download_production_json,
+                    )
+                    from showet_executor import extract_archive, find_executable
+
+                    meta = download_production_json(pouet_id)
+                    cache_dir = Path(tempfile.mkdtemp(prefix=f"showet_{pouet_id}_"))
+                    data_dir = download_production_file(meta, cache_dir)
+
+                    # Find the actual demo file
+                    found_path: Path | None = None
+                    for f in data_dir.iterdir():
+                        if f.is_file() and f.suffix.lower() in [
+                            ".zip", ".rar", ".7z", ".lha", ".lzh",
+                            ".exe", ".com", ".d64", ".adf", ".dsk",
+                            ".nsd", ".nda", ".ipf", ".m3u",
+                        ]:
+                            found_path = f
+                            break
+
+                    if found_path is None:
+                        # Take the first file as fallback
+                        files = [f for f in data_dir.iterdir() if f.is_file()]
+                        found_path = files[0] if files else None
+
+                    if found_path:
+                        # Extract if archive
+                        if found_path.suffix.lower() in [".zip", ".rar", ".7z", ".lha", ".lzh"]:
+                            extract_dir = data_dir / "extracted"
+                            extract_dir.mkdir(exist_ok=True)
+                            if extract_archive(found_path, extract_dir):
+                                # Find executable in extracted contents
+                                from showet_executor import find_executable
+                                for ext in [".exe", ".com", ".d64", ".adf", ".dsk",
+                                            ".nsd", ".nda", ".ipf"]:
+                                    exe = find_executable(extract_dir, [ext])
+                                    if exe:
+                                        found_path = exe
+                                        break
+                                else:
+                                    # Take first file
+                                    files = [f for f in extract_dir.iterdir() if f.is_file()]
+                                    found_path = files[0] if files else found_path
+
+                        result["file_path"] = str(found_path)
+                        result["file_name"] = found_path.name
+                        result["message"] = f"Demo {pouet_id} downloaded and ready: {found_path.name}"
+                        result["download_dir"] = str(data_dir)
+                    else:
+                        result["message"] = f"Demo {pouet_id} metadata ready but no file found"
+
+                except Exception as e:
+                    result["download_error"] = str(e)
+                    result["message"] = f"Demo {pouet_id} metadata ready (download failed: {e})"
+
+            return result
         except Exception as e:
             return {
                 "status": "error",
