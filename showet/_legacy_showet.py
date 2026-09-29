@@ -227,11 +227,23 @@ def run_production(args: argparse.Namespace, platform_runners: list[object]) -> 
 
     Returns 0 on success, -1 on error.
     """
-    if not args.pouetid and not args.random:
-        print("No pouet id specified. Use --help to see options.")
+    if args.pouetid is None:
+        print("ERROR: No production ID specified.")
         return -1
 
     prod_id = args.pouetid
+
+    try:
+        data = download_production_json(prod_id)
+    except Exception as e:
+        print(f"ERROR: Could not fetch production {prod_id}: {e}")
+        return -1
+
+    if not data or "prod" not in data:
+        print(f"ERROR: Production {prod_id} not found on Pouet.net.")
+        return -1
+
+    prod_platforms = [p["slug"] for p in data["prod"]["platforms"].values()]
     if args.random:
         prod_id = get_random_production_id()
         if prod_id == -1:
