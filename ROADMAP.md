@@ -181,7 +181,7 @@ Showet integrates with the entire demoscene ecosystem:
 - [x] SQLite caching for offline mode
 - [x] FastAPI backend for web UI
 - [ ] Plugin system for custom platforms
-- [ ] Configuration profiles for different setups
+- [x] Configuration profiles for different setups
 
 ---
 
