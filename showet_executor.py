@@ -353,11 +353,16 @@ def execute_demo(
         with tempfile.TemporaryDirectory() as tmpdir:
             if extract_archive(path, Path(tmpdir)):
                 # Find executable in extracted contents
+                found = False
                 for plat_exts in [".exe", ".com", ".d64", ".adf", ".nes", ".smc", ".sfc"]:
                     executable = find_executable(Path(tmpdir), [plat_exts])
                     if executable:
                         path = Path(tmpdir) / executable.name
+                        found = True
                         break
+                if not found:
+                    logger.error("Archive extracted but no known executable found inside")
+                    return -1
             else:
                 logger.error("Failed to extract archive")
                 return -1
@@ -367,22 +372,21 @@ def execute_demo(
     logger.info("Detected platform: %s", detected_platform)
 
     # Execute based on platform
-    if detected_platform == "windows" or detect_platform(path) == "windows":
+    if detected_platform == "windows":
         if not wine_only:
             if retroarch_only:
-                # Try RetroArch first for Windows demos that might work
                 core = PLATFORM_CORES.get("windows")
                 if core:
                     return run_with_retroarch(path, core, fullscreen)
             return run_with_wine(path, fullscreen)
 
-    elif detected_platform == "dos" or detect_platform(path) == "dos":
+    elif detected_platform == "dos":
+        if dosbox_only:
+            return run_with_dosbox(path, fullscreen)
         if not retroarch_only:
-            if dosbox_only:
-                return run_with_dosbox(path, fullscreen)
-        core = PLATFORM_CORES.get("dos")
-        if core:
-            return run_with_retroarch(path, core, fullscreen)
+            core = PLATFORM_CORES.get("dos")
+            if core:
+                return run_with_retroarch(path, core, fullscreen)
 
     else:
         # RetroArch-based platforms
