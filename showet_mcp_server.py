@@ -119,6 +119,13 @@ async def _on_list_tools(context, params):
             input_schema={"type": "object", "properties": {}},
         ),
         types.Tool(
+            name="showet_get_status_extended",
+            description="Get extended Showet runtime status: platforms loaded, "
+                        "platform list, version, nostalgist manifest status, "
+                        "and demo database readiness.",
+            input_schema={"type": "object", "properties": {}},
+        ),
+        types.Tool(
             name="showet_get_playlists",
             description="Get all demo playlists (named collections of Pouet.net IDs).",
             input_schema={"type": "object", "properties": {}},
