@@ -91,8 +91,7 @@ class PlaylistManager:
         Yields:
             Tuples of (index, file_path) for each track
         """
-        for i, entry in enumerate(entries):
-            yield i, entry
+        yield from ((i, entry) for i, entry in enumerate(entries))
 
     @staticmethod
     def detect_platform_from_playlist(playlist_path: Path) -> str | None:

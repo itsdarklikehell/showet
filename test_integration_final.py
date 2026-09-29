@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 sys.modules.setdefault('inquirer', __import__('types').SimpleNamespace())
 sys.modules.setdefault('patoolib', __import__('types').SimpleNamespace())
 
-from showet_executor import detect_platform, find_core_path
+import showet_executor  # noqa: E402
 
 
 def test_platform_detection():
@@ -29,7 +29,7 @@ def test_platform_detection():
 
     print("Testing platform detection...")
     for ext, expected in tests.items():
-        result = detect_platform(Path(f"test{ext}"))
+        result = showet_executor.detect_platform(Path(f"test{ext}"))
         status = "✅" if result == expected else "❌"
         print(f"  {status} {ext} -> {result} (expected {expected})")
 
@@ -46,7 +46,7 @@ def test_core_availability():
     }
 
     for platform, core in cores.items():
-        path = find_core_path(core)
+        path = showet_executor.find_core_path(core)
         status = "✅" if path else "❌"
         print(f"  {status} {platform}/{core}")
 

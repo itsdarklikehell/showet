@@ -181,7 +181,7 @@ def _detect_pouet_loop(demo_info: dict) -> bool:
             return True
 
     # Platform tendency heuristic
-    for plat_key, tendency in PLATFORM_LOOP_TENDENCY.items():
+    for plat_key, _tendency in PLATFORM_LOOP_TENDENCY.items():
         if plat_key in platform:
             if any(p in name for p in ["intro", "64k", "4k", "cracktro"]):
                 return True
@@ -507,7 +507,7 @@ def jukebox_mode(
             print(f"🔁 Repeating demo {pid} forever...")
             logger.info("Entering repeat-one mode for demo %d", pid)
             while True:
-                play_demo_with_loops(pid, loops, timeout)
+                play_demo_with_loops(pid, loop_count, timeout)
 
     return 0
 

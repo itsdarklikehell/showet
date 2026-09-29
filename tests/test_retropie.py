@@ -2,8 +2,6 @@
 
 from unittest.mock import patch
 
-import pytest
-
 
 class TestPiDetection:
     """Tests for Raspberry Pi detection."""

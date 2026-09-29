@@ -17,7 +17,7 @@ def create_test_demo_zip(platform: str, filename: str, content: bytes) -> Path:
     with zipfile.ZipFile(Path(f"{demo_path}.zip"), 'w') as zf:
         zf.writestr(filename, content)
 
-    return zip_path
+    return demo_path.with_suffix('.zip')
 
 
 def test_c64_demo():

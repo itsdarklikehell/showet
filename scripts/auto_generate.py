@@ -135,10 +135,10 @@ def autogenerate_module(slug: str, core: str) -> pathlib.Path:
         def run(self):
             core_name = self.CORES.get(self.platform)
             if not core_name:
-                raise RuntimeError(f"No Retro‑Arch core configured for {self.platform}")
+                raise RuntimeError("No Retro‑Arch core configured for " + self.platform)
             game_file = self.datadir / "demo.bin"  # adjust as needed
             if not game_file.exists():
-                raise RuntimeError(f"Demo file {game_file} not found")
+                raise RuntimeError("Demo file " + str(game_file) + " not found")
             cmd = [
                 "retroarch",
                 "-L", f"~/.config/retroarch/cores/{{core_name}}",

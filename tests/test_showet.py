@@ -200,9 +200,9 @@ class ArgParserTests(unittest.TestCase):
 
     def test_fullscreen_enabled_in_retroarch_command(self):
         """Verify fullscreen option causes --fullscreen to be added to retroarch commands."""
-        from showet.core.executor import execute_demo
         import tempfile
-        import subprocess
+
+        from showet.core.executor import execute_demo
 
         with tempfile.NamedTemporaryFile(suffix=".nes", delete=False) as f:
             demo_path = f.name

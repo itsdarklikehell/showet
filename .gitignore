@@ -122,6 +122,8 @@ showet-gui/showet-gui
 .chalk/context/
 .chalk/skills/*.enabled
 
+# Gource artifacts
+gource/
 gource.mp4
 __pycache__/*.pyc
 uv.lock
