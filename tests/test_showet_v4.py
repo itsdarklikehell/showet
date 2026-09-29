@@ -137,9 +137,14 @@ class TestArchiveHandler:
 
     def test_handler_class_exists(self):
         """Verify ArchiveHandler class exists."""
+        import tempfile
+        from unittest import mock
+
         from showet.utils.archive_handler import ArchiveHandler
-        handler = ArchiveHandler()
-        assert handler.work_dir is not None
+        with mock.patch.object(tempfile, "mkdtemp", return_value="/tmp/showet_test_handler"):
+            handler = ArchiveHandler()
+            assert handler.work_dir is not None
+            assert str(handler.work_dir) == "/tmp/showet_test_handler"
 
 
 # Test CLI
