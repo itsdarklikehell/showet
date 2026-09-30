@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import logging
+import subprocess
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -57,14 +58,14 @@ def download_production_json(prod_id: int, cache_dir: Path | None = None) -> dic
 
 def download_production_file(data: dict[str, Any], datadir: Path) -> Path:
     """Download the production file if missing.
-    
+
     Args:
         data: Production metadata dict from pouet.net API
         datadir: Directory to download files to
-        
+
     Returns:
         The data directory path
-        
+
     Raises:
         RuntimeError: If download fails
     """
@@ -92,11 +93,49 @@ def download_production_file(data: dict[str, Any], datadir: Path) -> Path:
             if DEBUG:
                 logger.debug("Downloaded: %s (%d bytes)", dest, dest.stat().st_size)
 
+            # Unpack archives if needed
+            _unpack_archive(dest, datadir)
+
             flag_file.touch()
             return datadir
     except urllib.error.URLError as e:
         logger.error("Failed to download production file: %s", e)
         raise RuntimeError(f"Error downloading file at {download_url}: {e}") from e
+
+
+def _unpack_archive(archive_path: Path, dest_dir: Path) -> None:
+    """Unpack a downloaded archive into dest_dir if it is a supported type."""
+    ext = archive_path.suffix.lower()
+    handlers = {
+        ".zip": ["unzip", "-o", "-d", str(dest_dir), str(archive_path)],
+        ".rar": ["unrar", "x", "-o+", str(archive_path), str(dest_dir) + "/"],
+        ".7z": ["7z", "x", str(archive_path), f"-o{dest_dir}"],
+        ".lha": ["lha", "xw=" + str(dest_dir), str(archive_path)],
+        ".tar": ["tar", "xf", str(archive_path), "-C", str(dest_dir)],
+        ".gz": ["tar", "xzf", str(archive_path), "-C", str(dest_dir)],
+        ".xz": ["tar", "xf", str(archive_path), "-C", str(dest_dir)],
+        ".bz2": ["tar", "xjf", str(archive_path), "-C", str(dest_dir)],
+    }
+
+    if ext not in handlers:
+        return  # Not an archive we know how to unpack
+
+    # Clean up the original archive after unpacking
+    try:
+        import shutil
+        logger.info("Unpacking %s into %s", archive_path.name, dest_dir)
+        cmd = handlers[ext]
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+        if result.returncode != 0:
+            logger.warning("Unpack command failed for %s: %s", archive_path, result.stderr)
+        else:
+            archive_path.unlink()
+            if DEBUG:
+                logger.debug("Unpacked and removed: %s", archive_path.name)
+    except FileNotFoundError:
+        logger.warning("Unpack tool not found for %s extension", ext)
+    except Exception as e:
+        logger.warning("Failed to unpack %s: %s", archive_path, e)
 
 
 def get_random_production_id() -> int:

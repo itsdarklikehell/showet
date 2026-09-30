@@ -15,7 +15,7 @@ class Platform_Atari_Lynx(PlatformBase):
         super().__init__("atari_lynx", version="2.0.0-refactored")
         self.emulators = ["retroarch"]
         self.cores = ["handy_libretro"]
-        self.extensions = ['lnx', 'o']
+        self.extensions = ['zip', 'lnx', 'o']
 
     def supported_platforms(self) -> list[str]:
         """Return the platform slug(s) this runner supports."""

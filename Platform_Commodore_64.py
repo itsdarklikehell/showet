@@ -19,7 +19,44 @@ class Platform_Commodore_64(PlatformBase):
 
     def supported_platforms(self) -> list[str]:
         """Return the platform slug(s) this runner supports."""
-        return ["commodore_64"]
+        return ["commodore_64", "commodore64"]
+
+    def run(self, frames: int = -1, frame_delay: float = 1/60) -> int:
+        """Run the C64 demo using VICE (x64sc) directly.
+        
+        Args:
+            frames: Number of frames (ignored by VICE).
+            frame_delay: Frame delay (ignored by VICE).
+        """
+        from pathlib import Path
+        import subprocess
+
+        d64s = self.find_files_with_extension('d64')
+        prgs = self.find_files_with_extension('prg')
+
+        if not d64s and not prgs:
+            print("Didn't find any d64 or prg files.")
+            return -1
+
+        cmd = ['x64sc']
+        if self.fullscreen:
+            cmd.append('-fullscreen')
+
+        if d64s:
+            # Write fliplist for multi-disk
+            flipfile = Path(self.datadir) / "fliplist.vfl"
+            with open(flipfile, "w") as f:
+                f.write("UNIT 8\n")
+                for disk in sorted(d64s):
+                    f.write(str(disk) + "\n")
+            cmd.extend(['-flipname', str(flipfile), str(d64s[0])])
+
+        if prgs and not d64s:
+            cmd.append(str(prgs[0]))
+
+        print(f"Running: {' '.join(cmd)}")
+        result = subprocess.run(cmd, cwd=self.datadir)
+        return result.returncode
 
     def initialize(self) -> bool:
         print("[Commodore 64] Initializing...")

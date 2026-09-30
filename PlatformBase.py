@@ -29,6 +29,9 @@ class PlatformBase(PlatformCommon, abc.ABC):
         self._is_initialized: bool = False
         self._last_rom_path: str = ""
         self._run_duration: float = 0.0
+        self.fullscreen: bool = False
+        self.audio: bool = True
+        self.core_override: str | None = None
 
     @abc.abstractmethod
     def initialize(self) -> bool:
@@ -108,10 +111,16 @@ class PlatformBase(PlatformCommon, abc.ABC):
             print(f"[{self.platform_name}] No core specified")
             return -1
 
-        core_path = Path.home() / ".config" / "retroarch" / "cores" / f"{core}.so"
+        core_path = (
+            Path.home() / ".config" / "retroarch" / "cores" / f"{core}.so"
+        )
         if not core_path.exists():
-            # Try alternate location
             core_path = Path("/usr/lib/retroarch/cores") / f"{core}.so"
+        if not core_path.exists():
+            # Try libretro system directory
+            core_path = Path("/usr/lib/libretro") / f"{core}.so"
+        if not core_path.exists():
+            print(f"[{self.platform_name}] Core {core} not found")
 
         cmd = ["retroarch"]
 
@@ -119,9 +128,15 @@ class PlatformBase(PlatformCommon, abc.ABC):
         if self.fullscreen:
             cmd.append("--fullscreen")
 
-        # Add audio option
+        # Add audio option via config (RetroArch 1.22 has no --no-audio flag)
         if not self.audio:
-            cmd.append("--audio-null")
+            import tempfile as _tmp
+            cfg = _tmp.NamedTemporaryFile(mode="w", suffix=".cfg", delete=False)
+            cfg.write("audio_driver = null\n")
+            cfg.write("audio_latency = 0\n")
+            cfg.close()
+            cmd += ["--config", cfg.name]
+            self._tmp_cfg = cfg.name  # clean up later
 
         # Add core and ROM
         cmd.extend([
@@ -133,3 +148,9 @@ class PlatformBase(PlatformCommon, abc.ABC):
         retcode = self.run_process(cmd)
 
         return 0 if retcode == 0 else -1
+
+    def set_options(self, fullscreen: bool = False, audio: bool = True, core: str | None = None):
+        """Set execution options from the CLI (legacy showet.py interface)."""
+        self.fullscreen = fullscreen
+        self.audio = audio
+        self.core_override = core
