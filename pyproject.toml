@@ -4,26 +4,26 @@ version = "4.0.0-dev"
 description = "Demo viewer using Pouet.net metadata - The definitive demoscene demo-runner with jukebox, streaming, and nostalgic CRT presentation."
 
 dependencies = [
-    "requests>=2.31",
-    "inquirer>=3.4",
-    "patool>=4.0",
-    "websockets>=12.0",
-    "aiohttp>=3.9",
-    "feedparser>=6.0",
+    "requests>=2.34.2",
+    "inquirer>=3.4.1",
+    "patool>=4.1.0",
+    "websockets>=17.1",
+    "aiohttp>=3.14.3",
+    "feedparser>=6.0.14",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
-    "ruff>=0.1.0",
+    "pytest>=9.1.1",
+    "pytest==9.1.1",
+    "ruff>=0.16.10",
 ]
 async = [
-    "aiohttp>=3.9",
+    "aiohttp>=3.14.3",
 ]
 web = [
-    "fastapi>=0.100",
-    "uvicorn>=0.23",
+    "fastapi>=0.142.2",
+    "uv==0.12.21",
 ]
 
 [tool.poetry]
@@ -38,9 +38,9 @@ build-backend = "poetry.core.masonry.api"
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",
-    "pytest-cov>=7.1.0",
-    "pytest-timeout>=2.4.0",
-    "ruff>=0.16.7",
+    "pytest==9.1.1",
+    "pytest==9.1.1",
+    "ruff>=0.16.10",
 ]
 
 [project.scripts]
