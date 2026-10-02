@@ -1,5 +1,11 @@
 # 🗺️ ShowEt Demoscene Demo Runner - v4.0.0-dev
 
+
+[![CI](https://github.com/itsdarklikehell/showet/actions/workflows/ci.yml/badge.svg)](https://github.com/itsdarklikehell/showet/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/itsdarklikehell/showet)](LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
+
 The definitive, immersive demo-runner for the demoscene with nostalgic flair. Showet provides a unified interface for running demos from pouet.net, scene.org, and modarchive.org across **84+ platforms** with authentic CRT presentation.
 
 ## 🎯 What is Showet?
